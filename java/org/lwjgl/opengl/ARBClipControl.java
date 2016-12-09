@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/clip_control.txt">ARB_clip_control</a> extension.
@@ -33,6 +32,8 @@ public class ARBClipControl {
 		GL_CLIP_ORIGIN     = 0x935C,
 		GL_CLIP_DEPTH_MODE = 0x935D;
 
+	static { GL.initialize(); }
+
 	protected ARBClipControl() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,23 +46,23 @@ public class ARBClipControl {
 
 	// --- [ glClipControl ] ---
 
+	/** Unsafe version of: {@link #glClipControl ClipControl} */
+	public static native void nglClipControl(int origin, int depth);
+
 	/**
 	 * Controls the clipping volume behavior.
 	 * 
 	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link GL20#GL_LOWER_LEFT LOWER_LEFT} and the
-	 * initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
+	 * initial value of the depth mode is {@link GL45#GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
 	 * 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
 	 * execution of {@link GL11#glEnd End}.</p>
 	 *
 	 * @param origin the clip origin. One of:<br><table><tr><td>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}</td><td>{@link GL20#GL_UPPER_LEFT UPPER_LEFT}</td></tr></table>
-	 * @param depth  the clip depth mode. One of:<br><table><tr><td>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}</td><td>{@link #GL_ZERO_TO_ONE ZERO_TO_ONE}</td></tr></table>
+	 * @param depth  the clip depth mode. One of:<br><table><tr><td>{@link GL45#GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}</td><td>{@link GL45#GL_ZERO_TO_ONE ZERO_TO_ONE}</td></tr></table>
 	 */
 	public static void glClipControl(int origin, int depth) {
-		long __functionAddress = GL.getCapabilities().glClipControl;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, origin, depth);
+		nglClipControl(origin, depth);
 	}
 
 }

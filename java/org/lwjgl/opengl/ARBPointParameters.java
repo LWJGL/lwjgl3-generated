@@ -39,6 +39,8 @@ public class ARBPointParameters {
 		GL_POINT_FADE_THRESHOLD_SIZE_ARB  = 0x8128,
 		GL_POINT_DISTANCE_ATTENUATION_ARB = 0x8129;
 
+	static { GL.initialize(); }
+
 	protected ARBPointParameters() {
 		throw new UnsupportedOperationException();
 	}
@@ -51,6 +53,9 @@ public class ARBPointParameters {
 
 	// --- [ glPointParameterfARB ] ---
 
+	/** Unsafe version of: {@link #glPointParameterfARB PointParameterfARB} */
+	public static native void nglPointParameterfARB(int pname, float param);
+
 	/**
 	 * Sets the float value of a pointer parameter.
 	 *
@@ -58,21 +63,13 @@ public class ARBPointParameters {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterfARB(int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glPointParameterfARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, param);
+		nglPointParameterfARB(pname, param);
 	}
 
 	// --- [ glPointParameterfvARB ] ---
 
 	/** Unsafe version of: {@link #glPointParameterfvARB PointParameterfvARB} */
-	public static void nglPointParameterfvARB(int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, params);
-	}
+	public static native void nglPointParameterfvARB(int pname, long params);
 
 	/**
 	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
@@ -88,7 +85,7 @@ public class ARBPointParameters {
 
 	/** Array version of: {@link #glPointParameterfvARB PointParameterfvARB} */
 	public static void glPointParameterfvARB(int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
+		long __functionAddress = GL.getICD().glPointParameterfvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 3);

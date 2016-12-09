@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * When {@link NVConservativeRaster#GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is enabled, the fragments generated for a primitive are conservative with respect to the primitive after snapping
@@ -31,6 +30,8 @@ public class NVConservativeRasterPreSnapTriangles {
 		GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV          = 0x954E,
 		GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV = 0x954F;
 
+	static { GLES.initialize(); }
+
 	protected NVConservativeRasterPreSnapTriangles() {
 		throw new UnsupportedOperationException();
 	}
@@ -42,6 +43,9 @@ public class NVConservativeRasterPreSnapTriangles {
 	}
 
 	// --- [ glConservativeRasterParameteriNV ] ---
+
+	/** Unsafe version of: {@link #glConservativeRasterParameteriNV ConservativeRasterParameteriNV} */
+	public static native void nglConservativeRasterParameteriNV(int pname, int param);
 
 	/**
 	 * When {@link NVConservativeRaster#GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is enabled, the rasterization behavior may be controlled by calling the this command.
@@ -57,10 +61,7 @@ public class NVConservativeRasterPreSnapTriangles {
 	 * @param param specifies the conservative raster mode to be used. One of:<br><table><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV CONSERVATIVE_RASTER_MODE_POST_SNAP_NV}</td></tr><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV}</td></tr></table>
 	 */
 	public static void glConservativeRasterParameteriNV(int pname, int param) {
-		long __functionAddress = GLES.getCapabilities().glConservativeRasterParameteriNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, param);
+		nglConservativeRasterParameteriNV(pname, param);
 	}
 
 }

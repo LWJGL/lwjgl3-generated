@@ -26,6 +26,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBClearBufferObject {
 
+	static { GL.initialize(); }
+
 	protected ARBClearBufferObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,12 +42,7 @@ public class ARBClearBufferObject {
 	// --- [ glClearBufferData ] ---
 
 	/** Unsafe version of: {@link #glClearBufferData ClearBufferData} */
-	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, format, type, data);
-	}
+	public static native void nglClearBufferData(int target, int internalformat, int format, int type, long data);
 
 	/**
 	 * Fills a buffer object's data store with a fixed value.
@@ -110,12 +107,7 @@ public class ARBClearBufferObject {
 	// --- [ glClearBufferSubData ] ---
 
 	/** Unsafe version of: {@link #glClearBufferSubData ClearBufferSubData} */
-	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
-	}
+	public static native void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data);
 
 	/**
 	 * Fills all or part of buffer object's data store with a fixed value.
@@ -188,12 +180,7 @@ public class ARBClearBufferObject {
 	// --- [ glClearNamedBufferDataEXT ] ---
 
 	/** Unsafe version of: {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
-	public static void nglClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, internalformat, format, type, data);
-	}
+	public static native void nglClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, long data);
 
 	/**
 	 * DSA version of {@link #glClearBufferData ClearBufferData}.
@@ -258,12 +245,7 @@ public class ARBClearBufferObject {
 	// --- [ glClearNamedBufferSubDataEXT ] ---
 
 	/** Unsafe version of: {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
-	public static void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
-	}
+	public static native void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data);
 
 	/**
 	 * DSA version of {@link #glClearBufferSubData ClearBufferSubData}.
@@ -335,7 +317,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferData;
+		long __functionAddress = GL.getICD().glClearBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, format, type, data);
@@ -343,7 +325,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferData;
+		long __functionAddress = GL.getICD().glClearBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, format, type, data);
@@ -351,7 +333,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferData;
+		long __functionAddress = GL.getICD().glClearBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, format, type, data);
@@ -359,7 +341,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
+		long __functionAddress = GL.getICD().glClearBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
@@ -367,7 +349,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
+		long __functionAddress = GL.getICD().glClearBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
@@ -375,7 +357,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearBufferSubData;
+		long __functionAddress = GL.getICD().glClearBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
@@ -383,7 +365,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
 	public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glClearNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -391,7 +373,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
 	public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glClearNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -399,7 +381,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
 	public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glClearNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -407,7 +389,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
 	public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glClearNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -415,7 +397,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
 	public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glClearNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -423,7 +405,7 @@ public class ARBClearBufferObject {
 
 	/** Array version of: {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
 	public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glClearNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);

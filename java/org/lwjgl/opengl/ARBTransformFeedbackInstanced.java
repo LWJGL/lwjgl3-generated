@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a> extension.
@@ -22,6 +21,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBTransformFeedbackInstanced {
 
+	static { GL.initialize(); }
+
 	protected ARBTransformFeedbackInstanced() {
 		throw new UnsupportedOperationException();
 	}
@@ -34,6 +35,9 @@ public class ARBTransformFeedbackInstanced {
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
 
+	/** Unsafe version of: {@link #glDrawTransformFeedbackInstanced DrawTransformFeedbackInstanced} */
+	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount);
+
 	/**
 	 * Renders multiple instances of primitives using a count derived from a transform feedback object.
 	 *
@@ -42,13 +46,13 @@ public class ARBTransformFeedbackInstanced {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackInstanced;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id, primcount);
+		nglDrawTransformFeedbackInstanced(mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
+
+	/** Unsafe version of: {@link #glDrawTransformFeedbackStreamInstanced DrawTransformFeedbackStreamInstanced} */
+	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount);
 
 	/**
 	 * Renders multiple instances of primitives using a count derived from a specifed stream of a transform feedback object.
@@ -59,10 +63,7 @@ public class ARBTransformFeedbackInstanced {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStreamInstanced;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id, stream, primcount);
+		nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
 	}
 
 }

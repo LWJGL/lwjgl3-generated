@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_copy_texture_levels.txt">APPLE_copy_texture_levels</a> extension.
@@ -31,6 +30,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class APPLECopyTextureLevels {
 
+	static { GLES.initialize(); }
+
 	protected APPLECopyTextureLevels() {
 		throw new UnsupportedOperationException();
 	}
@@ -43,11 +44,10 @@ public class APPLECopyTextureLevels {
 
 	// --- [ glCopyTextureLevelsAPPLE ] ---
 
+	public static native void nglCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount);
+
 	public static void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount) {
-		long __functionAddress = GLES.getCapabilities().glCopyTextureLevelsAPPLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
+		nglCopyTextureLevelsAPPLE(destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
 	}
 
 }

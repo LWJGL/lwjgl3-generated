@@ -50,6 +50,8 @@ public class EXTWindowRectangles {
 		GL_MAX_WINDOW_RECTANGLES_EXT = 0x8F14,
 		GL_NUM_WINDOW_RECTANGLES_EXT = 0x8F15;
 
+	static { GLES.initialize(); }
+
 	protected EXTWindowRectangles() {
 		throw new UnsupportedOperationException();
 	}
@@ -67,12 +69,7 @@ public class EXTWindowRectangles {
 	 *
 	 * @param count the number of active window rectangles. Must be between zero and the value of {@link #GL_MAX_WINDOW_RECTANGLES_EXT MAX_WINDOW_RECTANGLES_EXT}.
 	 */
-	public static void nglWindowRectanglesEXT(int mode, int count, long box) {
-		long __functionAddress = GLES.getCapabilities().glWindowRectanglesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, box);
-	}
+	public static native void nglWindowRectanglesEXT(int mode, int count, long box);
 
 	/**
 	 * Sets the active window rectangles.
@@ -110,7 +107,7 @@ y_i <= yw < y_i+h_i</code></pre>
 
 	/** Array version of: {@link #glWindowRectanglesEXT WindowRectanglesEXT} */
 	public static void glWindowRectanglesEXT(int mode, int[] box) {
-		long __functionAddress = GLES.getCapabilities().glWindowRectanglesEXT;
+		long __functionAddress = GLES.getICD().glWindowRectanglesEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, mode, lengthSafe(box) >> 2, box);

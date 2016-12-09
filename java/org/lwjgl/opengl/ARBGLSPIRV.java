@@ -38,6 +38,8 @@ public class ARBGLSPIRV {
 	/** Accepted by the {@code pname} parameter of {@link GL20#glGetShaderiv GetShaderiv}. */
 	public static final int GL_SPIR_V_BINARY_ARB = 0x9552;
 
+	static { GL.initialize(); }
+
 	protected ARBGLSPIRV() {
 		throw new UnsupportedOperationException();
 	}
@@ -51,12 +53,7 @@ public class ARBGLSPIRV {
 	// --- [ glSpecializeShaderARB ] ---
 
 	/** Unsafe version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
-	public static void nglSpecializeShaderARB(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue) {
-		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue);
-	}
+	public static native void nglSpecializeShaderARB(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue);
 
 	/**
 	 * Specializes a shader created from a SPIR-V module.
@@ -96,7 +93,7 @@ public class ARBGLSPIRV {
 
 	/** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
 	public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
-		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
+		long __functionAddress = GL.getICD().glSpecializeShaderARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkNT1(pEntryPoint);
@@ -107,7 +104,7 @@ public class ARBGLSPIRV {
 
 	/** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
 	public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
-		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
+		long __functionAddress = GL.getICD().glSpecializeShaderARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(pConstantValue, pConstantIndex.length);

@@ -98,6 +98,8 @@ public class GL41 {
 	/** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX or VIEWPORT_INDEX_PROVOKING_VERTEX. */
 	public static final int GL_UNDEFINED_VERTEX = 0x8260;
 
+	static { GL.initialize(); }
+
 	protected GL41() {
 		throw new UnsupportedOperationException();
 	}
@@ -127,16 +129,16 @@ public class GL41 {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
+	/** Unsafe version of: {@link #glReleaseShaderCompiler ReleaseShaderCompiler} */
+	public static native void nglReleaseShaderCompiler();
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReleaseShaderCompiler.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler.
 	 */
 	public static void glReleaseShaderCompiler() {
-		long __functionAddress = GL.getCapabilities().glReleaseShaderCompiler;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglReleaseShaderCompiler();
 	}
 
 	// --- [ glShaderBinary ] ---
@@ -147,12 +149,7 @@ public class GL41 {
 	 * @param count  the number of shader object handles contained in {@code shaders}
 	 * @param length the length of the array whose address is given in binary
 	 */
-	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
-		long __functionAddress = GL.getCapabilities().glShaderBinary;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, count, shaders, binaryformat, binary, length);
-	}
+	public static native void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderBinary.xhtml">OpenGL SDK Reference</a></p>
@@ -170,12 +167,7 @@ public class GL41 {
 	// --- [ glGetShaderPrecisionFormat ] ---
 
 	/** Unsafe version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
-	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
-		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
-	}
+	public static native void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderPrecisionFormat.xhtml">OpenGL SDK Reference</a></p>
@@ -219,6 +211,9 @@ public class GL41 {
 
 	// --- [ glDepthRangef ] ---
 
+	/** Unsafe version of: {@link #glDepthRangef DepthRangef} */
+	public static native void nglDepthRangef(float zNear, float zFar);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/DepthRange.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -228,13 +223,13 @@ public class GL41 {
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.0f.
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
-		long __functionAddress = GL.getCapabilities().glDepthRangef;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, zNear, zFar);
+		nglDepthRangef(zNear, zFar);
 	}
 
 	// --- [ glClearDepthf ] ---
+
+	/** Unsafe version of: {@link #glClearDepthf ClearDepthf} */
+	public static native void nglClearDepthf(float depth);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearDepthf.xhtml">OpenGL SDK Reference</a></p>
@@ -244,10 +239,7 @@ public class GL41 {
 	 * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
 	 */
 	public static void glClearDepthf(float depth) {
-		long __functionAddress = GL.getCapabilities().glClearDepthf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, depth);
+		nglClearDepthf(depth);
 	}
 
 	// --- [ glGetProgramBinary ] ---
@@ -257,12 +249,7 @@ public class GL41 {
 	 *
 	 * @param bufSize the size of the buffer whose address is given by {@code binary}
 	 */
-	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
-		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
-	}
+	public static native void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramBinary.xhtml">OpenGL SDK Reference</a></p>
@@ -289,12 +276,7 @@ public class GL41 {
 	 *
 	 * @param length the number of bytes contained in {@code binary}
 	 */
-	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
-		long __functionAddress = GL.getCapabilities().glProgramBinary;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, binaryFormat, binary, length);
-	}
+	public static native void nglProgramBinary(int program, int binaryFormat, long binary, int length);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramBinary.xhtml">OpenGL SDK Reference</a></p>
@@ -311,6 +293,9 @@ public class GL41 {
 
 	// --- [ glProgramParameteri ] ---
 
+	/** Unsafe version of: {@link #glProgramParameteri ProgramParameteri} */
+	public static native void nglProgramParameteri(int program, int pname, int value);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -321,13 +306,13 @@ public class GL41 {
 	 * @param value   the new value of the parameter specified by {@code pname} for {@code program}
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
-		long __functionAddress = GL.getCapabilities().glProgramParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, pname, value);
+		nglProgramParameteri(program, pname, value);
 	}
 
 	// --- [ glUseProgramStages ] ---
+
+	/** Unsafe version of: {@link #glUseProgramStages UseProgramStages} */
+	public static native void nglUseProgramStages(int pipeline, int stages, int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgramStages.xhtml">OpenGL SDK Reference</a></p>
@@ -339,13 +324,13 @@ public class GL41 {
 	 * @param program  the program object containing the shader executables to use in {@code pipeline}
 	 */
 	public static void glUseProgramStages(int pipeline, int stages, int program) {
-		long __functionAddress = GL.getCapabilities().glUseProgramStages;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pipeline, stages, program);
+		nglUseProgramStages(pipeline, stages, program);
 	}
 
 	// --- [ glActiveShaderProgram ] ---
+
+	/** Unsafe version of: {@link #glActiveShaderProgram ActiveShaderProgram} */
+	public static native void nglActiveShaderProgram(int pipeline, int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveShaderProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -356,10 +341,7 @@ public class GL41 {
 	 * @param program  the program object to set as the active program pipeline object {@code pipeline}
 	 */
 	public static void glActiveShaderProgram(int pipeline, int program) {
-		long __functionAddress = GL.getCapabilities().glActiveShaderProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pipeline, program);
+		nglActiveShaderProgram(pipeline, program);
 	}
 
 	// --- [ glCreateShaderProgramv ] ---
@@ -369,12 +351,7 @@ public class GL41 {
 	 *
 	 * @param count the number of source code strings in the array {@code strings}
 	 */
-	public static int nglCreateShaderProgramv(int type, int count, long strings) {
-		long __functionAddress = GL.getCapabilities().glCreateShaderProgramv;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, type, count, strings);
-	}
+	public static native int nglCreateShaderProgramv(int type, int count, long strings);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateShaderProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -507,6 +484,9 @@ if (shader) {
 
 	// --- [ glBindProgramPipeline ] ---
 
+	/** Unsafe version of: {@link #glBindProgramPipeline BindProgramPipeline} */
+	public static native void nglBindProgramPipeline(int pipeline);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -515,10 +495,7 @@ if (shader) {
 	 * @param pipeline the name of the pipeline object to bind to the context
 	 */
 	public static void glBindProgramPipeline(int pipeline) {
-		long __functionAddress = GL.getCapabilities().glBindProgramPipeline;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pipeline);
+		nglBindProgramPipeline(pipeline);
 	}
 
 	// --- [ glDeleteProgramPipelines ] ---
@@ -528,12 +505,7 @@ if (shader) {
 	 *
 	 * @param n the number of program pipeline objects to delete
 	 */
-	public static void nglDeleteProgramPipelines(int n, long pipelines) {
-		long __functionAddress = GL.getCapabilities().glDeleteProgramPipelines;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, pipelines);
-	}
+	public static native void nglDeleteProgramPipelines(int n, long pipelines);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgramPipelines.xhtml">OpenGL SDK Reference</a></p>
@@ -568,12 +540,7 @@ if (shader) {
 	 *
 	 * @param n the number of program pipeline object names to reserve
 	 */
-	public static void nglGenProgramPipelines(int n, long pipelines) {
-		long __functionAddress = GL.getCapabilities().glGenProgramPipelines;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, pipelines);
-	}
+	public static native void nglGenProgramPipelines(int n, long pipelines);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenProgramPipelines.xhtml">OpenGL SDK Reference</a></p>
@@ -604,6 +571,9 @@ if (shader) {
 
 	// --- [ glIsProgramPipeline ] ---
 
+	/** Unsafe version of: {@link #glIsProgramPipeline IsProgramPipeline} */
+	public static native boolean nglIsProgramPipeline(int pipeline);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -612,21 +582,13 @@ if (shader) {
 	 * @param pipeline a value that may be the name of a program pipeline object
 	 */
 	public static boolean glIsProgramPipeline(int pipeline) {
-		long __functionAddress = GL.getCapabilities().glIsProgramPipeline;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, pipeline);
+		return nglIsProgramPipeline(pipeline);
 	}
 
 	// --- [ glGetProgramPipelineiv ] ---
 
 	/** Unsafe version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
-	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramPipelineiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pipeline, pname, params);
-	}
+	public static native void nglGetProgramPipelineiv(int pipeline, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
@@ -664,6 +626,9 @@ if (shader) {
 
 	// --- [ glProgramUniform1i ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform1i ProgramUniform1i} */
+	public static native void nglProgramUniform1i(int program, int location, int x);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -674,13 +639,13 @@ if (shader) {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1i(int program, int location, int x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x);
+		nglProgramUniform1i(program, location, x);
 	}
 
 	// --- [ glProgramUniform2i ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform2i ProgramUniform2i} */
+	public static native void nglProgramUniform2i(int program, int location, int x, int y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -693,13 +658,13 @@ if (shader) {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2i(int program, int location, int x, int y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y);
+		nglProgramUniform2i(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform3i ProgramUniform3i} */
+	public static native void nglProgramUniform3i(int program, int location, int x, int y, int z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -713,13 +678,13 @@ if (shader) {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3i(int program, int location, int x, int y, int z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3i(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform4i ProgramUniform4i} */
+	public static native void nglProgramUniform4i(int program, int location, int x, int y, int z, int w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -734,13 +699,13 @@ if (shader) {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4i(int program, int location, int x, int y, int z, int w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4i(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1ui ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform1ui ProgramUniform1ui} */
+	public static native void nglProgramUniform1ui(int program, int location, int x);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -752,13 +717,13 @@ if (shader) {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1ui(int program, int location, int x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x);
+		nglProgramUniform1ui(program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform2ui ProgramUniform2ui} */
+	public static native void nglProgramUniform2ui(int program, int location, int x, int y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -771,13 +736,13 @@ if (shader) {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2ui(int program, int location, int x, int y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y);
+		nglProgramUniform2ui(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform3ui ProgramUniform3ui} */
+	public static native void nglProgramUniform3ui(int program, int location, int x, int y, int z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -791,13 +756,13 @@ if (shader) {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3ui(int program, int location, int x, int y, int z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3ui(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform4ui ProgramUniform4ui} */
+	public static native void nglProgramUniform4ui(int program, int location, int x, int y, int z, int w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -812,13 +777,13 @@ if (shader) {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4ui(int program, int location, int x, int y, int z, int w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4ui(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1f ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform1f ProgramUniform1f} */
+	public static native void nglProgramUniform1f(int program, int location, float x);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -830,13 +795,13 @@ if (shader) {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1f(int program, int location, float x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x);
+		nglProgramUniform1f(program, location, x);
 	}
 
 	// --- [ glProgramUniform2f ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform2f ProgramUniform2f} */
+	public static native void nglProgramUniform2f(int program, int location, float x, float y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -849,13 +814,13 @@ if (shader) {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2f(int program, int location, float x, float y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y);
+		nglProgramUniform2f(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3f ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform3f ProgramUniform3f} */
+	public static native void nglProgramUniform3f(int program, int location, float x, float y, float z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -869,13 +834,13 @@ if (shader) {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3f(int program, int location, float x, float y, float z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3f(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4f ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform4f ProgramUniform4f} */
+	public static native void nglProgramUniform4f(int program, int location, float x, float y, float z, float w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -890,13 +855,13 @@ if (shader) {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4f(int program, int location, float x, float y, float z, float w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4f(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1d ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform1d ProgramUniform1d} */
+	public static native void nglProgramUniform1d(int program, int location, double x);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -908,13 +873,13 @@ if (shader) {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1d(int program, int location, double x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x);
+		nglProgramUniform1d(program, location, x);
 	}
 
 	// --- [ glProgramUniform2d ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform2d ProgramUniform2d} */
+	public static native void nglProgramUniform2d(int program, int location, double x, double y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -927,13 +892,13 @@ if (shader) {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2d(int program, int location, double x, double y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y);
+		nglProgramUniform2d(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3d ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform3d ProgramUniform3d} */
+	public static native void nglProgramUniform3d(int program, int location, double x, double y, double z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -947,13 +912,13 @@ if (shader) {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3d(int program, int location, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3d(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4d ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform4d ProgramUniform4d} */
+	public static native void nglProgramUniform4d(int program, int location, double x, double y, double z, double w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -968,10 +933,7 @@ if (shader) {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4d(int program, int location, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4d(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1iv ] ---
@@ -981,12 +943,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1iv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1008,12 +965,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2iv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1035,12 +987,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3iv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1062,12 +1009,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4iv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1089,12 +1031,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1uiv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1116,12 +1053,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2uiv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1143,12 +1075,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3uiv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1170,12 +1097,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4uiv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1197,12 +1119,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1fv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1224,12 +1141,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2fv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1251,12 +1163,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3fv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1278,12 +1185,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4fv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1305,12 +1207,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1dv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1332,12 +1229,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2dv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1359,12 +1251,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3dv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1386,12 +1273,7 @@ if (shader) {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4dv(int program, int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1413,12 +1295,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1441,12 +1318,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1469,12 +1341,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1497,12 +1364,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1525,12 +1387,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1553,12 +1410,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1581,12 +1433,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1609,12 +1456,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1637,12 +1479,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1665,12 +1502,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1693,12 +1525,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1721,12 +1548,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1749,12 +1571,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1777,12 +1594,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1805,12 +1617,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1833,12 +1640,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1861,12 +1663,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1889,12 +1686,7 @@ if (shader) {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1912,6 +1704,9 @@ if (shader) {
 
 	// --- [ glValidateProgramPipeline ] ---
 
+	/** Unsafe version of: {@link #glValidateProgramPipeline ValidateProgramPipeline} */
+	public static native void nglValidateProgramPipeline(int pipeline);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1920,10 +1715,7 @@ if (shader) {
 	 * @param pipeline the name of a program pipeline object to validate
 	 */
 	public static void glValidateProgramPipeline(int pipeline) {
-		long __functionAddress = GL.getCapabilities().glValidateProgramPipeline;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pipeline);
+		nglValidateProgramPipeline(pipeline);
 	}
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
@@ -1933,12 +1725,7 @@ if (shader) {
 	 *
 	 * @param bufSize the maximum number of characters, including the null terminator, that may be written into {@code infoLog}
 	 */
-	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetProgramPipelineInfoLog;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, pipeline, bufSize, length, infoLog);
-	}
+	public static native void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramPipelineInfoLog.xhtml">OpenGL SDK Reference</a></p>
@@ -1999,6 +1786,9 @@ if (shader) {
 
 	// --- [ glVertexAttribL1d ] ---
 
+	/** Unsafe version of: {@link #glVertexAttribL1d VertexAttribL1d} */
+	public static native void nglVertexAttribL1d(int index, double x);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2008,13 +1798,13 @@ if (shader) {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribL1d(int index, double x) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x);
+		nglVertexAttribL1d(index, x);
 	}
 
 	// --- [ glVertexAttribL2d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL2d VertexAttribL2d} */
+	public static native void nglVertexAttribL2d(int index, double x, double y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2026,13 +1816,13 @@ if (shader) {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribL2d(int index, double x, double y) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y);
+		nglVertexAttribL2d(index, x, y);
 	}
 
 	// --- [ glVertexAttribL3d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL3d VertexAttribL3d} */
+	public static native void nglVertexAttribL3d(int index, double x, double y, double z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2045,13 +1835,13 @@ if (shader) {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribL3d(int index, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z);
+		nglVertexAttribL3d(index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL4d VertexAttribL4d} */
+	public static native void nglVertexAttribL4d(int index, double x, double y, double z, double w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2065,21 +1855,13 @@ if (shader) {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttribL4d(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
-	public static void nglVertexAttribL1dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL1dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2098,12 +1880,7 @@ if (shader) {
 	// --- [ glVertexAttribL2dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
-	public static void nglVertexAttribL2dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL2dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2122,12 +1899,7 @@ if (shader) {
 	// --- [ glVertexAttribL3dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
-	public static void nglVertexAttribL3dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL3dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2146,12 +1918,7 @@ if (shader) {
 	// --- [ glVertexAttribL4dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
-	public static void nglVertexAttribL4dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL4dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2174,12 +1941,7 @@ if (shader) {
 	 *
 	 * @param type the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
 	 */
-	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribLPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
+	public static native void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
@@ -2234,12 +1996,7 @@ if (shader) {
 	// --- [ glGetVertexAttribLdv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
-	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribLdv(int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2263,12 +2020,7 @@ if (shader) {
 	 *
 	 * @param count the number of viewports to set
 	 */
-	public static void nglViewportArrayv(int first, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glViewportArrayv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglViewportArrayv(int first, int count, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewportArray.xhtml">OpenGL SDK Reference</a></p>
@@ -2284,6 +2036,9 @@ if (shader) {
 
 	// --- [ glViewportIndexedf ] ---
 
+	/** Unsafe version of: {@link #glViewportIndexedf ViewportIndexedf} */
+	public static native void nglViewportIndexedf(int index, float x, float y, float w, float h);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewportIndexed.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2296,21 +2051,13 @@ if (shader) {
 	 * @param h     the viewport height
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
-		long __functionAddress = GL.getCapabilities().glViewportIndexedf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, w, h);
+		nglViewportIndexedf(index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfv ] ---
 
 	/** Unsafe version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
-	public static void nglViewportIndexedfv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglViewportIndexedfv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewportIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -2333,12 +2080,7 @@ if (shader) {
 	 *
 	 * @param count the number of scissor boxes to modify
 	 */
-	public static void nglScissorArrayv(int first, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glScissorArrayv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglScissorArrayv(int first, int count, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissorArray.xhtml">OpenGL SDK Reference</a></p>
@@ -2354,6 +2096,9 @@ if (shader) {
 
 	// --- [ glScissorIndexed ] ---
 
+	/** Unsafe version of: {@link #glScissorIndexed ScissorIndexed} */
+	public static native void nglScissorIndexed(int index, int left, int bottom, int width, int height);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissorIndexed.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2366,21 +2111,13 @@ if (shader) {
 	 * @param height the scissor box height
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glScissorIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, left, bottom, width, height);
+		nglScissorIndexed(index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedv ] ---
 
 	/** Unsafe version of: {@link #glScissorIndexedv ScissorIndexedv} */
-	public static void nglScissorIndexedv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglScissorIndexedv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissorIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -2403,12 +2140,7 @@ if (shader) {
 	 *
 	 * @param count the number of viewports whose depth range to update
 	 */
-	public static void nglDepthRangeArrayv(int first, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglDepthRangeArrayv(int first, int count, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthRangeArray.xhtml">OpenGL SDK Reference</a></p>
@@ -2424,6 +2156,9 @@ if (shader) {
 
 	// --- [ glDepthRangeIndexed ] ---
 
+	/** Unsafe version of: {@link #glDepthRangeIndexed DepthRangeIndexed} */
+	public static native void nglDepthRangeIndexed(int index, double zNear, double zFar);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthRangeIndexed.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2434,21 +2169,13 @@ if (shader) {
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
-		long __functionAddress = GL.getCapabilities().glDepthRangeIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, zNear, zFar);
+		nglDepthRangeIndexed(index, zNear, zFar);
 	}
 
 	// --- [ glGetFloati_v ] ---
 
 	/** Unsafe version of: {@link #glGetFloati_v GetFloati_v} */
-	public static void nglGetFloati_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetFloati_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetFloati_v(int target, int index, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFloati.xhtml">OpenGL SDK Reference</a></p>
@@ -2487,12 +2214,7 @@ if (shader) {
 	// --- [ glGetDoublei_v ] ---
 
 	/** Unsafe version of: {@link #glGetDoublei_v GetDoublei_v} */
-	public static void nglGetDoublei_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetDoublei_v(int target, int index, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetDoublei.xhtml">OpenGL SDK Reference</a></p>
@@ -2534,7 +2256,7 @@ if (shader) {
 	 * Array version of: {@link #glShaderBinary ShaderBinary}
 	 */
 	public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {
-		long __functionAddress = GL.getCapabilities().glShaderBinary;
+		long __functionAddress = GL.getICD().glShaderBinary;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, shaders.length, shaders, binaryformat, memAddress(binary), binary.remaining());
@@ -2546,7 +2268,7 @@ if (shader) {
 	 * Array version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat}
 	 */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
-		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
+		long __functionAddress = GL.getICD().glGetShaderPrecisionFormat;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(range, 2);
@@ -2561,7 +2283,7 @@ if (shader) {
 	 * Array version of: {@link #glGetProgramBinary GetProgramBinary}
 	 */
 	public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
-		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
+		long __functionAddress = GL.getICD().glGetProgramBinary;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -2576,7 +2298,7 @@ if (shader) {
 	 * Array version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines}
 	 */
 	public static void glDeleteProgramPipelines(int[] pipelines) {
-		long __functionAddress = GL.getCapabilities().glDeleteProgramPipelines;
+		long __functionAddress = GL.getICD().glDeleteProgramPipelines;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, pipelines.length, pipelines);
@@ -2588,7 +2310,7 @@ if (shader) {
 	 * Array version of: {@link #glGenProgramPipelines GenProgramPipelines}
 	 */
 	public static void glGenProgramPipelines(int[] pipelines) {
-		long __functionAddress = GL.getCapabilities().glGenProgramPipelines;
+		long __functionAddress = GL.getICD().glGenProgramPipelines;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, pipelines.length, pipelines);
@@ -2600,7 +2322,7 @@ if (shader) {
 	 * Array version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv}
 	 */
 	public static void glGetProgramPipelineiv(int pipeline, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramPipelineiv;
+		long __functionAddress = GL.getICD().glGetProgramPipelineiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -2614,7 +2336,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform1iv ProgramUniform1iv}
 	 */
 	public static void glProgramUniform1iv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1iv;
+		long __functionAddress = GL.getICD().glProgramUniform1iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -2626,7 +2348,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform2iv ProgramUniform2iv}
 	 */
 	public static void glProgramUniform2iv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2iv;
+		long __functionAddress = GL.getICD().glProgramUniform2iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -2638,7 +2360,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform3iv ProgramUniform3iv}
 	 */
 	public static void glProgramUniform3iv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3iv;
+		long __functionAddress = GL.getICD().glProgramUniform3iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -2650,7 +2372,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform4iv ProgramUniform4iv}
 	 */
 	public static void glProgramUniform4iv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4iv;
+		long __functionAddress = GL.getICD().glProgramUniform4iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -2662,7 +2384,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform1uiv ProgramUniform1uiv}
 	 */
 	public static void glProgramUniform1uiv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1uiv;
+		long __functionAddress = GL.getICD().glProgramUniform1uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -2674,7 +2396,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform2uiv ProgramUniform2uiv}
 	 */
 	public static void glProgramUniform2uiv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2uiv;
+		long __functionAddress = GL.getICD().glProgramUniform2uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -2686,7 +2408,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform3uiv ProgramUniform3uiv}
 	 */
 	public static void glProgramUniform3uiv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3uiv;
+		long __functionAddress = GL.getICD().glProgramUniform3uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -2698,7 +2420,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform4uiv ProgramUniform4uiv}
 	 */
 	public static void glProgramUniform4uiv(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4uiv;
+		long __functionAddress = GL.getICD().glProgramUniform4uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -2710,7 +2432,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform1fv ProgramUniform1fv}
 	 */
 	public static void glProgramUniform1fv(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1fv;
+		long __functionAddress = GL.getICD().glProgramUniform1fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -2722,7 +2444,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform2fv ProgramUniform2fv}
 	 */
 	public static void glProgramUniform2fv(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2fv;
+		long __functionAddress = GL.getICD().glProgramUniform2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -2734,7 +2456,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform3fv ProgramUniform3fv}
 	 */
 	public static void glProgramUniform3fv(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3fv;
+		long __functionAddress = GL.getICD().glProgramUniform3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -2746,7 +2468,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform4fv ProgramUniform4fv}
 	 */
 	public static void glProgramUniform4fv(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4fv;
+		long __functionAddress = GL.getICD().glProgramUniform4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -2758,7 +2480,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform1dv ProgramUniform1dv}
 	 */
 	public static void glProgramUniform1dv(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1dv;
+		long __functionAddress = GL.getICD().glProgramUniform1dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -2770,7 +2492,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform2dv ProgramUniform2dv}
 	 */
 	public static void glProgramUniform2dv(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2dv;
+		long __functionAddress = GL.getICD().glProgramUniform2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -2782,7 +2504,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform3dv ProgramUniform3dv}
 	 */
 	public static void glProgramUniform3dv(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3dv;
+		long __functionAddress = GL.getICD().glProgramUniform3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -2794,7 +2516,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniform4dv ProgramUniform4dv}
 	 */
 	public static void glProgramUniform4dv(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4dv;
+		long __functionAddress = GL.getICD().glProgramUniform4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -2806,7 +2528,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv}
 	 */
 	public static void glProgramUniformMatrix2fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, transpose, value);
@@ -2818,7 +2540,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv}
 	 */
 	public static void glProgramUniformMatrix3fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 9, transpose, value);
@@ -2830,7 +2552,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv}
 	 */
 	public static void glProgramUniformMatrix4fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 4, transpose, value);
@@ -2842,7 +2564,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv}
 	 */
 	public static void glProgramUniformMatrix2dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, transpose, value);
@@ -2854,7 +2576,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv}
 	 */
 	public static void glProgramUniformMatrix3dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 9, transpose, value);
@@ -2866,7 +2588,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv}
 	 */
 	public static void glProgramUniformMatrix4dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 4, transpose, value);
@@ -2878,7 +2600,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv}
 	 */
 	public static void glProgramUniformMatrix2x3fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -2890,7 +2612,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv}
 	 */
 	public static void glProgramUniformMatrix3x2fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -2902,7 +2624,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv}
 	 */
 	public static void glProgramUniformMatrix2x4fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -2914,7 +2636,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv}
 	 */
 	public static void glProgramUniformMatrix4x2fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -2926,7 +2648,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv}
 	 */
 	public static void glProgramUniformMatrix3x4fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -2938,7 +2660,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv}
 	 */
 	public static void glProgramUniformMatrix4x3fv(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3fv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -2950,7 +2672,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv}
 	 */
 	public static void glProgramUniformMatrix2x3dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -2962,7 +2684,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv}
 	 */
 	public static void glProgramUniformMatrix3x2dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -2974,7 +2696,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv}
 	 */
 	public static void glProgramUniformMatrix2x4dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -2986,7 +2708,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv}
 	 */
 	public static void glProgramUniformMatrix4x2dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -2998,7 +2720,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv}
 	 */
 	public static void glProgramUniformMatrix3x4dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -3010,7 +2732,7 @@ if (shader) {
 	 * Array version of: {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv}
 	 */
 	public static void glProgramUniformMatrix4x3dv(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3dv;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -3022,7 +2744,7 @@ if (shader) {
 	 * Array version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog}
 	 */
 	public static void glGetProgramPipelineInfoLog(int pipeline, int[] length, ByteBuffer infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetProgramPipelineInfoLog;
+		long __functionAddress = GL.getICD().glGetProgramPipelineInfoLog;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3036,7 +2758,7 @@ if (shader) {
 	 * Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv}
 	 */
 	public static void glVertexAttribL1dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1dv;
+		long __functionAddress = GL.getICD().glVertexAttribL1dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -3050,7 +2772,7 @@ if (shader) {
 	 * Array version of: {@link #glVertexAttribL2dv VertexAttribL2dv}
 	 */
 	public static void glVertexAttribL2dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL2dv;
+		long __functionAddress = GL.getICD().glVertexAttribL2dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -3064,7 +2786,7 @@ if (shader) {
 	 * Array version of: {@link #glVertexAttribL3dv VertexAttribL3dv}
 	 */
 	public static void glVertexAttribL3dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL3dv;
+		long __functionAddress = GL.getICD().glVertexAttribL3dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -3078,7 +2800,7 @@ if (shader) {
 	 * Array version of: {@link #glVertexAttribL4dv VertexAttribL4dv}
 	 */
 	public static void glVertexAttribL4dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL4dv;
+		long __functionAddress = GL.getICD().glVertexAttribL4dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3092,7 +2814,7 @@ if (shader) {
 	 * Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv}
 	 */
 	public static void glGetVertexAttribLdv(int index, int pname, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
+		long __functionAddress = GL.getICD().glGetVertexAttribLdv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3106,7 +2828,7 @@ if (shader) {
 	 * Array version of: {@link #glViewportArrayv ViewportArrayv}
 	 */
 	public static void glViewportArrayv(int first, float[] v) {
-		long __functionAddress = GL.getCapabilities().glViewportArrayv;
+		long __functionAddress = GL.getICD().glViewportArrayv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
@@ -3118,7 +2840,7 @@ if (shader) {
 	 * Array version of: {@link #glViewportIndexedfv ViewportIndexedfv}
 	 */
 	public static void glViewportIndexedfv(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
+		long __functionAddress = GL.getICD().glViewportIndexedfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3132,7 +2854,7 @@ if (shader) {
 	 * Array version of: {@link #glScissorArrayv ScissorArrayv}
 	 */
 	public static void glScissorArrayv(int first, int[] v) {
-		long __functionAddress = GL.getCapabilities().glScissorArrayv;
+		long __functionAddress = GL.getICD().glScissorArrayv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
@@ -3144,7 +2866,7 @@ if (shader) {
 	 * Array version of: {@link #glScissorIndexedv ScissorIndexedv}
 	 */
 	public static void glScissorIndexedv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
+		long __functionAddress = GL.getICD().glScissorIndexedv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3158,7 +2880,7 @@ if (shader) {
 	 * Array version of: {@link #glDepthRangeArrayv DepthRangeArrayv}
 	 */
 	public static void glDepthRangeArrayv(int first, double[] v) {
-		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
+		long __functionAddress = GL.getICD().glDepthRangeArrayv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 1, v);
@@ -3170,7 +2892,7 @@ if (shader) {
 	 * Array version of: {@link #glGetFloati_v GetFloati_v}
 	 */
 	public static void glGetFloati_v(int target, int index, float[] data) {
-		long __functionAddress = GL.getCapabilities().glGetFloati_v;
+		long __functionAddress = GL.getICD().glGetFloati_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);
@@ -3184,7 +2906,7 @@ if (shader) {
 	 * Array version of: {@link #glGetDoublei_v GetDoublei_v}
 	 */
 	public static void glGetDoublei_v(int target, int index, double[] data) {
-		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
+		long __functionAddress = GL.getICD().glGetDoublei_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);

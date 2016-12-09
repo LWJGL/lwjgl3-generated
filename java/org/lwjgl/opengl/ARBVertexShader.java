@@ -76,6 +76,8 @@ public class ARBVertexShader {
 		GL_FLOAT_MAT3_ARB = 0x8B5B,
 		GL_FLOAT_MAT4_ARB = 0x8B5C;
 
+	static { GL.initialize(); }
+
 	protected ARBVertexShader() {
 		throw new UnsupportedOperationException();
 	}
@@ -97,6 +99,9 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib1fARB ] ---
 
+	/** Unsafe version of: {@link #glVertexAttrib1fARB VertexAttrib1fARB} */
+	public static native void nglVertexAttrib1fARB(int index, float v0);
+
 	/**
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0f and w to 1.0f.
 	 *
@@ -104,13 +109,13 @@ public class ARBVertexShader {
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1fARB(int index, float v0) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0);
+		nglVertexAttrib1fARB(index, v0);
 	}
 
 	// --- [ glVertexAttrib1sARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib1sARB VertexAttrib1sARB} */
+	public static native void nglVertexAttrib1sARB(int index, short v0);
 
 	/**
 	 * Short version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}.
@@ -119,13 +124,13 @@ public class ARBVertexShader {
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1sARB(int index, short v0) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1sARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0);
+		nglVertexAttrib1sARB(index, v0);
 	}
 
 	// --- [ glVertexAttrib1dARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib1dARB VertexAttrib1dARB} */
+	public static native void nglVertexAttrib1dARB(int index, double v0);
 
 	/**
 	 * Double version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}.
@@ -134,13 +139,13 @@ public class ARBVertexShader {
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1dARB(int index, double v0) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1dARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0);
+		nglVertexAttrib1dARB(index, v0);
 	}
 
 	// --- [ glVertexAttrib2fARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib2fARB VertexAttrib2fARB} */
+	public static native void nglVertexAttrib2fARB(int index, float v0, float v1);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0f and w to 1.0f.
@@ -150,13 +155,13 @@ public class ARBVertexShader {
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2fARB(int index, float v0, float v1) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1);
+		nglVertexAttrib2fARB(index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2sARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib2sARB VertexAttrib2sARB} */
+	public static native void nglVertexAttrib2sARB(int index, short v0, short v1);
 
 	/**
 	 * Short version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}.
@@ -166,13 +171,13 @@ public class ARBVertexShader {
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2sARB(int index, short v0, short v1) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2sARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1);
+		nglVertexAttrib2sARB(index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2dARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib2dARB VertexAttrib2dARB} */
+	public static native void nglVertexAttrib2dARB(int index, double v0, double v1);
 
 	/**
 	 * Double version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}.
@@ -182,13 +187,13 @@ public class ARBVertexShader {
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2dARB(int index, double v0, double v1) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2dARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1);
+		nglVertexAttrib2dARB(index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib3fARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib3fARB VertexAttrib3fARB} */
+	public static native void nglVertexAttrib3fARB(int index, float v0, float v1, float v2);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0f.
@@ -199,13 +204,13 @@ public class ARBVertexShader {
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3fARB(int index, float v0, float v1, float v2) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2);
+		nglVertexAttrib3fARB(index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3sARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib3sARB VertexAttrib3sARB} */
+	public static native void nglVertexAttrib3sARB(int index, short v0, short v1, short v2);
 
 	/**
 	 * Short version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}.
@@ -216,13 +221,13 @@ public class ARBVertexShader {
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3sARB(int index, short v0, short v1, short v2) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3sARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2);
+		nglVertexAttrib3sARB(index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3dARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib3dARB VertexAttrib3dARB} */
+	public static native void nglVertexAttrib3dARB(int index, double v0, double v1, double v2);
 
 	/**
 	 * Double version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}.
@@ -233,13 +238,13 @@ public class ARBVertexShader {
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3dARB(int index, double v0, double v1, double v2) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3dARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2);
+		nglVertexAttrib3dARB(index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib4fARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4fARB VertexAttrib4fARB} */
+	public static native void nglVertexAttrib4fARB(int index, float v0, float v1, float v2, float v3);
 
 	/**
 	 * Specifies the value of a generic vertex attribute.
@@ -251,13 +256,13 @@ public class ARBVertexShader {
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4fARB(int index, float v0, float v1, float v2, float v3) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2, v3);
+		nglVertexAttrib4fARB(index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4sARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4sARB VertexAttrib4sARB} */
+	public static native void nglVertexAttrib4sARB(int index, short v0, short v1, short v2, short v3);
 
 	/**
 	 * Short version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -269,13 +274,13 @@ public class ARBVertexShader {
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4sARB(int index, short v0, short v1, short v2, short v3) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4sARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2, v3);
+		nglVertexAttrib4sARB(index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4dARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4dARB VertexAttrib4dARB} */
+	public static native void nglVertexAttrib4dARB(int index, double v0, double v1, double v2, double v3);
 
 	/**
 	 * Double version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -287,13 +292,13 @@ public class ARBVertexShader {
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4dARB(int index, double v0, double v1, double v2, double v3) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4dARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2, v3);
+		nglVertexAttrib4dARB(index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4NubARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4NubARB VertexAttrib4NubARB} */
+	public static native void nglVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w);
 
 	/**
 	 * Normalized unsigned byte version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -305,21 +310,13 @@ public class ARBVertexShader {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NubARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttrib4NubARB(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib1fvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
-	public static void nglVertexAttrib1fvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1fvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}.
@@ -336,12 +333,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib1svARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
-	public static void nglVertexAttrib1svARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1svARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1svARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib1sARB VertexAttrib1sARB}.
@@ -358,12 +350,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib1dvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
-	public static void nglVertexAttrib1dvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1dvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1dvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib1dARB VertexAttrib1dARB}.
@@ -380,12 +367,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib2fvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
-	public static void nglVertexAttrib2fvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2fvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}.
@@ -402,12 +384,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib2svARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
-	public static void nglVertexAttrib2svARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2svARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2svARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib2sARB VertexAttrib2sARB}.
@@ -424,12 +401,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib2dvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
-	public static void nglVertexAttrib2dvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2dvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2dvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib2dARB VertexAttrib2dARB}.
@@ -446,12 +418,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib3fvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
-	public static void nglVertexAttrib3fvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3fvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}.
@@ -468,12 +435,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib3svARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
-	public static void nglVertexAttrib3svARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3svARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3svARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib3sARB VertexAttrib3sARB}.
@@ -490,12 +452,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib3dvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
-	public static void nglVertexAttrib3dvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3dvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3dvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib3dARB VertexAttrib3dARB}.
@@ -512,12 +469,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4fvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
-	public static void nglVertexAttrib4fvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4fvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -534,12 +486,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4svARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
-	public static void nglVertexAttrib4svARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4svARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4svARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib4sARB VertexAttrib4sARB}.
@@ -556,12 +503,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4dvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
-	public static void nglVertexAttrib4dvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4dvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4dvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib4dARB VertexAttrib4dARB}.
@@ -578,12 +520,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4ivARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
-	public static void nglVertexAttrib4ivARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4ivARB(int index, long v);
 
 	/**
 	 * Integer pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -600,12 +537,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4bvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4bvARB VertexAttrib4bvARB} */
-	public static void nglVertexAttrib4bvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4bvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4bvARB(int index, long v);
 
 	/**
 	 * Byte pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -622,12 +554,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4ubvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4ubvARB VertexAttrib4ubvARB} */
-	public static void nglVertexAttrib4ubvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4ubvARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttrib4NubARB VertexAttrib4NubARB}.
@@ -644,12 +571,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4usvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
-	public static void nglVertexAttrib4usvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4usvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4usvARB(int index, long v);
 
 	/**
 	 * Unsigned short pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -666,12 +588,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4uivARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
-	public static void nglVertexAttrib4uivARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4uivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4uivARB(int index, long v);
 
 	/**
 	 * Unsigned int pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -688,12 +605,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4NbvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4NbvARB VertexAttrib4NbvARB} */
-	public static void nglVertexAttrib4NbvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NbvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4NbvARB(int index, long v);
 
 	/**
 	 * Normalized byte pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -710,12 +622,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4NsvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
-	public static void nglVertexAttrib4NsvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NsvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4NsvARB(int index, long v);
 
 	/**
 	 * Normalized short pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -732,12 +639,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4NivARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
-	public static void nglVertexAttrib4NivARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4NivARB(int index, long v);
 
 	/**
 	 * Normalized int pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -754,12 +656,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4NubvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4NubvARB VertexAttrib4NubvARB} */
-	public static void nglVertexAttrib4NubvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NubvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4NubvARB(int index, long v);
 
 	/**
 	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -776,12 +673,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4NusvARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
-	public static void nglVertexAttrib4NusvARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NusvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4NusvARB(int index, long v);
 
 	/**
 	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -798,12 +690,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttrib4NuivARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
-	public static void nglVertexAttrib4NuivARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NuivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4NuivARB(int index, long v);
 
 	/**
 	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -820,12 +707,7 @@ public class ARBVertexShader {
 	// --- [ glVertexAttribPointerARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
+	public static native void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer);
 
 	/**
 	 * Specifies the location and organization of a vertex attribute array.
@@ -909,19 +791,22 @@ public class ARBVertexShader {
 
 	// --- [ glEnableVertexAttribArrayARB ] ---
 
+	/** Unsafe version of: {@link #glEnableVertexAttribArrayARB EnableVertexAttribArrayARB} */
+	public static native void nglEnableVertexAttribArrayARB(int index);
+
 	/**
 	 * Enables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
 	public static void glEnableVertexAttribArrayARB(int index) {
-		long __functionAddress = GL.getCapabilities().glEnableVertexAttribArrayARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglEnableVertexAttribArrayARB(index);
 	}
 
 	// --- [ glDisableVertexAttribArrayARB ] ---
+
+	/** Unsafe version of: {@link #glDisableVertexAttribArrayARB DisableVertexAttribArrayARB} */
+	public static native void nglDisableVertexAttribArrayARB(int index);
 
 	/**
 	 * Disables a generic vertex attribute array.
@@ -929,21 +814,13 @@ public class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
 	public static void glDisableVertexAttribArrayARB(int index) {
-		long __functionAddress = GL.getCapabilities().glDisableVertexAttribArrayARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglDisableVertexAttribArrayARB(index);
 	}
 
 	// --- [ glBindAttribLocationARB ] ---
 
 	/** Unsafe version of: {@link #glBindAttribLocationARB BindAttribLocationARB} */
-	public static void nglBindAttribLocationARB(int programObj, int index, long name) {
-		long __functionAddress = GL.getCapabilities().glBindAttribLocationARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, programObj, index, name);
-	}
+	public static native void nglBindAttribLocationARB(int programObj, int index, long name);
 
 	/**
 	 * Associates a generic vertex attribute index with a named attribute variable.
@@ -982,12 +859,7 @@ public class ARBVertexShader {
 	 *
 	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
 	 */
-	public static void nglGetActiveAttribARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAttribARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
-	}
+	public static native void nglGetActiveAttribARB(int programObj, int index, int maxLength, long length, long size, long type, long name);
 
 	/**
 	 * Returns information about an active attribute variable for the specified program object.
@@ -1062,12 +934,7 @@ public class ARBVertexShader {
 	// --- [ glGetAttribLocationARB ] ---
 
 	/** Unsafe version of: {@link #glGetAttribLocationARB GetAttribLocationARB} */
-	public static int nglGetAttribLocationARB(int programObj, long name) {
-		long __functionAddress = GL.getCapabilities().glGetAttribLocationARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, programObj, name);
-	}
+	public static native int nglGetAttribLocationARB(int programObj, long name);
 
 	/**
 	 * Returns the location of an attribute variable.
@@ -1100,12 +967,7 @@ public class ARBVertexShader {
 	// --- [ glGetVertexAttribivARB ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
-	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribivARB(int index, int pname, long params);
 
 	/**
 	 * Returns the integer value of a generic vertex attribute parameter.
@@ -1140,12 +1002,7 @@ public class ARBVertexShader {
 	// --- [ glGetVertexAttribfvARB ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
-	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribfvARB(int index, int pname, long params);
 
 	/**
 	 * Float version of {@link #glGetVertexAttribivARB GetVertexAttribivARB}.
@@ -1163,12 +1020,7 @@ public class ARBVertexShader {
 	// --- [ glGetVertexAttribdvARB ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
-	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribdvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribdvARB(int index, int pname, long params);
 
 	/**
 	 * Double version of {@link #glGetVertexAttribivARB GetVertexAttribivARB}.
@@ -1186,12 +1038,7 @@ public class ARBVertexShader {
 	// --- [ glGetVertexAttribPointervARB ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
-	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointervARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, pointer);
-	}
+	public static native void nglGetVertexAttribPointervARB(int index, int pname, long pointer);
 
 	/**
 	 * Returns the address of the specified generic vertex attribute pointer.
@@ -1225,7 +1072,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
 	public static void glVertexAttrib1fvARB(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1fvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib1fvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1235,7 +1082,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	public static void glVertexAttrib1svARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1svARB;
+		long __functionAddress = GL.getICD().glVertexAttrib1svARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1245,7 +1092,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
 	public static void glVertexAttrib1dvARB(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1dvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib1dvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1255,7 +1102,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
 	public static void glVertexAttrib2fvARB(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2fvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib2fvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1265,7 +1112,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
 	public static void glVertexAttrib2svARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2svARB;
+		long __functionAddress = GL.getICD().glVertexAttrib2svARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1275,7 +1122,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
 	public static void glVertexAttrib2dvARB(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2dvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib2dvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1285,7 +1132,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
 	public static void glVertexAttrib3fvARB(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3fvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib3fvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1295,7 +1142,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
 	public static void glVertexAttrib3svARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3svARB;
+		long __functionAddress = GL.getICD().glVertexAttrib3svARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1305,7 +1152,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
 	public static void glVertexAttrib3dvARB(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3dvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib3dvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1315,7 +1162,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
 	public static void glVertexAttrib4fvARB(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4fvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4fvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1325,7 +1172,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
 	public static void glVertexAttrib4svARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4svARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4svARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1335,7 +1182,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
 	public static void glVertexAttrib4dvARB(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4dvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4dvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1345,7 +1192,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
 	public static void glVertexAttrib4ivARB(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4ivARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4ivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1355,7 +1202,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
 	public static void glVertexAttrib4usvARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4usvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4usvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1365,7 +1212,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
 	public static void glVertexAttrib4uivARB(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4uivARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4uivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1375,7 +1222,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
 	public static void glVertexAttrib4NsvARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NsvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4NsvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1385,7 +1232,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
 	public static void glVertexAttrib4NivARB(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NivARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4NivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1395,7 +1242,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
 	public static void glVertexAttrib4NusvARB(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NusvARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4NusvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1405,7 +1252,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
 	public static void glVertexAttrib4NuivARB(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4NuivARB;
+		long __functionAddress = GL.getICD().glVertexAttrib4NuivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1415,7 +1262,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
+		long __functionAddress = GL.getICD().glVertexAttribPointerARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -1423,7 +1270,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
+		long __functionAddress = GL.getICD().glVertexAttribPointerARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -1431,7 +1278,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
+		long __functionAddress = GL.getICD().glVertexAttribPointerARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -1439,7 +1286,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static void glGetActiveAttribARB(int programObj, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAttribARB;
+		long __functionAddress = GL.getICD().glGetActiveAttribARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -1451,7 +1298,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	public static void glGetVertexAttribivARB(int index, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribivARB;
+		long __functionAddress = GL.getICD().glGetVertexAttribivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1461,7 +1308,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
 	public static void glGetVertexAttribfvARB(int index, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribfvARB;
+		long __functionAddress = GL.getICD().glGetVertexAttribfvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1471,7 +1318,7 @@ public class ARBVertexShader {
 
 	/** Array version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
 	public static void glGetVertexAttribdvARB(int index, int pname, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribdvARB;
+		long __functionAddress = GL.getICD().glGetVertexAttribdvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);

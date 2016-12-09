@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/IMG/IMG_framebuffer_downsample.txt">IMG_framebuffer_downsample</a> extension.
@@ -33,6 +32,8 @@ public class IMGFramebufferDownsample {
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;
 
+	static { GLES.initialize(); }
+
 	protected IMGFramebufferDownsample() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,20 +46,18 @@ public class IMGFramebufferDownsample {
 
 	// --- [ glFramebufferTexture2DDownsampleIMG ] ---
 
+	public static native void nglFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale);
+
 	public static void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DDownsampleIMG;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, textarget, texture, level, xscale, yscale);
+		nglFramebufferTexture2DDownsampleIMG(target, attachment, textarget, texture, level, xscale, yscale);
 	}
 
 	// --- [ glFramebufferTextureLayerDownsampleIMG ] ---
 
+	public static native void nglFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale);
+
 	public static void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTextureLayerDownsampleIMG;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, layer, xscale, yscale);
+		nglFramebufferTextureLayerDownsampleIMG(target, attachment, texture, level, layer, xscale, yscale);
 	}
 
 }

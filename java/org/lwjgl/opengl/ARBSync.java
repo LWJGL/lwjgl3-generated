@@ -67,6 +67,8 @@ public class ARBSync {
 		GL_CONDITION_SATISFIED = 0x911C,
 		GL_WAIT_FAILED         = 0x911D;
 
+	static { GL.initialize(); }
+
 	protected ARBSync() {
 		throw new UnsupportedOperationException();
 	}
@@ -79,21 +81,24 @@ public class ARBSync {
 
 	// --- [ glFenceSync ] ---
 
+	/** Unsafe version of: {@link #glFenceSync FenceSync} */
+	public static native long nglFenceSync(int condition, int flags);
+
 	/**
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
-	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<br><table><tr><td>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}</td></tr></table>
+	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<br><table><tr><td>{@link GL32#GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}</td></tr></table>
 	 * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
 	 *                  be zero.
 	 */
 	public static long glFenceSync(int condition, int flags) {
-		long __functionAddress = GL.getCapabilities().glFenceSync;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, condition, flags);
+		return nglFenceSync(condition, flags);
 	}
 
 	// --- [ glIsSync ] ---
+
+	/** Unsafe version of: {@link #glIsSync IsSync} */
+	public static native boolean nglIsSync(long sync);
 
 	/**
 	 * Determines if a name corresponds to a sync object.
@@ -101,15 +106,15 @@ public class ARBSync {
 	 * @param sync a value that may be the name of a sync object
 	 */
 	public static boolean glIsSync(long sync) {
-		long __functionAddress = GL.getCapabilities().glIsSync;
-		if ( CHECKS ) {
-			check(__functionAddress);
+		if ( CHECKS )
 			check(sync);
-		}
-		return callPZ(__functionAddress, sync);
+		return nglIsSync(sync);
 	}
 
 	// --- [ glDeleteSync ] ---
+
+	/** Unsafe version of: {@link #glDeleteSync DeleteSync} */
+	public static native void nglDeleteSync(long sync);
 
 	/**
 	 * Deletes a sync object.
@@ -117,15 +122,15 @@ public class ARBSync {
 	 * @param sync the sync object to be deleted
 	 */
 	public static void glDeleteSync(long sync) {
-		long __functionAddress = GL.getCapabilities().glDeleteSync;
-		if ( CHECKS ) {
-			check(__functionAddress);
+		if ( CHECKS )
 			check(sync);
-		}
-		callPV(__functionAddress, sync);
+		nglDeleteSync(sync);
 	}
 
 	// --- [ glClientWaitSync ] ---
+
+	/** Unsafe version of: {@link #glClientWaitSync ClientWaitSync} */
+	public static native int nglClientWaitSync(long sync, int flags, long timeout);
 
 	/**
 	 * Causes the client to block and wait for a sync object to become signaled. If {@code sync} is signaled when {@code glClientWaitSync} is called,
@@ -134,58 +139,50 @@ public class ARBSync {
 	 * <p>The return value is one of four status values:</p>
 	 * 
 	 * <ul>
-	 * <li>{@link #GL_ALREADY_SIGNALED ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
-	 * <li>{@link #GL_TIMEOUT_EXPIRED TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
-	 * <li>{@link #GL_CONDITION_SATISFIED CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
-	 * <li>{@link #GL_WAIT_FAILED WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
+	 * <li>{@link GL32#GL_ALREADY_SIGNALED ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
+	 * <li>{@link GL32#GL_TIMEOUT_EXPIRED TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
+	 * <li>{@link GL32#GL_CONDITION_SATISFIED CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
+	 * <li>{@link GL32#GL_WAIT_FAILED WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br><table><tr><td>0</td><td>{@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}</td></tr></table>
+	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br><table><tr><td>0</td><td>{@link GL32#GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}</td></tr></table>
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
-		long __functionAddress = GL.getCapabilities().glClientWaitSync;
-		if ( CHECKS ) {
-			check(__functionAddress);
+		if ( CHECKS )
 			check(sync);
-		}
-		return callPJI(__functionAddress, sync, flags, timeout);
+		return nglClientWaitSync(sync, flags, timeout);
 	}
 
 	// --- [ glWaitSync ] ---
+
+	/** Unsafe version of: {@link #glWaitSync WaitSync} */
+	public static native void nglWaitSync(long sync, int flags, long timeout);
 
 	/**
 	 * Causes the GL server to block and wait for a sync object to become signaled.
 	 * 
 	 * <p>{@code glWaitSync} will always wait no longer than an implementation-dependent timeout. The duration of this timeout in nanoseconds may be queried by
-	 * with {@link #GL_MAX_SERVER_WAIT_TIMEOUT MAX_SERVER_WAIT_TIMEOUT}. There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the
+	 * with {@link GL32#GL_MAX_SERVER_WAIT_TIMEOUT MAX_SERVER_WAIT_TIMEOUT}. There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the
 	 * sync object being waited on was signaled.</p>
 	 * 
 	 * <p>If an error occurs, {@code glWaitSync} does not cause the GL server to block.</p>
 	 *
 	 * @param sync    the sync object whose status to wait on
 	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<br><table><tr><td>0</td></tr></table>
-	 * @param timeout the timeout that the server should wait before continuing. Must be:<br><table><tr><td>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}</td></tr></table>
+	 * @param timeout the timeout that the server should wait before continuing. Must be:<br><table><tr><td>{@link GL32#GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}</td></tr></table>
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
-		long __functionAddress = GL.getCapabilities().glWaitSync;
-		if ( CHECKS ) {
-			check(__functionAddress);
+		if ( CHECKS )
 			check(sync);
-		}
-		callPJV(__functionAddress, sync, flags, timeout);
+		nglWaitSync(sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64v ] ---
 
 	/** Unsafe version of: {@link #glGetInteger64v GetInteger64v} */
-	public static void nglGetInteger64v(int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetInteger64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, params);
-	}
+	public static native void nglGetInteger64v(int pname, long params);
 
 	/**
 	 * Returns the 64bit integer value or values of a selected parameter.
@@ -222,26 +219,21 @@ public class ARBSync {
 	 *
 	 * @param bufSize the size of the buffer whose address is given in {@code values}
 	 */
-	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
-		long __functionAddress = GL.getCapabilities().glGetSynciv;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(sync);
-		}
-		callPPPV(__functionAddress, sync, pname, bufSize, length, values);
-	}
+	public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values);
 
 	/**
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync   the sync object whose properties to query
-	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link GL32#GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link GL32#GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link GL32#GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link GL32#GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
 	 * @param length the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values the address of an array to receive the values of the queried parameter
 	 */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(sync);
 			checkSafe(length, 1);
+		}
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
@@ -249,12 +241,14 @@ public class ARBSync {
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync   the sync object whose properties to query
-	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
+	 * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link GL32#GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link GL32#GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link GL32#GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link GL32#GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
 	 * @param length the address of an variable to receive the number of integers placed in {@code values}
 	 */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(sync);
 			checkSafe(length, 1);
+		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer values = stack.callocInt(1);
@@ -267,7 +261,7 @@ public class ARBSync {
 
 	/** Array version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetInteger64v;
+		long __functionAddress = GL.getICD().glGetInteger64v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -277,7 +271,7 @@ public class ARBSync {
 
 	/** Array version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, int[] length, int[] values) {
-		long __functionAddress = GL.getCapabilities().glGetSynciv;
+		long __functionAddress = GL.getICD().glGetSynciv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(sync);

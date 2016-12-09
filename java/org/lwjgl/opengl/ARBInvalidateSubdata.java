@@ -49,6 +49,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBInvalidateSubdata {
 
+	static { GL.initialize(); }
+
 	protected ARBInvalidateSubdata() {
 		throw new UnsupportedOperationException();
 	}
@@ -61,6 +63,9 @@ public class ARBInvalidateSubdata {
 	}
 
 	// --- [ glInvalidateTexSubImage ] ---
+
+	/** Unsafe version of: {@link #glInvalidateTexSubImage InvalidateTexSubImage} */
+	public static native void nglInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
 
 	/**
 	 * Invalidates a region of a texture image.
@@ -75,13 +80,13 @@ public class ARBInvalidateSubdata {
 	 * @param depth   the depth of the region to be invalidated
 	 */
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilities().glInvalidateTexSubImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
+		nglInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
 	// --- [ glInvalidateTexImage ] ---
+
+	/** Unsafe version of: {@link #glInvalidateTexImage InvalidateTexImage} */
+	public static native void nglInvalidateTexImage(int texture, int level);
 
 	/**
 	 * Invalidates the entirety of a texture image.
@@ -90,13 +95,13 @@ public class ARBInvalidateSubdata {
 	 * @param level   the level of detail of the texture object to invalidate
 	 */
 	public static void glInvalidateTexImage(int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glInvalidateTexImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level);
+		nglInvalidateTexImage(texture, level);
 	}
 
 	// --- [ glInvalidateBufferSubData ] ---
+
+	/** Unsafe version of: {@link #glInvalidateBufferSubData InvalidateBufferSubData} */
+	public static native void nglInvalidateBufferSubData(int buffer, long offset, long length);
 
 	/**
 	 * Invalidates a region of a buffer object's data store.
@@ -106,13 +111,13 @@ public class ARBInvalidateSubdata {
 	 * @param length the length of the range within the buffer's data store to be invalidated
 	 */
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
-		long __functionAddress = GL.getCapabilities().glInvalidateBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, offset, length);
+		nglInvalidateBufferSubData(buffer, offset, length);
 	}
 
 	// --- [ glInvalidateBufferData ] ---
+
+	/** Unsafe version of: {@link #glInvalidateBufferData InvalidateBufferData} */
+	public static native void nglInvalidateBufferData(int buffer);
 
 	/**
 	 * Invalidates the content of a buffer object's data store.
@@ -120,10 +125,7 @@ public class ARBInvalidateSubdata {
 	 * @param buffer the name of a buffer object whose data store to invalidate
 	 */
 	public static void glInvalidateBufferData(int buffer) {
-		long __functionAddress = GL.getCapabilities().glInvalidateBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buffer);
+		nglInvalidateBufferData(buffer);
 	}
 
 	// --- [ glInvalidateFramebuffer ] ---
@@ -133,12 +135,7 @@ public class ARBInvalidateSubdata {
 	 *
 	 * @param numAttachments the number of entries in the {@code attachments} array
 	 */
-	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
-		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, numAttachments, attachments);
-	}
+	public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments);
 
 	/**
 	 * Invalidate the content some or all of a framebuffer object's attachments.
@@ -172,12 +169,7 @@ public class ARBInvalidateSubdata {
 	 *
 	 * @param numAttachments the number of entries in the {@code attachments} array
 	 */
-	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
-	}
+	public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height);
 
 	/**
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
@@ -214,7 +206,7 @@ public class ARBInvalidateSubdata {
 
 	/** Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int[] attachments) {
-		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
+		long __functionAddress = GL.getICD().glInvalidateFramebuffer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, attachments.length, attachments);
@@ -222,7 +214,7 @@ public class ARBInvalidateSubdata {
 
 	/** Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
+		long __functionAddress = GL.getICD().glInvalidateSubFramebuffer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, attachments.length, attachments, x, y, width, height);

@@ -26,6 +26,8 @@ public class OESVertexArrayObject {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv. */
 	public static final int GL_VERTEX_ARRAY_BINDING_OES = 0x85B5;
 
+	static { GLES.initialize(); }
+
 	protected OESVertexArrayObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,21 +40,15 @@ public class OESVertexArrayObject {
 
 	// --- [ glBindVertexArrayOES ] ---
 
+	public static native void nglBindVertexArrayOES(int array);
+
 	public static void glBindVertexArrayOES(int array) {
-		long __functionAddress = GLES.getCapabilities().glBindVertexArrayOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array);
+		nglBindVertexArrayOES(array);
 	}
 
 	// --- [ glDeleteVertexArraysOES ] ---
 
-	public static void nglDeleteVertexArraysOES(int n, long arrays) {
-		long __functionAddress = GLES.getCapabilities().glDeleteVertexArraysOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglDeleteVertexArraysOES(int n, long arrays);
 
 	public static void glDeleteVertexArraysOES(IntBuffer arrays) {
 		nglDeleteVertexArraysOES(arrays.remaining(), memAddress(arrays));
@@ -70,12 +66,7 @@ public class OESVertexArrayObject {
 
 	// --- [ glGenVertexArraysOES ] ---
 
-	public static void nglGenVertexArraysOES(int n, long arrays) {
-		long __functionAddress = GLES.getCapabilities().glGenVertexArraysOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglGenVertexArraysOES(int n, long arrays);
 
 	public static void glGenVertexArraysOES(IntBuffer arrays) {
 		if ( CHECKS )
@@ -96,16 +87,15 @@ public class OESVertexArrayObject {
 
 	// --- [ glIsVertexArrayOES ] ---
 
+	public static native boolean nglIsVertexArrayOES(int array);
+
 	public static boolean glIsVertexArrayOES(int array) {
-		long __functionAddress = GLES.getCapabilities().glIsVertexArrayOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, array);
+		return nglIsVertexArrayOES(array);
 	}
 
 	/** Array version of: {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void glDeleteVertexArraysOES(int[] arrays) {
-		long __functionAddress = GLES.getCapabilities().glDeleteVertexArraysOES;
+		long __functionAddress = GLES.getICD().glDeleteVertexArraysOES;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);
@@ -113,7 +103,7 @@ public class OESVertexArrayObject {
 
 	/** Array version of: {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static void glGenVertexArraysOES(int[] arrays) {
-		long __functionAddress = GLES.getCapabilities().glGenVertexArraysOES;
+		long __functionAddress = GLES.getICD().glGenVertexArraysOES;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(arrays, 1);

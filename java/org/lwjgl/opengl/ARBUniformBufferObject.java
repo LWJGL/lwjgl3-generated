@@ -146,6 +146,8 @@ public class ARBUniformBufferObject {
 	/** Returned by GetActiveUniformsiv and GetUniformBlockIndex. */
 	public static final int GL_INVALID_INDEX = 0xFFFFFFFF;
 
+	static { GL.initialize(); }
+
 	protected ARBUniformBufferObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -164,12 +166,7 @@ public class ARBUniformBufferObject {
 	 *
 	 * @param uniformCount the number of uniforms whose indices to query
 	 */
-	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
-		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
-	}
+	public static native void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices);
 
 	/**
 	 * Retrieves the indices of a number of uniforms within a program object
@@ -229,12 +226,7 @@ public class ARBUniformBufferObject {
 	 *
 	 * @param uniformCount the number of elements in the array of indices {@code uniformIndices} and the number of parameters written to {@code params} upon successful return
 	 */
-	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
-	}
+	public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params);
 
 	/**
 	 * Returns information about several active uniform variables for the specified program object.
@@ -275,12 +267,7 @@ public class ARBUniformBufferObject {
 	 *
 	 * @param bufSize the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
 	 */
-	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
-	}
+	public static native void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName);
 
 	/**
 	 * Queries the name of an active uniform.
@@ -337,12 +324,7 @@ public class ARBUniformBufferObject {
 	// --- [ glGetUniformBlockIndex ] ---
 
 	/** Unsafe version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
-	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
-		long __functionAddress = GL.getCapabilities().glGetUniformBlockIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, uniformBlockName);
-	}
+	public static native int nglGetUniformBlockIndex(int program, long uniformBlockName);
 
 	/**
 	 * Retrieves the index of a named uniform block.
@@ -375,19 +357,14 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformBlockiv ] ---
 
 	/** Unsafe version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
-	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, uniformBlockIndex, pname, params);
-	}
+	public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params);
 
 	/**
 	 * Queries information about an active uniform block.
 	 *
 	 * @param program           the name of a program containing the uniform block
 	 * @param uniformBlockIndex the index of the uniform block within {@code program}
-	 * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
+	 * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link GL31#GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link GL31#GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link GL31#GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link GL31#GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link GL31#GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
 	 * @param params            the address of a variable to receive the result of the query
 	 */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
@@ -401,7 +378,7 @@ public class ARBUniformBufferObject {
 	 *
 	 * @param program           the name of a program containing the uniform block
 	 * @param uniformBlockIndex the index of the uniform block within {@code program}
-	 * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
+	 * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link GL31#GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link GL31#GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link GL31#GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link GL31#GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link GL31#GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
 	 */
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -421,12 +398,7 @@ public class ARBUniformBufferObject {
 	 *
 	 * @param bufSize the size of the buffer addressed by {@code uniformBlockName}
 	 */
-	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
-	}
+	public static native void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName);
 
 	/**
 	 * Retrieves the name of an active uniform block.
@@ -482,6 +454,9 @@ public class ARBUniformBufferObject {
 
 	// --- [ glBindBufferRange ] ---
 
+	/** Unsafe version of: {@link #glBindBufferRange BindBufferRange} */
+	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size);
+
 	/**
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
@@ -492,13 +467,13 @@ public class ARBUniformBufferObject {
 	 * @param size   the amount of data in machine units that can be read from the buffer object while used as an indexed target
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glBindBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, index, buffer, offset, size);
+		nglBindBufferRange(target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
+
+	/** Unsafe version of: {@link #glBindBufferBase BindBufferBase} */
+	public static native void nglBindBufferBase(int target, int index, int buffer);
 
 	/**
 	 * Binds a buffer object to an indexed buffer target.
@@ -508,21 +483,13 @@ public class ARBUniformBufferObject {
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
-		long __functionAddress = GL.getCapabilities().glBindBufferBase;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index, buffer);
+		nglBindBufferBase(target, index, buffer);
 	}
 
 	// --- [ glGetIntegeri_v ] ---
 
 	/** Unsafe version of: {@link #glGetIntegeri_v GetIntegeri_v} */
-	public static void nglGetIntegeri_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetIntegeri_v(int target, int index, long data);
 
 	/**
 	 * Queries the integer value of an indexed state variable.
@@ -556,6 +523,9 @@ public class ARBUniformBufferObject {
 
 	// --- [ glUniformBlockBinding ] ---
 
+	/** Unsafe version of: {@link #glUniformBlockBinding UniformBlockBinding} */
+	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
+
 	/**
 	 * Assigns a binding point to an active uniform block.
 	 *
@@ -564,15 +534,12 @@ public class ARBUniformBufferObject {
 	 * @param uniformBlockBinding the binding point to which to bind the uniform block with index {@code uniformBlockIndex} within {@code program}
 	 */
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
-		long __functionAddress = GL.getCapabilities().glUniformBlockBinding;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+		nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 	}
 
 	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {
-		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
+		long __functionAddress = GL.getICD().glGetUniformIndices;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(uniformIndices, uniformNames.remaining());
@@ -582,7 +549,7 @@ public class ARBUniformBufferObject {
 
 	/** Array version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	public static void glGetActiveUniformsiv(int program, int[] uniformIndices, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
+		long __functionAddress = GL.getICD().glGetActiveUniformsiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, uniformIndices.length);
@@ -592,7 +559,7 @@ public class ARBUniformBufferObject {
 
 	/** Array version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static void glGetActiveUniformName(int program, int uniformIndex, int[] length, ByteBuffer uniformName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
+		long __functionAddress = GL.getICD().glGetActiveUniformName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -602,7 +569,7 @@ public class ARBUniformBufferObject {
 
 	/** Array version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
+		long __functionAddress = GL.getICD().glGetActiveUniformBlockiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -612,7 +579,7 @@ public class ARBUniformBufferObject {
 
 	/** Array version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int[] length, ByteBuffer uniformBlockName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
+		long __functionAddress = GL.getICD().glGetActiveUniformBlockName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -622,7 +589,7 @@ public class ARBUniformBufferObject {
 
 	/** Array version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void glGetIntegeri_v(int target, int index, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
+		long __functionAddress = GL.getICD().glGetIntegeri_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);

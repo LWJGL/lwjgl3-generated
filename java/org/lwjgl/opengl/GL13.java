@@ -204,6 +204,8 @@ public class GL13 {
 		GL_TRANSPOSE_TEXTURE_MATRIX    = 0x84E5,
 		GL_TRANSPOSE_COLOR_MATRIX      = 0x84E6;
 
+	static { GL.initialize(); }
+
 	protected GL13() {
 		throw new UnsupportedOperationException();
 	}
@@ -230,12 +232,7 @@ public class GL13 {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage3D.xhtml">OpenGL SDK Reference</a></p>
@@ -281,12 +278,7 @@ public class GL13 {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexImage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage2D.xhtml">OpenGL SDK Reference</a></p>
@@ -330,12 +322,7 @@ public class GL13 {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexImage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage1D.xhtml">OpenGL SDK Reference</a></p>
@@ -377,12 +364,7 @@ public class GL13 {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
@@ -432,12 +414,7 @@ public class GL13 {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
@@ -483,12 +460,7 @@ public class GL13 {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
@@ -526,12 +498,7 @@ public class GL13 {
 	// --- [ glGetCompressedTexImage ] ---
 
 	/** Unsafe version of: {@link #glGetCompressedTexImage GetCompressedTexImage} */
-	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTexImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, pixels);
-	}
+	public static native void nglGetCompressedTexImage(int target, int level, long pixels);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTexImage.xhtml">OpenGL SDK Reference</a></p>
@@ -564,6 +531,9 @@ public class GL13 {
 
 	// --- [ glSampleCoverage ] ---
 
+	/** Unsafe version of: {@link #glSampleCoverage SampleCoverage} */
+	public static native void nglSampleCoverage(float value, boolean invert);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleCoverage.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -586,13 +556,13 @@ public class GL13 {
 	 * @param invert if the coverage masks should be inverted. The initial value is false.
 	 */
 	public static void glSampleCoverage(float value, boolean invert) {
-		long __functionAddress = GL.getCapabilities().glSampleCoverage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, value, invert);
+		nglSampleCoverage(value, invert);
 	}
 
 	// --- [ glActiveTexture ] ---
+
+	/** Unsafe version of: {@link #glActiveTexture ActiveTexture} */
+	public static native void nglActiveTexture(int texture);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveTexture.xhtml">OpenGL SDK Reference</a></p>
@@ -603,13 +573,13 @@ public class GL13 {
 	 * @param texture which texture unit to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0 TEXTURE0}</td><td>GL_TEXTURE[1-31]</td></tr></table>
 	 */
 	public static void glActiveTexture(int texture) {
-		long __functionAddress = GL.getCapabilities().glActiveTexture;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture);
+		nglActiveTexture(texture);
 	}
 
 	// --- [ glClientActiveTexture ] ---
+
+	/** Unsafe version of: {@link #glClientActiveTexture ClientActiveTexture} */
+	public static native void nglClientActiveTexture(int texture);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClientActiveTexture.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -620,13 +590,13 @@ public class GL13 {
 	 * @param texture which texture coordinate array to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0 TEXTURE0}</td><td>GL_TEXTURE[1-31]</td></tr></table>
 	 */
 	public static void glClientActiveTexture(int texture) {
-		long __functionAddress = GL.getCapabilities().glClientActiveTexture;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture);
+		nglClientActiveTexture(texture);
 	}
 
 	// --- [ glMultiTexCoord1f ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord1f MultiTexCoord1f} */
+	public static native void nglMultiTexCoord1f(int texture, float s);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -637,13 +607,13 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1f(int texture, float s) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s);
+		nglMultiTexCoord1f(texture, s);
 	}
 
 	// --- [ glMultiTexCoord1s ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord1s MultiTexCoord1s} */
+	public static native void nglMultiTexCoord1s(int texture, short s);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -654,13 +624,13 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1s(int texture, short s) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s);
+		nglMultiTexCoord1s(texture, s);
 	}
 
 	// --- [ glMultiTexCoord1i ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord1i MultiTexCoord1i} */
+	public static native void nglMultiTexCoord1i(int texture, int s);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -671,13 +641,13 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1i(int texture, int s) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s);
+		nglMultiTexCoord1i(texture, s);
 	}
 
 	// --- [ glMultiTexCoord1d ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord1d MultiTexCoord1d} */
+	public static native void nglMultiTexCoord1d(int texture, double s);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -688,21 +658,13 @@ public class GL13 {
 	 * @param s       the s component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord1d(int texture, double s) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s);
+		nglMultiTexCoord1d(texture, s);
 	}
 
 	// --- [ glMultiTexCoord1fv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
-	public static void nglMultiTexCoord1fv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord1fv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -721,12 +683,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord1sv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
-	public static void nglMultiTexCoord1sv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord1sv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -745,12 +702,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord1iv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
-	public static void nglMultiTexCoord1iv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord1iv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -769,12 +721,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord1dv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
-	public static void nglMultiTexCoord1dv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord1dv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -792,6 +739,9 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord2f ] ---
 
+	/** Unsafe version of: {@link #glMultiTexCoord2f MultiTexCoord2f} */
+	public static native void nglMultiTexCoord2f(int texture, float s, float t);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -802,13 +752,13 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2f(int texture, float s, float t) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t);
+		nglMultiTexCoord2f(texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2s ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord2s MultiTexCoord2s} */
+	public static native void nglMultiTexCoord2s(int texture, short s, short t);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -820,13 +770,13 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2s(int texture, short s, short t) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t);
+		nglMultiTexCoord2s(texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2i ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord2i MultiTexCoord2i} */
+	public static native void nglMultiTexCoord2i(int texture, int s, int t);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -838,13 +788,13 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2i(int texture, int s, int t) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t);
+		nglMultiTexCoord2i(texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2d ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord2d MultiTexCoord2d} */
+	public static native void nglMultiTexCoord2d(int texture, double s, double t);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -856,21 +806,13 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord2d(int texture, double s, double t) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t);
+		nglMultiTexCoord2d(texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2fv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
-	public static void nglMultiTexCoord2fv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord2fv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -889,12 +831,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord2sv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
-	public static void nglMultiTexCoord2sv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord2sv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -913,12 +850,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord2iv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
-	public static void nglMultiTexCoord2iv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord2iv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -937,12 +869,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord2dv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
-	public static void nglMultiTexCoord2dv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord2dv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -960,6 +887,9 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord3f ] ---
 
+	/** Unsafe version of: {@link #glMultiTexCoord3f MultiTexCoord3f} */
+	public static native void nglMultiTexCoord3f(int texture, float s, float t, float r);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -971,13 +901,13 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3f(int texture, float s, float t, float r) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r);
+		nglMultiTexCoord3f(texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3s ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord3s MultiTexCoord3s} */
+	public static native void nglMultiTexCoord3s(int texture, short s, short t, short r);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -990,13 +920,13 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3s(int texture, short s, short t, short r) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r);
+		nglMultiTexCoord3s(texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3i ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord3i MultiTexCoord3i} */
+	public static native void nglMultiTexCoord3i(int texture, int s, int t, int r);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1009,13 +939,13 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3i(int texture, int s, int t, int r) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r);
+		nglMultiTexCoord3i(texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3d ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord3d MultiTexCoord3d} */
+	public static native void nglMultiTexCoord3d(int texture, double s, double t, double r);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1028,21 +958,13 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord3d(int texture, double s, double t, double r) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r);
+		nglMultiTexCoord3d(texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3fv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
-	public static void nglMultiTexCoord3fv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord3fv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1061,12 +983,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord3sv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
-	public static void nglMultiTexCoord3sv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord3sv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1085,12 +1002,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord3iv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
-	public static void nglMultiTexCoord3iv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord3iv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1109,12 +1021,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord3dv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
-	public static void nglMultiTexCoord3dv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord3dv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1132,6 +1039,9 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord4f ] ---
 
+	/** Unsafe version of: {@link #glMultiTexCoord4f MultiTexCoord4f} */
+	public static native void nglMultiTexCoord4f(int texture, float s, float t, float r, float q);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1144,13 +1054,13 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4f(int texture, float s, float t, float r, float q) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r, q);
+		nglMultiTexCoord4f(texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4s ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord4s MultiTexCoord4s} */
+	public static native void nglMultiTexCoord4s(int texture, short s, short t, short r, short q);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1164,13 +1074,13 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4s(int texture, short s, short t, short r, short q) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r, q);
+		nglMultiTexCoord4s(texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4i ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord4i MultiTexCoord4i} */
+	public static native void nglMultiTexCoord4i(int texture, int s, int t, int r, int q);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1184,13 +1094,13 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4i(int texture, int s, int t, int r, int q) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r, q);
+		nglMultiTexCoord4i(texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4d ] ---
+
+	/** Unsafe version of: {@link #glMultiTexCoord4d MultiTexCoord4d} */
+	public static native void nglMultiTexCoord4d(int texture, double s, double t, double r, double q);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1204,21 +1114,13 @@ public class GL13 {
 	 * @param q       the q component of the current texture coordinates
 	 */
 	public static void glMultiTexCoord4d(int texture, double s, double t, double r, double q) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, s, t, r, q);
+		nglMultiTexCoord4d(texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4fv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
-	public static void nglMultiTexCoord4fv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord4fv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1237,12 +1139,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord4sv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
-	public static void nglMultiTexCoord4sv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord4sv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1261,12 +1158,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord4iv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
-	public static void nglMultiTexCoord4iv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord4iv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1285,12 +1177,7 @@ public class GL13 {
 	// --- [ glMultiTexCoord4dv ] ---
 
 	/** Unsafe version of: {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
-	public static void nglMultiTexCoord4dv(int texture, long v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, v);
-	}
+	public static native void nglMultiTexCoord4dv(int texture, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1309,12 +1196,7 @@ public class GL13 {
 	// --- [ glLoadTransposeMatrixf ] ---
 
 	/** Unsafe version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
-	public static void nglLoadTransposeMatrixf(long m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglLoadTransposeMatrixf(long m);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1341,12 +1223,7 @@ public class GL13 {
 	// --- [ glLoadTransposeMatrixd ] ---
 
 	/** Unsafe version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
-	public static void nglLoadTransposeMatrixd(long m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixd;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglLoadTransposeMatrixd(long m);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1364,12 +1241,7 @@ public class GL13 {
 	// --- [ glMultTransposeMatrixf ] ---
 
 	/** Unsafe version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
-	public static void nglMultTransposeMatrixf(long m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglMultTransposeMatrixf(long m);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1387,12 +1259,7 @@ public class GL13 {
 	// --- [ glMultTransposeMatrixd ] ---
 
 	/** Unsafe version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
-	public static void nglMultTransposeMatrixd(long m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixd;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglMultTransposeMatrixd(long m);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1413,7 +1280,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord1fv MultiTexCoord1fv}
 	 */
 	public static void glMultiTexCoord1fv(int texture, float[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fv;
+		long __functionAddress = GL.getICD().glMultiTexCoord1fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1427,7 +1294,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord1sv MultiTexCoord1sv}
 	 */
 	public static void glMultiTexCoord1sv(int texture, short[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1sv;
+		long __functionAddress = GL.getICD().glMultiTexCoord1sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1441,7 +1308,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord1iv MultiTexCoord1iv}
 	 */
 	public static void glMultiTexCoord1iv(int texture, int[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1iv;
+		long __functionAddress = GL.getICD().glMultiTexCoord1iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1455,7 +1322,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord1dv MultiTexCoord1dv}
 	 */
 	public static void glMultiTexCoord1dv(int texture, double[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dv;
+		long __functionAddress = GL.getICD().glMultiTexCoord1dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -1469,7 +1336,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord2fv MultiTexCoord2fv}
 	 */
 	public static void glMultiTexCoord2fv(int texture, float[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fv;
+		long __functionAddress = GL.getICD().glMultiTexCoord2fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1483,7 +1350,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord2sv MultiTexCoord2sv}
 	 */
 	public static void glMultiTexCoord2sv(int texture, short[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2sv;
+		long __functionAddress = GL.getICD().glMultiTexCoord2sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1497,7 +1364,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord2iv MultiTexCoord2iv}
 	 */
 	public static void glMultiTexCoord2iv(int texture, int[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2iv;
+		long __functionAddress = GL.getICD().glMultiTexCoord2iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1511,7 +1378,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord2dv MultiTexCoord2dv}
 	 */
 	public static void glMultiTexCoord2dv(int texture, double[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dv;
+		long __functionAddress = GL.getICD().glMultiTexCoord2dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -1525,7 +1392,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord3fv MultiTexCoord3fv}
 	 */
 	public static void glMultiTexCoord3fv(int texture, float[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fv;
+		long __functionAddress = GL.getICD().glMultiTexCoord3fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1539,7 +1406,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord3sv MultiTexCoord3sv}
 	 */
 	public static void glMultiTexCoord3sv(int texture, short[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3sv;
+		long __functionAddress = GL.getICD().glMultiTexCoord3sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1553,7 +1420,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord3iv MultiTexCoord3iv}
 	 */
 	public static void glMultiTexCoord3iv(int texture, int[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3iv;
+		long __functionAddress = GL.getICD().glMultiTexCoord3iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1567,7 +1434,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord3dv MultiTexCoord3dv}
 	 */
 	public static void glMultiTexCoord3dv(int texture, double[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dv;
+		long __functionAddress = GL.getICD().glMultiTexCoord3dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1581,7 +1448,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord4fv MultiTexCoord4fv}
 	 */
 	public static void glMultiTexCoord4fv(int texture, float[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fv;
+		long __functionAddress = GL.getICD().glMultiTexCoord4fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1595,7 +1462,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord4sv MultiTexCoord4sv}
 	 */
 	public static void glMultiTexCoord4sv(int texture, short[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4sv;
+		long __functionAddress = GL.getICD().glMultiTexCoord4sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1609,7 +1476,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord4iv MultiTexCoord4iv}
 	 */
 	public static void glMultiTexCoord4iv(int texture, int[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4iv;
+		long __functionAddress = GL.getICD().glMultiTexCoord4iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1623,7 +1490,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultiTexCoord4dv MultiTexCoord4dv}
 	 */
 	public static void glMultiTexCoord4dv(int texture, double[] v) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dv;
+		long __functionAddress = GL.getICD().glMultiTexCoord4dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -1637,7 +1504,7 @@ public class GL13 {
 	 * Array version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf}
 	 */
 	public static void glLoadTransposeMatrixf(float[] m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixf;
+		long __functionAddress = GL.getICD().glLoadTransposeMatrixf;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -1651,7 +1518,7 @@ public class GL13 {
 	 * Array version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd}
 	 */
 	public static void glLoadTransposeMatrixd(double[] m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixd;
+		long __functionAddress = GL.getICD().glLoadTransposeMatrixd;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -1665,7 +1532,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf}
 	 */
 	public static void glMultTransposeMatrixf(float[] m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixf;
+		long __functionAddress = GL.getICD().glMultTransposeMatrixf;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -1679,7 +1546,7 @@ public class GL13 {
 	 * Array version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd}
 	 */
 	public static void glMultTransposeMatrixd(double[] m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixd;
+		long __functionAddress = GL.getICD().glMultTransposeMatrixd;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);

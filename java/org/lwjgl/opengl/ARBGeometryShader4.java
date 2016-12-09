@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/geometry_shader4.txt">ARB_geometry_shader4</a> extension.
@@ -73,6 +72,8 @@ public class ARBGeometryShader4 {
 	 */
 	public static final int GL_PROGRAM_POINT_SIZE_ARB = 0x8642;
 
+	static { GL.initialize(); }
+
 	protected ARBGeometryShader4() {
 		throw new UnsupportedOperationException();
 	}
@@ -84,6 +85,9 @@ public class ARBGeometryShader4 {
 	}
 
 	// --- [ glProgramParameteriARB ] ---
+
+	/** Unsafe version of: {@link #glProgramParameteriARB ProgramParameteriARB} */
+	public static native void nglProgramParameteriARB(int program, int pname, int value);
 
 	/**
 	 * Sets a program object parameter.
@@ -106,13 +110,13 @@ public class ARBGeometryShader4 {
 	 * @param value   the value being set
 	 */
 	public static void glProgramParameteriARB(int program, int pname, int value) {
-		long __functionAddress = GL.getCapabilities().glProgramParameteriARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, pname, value);
+		nglProgramParameteriARB(program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureARB ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTextureARB FramebufferTextureARB} */
+	public static native void nglFramebufferTextureARB(int target, int attachment, int texture, int level);
 
 	/**
 	 * Attaches a specified level of a texture object as one of the logical buffers of the currently bound framebuffer object, to render directly into the
@@ -135,13 +139,13 @@ public class ARBGeometryShader4 {
 	 * @param level      the texture level
 	 */
 	public static void glFramebufferTextureARB(int target, int attachment, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level);
+		nglFramebufferTextureARB(target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerARB ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTextureLayerARB FramebufferTextureLayerARB} */
+	public static native void nglFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer);
 
 	/**
 	 * Operates like {@link #glFramebufferTextureARB FramebufferTextureARB}, except that only a single layer of the texture level, numbered {@code layer}, is attached to the attachment
@@ -158,13 +162,13 @@ public class ARBGeometryShader4 {
 	 * @param layer      the texture layer
 	 */
 	public static void glFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, layer);
+		nglFramebufferTextureLayerARB(target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceARB ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTextureFaceARB FramebufferTextureFaceARB} */
+	public static native void nglFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face);
 
 	/**
 	 * Operates like {@link #glFramebufferTextureARB FramebufferTextureARB}, except that only a single face of a cube map texture, given by {@code face}, is attached to the attachment
@@ -180,10 +184,7 @@ public class ARBGeometryShader4 {
 	 * @param face       the cube map face. One of:<br><table><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}</td></tr></table>
 	 */
 	public static void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, face);
+		nglFramebufferTextureFaceARB(target, attachment, texture, level, face);
 	}
 
 }

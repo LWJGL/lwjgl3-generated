@@ -65,6 +65,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class OESDrawElementsBaseVertex {
 
+	static { GLES.initialize(); }
+
 	protected OESDrawElementsBaseVertex() {
 		throw new UnsupportedOperationException();
 	}
@@ -79,12 +81,7 @@ public class OESDrawElementsBaseVertex {
 
 	// --- [ glDrawElementsBaseVertexOES ] ---
 
-	public static void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsBaseVertexOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, basevertex);
-	}
+	public static native void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex);
 
 	public static void glDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
 		nglDrawElementsBaseVertexOES(mode, count, type, indices, basevertex);
@@ -108,12 +105,7 @@ public class OESDrawElementsBaseVertex {
 
 	// --- [ glDrawRangeElementsBaseVertexOES ] ---
 
-	public static void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		long __functionAddress = GLES.getCapabilities().glDrawRangeElementsBaseVertexOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
-	}
+	public static native void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex);
 
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, indices, basevertex);
@@ -137,12 +129,7 @@ public class OESDrawElementsBaseVertex {
 
 	// --- [ glDrawElementsInstancedBaseVertexOES ] ---
 
-	public static void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
-	}
+	public static native void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex);
 
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		nglDrawElementsInstancedBaseVertexOES(mode, count, type, indices, instancecount, basevertex);
@@ -166,12 +153,7 @@ public class OESDrawElementsBaseVertex {
 
 	// --- [ glMultiDrawElementsBaseVertexOES ] ---
 
-	public static void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex) {
-		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
-	}
+	public static native void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex);
 
 	public static void glMultiDrawElementsBaseVertexOES(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
 		if ( CHECKS ) {
@@ -183,7 +165,7 @@ public class OESDrawElementsBaseVertex {
 
 	/** Array version of: {@link #glMultiDrawElementsBaseVertexOES MultiDrawElementsBaseVertexOES} */
 	public static void glMultiDrawElementsBaseVertexOES(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
-		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexOES;
+		long __functionAddress = GLES.getICD().glMultiDrawElementsBaseVertexOES;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indices, count.length);

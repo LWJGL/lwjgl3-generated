@@ -84,6 +84,8 @@ public class ARBShaderObjects {
 		GL_SAMPLER_2D_RECT_ARB        = 0x8B63,
 		GL_SAMPLER_2D_RECT_SHADOW_ARB = 0x8B64;
 
+	static { GL.initialize(); }
+
 	protected ARBShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
@@ -102,6 +104,9 @@ public class ARBShaderObjects {
 
 	// --- [ glDeleteObjectARB ] ---
 
+	/** Unsafe version of: {@link #glDeleteObjectARB DeleteObjectARB} */
+	public static native void nglDeleteObjectARB(int obj);
+
 	/**
 	 * Either deletes the object, or flags it for deletion. An object that is attached to a container object is not deleted until it is no longer attached to
 	 * any container object, for any context. If it is still attached to at least one container object, the object is flagged for deletion. If the object is
@@ -118,13 +123,13 @@ public class ARBShaderObjects {
 	 * @param obj the shader object to delete
 	 */
 	public static void glDeleteObjectARB(int obj) {
-		long __functionAddress = GL.getCapabilities().glDeleteObjectARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, obj);
+		nglDeleteObjectARB(obj);
 	}
 
 	// --- [ glGetHandleARB ] ---
+
+	/** Unsafe version of: {@link #glGetHandleARB GetHandleARB} */
+	public static native int nglGetHandleARB(int pname);
 
 	/**
 	 * Returns the handle to an object that is in use as part of current state.
@@ -132,13 +137,13 @@ public class ARBShaderObjects {
 	 * @param pname the state item for which the current object is to be returned. Must be:<br><table><tr><td>{@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}</td></tr></table>
 	 */
 	public static int glGetHandleARB(int pname) {
-		long __functionAddress = GL.getCapabilities().glGetHandleARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, pname);
+		return nglGetHandleARB(pname);
 	}
 
 	// --- [ glDetachObjectARB ] ---
+
+	/** Unsafe version of: {@link #glDetachObjectARB DetachObjectARB} */
+	public static native void nglDetachObjectARB(int containerObj, int attachedObj);
 
 	/**
 	 * Detaches an object from the container object it is attached to.
@@ -147,13 +152,13 @@ public class ARBShaderObjects {
 	 * @param attachedObj  the object to detach
 	 */
 	public static void glDetachObjectARB(int containerObj, int attachedObj) {
-		long __functionAddress = GL.getCapabilities().glDetachObjectARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, containerObj, attachedObj);
+		nglDetachObjectARB(containerObj, attachedObj);
 	}
 
 	// --- [ glCreateShaderObjectARB ] ---
+
+	/** Unsafe version of: {@link #glCreateShaderObjectARB CreateShaderObjectARB} */
+	public static native int nglCreateShaderObjectARB(int shaderType);
 
 	/**
 	 * Creates a shader object.
@@ -161,10 +166,7 @@ public class ARBShaderObjects {
 	 * @param shaderType the type of the shader object to be created. One of:<br><table><tr><td>{@link ARBVertexShader#GL_VERTEX_SHADER_ARB VERTEX_SHADER_ARB}</td><td>{@link ARBFragmentShader#GL_FRAGMENT_SHADER_ARB FRAGMENT_SHADER_ARB}</td></tr></table>
 	 */
 	public static int glCreateShaderObjectARB(int shaderType) {
-		long __functionAddress = GL.getCapabilities().glCreateShaderObjectARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, shaderType);
+		return nglCreateShaderObjectARB(shaderType);
 	}
 
 	// --- [ glShaderSourceARB ] ---
@@ -174,12 +176,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of strings in the array
 	 */
-	public static void nglShaderSourceARB(int shaderObj, int count, long string, long length) {
-		long __functionAddress = GL.getCapabilities().glShaderSourceARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shaderObj, count, string, length);
-	}
+	public static native void nglShaderSourceARB(int shaderObj, int count, long string, long length);
 
 	/**
 	 * Sets the source code for the specified shader object {@code shaderObj} to the text strings in the {@code string} array. If the object previously had
@@ -244,6 +241,9 @@ public class ARBShaderObjects {
 
 	// --- [ glCompileShaderARB ] ---
 
+	/** Unsafe version of: {@link #glCompileShaderARB CompileShaderARB} */
+	public static native void nglCompileShaderARB(int shaderObj);
+
 	/**
 	 * Compiles a shader object. Each shader object has a Boolean status, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, that is modified as a result of compilation. This status
 	 * can be queried with {@link #glGetObjectParameterivARB GetObjectParameterivARB}. This status will be set to {@link GL11#GL_TRUE TRUE} if the shader {@code shaderObj} was compiled without errors and is
@@ -259,13 +259,13 @@ public class ARBShaderObjects {
 	 * @param shaderObj the shader object to compile
 	 */
 	public static void glCompileShaderARB(int shaderObj) {
-		long __functionAddress = GL.getCapabilities().glCompileShaderARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, shaderObj);
+		nglCompileShaderARB(shaderObj);
 	}
 
 	// --- [ glCreateProgramObjectARB ] ---
+
+	/** Unsafe version of: {@link #glCreateProgramObjectARB CreateProgramObjectARB} */
+	public static native int nglCreateProgramObjectARB();
 
 	/**
 	 * Creates a program object.
@@ -276,13 +276,13 @@ public class ARBShaderObjects {
 	 * one program object.</p>
 	 */
 	public static int glCreateProgramObjectARB() {
-		long __functionAddress = GL.getCapabilities().glCreateProgramObjectARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
+		return nglCreateProgramObjectARB();
 	}
 
 	// --- [ glAttachObjectARB ] ---
+
+	/** Unsafe version of: {@link #glAttachObjectARB AttachObjectARB} */
+	public static native void nglAttachObjectARB(int containerObj, int obj);
 
 	/**
 	 * Attaches an object to a container object.
@@ -291,13 +291,13 @@ public class ARBShaderObjects {
 	 * @param obj          the object to attach
 	 */
 	public static void glAttachObjectARB(int containerObj, int obj) {
-		long __functionAddress = GL.getCapabilities().glAttachObjectARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, containerObj, obj);
+		nglAttachObjectARB(containerObj, obj);
 	}
 
 	// --- [ glLinkProgramARB ] ---
+
+	/** Unsafe version of: {@link #glLinkProgramARB LinkProgramARB} */
+	public static native void nglLinkProgramARB(int programObj);
 
 	/**
 	 * Links a program object.
@@ -315,13 +315,13 @@ public class ARBShaderObjects {
 	 * @param programObj the program object to link
 	 */
 	public static void glLinkProgramARB(int programObj) {
-		long __functionAddress = GL.getCapabilities().glLinkProgramARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, programObj);
+		nglLinkProgramARB(programObj);
 	}
 
 	// --- [ glUseProgramObjectARB ] ---
+
+	/** Unsafe version of: {@link #glUseProgramObjectARB UseProgramObjectARB} */
+	public static native void nglUseProgramObjectARB(int programObj);
 
 	/**
 	 * Installs the executable code as part of current rendering state if the program object {@code programObj} contains valid executable code, i.e. has been
@@ -340,13 +340,13 @@ public class ARBShaderObjects {
 	 * @param programObj the program object to use
 	 */
 	public static void glUseProgramObjectARB(int programObj) {
-		long __functionAddress = GL.getCapabilities().glUseProgramObjectARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, programObj);
+		nglUseProgramObjectARB(programObj);
 	}
 
 	// --- [ glValidateProgramARB ] ---
+
+	/** Unsafe version of: {@link #glValidateProgramARB ValidateProgramARB} */
+	public static native void nglValidateProgramARB(int programObj);
 
 	/**
 	 * Validates the program object {@code programObj} against the GL state at that moment. Each program object has a Boolean status,
@@ -366,13 +366,13 @@ public class ARBShaderObjects {
 	 * @param programObj the program object to validate
 	 */
 	public static void glValidateProgramARB(int programObj) {
-		long __functionAddress = GL.getCapabilities().glValidateProgramARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, programObj);
+		nglValidateProgramARB(programObj);
 	}
 
 	// --- [ glUniform1fARB ] ---
+
+	/** Unsafe version of: {@link #glUniform1fARB Uniform1fARB} */
+	public static native void nglUniform1fARB(int location, float v0);
 
 	/**
 	 * float version of {@link #glUniform4fARB Uniform4fARB}.
@@ -381,13 +381,13 @@ public class ARBShaderObjects {
 	 * @param v0       the uniform x value
 	 */
 	public static void glUniform1fARB(int location, float v0) {
-		long __functionAddress = GL.getCapabilities().glUniform1fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0);
+		nglUniform1fARB(location, v0);
 	}
 
 	// --- [ glUniform2fARB ] ---
+
+	/** Unsafe version of: {@link #glUniform2fARB Uniform2fARB} */
+	public static native void nglUniform2fARB(int location, float v0, float v1);
 
 	/**
 	 * vec2 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -397,13 +397,13 @@ public class ARBShaderObjects {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2fARB(int location, float v0, float v1) {
-		long __functionAddress = GL.getCapabilities().glUniform2fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2fARB(location, v0, v1);
 	}
 
 	// --- [ glUniform3fARB ] ---
+
+	/** Unsafe version of: {@link #glUniform3fARB Uniform3fARB} */
+	public static native void nglUniform3fARB(int location, float v0, float v1, float v2);
 
 	/**
 	 * vec3 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -414,13 +414,13 @@ public class ARBShaderObjects {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3fARB(int location, float v0, float v1, float v2) {
-		long __functionAddress = GL.getCapabilities().glUniform3fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3fARB(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4fARB ] ---
+
+	/** Unsafe version of: {@link #glUniform4fARB Uniform4fARB} */
+	public static native void nglUniform4fARB(int location, float v0, float v1, float v2, float v3);
 
 	/**
 	 * Loads a vec4 value into a uniform variable of the program object that is currently in use.
@@ -432,13 +432,13 @@ public class ARBShaderObjects {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4fARB(int location, float v0, float v1, float v2, float v3) {
-		long __functionAddress = GL.getCapabilities().glUniform4fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4fARB(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1iARB ] ---
+
+	/** Unsafe version of: {@link #glUniform1iARB Uniform1iARB} */
+	public static native void nglUniform1iARB(int location, int v0);
 
 	/**
 	 * int version of {@link #glUniform1fARB Uniform1fARB}.
@@ -447,13 +447,13 @@ public class ARBShaderObjects {
 	 * @param v0       the uniform x value
 	 */
 	public static void glUniform1iARB(int location, int v0) {
-		long __functionAddress = GL.getCapabilities().glUniform1iARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0);
+		nglUniform1iARB(location, v0);
 	}
 
 	// --- [ glUniform2iARB ] ---
+
+	/** Unsafe version of: {@link #glUniform2iARB Uniform2iARB} */
+	public static native void nglUniform2iARB(int location, int v0, int v1);
 
 	/**
 	 * ivec2 version of {@link #glUniform2fARB Uniform2fARB}.
@@ -463,13 +463,13 @@ public class ARBShaderObjects {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2iARB(int location, int v0, int v1) {
-		long __functionAddress = GL.getCapabilities().glUniform2iARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2iARB(location, v0, v1);
 	}
 
 	// --- [ glUniform3iARB ] ---
+
+	/** Unsafe version of: {@link #glUniform3iARB Uniform3iARB} */
+	public static native void nglUniform3iARB(int location, int v0, int v1, int v2);
 
 	/**
 	 * ivec3 version of {@link #glUniform3fARB Uniform3fARB}.
@@ -480,13 +480,13 @@ public class ARBShaderObjects {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3iARB(int location, int v0, int v1, int v2) {
-		long __functionAddress = GL.getCapabilities().glUniform3iARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3iARB(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4iARB ] ---
+
+	/** Unsafe version of: {@link #glUniform4iARB Uniform4iARB} */
+	public static native void nglUniform4iARB(int location, int v0, int v1, int v2, int v3);
 
 	/**
 	 * ivec4 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -498,10 +498,7 @@ public class ARBShaderObjects {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4iARB(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = GL.getCapabilities().glUniform4iARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4iARB(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1fvARB ] ---
@@ -511,12 +508,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of float values to load
 	 */
-	public static void nglUniform1fvARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1fvARB(int location, int count, long value);
 
 	/**
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of float values.
@@ -535,12 +527,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of vec2 vectors to load
 	 */
-	public static void nglUniform2fvARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2fvARB(int location, int count, long value);
 
 	/**
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec2 vectors.
@@ -559,12 +546,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of vec3 vectors to load
 	 */
-	public static void nglUniform3fvARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3fvARB(int location, int count, long value);
 
 	/**
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec3 vectors.
@@ -583,12 +565,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of vec4 vectors to load
 	 */
-	public static void nglUniform4fvARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4fvARB(int location, int count, long value);
 
 	/**
 	 * Loads floating-point values {@code count} times into a uniform location defined as an array of vec4 vectors.
@@ -607,12 +584,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of integer values to load
 	 */
-	public static void nglUniform1ivARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1ivARB(int location, int count, long value);
 
 	/**
 	 * Loads integer values {@code count} times into a uniform location defined as an array of integer values.
@@ -631,12 +603,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of ivec2 vectors to load
 	 */
-	public static void nglUniform2ivARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2ivARB(int location, int count, long value);
 
 	/**
 	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec2 vectors.
@@ -655,12 +622,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of ivec3 vectors to load
 	 */
-	public static void nglUniform3ivARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3ivARB(int location, int count, long value);
 
 	/**
 	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec3 vectors.
@@ -679,12 +641,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of ivec4 vectors to load
 	 */
-	public static void nglUniform4ivARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4ivARB(int location, int count, long value);
 
 	/**
 	 * Loads integer values {@code count} times into a uniform location defined as an array of ivec4 vectors.
@@ -703,12 +660,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of 2x2 matrices to load
 	 */
-	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Loads a 2x2 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
@@ -728,12 +680,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of 3x3 matrices to load
 	 */
-	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Loads a 3x3 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
@@ -753,12 +700,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param count the number of 4x4 matrices to load
 	 */
-	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Loads a 4x4 matrix of floating-point values {@code count} times into a uniform location defined as a matrix or an array of matrices.
@@ -774,12 +716,7 @@ public class ARBShaderObjects {
 	// --- [ glGetObjectParameterfvARB ] ---
 
 	/** Unsafe version of: {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
-	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetObjectParameterfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, obj, pname, params);
-	}
+	public static native void nglGetObjectParameterfvARB(int obj, int pname, long params);
 
 	/**
 	 * Returns object specific parameter values.
@@ -797,12 +734,7 @@ public class ARBShaderObjects {
 	// --- [ glGetObjectParameterivARB ] ---
 
 	/** Unsafe version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
-	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetObjectParameterivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, obj, pname, params);
-	}
+	public static native void nglGetObjectParameterivARB(int obj, int pname, long params);
 
 	/**
 	 * Returns object specific parameter values.
@@ -841,12 +773,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code infoLog}
 	 */
-	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, obj, maxLength, length, infoLog);
-	}
+	public static native void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog);
 
 	/**
 	 * A string that contains information about the last link or validation attempt and last compilation attempt are kept per program or shader object. This
@@ -940,12 +867,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param maxCount the maximum number of handles the GL is allowed to write into {@code obj}
 	 */
-	public static void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj) {
-		long __functionAddress = GL.getCapabilities().glGetAttachedObjectsARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, containerObj, maxCount, count, obj);
-	}
+	public static native void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj);
 
 	/**
 	 * Returns the handles of objects attached to {@code containerObj} in {@code obj}. . The number of objects attached to {@code containerObj} is given by
@@ -965,12 +887,7 @@ public class ARBShaderObjects {
 	// --- [ glGetUniformLocationARB ] ---
 
 	/** Unsafe version of: {@link #glGetUniformLocationARB GetUniformLocationARB} */
-	public static int nglGetUniformLocationARB(int programObj, long name) {
-		long __functionAddress = GL.getCapabilities().glGetUniformLocationARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, programObj, name);
-	}
+	public static native int nglGetUniformLocationARB(int programObj, long name);
 
 	/**
 	 * Returns the location of uniform variable {@code name}. {@code name} has to be a null terminated string, without white space. The value of -1 will be
@@ -1027,12 +944,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code name}.
 	 */
-	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
-	}
+	public static native void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name);
 
 	/**
 	 * Determines which of the declared uniform variables are active and their sizes and types.
@@ -1170,12 +1082,7 @@ public class ARBShaderObjects {
 	// --- [ glGetUniformfvARB ] ---
 
 	/** Unsafe version of: {@link #glGetUniformfvARB GetUniformfvARB} */
-	public static void nglGetUniformfvARB(int programObj, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, programObj, location, params);
-	}
+	public static native void nglGetUniformfvARB(int programObj, int location, long params);
 
 	/**
 	 * Returns the floating-point value or values of a uniform.
@@ -1210,12 +1117,7 @@ public class ARBShaderObjects {
 	// --- [ glGetUniformivARB ] ---
 
 	/** Unsafe version of: {@link #glGetUniformivARB GetUniformivARB} */
-	public static void nglGetUniformivARB(int programObj, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, programObj, location, params);
-	}
+	public static native void nglGetUniformivARB(int programObj, int location, long params);
 
 	/**
 	 * Returns the integer value or values of a uniform.
@@ -1254,12 +1156,7 @@ public class ARBShaderObjects {
 	 *
 	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code source}
 	 */
-	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
-		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, obj, maxLength, length, source);
-	}
+	public static native void nglGetShaderSourceARB(int obj, int maxLength, long length, long source);
 
 	/**
 	 * Returns the string making up the source code for a shader object.
@@ -1327,7 +1224,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, PointerBuffer string, int[] length) {
-		long __functionAddress = GL.getCapabilities().glShaderSourceARB;
+		long __functionAddress = GL.getICD().glShaderSourceARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, string.remaining());
@@ -1337,7 +1234,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform1fvARB Uniform1fvARB} */
 	public static void glUniform1fvARB(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1fvARB;
+		long __functionAddress = GL.getICD().glUniform1fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -1345,7 +1242,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform2fvARB Uniform2fvARB} */
 	public static void glUniform2fvARB(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2fvARB;
+		long __functionAddress = GL.getICD().glUniform2fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -1353,7 +1250,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform3fvARB Uniform3fvARB} */
 	public static void glUniform3fvARB(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3fvARB;
+		long __functionAddress = GL.getICD().glUniform3fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -1361,7 +1258,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform4fvARB Uniform4fvARB} */
 	public static void glUniform4fvARB(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4fvARB;
+		long __functionAddress = GL.getICD().glUniform4fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -1369,7 +1266,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform1ivARB Uniform1ivARB} */
 	public static void glUniform1ivARB(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1ivARB;
+		long __functionAddress = GL.getICD().glUniform1ivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -1377,7 +1274,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform2ivARB Uniform2ivARB} */
 	public static void glUniform2ivARB(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2ivARB;
+		long __functionAddress = GL.getICD().glUniform2ivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -1385,7 +1282,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform3ivARB Uniform3ivARB} */
 	public static void glUniform3ivARB(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3ivARB;
+		long __functionAddress = GL.getICD().glUniform3ivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -1393,7 +1290,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniform4ivARB Uniform4ivARB} */
 	public static void glUniform4ivARB(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4ivARB;
+		long __functionAddress = GL.getICD().glUniform4ivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -1401,7 +1298,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
 	public static void glUniformMatrix2fvARB(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2fvARB;
+		long __functionAddress = GL.getICD().glUniformMatrix2fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
@@ -1409,7 +1306,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
 	public static void glUniformMatrix3fvARB(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3fvARB;
+		long __functionAddress = GL.getICD().glUniformMatrix3fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
@@ -1417,7 +1314,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
 	public static void glUniformMatrix4fvARB(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4fvARB;
+		long __functionAddress = GL.getICD().glUniformMatrix4fvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
@@ -1425,7 +1322,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
 	public static void glGetObjectParameterfvARB(int obj, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetObjectParameterfvARB;
+		long __functionAddress = GL.getICD().glGetObjectParameterfvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1435,7 +1332,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	public static void glGetObjectParameterivARB(int obj, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetObjectParameterivARB;
+		long __functionAddress = GL.getICD().glGetObjectParameterivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1445,7 +1342,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetInfoLogARB GetInfoLogARB} */
 	public static void glGetInfoLogARB(int obj, int[] length, ByteBuffer infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
+		long __functionAddress = GL.getICD().glGetInfoLogARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -1455,7 +1352,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
 	public static void glGetAttachedObjectsARB(int containerObj, int[] count, int[] obj) {
-		long __functionAddress = GL.getCapabilities().glGetAttachedObjectsARB;
+		long __functionAddress = GL.getICD().glGetAttachedObjectsARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(count, 1);
@@ -1465,7 +1362,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
 	public static void glGetActiveUniformARB(int programObj, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
+		long __functionAddress = GL.getICD().glGetActiveUniformARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -1477,7 +1374,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetUniformfvARB GetUniformfvARB} */
 	public static void glGetUniformfvARB(int programObj, int location, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformfvARB;
+		long __functionAddress = GL.getICD().glGetUniformfvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1487,7 +1384,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetUniformivARB GetUniformivARB} */
 	public static void glGetUniformivARB(int programObj, int location, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformivARB;
+		long __functionAddress = GL.getICD().glGetUniformivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1497,7 +1394,7 @@ public class ARBShaderObjects {
 
 	/** Array version of: {@link #glGetShaderSourceARB GetShaderSourceARB} */
 	public static void glGetShaderSourceARB(int obj, int[] length, ByteBuffer source) {
-		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
+		long __functionAddress = GL.getICD().glGetShaderSourceARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);

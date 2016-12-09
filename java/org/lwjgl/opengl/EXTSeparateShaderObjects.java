@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -55,6 +54,8 @@ public class EXTSeparateShaderObjects {
 	/** Accepted by {@code type} parameter to GetIntegerv and GetFloatv. */
 	public static final int GL_ACTIVE_PROGRAM_EXT = 0x8B8D;
 
+	static { GL.initialize(); }
+
 	protected EXTSeparateShaderObjects() {
 		throw new UnsupportedOperationException();
 	}
@@ -67,30 +68,23 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glUseShaderProgramEXT ] ---
 
+	public static native void nglUseShaderProgramEXT(int type, int program);
+
 	public static void glUseShaderProgramEXT(int type, int program) {
-		long __functionAddress = GL.getCapabilities().glUseShaderProgramEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, type, program);
+		nglUseShaderProgramEXT(type, program);
 	}
 
 	// --- [ glActiveProgramEXT ] ---
 
+	public static native void nglActiveProgramEXT(int program);
+
 	public static void glActiveProgramEXT(int program) {
-		long __functionAddress = GL.getCapabilities().glActiveProgramEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program);
+		nglActiveProgramEXT(program);
 	}
 
 	// --- [ glCreateShaderProgramEXT ] ---
 
-	public static int nglCreateShaderProgramEXT(int type, long string) {
-		long __functionAddress = GL.getCapabilities().glCreateShaderProgramEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, type, string);
-	}
+	public static native int nglCreateShaderProgramEXT(int type, long string);
 
 	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
 		if ( CHECKS )

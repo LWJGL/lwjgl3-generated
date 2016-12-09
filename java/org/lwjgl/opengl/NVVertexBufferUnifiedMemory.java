@@ -62,6 +62,8 @@ public class NVVertexBufferUnifiedMemory {
 		GL_FOG_COORD_ARRAY_LENGTH_NV       = 0x8F32,
 		GL_ELEMENT_ARRAY_LENGTH_NV         = 0x8F33;
 
+	static { GL.initialize(); }
+
 	protected NVVertexBufferUnifiedMemory() {
 		throw new UnsupportedOperationException();
 	}
@@ -76,111 +78,95 @@ public class NVVertexBufferUnifiedMemory {
 
 	// --- [ glBufferAddressRangeNV ] ---
 
+	public static native void nglBufferAddressRangeNV(int pname, int index, long address, long length);
+
 	public static void glBufferAddressRangeNV(int pname, int index, long address, long length) {
-		long __functionAddress = GL.getCapabilities().glBufferAddressRangeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJPV(__functionAddress, pname, index, address, length);
+		nglBufferAddressRangeNV(pname, index, address, length);
 	}
 
 	// --- [ glVertexFormatNV ] ---
 
+	public static native void nglVertexFormatNV(int size, int type, int stride);
+
 	public static void glVertexFormatNV(int size, int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glVertexFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, size, type, stride);
+		nglVertexFormatNV(size, type, stride);
 	}
 
 	// --- [ glNormalFormatNV ] ---
 
+	public static native void nglNormalFormatNV(int type, int stride);
+
 	public static void glNormalFormatNV(int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glNormalFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, type, stride);
+		nglNormalFormatNV(type, stride);
 	}
 
 	// --- [ glColorFormatNV ] ---
 
+	public static native void nglColorFormatNV(int size, int type, int stride);
+
 	public static void glColorFormatNV(int size, int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glColorFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, size, type, stride);
+		nglColorFormatNV(size, type, stride);
 	}
 
 	// --- [ glIndexFormatNV ] ---
 
+	public static native void nglIndexFormatNV(int type, int stride);
+
 	public static void glIndexFormatNV(int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glIndexFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, type, stride);
+		nglIndexFormatNV(type, stride);
 	}
 
 	// --- [ glTexCoordFormatNV ] ---
 
+	public static native void nglTexCoordFormatNV(int size, int type, int stride);
+
 	public static void glTexCoordFormatNV(int size, int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glTexCoordFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, size, type, stride);
+		nglTexCoordFormatNV(size, type, stride);
 	}
 
 	// --- [ glEdgeFlagFormatNV ] ---
 
+	public static native void nglEdgeFlagFormatNV(int stride);
+
 	public static void glEdgeFlagFormatNV(int stride) {
-		long __functionAddress = GL.getCapabilities().glEdgeFlagFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, stride);
+		nglEdgeFlagFormatNV(stride);
 	}
 
 	// --- [ glSecondaryColorFormatNV ] ---
 
+	public static native void nglSecondaryColorFormatNV(int size, int type, int stride);
+
 	public static void glSecondaryColorFormatNV(int size, int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, size, type, stride);
+		nglSecondaryColorFormatNV(size, type, stride);
 	}
 
 	// --- [ glFogCoordFormatNV ] ---
 
+	public static native void nglFogCoordFormatNV(int type, int stride);
+
 	public static void glFogCoordFormatNV(int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glFogCoordFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, type, stride);
+		nglFogCoordFormatNV(type, stride);
 	}
 
 	// --- [ glVertexAttribFormatNV ] ---
 
+	public static native void nglVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride);
+
 	public static void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, size, type, normalized, stride);
+		nglVertexAttribFormatNV(index, size, type, normalized, stride);
 	}
 
 	// --- [ glVertexAttribIFormatNV ] ---
 
+	public static native void nglVertexAttribIFormatNV(int index, int size, int type, int stride);
+
 	public static void glVertexAttribIFormatNV(int index, int size, int type, int stride) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribIFormatNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, size, type, stride);
+		nglVertexAttribIFormatNV(index, size, type, stride);
 	}
 
 	// --- [ glGetIntegerui64i_vNV ] ---
 
-	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerui64i_vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, value, index, result);
-	}
+	public static native void nglGetIntegerui64i_vNV(int value, int index, long result);
 
 	public static void glGetIntegerui64i_vNV(int value, int index, LongBuffer result) {
 		if ( CHECKS )
@@ -201,7 +187,7 @@ public class NVVertexBufferUnifiedMemory {
 
 	/** Array version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static void glGetIntegerui64i_vNV(int value, int index, long[] result) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerui64i_vNV;
+		long __functionAddress = GL.getICD().glGetIntegerui64i_vNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(result, 1);

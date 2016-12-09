@@ -8,7 +8,6 @@ package org.lwjgl.opengles;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -28,6 +27,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTBaseInstance {
 
+	static { GLES.initialize(); }
+
 	protected EXTBaseInstance() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,21 +41,15 @@ public class EXTBaseInstance {
 
 	// --- [ glDrawArraysInstancedBaseInstanceEXT ] ---
 
+	public static native void nglDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance);
+
 	public static void glDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance) {
-		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedBaseInstanceEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, instancecount, baseinstance);
+		nglDrawArraysInstancedBaseInstanceEXT(mode, first, count, instancecount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstanceEXT ] ---
 
-	public static void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseInstanceEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
-	}
+	public static native void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance);
 
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
 		nglDrawElementsInstancedBaseInstanceEXT(mode, count, type, indices, instancecount, baseinstance);
@@ -78,12 +73,7 @@ public class EXTBaseInstance {
 
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstanceEXT ] ---
 
-	public static void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstanceEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
-	}
+	public static native void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance);
 
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, indices, instancecount, basevertex, baseinstance);

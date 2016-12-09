@@ -96,6 +96,8 @@ public class NVShaderBufferLoad {
 	/** Accepted by the {@code value} parameter of GetIntegerui64vNV. */
 	public static final int GL_MAX_SHADER_BUFFER_ADDRESS_NV = 0x8F35;
 
+	static { GL.initialize(); }
+
 	protected NVShaderBufferLoad() {
 		throw new UnsupportedOperationException();
 	}
@@ -111,66 +113,55 @@ public class NVShaderBufferLoad {
 
 	// --- [ glMakeBufferResidentNV ] ---
 
+	public static native void nglMakeBufferResidentNV(int target, int access);
+
 	public static void glMakeBufferResidentNV(int target, int access) {
-		long __functionAddress = GL.getCapabilities().glMakeBufferResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, access);
+		nglMakeBufferResidentNV(target, access);
 	}
 
 	// --- [ glMakeBufferNonResidentNV ] ---
 
+	public static native void nglMakeBufferNonResidentNV(int target);
+
 	public static void glMakeBufferNonResidentNV(int target) {
-		long __functionAddress = GL.getCapabilities().glMakeBufferNonResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglMakeBufferNonResidentNV(target);
 	}
 
 	// --- [ glIsBufferResidentNV ] ---
 
+	public static native boolean nglIsBufferResidentNV(int target);
+
 	public static boolean glIsBufferResidentNV(int target) {
-		long __functionAddress = GL.getCapabilities().glIsBufferResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target);
+		return nglIsBufferResidentNV(target);
 	}
 
 	// --- [ glMakeNamedBufferResidentNV ] ---
 
+	public static native void nglMakeNamedBufferResidentNV(int buffer, int access);
+
 	public static void glMakeNamedBufferResidentNV(int buffer, int access) {
-		long __functionAddress = GL.getCapabilities().glMakeNamedBufferResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buffer, access);
+		nglMakeNamedBufferResidentNV(buffer, access);
 	}
 
 	// --- [ glMakeNamedBufferNonResidentNV ] ---
 
+	public static native void nglMakeNamedBufferNonResidentNV(int buffer);
+
 	public static void glMakeNamedBufferNonResidentNV(int buffer) {
-		long __functionAddress = GL.getCapabilities().glMakeNamedBufferNonResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buffer);
+		nglMakeNamedBufferNonResidentNV(buffer);
 	}
 
 	// --- [ glIsNamedBufferResidentNV ] ---
 
+	public static native boolean nglIsNamedBufferResidentNV(int buffer);
+
 	public static boolean glIsNamedBufferResidentNV(int buffer) {
-		long __functionAddress = GL.getCapabilities().glIsNamedBufferResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, buffer);
+		return nglIsNamedBufferResidentNV(buffer);
 	}
 
 	// --- [ glGetBufferParameterui64vNV ] ---
 
-	public static void nglGetBufferParameterui64vNV(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetBufferParameterui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetBufferParameterui64vNV(int target, int pname, long params);
 
 	public static void glGetBufferParameterui64vNV(int target, int pname, LongBuffer params) {
 		if ( CHECKS )
@@ -191,12 +182,7 @@ public class NVShaderBufferLoad {
 
 	// --- [ glGetNamedBufferParameterui64vNV ] ---
 
-	public static void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameterui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, pname, params);
-	}
+	public static native void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params);
 
 	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, LongBuffer params) {
 		if ( CHECKS )
@@ -217,12 +203,7 @@ public class NVShaderBufferLoad {
 
 	// --- [ glGetIntegerui64vNV ] ---
 
-	public static void nglGetIntegerui64vNV(int value, long result) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, value, result);
-	}
+	public static native void nglGetIntegerui64vNV(int value, long result);
 
 	public static void glGetIntegerui64vNV(int value, LongBuffer result) {
 		if ( CHECKS )
@@ -243,21 +224,15 @@ public class NVShaderBufferLoad {
 
 	// --- [ glUniformui64NV ] ---
 
+	public static native void nglUniformui64NV(int location, long value);
+
 	public static void glUniformui64NV(int location, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformui64NV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, location, value);
+		nglUniformui64NV(location, value);
 	}
 
 	// --- [ glUniformui64vNV ] ---
 
-	public static void nglUniformui64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniformui64vNV(int location, int count, long value);
 
 	public static void glUniformui64vNV(int location, LongBuffer value) {
 		nglUniformui64vNV(location, value.remaining(), memAddress(value));
@@ -265,12 +240,7 @@ public class NVShaderBufferLoad {
 
 	// --- [ glGetUniformui64vNV ] ---
 
-	public static void nglGetUniformui64vNV(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformui64vNV(int program, int location, long params);
 
 	public static void glGetUniformui64vNV(int program, int location, LongBuffer params) {
 		if ( CHECKS )
@@ -291,21 +261,15 @@ public class NVShaderBufferLoad {
 
 	// --- [ glProgramUniformui64NV ] ---
 
+	public static native void nglProgramUniformui64NV(int program, int location, long value);
+
 	public static void glProgramUniformui64NV(int program, int location, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformui64NV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, program, location, value);
+		nglProgramUniformui64NV(program, location, value);
 	}
 
 	// --- [ glProgramUniformui64vNV ] ---
 
-	public static void nglProgramUniformui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniformui64vNV(int program, int location, int count, long value);
 
 	public static void glProgramUniformui64vNV(int program, int location, LongBuffer value) {
 		nglProgramUniformui64vNV(program, location, value.remaining(), memAddress(value));
@@ -313,7 +277,7 @@ public class NVShaderBufferLoad {
 
 	/** Array version of: {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
 	public static void glGetBufferParameterui64vNV(int target, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetBufferParameterui64vNV;
+		long __functionAddress = GL.getICD().glGetBufferParameterui64vNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -323,7 +287,7 @@ public class NVShaderBufferLoad {
 
 	/** Array version of: {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
 	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameterui64vNV;
+		long __functionAddress = GL.getICD().glGetNamedBufferParameterui64vNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -333,7 +297,7 @@ public class NVShaderBufferLoad {
 
 	/** Array version of: {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
 	public static void glGetIntegerui64vNV(int value, long[] result) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerui64vNV;
+		long __functionAddress = GL.getICD().glGetIntegerui64vNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(result, 1);
@@ -343,7 +307,7 @@ public class NVShaderBufferLoad {
 
 	/** Array version of: {@link #glUniformui64vNV Uniformui64vNV} */
 	public static void glUniformui64vNV(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformui64vNV;
+		long __functionAddress = GL.getICD().glUniformui64vNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -351,7 +315,7 @@ public class NVShaderBufferLoad {
 
 	/** Array version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	public static void glGetUniformui64vNV(int program, int location, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformui64vNV;
+		long __functionAddress = GL.getICD().glGetUniformui64vNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -361,7 +325,7 @@ public class NVShaderBufferLoad {
 
 	/** Array version of: {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
 	public static void glProgramUniformui64vNV(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformui64vNV;
+		long __functionAddress = GL.getICD().glProgramUniformui64vNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);

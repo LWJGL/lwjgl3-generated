@@ -475,6 +475,8 @@ public class GL30 {
 	 */
 	public static final int GL_FRAMEBUFFER_SRGB = 0x8DB9;
 
+	static { GL.initialize(); }
+
 	protected GL30() {
 		throw new UnsupportedOperationException();
 	}
@@ -503,12 +505,7 @@ public class GL30 {
 	// --- [ glGetStringi ] ---
 
 	/** Unsafe version of: {@link #glGetStringi GetStringi} */
-	public static long nglGetStringi(int name, int index) {
-		long __functionAddress = GL.getCapabilities().glGetStringi;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, name, index);
-	}
+	public static native long nglGetStringi(int name, int index);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetStringi.xhtml">OpenGL SDK Reference</a></p>
@@ -526,12 +523,7 @@ public class GL30 {
 	// --- [ glClearBufferiv ] ---
 
 	/** Unsafe version of: {@link #glClearBufferiv ClearBufferiv} */
-	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
-		long __functionAddress = GL.getCapabilities().glClearBufferiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, drawbuffer, value);
-	}
+	public static native void nglClearBufferiv(int buffer, int drawbuffer, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -552,12 +544,7 @@ public class GL30 {
 	// --- [ glClearBufferuiv ] ---
 
 	/** Unsafe version of: {@link #glClearBufferuiv ClearBufferuiv} */
-	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
-		long __functionAddress = GL.getCapabilities().glClearBufferuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, drawbuffer, value);
-	}
+	public static native void nglClearBufferuiv(int buffer, int drawbuffer, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -577,12 +564,7 @@ public class GL30 {
 	// --- [ glClearBufferfv ] ---
 
 	/** Unsafe version of: {@link #glClearBufferfv ClearBufferfv} */
-	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
-		long __functionAddress = GL.getCapabilities().glClearBufferfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, drawbuffer, value);
-	}
+	public static native void nglClearBufferfv(int buffer, int drawbuffer, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -602,6 +584,9 @@ public class GL30 {
 
 	// --- [ glClearBufferfi ] ---
 
+	/** Unsafe version of: {@link #glClearBufferfi ClearBufferfi} */
+	public static native void nglClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferfi.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -613,13 +598,13 @@ public class GL30 {
 	 * @param stencil    the stencil value to clear the buffer to
 	 */
 	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
-		long __functionAddress = GL.getCapabilities().glClearBufferfi;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buffer, drawbuffer, depth, stencil);
+		nglClearBufferfi(buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glVertexAttribI1i ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI1i VertexAttribI1i} */
+	public static native void nglVertexAttribI1i(int index, int x);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1i.xhtml">OpenGL SDK Reference</a></p>
@@ -630,13 +615,13 @@ public class GL30 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1i(int index, int x) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI1i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x);
+		nglVertexAttribI1i(index, x);
 	}
 
 	// --- [ glVertexAttribI2i ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI2i VertexAttribI2i} */
+	public static native void nglVertexAttribI2i(int index, int x, int y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2i.xhtml">OpenGL SDK Reference</a></p>
@@ -648,13 +633,13 @@ public class GL30 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2i(int index, int x, int y) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI2i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y);
+		nglVertexAttribI2i(index, x, y);
 	}
 
 	// --- [ glVertexAttribI3i ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI3i VertexAttribI3i} */
+	public static native void nglVertexAttribI3i(int index, int x, int y, int z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3i.xhtml">OpenGL SDK Reference</a></p>
@@ -667,13 +652,13 @@ public class GL30 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3i(int index, int x, int y, int z) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI3i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z);
+		nglVertexAttribI3i(index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4i ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI4i VertexAttribI4i} */
+	public static native void nglVertexAttribI4i(int index, int x, int y, int z, int w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4i.xhtml">OpenGL SDK Reference</a></p>
@@ -687,13 +672,13 @@ public class GL30 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttribI4i(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1ui ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI1ui VertexAttribI1ui} */
+	public static native void nglVertexAttribI1ui(int index, int x);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1ui.xhtml">OpenGL SDK Reference</a></p>
@@ -704,13 +689,13 @@ public class GL30 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1ui(int index, int x) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI1ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x);
+		nglVertexAttribI1ui(index, x);
 	}
 
 	// --- [ glVertexAttribI2ui ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI2ui VertexAttribI2ui} */
+	public static native void nglVertexAttribI2ui(int index, int x, int y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2ui.xhtml">OpenGL SDK Reference</a></p>
@@ -722,13 +707,13 @@ public class GL30 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2ui(int index, int x, int y) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI2ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y);
+		nglVertexAttribI2ui(index, x, y);
 	}
 
 	// --- [ glVertexAttribI3ui ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI3ui VertexAttribI3ui} */
+	public static native void nglVertexAttribI3ui(int index, int x, int y, int z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3ui.xhtml">OpenGL SDK Reference</a></p>
@@ -741,13 +726,13 @@ public class GL30 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3ui(int index, int x, int y, int z) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI3ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z);
+		nglVertexAttribI3ui(index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4ui ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribI4ui VertexAttribI4ui} */
+	public static native void nglVertexAttribI4ui(int index, int x, int y, int z, int w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ui.xhtml">OpenGL SDK Reference</a></p>
@@ -761,21 +746,13 @@ public class GL30 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttribI4ui(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1iv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI1iv VertexAttribI1iv} */
-	public static void nglVertexAttribI1iv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI1iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI1iv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a></p>
@@ -794,12 +771,7 @@ public class GL30 {
 	// --- [ glVertexAttribI2iv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI2iv VertexAttribI2iv} */
-	public static void nglVertexAttribI2iv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI2iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI2iv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a></p>
@@ -818,12 +790,7 @@ public class GL30 {
 	// --- [ glVertexAttribI3iv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI3iv VertexAttribI3iv} */
-	public static void nglVertexAttribI3iv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI3iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI3iv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a></p>
@@ -842,12 +809,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4iv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI4iv VertexAttribI4iv} */
-	public static void nglVertexAttribI4iv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI4iv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
@@ -866,12 +828,7 @@ public class GL30 {
 	// --- [ glVertexAttribI1uiv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv} */
-	public static void nglVertexAttribI1uiv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI1uiv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a></p>
@@ -890,12 +847,7 @@ public class GL30 {
 	// --- [ glVertexAttribI2uiv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv} */
-	public static void nglVertexAttribI2uiv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI2uiv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a></p>
@@ -914,12 +866,7 @@ public class GL30 {
 	// --- [ glVertexAttribI3uiv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv} */
-	public static void nglVertexAttribI3uiv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI3uiv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a></p>
@@ -938,12 +885,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4uiv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
-	public static void nglVertexAttribI4uiv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI4uiv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
@@ -962,12 +904,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4bv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI4bv VertexAttribI4bv} */
-	public static void nglVertexAttribI4bv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4bv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI4bv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4b.xhtml">OpenGL SDK Reference</a></p>
@@ -986,12 +923,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4sv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI4sv VertexAttribI4sv} */
-	public static void nglVertexAttribI4sv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI4sv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
@@ -1010,12 +942,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4ubv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI4ubv VertexAttribI4ubv} */
-	public static void nglVertexAttribI4ubv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI4ubv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ub.xhtml">OpenGL SDK Reference</a></p>
@@ -1034,12 +961,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4usv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribI4usv VertexAttribI4usv} */
-	public static void nglVertexAttribI4usv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4usv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribI4usv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
@@ -1058,12 +980,7 @@ public class GL30 {
 	// --- [ glVertexAttribIPointer ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
-	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
+	public static native void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
@@ -1136,12 +1053,7 @@ public class GL30 {
 	// --- [ glGetVertexAttribIiv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
-	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribIiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribIiv(int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
@@ -1180,12 +1092,7 @@ public class GL30 {
 	// --- [ glGetVertexAttribIuiv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
-	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribIuiv(int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
@@ -1223,6 +1130,9 @@ public class GL30 {
 
 	// --- [ glUniform1ui ] ---
 
+	/** Unsafe version of: {@link #glUniform1ui Uniform1ui} */
+	public static native void nglUniform1ui(int location, int v0);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1ui.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1232,13 +1142,13 @@ public class GL30 {
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1ui(int location, int v0) {
-		long __functionAddress = GL.getCapabilities().glUniform1ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0);
+		nglUniform1ui(location, v0);
 	}
 
 	// --- [ glUniform2ui ] ---
+
+	/** Unsafe version of: {@link #glUniform2ui Uniform2ui} */
+	public static native void nglUniform2ui(int location, int v0, int v1);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2ui.xhtml">OpenGL SDK Reference</a></p>
@@ -1250,13 +1160,13 @@ public class GL30 {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2ui(int location, int v0, int v1) {
-		long __functionAddress = GL.getCapabilities().glUniform2ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2ui(location, v0, v1);
 	}
 
 	// --- [ glUniform3ui ] ---
+
+	/** Unsafe version of: {@link #glUniform3ui Uniform3ui} */
+	public static native void nglUniform3ui(int location, int v0, int v1, int v2);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3ui.xhtml">OpenGL SDK Reference</a></p>
@@ -1269,13 +1179,13 @@ public class GL30 {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3ui(int location, int v0, int v1, int v2) {
-		long __functionAddress = GL.getCapabilities().glUniform3ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3ui(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4ui ] ---
+
+	/** Unsafe version of: {@link #glUniform4ui Uniform4ui} */
+	public static native void nglUniform4ui(int location, int v0, int v1, int v2, int v3);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4ui.xhtml">OpenGL SDK Reference</a></p>
@@ -1289,10 +1199,7 @@ public class GL30 {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = GL.getCapabilities().glUniform4ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4ui(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1uiv ] ---
@@ -1302,12 +1209,7 @@ public class GL30 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1uiv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1uiv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
@@ -1328,12 +1230,7 @@ public class GL30 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2uiv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2uiv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
@@ -1354,12 +1251,7 @@ public class GL30 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3uiv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3uiv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
@@ -1380,12 +1272,7 @@ public class GL30 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4uiv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4uiv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
@@ -1402,12 +1289,7 @@ public class GL30 {
 	// --- [ glGetUniformuiv ] ---
 
 	/** Unsafe version of: {@link #glGetUniformuiv GetUniformuiv} */
-	public static void nglGetUniformuiv(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformuiv(int program, int location, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1446,12 +1328,7 @@ public class GL30 {
 	// --- [ glBindFragDataLocation ] ---
 
 	/** Unsafe version of: {@link #glBindFragDataLocation BindFragDataLocation} */
-	public static void nglBindFragDataLocation(int program, int colorNumber, long name) {
-		long __functionAddress = GL.getCapabilities().glBindFragDataLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, colorNumber, name);
-	}
+	public static native void nglBindFragDataLocation(int program, int colorNumber, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFragDataLocation.xhtml">OpenGL SDK Reference</a></p>
@@ -1490,12 +1367,7 @@ public class GL30 {
 	// --- [ glGetFragDataLocation ] ---
 
 	/** Unsafe version of: {@link #glGetFragDataLocation GetFragDataLocation} */
-	public static int nglGetFragDataLocation(int program, long name) {
-		long __functionAddress = GL.getCapabilities().glGetFragDataLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetFragDataLocation(int program, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFragDataLocation.xhtml">OpenGL SDK Reference</a></p>
@@ -1531,6 +1403,9 @@ public class GL30 {
 
 	// --- [ glBeginConditionalRender ] ---
 
+	/** Unsafe version of: {@link #glBeginConditionalRender BeginConditionalRender} */
+	public static native void nglBeginConditionalRender(int id, int mode);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1540,13 +1415,13 @@ public class GL30 {
 	 * @param mode how {@code glBeginConditionalRender} interprets the results of the occlusion query. One of:<br><table><tr><td>{@link #GL_QUERY_WAIT QUERY_WAIT}</td><td>{@link #GL_QUERY_NO_WAIT QUERY_NO_WAIT}</td><td>{@link #GL_QUERY_BY_REGION_WAIT QUERY_BY_REGION_WAIT}</td></tr><tr><td>{@link #GL_QUERY_BY_REGION_NO_WAIT QUERY_BY_REGION_NO_WAIT}</td><td>{@link GL45#GL_QUERY_WAIT_INVERTED QUERY_WAIT_INVERTED}</td><td>{@link GL45#GL_QUERY_NO_WAIT_INVERTED QUERY_NO_WAIT_INVERTED}</td></tr><tr><td>{@link GL45#GL_QUERY_BY_REGION_WAIT_INVERTED QUERY_BY_REGION_WAIT_INVERTED}</td><td>{@link GL45#GL_QUERY_BY_REGION_NO_WAIT_INVERTED QUERY_BY_REGION_NO_WAIT_INVERTED}</td></tr></table>
 	 */
 	public static void glBeginConditionalRender(int id, int mode) {
-		long __functionAddress = GL.getCapabilities().glBeginConditionalRender;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, id, mode);
+		nglBeginConditionalRender(id, mode);
 	}
 
 	// --- [ glEndConditionalRender ] ---
+
+	/** Unsafe version of: {@link #glEndConditionalRender EndConditionalRender} */
+	public static native void nglEndConditionalRender();
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
@@ -1554,21 +1429,13 @@ public class GL30 {
 	 * Ends conditional rendering.
 	 */
 	public static void glEndConditionalRender() {
-		long __functionAddress = GL.getCapabilities().glEndConditionalRender;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglEndConditionalRender();
 	}
 
 	// --- [ glMapBufferRange ] ---
 
 	/** Unsafe version of: {@link #glMapBufferRange MapBufferRange} */
-	public static long nglMapBufferRange(int target, long offset, long length, int access) {
-		long __functionAddress = GL.getCapabilities().glMapBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPP(__functionAddress, target, offset, length, access);
-	}
+	public static native long nglMapBufferRange(int target, long offset, long length, int access);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapBufferRange.xhtml">OpenGL SDK Reference</a></p>
@@ -1616,6 +1483,9 @@ public class GL30 {
 
 	// --- [ glFlushMappedBufferRange ] ---
 
+	/** Unsafe version of: {@link #glFlushMappedBufferRange FlushMappedBufferRange} */
+	public static native void nglFlushMappedBufferRange(int target, long offset, long length);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedBufferRange.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1626,13 +1496,13 @@ public class GL30 {
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		long __functionAddress = GL.getCapabilities().glFlushMappedBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, offset, length);
+		nglFlushMappedBufferRange(target, offset, length);
 	}
 
 	// --- [ glClampColor ] ---
+
+	/** Unsafe version of: {@link #glClampColor ClampColor} */
+	public static native void nglClampColor(int target, int clamp);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClampColor.xhtml">OpenGL SDK Reference</a></p>
@@ -1643,13 +1513,13 @@ public class GL30 {
 	 * @param clamp  whether to apply color clamping. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td><td>{@link #GL_FIXED_ONLY FIXED_ONLY}</td></tr></table>
 	 */
 	public static void glClampColor(int target, int clamp) {
-		long __functionAddress = GL.getCapabilities().glClampColor;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, clamp);
+		nglClampColor(target, clamp);
 	}
 
 	// --- [ glIsRenderbuffer ] ---
+
+	/** Unsafe version of: {@link #glIsRenderbuffer IsRenderbuffer} */
+	public static native boolean nglIsRenderbuffer(int renderbuffer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -1659,13 +1529,13 @@ public class GL30 {
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glIsRenderbuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, renderbuffer);
+		return nglIsRenderbuffer(renderbuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
+
+	/** Unsafe version of: {@link #glBindRenderbuffer BindRenderbuffer} */
+	public static native void nglBindRenderbuffer(int target, int renderbuffer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -1676,10 +1546,7 @@ public class GL30 {
 	 * @param renderbuffer the name of the renderbuffer object to bind
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glBindRenderbuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, renderbuffer);
+		nglBindRenderbuffer(target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
@@ -1689,12 +1556,7 @@ public class GL30 {
 	 *
 	 * @param n the number of renderbuffer objects to be deleted
 	 */
-	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, renderbuffers);
-	}
+	public static native void nglDeleteRenderbuffers(int n, long renderbuffers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
@@ -1729,12 +1591,7 @@ public class GL30 {
 	 *
 	 * @param n the number of renderbuffer object names to generate
 	 */
-	public static void nglGenRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, renderbuffers);
-	}
+	public static native void nglGenRenderbuffers(int n, long renderbuffers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
@@ -1765,6 +1622,9 @@ public class GL30 {
 
 	// --- [ glRenderbufferStorage ] ---
 
+	/** Unsafe version of: {@link #glRenderbufferStorage RenderbufferStorage} */
+	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1776,13 +1636,13 @@ public class GL30 {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glRenderbufferStorage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, width, height);
+		nglRenderbufferStorage(target, internalformat, width, height);
 	}
 
 	// --- [ glRenderbufferStorageMultisample ] ---
+
+	/** Unsafe version of: {@link #glRenderbufferStorageMultisample RenderbufferStorageMultisample} */
+	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
@@ -1798,21 +1658,13 @@ public class GL30 {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height);
+		nglRenderbufferStorageMultisample(target, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
-	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetRenderbufferParameteriv(int target, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
@@ -1850,6 +1702,9 @@ public class GL30 {
 
 	// --- [ glIsFramebuffer ] ---
 
+	/** Unsafe version of: {@link #glIsFramebuffer IsFramebuffer} */
+	public static native boolean nglIsFramebuffer(int framebuffer);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsFramebuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1858,13 +1713,13 @@ public class GL30 {
 	 * @param framebuffer a value that may be the name of a framebuffer object
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
-		long __functionAddress = GL.getCapabilities().glIsFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, framebuffer);
+		return nglIsFramebuffer(framebuffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
+
+	/** Unsafe version of: {@link #glBindFramebuffer BindFramebuffer} */
+	public static native void nglBindFramebuffer(int target, int framebuffer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFramebuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -1875,10 +1730,7 @@ public class GL30 {
 	 * @param framebuffer the name of the framebuffer object to bind
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
-		long __functionAddress = GL.getCapabilities().glBindFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, framebuffer);
+		nglBindFramebuffer(target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffers ] ---
@@ -1888,12 +1740,7 @@ public class GL30 {
 	 *
 	 * @param n the number of framebuffer objects to be deleted
 	 */
-	public static void nglDeleteFramebuffers(int n, long framebuffers) {
-		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, framebuffers);
-	}
+	public static native void nglDeleteFramebuffers(int n, long framebuffers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteFramebuffers.xhtml">OpenGL SDK Reference</a></p>
@@ -1928,12 +1775,7 @@ public class GL30 {
 	 *
 	 * @param n the number of framebuffer object names to generate
 	 */
-	public static void nglGenFramebuffers(int n, long framebuffers) {
-		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, framebuffers);
-	}
+	public static native void nglGenFramebuffers(int n, long framebuffers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenFramebuffers.xhtml">OpenGL SDK Reference</a></p>
@@ -1964,6 +1806,9 @@ public class GL30 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
+	/** Unsafe version of: {@link #glCheckFramebufferStatus CheckFramebufferStatus} */
+	public static native int nglCheckFramebufferStatus(int target);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCheckFramebufferStatus.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1972,13 +1817,13 @@ public class GL30 {
 	 * @param target the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 */
 	public static int glCheckFramebufferStatus(int target) {
-		long __functionAddress = GL.getCapabilities().glCheckFramebufferStatus;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, target);
+		return nglCheckFramebufferStatus(target);
 	}
 
 	// --- [ glFramebufferTexture1D ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTexture1D FramebufferTexture1D} */
+	public static native void nglFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture1D.xhtml">OpenGL SDK Reference</a></p>
@@ -1992,13 +1837,13 @@ public class GL30 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTexture1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, textarget, texture, level);
+		nglFramebufferTexture1D(target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTexture2D FramebufferTexture2D} */
+	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture2D.xhtml">OpenGL SDK Reference</a></p>
@@ -2012,13 +1857,13 @@ public class GL30 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTexture2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, textarget, texture, level);
+		nglFramebufferTexture2D(target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3D ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTexture3D FramebufferTexture3D} */
+	public static native void nglFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture3D.xhtml">OpenGL SDK Reference</a></p>
@@ -2033,13 +1878,13 @@ public class GL30 {
 	 * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTexture3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, textarget, texture, level, layer);
+		nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureLayer ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTextureLayer FramebufferTextureLayer} */
+	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a></p>
@@ -2053,13 +1898,13 @@ public class GL30 {
 	 * @param layer      the layer of {@code texture} to attach.
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, layer);
+		nglFramebufferTextureLayer(target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
+
+	/** Unsafe version of: {@link #glFramebufferRenderbuffer FramebufferRenderbuffer} */
+	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -2072,21 +1917,13 @@ public class GL30 {
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glFramebufferRenderbuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
+		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
-	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, attachment, pname, params);
-	}
+	public static native void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
@@ -2126,6 +1963,9 @@ public class GL30 {
 
 	// --- [ glBlitFramebuffer ] ---
 
+	/** Unsafe version of: {@link #glBlitFramebuffer BlitFramebuffer} */
+	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlitFramebuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2143,13 +1983,13 @@ public class GL30 {
 	 * @param filter the interpolation to be applied if the image is stretched. One of:<br><table><tr><td>{@link GL11#GL_NEAREST NEAREST}</td><td>{@link GL11#GL_LINEAR LINEAR}</td></tr></table>
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = GL.getCapabilities().glBlitFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glGenerateMipmap ] ---
+
+	/** Unsafe version of: {@link #glGenerateMipmap GenerateMipmap} */
+	public static native void nglGenerateMipmap(int target);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenerateMipmap.xhtml">OpenGL SDK Reference</a></p>
@@ -2159,21 +1999,13 @@ public class GL30 {
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link #GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link #GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr></table>
 	 */
 	public static void glGenerateMipmap(int target) {
-		long __functionAddress = GL.getCapabilities().glGenerateMipmap;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglGenerateMipmap(target);
 	}
 
 	// --- [ glTexParameterIiv ] ---
 
 	/** Unsafe version of: {@link #glTexParameterIiv TexParameterIiv} */
-	public static void nglTexParameterIiv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTexParameterIiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglTexParameterIiv(int target, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
@@ -2211,12 +2043,7 @@ public class GL30 {
 	// --- [ glTexParameterIuiv ] ---
 
 	/** Unsafe version of: {@link #glTexParameterIuiv TexParameterIuiv} */
-	public static void nglTexParameterIuiv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTexParameterIuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglTexParameterIuiv(int target, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
@@ -2254,12 +2081,7 @@ public class GL30 {
 	// --- [ glGetTexParameterIiv ] ---
 
 	/** Unsafe version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
-	public static void nglGetTexParameterIiv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTexParameterIiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetTexParameterIiv(int target, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
@@ -2298,12 +2120,7 @@ public class GL30 {
 	// --- [ glGetTexParameterIuiv ] ---
 
 	/** Unsafe version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
-	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTexParameterIuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetTexParameterIuiv(int target, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
@@ -2341,6 +2158,9 @@ public class GL30 {
 
 	// --- [ glColorMaski ] ---
 
+	/** Unsafe version of: {@link #glColorMaski ColorMaski} */
+	public static native void nglColorMaski(int buf, boolean r, boolean g, boolean b, boolean a);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorMaski.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2353,21 +2173,13 @@ public class GL30 {
 	 * @param a   whether A values are written or not
 	 */
 	public static void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = GL.getCapabilities().glColorMaski;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, r, g, b, a);
+		nglColorMaski(buf, r, g, b, a);
 	}
 
 	// --- [ glGetBooleani_v ] ---
 
 	/** Unsafe version of: {@link #glGetBooleani_v GetBooleani_v} */
-	public static void nglGetBooleani_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetBooleani_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetBooleani_v(int target, int index, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
@@ -2406,12 +2218,7 @@ public class GL30 {
 	// --- [ glGetIntegeri_v ] ---
 
 	/** Unsafe version of: {@link #glGetIntegeri_v GetIntegeri_v} */
-	public static void nglGetIntegeri_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetIntegeri_v(int target, int index, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
@@ -2449,6 +2256,9 @@ public class GL30 {
 
 	// --- [ glEnablei ] ---
 
+	/** Unsafe version of: {@link #glEnablei Enablei} */
+	public static native void nglEnablei(int cap, int index);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnablei.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2458,13 +2268,13 @@ public class GL30 {
 	 * @param index the index to enable
 	 */
 	public static void glEnablei(int cap, int index) {
-		long __functionAddress = GL.getCapabilities().glEnablei;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, cap, index);
+		nglEnablei(cap, index);
 	}
 
 	// --- [ glDisablei ] ---
+
+	/** Unsafe version of: {@link #glDisablei Disablei} */
+	public static native void nglDisablei(int target, int index);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDisablei.xhtml">OpenGL SDK Reference</a></p>
@@ -2475,13 +2285,13 @@ public class GL30 {
 	 * @param index  the index to disable
 	 */
 	public static void glDisablei(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glDisablei;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglDisablei(target, index);
 	}
 
 	// --- [ glIsEnabledi ] ---
+
+	/** Unsafe version of: {@link #glIsEnabledi IsEnabledi} */
+	public static native boolean nglIsEnabledi(int target, int index);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabledi.xhtml">OpenGL SDK Reference</a></p>
@@ -2492,13 +2302,13 @@ public class GL30 {
 	 * @param index  the index to query
 	 */
 	public static boolean glIsEnabledi(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glIsEnabledi;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target, index);
+		return nglIsEnabledi(target, index);
 	}
 
 	// --- [ glBindBufferRange ] ---
+
+	/** Unsafe version of: {@link #glBindBufferRange BindBufferRange} */
+	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferRange.xhtml">OpenGL SDK Reference</a></p>
@@ -2512,13 +2322,13 @@ public class GL30 {
 	 * @param size   the amount of data in machine units that can be read from the buffer object while used as an indexed target
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glBindBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, index, buffer, offset, size);
+		nglBindBufferRange(target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
+
+	/** Unsafe version of: {@link #glBindBufferBase BindBufferBase} */
+	public static native void nglBindBufferBase(int target, int index, int buffer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferBase.xhtml">OpenGL SDK Reference</a></p>
@@ -2530,13 +2340,13 @@ public class GL30 {
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
-		long __functionAddress = GL.getCapabilities().glBindBufferBase;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index, buffer);
+		nglBindBufferBase(target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedback ] ---
+
+	/** Unsafe version of: {@link #glBeginTransformFeedback BeginTransformFeedback} */
+	public static native void nglBeginTransformFeedback(int primitiveMode);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -2546,13 +2356,13 @@ public class GL30 {
 	 * @param primitiveMode the output type of the primitives that will be recorded into the buffer objects that are bound for transform feedback. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td></tr></table>
 	 */
 	public static void glBeginTransformFeedback(int primitiveMode) {
-		long __functionAddress = GL.getCapabilities().glBeginTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, primitiveMode);
+		nglBeginTransformFeedback(primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedback ] ---
+
+	/** Unsafe version of: {@link #glEndTransformFeedback EndTransformFeedback} */
+	public static native void nglEndTransformFeedback();
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -2560,10 +2370,7 @@ public class GL30 {
 	 * Ends transform feedback operation.
 	 */
 	public static void glEndTransformFeedback() {
-		long __functionAddress = GL.getCapabilities().glEndTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglEndTransformFeedback();
 	}
 
 	// --- [ glTransformFeedbackVaryings ] ---
@@ -2573,12 +2380,7 @@ public class GL30 {
 	 *
 	 * @param count the number of varying variables used for transform feedback
 	 */
-	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
-		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryings;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, count, varyings, bufferMode);
-	}
+	public static native void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackVaryings.xhtml">OpenGL SDK Reference</a></p>
@@ -2639,12 +2441,7 @@ public class GL30 {
 	 *
 	 * @param bufSize the maximum number of characters, including the null terminator, that may be written into {@code name}
 	 */
-	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
-	}
+	public static native void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a></p>
@@ -2723,6 +2520,9 @@ public class GL30 {
 
 	// --- [ glBindVertexArray ] ---
 
+	/** Unsafe version of: {@link #glBindVertexArray BindVertexArray} */
+	public static native void nglBindVertexArray(int array);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexArray.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2731,10 +2531,7 @@ public class GL30 {
 	 * @param array the name of the vertex array to bind
 	 */
 	public static void glBindVertexArray(int array) {
-		long __functionAddress = GL.getCapabilities().glBindVertexArray;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array);
+		nglBindVertexArray(array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -2744,12 +2541,7 @@ public class GL30 {
 	 *
 	 * @param n the number of vertex array objects to be deleted
 	 */
-	public static void nglDeleteVertexArrays(int n, long arrays) {
-		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglDeleteVertexArrays(int n, long arrays);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteVertexArrays.xhtml">OpenGL SDK Reference</a></p>
@@ -2784,12 +2576,7 @@ public class GL30 {
 	 *
 	 * @param n the number of vertex array object names to generate
 	 */
-	public static void nglGenVertexArrays(int n, long arrays) {
-		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglGenVertexArrays(int n, long arrays);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenVertexArrays.xhtml">OpenGL SDK Reference</a></p>
@@ -2820,6 +2607,9 @@ public class GL30 {
 
 	// --- [ glIsVertexArray ] ---
 
+	/** Unsafe version of: {@link #glIsVertexArray IsVertexArray} */
+	public static native boolean nglIsVertexArray(int array);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsVertexArray.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2828,10 +2618,7 @@ public class GL30 {
 	 * @param array a value that may be the name of a vertex array object
 	 */
 	public static boolean glIsVertexArray(int array) {
-		long __functionAddress = GL.getCapabilities().glIsVertexArray;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, array);
+		return nglIsVertexArray(array);
 	}
 
 	/**
@@ -2840,7 +2627,7 @@ public class GL30 {
 	 * Array version of: {@link #glClearBufferiv ClearBufferiv}
 	 */
 	public static void glClearBufferiv(int buffer, int drawbuffer, int[] value) {
-		long __functionAddress = GL.getCapabilities().glClearBufferiv;
+		long __functionAddress = GL.getICD().glClearBufferiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -2854,7 +2641,7 @@ public class GL30 {
 	 * Array version of: {@link #glClearBufferuiv ClearBufferuiv}
 	 */
 	public static void glClearBufferuiv(int buffer, int drawbuffer, int[] value) {
-		long __functionAddress = GL.getCapabilities().glClearBufferuiv;
+		long __functionAddress = GL.getICD().glClearBufferuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 4);
@@ -2868,7 +2655,7 @@ public class GL30 {
 	 * Array version of: {@link #glClearBufferfv ClearBufferfv}
 	 */
 	public static void glClearBufferfv(int buffer, int drawbuffer, float[] value) {
-		long __functionAddress = GL.getCapabilities().glClearBufferfv;
+		long __functionAddress = GL.getICD().glClearBufferfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -2882,7 +2669,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI1iv VertexAttribI1iv}
 	 */
 	public static void glVertexAttribI1iv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI1iv;
+		long __functionAddress = GL.getICD().glVertexAttribI1iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -2896,7 +2683,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI2iv VertexAttribI2iv}
 	 */
 	public static void glVertexAttribI2iv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI2iv;
+		long __functionAddress = GL.getICD().glVertexAttribI2iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -2910,7 +2697,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI3iv VertexAttribI3iv}
 	 */
 	public static void glVertexAttribI3iv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI3iv;
+		long __functionAddress = GL.getICD().glVertexAttribI3iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -2924,7 +2711,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI4iv VertexAttribI4iv}
 	 */
 	public static void glVertexAttribI4iv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4iv;
+		long __functionAddress = GL.getICD().glVertexAttribI4iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -2938,7 +2725,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv}
 	 */
 	public static void glVertexAttribI1uiv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiv;
+		long __functionAddress = GL.getICD().glVertexAttribI1uiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -2952,7 +2739,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv}
 	 */
 	public static void glVertexAttribI2uiv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiv;
+		long __functionAddress = GL.getICD().glVertexAttribI2uiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -2966,7 +2753,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv}
 	 */
 	public static void glVertexAttribI3uiv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiv;
+		long __functionAddress = GL.getICD().glVertexAttribI3uiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -2980,7 +2767,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv}
 	 */
 	public static void glVertexAttribI4uiv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiv;
+		long __functionAddress = GL.getICD().glVertexAttribI4uiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -2994,7 +2781,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI4sv VertexAttribI4sv}
 	 */
 	public static void glVertexAttribI4sv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4sv;
+		long __functionAddress = GL.getICD().glVertexAttribI4sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3008,7 +2795,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribI4usv VertexAttribI4usv}
 	 */
 	public static void glVertexAttribI4usv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribI4usv;
+		long __functionAddress = GL.getICD().glVertexAttribI4usv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3022,7 +2809,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
+		long __functionAddress = GL.getICD().glVertexAttribIPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, stride, pointer);
@@ -3034,7 +2821,7 @@ public class GL30 {
 	 * Array version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
+		long __functionAddress = GL.getICD().glVertexAttribIPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, stride, pointer);
@@ -3046,7 +2833,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv}
 	 */
 	public static void glGetVertexAttribIiv(int index, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribIiv;
+		long __functionAddress = GL.getICD().glGetVertexAttribIiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -3060,7 +2847,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv}
 	 */
 	public static void glGetVertexAttribIuiv(int index, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuiv;
+		long __functionAddress = GL.getICD().glGetVertexAttribIuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -3074,7 +2861,7 @@ public class GL30 {
 	 * Array version of: {@link #glUniform1uiv Uniform1uiv}
 	 */
 	public static void glUniform1uiv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1uiv;
+		long __functionAddress = GL.getICD().glUniform1uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -3086,7 +2873,7 @@ public class GL30 {
 	 * Array version of: {@link #glUniform2uiv Uniform2uiv}
 	 */
 	public static void glUniform2uiv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2uiv;
+		long __functionAddress = GL.getICD().glUniform2uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -3098,7 +2885,7 @@ public class GL30 {
 	 * Array version of: {@link #glUniform3uiv Uniform3uiv}
 	 */
 	public static void glUniform3uiv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3uiv;
+		long __functionAddress = GL.getICD().glUniform3uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -3110,7 +2897,7 @@ public class GL30 {
 	 * Array version of: {@link #glUniform4uiv Uniform4uiv}
 	 */
 	public static void glUniform4uiv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4uiv;
+		long __functionAddress = GL.getICD().glUniform4uiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -3122,7 +2909,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetUniformuiv GetUniformuiv}
 	 */
 	public static void glGetUniformuiv(int program, int location, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformuiv;
+		long __functionAddress = GL.getICD().glGetUniformuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3136,7 +2923,7 @@ public class GL30 {
 	 * Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers}
 	 */
 	public static void glDeleteRenderbuffers(int[] renderbuffers) {
-		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
+		long __functionAddress = GL.getICD().glDeleteRenderbuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
@@ -3148,7 +2935,7 @@ public class GL30 {
 	 * Array version of: {@link #glGenRenderbuffers GenRenderbuffers}
 	 */
 	public static void glGenRenderbuffers(int[] renderbuffers) {
-		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
+		long __functionAddress = GL.getICD().glGenRenderbuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
@@ -3160,7 +2947,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv}
 	 */
 	public static void glGetRenderbufferParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
+		long __functionAddress = GL.getICD().glGetRenderbufferParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3174,7 +2961,7 @@ public class GL30 {
 	 * Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers}
 	 */
 	public static void glDeleteFramebuffers(int[] framebuffers) {
-		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
+		long __functionAddress = GL.getICD().glDeleteFramebuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
@@ -3186,7 +2973,7 @@ public class GL30 {
 	 * Array version of: {@link #glGenFramebuffers GenFramebuffers}
 	 */
 	public static void glGenFramebuffers(int[] framebuffers) {
-		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
+		long __functionAddress = GL.getICD().glGenFramebuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
@@ -3198,7 +2985,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}
 	 */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
+		long __functionAddress = GL.getICD().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3212,7 +2999,7 @@ public class GL30 {
 	 * Array version of: {@link #glTexParameterIiv TexParameterIiv}
 	 */
 	public static void glTexParameterIiv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTexParameterIiv;
+		long __functionAddress = GL.getICD().glTexParameterIiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3226,7 +3013,7 @@ public class GL30 {
 	 * Array version of: {@link #glTexParameterIuiv TexParameterIuiv}
 	 */
 	public static void glTexParameterIuiv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTexParameterIuiv;
+		long __functionAddress = GL.getICD().glTexParameterIuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3240,7 +3027,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetTexParameterIiv GetTexParameterIiv}
 	 */
 	public static void glGetTexParameterIiv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTexParameterIiv;
+		long __functionAddress = GL.getICD().glGetTexParameterIiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3254,7 +3041,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv}
 	 */
 	public static void glGetTexParameterIuiv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTexParameterIuiv;
+		long __functionAddress = GL.getICD().glGetTexParameterIuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3268,7 +3055,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetIntegeri_v GetIntegeri_v}
 	 */
 	public static void glGetIntegeri_v(int target, int index, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
+		long __functionAddress = GL.getICD().glGetIntegeri_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);
@@ -3282,7 +3069,7 @@ public class GL30 {
 	 * Array version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying}
 	 */
 	public static void glGetTransformFeedbackVarying(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
+		long __functionAddress = GL.getICD().glGetTransformFeedbackVarying;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3298,7 +3085,7 @@ public class GL30 {
 	 * Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
 	 */
 	public static void glDeleteVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
+		long __functionAddress = GL.getICD().glDeleteVertexArrays;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);
@@ -3310,7 +3097,7 @@ public class GL30 {
 	 * Array version of: {@link #glGenVertexArrays GenVertexArrays}
 	 */
 	public static void glGenVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
+		long __functionAddress = GL.getICD().glGenVertexArrays;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);

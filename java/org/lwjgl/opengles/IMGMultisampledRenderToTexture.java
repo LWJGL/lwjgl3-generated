@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/IMG/IMG_multisampled_render_to_texture.txt">IMG_multisampled_render_to_texture</a> extension.
@@ -42,6 +41,8 @@ public class IMGMultisampledRenderToTexture {
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int GL_TEXTURE_SAMPLES_IMG = 0x9136;
 
+	static { GLES.initialize(); }
+
 	protected IMGMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -54,20 +55,18 @@ public class IMGMultisampledRenderToTexture {
 
 	// --- [ glRenderbufferStorageMultisampleIMG ] ---
 
+	public static native void nglRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
+
 	public static void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleIMG;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height);
+		nglRenderbufferStorageMultisampleIMG(target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
+	public static native void nglFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples);
+
 	public static void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DMultisampleIMG;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, textarget, texture, level, samples);
+		nglFramebufferTexture2DMultisampleIMG(target, attachment, textarget, texture, level, samples);
 	}
 
 }

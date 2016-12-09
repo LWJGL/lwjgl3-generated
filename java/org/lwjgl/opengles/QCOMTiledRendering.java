@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_tiled_rendering.txt">QCOM_tiled_rendering</a> extension.
@@ -89,6 +88,8 @@ public class QCOMTiledRendering {
 		GL_MULTISAMPLE_BUFFER_BIT6_QCOM = 0x40000000,
 		GL_MULTISAMPLE_BUFFER_BIT7_QCOM = 0x80000000;
 
+	static { GLES.initialize(); }
+
 	protected QCOMTiledRendering() {
 		throw new UnsupportedOperationException();
 	}
@@ -101,20 +102,18 @@ public class QCOMTiledRendering {
 
 	// --- [ glStartTilingQCOM ] ---
 
+	public static native void nglStartTilingQCOM(int x, int y, int width, int height, int preserveMask);
+
 	public static void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask) {
-		long __functionAddress = GLES.getCapabilities().glStartTilingQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, width, height, preserveMask);
+		nglStartTilingQCOM(x, y, width, height, preserveMask);
 	}
 
 	// --- [ glEndTilingQCOM ] ---
 
+	public static native void nglEndTilingQCOM(int preserveMask);
+
 	public static void glEndTilingQCOM(int preserveMask) {
-		long __functionAddress = GLES.getCapabilities().glEndTilingQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, preserveMask);
+		nglEndTilingQCOM(preserveMask);
 	}
 
 }

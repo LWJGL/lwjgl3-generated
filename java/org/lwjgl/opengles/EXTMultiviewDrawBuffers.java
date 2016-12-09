@@ -49,6 +49,8 @@ public class EXTMultiviewDrawBuffers {
 	/** Accepted by the {@code target} parameter of GetInteger. */
 	public static final int GL_MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
 
+	static { GLES.initialize(); }
+
 	protected EXTMultiviewDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
@@ -61,21 +63,15 @@ public class EXTMultiviewDrawBuffers {
 
 	// --- [ glReadBufferIndexedEXT ] ---
 
+	public static native void nglReadBufferIndexedEXT(int src, int index);
+
 	public static void glReadBufferIndexedEXT(int src, int index) {
-		long __functionAddress = GLES.getCapabilities().glReadBufferIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, src, index);
+		nglReadBufferIndexedEXT(src, index);
 	}
 
 	// --- [ glDrawBuffersIndexedEXT ] ---
 
-	public static void nglDrawBuffersIndexedEXT(int n, long location, long indices) {
-		long __functionAddress = GLES.getCapabilities().glDrawBuffersIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, n, location, indices);
-	}
+	public static native void nglDrawBuffersIndexedEXT(int n, long location, long indices);
 
 	public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
 		if ( CHECKS )
@@ -85,12 +81,7 @@ public class EXTMultiviewDrawBuffers {
 
 	// --- [ glGetIntegeri_vEXT ] ---
 
-	public static void nglGetIntegeri_vEXT(int target, int index, long data) {
-		long __functionAddress = GLES.getCapabilities().glGetIntegeri_vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetIntegeri_vEXT(int target, int index, long data);
 
 	public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
 		if ( CHECKS )
@@ -111,7 +102,7 @@ public class EXTMultiviewDrawBuffers {
 
 	/** Array version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
 	public static void glDrawBuffersIndexedEXT(int[] location, int[] indices) {
-		long __functionAddress = GLES.getCapabilities().glDrawBuffersIndexedEXT;
+		long __functionAddress = GLES.getICD().glDrawBuffersIndexedEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indices, location.length);
@@ -121,7 +112,7 @@ public class EXTMultiviewDrawBuffers {
 
 	/** Array version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static void glGetIntegeri_vEXT(int target, int index, int[] data) {
-		long __functionAddress = GLES.getCapabilities().glGetIntegeri_vEXT;
+		long __functionAddress = GLES.getICD().glGetIntegeri_vEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);

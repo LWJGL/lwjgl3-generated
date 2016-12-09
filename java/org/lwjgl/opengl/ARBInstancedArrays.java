@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/instanced_arrays.txt">ARB_instanced_arrays</a> extension.
@@ -33,6 +32,8 @@ public class ARBInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
 
+	static { GL.initialize(); }
+
 	protected ARBInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,6 +46,9 @@ public class ARBInstancedArrays {
 
 	// --- [ glVertexAttribDivisorARB ] ---
 
+	/** Unsafe version of: {@link #glVertexAttribDivisorARB VertexAttribDivisorARB} */
+	public static native void nglVertexAttribDivisorARB(int index, int divisor);
+
 	/**
 	 * Modifies the rate at which generic vertex attributes advance when rendering multiple instances of primitives in a single draw call. If {@code divisor}
 	 * is zero, the attribute at slot {@code index} advances once per vertex. If {@code divisor} is non-zero, the attribute advances once per {@code divisor}
@@ -54,13 +58,13 @@ public class ARBInstancedArrays {
 	 * @param divisor the divisor value
 	 */
 	public static void glVertexAttribDivisorARB(int index, int divisor) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribDivisorARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, divisor);
+		nglVertexAttribDivisorARB(index, divisor);
 	}
 
 	// --- [ glVertexArrayVertexAttribDivisorEXT ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayVertexAttribDivisorEXT VertexArrayVertexAttribDivisorEXT} */
+	public static native void nglVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor);
 
 	/**
 	 * <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
@@ -77,10 +81,7 @@ if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArra
 	 * @param divisor the divisor value
 	 */
 	public static void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribDivisorEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, index, divisor);
+		nglVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor);
 	}
 
 }

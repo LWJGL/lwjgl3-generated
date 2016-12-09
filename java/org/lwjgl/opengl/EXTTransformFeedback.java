@@ -85,6 +85,8 @@ public class EXTTransformFeedback {
 		GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT        = 0x8C7F,
 		GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT = 0x8C76;
 
+	static { GL.initialize(); }
+
 	protected EXTTransformFeedback() {
 		throw new UnsupportedOperationException();
 	}
@@ -98,57 +100,47 @@ public class EXTTransformFeedback {
 
 	// --- [ glBindBufferRangeEXT ] ---
 
+	public static native void nglBindBufferRangeEXT(int target, int index, int buffer, long offset, long size);
+
 	public static void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glBindBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, index, buffer, offset, size);
+		nglBindBufferRangeEXT(target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferOffsetEXT ] ---
 
+	public static native void nglBindBufferOffsetEXT(int target, int index, int buffer, long offset);
+
 	public static void glBindBufferOffsetEXT(int target, int index, int buffer, long offset) {
-		long __functionAddress = GL.getCapabilities().glBindBufferOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, buffer, offset);
+		nglBindBufferOffsetEXT(target, index, buffer, offset);
 	}
 
 	// --- [ glBindBufferBaseEXT ] ---
 
+	public static native void nglBindBufferBaseEXT(int target, int index, int buffer);
+
 	public static void glBindBufferBaseEXT(int target, int index, int buffer) {
-		long __functionAddress = GL.getCapabilities().glBindBufferBaseEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index, buffer);
+		nglBindBufferBaseEXT(target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedbackEXT ] ---
 
+	public static native void nglBeginTransformFeedbackEXT(int primitiveMode);
+
 	public static void glBeginTransformFeedbackEXT(int primitiveMode) {
-		long __functionAddress = GL.getCapabilities().glBeginTransformFeedbackEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, primitiveMode);
+		nglBeginTransformFeedbackEXT(primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedbackEXT ] ---
 
+	public static native void nglEndTransformFeedbackEXT();
+
 	public static void glEndTransformFeedbackEXT() {
-		long __functionAddress = GL.getCapabilities().glEndTransformFeedbackEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglEndTransformFeedbackEXT();
 	}
 
 	// --- [ glTransformFeedbackVaryingsEXT ] ---
 
-	public static void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode) {
-		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryingsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, count, varyings, bufferMode);
-	}
+	public static native void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode);
 
 	public static void glTransformFeedbackVaryingsEXT(int program, PointerBuffer varyings, int bufferMode) {
 		nglTransformFeedbackVaryingsEXT(program, varyings.remaining(), memAddress(varyings), bufferMode);
@@ -178,12 +170,7 @@ public class EXTTransformFeedback {
 
 	// --- [ glGetTransformFeedbackVaryingEXT ] ---
 
-	public static void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
-	}
+	public static native void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name);
 
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
@@ -231,12 +218,7 @@ public class EXTTransformFeedback {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, param, index, values);
-	}
+	public static native void nglGetIntegerIndexedvEXT(int param, int index, long values);
 
 	public static void glGetIntegerIndexedvEXT(int param, int index, IntBuffer values) {
 		if ( CHECKS )
@@ -257,12 +239,7 @@ public class EXTTransformFeedback {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
-		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, param, index, values);
-	}
+	public static native void nglGetBooleanIndexedvEXT(int param, int index, long values);
 
 	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {
 		if ( CHECKS )
@@ -283,7 +260,7 @@ public class EXTTransformFeedback {
 
 	/** Array version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingEXT;
+		long __functionAddress = GL.getICD().glGetTransformFeedbackVaryingEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -295,7 +272,7 @@ public class EXTTransformFeedback {
 
 	/** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int param, int index, int[] values) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
+		long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(values, 1);

@@ -52,6 +52,8 @@ public class ARBMatrixPalette {
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
 	public static final int GL_MATRIX_INDEX_ARRAY_POINTER_ARB = 0x8849;
 
+	static { GL.initialize(); }
+
 	protected ARBMatrixPalette() {
 		throw new UnsupportedOperationException();
 	}
@@ -64,16 +66,16 @@ public class ARBMatrixPalette {
 
 	// --- [ glCurrentPaletteMatrixARB ] ---
 
+	/** Unsafe version of: {@link #glCurrentPaletteMatrixARB CurrentPaletteMatrixARB} */
+	public static native void nglCurrentPaletteMatrixARB(int index);
+
 	/**
 	 * Defines which of the palette's matrices is affected by subsequent matrix operations when the current matrix mode is {@link #GL_MATRIX_PALETTE_ARB MATRIX_PALETTE_ARB},
 	 *
 	 * @param index the current matrix index. Must be a value between 0 and {@link #GL_MAX_PALETTE_MATRICES_ARB MAX_PALETTE_MATRICES_ARB}.
 	 */
 	public static void glCurrentPaletteMatrixARB(int index) {
-		long __functionAddress = GL.getCapabilities().glCurrentPaletteMatrixARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglCurrentPaletteMatrixARB(index);
 	}
 
 	// --- [ glMatrixIndexuivARB ] ---
@@ -83,12 +85,7 @@ public class ARBMatrixPalette {
 	 *
 	 * @param size the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
-	public static void nglMatrixIndexuivARB(int size, long indices) {
-		long __functionAddress = GL.getCapabilities().glMatrixIndexuivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, indices);
-	}
+	public static native void nglMatrixIndexuivARB(int size, long indices);
 
 	/**
 	 * Sets the current matrix indices.
@@ -106,12 +103,7 @@ public class ARBMatrixPalette {
 	 *
 	 * @param size the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
-	public static void nglMatrixIndexubvARB(int size, long indices) {
-		long __functionAddress = GL.getCapabilities().glMatrixIndexubvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, indices);
-	}
+	public static native void nglMatrixIndexubvARB(int size, long indices);
 
 	/**
 	 * Byte version of {@link #glMatrixIndexuivARB MatrixIndexuivARB}.
@@ -129,12 +121,7 @@ public class ARBMatrixPalette {
 	 *
 	 * @param size the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
-	public static void nglMatrixIndexusvARB(int size, long indices) {
-		long __functionAddress = GL.getCapabilities().glMatrixIndexusvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, indices);
-	}
+	public static native void nglMatrixIndexusvARB(int size, long indices);
 
 	/**
 	 * Short version of {@link #glMatrixIndexuivARB MatrixIndexuivARB}.
@@ -152,12 +139,7 @@ public class ARBMatrixPalette {
 	 *
 	 * @param type the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glMatrixIndexPointerARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
+	public static native void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer);
 
 	/**
 	 * 
@@ -218,7 +200,7 @@ public class ARBMatrixPalette {
 
 	/** Array version of: {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
 	public static void glMatrixIndexuivARB(int[] indices) {
-		long __functionAddress = GL.getCapabilities().glMatrixIndexuivARB;
+		long __functionAddress = GL.getICD().glMatrixIndexuivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, indices.length, indices);
@@ -226,7 +208,7 @@ public class ARBMatrixPalette {
 
 	/** Array version of: {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
 	public static void glMatrixIndexusvARB(short[] indices) {
-		long __functionAddress = GL.getCapabilities().glMatrixIndexusvARB;
+		long __functionAddress = GL.getICD().glMatrixIndexusvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, indices.length, indices);

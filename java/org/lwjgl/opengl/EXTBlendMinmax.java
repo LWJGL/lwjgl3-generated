@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> extension.
@@ -30,6 +29,8 @@ public class EXTBlendMinmax {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_BLEND_EQUATION_EXT = 0x8009;
 
+	static { GL.initialize(); }
+
 	protected EXTBlendMinmax() {
 		throw new UnsupportedOperationException();
 	}
@@ -42,11 +43,10 @@ public class EXTBlendMinmax {
 
 	// --- [ glBlendEquationEXT ] ---
 
+	public static native void nglBlendEquationEXT(int mode);
+
 	public static void glBlendEquationEXT(int mode) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglBlendEquationEXT(mode);
 	}
 
 }

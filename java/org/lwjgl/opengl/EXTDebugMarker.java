@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -27,6 +26,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDebugMarker {
 
+	static { GL.initialize(); }
+
 	protected EXTDebugMarker() {
 		throw new UnsupportedOperationException();
 	}
@@ -39,12 +40,7 @@ public class EXTDebugMarker {
 
 	// --- [ glInsertEventMarkerEXT ] ---
 
-	public static void nglInsertEventMarkerEXT(int length, long marker) {
-		long __functionAddress = GL.getCapabilities().glInsertEventMarkerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, length, marker);
-	}
+	public static native void nglInsertEventMarkerEXT(int length, long marker);
 
 	public static void glInsertEventMarkerEXT(ByteBuffer marker) {
 		nglInsertEventMarkerEXT(marker.remaining(), memAddress(marker));
@@ -63,12 +59,7 @@ public class EXTDebugMarker {
 
 	// --- [ glPushGroupMarkerEXT ] ---
 
-	public static void nglPushGroupMarkerEXT(int length, long marker) {
-		long __functionAddress = GL.getCapabilities().glPushGroupMarkerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, length, marker);
-	}
+	public static native void nglPushGroupMarkerEXT(int length, long marker);
 
 	public static void glPushGroupMarkerEXT(ByteBuffer marker) {
 		nglPushGroupMarkerEXT(marker.remaining(), memAddress(marker));
@@ -87,11 +78,10 @@ public class EXTDebugMarker {
 
 	// --- [ glPopGroupMarkerEXT ] ---
 
+	public static native void nglPopGroupMarkerEXT();
+
 	public static void glPopGroupMarkerEXT() {
-		long __functionAddress = GL.getCapabilities().glPopGroupMarkerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglPopGroupMarkerEXT();
 	}
 
 }

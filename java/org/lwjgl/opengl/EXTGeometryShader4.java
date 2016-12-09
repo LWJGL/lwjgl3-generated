@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/geometry_shader4.txt">EXT_geometry_shader4</a> extension.
@@ -72,6 +71,8 @@ public class EXTGeometryShader4 {
 	 */
 	public static final int GL_PROGRAM_POINT_SIZE_EXT = 0x8642;
 
+	static { GL.initialize(); }
+
 	protected EXTGeometryShader4() {
 		throw new UnsupportedOperationException();
 	}
@@ -84,38 +85,34 @@ public class EXTGeometryShader4 {
 
 	// --- [ glProgramParameteriEXT ] ---
 
+	public static native void nglProgramParameteriEXT(int program, int pname, int value);
+
 	public static void glProgramParameteriEXT(int program, int pname, int value) {
-		long __functionAddress = GL.getCapabilities().glProgramParameteriEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, pname, value);
+		nglProgramParameteriEXT(program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureEXT ] ---
 
+	public static native void nglFramebufferTextureEXT(int target, int attachment, int texture, int level);
+
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level);
+		nglFramebufferTextureEXT(target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
+	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
+
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, layer);
+		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceEXT ] ---
 
+	public static native void nglFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face);
+
 	public static void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, face);
+		nglFramebufferTextureFaceEXT(target, attachment, texture, level, face);
 	}
 
 }

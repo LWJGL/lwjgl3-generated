@@ -45,6 +45,8 @@ public class EXTBufferStorage {
 	/** Accepted by the {@code barriers} parameter of MemoryBarrier. */
 	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT = 0x4000;
 
+	static { GLES.initialize(); }
+
 	protected EXTBufferStorage() {
 		throw new UnsupportedOperationException();
 	}
@@ -57,12 +59,7 @@ public class EXTBufferStorage {
 
 	// --- [ glBufferStorageEXT ] ---
 
-	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
-		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, size, data, flags);
-	}
+	public static native void nglBufferStorageEXT(int target, long size, long data, int flags);
 
 	public static void glBufferStorageEXT(int target, long size, int flags) {
 		nglBufferStorageEXT(target, size, NULL, flags);
@@ -86,7 +83,7 @@ public class EXTBufferStorage {
 
 	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, short[] data, int flags) {
-		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
+		long __functionAddress = GLES.getICD().glBufferStorageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
@@ -94,7 +91,7 @@ public class EXTBufferStorage {
 
 	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, int[] data, int flags) {
-		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
+		long __functionAddress = GLES.getICD().glBufferStorageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
@@ -102,7 +99,7 @@ public class EXTBufferStorage {
 
 	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, float[] data, int flags) {
-		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
+		long __functionAddress = GLES.getICD().glBufferStorageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);

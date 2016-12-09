@@ -37,6 +37,8 @@ public class EXTDebugLabel {
 		GL_QUERY_OBJECT_EXT            = 0x9153,
 		GL_PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
+	static { GL.initialize(); }
+
 	protected EXTDebugLabel() {
 		throw new UnsupportedOperationException();
 	}
@@ -49,12 +51,7 @@ public class EXTDebugLabel {
 
 	// --- [ glLabelObjectEXT ] ---
 
-	public static void nglLabelObjectEXT(int type, int object, int length, long label) {
-		long __functionAddress = GL.getCapabilities().glLabelObjectEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, object, length, label);
-	}
+	public static native void nglLabelObjectEXT(int type, int object, int length, long label);
 
 	public static void glLabelObjectEXT(int type, int object, ByteBuffer label) {
 		nglLabelObjectEXT(type, object, label.remaining(), memAddress(label));
@@ -73,12 +70,7 @@ public class EXTDebugLabel {
 
 	// --- [ glGetObjectLabelEXT ] ---
 
-	public static void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label) {
-		long __functionAddress = GL.getCapabilities().glGetObjectLabelEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, type, object, bufSize, length, label);
-	}
+	public static native void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label);
 
 	public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
@@ -100,7 +92,7 @@ public class EXTDebugLabel {
 
 	/** Array version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static void glGetObjectLabelEXT(int type, int object, int[] length, ByteBuffer label) {
-		long __functionAddress = GL.getCapabilities().glGetObjectLabelEXT;
+		long __functionAddress = GL.getICD().glGetObjectLabelEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(length, 1);

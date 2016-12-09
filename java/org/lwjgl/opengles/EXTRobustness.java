@@ -67,6 +67,8 @@ public class EXTRobustness {
 		GL_LOSE_CONTEXT_ON_RESET_EXT = 0x8252,
 		GL_NO_RESET_NOTIFICATION_EXT = 0x8261;
 
+	static { GLES.initialize(); }
+
 	protected EXTRobustness() {
 		throw new UnsupportedOperationException();
 	}
@@ -79,21 +81,15 @@ public class EXTRobustness {
 
 	// --- [ glGetGraphicsResetStatusEXT ] ---
 
+	public static native int nglGetGraphicsResetStatusEXT();
+
 	public static int glGetGraphicsResetStatusEXT() {
-		long __functionAddress = GLES.getCapabilities().glGetGraphicsResetStatusEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
+		return nglGetGraphicsResetStatusEXT();
 	}
 
 	// --- [ glReadnPixelsEXT ] ---
 
-	public static void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
-	}
+	public static native void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data);
 
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
@@ -117,12 +113,7 @@ public class EXTRobustness {
 
 	// --- [ glGetnUniformfvEXT ] ---
 
-	public static void nglGetnUniformfvEXT(int program, int location, int bufSize, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformfvEXT(int program, int location, int bufSize, long params);
 
 	public static void glGetnUniformfvEXT(int program, int location, FloatBuffer params) {
 		nglGetnUniformfvEXT(program, location, params.remaining(), memAddress(params));
@@ -141,12 +132,7 @@ public class EXTRobustness {
 
 	// --- [ glGetnUniformivEXT ] ---
 
-	public static void nglGetnUniformivEXT(int program, int location, int bufSize, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformivEXT(int program, int location, int bufSize, long params);
 
 	public static void glGetnUniformivEXT(int program, int location, IntBuffer params) {
 		nglGetnUniformivEXT(program, location, params.remaining(), memAddress(params));
@@ -165,7 +151,7 @@ public class EXTRobustness {
 
 	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		long __functionAddress = GLES.getICD().glReadnPixelsEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
@@ -173,7 +159,7 @@ public class EXTRobustness {
 
 	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		long __functionAddress = GLES.getICD().glReadnPixelsEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
@@ -181,7 +167,7 @@ public class EXTRobustness {
 
 	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		long __functionAddress = GLES.getICD().glReadnPixelsEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
@@ -189,7 +175,7 @@ public class EXTRobustness {
 
 	/** Array version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
 	public static void glGetnUniformfvEXT(int program, int location, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformfvEXT;
+		long __functionAddress = GLES.getICD().glGetnUniformfvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -197,7 +183,7 @@ public class EXTRobustness {
 
 	/** Array version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
 	public static void glGetnUniformivEXT(int program, int location, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformivEXT;
+		long __functionAddress = GLES.getICD().glGetnUniformivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);

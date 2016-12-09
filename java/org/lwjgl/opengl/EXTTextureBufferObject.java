@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/texture_buffer_object.txt">EXT_texture_buffer_object</a> extension.
@@ -47,6 +46,8 @@ public class EXTTextureBufferObject {
 		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D,
 		GL_TEXTURE_BUFFER_FORMAT_EXT             = 0x8C2E;
 
+	static { GL.initialize(); }
+
 	protected EXTTextureBufferObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -59,11 +60,10 @@ public class EXTTextureBufferObject {
 
 	// --- [ glTexBufferEXT ] ---
 
+	public static native void nglTexBufferEXT(int target, int internalformat, int buffer);
+
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
-		long __functionAddress = GL.getCapabilities().glTexBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, buffer);
+		nglTexBufferEXT(target, internalformat, buffer);
 	}
 
 }

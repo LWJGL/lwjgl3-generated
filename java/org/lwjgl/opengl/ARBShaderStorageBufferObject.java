@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_storage_buffer_object.txt">ARB_shader_storage_buffer_object</a> extension.
@@ -67,6 +66,8 @@ public class ARBShaderStorageBufferObject {
 	/** Also, add a new alias for the existing token MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS. */
 	public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
+	static { GL.initialize(); }
+
 	protected ARBShaderStorageBufferObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -79,6 +80,9 @@ public class ARBShaderStorageBufferObject {
 
 	// --- [ glShaderStorageBlockBinding ] ---
 
+	/** Unsafe version of: {@link #glShaderStorageBlockBinding ShaderStorageBlockBinding} */
+	public static native void nglShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
+
 	/**
 	 * Changes an active shader storage block binding.
 	 *
@@ -87,10 +91,7 @@ public class ARBShaderStorageBufferObject {
 	 * @param storageBlockBinding the index storage block binding to associate with the specified storage block
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
-		long __functionAddress = GL.getCapabilities().glShaderStorageBlockBinding;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
+		nglShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
 	}
 
 }

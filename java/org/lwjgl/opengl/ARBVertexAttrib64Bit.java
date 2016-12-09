@@ -57,6 +57,8 @@ public class ARBVertexAttrib64Bit {
 		GL_DOUBLE_MAT4x2 = 0x8F4D,
 		GL_DOUBLE_MAT4x3 = 0x8F4E;
 
+	static { GL.initialize(); }
+
 	protected ARBVertexAttrib64Bit() {
 		throw new UnsupportedOperationException();
 	}
@@ -71,6 +73,9 @@ public class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexAttribL1d ] ---
 
+	/** Unsafe version of: {@link #glVertexAttribL1d VertexAttribL1d} */
+	public static native void nglVertexAttribL1d(int index, double x);
+
 	/**
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
 	 *
@@ -78,13 +83,13 @@ public class ARBVertexAttrib64Bit {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribL1d(int index, double x) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x);
+		nglVertexAttribL1d(index, x);
 	}
 
 	// --- [ glVertexAttribL2d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL2d VertexAttribL2d} */
+	public static native void nglVertexAttribL2d(int index, double x, double y);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
@@ -94,13 +99,13 @@ public class ARBVertexAttrib64Bit {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribL2d(int index, double x, double y) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y);
+		nglVertexAttribL2d(index, x, y);
 	}
 
 	// --- [ glVertexAttribL3d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL3d VertexAttribL3d} */
+	public static native void nglVertexAttribL3d(int index, double x, double y, double z);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
@@ -111,13 +116,13 @@ public class ARBVertexAttrib64Bit {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribL3d(int index, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z);
+		nglVertexAttribL3d(index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL4d VertexAttribL4d} */
+	public static native void nglVertexAttribL4d(int index, double x, double y, double z, double w);
 
 	/**
 	 * Specifies the value of a generic vertex attribute.
@@ -129,21 +134,13 @@ public class ARBVertexAttrib64Bit {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttribL4d(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
-	public static void nglVertexAttribL1dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL1dv(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttribL1d VertexAttribL1d}.
@@ -160,12 +157,7 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL2dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
-	public static void nglVertexAttribL2dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL2dv(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttribL2d VertexAttribL2d}.
@@ -182,12 +174,7 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL3dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
-	public static void nglVertexAttribL3dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL3dv(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttribL3d VertexAttribL3d}.
@@ -204,12 +191,7 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glVertexAttribL4dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
-	public static void nglVertexAttribL4dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL4dv(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttribL4d VertexAttribL4d}.
@@ -230,12 +212,7 @@ public class ARBVertexAttrib64Bit {
 	 *
 	 * @param type the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
 	 */
-	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribLPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
+	public static native void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer);
 
 	/**
 	 * Specifies the location and organization of a 64-bit vertex attribute array.
@@ -284,12 +261,7 @@ public class ARBVertexAttrib64Bit {
 	// --- [ glGetVertexAttribLdv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
-	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribLdv(int index, int pname, long params);
 
 	/**
 	 * Double version of {@link GL20#glGetVertexAttribiv GetVertexAttribiv}.
@@ -306,6 +278,9 @@ public class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
+	/** Unsafe version of: {@link #glVertexArrayVertexAttribLOffsetEXT VertexArrayVertexAttribLOffsetEXT} */
+	public static native void nglVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
+
 	/**
 	 * DSA version of {@link #glVertexAttribLPointer VertexAttribLPointer}.
 	 *
@@ -319,15 +294,12 @@ public class ARBVertexAttrib64Bit {
 	 * @param offset the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer. The initial value is 0.
 	 */
 	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribLOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+		nglVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, type, stride, offset);
 	}
 
 	/** Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	public static void glVertexAttribL1dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1dv;
+		long __functionAddress = GL.getICD().glVertexAttribL1dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -337,7 +309,7 @@ public class ARBVertexAttrib64Bit {
 
 	/** Array version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	public static void glVertexAttribL2dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL2dv;
+		long __functionAddress = GL.getICD().glVertexAttribL2dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -347,7 +319,7 @@ public class ARBVertexAttrib64Bit {
 
 	/** Array version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	public static void glVertexAttribL3dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL3dv;
+		long __functionAddress = GL.getICD().glVertexAttribL3dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -357,7 +329,7 @@ public class ARBVertexAttrib64Bit {
 
 	/** Array version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	public static void glVertexAttribL4dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL4dv;
+		long __functionAddress = GL.getICD().glVertexAttribL4dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -367,7 +339,7 @@ public class ARBVertexAttrib64Bit {
 
 	/** Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
 	public static void glGetVertexAttribLdv(int index, int pname, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
+		long __functionAddress = GL.getICD().glGetVertexAttribLdv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

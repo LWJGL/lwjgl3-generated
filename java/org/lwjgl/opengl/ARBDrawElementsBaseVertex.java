@@ -65,6 +65,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBDrawElementsBaseVertex {
 
+	static { GL.initialize(); }
+
 	protected ARBDrawElementsBaseVertex() {
 		throw new UnsupportedOperationException();
 	}
@@ -83,12 +85,7 @@ public class ARBDrawElementsBaseVertex {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsBaseVertex;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, basevertex);
-	}
+	public static native void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex);
 
 	/**
 	 * Renders primitives from array data with a per-element offset.
@@ -156,12 +153,7 @@ public class ARBDrawElementsBaseVertex {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		long __functionAddress = GL.getCapabilities().glDrawRangeElementsBaseVertex;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
-	}
+	public static native void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex);
 
 	/**
 	 * Renders primitives from array data with a per-element offset.
@@ -239,12 +231,7 @@ public class ARBDrawElementsBaseVertex {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertex;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
-	}
+	public static native void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex);
 
 	/**
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
@@ -316,12 +303,7 @@ public class ARBDrawElementsBaseVertex {
 	 *
 	 * @param primcount the size of the {@code count} array
 	 */
-	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
-	}
+	public static native void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex);
 
 	/**
 	 * Renders multiple sets of primitives by specifying indices of array data elements and an offset to apply to each index.
@@ -344,7 +326,7 @@ public class ARBDrawElementsBaseVertex {
 
 	/** Array version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
 	public static void glMultiDrawElementsBaseVertex(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
+		long __functionAddress = GL.getICD().glMultiDrawElementsBaseVertex;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indices, count.length);

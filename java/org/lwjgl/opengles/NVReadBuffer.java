@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_read_buffer.txt">NV_read_buffer</a> extension.
@@ -25,6 +24,8 @@ public class NVReadBuffer {
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int GL_READ_BUFFER_NV = 0xC02;
 
+	static { GLES.initialize(); }
+
 	protected NVReadBuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -37,11 +38,10 @@ public class NVReadBuffer {
 
 	// --- [ glReadBufferNV ] ---
 
+	public static native void nglReadBufferNV(int mode);
+
 	public static void glReadBufferNV(int mode) {
-		long __functionAddress = GLES.getCapabilities().glReadBufferNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglReadBufferNV(mode);
 	}
 
 }

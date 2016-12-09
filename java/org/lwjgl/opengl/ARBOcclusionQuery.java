@@ -71,6 +71,8 @@ public class ARBOcclusionQuery {
 		GL_QUERY_RESULT_ARB           = 0x8866,
 		GL_QUERY_RESULT_AVAILABLE_ARB = 0x8867;
 
+	static { GL.initialize(); }
+
 	protected ARBOcclusionQuery() {
 		throw new UnsupportedOperationException();
 	}
@@ -89,12 +91,7 @@ public class ARBOcclusionQuery {
 	 *
 	 * @param n the number of query object names to be generated
 	 */
-	public static void nglGenQueriesARB(int n, long ids) {
-		long __functionAddress = GL.getCapabilities().glGenQueriesARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglGenQueriesARB(int n, long ids);
 
 	/**
 	 * Generates query object names.
@@ -124,12 +121,7 @@ public class ARBOcclusionQuery {
 	 *
 	 * @param n the number of query objects to be deleted
 	 */
-	public static void nglDeleteQueriesARB(int n, long ids) {
-		long __functionAddress = GL.getCapabilities().glDeleteQueriesARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglDeleteQueriesARB(int n, long ids);
 
 	/**
 	 * Deletes named query objects.
@@ -153,19 +145,22 @@ public class ARBOcclusionQuery {
 
 	// --- [ glIsQueryARB ] ---
 
+	/** Unsafe version of: {@link #glIsQueryARB IsQueryARB} */
+	public static native boolean nglIsQueryARB(int id);
+
 	/**
 	 * Determine if a name corresponds to a query object.
 	 *
 	 * @param id a value that may be the name of a query object
 	 */
 	public static boolean glIsQueryARB(int id) {
-		long __functionAddress = GL.getCapabilities().glIsQueryARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, id);
+		return nglIsQueryARB(id);
 	}
 
 	// --- [ glBeginQueryARB ] ---
+
+	/** Unsafe version of: {@link #glBeginQueryARB BeginQueryARB} */
+	public static native void nglBeginQueryARB(int target, int id);
 
 	/**
 	 * Creates a query object and makes it active.
@@ -174,13 +169,13 @@ public class ARBOcclusionQuery {
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQueryARB(int target, int id) {
-		long __functionAddress = GL.getCapabilities().glBeginQueryARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, id);
+		nglBeginQueryARB(target, id);
 	}
 
 	// --- [ glEndQueryARB ] ---
+
+	/** Unsafe version of: {@link #glEndQueryARB EndQueryARB} */
+	public static native void nglEndQueryARB(int target);
 
 	/**
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
@@ -188,21 +183,13 @@ public class ARBOcclusionQuery {
 	 * @param target the query object target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 */
 	public static void glEndQueryARB(int target) {
-		long __functionAddress = GL.getCapabilities().glEndQueryARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglEndQueryARB(target);
 	}
 
 	// --- [ glGetQueryivARB ] ---
 
 	/** Unsafe version of: {@link #glGetQueryivARB GetQueryivARB} */
-	public static void nglGetQueryivARB(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetQueryivARB(int target, int pname, long params);
 
 	/**
 	 * Returns parameters of a query object target.
@@ -237,12 +224,7 @@ public class ARBOcclusionQuery {
 	// --- [ glGetQueryObjectivARB ] ---
 
 	/** Unsafe version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
-	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjectivARB(int id, int pname, long params);
 
 	/**
 	 * Returns the integer value of a query object parameter.
@@ -277,12 +259,7 @@ public class ARBOcclusionQuery {
 	// --- [ glGetQueryObjectuivARB ] ---
 
 	/** Unsafe version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
-	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectuivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjectuivARB(int id, int pname, long params);
 
 	/**
 	 * Unsigned version of {@link #glGetQueryObjectivARB GetQueryObjectivARB}.
@@ -316,7 +293,7 @@ public class ARBOcclusionQuery {
 
 	/** Array version of: {@link #glGenQueriesARB GenQueriesARB} */
 	public static void glGenQueriesARB(int[] ids) {
-		long __functionAddress = GL.getCapabilities().glGenQueriesARB;
+		long __functionAddress = GL.getICD().glGenQueriesARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -324,7 +301,7 @@ public class ARBOcclusionQuery {
 
 	/** Array version of: {@link #glDeleteQueriesARB DeleteQueriesARB} */
 	public static void glDeleteQueriesARB(int[] ids) {
-		long __functionAddress = GL.getCapabilities().glDeleteQueriesARB;
+		long __functionAddress = GL.getICD().glDeleteQueriesARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -332,7 +309,7 @@ public class ARBOcclusionQuery {
 
 	/** Array version of: {@link #glGetQueryivARB GetQueryivARB} */
 	public static void glGetQueryivARB(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryivARB;
+		long __functionAddress = GL.getICD().glGetQueryivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -342,7 +319,7 @@ public class ARBOcclusionQuery {
 
 	/** Array version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	public static void glGetQueryObjectivARB(int id, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectivARB;
+		long __functionAddress = GL.getICD().glGetQueryObjectivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -352,7 +329,7 @@ public class ARBOcclusionQuery {
 
 	/** Array version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	public static void glGetQueryObjectuivARB(int id, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectuivARB;
+		long __functionAddress = GL.getICD().glGetQueryObjectuivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

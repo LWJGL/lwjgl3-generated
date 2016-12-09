@@ -38,6 +38,8 @@ public class ARBIndirectParameters {
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
 	public static final int GL_PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
 
+	static { GL.initialize(); }
+
 	protected ARBIndirectParameters() {
 		throw new UnsupportedOperationException();
 	}
@@ -51,12 +53,7 @@ public class ARBIndirectParameters {
 	// --- [ glMultiDrawArraysIndirectCountARB ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
-	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
-	}
+	public static native void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride);
 
 	/**
 	 * Behaves similarly to {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}, except that {@code drawcount} defines an offset (in bytes) into the buffer object bound to the
@@ -113,12 +110,7 @@ public class ARBIndirectParameters {
 	// --- [ glMultiDrawElementsIndirectCountARB ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
-	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
-	}
+	public static native void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride);
 
 	/**
 	 * Behaves similarly to {@link GL43#glMultiDrawElementsIndirect MultiDrawElementsIndirect}, except that {@code drawcount} defines an offset (in bytes) into the buffer object bound to the
@@ -177,7 +169,7 @@ public class ARBIndirectParameters {
 
 	/** Array version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
 	public static void glMultiDrawArraysIndirectCountARB(int mode, int[] indirect, long drawcount, int maxdrawcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
+		long __functionAddress = GL.getICD().glMultiDrawArraysIndirectCountARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
@@ -187,7 +179,7 @@ public class ARBIndirectParameters {
 
 	/** Array version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, int[] indirect, long drawcount, int maxdrawcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
+		long __functionAddress = GL.getICD().glMultiDrawElementsIndirectCountARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);

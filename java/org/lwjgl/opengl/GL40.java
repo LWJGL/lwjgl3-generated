@@ -189,6 +189,8 @@ public class GL40 {
 		GL_MAX_TRANSFORM_FEEDBACK_BUFFERS = 0x8E70,
 		GL_MAX_VERTEX_STREAMS             = 0x8E71;
 
+	static { GL.initialize(); }
+
 	protected GL40() {
 		throw new UnsupportedOperationException();
 	}
@@ -209,6 +211,9 @@ public class GL40 {
 
 	// --- [ glBlendEquationi ] ---
 
+	/** Unsafe version of: {@link #glBlendEquationi BlendEquationi} */
+	public static native void nglBlendEquationi(int buf, int mode);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -218,13 +223,13 @@ public class GL40 {
 	 * @param mode how source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
 	public static void glBlendEquationi(int buf, int mode) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationi;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, mode);
+		nglBlendEquationi(buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparatei ] ---
+
+	/** Unsafe version of: {@link #glBlendEquationSeparatei BlendEquationSeparatei} */
+	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -236,13 +241,13 @@ public class GL40 {
 	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationSeparatei;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, modeRGB, modeAlpha);
+		nglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunci ] ---
+
+	/** Unsafe version of: {@link #glBlendFunci BlendFunci} */
+	public static native void nglBlendFunci(int buf, int sfactor, int dfactor);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
@@ -254,13 +259,13 @@ public class GL40 {
 	 * @param dfactor how the red, green, blue, and alpha destination blending factors are computed
 	 */
 	public static void glBlendFunci(int buf, int sfactor, int dfactor) {
-		long __functionAddress = GL.getCapabilities().glBlendFunci;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, sfactor, dfactor);
+		nglBlendFunci(buf, sfactor, dfactor);
 	}
 
 	// --- [ glBlendFuncSeparatei ] ---
+
+	/** Unsafe version of: {@link #glBlendFuncSeparatei BlendFuncSeparatei} */
+	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
@@ -274,21 +279,13 @@ public class GL40 {
 	 * @param dstAlpha how the alpha destination blending factor is computed
 	 */
 	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendFuncSeparatei;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		nglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glDrawArraysIndirect ] ---
 
 	/** Unsafe version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
-	public static void nglDrawArraysIndirect(int mode, long indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, indirect);
-	}
+	public static native void nglDrawArraysIndirect(int mode, long indirect);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
@@ -378,12 +375,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glDrawElementsIndirect ] ---
 
 	/** Unsafe version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
-	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, type, indirect);
-	}
+	public static native void nglDrawElementsIndirect(int mode, int type, long indirect);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
@@ -514,6 +506,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glUniform1d ] ---
 
+	/** Unsafe version of: {@link #glUniform1d Uniform1d} */
+	public static native void nglUniform1d(int location, double x);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -523,13 +518,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param x        the uniform x value
 	 */
 	public static void glUniform1d(int location, double x) {
-		long __functionAddress = GL.getCapabilities().glUniform1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x);
+		nglUniform1d(location, x);
 	}
 
 	// --- [ glUniform2d ] ---
+
+	/** Unsafe version of: {@link #glUniform2d Uniform2d} */
+	public static native void nglUniform2d(int location, double x, double y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a></p>
@@ -541,13 +536,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param y        the uniform y value
 	 */
 	public static void glUniform2d(int location, double x, double y) {
-		long __functionAddress = GL.getCapabilities().glUniform2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x, y);
+		nglUniform2d(location, x, y);
 	}
 
 	// --- [ glUniform3d ] ---
+
+	/** Unsafe version of: {@link #glUniform3d Uniform3d} */
+	public static native void nglUniform3d(int location, double x, double y, double z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a></p>
@@ -560,13 +555,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param z        the uniform z value
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glUniform3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x, y, z);
+		nglUniform3d(location, x, y, z);
 	}
 
 	// --- [ glUniform4d ] ---
+
+	/** Unsafe version of: {@link #glUniform4d Uniform4d} */
+	public static native void nglUniform4d(int location, double x, double y, double z, double w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a></p>
@@ -580,10 +575,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param w        the uniform w value
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glUniform4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x, y, z, w);
+		nglUniform4d(location, x, y, z, w);
 	}
 
 	// --- [ glUniform1dv ] ---
@@ -593,12 +585,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1dv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
@@ -619,12 +606,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2dv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
@@ -645,12 +627,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3dv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
@@ -671,12 +648,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4dv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
@@ -697,12 +669,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
@@ -724,12 +691,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
@@ -751,12 +713,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
@@ -778,12 +735,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
@@ -805,12 +757,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
@@ -832,12 +779,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
@@ -859,12 +801,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
@@ -886,12 +823,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
@@ -913,12 +845,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
@@ -936,12 +863,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glGetUniformdv ] ---
 
 	/** Unsafe version of: {@link #glGetUniformdv GetUniformdv} */
-	public static void nglGetUniformdv(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformdv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformdv(int program, int location, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -979,6 +901,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glMinSampleShading ] ---
 
+	/** Unsafe version of: {@link #glMinSampleShading MinSampleShading} */
+	public static native void nglMinSampleShading(float value);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -987,21 +912,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param value the rate at which samples are shaded within each covered pixel
 	 */
 	public static void glMinSampleShading(float value) {
-		long __functionAddress = GL.getCapabilities().glMinSampleShading;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, value);
+		nglMinSampleShading(value);
 	}
 
 	// --- [ glGetSubroutineUniformLocation ] ---
 
 	/** Unsafe version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
-	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
-		long __functionAddress = GL.getCapabilities().glGetSubroutineUniformLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, shadertype, name);
-	}
+	public static native int nglGetSubroutineUniformLocation(int program, int shadertype, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a></p>
@@ -1040,12 +957,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glGetSubroutineIndex ] ---
 
 	/** Unsafe version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
-	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
-		long __functionAddress = GL.getCapabilities().glGetSubroutineIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, shadertype, name);
-	}
+	public static native int nglGetSubroutineIndex(int program, int shadertype, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a></p>
@@ -1084,12 +996,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
 	/** Unsafe version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
-	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
-		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, shadertype, index, pname, values);
-	}
+	public static native void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1136,12 +1043,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param bufsize the size of the buffer whose address is given in {@code name}
 	 */
-	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
-	}
+	public static native void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
@@ -1211,12 +1113,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param bufsize the size of the buffer whose address is given in {@code name}
 	 */
-	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
-	}
+	public static native void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
@@ -1286,12 +1183,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param count the number of uniform indices stored in {@code indices}
 	 */
-	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
-		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, shadertype, count, indices);
-	}
+	public static native void nglUniformSubroutinesuiv(int shadertype, int count, long indices);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
@@ -1325,12 +1217,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
 	/** Unsafe version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
-	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, shadertype, location, params);
-	}
+	public static native void nglGetUniformSubroutineuiv(int shadertype, int location, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
@@ -1369,12 +1256,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glGetProgramStageiv ] ---
 
 	/** Unsafe version of: {@link #glGetProgramStageiv GetProgramStageiv} */
-	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
-		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, shadertype, pname, values);
-	}
+	public static native void nglGetProgramStageiv(int program, int shadertype, int pname, long values);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
@@ -1414,6 +1296,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glPatchParameteri ] ---
 
+	/** Unsafe version of: {@link #glPatchParameteri PatchParameteri} */
+	public static native void nglPatchParameteri(int pname, int value);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1423,21 +1308,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameteri(int pname, int value) {
-		long __functionAddress = GL.getCapabilities().glPatchParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, value);
+		nglPatchParameteri(pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
 
 	/** Unsafe version of: {@link #glPatchParameterfv PatchParameterfv} */
-	public static void nglPatchParameterfv(int pname, long values) {
-		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, values);
-	}
+	public static native void nglPatchParameterfv(int pname, long values);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a></p>
@@ -1456,6 +1333,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glBindTransformFeedback ] ---
 
+	/** Unsafe version of: {@link #glBindTransformFeedback BindTransformFeedback} */
+	public static native void nglBindTransformFeedback(int target, int id);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1465,10 +1345,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id     the name of a transform feedback object
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
-		long __functionAddress = GL.getCapabilities().glBindTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, id);
+		nglBindTransformFeedback(target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
@@ -1478,12 +1355,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param n the number of transform feedback objects to delete
 	 */
-	public static void nglDeleteTransformFeedbacks(int n, long ids) {
-		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglDeleteTransformFeedbacks(int n, long ids);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
@@ -1518,12 +1390,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 *
 	 * @param n the number of transform feedback object names to reserve
 	 */
-	public static void nglGenTransformFeedbacks(int n, long ids) {
-		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglGenTransformFeedbacks(int n, long ids);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
@@ -1554,6 +1421,9 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glIsTransformFeedback ] ---
 
+	/** Unsafe version of: {@link #glIsTransformFeedback IsTransformFeedback} */
+	public static native boolean nglIsTransformFeedback(int id);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1562,13 +1432,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id a value that may be the name of a transform feedback object
 	 */
 	public static boolean glIsTransformFeedback(int id) {
-		long __functionAddress = GL.getCapabilities().glIsTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, id);
+		return nglIsTransformFeedback(id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
+
+	/** Unsafe version of: {@link #glPauseTransformFeedback PauseTransformFeedback} */
+	public static native void nglPauseTransformFeedback();
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPauseTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -1586,13 +1456,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * paused.</p>
 	 */
 	public static void glPauseTransformFeedback() {
-		long __functionAddress = GL.getCapabilities().glPauseTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglPauseTransformFeedback();
 	}
 
 	// --- [ glResumeTransformFeedback ] ---
+
+	/** Unsafe version of: {@link #glResumeTransformFeedback ResumeTransformFeedback} */
+	public static native void nglResumeTransformFeedback();
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glResumeTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -1602,13 +1472,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated by {@link #glResumeTransformFeedback ResumeTransformFeedback} if the currently bound transform feedback is not active or is not paused.</p>
 	 */
 	public static void glResumeTransformFeedback() {
-		long __functionAddress = GL.getCapabilities().glResumeTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglResumeTransformFeedback();
 	}
 
 	// --- [ glDrawTransformFeedback ] ---
+
+	/** Unsafe version of: {@link #glDrawTransformFeedback DrawTransformFeedback} */
+	public static native void nglDrawTransformFeedback(int mode, int id);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -1619,13 +1489,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id   the name of a transform feedback object from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id);
+		nglDrawTransformFeedback(mode, id);
 	}
 
 	// --- [ glDrawTransformFeedbackStream ] ---
+
+	/** Unsafe version of: {@link #glDrawTransformFeedbackStream DrawTransformFeedbackStream} */
+	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a></p>
@@ -1637,13 +1507,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStream;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id, stream);
+		nglDrawTransformFeedbackStream(mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
+
+	/** Unsafe version of: {@link #glBeginQueryIndexed BeginQueryIndexed} */
+	public static native void nglBeginQueryIndexed(int target, int index, int id);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -1655,13 +1525,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
-		long __functionAddress = GL.getCapabilities().glBeginQueryIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index, id);
+		nglBeginQueryIndexed(target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
+
+	/** Unsafe version of: {@link #glEndQueryIndexed EndQueryIndexed} */
+	public static native void nglEndQueryIndexed(int target, int index);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -1672,21 +1542,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param index  the index of the query target upon which to end the query
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glEndQueryIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglEndQueryIndexed(target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
 
 	/** Unsafe version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
-	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, pname, params);
-	}
+	public static native void nglGetQueryIndexediv(int target, int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -1730,7 +1592,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glDrawArraysIndirect DrawArraysIndirect}
 	 */
 	public static void glDrawArraysIndirect(int mode, int[] indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
+		long __functionAddress = GL.getICD().glDrawArraysIndirect;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (4 * 4) >> 2);
@@ -1744,7 +1606,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glDrawElementsIndirect DrawElementsIndirect}
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, int[] indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
+		long __functionAddress = GL.getICD().glDrawElementsIndirect;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (5 * 4) >> 2);
@@ -1758,7 +1620,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniform1dv Uniform1dv}
 	 */
 	public static void glUniform1dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1dv;
+		long __functionAddress = GL.getICD().glUniform1dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -1770,7 +1632,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniform2dv Uniform2dv}
 	 */
 	public static void glUniform2dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2dv;
+		long __functionAddress = GL.getICD().glUniform2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -1782,7 +1644,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniform3dv Uniform3dv}
 	 */
 	public static void glUniform3dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3dv;
+		long __functionAddress = GL.getICD().glUniform3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -1794,7 +1656,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniform4dv Uniform4dv}
 	 */
 	public static void glUniform4dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4dv;
+		long __functionAddress = GL.getICD().glUniform4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -1806,7 +1668,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix2dv UniformMatrix2dv}
 	 */
 	public static void glUniformMatrix2dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
+		long __functionAddress = GL.getICD().glUniformMatrix2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
@@ -1818,7 +1680,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix3dv UniformMatrix3dv}
 	 */
 	public static void glUniformMatrix3dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
+		long __functionAddress = GL.getICD().glUniformMatrix3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
@@ -1830,7 +1692,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix4dv UniformMatrix4dv}
 	 */
 	public static void glUniformMatrix4dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
+		long __functionAddress = GL.getICD().glUniformMatrix4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
@@ -1842,7 +1704,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv}
 	 */
 	public static void glUniformMatrix2x3dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
+		long __functionAddress = GL.getICD().glUniformMatrix2x3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
@@ -1854,7 +1716,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv}
 	 */
 	public static void glUniformMatrix2x4dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
+		long __functionAddress = GL.getICD().glUniformMatrix2x4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
@@ -1866,7 +1728,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv}
 	 */
 	public static void glUniformMatrix3x2dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
+		long __functionAddress = GL.getICD().glUniformMatrix3x2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
@@ -1878,7 +1740,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv}
 	 */
 	public static void glUniformMatrix3x4dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
+		long __functionAddress = GL.getICD().glUniformMatrix3x4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
@@ -1890,7 +1752,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv}
 	 */
 	public static void glUniformMatrix4x2dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
+		long __functionAddress = GL.getICD().glUniformMatrix4x2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
@@ -1902,7 +1764,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv}
 	 */
 	public static void glUniformMatrix4x3dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
+		long __functionAddress = GL.getICD().glUniformMatrix4x3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
@@ -1914,7 +1776,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetUniformdv GetUniformdv}
 	 */
 	public static void glGetUniformdv(int program, int location, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformdv;
+		long __functionAddress = GL.getICD().glGetUniformdv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1928,7 +1790,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv}
 	 */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, int[] values) {
-		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
+		long __functionAddress = GL.getICD().glGetActiveSubroutineUniformiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(values, 1);
@@ -1942,7 +1804,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName}
 	 */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, int[] length, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
+		long __functionAddress = GL.getICD().glGetActiveSubroutineUniformName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -1956,7 +1818,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName}
 	 */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, int[] length, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
+		long __functionAddress = GL.getICD().glGetActiveSubroutineName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -1970,7 +1832,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv}
 	 */
 	public static void glUniformSubroutinesuiv(int shadertype, int[] indices) {
-		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
+		long __functionAddress = GL.getICD().glUniformSubroutinesuiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, shadertype, indices.length, indices);
@@ -1982,7 +1844,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv}
 	 */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
+		long __functionAddress = GL.getICD().glGetUniformSubroutineuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1996,7 +1858,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetProgramStageiv GetProgramStageiv}
 	 */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, int[] values) {
-		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
+		long __functionAddress = GL.getICD().glGetProgramStageiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(values, 1);
@@ -2010,7 +1872,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glPatchParameterfv PatchParameterfv}
 	 */
 	public static void glPatchParameterfv(int pname, float[] values) {
-		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
+		long __functionAddress = GL.getICD().glPatchParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			if ( DEBUG )
@@ -2025,7 +1887,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks}
 	 */
 	public static void glDeleteTransformFeedbacks(int[] ids) {
-		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
+		long __functionAddress = GL.getICD().glDeleteTransformFeedbacks;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -2037,7 +1899,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks}
 	 */
 	public static void glGenTransformFeedbacks(int[] ids) {
-		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
+		long __functionAddress = GL.getICD().glGenTransformFeedbacks;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -2049,7 +1911,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * Array version of: {@link #glGetQueryIndexediv GetQueryIndexediv}
 	 */
 	public static void glGetQueryIndexediv(int target, int index, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
+		long __functionAddress = GL.getICD().glGetQueryIndexediv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

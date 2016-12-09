@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -34,6 +33,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVDrawVulkanImage {
 
+	static { GL.initialize(); }
+
 	protected NVDrawVulkanImage() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,6 +46,9 @@ public class NVDrawVulkanImage {
 	}
 
 	// --- [ glDrawVkImageNV ] ---
+
+	/** Unsafe version of: {@link #glDrawVkImageNV DrawVkImageNV} */
+	public static native void nglDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
 	/**
 	 * Draws a screen-aligned rectangle displaying a portion of the contents of the Vulkan {@code VkImage}.
@@ -62,21 +66,13 @@ public class NVDrawVulkanImage {
 	 * @param t1      the top texture coordinate
 	 */
 	public static void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1) {
-		long __functionAddress = GL.getCapabilities().glDrawVkImageNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
+		nglDrawVkImageNV(vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 	}
 
 	// --- [ glGetVkProcAddrNV ] ---
 
 	/** Unsafe version of: {@link #glGetVkProcAddrNV GetVkProcAddrNV} */
-	public static long nglGetVkProcAddrNV(long name) {
-		long __functionAddress = GL.getCapabilities().glGetVkProcAddrNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPP(__functionAddress, name);
-	}
+	public static native long nglGetVkProcAddrNV(long name);
 
 	/**
 	 * Queries the Vulkan function entry points from within an OpenGL context.
@@ -106,6 +102,9 @@ public class NVDrawVulkanImage {
 
 	// --- [ glWaitVkSemaphoreNV ] ---
 
+	/** Unsafe version of: {@link #glWaitVkSemaphoreNV WaitVkSemaphoreNV} */
+	public static native void nglWaitVkSemaphoreNV(long vkSemaphore);
+
 	/**
 	 * Causes the GL server to block until the Vulkan {@code VkSemaphore} is signalled. No GL commands after this command are executed by the server until the
 	 * semaphore is signaled.
@@ -113,13 +112,13 @@ public class NVDrawVulkanImage {
 	 * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
 	 */
 	public static void glWaitVkSemaphoreNV(long vkSemaphore) {
-		long __functionAddress = GL.getCapabilities().glWaitVkSemaphoreNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, vkSemaphore);
+		nglWaitVkSemaphoreNV(vkSemaphore);
 	}
 
 	// --- [ glSignalVkSemaphoreNV ] ---
+
+	/** Unsafe version of: {@link #glSignalVkSemaphoreNV SignalVkSemaphoreNV} */
+	public static native void nglSignalVkSemaphoreNV(long vkSemaphore);
 
 	/**
 	 * Causes the GL server to signal the Vulkan {@code VkSemaphore} when it executes this command. The semaphore is not signalled by GL until all commands
@@ -128,13 +127,13 @@ public class NVDrawVulkanImage {
 	 * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
 	 */
 	public static void glSignalVkSemaphoreNV(long vkSemaphore) {
-		long __functionAddress = GL.getCapabilities().glSignalVkSemaphoreNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, vkSemaphore);
+		nglSignalVkSemaphoreNV(vkSemaphore);
 	}
 
 	// --- [ glSignalVkFenceNV ] ---
+
+	/** Unsafe version of: {@link #glSignalVkFenceNV SignalVkFenceNV} */
+	public static native void nglSignalVkFenceNV(long vkFence);
 
 	/**
 	 * Causes the GL server to signal the Vulkan {@code VkFence} object when it executes this command. The fence is not signalled by the GL until all commands
@@ -143,10 +142,7 @@ public class NVDrawVulkanImage {
 	 * @param vkFence a valid Vulkan VkFence non-dispatcable handle otherwise the operation is undefined
 	 */
 	public static void glSignalVkFenceNV(long vkFence) {
-		long __functionAddress = GL.getCapabilities().glSignalVkFenceNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, vkFence);
+		nglSignalVkFenceNV(vkFence);
 	}
 
 }

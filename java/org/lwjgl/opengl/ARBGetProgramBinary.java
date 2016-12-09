@@ -41,6 +41,8 @@ public class ARBGetProgramBinary {
 		GL_NUM_PROGRAM_BINARY_FORMATS = 0x87FE,
 		GL_PROGRAM_BINARY_FORMATS     = 0x87FF;
 
+	static { GL.initialize(); }
+
 	protected ARBGetProgramBinary() {
 		throw new UnsupportedOperationException();
 	}
@@ -58,12 +60,7 @@ public class ARBGetProgramBinary {
 	 *
 	 * @param bufSize the size of the buffer whose address is given by {@code binary}
 	 */
-	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
-		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
-	}
+	public static native void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary);
 
 	/**
 	 * Returns a binary representation of a program object's compiled and linked executable source.
@@ -88,12 +85,7 @@ public class ARBGetProgramBinary {
 	 *
 	 * @param length the number of bytes contained in {@code binary}
 	 */
-	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
-		long __functionAddress = GL.getCapabilities().glProgramBinary;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, binaryFormat, binary, length);
-	}
+	public static native void nglProgramBinary(int program, int binaryFormat, long binary, int length);
 
 	/**
 	 * Loads a program object with a program binary.
@@ -108,23 +100,23 @@ public class ARBGetProgramBinary {
 
 	// --- [ glProgramParameteri ] ---
 
+	/** Unsafe version of: {@link #glProgramParameteri ProgramParameteri} */
+	public static native void nglProgramParameteri(int program, int pname, int value);
+
 	/**
 	 * Specifies the integer value of a program object parameter.
 	 *
 	 * @param program the name of a program object whose parameter to modify
-	 * @param pname   the name of the parameter to modify. One of:<br><table><tr><td>{@link #GL_PROGRAM_BINARY_RETRIEVABLE_HINT PROGRAM_BINARY_RETRIEVABLE_HINT}</td><td>{@link GL41#GL_PROGRAM_SEPARABLE PROGRAM_SEPARABLE}</td></tr></table>
+	 * @param pname   the name of the parameter to modify. One of:<br><table><tr><td>{@link GL41#GL_PROGRAM_BINARY_RETRIEVABLE_HINT PROGRAM_BINARY_RETRIEVABLE_HINT}</td><td>{@link GL41#GL_PROGRAM_SEPARABLE PROGRAM_SEPARABLE}</td></tr></table>
 	 * @param value   the new value of the parameter specified by {@code pname} for {@code program}
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
-		long __functionAddress = GL.getCapabilities().glProgramParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, pname, value);
+		nglProgramParameteri(program, pname, value);
 	}
 
 	/** Array version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
-		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
+		long __functionAddress = GL.getICD().glGetProgramBinary;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);

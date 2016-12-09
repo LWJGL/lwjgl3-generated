@@ -42,6 +42,8 @@ public class ARBTimerQuery {
 	 */
 	public static final int GL_TIMESTAMP = 0x8E28;
 
+	static { GL.initialize(); }
+
 	protected ARBTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
@@ -54,28 +56,23 @@ public class ARBTimerQuery {
 
 	// --- [ glQueryCounter ] ---
 
+	/** Unsafe version of: {@link #glQueryCounter QueryCounter} */
+	public static native void nglQueryCounter(int id, int target);
+
 	/**
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
 	 * @param id     the name of a query object into which to record the GL time
-	 * @param target the counter to query. Must be:<br><table><tr><td>{@link #GL_TIMESTAMP TIMESTAMP}</td></tr></table>
+	 * @param target the counter to query. Must be:<br><table><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td></tr></table>
 	 */
 	public static void glQueryCounter(int id, int target) {
-		long __functionAddress = GL.getCapabilities().glQueryCounter;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, id, target);
+		nglQueryCounter(id, target);
 	}
 
 	// --- [ glGetQueryObjecti64v ] ---
 
 	/** Unsafe version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjecti64v(int id, int pname, long params);
 
 	/**
 	 * Returns the 64bit integer value of query object parameter.
@@ -110,12 +107,7 @@ public class ARBTimerQuery {
 	// --- [ glGetQueryObjectui64v ] ---
 
 	/** Unsafe version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjectui64v(int id, int pname, long params);
 
 	/**
 	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
@@ -149,7 +141,7 @@ public class ARBTimerQuery {
 
 	/** Array version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
+		long __functionAddress = GL.getICD().glGetQueryObjecti64v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -159,7 +151,7 @@ public class ARBTimerQuery {
 
 	/** Array version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
+		long __functionAddress = GL.getICD().glGetQueryObjectui64v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

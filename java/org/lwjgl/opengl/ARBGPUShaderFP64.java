@@ -70,6 +70,8 @@ public class ARBGPUShaderFP64 {
 		GL_DOUBLE_MAT4x2 = 0x8F4D,
 		GL_DOUBLE_MAT4x3 = 0x8F4E;
 
+	static { GL.initialize(); }
+
 	protected ARBGPUShaderFP64() {
 		throw new UnsupportedOperationException();
 	}
@@ -84,6 +86,9 @@ public class ARBGPUShaderFP64 {
 
 	// --- [ glUniform1d ] ---
 
+	/** Unsafe version of: {@link #glUniform1d Uniform1d} */
+	public static native void nglUniform1d(int location, double x);
+
 	/**
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
@@ -91,13 +96,13 @@ public class ARBGPUShaderFP64 {
 	 * @param x        the uniform x value
 	 */
 	public static void glUniform1d(int location, double x) {
-		long __functionAddress = GL.getCapabilities().glUniform1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x);
+		nglUniform1d(location, x);
 	}
 
 	// --- [ glUniform2d ] ---
+
+	/** Unsafe version of: {@link #glUniform2d Uniform2d} */
+	public static native void nglUniform2d(int location, double x, double y);
 
 	/**
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
@@ -107,13 +112,13 @@ public class ARBGPUShaderFP64 {
 	 * @param y        the uniform y value
 	 */
 	public static void glUniform2d(int location, double x, double y) {
-		long __functionAddress = GL.getCapabilities().glUniform2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x, y);
+		nglUniform2d(location, x, y);
 	}
 
 	// --- [ glUniform3d ] ---
+
+	/** Unsafe version of: {@link #glUniform3d Uniform3d} */
+	public static native void nglUniform3d(int location, double x, double y, double z);
 
 	/**
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
@@ -124,13 +129,13 @@ public class ARBGPUShaderFP64 {
 	 * @param z        the uniform z value
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glUniform3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x, y, z);
+		nglUniform3d(location, x, y, z);
 	}
 
 	// --- [ glUniform4d ] ---
+
+	/** Unsafe version of: {@link #glUniform4d Uniform4d} */
+	public static native void nglUniform4d(int location, double x, double y, double z, double w);
 
 	/**
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
@@ -142,10 +147,7 @@ public class ARBGPUShaderFP64 {
 	 * @param w        the uniform w value
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glUniform4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, x, y, z, w);
+		nglUniform4d(location, x, y, z, w);
 	}
 
 	// --- [ glUniform1dv ] ---
@@ -155,12 +157,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1dv(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
@@ -179,12 +176,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2dv(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
@@ -203,12 +195,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3dv(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
@@ -227,12 +214,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4dv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4dv(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
@@ -251,12 +233,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
@@ -276,12 +253,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
@@ -301,12 +273,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
@@ -326,12 +293,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
@@ -351,12 +313,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
@@ -376,12 +333,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
@@ -401,12 +353,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
@@ -426,12 +373,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
@@ -451,12 +393,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
@@ -472,12 +409,7 @@ public class ARBGPUShaderFP64 {
 	// --- [ glGetUniformdv ] ---
 
 	/** Unsafe version of: {@link #glGetUniformdv GetUniformdv} */
-	public static void nglGetUniformdv(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformdv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformdv(int program, int location, long params);
 
 	/**
 	 * Returns the double value(s) of a uniform variable.
@@ -511,6 +443,9 @@ public class ARBGPUShaderFP64 {
 
 	// --- [ glProgramUniform1dEXT ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform1dEXT ProgramUniform1dEXT} */
+	public static native void nglProgramUniform1dEXT(int program, int location, double x);
+
 	/**
 	 * DSA version of {@link #glUniform1d Uniform1d}.
 	 *
@@ -519,13 +454,13 @@ public class ARBGPUShaderFP64 {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1dEXT(int program, int location, double x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1dEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x);
+		nglProgramUniform1dEXT(program, location, x);
 	}
 
 	// --- [ glProgramUniform2dEXT ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform2dEXT ProgramUniform2dEXT} */
+	public static native void nglProgramUniform2dEXT(int program, int location, double x, double y);
 
 	/**
 	 * DSA version of {@link #glUniform2d Uniform2d}.
@@ -536,13 +471,13 @@ public class ARBGPUShaderFP64 {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2dEXT(int program, int location, double x, double y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2dEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y);
+		nglProgramUniform2dEXT(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3dEXT ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform3dEXT ProgramUniform3dEXT} */
+	public static native void nglProgramUniform3dEXT(int program, int location, double x, double y, double z);
 
 	/**
 	 * DSA version of {@link #glUniform3d Uniform3d}.
@@ -554,13 +489,13 @@ public class ARBGPUShaderFP64 {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3dEXT(int program, int location, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3dEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3dEXT(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4dEXT ] ---
+
+	/** Unsafe version of: {@link #glProgramUniform4dEXT ProgramUniform4dEXT} */
+	public static native void nglProgramUniform4dEXT(int program, int location, double x, double y, double z, double w);
 
 	/**
 	 * DSA version of {@link #glUniform4d Uniform4d}.
@@ -573,10 +508,7 @@ public class ARBGPUShaderFP64 {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4dEXT(int program, int location, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4dEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4dEXT(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1dvEXT ] ---
@@ -586,12 +518,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1dvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1dvEXT(int program, int location, int count, long value);
 
 	/**
 	 * DSA version of {@link #glUniform1dv Uniform1dv}.
@@ -611,12 +538,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2dvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2dvEXT(int program, int location, int count, long value);
 
 	/**
 	 * DSA version of {@link #glUniform2dv Uniform2dv}.
@@ -636,12 +558,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3dvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3dvEXT(int program, int location, int count, long value);
 
 	/**
 	 * DSA version of {@link #glUniform3dv Uniform3dv}.
@@ -661,12 +578,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4dvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4dvEXT(int program, int location, int count, long value);
 
 	/**
 	 * DSA version of {@link #glUniform4dv Uniform4dv}.
@@ -686,12 +598,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix2dv UniformMatrix2dv}.
@@ -712,12 +619,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix3dv UniformMatrix3dv}.
@@ -738,12 +640,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix4dv UniformMatrix4dv}.
@@ -764,12 +661,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv}.
@@ -790,12 +682,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv}.
@@ -816,12 +703,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv}.
@@ -842,12 +724,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv}.
@@ -868,12 +745,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv}.
@@ -894,12 +766,7 @@ public class ARBGPUShaderFP64 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, long value);
 
 	/**
 	 * DSA version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv}.
@@ -915,7 +782,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniform1dv Uniform1dv} */
 	public static void glUniform1dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1dv;
+		long __functionAddress = GL.getICD().glUniform1dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -923,7 +790,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniform2dv Uniform2dv} */
 	public static void glUniform2dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2dv;
+		long __functionAddress = GL.getICD().glUniform2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -931,7 +798,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniform3dv Uniform3dv} */
 	public static void glUniform3dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3dv;
+		long __functionAddress = GL.getICD().glUniform3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -939,7 +806,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniform4dv Uniform4dv} */
 	public static void glUniform4dv(int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4dv;
+		long __functionAddress = GL.getICD().glUniform4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -947,7 +814,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	public static void glUniformMatrix2dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
+		long __functionAddress = GL.getICD().glUniformMatrix2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
@@ -955,7 +822,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	public static void glUniformMatrix3dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
+		long __functionAddress = GL.getICD().glUniformMatrix3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
@@ -963,7 +830,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	public static void glUniformMatrix4dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
+		long __functionAddress = GL.getICD().glUniformMatrix4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
@@ -971,7 +838,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	public static void glUniformMatrix2x3dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
+		long __functionAddress = GL.getICD().glUniformMatrix2x3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
@@ -979,7 +846,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	public static void glUniformMatrix2x4dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
+		long __functionAddress = GL.getICD().glUniformMatrix2x4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
@@ -987,7 +854,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	public static void glUniformMatrix3x2dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
+		long __functionAddress = GL.getICD().glUniformMatrix3x2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
@@ -995,7 +862,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	public static void glUniformMatrix3x4dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
+		long __functionAddress = GL.getICD().glUniformMatrix3x4dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
@@ -1003,7 +870,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	public static void glUniformMatrix4x2dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
+		long __functionAddress = GL.getICD().glUniformMatrix4x2dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
@@ -1011,7 +878,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	public static void glUniformMatrix4x3dv(int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
+		long __functionAddress = GL.getICD().glUniformMatrix4x3dv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
@@ -1019,7 +886,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glGetUniformdv GetUniformdv} */
 	public static void glGetUniformdv(int program, int location, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformdv;
+		long __functionAddress = GL.getICD().glGetUniformdv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1029,7 +896,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniform1dvEXT ProgramUniform1dvEXT} */
 	public static void glProgramUniform1dvEXT(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform1dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -1037,7 +904,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniform2dvEXT ProgramUniform2dvEXT} */
 	public static void glProgramUniform2dvEXT(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform2dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -1045,7 +912,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniform3dvEXT ProgramUniform3dvEXT} */
 	public static void glProgramUniform3dvEXT(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform3dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -1053,7 +920,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniform4dvEXT ProgramUniform4dvEXT} */
 	public static void glProgramUniform4dvEXT(int program, int location, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform4dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -1061,7 +928,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix2dvEXT ProgramUniformMatrix2dvEXT} */
 	public static void glProgramUniformMatrix2dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, transpose, value);
@@ -1069,7 +936,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix3dvEXT ProgramUniformMatrix3dvEXT} */
 	public static void glProgramUniformMatrix3dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 9, transpose, value);
@@ -1077,7 +944,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix4dvEXT ProgramUniformMatrix4dvEXT} */
 	public static void glProgramUniformMatrix4dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 4, transpose, value);
@@ -1085,7 +952,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix2x3dvEXT ProgramUniformMatrix2x3dvEXT} */
 	public static void glProgramUniformMatrix2x3dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x3dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -1093,7 +960,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix2x4dvEXT ProgramUniformMatrix2x4dvEXT} */
 	public static void glProgramUniformMatrix2x4dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x4dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -1101,7 +968,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix3x2dvEXT ProgramUniformMatrix3x2dvEXT} */
 	public static void glProgramUniformMatrix3x2dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x2dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -1109,7 +976,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix3x4dvEXT ProgramUniformMatrix3x4dvEXT} */
 	public static void glProgramUniformMatrix3x4dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x4dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -1117,7 +984,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix4x2dvEXT ProgramUniformMatrix4x2dvEXT} */
 	public static void glProgramUniformMatrix4x2dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x2dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -1125,7 +992,7 @@ public class ARBGPUShaderFP64 {
 
 	/** Array version of: {@link #glProgramUniformMatrix4x3dvEXT ProgramUniformMatrix4x3dvEXT} */
 	public static void glProgramUniformMatrix4x3dvEXT(int program, int location, boolean transpose, double[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3dvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x3dvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);

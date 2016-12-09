@@ -7,6 +7,7 @@ package org.lwjgl.opengl;
 
 import org.lwjgl.system.*;
 import java.util.Set;
+import org.lwjgl.*;
 
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -3831,6 +3832,9 @@ shadow2DRectProjGradARB(
 	/** When true, deprecated functions are not available. */
 	public final boolean forwardCompatible;
 
+	/** Off-heap array of the above function addresses. */
+	final PointerBuffer addresses;
+
 	GLCapabilities(FunctionProvider provider, Set<String> ext, boolean fc) {
 		forwardCompatible = fc;
 
@@ -6334,6 +6338,8 @@ shadow2DRectProjGradARB(
 		GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
 		GL_OVR_multiview = ext.contains("GL_OVR_multiview") && checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this));
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
+
+		addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);
 	}
 
 	private static long getFunctionAddress(boolean fc, FunctionProvider provider, String functionName) {

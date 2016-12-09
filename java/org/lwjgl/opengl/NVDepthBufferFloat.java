@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/depth_buffer_float.txt">NV_depth_buffer_float</a> extension.
@@ -45,6 +44,8 @@ public class NVDepthBufferFloat {
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_DEPTH_BUFFER_FLOAT_MODE_NV = 0x8DAF;
 
+	static { GL.initialize(); }
+
 	protected NVDepthBufferFloat() {
 		throw new UnsupportedOperationException();
 	}
@@ -57,29 +58,26 @@ public class NVDepthBufferFloat {
 
 	// --- [ glDepthRangedNV ] ---
 
+	public static native void nglDepthRangedNV(double zNear, double zFar);
+
 	public static void glDepthRangedNV(double zNear, double zFar) {
-		long __functionAddress = GL.getCapabilities().glDepthRangedNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, zNear, zFar);
+		nglDepthRangedNV(zNear, zFar);
 	}
 
 	// --- [ glClearDepthdNV ] ---
 
+	public static native void nglClearDepthdNV(double depth);
+
 	public static void glClearDepthdNV(double depth) {
-		long __functionAddress = GL.getCapabilities().glClearDepthdNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, depth);
+		nglClearDepthdNV(depth);
 	}
 
 	// --- [ glDepthBoundsdNV ] ---
 
+	public static native void nglDepthBoundsdNV(double zmin, double zmax);
+
 	public static void glDepthBoundsdNV(double zmin, double zmax) {
-		long __functionAddress = GL.getCapabilities().glDepthBoundsdNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, zmin, zmax);
+		nglDepthBoundsdNV(zmin, zmax);
 	}
 
 }

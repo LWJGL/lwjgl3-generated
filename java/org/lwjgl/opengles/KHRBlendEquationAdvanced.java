@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/KHR/blend_equation_advanced.txt">KHR_blend_equation_advanced</a> extension.
@@ -69,6 +68,8 @@ public class KHRBlendEquationAdvanced {
 		GL_HSL_COLOR_KHR      = 0x92AF,
 		GL_HSL_LUMINOSITY_KHR = 0x92B0;
 
+	static { GLES.initialize(); }
+
 	protected KHRBlendEquationAdvanced() {
 		throw new UnsupportedOperationException();
 	}
@@ -81,6 +82,9 @@ public class KHRBlendEquationAdvanced {
 
 	// --- [ glBlendBarrierKHR ] ---
 
+	/** Unsafe version of: {@link #glBlendBarrierKHR BlendBarrierKHR} */
+	public static native void nglBlendBarrierKHR();
+
 	/**
 	 * Specifies a boundary between passes when using advanced blend equations.
 	 * 
@@ -90,10 +94,7 @@ public class KHRBlendEquationAdvanced {
 	 * blended or unblended primitives, and {@link GLES30#glBlitFramebuffer BlitFramebuffer} copies.</p>
 	 */
 	public static void glBlendBarrierKHR() {
-		long __functionAddress = GLES.getCapabilities().glBlendBarrierKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglBlendBarrierKHR();
 	}
 
 }

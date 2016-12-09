@@ -206,6 +206,8 @@ public class GL42 {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
+	static { GL.initialize(); }
+
 	protected GL42() {
 		throw new UnsupportedOperationException();
 	}
@@ -221,12 +223,7 @@ public class GL42 {
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
 	/** Unsafe version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
-	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, bufferIndex, pname, params);
-	}
+	public static native void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAtomicCounterBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -266,6 +263,9 @@ public class GL42 {
 
 	// --- [ glTexStorage1D ] ---
 
+	/** Unsafe version of: {@link #glTexStorage1D TexStorage1D} */
+	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage1D.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -277,13 +277,13 @@ public class GL42 {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
-		long __functionAddress = GL.getCapabilities().glTexStorage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width);
+		nglTexStorage1D(target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
+
+	/** Unsafe version of: {@link #glTexStorage2D TexStorage2D} */
+	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2D.xhtml">OpenGL SDK Reference</a></p>
@@ -297,13 +297,13 @@ public class GL42 {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glTexStorage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width, height);
+		nglTexStorage2D(target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
+
+	/** Unsafe version of: {@link #glTexStorage3D TexStorage3D} */
+	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3D.xhtml">OpenGL SDK Reference</a></p>
@@ -318,13 +318,13 @@ public class GL42 {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilities().glTexStorage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width, height, depth);
+		nglTexStorage3D(target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
+
+	/** Unsafe version of: {@link #glDrawTransformFeedbackInstanced DrawTransformFeedbackInstanced} */
+	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackInstanced.xhtml">OpenGL SDK Reference</a></p>
@@ -336,13 +336,13 @@ public class GL42 {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackInstanced;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id, primcount);
+		nglDrawTransformFeedbackInstanced(mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
+
+	/** Unsafe version of: {@link #glDrawTransformFeedbackStreamInstanced DrawTransformFeedbackStreamInstanced} */
+	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStreamInstanced.xhtml">OpenGL SDK Reference</a></p>
@@ -355,13 +355,13 @@ public class GL42 {
 	 * @param primcount the number of instances of the geometry to render
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStreamInstanced;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id, stream, primcount);
+		nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
 	}
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
+
+	/** Unsafe version of: {@link #glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance} */
+	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
@@ -375,10 +375,7 @@ public class GL42 {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedBaseInstance;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, primcount, baseinstance);
+		nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
@@ -389,12 +386,7 @@ public class GL42 {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseInstance;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
-	}
+	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
@@ -477,12 +469,7 @@ public class GL42 {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstance;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
-	}
+	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a></p>
@@ -564,6 +551,9 @@ public class GL42 {
 
 	// --- [ glBindImageTexture ] ---
 
+	/** Unsafe version of: {@link #glBindImageTexture BindImageTexture} */
+	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindImageTexture.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -578,13 +568,13 @@ public class GL42 {
 	 * @param format  the format that the elements of the image will be treated as for the purposes of formatted stores
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
-		long __functionAddress = GL.getCapabilities().glBindImageTexture;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, unit, texture, level, layered, layer, access, format);
+		nglBindImageTexture(unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
+
+	/** Unsafe version of: {@link #glMemoryBarrier MemoryBarrier} */
+	public static native void nglMemoryBarrier(int barriers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrier.xhtml">OpenGL SDK Reference</a></p>
@@ -594,10 +584,7 @@ public class GL42 {
 	 * @param barriers the barriers to insert (bitwise combination). One or more of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}</td><td>{@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}</td><td>{@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr><tr><td>{@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td><td>{@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}</td></tr><tr><td>{@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}</td><td>{@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}</td><td>{@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}</td><td>{@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td></tr><tr><td>{@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}</td><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td></tr></table>
 	 */
 	public static void glMemoryBarrier(int barriers) {
-		long __functionAddress = GL.getCapabilities().glMemoryBarrier;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, barriers);
+		nglMemoryBarrier(barriers);
 	}
 
 	// --- [ glGetInternalformativ ] ---
@@ -607,12 +594,7 @@ public class GL42 {
 	 *
 	 * @param bufSize the maximum number of values that may be written to params by the function
 	 */
-	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, pname, bufSize, params);
-	}
+	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
@@ -654,7 +636,7 @@ public class GL42 {
 	 * Array version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv}
 	 */
 	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
+		long __functionAddress = GL.getICD().glGetActiveAtomicCounterBufferiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -668,7 +650,7 @@ public class GL42 {
 	 * Array version of: {@link #glGetInternalformativ GetInternalformativ}
 	 */
 	public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
+		long __functionAddress = GL.getICD().glGetInternalformativ;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, params.length, params);

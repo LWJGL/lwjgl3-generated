@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_tessellation_shader.txt">OES_tessellation_shader</a> extension.
@@ -128,6 +127,8 @@ public class OESTessellationShader {
 		GL_TESS_CONTROL_SHADER_BIT_OES    = 0x8,
 		GL_TESS_EVALUATION_SHADER_BIT_OES = 0x10;
 
+	static { GLES.initialize(); }
+
 	protected OESTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
@@ -140,11 +141,10 @@ public class OESTessellationShader {
 
 	// --- [ glPatchParameteriOES ] ---
 
+	public static native void nglPatchParameteriOES(int pname, int value);
+
 	public static void glPatchParameteriOES(int pname, int value) {
-		long __functionAddress = GLES.getCapabilities().glPatchParameteriOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, value);
+		nglPatchParameteriOES(pname, value);
 	}
 
 }

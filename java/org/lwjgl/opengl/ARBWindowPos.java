@@ -28,6 +28,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBWindowPos {
 
+	static { GL.initialize(); }
+
 	protected ARBWindowPos() {
 		throw new UnsupportedOperationException();
 	}
@@ -42,6 +44,9 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos2iARB ] ---
 
+	/** Unsafe version of: {@link #glWindowPos2iARB WindowPos2iARB} */
+	public static native void nglWindowPos2iARB(int x, int y);
+
 	/**
 	 * Alternate way to set the current raster position. {@code z} is implictly set to 0.
 	 *
@@ -49,13 +54,13 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2iARB(int x, int y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2iARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2iARB(x, y);
 	}
 
 	// --- [ glWindowPos2sARB ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2sARB WindowPos2sARB} */
+	public static native void nglWindowPos2sARB(short x, short y);
 
 	/**
 	 * Short version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -64,13 +69,13 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2sARB(short x, short y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2sARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2sARB(x, y);
 	}
 
 	// --- [ glWindowPos2fARB ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2fARB WindowPos2fARB} */
+	public static native void nglWindowPos2fARB(float x, float y);
 
 	/**
 	 * Float version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -79,13 +84,13 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2fARB(float x, float y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2fARB(x, y);
 	}
 
 	// --- [ glWindowPos2dARB ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2dARB WindowPos2dARB} */
+	public static native void nglWindowPos2dARB(double x, double y);
 
 	/**
 	 * Double version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -94,21 +99,13 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2dARB(double x, double y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2dARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2dARB(x, y);
 	}
 
 	// --- [ glWindowPos2ivARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
-	public static void nglWindowPos2ivARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2ivARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -124,12 +121,7 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2svARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2svARB WindowPos2svARB} */
-	public static void nglWindowPos2svARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2svARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2svARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos2sARB WindowPos2sARB}.
@@ -145,12 +137,7 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2fvARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
-	public static void nglWindowPos2fvARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2fvARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos2fARB WindowPos2fARB}.
@@ -166,12 +153,7 @@ public class ARBWindowPos {
 	// --- [ glWindowPos2dvARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
-	public static void nglWindowPos2dvARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2dvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2dvARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos2dARB WindowPos2dARB}.
@@ -186,6 +168,9 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos3iARB ] ---
 
+	/** Unsafe version of: {@link #glWindowPos3iARB WindowPos3iARB} */
+	public static native void nglWindowPos3iARB(int x, int y, int z);
+
 	/**
 	 * Alternate way to set the current raster position.
 	 *
@@ -194,13 +179,13 @@ public class ARBWindowPos {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3iARB(int x, int y, int z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3iARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3iARB(x, y, z);
 	}
 
 	// --- [ glWindowPos3sARB ] ---
+
+	/** Unsafe version of: {@link #glWindowPos3sARB WindowPos3sARB} */
+	public static native void nglWindowPos3sARB(short x, short y, short z);
 
 	/**
 	 * Short version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -210,13 +195,13 @@ public class ARBWindowPos {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3sARB(short x, short y, short z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3sARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3sARB(x, y, z);
 	}
 
 	// --- [ glWindowPos3fARB ] ---
+
+	/** Unsafe version of: {@link #glWindowPos3fARB WindowPos3fARB} */
+	public static native void nglWindowPos3fARB(float x, float y, float z);
 
 	/**
 	 * Float version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -226,13 +211,13 @@ public class ARBWindowPos {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3fARB(float x, float y, float z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3fARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3fARB(x, y, z);
 	}
 
 	// --- [ glWindowPos3dARB ] ---
+
+	/** Unsafe version of: {@link #glWindowPos3dARB WindowPos3dARB} */
+	public static native void nglWindowPos3dARB(double x, double y, double z);
 
 	/**
 	 * Double version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -242,21 +227,13 @@ public class ARBWindowPos {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3dARB(double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3dARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3dARB(x, y, z);
 	}
 
 	// --- [ glWindowPos3ivARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
-	public static void nglWindowPos3ivARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3ivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3ivARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -272,12 +249,7 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3svARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3svARB WindowPos3svARB} */
-	public static void nglWindowPos3svARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3svARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3svARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos3sARB WindowPos3sARB}.
@@ -293,12 +265,7 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3fvARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
-	public static void nglWindowPos3fvARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3fvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3fvARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos3fARB WindowPos3fARB}.
@@ -314,12 +281,7 @@ public class ARBWindowPos {
 	// --- [ glWindowPos3dvARB ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
-	public static void nglWindowPos3dvARB(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3dvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3dvARB(long p);
 
 	/**
 	 * Pointer version of {@link #glWindowPos3dARB WindowPos3dARB}.
@@ -334,7 +296,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
 	public static void glWindowPos2ivARB(int[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2ivARB;
+		long __functionAddress = GL.getICD().glWindowPos2ivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -344,7 +306,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos2svARB WindowPos2svARB} */
 	public static void glWindowPos2svARB(short[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2svARB;
+		long __functionAddress = GL.getICD().glWindowPos2svARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -354,7 +316,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
 	public static void glWindowPos2fvARB(float[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2fvARB;
+		long __functionAddress = GL.getICD().glWindowPos2fvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -364,7 +326,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
 	public static void glWindowPos2dvARB(double[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2dvARB;
+		long __functionAddress = GL.getICD().glWindowPos2dvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -374,7 +336,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
 	public static void glWindowPos3ivARB(int[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3ivARB;
+		long __functionAddress = GL.getICD().glWindowPos3ivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);
@@ -384,7 +346,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos3svARB WindowPos3svARB} */
 	public static void glWindowPos3svARB(short[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3svARB;
+		long __functionAddress = GL.getICD().glWindowPos3svARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);
@@ -394,7 +356,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
 	public static void glWindowPos3fvARB(float[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3fvARB;
+		long __functionAddress = GL.getICD().glWindowPos3fvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);
@@ -404,7 +366,7 @@ public class ARBWindowPos {
 
 	/** Array version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
 	public static void glWindowPos3dvARB(double[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3dvARB;
+		long __functionAddress = GL.getICD().glWindowPos3dvARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);

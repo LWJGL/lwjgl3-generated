@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -29,6 +28,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVBindlessMultiDrawIndirect {
 
+	static { GL.initialize(); }
+
 	protected NVBindlessMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
@@ -42,12 +43,7 @@ public class NVBindlessMultiDrawIndirect {
 	// --- [ glMultiDrawArraysIndirectBindlessNV ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawArraysIndirectBindlessNV MultiDrawArraysIndirectBindlessNV} */
-	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectBindlessNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
-	}
+	public static native void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount);
 
 	/**
 	 * Behaves similar to {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}, except that {@code indirect} is treated as an array of {@code drawCount}
@@ -80,12 +76,7 @@ typedef struct {
 	// --- [ glMultiDrawElementsIndirectBindlessNV ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawElementsIndirectBindlessNV MultiDrawElementsIndirectBindlessNV} */
-	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectBindlessNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
-	}
+	public static native void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount);
 
 	/**
 	 * Behaves similar to {@link GL43#glMultiDrawElementsIndirect MultiDrawElementsIndirect}, except that {@code indirect} is treated as an array of {@code drawCount}

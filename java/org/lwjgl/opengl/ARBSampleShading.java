@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sample_shading.txt">ARB_sample_shading</a> extension.
@@ -38,6 +37,8 @@ public class ARBSampleShading {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
 
+	static { GL.initialize(); }
+
 	protected ARBSampleShading() {
 		throw new UnsupportedOperationException();
 	}
@@ -50,16 +51,16 @@ public class ARBSampleShading {
 
 	// --- [ glMinSampleShadingARB ] ---
 
+	/** Unsafe version of: {@link #glMinSampleShadingARB MinSampleShadingARB} */
+	public static native void nglMinSampleShadingARB(float value);
+
 	/**
 	 * Sets the minimum sample shading fraction. {@code value} is clamped to [0,1] when specified.
 	 *
 	 * @param value the minimum sample shading fraction
 	 */
 	public static void glMinSampleShadingARB(float value) {
-		long __functionAddress = GL.getCapabilities().glMinSampleShadingARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, value);
+		nglMinSampleShadingARB(value);
 	}
 
 }

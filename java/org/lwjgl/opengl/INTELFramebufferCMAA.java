@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/INTEL/framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
@@ -27,6 +26,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class INTELFramebufferCMAA {
 
+	static { GL.initialize(); }
+
 	protected INTELFramebufferCMAA() {
 		throw new UnsupportedOperationException();
 	}
@@ -39,15 +40,15 @@ public class INTELFramebufferCMAA {
 
 	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
 
+	/** Unsafe version of: {@link #glApplyFramebufferAttachmentCMAAINTEL ApplyFramebufferAttachmentCMAAINTEL} */
+	public static native void nglApplyFramebufferAttachmentCMAAINTEL();
+
 	/**
 	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
 	 * Conservative Morphological Anti-Aliasing algorithm.
 	 */
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {
-		long __functionAddress = GL.getCapabilities().glApplyFramebufferAttachmentCMAAINTEL;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglApplyFramebufferAttachmentCMAAINTEL();
 	}
 
 }

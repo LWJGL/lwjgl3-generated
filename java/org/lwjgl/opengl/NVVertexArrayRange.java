@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -31,6 +30,8 @@ public class NVVertexArrayRange {
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
 	public static final int GL_VERTEX_ARRAY_RANGE_POINTER_NV = 0x8521;
 
+	static { GL.initialize(); }
+
 	protected NVVertexArrayRange() {
 		throw new UnsupportedOperationException();
 	}
@@ -43,12 +44,7 @@ public class NVVertexArrayRange {
 
 	// --- [ glVertexArrayRangeNV ] ---
 
-	public static void nglVertexArrayRangeNV(int length, long pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayRangeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, length, pointer);
-	}
+	public static native void nglVertexArrayRangeNV(int length, long pointer);
 
 	public static void glVertexArrayRangeNV(ByteBuffer pointer) {
 		nglVertexArrayRangeNV(pointer.remaining(), memAddress(pointer));
@@ -56,11 +52,10 @@ public class NVVertexArrayRange {
 
 	// --- [ glFlushVertexArrayRangeNV ] ---
 
+	public static native void nglFlushVertexArrayRangeNV();
+
 	public static void glFlushVertexArrayRangeNV() {
-		long __functionAddress = GL.getCapabilities().glFlushVertexArrayRangeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglFlushVertexArrayRangeNV();
 	}
 
 }

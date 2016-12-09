@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt">ARB_shader_image_load_store</a> extension.
@@ -122,6 +121,8 @@ public class ARBShaderImageLoadStore {
 		GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE  = 0x90C8,
 		GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS = 0x90C9;
 
+	static { GL.initialize(); }
+
 	protected ARBShaderImageLoadStore() {
 		throw new UnsupportedOperationException();
 	}
@@ -133,6 +134,9 @@ public class ARBShaderImageLoadStore {
 	}
 
 	// --- [ glBindImageTexture ] ---
+
+	/** Unsafe version of: {@link #glBindImageTexture BindImageTexture} */
+	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
 
 	/**
 	 * Binds a level of a texture to an image unit.
@@ -146,24 +150,21 @@ public class ARBShaderImageLoadStore {
 	 * @param format  the format that the elements of the image will be treated as for the purposes of formatted stores
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
-		long __functionAddress = GL.getCapabilities().glBindImageTexture;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, unit, texture, level, layered, layer, access, format);
+		nglBindImageTexture(unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
 
+	/** Unsafe version of: {@link #glMemoryBarrier MemoryBarrier} */
+	public static native void nglMemoryBarrier(int barriers);
+
 	/**
 	 * Defines a barrier ordering memory transactions.
 	 *
-	 * @param barriers the barriers to insert (bitwise combination). One or more of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}</td><td>{@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}</td><td>{@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr><tr><td>{@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td><td>{@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}</td></tr><tr><td>{@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}</td><td>{@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}</td><td>{@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}</td><td>{@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td></tr><tr><td>{@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}</td><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td></tr></table>
+	 * @param barriers the barriers to insert (bitwise combination). One or more of:<br><table><tr><td>{@link GL42#GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}</td><td>{@link GL42#GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}</td><td>{@link GL42#GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr><tr><td>{@link GL42#GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link GL42#GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td><td>{@link GL42#GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}</td></tr><tr><td>{@link GL42#GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}</td><td>{@link GL42#GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}</td><td>{@link GL42#GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}</td></tr><tr><td>{@link GL42#GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link GL42#GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td></tr><tr><td>{@link GL42#GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}</td><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td></tr></table>
 	 */
 	public static void glMemoryBarrier(int barriers) {
-		long __functionAddress = GL.getCapabilities().glMemoryBarrier;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, barriers);
+		nglMemoryBarrier(barriers);
 	}
 
 }

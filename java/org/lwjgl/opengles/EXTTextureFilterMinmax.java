@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/texture_filter_minmax.txt">EXT_texture_filter_minmax</a> extension.
@@ -36,6 +35,8 @@ public class EXTTextureFilterMinmax {
 	 */
 	public static final int GL_WEIGHTED_AVERAGE_EXT = 0x9367;
 
+	static { GLES.initialize(); }
+
 	protected EXTTextureFilterMinmax() {
 		throw new UnsupportedOperationException();
 	}
@@ -48,11 +49,10 @@ public class EXTTextureFilterMinmax {
 
 	// --- [ glRasterSamplesEXT ] ---
 
+	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		long __functionAddress = GLES.getCapabilities().glRasterSamplesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, samples, fixedsamplelocations);
+		nglRasterSamplesEXT(samples, fixedsamplelocations);
 	}
 
 }

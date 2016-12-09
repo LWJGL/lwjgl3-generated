@@ -84,7 +84,7 @@ public class SOFTSourceLatency {
 	 * @param value  the parameter value
 	 */
 	public static void alSourcedSOFT(int source, int param, double value) {
-		long __functionAddress = AL.getCapabilities().alSourcedSOFT;
+		long __functionAddress = AL.getICD().alSourcedSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokeV(__functionAddress, source, param, value);
@@ -102,7 +102,7 @@ public class SOFTSourceLatency {
 	 * @param value3 the third value
 	 */
 	public static void alSource3dSOFT(int source, int param, double value1, double value2, double value3) {
-		long __functionAddress = AL.getCapabilities().alSource3dSOFT;
+		long __functionAddress = AL.getICD().alSource3dSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokeV(__functionAddress, source, param, value1, value2, value3);
@@ -112,7 +112,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alSourcedvSOFT SourcedvSOFT} */
 	public static void nalSourcedvSOFT(int source, int param, long value) {
-		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
+		long __functionAddress = AL.getICD().alSourcedvSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
@@ -135,7 +135,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
-		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
+		long __functionAddress = AL.getICD().alGetSourcedSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
@@ -175,7 +175,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
-		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
+		long __functionAddress = AL.getICD().alGetSource3dSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePPPV(__functionAddress, source, param, value1, value2, value3);
@@ -203,7 +203,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
-		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
+		long __functionAddress = AL.getICD().alGetSourcedvSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
@@ -232,7 +232,7 @@ public class SOFTSourceLatency {
 	 * @param value  the parameter values
 	 */
 	public static void alSourcei64SOFT(int source, int param, long value) {
-		long __functionAddress = AL.getCapabilities().alSourcei64SOFT;
+		long __functionAddress = AL.getICD().alSourcei64SOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokeJV(__functionAddress, source, param, value);
@@ -250,7 +250,7 @@ public class SOFTSourceLatency {
 	 * @param value3 the third value
 	 */
 	public static void alSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
-		long __functionAddress = AL.getCapabilities().alSource3i64SOFT;
+		long __functionAddress = AL.getICD().alSource3i64SOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokeJJJV(__functionAddress, source, param, value1, value2, value3);
@@ -260,7 +260,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
-		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
+		long __functionAddress = AL.getICD().alSourcei64vSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
@@ -283,7 +283,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
-		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
+		long __functionAddress = AL.getICD().alGetSourcei64SOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
@@ -323,7 +323,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
-		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
+		long __functionAddress = AL.getICD().alGetSource3i64SOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePPPV(__functionAddress, source, param, value1, value2, value3);
@@ -351,7 +351,7 @@ public class SOFTSourceLatency {
 
 	/** Unsafe version of: {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
-		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
+		long __functionAddress = AL.getICD().alGetSourcei64vSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
@@ -372,7 +372,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alSourcedvSOFT SourcedvSOFT} */
 	public static void alSourcedvSOFT(int source, int param, double[] value) {
-		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
+		long __functionAddress = AL.getICD().alSourcedvSOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -382,7 +382,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static void alGetSourcedSOFT(int source, int param, double[] value) {
-		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
+		long __functionAddress = AL.getICD().alGetSourcedSOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -392,7 +392,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	public static void alGetSource3dSOFT(int source, int param, double[] value1, double[] value2, double[] value3) {
-		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
+		long __functionAddress = AL.getICD().alGetSource3dSOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value1, 1);
@@ -404,7 +404,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	public static void alGetSourcedvSOFT(int source, int param, double[] values) {
-		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
+		long __functionAddress = AL.getICD().alGetSourcedvSOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(values, 1);
@@ -414,7 +414,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	public static void alSourcei64vSOFT(int source, int param, long[] values) {
-		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
+		long __functionAddress = AL.getICD().alSourcei64vSOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(values, 1);
@@ -424,7 +424,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static void alGetSourcei64SOFT(int source, int param, long[] value) {
-		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
+		long __functionAddress = AL.getICD().alGetSourcei64SOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -434,7 +434,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	public static void alGetSource3i64SOFT(int source, int param, long[] value1, long[] value2, long[] value3) {
-		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
+		long __functionAddress = AL.getICD().alGetSource3i64SOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value1, 1);
@@ -446,7 +446,7 @@ public class SOFTSourceLatency {
 
 	/** Array version of: {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	public static void alGetSourcei64vSOFT(int source, int param, long[] values) {
-		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
+		long __functionAddress = AL.getICD().alGetSourcei64vSOFT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(values, 1);

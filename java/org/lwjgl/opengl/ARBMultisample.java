@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">ARB_multisample</a> extension.
@@ -48,6 +47,8 @@ public class ARBMultisample {
 		GL_SAMPLE_COVERAGE_VALUE_ARB  = 0x80AA,
 		GL_SAMPLE_COVERAGE_INVERT_ARB = 0x80AB;
 
+	static { GL.initialize(); }
+
 	protected ARBMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -60,6 +61,9 @@ public class ARBMultisample {
 
 	// --- [ glSampleCoverageARB ] ---
 
+	/** Unsafe version of: {@link #glSampleCoverageARB SampleCoverageARB} */
+	public static native void nglSampleCoverageARB(float value, boolean invert);
+
 	/**
 	 * Specifies simultaneously the values of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB} and {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB}.
 	 * 
@@ -71,10 +75,7 @@ public class ARBMultisample {
 	 * @param invert if true, the temporary coverage is inverted. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td></tr></table>
 	 */
 	public static void glSampleCoverageARB(float value, boolean invert) {
-		long __functionAddress = GL.getCapabilities().glSampleCoverageARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, value, invert);
+		nglSampleCoverageARB(value, invert);
 	}
 
 }

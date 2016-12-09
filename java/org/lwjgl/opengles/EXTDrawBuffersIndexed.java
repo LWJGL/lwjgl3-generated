@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_draw_buffers_indexed.txt">EXT_draw_buffers_indexed</a> extension.
@@ -30,6 +29,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTDrawBuffersIndexed {
 
+	static { GLES.initialize(); }
+
 	protected EXTDrawBuffersIndexed() {
 		throw new UnsupportedOperationException();
 	}
@@ -43,74 +44,66 @@ public class EXTDrawBuffersIndexed {
 
 	// --- [ glEnableiEXT ] ---
 
+	public static native void nglEnableiEXT(int target, int index);
+
 	public static void glEnableiEXT(int target, int index) {
-		long __functionAddress = GLES.getCapabilities().glEnableiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglEnableiEXT(target, index);
 	}
 
 	// --- [ glDisableiEXT ] ---
 
+	public static native void nglDisableiEXT(int target, int index);
+
 	public static void glDisableiEXT(int target, int index) {
-		long __functionAddress = GLES.getCapabilities().glDisableiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglDisableiEXT(target, index);
 	}
 
 	// --- [ glBlendEquationiEXT ] ---
 
+	public static native void nglBlendEquationiEXT(int buf, int mode);
+
 	public static void glBlendEquationiEXT(int buf, int mode) {
-		long __functionAddress = GLES.getCapabilities().glBlendEquationiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, mode);
+		nglBlendEquationiEXT(buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiEXT ] ---
 
+	public static native void nglBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha);
+
 	public static void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = GLES.getCapabilities().glBlendEquationSeparateiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, modeRGB, modeAlpha);
+		nglBlendEquationSeparateiEXT(buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciEXT ] ---
 
+	public static native void nglBlendFunciEXT(int buf, int src, int dst);
+
 	public static void glBlendFunciEXT(int buf, int src, int dst) {
-		long __functionAddress = GLES.getCapabilities().glBlendFunciEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, src, dst);
+		nglBlendFunciEXT(buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiEXT ] ---
 
+	public static native void nglBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+
 	public static void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = GLES.getCapabilities().glBlendFuncSeparateiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		nglBlendFuncSeparateiEXT(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiEXT ] ---
 
+	public static native void nglColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a);
+
 	public static void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = GLES.getCapabilities().glColorMaskiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, r, g, b, a);
+		nglColorMaskiEXT(index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediEXT ] ---
 
+	public static native boolean nglIsEnablediEXT(int target, int index);
+
 	public static boolean glIsEnablediEXT(int target, int index) {
-		long __functionAddress = GLES.getCapabilities().glIsEnablediEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target, index);
+		return nglIsEnablediEXT(target, index);
 	}
 
 }

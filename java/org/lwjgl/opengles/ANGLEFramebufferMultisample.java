@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/ANGLE/ANGLE_framebuffer_multisample.txt">ANGLE_framebuffer_multisample</a> extension.
@@ -38,6 +37,8 @@ public class ANGLEFramebufferMultisample {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_MAX_SAMPLES_ANGLE = 0x8D57;
 
+	static { GLES.initialize(); }
+
 	protected ANGLEFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -50,11 +51,10 @@ public class ANGLEFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleANGLE ] ---
 
+	public static native void nglRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
+
 	public static void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleANGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height);
+		nglRenderbufferStorageMultisampleANGLE(target, samples, internalformat, width, height);
 	}
 
 }

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NVX/conditional_render.txt">NVX_conditional_render</a> extension.
@@ -22,6 +21,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVXConditionalRender {
 
+	static { GL.initialize(); }
+
 	protected NVXConditionalRender() {
 		throw new UnsupportedOperationException();
 	}
@@ -34,20 +35,18 @@ public class NVXConditionalRender {
 
 	// --- [ glBeginConditionalRenderNVX ] ---
 
+	public static native void nglBeginConditionalRenderNVX(int id);
+
 	public static void glBeginConditionalRenderNVX(int id) {
-		long __functionAddress = GL.getCapabilities().glBeginConditionalRenderNVX;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, id);
+		nglBeginConditionalRenderNVX(id);
 	}
 
 	// --- [ glEndConditionalRenderNVX ] ---
 
+	public static native void nglEndConditionalRenderNVX();
+
 	public static void glEndConditionalRenderNVX() {
-		long __functionAddress = GL.getCapabilities().glEndConditionalRenderNVX;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglEndConditionalRenderNVX();
 	}
 
 }

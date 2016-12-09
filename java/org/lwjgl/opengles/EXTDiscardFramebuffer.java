@@ -41,6 +41,8 @@ public class EXTDiscardFramebuffer {
 		GL_DEPTH_EXT   = 0x1801,
 		GL_STENCIL_EXT = 0x1802;
 
+	static { GLES.initialize(); }
+
 	protected EXTDiscardFramebuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -53,12 +55,7 @@ public class EXTDiscardFramebuffer {
 
 	// --- [ glDiscardFramebufferEXT ] ---
 
-	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
-		long __functionAddress = GLES.getCapabilities().glDiscardFramebufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, numAttachments, attachments);
-	}
+	public static native void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments);
 
 	public static void glDiscardFramebufferEXT(int target, IntBuffer attachments) {
 		nglDiscardFramebufferEXT(target, attachments.remaining(), memAddress(attachments));
@@ -76,7 +73,7 @@ public class EXTDiscardFramebuffer {
 
 	/** Array version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	public static void glDiscardFramebufferEXT(int target, int[] attachments) {
-		long __functionAddress = GLES.getCapabilities().glDiscardFramebufferEXT;
+		long __functionAddress = GLES.getICD().glDiscardFramebufferEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, attachments.length, attachments);

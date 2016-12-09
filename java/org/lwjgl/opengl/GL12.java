@@ -134,6 +134,8 @@ public class GL12 {
 		GL_MAX_ELEMENTS_VERTICES = 0x80E8,
 		GL_MAX_ELEMENTS_INDICES  = 0x80E9;
 
+	static { GL.initialize(); }
+
 	protected GL12() {
 		throw new UnsupportedOperationException();
 	}
@@ -147,12 +149,7 @@ public class GL12 {
 	// --- [ glTexImage3D ] ---
 
 	/** Unsafe version of: {@link #glTexImage3D TexImage3D} */
-	public static void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTexImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
-	}
+	public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
@@ -277,12 +274,7 @@ public class GL12 {
 	// --- [ glTexSubImage3D ] ---
 
 	/** Unsafe version of: {@link #glTexSubImage3D TexSubImage3D} */
-	public static void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-	}
+	public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
@@ -418,6 +410,9 @@ public class GL12 {
 
 	// --- [ glCopyTexSubImage3D ] ---
 
+	/** Unsafe version of: {@link #glCopyTexSubImage3D CopyTexSubImage3D} */
+	public static native void nglCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -436,10 +431,7 @@ public class GL12 {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyTexSubImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		nglCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glDrawRangeElements ] ---
@@ -450,12 +442,7 @@ public class GL12 {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
-		long __functionAddress = GL.getCapabilities().glDrawRangeElements;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, start, end, count, type, indices);
-	}
+	public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElements.xhtml">OpenGL SDK Reference</a></p>
@@ -681,7 +668,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		long __functionAddress = GL.getICD().glTexImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -693,7 +680,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		long __functionAddress = GL.getICD().glTexImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -705,7 +692,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		long __functionAddress = GL.getICD().glTexImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -717,7 +704,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		long __functionAddress = GL.getICD().glTexImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -729,7 +716,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		long __functionAddress = GL.getICD().glTexSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -741,7 +728,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		long __functionAddress = GL.getICD().glTexSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -753,7 +740,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		long __functionAddress = GL.getICD().glTexSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -765,7 +752,7 @@ public class GL12 {
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		long __functionAddress = GL.getICD().glTexSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);

@@ -8,7 +8,6 @@ package org.lwjgl.opengles;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -33,6 +32,8 @@ public class ANGLEInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
 
+	static { GLES.initialize(); }
+
 	protected ANGLEInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,21 +46,15 @@ public class ANGLEInstancedArrays {
 
 	// --- [ glDrawArraysInstancedANGLE ] ---
 
+	public static native void nglDrawArraysInstancedANGLE(int mode, int first, int count, int primcount);
+
 	public static void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedANGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, primcount);
+		nglDrawArraysInstancedANGLE(mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedANGLE ] ---
 
-	public static void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedANGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount);
 
 	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
 		nglDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
@@ -83,11 +78,10 @@ public class ANGLEInstancedArrays {
 
 	// --- [ glVertexAttribDivisorANGLE ] ---
 
+	public static native void nglVertexAttribDivisorANGLE(int index, int divisor);
+
 	public static void glVertexAttribDivisorANGLE(int index, int divisor) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorANGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, divisor);
+		nglVertexAttribDivisorANGLE(index, divisor);
 	}
 
 }

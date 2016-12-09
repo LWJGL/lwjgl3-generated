@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt">EXT_x11_sync_object</a> extension.
@@ -33,6 +32,8 @@ public class EXTX11SyncObject {
 	/** Accepted by the {@code external_sync_type} parameter of ImportSyncEXT. */
 	public static final int GL_SYNC_X11_FENCE_EXT = 0x90E1;
 
+	static { GL.initialize(); }
+
 	protected EXTX11SyncObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,6 +46,9 @@ public class EXTX11SyncObject {
 
 	// --- [ glImportSyncEXT ] ---
 
+	/** Unsafe version of: {@link #glImportSyncEXT ImportSyncEXT} */
+	public static native long nglImportSyncEXT(int external_sync_type, long external_sync, int flags);
+
 	/**
 	 * Creates a GL sync object of the type {@code external_sync_type} based on the object referred to by {@code external_sync}.
 	 *
@@ -53,10 +57,7 @@ public class EXTX11SyncObject {
 	 * @param flags              Must be 0.
 	 */
 	public static long glImportSyncEXT(int external_sync_type, long external_sync, int flags) {
-		long __functionAddress = GL.getCapabilities().glImportSyncEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPP(__functionAddress, external_sync_type, external_sync, flags);
+		return nglImportSyncEXT(external_sync_type, external_sync, flags);
 	}
 
 }

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/stencil_two_side.txt">EXT_stencil_two_side</a> extension.
@@ -26,6 +25,8 @@ public class EXTStencilTwoSide {
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_ACTIVE_STENCIL_FACE_EXT = 0x8911;
 
+	static { GL.initialize(); }
+
 	protected EXTStencilTwoSide() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,11 +39,10 @@ public class EXTStencilTwoSide {
 
 	// --- [ glActiveStencilFaceEXT ] ---
 
+	public static native void nglActiveStencilFaceEXT(int face);
+
 	public static void glActiveStencilFaceEXT(int face) {
-		long __functionAddress = GL.getCapabilities().glActiveStencilFaceEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, face);
+		nglActiveStencilFaceEXT(face);
 	}
 
 }

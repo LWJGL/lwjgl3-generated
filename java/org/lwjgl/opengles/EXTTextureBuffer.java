@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_buffer.txt">EXT_texture_buffer</a> extension.
@@ -66,6 +65,8 @@ public class EXTTextureBuffer {
 		GL_TEXTURE_BUFFER_OFFSET_EXT             = 0x919D,
 		GL_TEXTURE_BUFFER_SIZE_EXT               = 0x919E;
 
+	static { GLES.initialize(); }
+
 	protected EXTTextureBuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -78,20 +79,18 @@ public class EXTTextureBuffer {
 
 	// --- [ glTexBufferEXT ] ---
 
+	public static native void nglTexBufferEXT(int target, int internalformat, int buffer);
+
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
-		long __functionAddress = GLES.getCapabilities().glTexBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, buffer);
+		nglTexBufferEXT(target, internalformat, buffer);
 	}
 
 	// --- [ glTexBufferRangeEXT ] ---
 
+	public static native void nglTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size);
+
 	public static void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = GLES.getCapabilities().glTexBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, internalformat, buffer, offset, size);
+		nglTexBufferRangeEXT(target, internalformat, buffer, offset, size);
 	}
 
 }

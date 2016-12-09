@@ -26,6 +26,8 @@ public class AMDSamplePositions {
 	/** Accepted by the {@code pname} parameter of GetFloatv. */
 	public static final int GL_SUBSAMPLE_DISTANCE_AMD = 0x883F;
 
+	static { GL.initialize(); }
+
 	protected AMDSamplePositions() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,12 +40,7 @@ public class AMDSamplePositions {
 
 	// --- [ glSetMultisamplefvAMD ] ---
 
-	public static void nglSetMultisamplefvAMD(int pname, int index, long val) {
-		long __functionAddress = GL.getCapabilities().glSetMultisamplefvAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, index, val);
-	}
+	public static native void nglSetMultisamplefvAMD(int pname, int index, long val);
 
 	public static void glSetMultisamplefvAMD(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
@@ -53,7 +50,7 @@ public class AMDSamplePositions {
 
 	/** Array version of: {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
 	public static void glSetMultisamplefvAMD(int pname, int index, float[] val) {
-		long __functionAddress = GL.getCapabilities().glSetMultisamplefvAMD;
+		long __functionAddress = GL.getICD().glSetMultisamplefvAMD;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(val, 2);

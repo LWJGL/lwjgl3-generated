@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/fragment_coverage_to_color.txt">NV_fragment_coverage_to_color</a> extension.
@@ -28,6 +27,8 @@ public class NVFragmentCoverageToColor {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
+	static { GL.initialize(); }
+
 	protected NVFragmentCoverageToColor() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,16 +41,16 @@ public class NVFragmentCoverageToColor {
 
 	// --- [ glFragmentCoverageColorNV ] ---
 
+	/** Unsafe version of: {@link #glFragmentCoverageColorNV FragmentCoverageColorNV} */
+	public static native void nglFragmentCoverageColorNV(int color);
+
 	/**
 	 * 
 	 *
 	 * @param color the draw buffer index that the coverage value will be written to. Must be between 0 and the value of MAX_DRAW_BUFFERS minus one, inclusive.
 	 */
 	public static void glFragmentCoverageColorNV(int color) {
-		long __functionAddress = GL.getCapabilities().glFragmentCoverageColorNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, color);
+		nglFragmentCoverageColorNV(color);
 	}
 
 }

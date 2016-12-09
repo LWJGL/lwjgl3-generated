@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/interleaved_elements.txt">AMD_interleaved_elements</a> extension.
@@ -36,6 +35,8 @@ public class AMDInterleavedElements {
 	/** Selected by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
 	public static final int GL_VERTEX_ID_SWIZZLE_AMD = 0x91A5;
 
+	static { GL.initialize(); }
+
 	protected AMDInterleavedElements() {
 		throw new UnsupportedOperationException();
 	}
@@ -48,11 +49,10 @@ public class AMDInterleavedElements {
 
 	// --- [ glVertexAttribParameteriAMD ] ---
 
+	public static native void nglVertexAttribParameteriAMD(int index, int pname, int param);
+
 	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribParameteriAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, pname, param);
+		nglVertexAttribParameteriAMD(index, pname, param);
 	}
 
 }

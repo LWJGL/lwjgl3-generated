@@ -72,6 +72,8 @@ public class KHRRobustness {
 	/** Returned by {@link GLES20#glGetError GetError}. */
 	public static final int GL_CONTEXT_LOST_KHR = 0x507;
 
+	static { GLES.initialize(); }
+
 	protected KHRRobustness() {
 		throw new UnsupportedOperationException();
 	}
@@ -83,6 +85,9 @@ public class KHRRobustness {
 	}
 
 	// --- [ glGetGraphicsResetStatusKHR ] ---
+
+	/** Unsafe version of: {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} */
+	public static native int nglGetGraphicsResetStatusKHR();
 
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
@@ -120,10 +125,7 @@ public class KHRRobustness {
 	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatusKHR() {
-		long __functionAddress = GLES.getCapabilities().glGetGraphicsResetStatusKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
+		return nglGetGraphicsResetStatusKHR();
 	}
 
 	// --- [ glReadnPixelsKHR ] ---
@@ -133,12 +135,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
-	}
+	public static native void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels);
 
 	/**
 	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
@@ -223,12 +220,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
-	public static void nglGetnUniformfvKHR(int program, int location, int bufSize, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformfvKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformfvKHR(int program, int location, int bufSize, long params);
 
 	/**
 	 * Returns the value or values of a uniform of the default uniform block.
@@ -265,12 +257,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
-	public static void nglGetnUniformivKHR(int program, int location, int bufSize, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformivKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformivKHR(int program, int location, int bufSize, long params);
 
 	/**
 	 * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
@@ -307,12 +294,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
-	public static void nglGetnUniformuivKHR(int program, int location, int bufSize, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformuivKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformuivKHR(int program, int location, int bufSize, long params);
 
 	/**
 	 * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
@@ -344,7 +326,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
+		long __functionAddress = GLES.getICD().glReadnPixelsKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
@@ -352,7 +334,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
+		long __functionAddress = GLES.getICD().glReadnPixelsKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
@@ -360,7 +342,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
+		long __functionAddress = GLES.getICD().glReadnPixelsKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
@@ -368,7 +350,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
 	public static void glGetnUniformfvKHR(int program, int location, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformfvKHR;
+		long __functionAddress = GLES.getICD().glGetnUniformfvKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -376,7 +358,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glGetnUniformivKHR GetnUniformivKHR} */
 	public static void glGetnUniformivKHR(int program, int location, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformivKHR;
+		long __functionAddress = GLES.getICD().glGetnUniformivKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -384,7 +366,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
 	public static void glGetnUniformuivKHR(int program, int location, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetnUniformuivKHR;
+		long __functionAddress = GLES.getICD().glGetnUniformuivKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);

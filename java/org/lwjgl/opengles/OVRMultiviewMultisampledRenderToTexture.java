@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OVR/multiview_multisampled_render_to_texture.txt">OVR_multiview_multisampled_render_to_texture</a> extension.
@@ -15,6 +14,8 @@ import static org.lwjgl.system.JNI.*;
  * just means adding one new function for multisample multiview array attachments in the framebuffer object.</p>
  */
 public class OVRMultiviewMultisampledRenderToTexture {
+
+	static { GLES.initialize(); }
 
 	protected OVRMultiviewMultisampledRenderToTexture() {
 		throw new UnsupportedOperationException();
@@ -27,6 +28,9 @@ public class OVRMultiviewMultisampledRenderToTexture {
 	}
 
 	// --- [ glFramebufferTextureMultisampleMultiviewOVR ] ---
+
+	/** Unsafe version of: {@link #glFramebufferTextureMultisampleMultiviewOVR FramebufferTextureMultisampleMultiviewOVR} */
+	public static native void nglFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews);
 
 	/**
 	 * Operates similarly to {@link OVRMultiview#glFramebufferTextureMultiviewOVR FramebufferTextureMultiviewOVR}, except that it also enables multisampled rendering into the images of a
@@ -41,10 +45,7 @@ public class OVRMultiviewMultisampledRenderToTexture {
 	 * @param numViews      
 	 */
 	public static void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTextureMultisampleMultiviewOVR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, samples, baseViewIndex, numViews);
+		nglFramebufferTextureMultisampleMultiviewOVR(target, attachment, texture, level, samples, baseViewIndex, numViews);
 	}
 
 }

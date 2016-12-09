@@ -160,6 +160,8 @@ public class KHRDebug {
 		GL_PROGRAM_PIPELINE_KHR = 0x82E4,
 		GL_SAMPLER_KHR          = 0x82E6;
 
+	static { GLES.initialize(); }
+
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
@@ -179,12 +181,7 @@ public class KHRDebug {
 	 *
 	 * @param count the length of the array {@code ids}
 	 */
-	public static void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = GLES.getCapabilities().glDebugMessageControlKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, severity, count, ids, enabled);
-	}
+	public static native void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled);
 
 	/**
 	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
@@ -272,12 +269,7 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the string contained in the character array whose address is given by {@code message}
 	 */
-	public static void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message) {
-		long __functionAddress = GLES.getCapabilities().glDebugMessageInsertKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, id, severity, length, message);
-	}
+	public static native void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message);
 
 	/**
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
@@ -333,12 +325,7 @@ public class KHRDebug {
 	// --- [ glDebugMessageCallbackKHR ] ---
 
 	/** Unsafe version of: {@link #glDebugMessageCallbackKHR DebugMessageCallbackKHR} */
-	public static void nglDebugMessageCallbackKHR(long callback, long userParam) {
-		long __functionAddress = GLES.getCapabilities().glDebugMessageCallbackKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, callback, userParam);
-	}
+	public static native void nglDebugMessageCallbackKHR(long callback, long userParam);
 
 	/**
 	 * Specifies a callback to receive debugging messages from the GL.
@@ -382,12 +369,7 @@ public class KHRDebug {
 	 *
 	 * @param bufsize the size of the buffer whose address is given by {@code messageLog}
 	 */
-	public static int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLogKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
-	}
+	public static native int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog);
 
 	/**
 	 * Retrieves messages from the debug message log.
@@ -434,12 +416,7 @@ public class KHRDebug {
 
 	// --- [ glGetPointervKHR ] ---
 
-	public static void nglGetPointervKHR(int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetPointervKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, params);
-	}
+	public static native void nglGetPointervKHR(int pname, long params);
 
 	public static void glGetPointervKHR(int pname, PointerBuffer params) {
 		if ( CHECKS )
@@ -465,12 +442,7 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the message to be sent to the debug output stream
 	 */
-	public static void nglPushDebugGroupKHR(int source, int id, int length, long message) {
-		long __functionAddress = GLES.getCapabilities().glPushDebugGroupKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, id, length, message);
-	}
+	public static native void nglPushDebugGroupKHR(int source, int id, int length, long message);
 
 	/**
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
@@ -523,6 +495,9 @@ public class KHRDebug {
 
 	// --- [ glPopDebugGroupKHR ] ---
 
+	/** Unsafe version of: {@link #glPopDebugGroupKHR PopDebugGroupKHR} */
+	public static native void nglPopDebugGroupKHR();
+
 	/**
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroupKHR PushDebugGroupKHR} command.
@@ -534,10 +509,7 @@ public class KHRDebug {
 	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR MAX_DEBUG_GROUP_STACK_DEPTH_KHR} minus one elements will generate a {@link #GL_STACK_OVERFLOW_KHR STACK_OVERFLOW_KHR} error.</p>
 	 */
 	public static void glPopDebugGroupKHR() {
-		long __functionAddress = GLES.getCapabilities().glPopDebugGroupKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglPopDebugGroupKHR();
 	}
 
 	// --- [ glObjectLabelKHR ] ---
@@ -547,12 +519,7 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the label to be used for the object
 	 */
-	public static void nglObjectLabelKHR(int identifier, int name, int length, long label) {
-		long __functionAddress = GLES.getCapabilities().glObjectLabelKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, identifier, name, length, label);
-	}
+	public static native void nglObjectLabelKHR(int identifier, int name, int length, long label);
 
 	/**
 	 * Labels a named object identified within a namespace.
@@ -590,12 +557,7 @@ public class KHRDebug {
 	 *
 	 * @param bufSize the length of the buffer whose address is in {@code label}
 	 */
-	public static void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label) {
-		long __functionAddress = GLES.getCapabilities().glGetObjectLabelKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, identifier, name, bufSize, length, label);
-	}
+	public static native void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label);
 
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
@@ -656,14 +618,7 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the label to be used for the object
 	 */
-	public static void nglObjectPtrLabelKHR(long ptr, int length, long label) {
-		long __functionAddress = GLES.getCapabilities().glObjectPtrLabelKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(ptr);
-		}
-		callPPV(__functionAddress, ptr, length, label);
-	}
+	public static native void nglObjectPtrLabelKHR(long ptr, int length, long label);
 
 	/**
 	 * Labels a sync object identified by a pointer.
@@ -672,6 +627,8 @@ public class KHRDebug {
 	 * @param label a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabelKHR(long ptr, ByteBuffer label) {
+		if ( CHECKS )
+			check(ptr);
 		nglObjectPtrLabelKHR(ptr, label.remaining(), memAddress(label));
 	}
 
@@ -682,6 +639,8 @@ public class KHRDebug {
 	 * @param label a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabelKHR(long ptr, CharSequence label) {
+		if ( CHECKS )
+			check(ptr);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer labelEncoded = stack.UTF8(label, false);
@@ -699,14 +658,7 @@ public class KHRDebug {
 	 *
 	 * @param bufSize the length of the buffer whose address is in {@code label}
 	 */
-	public static void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label) {
-		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabelKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(ptr);
-		}
-		callPPPV(__functionAddress, ptr, bufSize, length, label);
-	}
+	public static native void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label);
 
 	/**
 	 * Retrieves the label of a sync object identified by a pointer.
@@ -716,8 +668,10 @@ public class KHRDebug {
 	 * @param label  a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabelKHR(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(ptr);
 			checkSafe(length, 1);
+		}
 		nglGetObjectPtrLabelKHR(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -728,6 +682,8 @@ public class KHRDebug {
 	 * @param bufSize the length of the buffer whose address is in {@code label}
 	 */
 	public static String glGetObjectPtrLabelKHR(long ptr, int bufSize) {
+		if ( CHECKS )
+			check(ptr);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer length = stack.ints(0);
@@ -746,6 +702,8 @@ public class KHRDebug {
 	 */
 	public static String glGetObjectPtrLabelKHR(long ptr) {
 		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR);
+		if ( CHECKS )
+			check(ptr);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer length = stack.ints(0);
@@ -759,7 +717,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, int[] ids, boolean enabled) {
-		long __functionAddress = GLES.getCapabilities().glDebugMessageControlKHR;
+		long __functionAddress = GLES.getICD().glDebugMessageControlKHR;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
@@ -767,7 +725,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
 	public static int glGetDebugMessageLogKHR(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
-		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLogKHR;
+		long __functionAddress = GLES.getICD().glGetDebugMessageLogKHR;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(sources, count);
@@ -781,7 +739,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
 	public static void glGetObjectLabelKHR(int identifier, int name, int[] length, ByteBuffer label) {
-		long __functionAddress = GLES.getCapabilities().glGetObjectLabelKHR;
+		long __functionAddress = GLES.getICD().glGetObjectLabelKHR;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -791,7 +749,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
 	public static void glGetObjectPtrLabelKHR(long ptr, int[] length, ByteBuffer label) {
-		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabelKHR;
+		long __functionAddress = GLES.getICD().glGetObjectPtrLabelKHR;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(ptr);

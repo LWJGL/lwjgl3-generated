@@ -49,6 +49,8 @@ public class ARBSampleLocations {
 		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342,
 		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB    = 0x9343;
 
+	static { GL.initialize(); }
+
 	protected ARBSampleLocations() {
 		throw new UnsupportedOperationException();
 	}
@@ -66,12 +68,7 @@ public class ARBSampleLocations {
 	 *
 	 * @param count the number of sample locations to update
 	 */
-	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, start, count, v);
-	}
+	public static native void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v);
 
 	/**
 	 * Controls the programmable sample locations for the framebuffer bound to the specified {@code target}.
@@ -96,12 +93,7 @@ public class ARBSampleLocations {
 	 *
 	 * @param count the number of sample locations to update
 	 */
-	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, start, count, v);
-	}
+	public static native void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v);
 
 	/**
 	 * DSA version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}.
@@ -116,21 +108,21 @@ public class ARBSampleLocations {
 
 	// --- [ glEvaluateDepthValuesARB ] ---
 
+	/** Unsafe version of: {@link #glEvaluateDepthValuesARB EvaluateDepthValuesARB} */
+	public static native void nglEvaluateDepthValuesARB();
+
 	/**
 	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
 	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
 	 * generated. If the current framebuffer has no depth buffer, EvaluateDepthValuesARB will have no effect.
 	 */
 	public static void glEvaluateDepthValuesARB() {
-		long __functionAddress = GL.getCapabilities().glEvaluateDepthValuesARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglEvaluateDepthValuesARB();
 	}
 
 	/** Array version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
 	public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {
-		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
+		long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, start, v.length >> 1, v);
@@ -138,7 +130,7 @@ public class ARBSampleLocations {
 
 	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
 	public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, float[] v) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
+		long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, start, v.length >> 1, v);

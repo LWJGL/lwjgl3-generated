@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/texture_array.txt">EXT_texture_array</a> extension.
@@ -76,6 +75,8 @@ public class EXTTextureArray {
 		GL_SAMPLER_1D_ARRAY_SHADOW_EXT = 0x8DC3,
 		GL_SAMPLER_2D_ARRAY_SHADOW_EXT = 0x8DC4;
 
+	static { GL.initialize(); }
+
 	protected EXTTextureArray() {
 		throw new UnsupportedOperationException();
 	}
@@ -88,11 +89,10 @@ public class EXTTextureArray {
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
+	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
+
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, layer);
+		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer);
 	}
 
 }

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/copy_image.txt">ARB_copy_image</a> extension.
@@ -27,6 +26,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBCopyImage {
 
+	static { GL.initialize(); }
+
 	protected ARBCopyImage() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,6 +39,9 @@ public class ARBCopyImage {
 	}
 
 	// --- [ glCopyImageSubData ] ---
+
+	/** Unsafe version of: {@link #glCopyImageSubData CopyImageSubData} */
+	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 	/**
 	 * Performs a raw data copy between two images.
@@ -59,10 +63,7 @@ public class ARBCopyImage {
 	 * @param srcDepth  the depth of the region to be copied
 	 */
 	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		long __functionAddress = GL.getCapabilities().glCopyImageSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
+		nglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 
 }

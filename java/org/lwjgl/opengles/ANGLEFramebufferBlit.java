@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/ANGLE/ANGLE_framebuffer_blit.txt">ANGLE_framebuffer_blit</a> extension.
@@ -32,6 +31,8 @@ public class ANGLEFramebufferBlit {
 		GL_DRAW_FRAMEBUFFER_BINDING_ANGLE = 0x8CA6,
 		GL_READ_FRAMEBUFFER_BINDING_ANGLE = 0x8CAA;
 
+	static { GLES.initialize(); }
+
 	protected ANGLEFramebufferBlit() {
 		throw new UnsupportedOperationException();
 	}
@@ -44,11 +45,10 @@ public class ANGLEFramebufferBlit {
 
 	// --- [ glBlitFramebufferANGLE ] ---
 
+	public static native void nglBlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+
 	public static void glBlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = GLES.getCapabilities().glBlitFramebufferANGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		nglBlitFramebufferANGLE(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 }

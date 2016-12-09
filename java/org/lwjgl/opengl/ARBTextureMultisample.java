@@ -78,6 +78,8 @@ public class ARBTextureMultisample {
 		GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY          = 0x910C,
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 0x910D;
 
+	static { GL.initialize(); }
+
 	protected ARBTextureMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -90,10 +92,13 @@ public class ARBTextureMultisample {
 
 	// --- [ glTexImage2DMultisample ] ---
 
+	/** Unsafe version of: {@link #glTexImage2DMultisample TexImage2DMultisample} */
+	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
+
 	/**
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
-	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
+	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
 	 * @param samples              the number of samples in the multisample texture's image
 	 * @param internalformat       the internal format to be used to store the multisample texture's image. {@code internalformat} must specify a color-renderable, depth-renderable,
 	 *                             or stencil-renderable format.
@@ -103,18 +108,18 @@ public class ARBTextureMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTexImage2DMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		nglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexImage3DMultisample ] ---
 
+	/** Unsafe version of: {@link #glTexImage3DMultisample TexImage3DMultisample} */
+	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
+
 	/**
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
 	 *
-	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
+	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
 	 * @param samples              the number of samples in the multisample texture's image
 	 * @param internalformat       the internal format to be used to store the multisample texture's image. {@code internalformat} must specify a color-renderable, depth-renderable,
 	 *                             or stencil-renderable format.
@@ -125,26 +130,18 @@ public class ARBTextureMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTexImage3DMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		nglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glGetMultisamplefv ] ---
 
 	/** Unsafe version of: {@link #glGetMultisamplefv GetMultisamplefv} */
-	public static void nglGetMultisamplefv(int pname, int index, long val) {
-		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, index, val);
-	}
+	public static native void nglGetMultisamplefv(int pname, int index, long val);
 
 	/**
 	 * Retrieves the location of a sample.
 	 *
-	 * @param pname the sample parameter name. Must be:<br><table><tr><td>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}</td></tr></table>
+	 * @param pname the sample parameter name. Must be:<br><table><tr><td>{@link GL32#GL_SAMPLE_POSITION SAMPLE_POSITION}</td></tr></table>
 	 * @param index the index of the sample whose position to query
 	 * @param val   an array to receive the position of the sample
 	 */
@@ -157,7 +154,7 @@ public class ARBTextureMultisample {
 	/**
 	 * Retrieves the location of a sample.
 	 *
-	 * @param pname the sample parameter name. Must be:<br><table><tr><td>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}</td></tr></table>
+	 * @param pname the sample parameter name. Must be:<br><table><tr><td>{@link GL32#GL_SAMPLE_POSITION SAMPLE_POSITION}</td></tr></table>
 	 * @param index the index of the sample whose position to query
 	 */
 	public static float glGetMultisamplef(int pname, int index) {
@@ -173,6 +170,9 @@ public class ARBTextureMultisample {
 
 	// --- [ glSampleMaski ] ---
 
+	/** Unsafe version of: {@link #glSampleMaski SampleMaski} */
+	public static native void nglSampleMaski(int index, int mask);
+
 	/**
 	 * Sets the value of a sub-word of the sample mask.
 	 *
@@ -180,15 +180,12 @@ public class ARBTextureMultisample {
 	 * @param mask  the new value of the mask sub-word
 	 */
 	public static void glSampleMaski(int index, int mask) {
-		long __functionAddress = GL.getCapabilities().glSampleMaski;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, mask);
+		nglSampleMaski(index, mask);
 	}
 
 	/** Array version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void glGetMultisamplefv(int pname, int index, float[] val) {
-		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
+		long __functionAddress = GL.getICD().glGetMultisamplefv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(val, 1);

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a> extension.
@@ -64,6 +63,8 @@ public class EXTFramebufferMultisample {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_MAX_SAMPLES_EXT = 0x8D57;
 
+	static { GL.initialize(); }
+
 	protected EXTFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -76,11 +77,10 @@ public class EXTFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleEXT ] ---
 
+	public static native void nglRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
+
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisampleEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height);
+		nglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height);
 	}
 
 }

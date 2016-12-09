@@ -48,6 +48,8 @@ public class NVInternalformatSampleQuery {
 		GL_SUPERSAMPLE_SCALE_Y_NV = 0x9373,
 		GL_CONFORMANT_NV          = 0x9374;
 
+	static { GL.initialize(); }
+
 	protected NVInternalformatSampleQuery() {
 		throw new UnsupportedOperationException();
 	}
@@ -60,12 +62,7 @@ public class NVInternalformatSampleQuery {
 
 	// --- [ glGetInternalformatSampleivNV ] ---
 
-	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformatSampleivNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
-	}
+	public static native void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params);
 
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, IntBuffer params) {
 		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, params.remaining(), memAddress(params));
@@ -73,7 +70,7 @@ public class NVInternalformatSampleQuery {
 
 	/** Array version of: {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformatSampleivNV;
+		long __functionAddress = GL.getICD().glGetInternalformatSampleivNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, samples, pname, params.length, params);

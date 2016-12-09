@@ -8,7 +8,6 @@ package org.lwjgl.opengles;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -40,6 +39,8 @@ public class EXTMapBufferRange {
 		GL_MAP_FLUSH_EXPLICIT_BIT_EXT    = 0x10,
 		GL_MAP_UNSYNCHRONIZED_BIT_EXT    = 0x20;
 
+	static { GLES.initialize(); }
+
 	protected EXTMapBufferRange() {
 		throw new UnsupportedOperationException();
 	}
@@ -52,12 +53,7 @@ public class EXTMapBufferRange {
 
 	// --- [ glMapBufferRangeEXT ] ---
 
-	public static long nglMapBufferRangeEXT(int target, long offset, long length, int access) {
-		long __functionAddress = GLES.getCapabilities().glMapBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPP(__functionAddress, target, offset, length, access);
-	}
+	public static native long nglMapBufferRangeEXT(int target, long offset, long length, int access);
 
 	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
 		long __result = nglMapBufferRangeEXT(target, offset, length, access);
@@ -71,11 +67,10 @@ public class EXTMapBufferRange {
 
 	// --- [ glFlushMappedBufferRangeEXT ] ---
 
+	public static native void nglFlushMappedBufferRangeEXT(int target, long offset, long length);
+
 	public static void glFlushMappedBufferRangeEXT(int target, long offset, long length) {
-		long __functionAddress = GLES.getCapabilities().glFlushMappedBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, offset, length);
+		nglFlushMappedBufferRangeEXT(target, offset, length);
 	}
 
 }

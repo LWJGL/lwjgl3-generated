@@ -38,6 +38,8 @@ public class EXTShaderPixelLocalStorage2 {
 	/** Returned by CheckFramebufferStatus. */
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;
 
+	static { GLES.initialize(); }
+
 	protected EXTShaderPixelLocalStorage2() {
 		throw new UnsupportedOperationException();
 	}
@@ -50,30 +52,23 @@ public class EXTShaderPixelLocalStorage2 {
 
 	// --- [ glFramebufferPixelLocalStorageSizeEXT ] ---
 
+	public static native void nglFramebufferPixelLocalStorageSizeEXT(int target, int size);
+
 	public static void glFramebufferPixelLocalStorageSizeEXT(int target, int size) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferPixelLocalStorageSizeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, size);
+		nglFramebufferPixelLocalStorageSizeEXT(target, size);
 	}
 
 	// --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
 
+	public static native int nglGetFramebufferPixelLocalStorageSizeEXT(int target);
+
 	public static int glGetFramebufferPixelLocalStorageSizeEXT(int target) {
-		long __functionAddress = GLES.getCapabilities().glGetFramebufferPixelLocalStorageSizeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, target);
+		return nglGetFramebufferPixelLocalStorageSizeEXT(target);
 	}
 
 	// --- [ glClearPixelLocalStorageuiEXT ] ---
 
-	public static void nglClearPixelLocalStorageuiEXT(int offset, int n, long values) {
-		long __functionAddress = GLES.getCapabilities().glClearPixelLocalStorageuiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, offset, n, values);
-	}
+	public static native void nglClearPixelLocalStorageuiEXT(int offset, int n, long values);
 
 	public static void glClearPixelLocalStorageuiEXT(int offset, IntBuffer values) {
 		nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
@@ -81,7 +76,7 @@ public class EXTShaderPixelLocalStorage2 {
 
 	/** Array version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
 	public static void glClearPixelLocalStorageuiEXT(int offset, int[] values) {
-		long __functionAddress = GLES.getCapabilities().glClearPixelLocalStorageuiEXT;
+		long __functionAddress = GLES.getICD().glClearPixelLocalStorageuiEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, offset, values.length, values);

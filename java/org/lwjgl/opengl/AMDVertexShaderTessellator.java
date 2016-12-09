@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/vertex_shader_tessellator.txt">AMD_vertex_shader_tessellator</a> extension.
@@ -83,6 +82,8 @@ public class AMDVertexShaderTessellator {
 	/** Accepted by GetFloatv. */
 	public static final int GL_TESSELLATION_FACTOR_AMD = 0x9005;
 
+	static { GL.initialize(); }
+
 	protected AMDVertexShaderTessellator() {
 		throw new UnsupportedOperationException();
 	}
@@ -95,20 +96,18 @@ public class AMDVertexShaderTessellator {
 
 	// --- [ glTessellationFactorAMD ] ---
 
+	public static native void nglTessellationFactorAMD(float factor);
+
 	public static void glTessellationFactorAMD(float factor) {
-		long __functionAddress = GL.getCapabilities().glTessellationFactorAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, factor);
+		nglTessellationFactorAMD(factor);
 	}
 
 	// --- [ glTessellationModeAMD ] ---
 
+	public static native void nglTessellationModeAMD(int mode);
+
 	public static void glTessellationModeAMD(int mode) {
-		long __functionAddress = GL.getCapabilities().glTessellationModeAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglTessellationModeAMD(mode);
 	}
 
 }

@@ -38,6 +38,8 @@ public class QCOMExtendedGet {
 	/** Accepted by the {@code pname} parameter of ExtTexObjectStateOverrideiQCOM. */
 	public static final int GL_STATE_RESTORE = 0x8BDC;
 
+	static { GLES.initialize(); }
+
 	protected QCOMExtendedGet() {
 		throw new UnsupportedOperationException();
 	}
@@ -51,12 +53,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtGetTexturesQCOM ] ---
 
-	public static void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures) {
-		long __functionAddress = GLES.getCapabilities().glExtGetTexturesQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, textures, maxTextures, numTextures);
-	}
+	public static native void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures);
 
 	public static void glExtGetTexturesQCOM(IntBuffer textures, IntBuffer numTextures) {
 		if ( CHECKS )
@@ -66,12 +63,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtGetBuffersQCOM ] ---
 
-	public static void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers) {
-		long __functionAddress = GLES.getCapabilities().glExtGetBuffersQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffers, maxBuffers, numBuffers);
-	}
+	public static native void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers);
 
 	public static void glExtGetBuffersQCOM(IntBuffer buffers, IntBuffer numBuffers) {
 		if ( CHECKS )
@@ -81,12 +73,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtGetRenderbuffersQCOM ] ---
 
-	public static void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers) {
-		long __functionAddress = GLES.getCapabilities().glExtGetRenderbuffersQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
-	}
+	public static native void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers);
 
 	public static void glExtGetRenderbuffersQCOM(IntBuffer renderbuffers, IntBuffer numRenderbuffers) {
 		if ( CHECKS )
@@ -96,12 +83,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtGetFramebuffersQCOM ] ---
 
-	public static void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers) {
-		long __functionAddress = GLES.getCapabilities().glExtGetFramebuffersQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
-	}
+	public static native void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers);
 
 	public static void glExtGetFramebuffersQCOM(IntBuffer framebuffers, IntBuffer numFramebuffers) {
 		if ( CHECKS )
@@ -111,12 +93,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtGetTexLevelParameterivQCOM ] ---
 
-	public static void nglExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glExtGetTexLevelParameterivQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, face, level, pname, params);
-	}
+	public static native void nglExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, long params);
 
 	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -137,21 +114,15 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtTexObjectStateOverrideiQCOM ] ---
 
+	public static native void nglExtTexObjectStateOverrideiQCOM(int target, int pname, int param);
+
 	public static void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param) {
-		long __functionAddress = GLES.getCapabilities().glExtTexObjectStateOverrideiQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, pname, param);
+		nglExtTexObjectStateOverrideiQCOM(target, pname, param);
 	}
 
 	// --- [ glExtGetTexSubImageQCOM ] ---
 
-	public static void nglExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long texels) {
-		long __functionAddress = GLES.getCapabilities().glExtGetTexSubImageQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
-	}
+	public static native void nglExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long texels);
 
 	public static void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer texels) {
 		nglExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(texels));
@@ -159,12 +130,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtGetBufferPointervQCOM ] ---
 
-	public static void nglExtGetBufferPointervQCOM(int target, long params) {
-		long __functionAddress = GLES.getCapabilities().glExtGetBufferPointervQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, params);
-	}
+	public static native void nglExtGetBufferPointervQCOM(int target, long params);
 
 	public static void glExtGetBufferPointervQCOM(int target, PointerBuffer params) {
 		if ( CHECKS )
@@ -185,7 +151,7 @@ public class QCOMExtendedGet {
 
 	/** Array version of: {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
 	public static void glExtGetTexturesQCOM(int[] textures, int[] numTextures) {
-		long __functionAddress = GLES.getCapabilities().glExtGetTexturesQCOM;
+		long __functionAddress = GLES.getICD().glExtGetTexturesQCOM;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(numTextures, 1);
@@ -195,7 +161,7 @@ public class QCOMExtendedGet {
 
 	/** Array version of: {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
 	public static void glExtGetBuffersQCOM(int[] buffers, int[] numBuffers) {
-		long __functionAddress = GLES.getCapabilities().glExtGetBuffersQCOM;
+		long __functionAddress = GLES.getICD().glExtGetBuffersQCOM;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(numBuffers, 1);
@@ -205,7 +171,7 @@ public class QCOMExtendedGet {
 
 	/** Array version of: {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
 	public static void glExtGetRenderbuffersQCOM(int[] renderbuffers, int[] numRenderbuffers) {
-		long __functionAddress = GLES.getCapabilities().glExtGetRenderbuffersQCOM;
+		long __functionAddress = GLES.getICD().glExtGetRenderbuffersQCOM;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(numRenderbuffers, 1);
@@ -215,7 +181,7 @@ public class QCOMExtendedGet {
 
 	/** Array version of: {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
 	public static void glExtGetFramebuffersQCOM(int[] framebuffers, int[] numFramebuffers) {
-		long __functionAddress = GLES.getCapabilities().glExtGetFramebuffersQCOM;
+		long __functionAddress = GLES.getICD().glExtGetFramebuffersQCOM;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(numFramebuffers, 1);
@@ -225,7 +191,7 @@ public class QCOMExtendedGet {
 
 	/** Array version of: {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
 	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glExtGetTexLevelParameterivQCOM;
+		long __functionAddress = GLES.getICD().glExtGetTexLevelParameterivQCOM;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

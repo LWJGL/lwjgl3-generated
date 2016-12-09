@@ -99,6 +99,8 @@ public class ARBProgramInterfaceQuery {
 		GL_LOCATION_INDEX                       = 0x930F,
 		GL_IS_PER_PATCH                         = 0x92E7;
 
+	static { GL.initialize(); }
+
 	protected ARBProgramInterfaceQuery() {
 		throw new UnsupportedOperationException();
 	}
@@ -113,19 +115,14 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramInterfaceiv ] ---
 
 	/** Unsafe version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
-	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, programInterface, pname, params);
-	}
+	public static native void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params);
 
 	/**
 	 * Queries a property of an interface in a program.
 	 *
 	 * @param program          the name of a program object whose interface to query
-	 * @param programInterface a token identifying the interface within {@code program} to query. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
-	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br><table><tr><td>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}</td><td>{@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}</td><td>{@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}</td></tr><tr><td>{@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} to query. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br><table><tr><td>{@link GL43#GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}</td><td>{@link GL43#GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}</td><td>{@link GL43#GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}</td></tr><tr><td>{@link GL43#GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}</td></tr></table>
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
@@ -138,8 +135,8 @@ public class ARBProgramInterfaceQuery {
 	 * Queries a property of an interface in a program.
 	 *
 	 * @param program          the name of a program object whose interface to query
-	 * @param programInterface a token identifying the interface within {@code program} to query. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
-	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br><table><tr><td>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}</td><td>{@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}</td><td>{@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}</td></tr><tr><td>{@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} to query. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br><table><tr><td>{@link GL43#GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}</td><td>{@link GL43#GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}</td><td>{@link GL43#GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}</td></tr><tr><td>{@link GL43#GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}</td></tr></table>
 	 */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -155,18 +152,13 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** Unsafe version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
-	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, programInterface, name);
-	}
+	public static native int nglGetProgramResourceIndex(int program, int programInterface, long name);
 
 	/**
 	 * Queries the index of a named resource within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {Wcode name}. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {Wcode name}. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
 	 * @param name             the name of the resource to query the index of
 	 */
 	public static int glGetProgramResourceIndex(int program, int programInterface, ByteBuffer name) {
@@ -179,7 +171,7 @@ public class ARBProgramInterfaceQuery {
 	 * Queries the index of a named resource within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {Wcode name}. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {Wcode name}. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
 	 * @param name             the name of the resource to query the index of
 	 */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
@@ -199,18 +191,13 @@ public class ARBProgramInterfaceQuery {
 	 *
 	 * @param bufSize the size of the character array whose address is given by {@code name}
 	 */
-	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
-	}
+	public static native void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name);
 
 	/**
 	 * Queries the name of an indexed resource within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
 	 * @param index            the index of the resource within {@code programInterface} of {@code program}
 	 * @param length           a variable which will receive the length of the resource name
 	 * @param name             a character array into which will be written the name of the resource
@@ -225,7 +212,7 @@ public class ARBProgramInterfaceQuery {
 	 * Queries the name of an indexed resource within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
 	 * @param index            the index of the resource within {@code programInterface} of {@code program}
 	 * @param bufSize          the size of the character array whose address is given by {@code name}
 	 */
@@ -245,7 +232,7 @@ public class ARBProgramInterfaceQuery {
 	 * Queries the name of an indexed resource within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the indexed resource. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
 	 * @param index            the index of the resource within {@code programInterface} of {@code program}
 	 */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
@@ -269,18 +256,13 @@ public class ARBProgramInterfaceQuery {
 	 * @param propCount the number of properties in {@code props}
 	 * @param bufSize   the size of the integer array whose address is given by {@code params}
 	 */
-	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
-	}
+	public static native void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params);
 
 	/**
 	 * Retrieves values for multiple properties of a single active resource within a program object.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. One of:<br><table><tr><td>{@link #GL_UNIFORM UNIFORM}</td><td>{@link #GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link #GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link #GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link #GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link #GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link #GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link #GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link #GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link #GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. One of:<br><table><tr><td>{@link GL43#GL_UNIFORM UNIFORM}</td><td>{@link GL43#GL_UNIFORM_BLOCK UNIFORM_BLOCK}</td><td>{@link GL43#GL_PROGRAM_INPUT PROGRAM_INPUT}</td></tr><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td><td>{@link GL43#GL_BUFFER_VARIABLE BUFFER_VARIABLE}</td><td>{@link GL43#GL_SHADER_STORAGE_BLOCK SHADER_STORAGE_BLOCK}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE VERTEX_SUBROUTINE}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE TESS_CONTROL_SUBROUTINE}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE TESS_EVALUATION_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE GEOMETRY_SUBROUTINE}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE FRAGMENT_SUBROUTINE}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE COMPUTE_SUBROUTINE}</td></tr><tr><td>{@link GL43#GL_VERTEX_SUBROUTINE_UNIFORM VERTEX_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_CONTROL_SUBROUTINE_UNIFORM TESS_CONTROL_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_TESS_EVALUATION_SUBROUTINE_UNIFORM TESS_EVALUATION_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_GEOMETRY_SUBROUTINE_UNIFORM GEOMETRY_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_FRAGMENT_SUBROUTINE_UNIFORM FRAGMENT_SUBROUTINE_UNIFORM}</td><td>{@link GL43#GL_COMPUTE_SUBROUTINE_UNIFORM COMPUTE_SUBROUTINE_UNIFORM}</td></tr><tr><td>{@link GL43#GL_TRANSFORM_FEEDBACK_VARYING TRANSFORM_FEEDBACK_VARYING}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td></tr></table>
 	 * @param index            the active resource index
 	 * @param props            an array that will receive the active resource properties
 	 * @param length           a variable which will receive the number of values returned
@@ -295,12 +277,7 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** Unsafe version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
-	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, programInterface, name);
-	}
+	public static native int nglGetProgramResourceLocation(int program, int programInterface, long name);
 
 	/**
 	 * Queries the location of a named resource within a program.
@@ -335,18 +312,13 @@ public class ARBProgramInterfaceQuery {
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
 	/** Unsafe version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
-	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocationIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, programInterface, name);
-	}
+	public static native int nglGetProgramResourceLocationIndex(int program, int programInterface, long name);
 
 	/**
 	 * Queries the fragment color index of a named variable within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<br><table><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<br><table><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td></tr></table>
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, ByteBuffer name) {
@@ -359,7 +331,7 @@ public class ARBProgramInterfaceQuery {
 	 * Queries the fragment color index of a named variable within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<br><table><tr><td>{@link #GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td></tr></table>
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<br><table><tr><td>{@link GL43#GL_PROGRAM_OUTPUT PROGRAM_OUTPUT}</td></tr></table>
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
@@ -374,7 +346,7 @@ public class ARBProgramInterfaceQuery {
 
 	/** Array version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
+		long __functionAddress = GL.getICD().glGetProgramInterfaceiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -384,7 +356,7 @@ public class ARBProgramInterfaceQuery {
 
 	/** Array version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, int[] length, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
+		long __functionAddress = GL.getICD().glGetProgramResourceName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -394,7 +366,7 @@ public class ARBProgramInterfaceQuery {
 
 	/** Array version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, int[] props, int[] length, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
+		long __functionAddress = GL.getICD().glGetProgramResourceiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);

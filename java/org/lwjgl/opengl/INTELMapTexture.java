@@ -37,6 +37,8 @@ public class INTELMapTexture {
 		GL_LAYOUT_LINEAR_INTEL            = 1,
 		GL_LAYOUT_LINEAR_CPU_CACHED_INTEL = 2;
 
+	static { GL.initialize(); }
+
 	protected INTELMapTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -49,6 +51,9 @@ public class INTELMapTexture {
 
 	// --- [ glSyncTextureINTEL ] ---
 
+	/** Unsafe version of: {@link #glSyncTextureINTEL SyncTextureINTEL} */
+	public static native void nglSyncTextureINTEL(int texture);
+
 	/**
 	 * Makes sure that changes made by CPU are visible to GPU by flushing texture cache in GPU. The GL implementation tracks the cache usage and ignores the
 	 * command if such flush is not needed.
@@ -60,13 +65,13 @@ public class INTELMapTexture {
 	 * @param texture the texture to synchronize
 	 */
 	public static void glSyncTextureINTEL(int texture) {
-		long __functionAddress = GL.getCapabilities().glSyncTextureINTEL;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture);
+		nglSyncTextureINTEL(texture);
 	}
 
 	// --- [ glUnmapTexture2DINTEL ] ---
+
+	/** Unsafe version of: {@link #glUnmapTexture2DINTEL UnmapTexture2DINTEL} */
+	public static native void nglUnmapTexture2DINTEL(int texture, int level);
 
 	/**
 	 * Releases the pointer obtained previously via {@link #glMapTexture2DINTEL MapTexture2DINTEL}. This means that virtual memory space dedicated to make the texture available via a
@@ -77,21 +82,13 @@ public class INTELMapTexture {
 	 * @param level   the mipmap level-of-detail of the texture
 	 */
 	public static void glUnmapTexture2DINTEL(int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glUnmapTexture2DINTEL;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level);
+		nglUnmapTexture2DINTEL(texture, level);
 	}
 
 	// --- [ glMapTexture2DINTEL ] ---
 
 	/** Unsafe version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
-	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
-		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPP(__functionAddress, texture, level, access, stride, layout);
-	}
+	public static native long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout);
 
 	/**
 	 * Attempts to return a direct pointer to the graphics storage for 2D texture indicated by the {@code texture} parameter.
@@ -159,7 +156,7 @@ public class INTELMapTexture {
 
 	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout) {
-		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		long __functionAddress = GL.getICD().glMapTexture2DINTEL;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(stride, 1);
@@ -171,7 +168,7 @@ public class INTELMapTexture {
 
 	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, ByteBuffer old_buffer) {
-		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		long __functionAddress = GL.getICD().glMapTexture2DINTEL;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(stride, 1);
@@ -184,7 +181,7 @@ public class INTELMapTexture {
 
 	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, long length, ByteBuffer old_buffer) {
-		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		long __functionAddress = GL.getICD().glMapTexture2DINTEL;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(stride, 1);

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_range.txt">ARB_texture_buffer_range</a> extension.
@@ -28,6 +27,8 @@ public class ARBTextureBufferRange {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
+	static { GL.initialize(); }
+
 	protected ARBTextureBufferRange() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,6 +41,9 @@ public class ARBTextureBufferRange {
 
 	// --- [ glTexBufferRange ] ---
 
+	/** Unsafe version of: {@link #glTexBufferRange TexBufferRange} */
+	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
+
 	/**
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
@@ -50,13 +54,13 @@ public class ARBTextureBufferRange {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glTexBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, internalformat, buffer, offset, size);
+		nglTexBufferRange(target, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTextureBufferRangeEXT ] ---
+
+	/** Unsafe version of: {@link #glTextureBufferRangeEXT TextureBufferRangeEXT} */
+	public static native void nglTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size);
 
 	/**
 	 * DSA version of {@link #glTexBufferRange TexBufferRange}.
@@ -69,10 +73,7 @@ public class ARBTextureBufferRange {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glTextureBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);
+		nglTextureBufferRangeEXT(texture, target, internalformat, buffer, offset, size);
 	}
 
 }

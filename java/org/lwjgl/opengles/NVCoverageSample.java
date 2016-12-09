@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/EGL_NV_coverage_sample.txt">NV_coverage_sample</a> extension.
@@ -59,6 +58,8 @@ public class NVCoverageSample {
 		GL_COVERAGE_BUFFERS_NV = 0x8ED3,
 		GL_COVERAGE_SAMPLES_NV = 0x8ED4;
 
+	static { GLES.initialize(); }
+
 	protected NVCoverageSample() {
 		throw new UnsupportedOperationException();
 	}
@@ -71,20 +72,18 @@ public class NVCoverageSample {
 
 	// --- [ glCoverageMaskNV ] ---
 
+	public static native void nglCoverageMaskNV(boolean mask);
+
 	public static void glCoverageMaskNV(boolean mask) {
-		long __functionAddress = GLES.getCapabilities().glCoverageMaskNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mask);
+		nglCoverageMaskNV(mask);
 	}
 
 	// --- [ glCoverageOperationNV ] ---
 
+	public static native void nglCoverageOperationNV(int operation);
+
 	public static void glCoverageOperationNV(int operation) {
-		long __functionAddress = GLES.getCapabilities().glCoverageOperationNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, operation);
+		nglCoverageOperationNV(operation);
 	}
 
 }

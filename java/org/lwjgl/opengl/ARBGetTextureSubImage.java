@@ -20,6 +20,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBGetTextureSubImage {
 
+	static { GL.initialize(); }
+
 	protected ARBGetTextureSubImage() {
 		throw new UnsupportedOperationException();
 	}
@@ -37,12 +39,7 @@ public class ARBGetTextureSubImage {
 	 *
 	 * @param bufSize the size of the buffer to receive the retrieved pixel data
 	 */
-	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
-	}
+	public static native void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels);
 
 	/**
 	 * Obtains sub-regions of a texture image from a texture object.
@@ -166,12 +163,7 @@ public class ARBGetTextureSubImage {
 	 *
 	 * @param bufSize the size of the buffer to receive the retrieved pixel data
 	 */
-	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
-	}
+	public static native void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels);
 
 	/**
 	 * Obtains a sub-region of a compressed texture image.
@@ -278,7 +270,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		long __functionAddress = GL.getICD().glGetTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 1, pixels);
@@ -286,7 +278,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		long __functionAddress = GL.getICD().glGetTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 2, pixels);
@@ -294,7 +286,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		long __functionAddress = GL.getICD().glGetTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 2, pixels);
@@ -302,7 +294,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		long __functionAddress = GL.getICD().glGetTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 3, pixels);
@@ -310,7 +302,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		long __functionAddress = GL.getICD().glGetCompressedTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 1, pixels);
@@ -318,7 +310,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		long __functionAddress = GL.getICD().glGetCompressedTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 2, pixels);
@@ -326,7 +318,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		long __functionAddress = GL.getICD().glGetCompressedTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 2, pixels);
@@ -334,7 +326,7 @@ public class ARBGetTextureSubImage {
 
 	/** Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		long __functionAddress = GL.getICD().glGetCompressedTextureSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 3, pixels);

@@ -177,6 +177,8 @@ public class NVCommandList {
 		GL_SCISSOR_COMMAND_NV                 = 0x11,
 		GL_FRONT_FACE_COMMAND_NV              = 0x12;
 
+	static { GL.initialize(); }
+
 	protected NVCommandList() {
 		throw new UnsupportedOperationException();
 	}
@@ -197,12 +199,7 @@ public class NVCommandList {
 	 *
 	 * @param n the number of state object names to create
 	 */
-	public static void nglCreateStatesNV(int n, long states) {
-		long __functionAddress = GL.getCapabilities().glCreateStatesNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, states);
-	}
+	public static native void nglCreateStatesNV(int n, long states);
 
 	/**
 	 * Returns {@code n} previously unused state object names in {@code states}, and creates a state object in the initial state for each name.
@@ -232,12 +229,7 @@ public class NVCommandList {
 	 *
 	 * @param n the number of state object names to delete
 	 */
-	public static void nglDeleteStatesNV(int n, long states) {
-		long __functionAddress = GL.getCapabilities().glDeleteStatesNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, states);
-	}
+	public static native void nglDeleteStatesNV(int n, long states);
 
 	/**
 	 * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
@@ -265,19 +257,22 @@ public class NVCommandList {
 
 	// --- [ glIsStateNV ] ---
 
+	/** Unsafe version of: {@link #glIsStateNV IsStateNV} */
+	public static native boolean nglIsStateNV(int state);
+
 	/**
 	 * Returns true if the specified name corresponds to a state object.
 	 *
 	 * @param state the object name to test
 	 */
 	public static boolean glIsStateNV(int state) {
-		long __functionAddress = GL.getCapabilities().glIsStateNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, state);
+		return nglIsStateNV(state);
 	}
 
 	// --- [ glStateCaptureNV ] ---
+
+	/** Unsafe version of: {@link #glStateCaptureNV StateCaptureNV} */
+	public static native void nglStateCaptureNV(int state, int mode);
 
 	/**
 	 * Captures the current state of the rendering pipeline into the object indicated by {@code state}.
@@ -303,13 +298,13 @@ public class NVCommandList {
 	 * @param mode  the basic Begin mode that this state object must be used with. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
 	 */
 	public static void glStateCaptureNV(int state, int mode) {
-		long __functionAddress = GL.getCapabilities().glStateCaptureNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, state, mode);
+		nglStateCaptureNV(state, mode);
 	}
 
 	// --- [ glGetCommandHeaderNV ] ---
+
+	/** Unsafe version of: {@link #glGetCommandHeaderNV GetCommandHeaderNV} */
+	public static native int nglGetCommandHeaderNV(int tokenID, int size);
 
 	/**
 	 * Returns the encoded 32bit header value for a given command; the returned value is implementation specific.
@@ -319,13 +314,13 @@ public class NVCommandList {
 	 *                the command specific structure.
 	 */
 	public static int glGetCommandHeaderNV(int tokenID, int size) {
-		long __functionAddress = GL.getCapabilities().glGetCommandHeaderNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, tokenID, size);
+		return nglGetCommandHeaderNV(tokenID, size);
 	}
 
 	// --- [ glGetStageIndexNV ] ---
+
+	/** Unsafe version of: {@link #glGetStageIndexNV GetStageIndexNV} */
+	public static native short nglGetStageIndexNV(int shadertype);
 
 	/**
 	 * Returns the 16bit value for a specific shader stage; the returned value is implementation specific. The value is to be used with the stage field within
@@ -334,10 +329,7 @@ public class NVCommandList {
 	 * @param shadertype the shader stage type
 	 */
 	public static short glGetStageIndexNV(int shadertype) {
-		long __functionAddress = GL.getCapabilities().glGetStageIndexNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callS(__functionAddress, shadertype);
+		return nglGetStageIndexNV(shadertype);
 	}
 
 	// --- [ glDrawCommandsNV ] ---
@@ -347,12 +339,7 @@ public class NVCommandList {
 	 *
 	 * @param count the number of commands
 	 */
-	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
-	}
+	public static native void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count);
 
 	/**
 	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
@@ -376,12 +363,7 @@ public class NVCommandList {
 	 *
 	 * @param count the number of commands
 	 */
-	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsAddressNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, primitiveMode, indirects, sizes, count);
-	}
+	public static native void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count);
 
 	/**
 	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of sequence lengths in {@code sizes}. All arrays have
@@ -404,12 +386,7 @@ public class NVCommandList {
 	 *
 	 * @param count the number of commands
 	 */
-	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
-	}
+	public static native void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count);
 
 	/**
 	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
@@ -439,12 +416,7 @@ public class NVCommandList {
 	 *
 	 * @param count the number of commands
 	 */
-	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesAddressNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, indirects, sizes, states, fbos, count);
-	}
+	public static native void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count);
 
 	/**
 	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of command lengths in {@code sizes}, and an array of state
@@ -473,12 +445,7 @@ public class NVCommandList {
 	 *
 	 * @param n the number of command list names to create
 	 */
-	public static void nglCreateCommandListsNV(int n, long lists) {
-		long __functionAddress = GL.getCapabilities().glCreateCommandListsNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, lists);
-	}
+	public static native void nglCreateCommandListsNV(int n, long lists);
 
 	/**
 	 * Returns {@code n} previously unused command list names in {@code lists}, and creates a command list in the initial state for each name.
@@ -508,12 +475,7 @@ public class NVCommandList {
 	 *
 	 * @param n the number of command list names to delete
 	 */
-	public static void nglDeleteCommandListsNV(int n, long lists) {
-		long __functionAddress = GL.getCapabilities().glDeleteCommandListsNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, lists);
-	}
+	public static native void nglDeleteCommandListsNV(int n, long lists);
 
 	/**
 	 * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
@@ -541,16 +503,16 @@ public class NVCommandList {
 
 	// --- [ glIsCommandListNV ] ---
 
+	/** Unsafe version of: {@link #glIsCommandListNV IsCommandListNV} */
+	public static native boolean nglIsCommandListNV(int list);
+
 	/**
 	 * Returns true if the specified name corresponds to a command list.
 	 *
 	 * @param list the object name to query
 	 */
 	public static boolean glIsCommandListNV(int list) {
-		long __functionAddress = GL.getCapabilities().glIsCommandListNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, list);
+		return nglIsCommandListNV(list);
 	}
 
 	// --- [ glListDrawCommandsStatesClientNV ] ---
@@ -560,12 +522,7 @@ public class NVCommandList {
 	 *
 	 * @param count the number of commands
 	 */
-	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
-		long __functionAddress = GL.getCapabilities().glListDrawCommandsStatesClientNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);
-	}
+	public static native void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count);
 
 	/**
 	 * A list has multiple segments and each segment enqueues an ordered list of commands. This command enqueues the equivalent of the
@@ -602,6 +559,9 @@ public class NVCommandList {
 
 	// --- [ glCommandListSegmentsNV ] ---
 
+	/** Unsafe version of: {@link #glCommandListSegmentsNV CommandListSegmentsNV} */
+	public static native void nglCommandListSegmentsNV(int list, int segments);
+
 	/**
 	 * Indicates that {@code list} will have {@code segments} number of segments, each of which is a list of command sequences that it enqueues. This must be
 	 * called before any commands are enqueued. In the initial state, a command list has a single segment.
@@ -610,13 +570,13 @@ public class NVCommandList {
 	 * @param segments the number of ordered sequences of commands
 	 */
 	public static void glCommandListSegmentsNV(int list, int segments) {
-		long __functionAddress = GL.getCapabilities().glCommandListSegmentsNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, list, segments);
+		nglCommandListSegmentsNV(list, segments);
 	}
 
 	// --- [ glCompileCommandListNV ] ---
+
+	/** Unsafe version of: {@link #glCompileCommandListNV CompileCommandListNV} */
+	public static native void nglCompileCommandListNV(int list);
 
 	/**
 	 * Makes the list indicated by {@code list} switch from allowing collection of commands to allowing its execution. At this time, the implementation may
@@ -625,13 +585,13 @@ public class NVCommandList {
 	 * @param list the command list to compile
 	 */
 	public static void glCompileCommandListNV(int list) {
-		long __functionAddress = GL.getCapabilities().glCompileCommandListNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, list);
+		nglCompileCommandListNV(list);
 	}
 
 	// --- [ glCallCommandListNV ] ---
+
+	/** Unsafe version of: {@link #glCallCommandListNV CallCommandListNV} */
+	public static native void nglCallCommandListNV(int list);
 
 	/**
 	 * Executes the command list indicated by {@code list}, which operates as if the DrawCommandsStates* commands were replayed in the order they were
@@ -641,15 +601,12 @@ public class NVCommandList {
 	 * @param list the command list to call
 	 */
 	public static void glCallCommandListNV(int list) {
-		long __functionAddress = GL.getCapabilities().glCallCommandListNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, list);
+		nglCallCommandListNV(list);
 	}
 
 	/** Array version of: {@link #glCreateStatesNV CreateStatesNV} */
 	public static void glCreateStatesNV(int[] states) {
-		long __functionAddress = GL.getCapabilities().glCreateStatesNV;
+		long __functionAddress = GL.getICD().glCreateStatesNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, states.length, states);
@@ -657,7 +614,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glDeleteStatesNV DeleteStatesNV} */
 	public static void glDeleteStatesNV(int[] states) {
-		long __functionAddress = GL.getCapabilities().glDeleteStatesNV;
+		long __functionAddress = GL.getICD().glDeleteStatesNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, states.length, states);
@@ -665,7 +622,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glDrawCommandsNV DrawCommandsNV} */
 	public static void glDrawCommandsNV(int primitiveMode, int buffer, PointerBuffer indirects, int[] sizes) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsNV;
+		long __functionAddress = GL.getICD().glDrawCommandsNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(sizes, indirects.remaining());
@@ -675,7 +632,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
 	public static void glDrawCommandsAddressNV(int primitiveMode, long[] indirects, int[] sizes) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsAddressNV;
+		long __functionAddress = GL.getICD().glDrawCommandsAddressNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(sizes, indirects.length);
@@ -685,7 +642,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
 	public static void glDrawCommandsStatesNV(int buffer, PointerBuffer indirects, int[] sizes, int[] states, int[] fbos) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesNV;
+		long __functionAddress = GL.getICD().glDrawCommandsStatesNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(sizes, indirects.remaining());
@@ -697,7 +654,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
 	public static void glDrawCommandsStatesAddressNV(long[] indirects, int[] sizes, int[] states, int[] fbos) {
-		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesAddressNV;
+		long __functionAddress = GL.getICD().glDrawCommandsStatesAddressNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(sizes, indirects.length);
@@ -709,7 +666,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glCreateCommandListsNV CreateCommandListsNV} */
 	public static void glCreateCommandListsNV(int[] lists) {
-		long __functionAddress = GL.getCapabilities().glCreateCommandListsNV;
+		long __functionAddress = GL.getICD().glCreateCommandListsNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, lists.length, lists);
@@ -717,7 +674,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
 	public static void glDeleteCommandListsNV(int[] lists) {
-		long __functionAddress = GL.getCapabilities().glDeleteCommandListsNV;
+		long __functionAddress = GL.getICD().glDeleteCommandListsNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, lists.length, lists);
@@ -725,7 +682,7 @@ public class NVCommandList {
 
 	/** Array version of: {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
 	public static void glListDrawCommandsStatesClientNV(int list, int segment, PointerBuffer indirects, PointerBuffer sizes, int[] states, int[] fbos) {
-		long __functionAddress = GL.getCapabilities().glListDrawCommandsStatesClientNV;
+		long __functionAddress = GL.getICD().glListDrawCommandsStatesClientNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(sizes, indirects.remaining());

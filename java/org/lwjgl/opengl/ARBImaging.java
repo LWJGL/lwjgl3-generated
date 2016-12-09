@@ -199,6 +199,8 @@ public class ARBImaging {
 		GL_FUNC_SUBTRACT         = 0x800A,
 		GL_FUNC_REVERSE_SUBTRACT = 0x800B;
 
+	static { GL.initialize(); }
+
 	protected ARBImaging() {
 		throw new UnsupportedOperationException();
 	}
@@ -220,12 +222,7 @@ public class ARBImaging {
 	// --- [ glColorTable ] ---
 
 	/** Unsafe version of: {@link #glColorTable ColorTable} */
-	public static void nglColorTable(int target, int internalformat, int width, int format, int type, long table) {
-		long __functionAddress = GL.getCapabilities().glColorTable;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, width, format, type, table);
-	}
+	public static native void nglColorTable(int target, int internalformat, int width, int format, int type, long table);
 
 	/**
 	 * Specifies a color lookup table.
@@ -299,6 +296,9 @@ public class ARBImaging {
 
 	// --- [ glCopyColorTable ] ---
 
+	/** Unsafe version of: {@link #glCopyColorTable CopyColorTable} */
+	public static native void nglCopyColorTable(int target, int internalformat, int x, int y, int width);
+
 	/**
 	 * Defines a color table in exactly the manner of {@link #glColorTable ColorTable}, except that the image data are taken from the framebuffer rather than from client memory.
 	 *
@@ -309,21 +309,13 @@ public class ARBImaging {
 	 * @param width          the color table width
 	 */
 	public static void glCopyColorTable(int target, int internalformat, int x, int y, int width) {
-		long __functionAddress = GL.getCapabilities().glCopyColorTable;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, x, y, width);
+		nglCopyColorTable(target, internalformat, x, y, width);
 	}
 
 	// --- [ glColorTableParameteriv ] ---
 
 	/** Unsafe version of: {@link #glColorTableParameteriv ColorTableParameteriv} */
-	public static void nglColorTableParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glColorTableParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglColorTableParameteriv(int target, int pname, long params);
 
 	/**
 	 * Specifies the scale and bias parameters for a color table.
@@ -341,12 +333,7 @@ public class ARBImaging {
 	// --- [ glColorTableParameterfv ] ---
 
 	/** Unsafe version of: {@link #glColorTableParameterfv ColorTableParameterfv} */
-	public static void nglColorTableParameterfv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glColorTableParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglColorTableParameterfv(int target, int pname, long params);
 
 	/**
 	 * Float version of {@link #glColorTableParameteriv ColorTableParameteriv}.
@@ -364,12 +351,7 @@ public class ARBImaging {
 	// --- [ glGetColorTable ] ---
 
 	/** Unsafe version of: {@link #glGetColorTable GetColorTable} */
-	public static void nglGetColorTable(int target, int format, int type, long table) {
-		long __functionAddress = GL.getCapabilities().glGetColorTable;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, format, type, table);
-	}
+	public static native void nglGetColorTable(int target, int format, int type, long table);
 
 	/**
 	 * Returns the current contents of a color table.
@@ -434,12 +416,7 @@ public class ARBImaging {
 	// --- [ glGetColorTableParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetColorTableParameteriv GetColorTableParameteriv} */
-	public static void nglGetColorTableParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetColorTableParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetColorTableParameteriv(int target, int pname, long params);
 
 	/**
 	 * Returns the integer value of the specified color table parameter.
@@ -474,12 +451,7 @@ public class ARBImaging {
 	// --- [ glGetColorTableParameterfv ] ---
 
 	/** Unsafe version of: {@link #glGetColorTableParameterfv GetColorTableParameterfv} */
-	public static void nglGetColorTableParameterfv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetColorTableParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetColorTableParameterfv(int target, int pname, long params);
 
 	/**
 	 * Float version of {@link #glGetColorTableParameteriv GetColorTableParameteriv}.
@@ -514,12 +486,7 @@ public class ARBImaging {
 	// --- [ glColorSubTable ] ---
 
 	/** Unsafe version of: {@link #glColorSubTable ColorSubTable} */
-	public static void nglColorSubTable(int target, int start, int count, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glColorSubTable;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, start, count, format, type, data);
-	}
+	public static native void nglColorSubTable(int target, int start, int count, int format, int type, long data);
 
 	/**
 	 * Respecifies a portion of an existing color table.
@@ -551,6 +518,9 @@ public class ARBImaging {
 
 	// --- [ glCopyColorSubTable ] ---
 
+	/** Unsafe version of: {@link #glCopyColorSubTable CopyColorSubTable} */
+	public static native void nglCopyColorSubTable(int target, int start, int x, int y, int width);
+
 	/**
 	 * Respecifies a portion of an existing color table using image taken from the framebuffer.
 	 *
@@ -561,21 +531,13 @@ public class ARBImaging {
 	 * @param width  the number of colors in the subregion to respecify
 	 */
 	public static void glCopyColorSubTable(int target, int start, int x, int y, int width) {
-		long __functionAddress = GL.getCapabilities().glCopyColorSubTable;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, start, x, y, width);
+		nglCopyColorSubTable(target, start, x, y, width);
 	}
 
 	// --- [ glConvolutionFilter1D ] ---
 
 	/** Unsafe version of: {@link #glConvolutionFilter1D ConvolutionFilter1D} */
-	public static void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glConvolutionFilter1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, width, format, type, data);
-	}
+	public static native void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data);
 
 	/**
 	 * Defines a one-dimensional convolution filter.
@@ -608,12 +570,7 @@ public class ARBImaging {
 	// --- [ glConvolutionFilter2D ] ---
 
 	/** Unsafe version of: {@link #glConvolutionFilter2D ConvolutionFilter2D} */
-	public static void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glConvolutionFilter2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, width, height, format, type, data);
-	}
+	public static native void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data);
 
 	/**
 	 * Defines a two-dimensional convolution filter.
@@ -647,6 +604,9 @@ public class ARBImaging {
 
 	// --- [ glCopyConvolutionFilter1D ] ---
 
+	/** Unsafe version of: {@link #glCopyConvolutionFilter1D CopyConvolutionFilter1D} */
+	public static native void nglCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width);
+
 	/**
 	 * Defines a one-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D ConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
 	 * client memory.
@@ -658,13 +618,13 @@ public class ARBImaging {
 	 * @param width          the filter width
 	 */
 	public static void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width) {
-		long __functionAddress = GL.getCapabilities().glCopyConvolutionFilter1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, x, y, width);
+		nglCopyConvolutionFilter1D(target, internalformat, x, y, width);
 	}
 
 	// --- [ glCopyConvolutionFilter2D ] ---
+
+	/** Unsafe version of: {@link #glCopyConvolutionFilter2D CopyConvolutionFilter2D} */
+	public static native void nglCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height);
 
 	/**
 	 * Defines a two-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D ConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
@@ -678,21 +638,13 @@ public class ARBImaging {
 	 * @param height         the filter height
 	 */
 	public static void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyConvolutionFilter2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, x, y, width, height);
+		nglCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
 	}
 
 	// --- [ glGetConvolutionFilter ] ---
 
 	/** Unsafe version of: {@link #glGetConvolutionFilter GetConvolutionFilter} */
-	public static void nglGetConvolutionFilter(int target, int format, int type, long image) {
-		long __functionAddress = GL.getCapabilities().glGetConvolutionFilter;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, format, type, image);
-	}
+	public static native void nglGetConvolutionFilter(int target, int format, int type, long image);
 
 	/**
 	 * Returns the contents of a convolution filter.
@@ -721,12 +673,7 @@ public class ARBImaging {
 	// --- [ glSeparableFilter2D ] ---
 
 	/** Unsafe version of: {@link #glSeparableFilter2D SeparableFilter2D} */
-	public static void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column) {
-		long __functionAddress = GL.getCapabilities().glSeparableFilter2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, internalformat, width, height, format, type, row, column);
-	}
+	public static native void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column);
 
 	/**
 	 * Specifies a two-dimensional separable convolution filter.
@@ -763,12 +710,7 @@ public class ARBImaging {
 	// --- [ glGetSeparableFilter ] ---
 
 	/** Unsafe version of: {@link #glGetSeparableFilter GetSeparableFilter} */
-	public static void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span) {
-		long __functionAddress = GL.getCapabilities().glGetSeparableFilter;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, format, type, row, column, span);
-	}
+	public static native void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span);
 
 	/**
 	 * Returns the current contents of a separable convolution filter.
@@ -800,6 +742,9 @@ public class ARBImaging {
 
 	// --- [ glConvolutionParameteri ] ---
 
+	/** Unsafe version of: {@link #glConvolutionParameteri ConvolutionParameteri} */
+	public static native void nglConvolutionParameteri(int target, int pname, int param);
+
 	/**
 	 * Specifies the scale and bias of a convolution filter.
 	 *
@@ -808,21 +753,13 @@ public class ARBImaging {
 	 * @param param  the parameter value
 	 */
 	public static void glConvolutionParameteri(int target, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glConvolutionParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, pname, param);
+		nglConvolutionParameteri(target, pname, param);
 	}
 
 	// --- [ glConvolutionParameteriv ] ---
 
 	/** Unsafe version of: {@link #glConvolutionParameteriv ConvolutionParameteriv} */
-	public static void nglConvolutionParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glConvolutionParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglConvolutionParameteriv(int target, int pname, long params);
 
 	/**
 	 * Pointer version of {@link #glConvolutionParameteri ConvolutionParameteri}.
@@ -839,6 +776,9 @@ public class ARBImaging {
 
 	// --- [ glConvolutionParameterf ] ---
 
+	/** Unsafe version of: {@link #glConvolutionParameterf ConvolutionParameterf} */
+	public static native void nglConvolutionParameterf(int target, int pname, float param);
+
 	/**
 	 * Float version of {@link #glConvolutionParameteri ConvolutionParameteri}
 	 *
@@ -847,21 +787,13 @@ public class ARBImaging {
 	 * @param param  the parameter value
 	 */
 	public static void glConvolutionParameterf(int target, int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glConvolutionParameterf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, pname, param);
+		nglConvolutionParameterf(target, pname, param);
 	}
 
 	// --- [ glConvolutionParameterfv ] ---
 
 	/** Unsafe version of: {@link #glConvolutionParameterfv ConvolutionParameterfv} */
-	public static void nglConvolutionParameterfv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glConvolutionParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglConvolutionParameterfv(int target, int pname, long params);
 
 	/**
 	 * Pointer version of {@link #glConvolutionParameterf ConvolutionParameterf}.
@@ -879,12 +811,7 @@ public class ARBImaging {
 	// --- [ glGetConvolutionParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetConvolutionParameteriv GetConvolutionParameteriv} */
-	public static void nglGetConvolutionParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetConvolutionParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetConvolutionParameteriv(int target, int pname, long params);
 
 	/**
 	 * Returns the value of a convolution filter parameter.
@@ -919,12 +846,7 @@ public class ARBImaging {
 	// --- [ glGetConvolutionParameterfv ] ---
 
 	/** Unsafe version of: {@link #glGetConvolutionParameterfv GetConvolutionParameterfv} */
-	public static void nglGetConvolutionParameterfv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetConvolutionParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetConvolutionParameterfv(int target, int pname, long params);
 
 	/**
 	 * Float version of {@link #glGetConvolutionParameteriv GetConvolutionParameteriv}.
@@ -958,6 +880,9 @@ public class ARBImaging {
 
 	// --- [ glHistogram ] ---
 
+	/** Unsafe version of: {@link #glHistogram Histogram} */
+	public static native void nglHistogram(int target, int width, int internalformat, boolean sink);
+
 	/**
 	 * Specifies the histogram table.
 	 *
@@ -967,13 +892,13 @@ public class ARBImaging {
 	 * @param sink           whether pixel groups will be consumed by the histogram operation ({@link GL11#GL_TRUE TRUE}) or passed on to the minmax operation ({@link GL11#GL_FALSE FALSE})
 	 */
 	public static void glHistogram(int target, int width, int internalformat, boolean sink) {
-		long __functionAddress = GL.getCapabilities().glHistogram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, width, internalformat, sink);
+		nglHistogram(target, width, internalformat, sink);
 	}
 
 	// --- [ glResetHistogram ] ---
+
+	/** Unsafe version of: {@link #glResetHistogram ResetHistogram} */
+	public static native void nglResetHistogram(int target);
 
 	/**
 	 * Resets all counters of all elements of the histogram table to zero.
@@ -981,21 +906,13 @@ public class ARBImaging {
 	 * @param target the histogram target. Must be:<br><table><tr><td>{@link #GL_HISTOGRAM HISTOGRAM}</td></tr></table>
 	 */
 	public static void glResetHistogram(int target) {
-		long __functionAddress = GL.getCapabilities().glResetHistogram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglResetHistogram(target);
 	}
 
 	// --- [ glGetHistogram ] ---
 
 	/** Unsafe version of: {@link #glGetHistogram GetHistogram} */
-	public static void nglGetHistogram(int target, boolean reset, int format, int type, long values) {
-		long __functionAddress = GL.getCapabilities().glGetHistogram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, reset, format, type, values);
-	}
+	public static native void nglGetHistogram(int target, boolean reset, int format, int type, long values);
 
 	/**
 	 * Returns the current contents of the histogram table.
@@ -1026,12 +943,7 @@ public class ARBImaging {
 	// --- [ glGetHistogramParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetHistogramParameteriv GetHistogramParameteriv} */
-	public static void nglGetHistogramParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetHistogramParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetHistogramParameteriv(int target, int pname, long params);
 
 	/**
 	 * Returns the integer values of the specified histogram parameter
@@ -1066,12 +978,7 @@ public class ARBImaging {
 	// --- [ glGetHistogramParameterfv ] ---
 
 	/** Unsafe version of: {@link #glGetHistogramParameterfv GetHistogramParameterfv} */
-	public static void nglGetHistogramParameterfv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetHistogramParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetHistogramParameterfv(int target, int pname, long params);
 
 	/**
 	 * Float version of {@link #glGetHistogramParameteriv GetHistogramParameteriv}.
@@ -1105,6 +1012,9 @@ public class ARBImaging {
 
 	// --- [ glMinmax ] ---
 
+	/** Unsafe version of: {@link #glMinmax Minmax} */
+	public static native void nglMinmax(int target, int internalformat, boolean sink);
+
 	/**
 	 * Specifies the minmax table.
 	 *
@@ -1113,13 +1023,13 @@ public class ARBImaging {
 	 * @param sink           whether pixel groups will be consumed by the minmax operation ({@link GL11#GL_TRUE TRUE}) or passed on to final conversion ({@link GL11#GL_FALSE FALSE})
 	 */
 	public static void glMinmax(int target, int internalformat, boolean sink) {
-		long __functionAddress = GL.getCapabilities().glMinmax;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, sink);
+		nglMinmax(target, internalformat, sink);
 	}
 
 	// --- [ glResetMinmax ] ---
+
+	/** Unsafe version of: {@link #glResetMinmax ResetMinmax} */
+	public static native void nglResetMinmax(int target);
 
 	/**
 	 * Resets all minimum and maximum values of {@code target} to to their maximum and minimum representable values, respectively.
@@ -1127,21 +1037,13 @@ public class ARBImaging {
 	 * @param target the minmax target. Must be:<br><table><tr><td>{@link #GL_MINMAX MINMAX}</td></tr></table>
 	 */
 	public static void glResetMinmax(int target) {
-		long __functionAddress = GL.getCapabilities().glResetMinmax;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglResetMinmax(target);
 	}
 
 	// --- [ glGetMinmax ] ---
 
 	/** Unsafe version of: {@link #glGetMinmax GetMinmax} */
-	public static void nglGetMinmax(int target, boolean reset, int format, int type, long values) {
-		long __functionAddress = GL.getCapabilities().glGetMinmax;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, reset, format, type, values);
-	}
+	public static native void nglGetMinmax(int target, boolean reset, int format, int type, long values);
 
 	/**
 	 * Returns the current contents of the minmax table.
@@ -1174,12 +1076,7 @@ public class ARBImaging {
 	// --- [ glGetMinmaxParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetMinmaxParameteriv GetMinmaxParameteriv} */
-	public static void nglGetMinmaxParameteriv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMinmaxParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetMinmaxParameteriv(int target, int pname, long params);
 
 	/**
 	 * Returns the integer value of the specified minmax parameter.
@@ -1214,12 +1111,7 @@ public class ARBImaging {
 	// --- [ glGetMinmaxParameterfv ] ---
 
 	/** Unsafe version of: {@link #glGetMinmaxParameterfv GetMinmaxParameterfv} */
-	public static void nglGetMinmaxParameterfv(int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMinmaxParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetMinmaxParameterfv(int target, int pname, long params);
 
 	/**
 	 * Float version of {@link #glGetMinmaxParameteriv GetMinmaxParameteriv}.
@@ -1253,6 +1145,9 @@ public class ARBImaging {
 
 	// --- [ glBlendColor ] ---
 
+	/** Unsafe version of: {@link #glBlendColor BlendColor} */
+	public static native void nglBlendColor(float red, float green, float blue, float alpha);
+
 	/**
 	 * Specifies the constant color C<sub>c</sub> to be used in blending.
 	 *
@@ -1262,29 +1157,26 @@ public class ARBImaging {
 	 * @param alpha the alpha color component
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = GL.getCapabilities().glBlendColor;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue, alpha);
+		nglBlendColor(red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
 
+	/** Unsafe version of: {@link #glBlendEquation BlendEquation} */
+	public static native void nglBlendEquation(int mode);
+
 	/**
 	 * Controls the blend equations used for per-fragment blending.
 	 *
-	 * @param mode the blend equation. One of:<br><table><tr><td>{@link #GL_FUNC_ADD FUNC_ADD}</td><td>{@link #GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link #GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link #GL_MIN MIN}</td><td>{@link #GL_MAX MAX}</td></tr></table>
+	 * @param mode the blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
 	public static void glBlendEquation(int mode) {
-		long __functionAddress = GL.getCapabilities().glBlendEquation;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglBlendEquation(mode);
 	}
 
 	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, short[] table) {
-		long __functionAddress = GL.getCapabilities().glColorTable;
+		long __functionAddress = GL.getICD().glColorTable;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, width, format, type, table);
@@ -1292,7 +1184,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, int[] table) {
-		long __functionAddress = GL.getCapabilities().glColorTable;
+		long __functionAddress = GL.getICD().glColorTable;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, width, format, type, table);
@@ -1300,7 +1192,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, float[] table) {
-		long __functionAddress = GL.getCapabilities().glColorTable;
+		long __functionAddress = GL.getICD().glColorTable;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, width, format, type, table);
@@ -1308,7 +1200,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glColorTableParameteriv ColorTableParameteriv} */
 	public static void glColorTableParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glColorTableParameteriv;
+		long __functionAddress = GL.getICD().glColorTableParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1318,7 +1210,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glColorTableParameterfv ColorTableParameterfv} */
 	public static void glColorTableParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glColorTableParameterfv;
+		long __functionAddress = GL.getICD().glColorTableParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1328,7 +1220,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetColorTable GetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, short[] table) {
-		long __functionAddress = GL.getCapabilities().glGetColorTable;
+		long __functionAddress = GL.getICD().glGetColorTable;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table);
@@ -1336,7 +1228,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetColorTable GetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, int[] table) {
-		long __functionAddress = GL.getCapabilities().glGetColorTable;
+		long __functionAddress = GL.getICD().glGetColorTable;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table);
@@ -1344,7 +1236,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetColorTable GetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, float[] table) {
-		long __functionAddress = GL.getCapabilities().glGetColorTable;
+		long __functionAddress = GL.getICD().glGetColorTable;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table);
@@ -1352,7 +1244,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetColorTableParameteriv GetColorTableParameteriv} */
 	public static void glGetColorTableParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetColorTableParameteriv;
+		long __functionAddress = GL.getICD().glGetColorTableParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1362,7 +1254,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetColorTableParameterfv GetColorTableParameterfv} */
 	public static void glGetColorTableParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetColorTableParameterfv;
+		long __functionAddress = GL.getICD().glGetColorTableParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1372,7 +1264,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glConvolutionParameteriv ConvolutionParameteriv} */
 	public static void glConvolutionParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glConvolutionParameteriv;
+		long __functionAddress = GL.getICD().glConvolutionParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1382,7 +1274,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glConvolutionParameterfv ConvolutionParameterfv} */
 	public static void glConvolutionParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glConvolutionParameterfv;
+		long __functionAddress = GL.getICD().glConvolutionParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1392,7 +1284,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetConvolutionParameteriv GetConvolutionParameteriv} */
 	public static void glGetConvolutionParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetConvolutionParameteriv;
+		long __functionAddress = GL.getICD().glGetConvolutionParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1402,7 +1294,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetConvolutionParameterfv GetConvolutionParameterfv} */
 	public static void glGetConvolutionParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetConvolutionParameterfv;
+		long __functionAddress = GL.getICD().glGetConvolutionParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -1412,7 +1304,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetHistogramParameteriv GetHistogramParameteriv} */
 	public static void glGetHistogramParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetHistogramParameteriv;
+		long __functionAddress = GL.getICD().glGetHistogramParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1422,7 +1314,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetHistogramParameterfv GetHistogramParameterfv} */
 	public static void glGetHistogramParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetHistogramParameterfv;
+		long __functionAddress = GL.getICD().glGetHistogramParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1432,7 +1324,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetMinmaxParameteriv GetMinmaxParameteriv} */
 	public static void glGetMinmaxParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMinmaxParameteriv;
+		long __functionAddress = GL.getICD().glGetMinmaxParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1442,7 +1334,7 @@ public class ARBImaging {
 
 	/** Array version of: {@link #glGetMinmaxParameterfv GetMinmaxParameterfv} */
 	public static void glGetMinmaxParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMinmaxParameterfv;
+		long __functionAddress = GL.getICD().glGetMinmaxParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

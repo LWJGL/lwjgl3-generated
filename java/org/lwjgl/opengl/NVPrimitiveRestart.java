@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/primitive_restart.txt">NV_primitive_restart</a> extension.
@@ -36,6 +35,8 @@ public class NVPrimitiveRestart {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_PRIMITIVE_RESTART_INDEX_NV = 0x8559;
 
+	static { GL.initialize(); }
+
 	protected NVPrimitiveRestart() {
 		throw new UnsupportedOperationException();
 	}
@@ -48,20 +49,18 @@ public class NVPrimitiveRestart {
 
 	// --- [ glPrimitiveRestartNV ] ---
 
+	public static native void nglPrimitiveRestartNV();
+
 	public static void glPrimitiveRestartNV() {
-		long __functionAddress = GL.getCapabilities().glPrimitiveRestartNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglPrimitiveRestartNV();
 	}
 
 	// --- [ glPrimitiveRestartIndexNV ] ---
 
+	public static native void nglPrimitiveRestartIndexNV(int index);
+
 	public static void glPrimitiveRestartIndexNV(int index) {
-		long __functionAddress = GL.getCapabilities().glPrimitiveRestartIndexNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglPrimitiveRestartIndexNV(index);
 	}
 
 }

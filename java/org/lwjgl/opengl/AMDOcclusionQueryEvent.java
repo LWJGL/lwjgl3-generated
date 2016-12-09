@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/occlusion_query_event.txt">AMD_occlusion_query_event</a> extension.
@@ -33,6 +32,8 @@ public class AMDOcclusionQueryEvent {
 		GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD = 0x8,
 		GL_QUERY_ALL_EVENT_BITS_AMD              = 0xFFFFFFFF;
 
+	static { GL.initialize(); }
+
 	protected AMDOcclusionQueryEvent() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,6 +46,9 @@ public class AMDOcclusionQueryEvent {
 
 	// --- [ glQueryObjectParameteruiAMD ] ---
 
+	/** Unsafe version of: {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD} */
+	public static native void nglQueryObjectParameteruiAMD(int target, int id, int pname, int param);
+
 	/**
 	 * Changes the value of a query object parameter.
 	 *
@@ -54,10 +58,7 @@ public class AMDOcclusionQueryEvent {
 	 * @param param  the new value. One of:<br><table><tr><td>{@link #GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD QUERY_DEPTH_PASS_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD QUERY_DEPTH_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD QUERY_STENCIL_FAIL_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_ALL_EVENT_BITS_AMD QUERY_ALL_EVENT_BITS_AMD}</td></tr></table>
 	 */
 	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glQueryObjectParameteruiAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, id, pname, param);
+		nglQueryObjectParameteruiAMD(target, id, pname, param);
 	}
 
 }

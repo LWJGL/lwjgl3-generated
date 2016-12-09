@@ -39,6 +39,8 @@ public class ARBDirectStateAccess {
 	/** Accepted by the {@code pname} parameter of GetQueryObjectiv. */
 	public static final int GL_QUERY_TARGET = 0x82EA;
 
+	static { GL.initialize(); }
+
 	protected ARBDirectStateAccess() {
 		throw new UnsupportedOperationException();
 	}
@@ -78,12 +80,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of transform feedback object names to create
 	 */
-	public static void nglCreateTransformFeedbacks(int n, long ids) {
-		long __functionAddress = GL.getCapabilities().glCreateTransformFeedbacks;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglCreateTransformFeedbacks(int n, long ids);
 
 	/**
 	 * Returns {@code n} previously unused transform feedback object names in {@code ids}, each representing a new state vector.
@@ -108,6 +105,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTransformFeedbackBufferBase ] ---
 
+	/** Unsafe version of: {@link #glTransformFeedbackBufferBase TransformFeedbackBufferBase} */
+	public static native void nglTransformFeedbackBufferBase(int xfb, int index, int buffer);
+
 	/**
 	 * Binds a buffer object to a transform feedback object.
 	 *
@@ -116,13 +116,13 @@ public class ARBDirectStateAccess {
 	 * @param buffer the name of an existing buffer object
 	 */
 	public static void glTransformFeedbackBufferBase(int xfb, int index, int buffer) {
-		long __functionAddress = GL.getCapabilities().glTransformFeedbackBufferBase;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, xfb, index, buffer);
+		nglTransformFeedbackBufferBase(xfb, index, buffer);
 	}
 
 	// --- [ glTransformFeedbackBufferRange ] ---
+
+	/** Unsafe version of: {@link #glTransformFeedbackBufferRange TransformFeedbackBufferRange} */
+	public static native void nglTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size);
 
 	/**
 	 * Binds a region of a buffer object to a transform feedback object.
@@ -134,21 +134,13 @@ public class ARBDirectStateAccess {
 	 * @param size   the amount of data in machine units
 	 */
 	public static void glTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glTransformFeedbackBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, xfb, index, buffer, offset, size);
+		nglTransformFeedbackBufferRange(xfb, index, buffer, offset, size);
 	}
 
 	// --- [ glGetTransformFeedbackiv ] ---
 
 	/** Unsafe version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
-	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, xfb, pname, param);
-	}
+	public static native void nglGetTransformFeedbackiv(int xfb, int pname, long param);
 
 	/**
 	 * Returns information about a transform feedback object.
@@ -183,12 +175,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTransformFeedbacki_v ] ---
 
 	/** Unsafe version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
-	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, xfb, pname, index, param);
-	}
+	public static native void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param);
 
 	/**
 	 * Returns information about a transform feedback object.
@@ -225,12 +212,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTransformFeedbacki64_v ] ---
 
 	/** Unsafe version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
-	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki64_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, xfb, pname, index, param);
-	}
+	public static native void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param);
 
 	/**
 	 * Returns information about a transform feedback object.
@@ -271,12 +253,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of buffer names to create
 	 */
-	public static void nglCreateBuffers(int n, long buffers) {
-		long __functionAddress = GL.getCapabilities().glCreateBuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, buffers);
-	}
+	public static native void nglCreateBuffers(int n, long buffers);
 
 	/**
 	 * Returns {@code n} previously unused buffer names in {@code buffers}, each representing a new buffer object initialized as if it had been bound to an
@@ -310,12 +287,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param size the size of the data store in basic machine units
 	 */
-	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, size, data, flags);
-	}
+	public static native void nglNamedBufferStorage(int buffer, long size, long data, int flags);
 
 	/**
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
@@ -605,12 +577,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param size the size in bytes of the buffer object's new data store
 	 */
-	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, size, data, usage);
-	}
+	public static native void nglNamedBufferData(int buffer, long size, long data, int usage);
 
 	/**
 	 * DSA version of {@link GL15#glBufferData BufferData}.
@@ -685,12 +652,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param size the size in bytes of the data store region being replaced
 	 */
-	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, offset, size, data);
-	}
+	public static native void nglNamedBufferSubData(int buffer, long offset, long size, long data);
 
 	/**
 	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
@@ -749,6 +711,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCopyNamedBufferSubData ] ---
 
+	/** Unsafe version of: {@link #glCopyNamedBufferSubData CopyNamedBufferSubData} */
+	public static native void nglCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
+
 	/**
 	 * DSA version of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 *
@@ -759,21 +724,13 @@ public class ARBDirectStateAccess {
 	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GL.getCapabilities().glCopyNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
+		nglCopyNamedBufferSubData(readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 	// --- [ glClearNamedBufferData ] ---
 
 	/** Unsafe version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
-	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, internalformat, format, type, data);
-	}
+	public static native void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data);
 
 	/**
 	 * DSA version of {@link GL43#glClearBufferData ClearBufferData}.
@@ -838,12 +795,7 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedBufferSubData ] ---
 
 	/** Unsafe version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
-	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
-	}
+	public static native void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data);
 
 	/**
 	 * DSA version of {@link GL43#glClearBufferSubData ClearBufferSubData}.
@@ -916,12 +868,7 @@ public class ARBDirectStateAccess {
 	// --- [ glMapNamedBuffer ] ---
 
 	/** Unsafe version of: {@link #glMapNamedBuffer MapNamedBuffer} */
-	public static long nglMapNamedBuffer(int buffer, int access) {
-		long __functionAddress = GL.getCapabilities().glMapNamedBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, buffer, access);
-	}
+	public static native long nglMapNamedBuffer(int buffer, int access);
 
 	/**
 	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
@@ -960,12 +907,7 @@ public class ARBDirectStateAccess {
 	// --- [ glMapNamedBufferRange ] ---
 
 	/** Unsafe version of: {@link #glMapNamedBufferRange MapNamedBufferRange} */
-	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
-		long __functionAddress = GL.getCapabilities().glMapNamedBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPP(__functionAddress, buffer, offset, length, access);
-	}
+	public static native long nglMapNamedBufferRange(int buffer, long offset, long length, int access);
 
 	/**
 	 * DSA version of {@link GL30#glMapBufferRange MapBufferRange}.
@@ -995,19 +937,22 @@ public class ARBDirectStateAccess {
 
 	// --- [ glUnmapNamedBuffer ] ---
 
+	/** Unsafe version of: {@link #glUnmapNamedBuffer UnmapNamedBuffer} */
+	public static native boolean nglUnmapNamedBuffer(int buffer);
+
 	/**
 	 * DSA version of {@link GL15#glUnmapBuffer UnmapBuffer}.
 	 *
 	 * @param buffer the buffer object name
 	 */
 	public static boolean glUnmapNamedBuffer(int buffer) {
-		long __functionAddress = GL.getCapabilities().glUnmapNamedBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, buffer);
+		return nglUnmapNamedBuffer(buffer);
 	}
 
 	// --- [ glFlushMappedNamedBufferRange ] ---
+
+	/** Unsafe version of: {@link #glFlushMappedNamedBufferRange FlushMappedNamedBufferRange} */
+	public static native void nglFlushMappedNamedBufferRange(int buffer, long offset, long length);
 
 	/**
 	 * DSA version of {@link GL30#glFlushMappedBufferRange FlushMappedBufferRange}.
@@ -1017,21 +962,13 @@ public class ARBDirectStateAccess {
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
 	public static void glFlushMappedNamedBufferRange(int buffer, long offset, long length) {
-		long __functionAddress = GL.getCapabilities().glFlushMappedNamedBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, offset, length);
+		nglFlushMappedNamedBufferRange(buffer, offset, length);
 	}
 
 	// --- [ glGetNamedBufferParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
-	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, pname, params);
-	}
+	public static native void nglGetNamedBufferParameteriv(int buffer, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL15#glGetBufferParameteriv GetBufferParameteriv}.
@@ -1066,12 +1003,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedBufferParameteri64v ] ---
 
 	/** Unsafe version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
-	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteri64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, pname, params);
-	}
+	public static native void nglGetNamedBufferParameteri64v(int buffer, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}.
@@ -1106,12 +1038,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedBufferPointerv ] ---
 
 	/** Unsafe version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
-	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferPointerv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, pname, params);
-	}
+	public static native void nglGetNamedBufferPointerv(int buffer, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL15#glGetBufferPointerv GetBufferPointerv}.
@@ -1150,12 +1077,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param size the size in bytes of the data store region being returned
 	 */
-	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, offset, size, data);
-	}
+	public static native void nglGetNamedBufferSubData(int buffer, long offset, long size, long data);
 
 	/**
 	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
@@ -1219,12 +1141,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of framebuffer names to create
 	 */
-	public static void nglCreateFramebuffers(int n, long framebuffers) {
-		long __functionAddress = GL.getCapabilities().glCreateFramebuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, framebuffers);
-	}
+	public static native void nglCreateFramebuffers(int n, long framebuffers);
 
 	/**
 	 * Returns {@code n} previously unused framebuffer names in {@code framebuffers}, each representing a new framebuffer object.
@@ -1249,6 +1166,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glNamedFramebufferRenderbuffer ] ---
 
+	/** Unsafe version of: {@link #glNamedFramebufferRenderbuffer NamedFramebufferRenderbuffer} */
+	public static native void nglNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer);
+
 	/**
 	 * DSA version of {@link GL30#glFramebufferRenderbuffer FramebufferRenderbuffer}.
 	 *
@@ -1258,13 +1178,13 @@ public class ARBDirectStateAccess {
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
 	public static void glNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferRenderbuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
+		nglNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glNamedFramebufferParameteri ] ---
+
+	/** Unsafe version of: {@link #glNamedFramebufferParameteri NamedFramebufferParameteri} */
+	public static native void nglNamedFramebufferParameteri(int framebuffer, int pname, int param);
 
 	/**
 	 * DSA version of {@link GL43#glFramebufferParameteri FramebufferParameteri}.
@@ -1274,13 +1194,13 @@ public class ARBDirectStateAccess {
 	 * @param param       the new value for the parameter named {@code pname}
 	 */
 	public static void glNamedFramebufferParameteri(int framebuffer, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, pname, param);
+		nglNamedFramebufferParameteri(framebuffer, pname, param);
 	}
 
 	// --- [ glNamedFramebufferTexture ] ---
+
+	/** Unsafe version of: {@link #glNamedFramebufferTexture NamedFramebufferTexture} */
+	public static native void nglNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level);
 
 	/**
 	 * DSA version of {@link GL32#glFramebufferTexture FramebufferTexture}.
@@ -1291,13 +1211,13 @@ public class ARBDirectStateAccess {
 	 * @param level       the mipmap level of {@code texture} to attach
 	 */
 	public static void glNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTexture;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, texture, level);
+		nglNamedFramebufferTexture(framebuffer, attachment, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTextureLayer ] ---
+
+	/** Unsafe version of: {@link #glNamedFramebufferTextureLayer NamedFramebufferTextureLayer} */
+	public static native void nglNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer);
 
 	/**
 	 * DSA version of {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}.
@@ -1309,13 +1229,13 @@ public class ARBDirectStateAccess {
 	 * @param layer       the layer of {@code texture} to attach.
 	 */
 	public static void glNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTextureLayer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, texture, level, layer);
+		nglNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
 	}
 
 	// --- [ glNamedFramebufferDrawBuffer ] ---
+
+	/** Unsafe version of: {@link #glNamedFramebufferDrawBuffer NamedFramebufferDrawBuffer} */
+	public static native void nglNamedFramebufferDrawBuffer(int framebuffer, int buf);
 
 	/**
 	 * DSA version of {@link GL11#glDrawBuffer DrawBuffer}.
@@ -1324,10 +1244,7 @@ public class ARBDirectStateAccess {
 	 * @param buf         the color buffer to draw to. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_LEFT LEFT}</td></tr><tr><td>{@link GL11#GL_RIGHT RIGHT}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
 	 */
 	public static void glNamedFramebufferDrawBuffer(int framebuffer, int buf) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, buf);
+		nglNamedFramebufferDrawBuffer(framebuffer, buf);
 	}
 
 	// --- [ glNamedFramebufferDrawBuffers ] ---
@@ -1337,12 +1254,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of buffers in {@code bufs}
 	 */
-	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, n, bufs);
-	}
+	public static native void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs);
 
 	/**
 	 * DSA version of {@link GL20#glDrawBuffers DrawBuffers}.
@@ -1371,6 +1283,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glNamedFramebufferReadBuffer ] ---
 
+	/** Unsafe version of: {@link #glNamedFramebufferReadBuffer NamedFramebufferReadBuffer} */
+	public static native void nglNamedFramebufferReadBuffer(int framebuffer, int src);
+
 	/**
 	 * DSA version of {@link GL11#glReadBuffer ReadBuffer}.
 	 *
@@ -1378,10 +1293,7 @@ public class ARBDirectStateAccess {
 	 * @param src         the color buffer to read from. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_LEFT LEFT}</td></tr><tr><td>{@link GL11#GL_RIGHT RIGHT}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
 	 */
 	public static void glNamedFramebufferReadBuffer(int framebuffer, int src) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferReadBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, src);
+		nglNamedFramebufferReadBuffer(framebuffer, src);
 	}
 
 	// --- [ glInvalidateNamedFramebufferData ] ---
@@ -1391,12 +1303,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param numAttachments the number of entries in the {@code attachments} array
 	 */
-	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
-		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, numAttachments, attachments);
-	}
+	public static native void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments);
 
 	/**
 	 * DSA version of {@link GL43#glInvalidateFramebuffer InvalidateFramebuffer}.
@@ -1430,12 +1337,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param numAttachments the number of entries in the {@code attachments} array
 	 */
-	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
-	}
+	public static native void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height);
 
 	/**
 	 * DSA version of {@link GL43#glInvalidateSubFramebuffer InvalidateSubFramebuffer}.
@@ -1473,12 +1375,7 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedFramebufferiv ] ---
 
 	/** Unsafe version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
-	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
-	}
+	public static native void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value);
 
 	/**
 	 * DSA version of {@link GL30#glClearBufferiv ClearBufferiv}.
@@ -1498,12 +1395,7 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedFramebufferuiv ] ---
 
 	/** Unsafe version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
-	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
-	}
+	public static native void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value);
 
 	/**
 	 * DSA version of {@link GL30#glClearBufferuiv ClearBufferuiv}.
@@ -1522,12 +1414,7 @@ public class ARBDirectStateAccess {
 	// --- [ glClearNamedFramebufferfv ] ---
 
 	/** Unsafe version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
-	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
-	}
+	public static native void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value);
 
 	/**
 	 * DSA version of {@link GL30#glClearBufferfv ClearBufferfv}.
@@ -1546,6 +1433,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glClearNamedFramebufferfi ] ---
 
+	/** Unsafe version of: {@link #glClearNamedFramebufferfi ClearNamedFramebufferfi} */
+	public static native void nglClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil);
+
 	/**
 	 * DSA version of {@link GL30#glClearBufferfi ClearBufferfi}.
 	 *
@@ -1556,13 +1446,13 @@ public class ARBDirectStateAccess {
 	 * @param stencil     the stencil value to clear the buffer to
 	 */
 	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfi;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, buffer, drawbuffer, depth, stencil);
+		nglClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glBlitNamedFramebuffer ] ---
+
+	/** Unsafe version of: {@link #glBlitNamedFramebuffer BlitNamedFramebuffer} */
+	public static native void nglBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 	/**
 	 * DSA version of {@link GL30#glBlitFramebuffer BlitFramebuffer}.
@@ -1581,13 +1471,13 @@ public class ARBDirectStateAccess {
 	 * @param filter          the interpolation to be applied if the image is stretched. One of:<br><table><tr><td>{@link GL11#GL_NEAREST NEAREST}</td><td>{@link GL11#GL_LINEAR LINEAR}</td></tr></table>
 	 */
 	public static void glBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = GL.getCapabilities().glBlitNamedFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		nglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glCheckNamedFramebufferStatus ] ---
+
+	/** Unsafe version of: {@link #glCheckNamedFramebufferStatus CheckNamedFramebufferStatus} */
+	public static native int nglCheckNamedFramebufferStatus(int framebuffer, int target);
 
 	/**
 	 * DSA version of {@link GL30#glCheckFramebufferStatus CheckFramebufferStatus}.
@@ -1596,21 +1486,13 @@ public class ARBDirectStateAccess {
 	 * @param target      the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 */
 	public static int glCheckNamedFramebufferStatus(int framebuffer, int target) {
-		long __functionAddress = GL.getCapabilities().glCheckNamedFramebufferStatus;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, framebuffer, target);
+		return nglCheckNamedFramebufferStatus(framebuffer, target);
 	}
 
 	// --- [ glGetNamedFramebufferParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
-	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, pname, params);
-	}
+	public static native void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL43#glGetFramebufferParameteriv GetFramebufferParameteriv}.
@@ -1645,12 +1527,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetNamedFramebufferAttachmentParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
-	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, attachment, pname, params);
-	}
+	public static native void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
@@ -1691,12 +1568,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of renderbuffer names to create
 	 */
-	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = GL.getCapabilities().glCreateRenderbuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, renderbuffers);
-	}
+	public static native void nglCreateRenderbuffers(int n, long renderbuffers);
 
 	/**
 	 * Returns {@code n} previously unused renderbuffer names in {@code renderbuffers}, each representing a new renderbuffer object.
@@ -1721,6 +1593,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glNamedRenderbufferStorage ] ---
 
+	/** Unsafe version of: {@link #glNamedRenderbufferStorage NamedRenderbufferStorage} */
+	public static native void nglNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height);
+
 	/**
 	 * DSA version of {@link GL30#glRenderbufferStorage RenderbufferStorage}.
 	 *
@@ -1730,13 +1605,13 @@ public class ARBDirectStateAccess {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, renderbuffer, internalformat, width, height);
+		nglNamedRenderbufferStorage(renderbuffer, internalformat, width, height);
 	}
 
 	// --- [ glNamedRenderbufferStorageMultisample ] ---
+
+	/** Unsafe version of: {@link #glNamedRenderbufferStorageMultisample NamedRenderbufferStorageMultisample} */
+	public static native void nglNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height);
 
 	/**
 	 * DSA version of {@link GL30#glRenderbufferStorageMultisample RenderbufferStorageMultisample}.
@@ -1748,21 +1623,13 @@ public class ARBDirectStateAccess {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorageMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, renderbuffer, samples, internalformat, width, height);
+		nglNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
-	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, renderbuffer, pname, params);
-	}
+	public static native void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL30#glGetRenderbufferParameteriv GetRenderbufferParameteriv}.
@@ -1801,12 +1668,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of texture names to create
 	 */
-	public static void nglCreateTextures(int target, int n, long textures) {
-		long __functionAddress = GL.getCapabilities().glCreateTextures;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, n, textures);
-	}
+	public static native void nglCreateTextures(int target, int n, long textures);
 
 	/**
 	 * Returns {@code n} previously unused texture names in {@code textures}, each representing a new texture object.
@@ -1836,6 +1698,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureBuffer ] ---
 
+	/** Unsafe version of: {@link #glTextureBuffer TextureBuffer} */
+	public static native void nglTextureBuffer(int texture, int internalformat, int buffer);
+
 	/**
 	 * DSA version of {@link GL31#glTexBuffer TexBuffer}.
 	 *
@@ -1844,13 +1709,13 @@ public class ARBDirectStateAccess {
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTextureBuffer(int texture, int internalformat, int buffer) {
-		long __functionAddress = GL.getCapabilities().glTextureBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, internalformat, buffer);
+		nglTextureBuffer(texture, internalformat, buffer);
 	}
 
 	// --- [ glTextureBufferRange ] ---
+
+	/** Unsafe version of: {@link #glTextureBufferRange TextureBufferRange} */
+	public static native void nglTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size);
 
 	/**
 	 * DSA version of {@link GL43#glTexBufferRange TexBufferRange}.
@@ -1862,13 +1727,13 @@ public class ARBDirectStateAccess {
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
 	public static void glTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size) {
-		long __functionAddress = GL.getCapabilities().glTextureBufferRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, texture, internalformat, buffer, offset, size);
+		nglTextureBufferRange(texture, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTextureStorage1D ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage1D TextureStorage1D} */
+	public static native void nglTextureStorage1D(int texture, int levels, int internalformat, int width);
 
 	/**
 	 * DSA version of {@link GL42#glTexStorage1D TexStorage1D}.
@@ -1879,13 +1744,13 @@ public class ARBDirectStateAccess {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTextureStorage1D(int texture, int levels, int internalformat, int width) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, levels, internalformat, width);
+		nglTextureStorage1D(texture, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2D ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage2D TextureStorage2D} */
+	public static native void nglTextureStorage2D(int texture, int levels, int internalformat, int width, int height);
 
 	/**
 	 * DSA version of {@link GL42#glTexStorage2D TexStorage2D}.
@@ -1897,13 +1762,13 @@ public class ARBDirectStateAccess {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTextureStorage2D(int texture, int levels, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, levels, internalformat, width, height);
+		nglTextureStorage2D(texture, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3D ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage3D TextureStorage3D} */
+	public static native void nglTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth);
 
 	/**
 	 * DSA version of {@link GL42#glTexStorage3D TexStorage3D}.
@@ -1916,13 +1781,13 @@ public class ARBDirectStateAccess {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, levels, internalformat, width, height, depth);
+		nglTextureStorage3D(texture, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage2DMultisample ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage2DMultisample TextureStorage2DMultisample} */
+	public static native void nglTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	/**
 	 * DSA version of {@link GL43#glTexStorage2DMultisample TexStorage2DMultisample}.
@@ -1936,13 +1801,13 @@ public class ARBDirectStateAccess {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, samples, internalformat, width, height, fixedsamplelocations);
+		nglTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisample ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage3DMultisample TextureStorage3DMultisample} */
+	public static native void nglTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	/**
 	 * DSA version of {@link GL43#glTexStorage3DMultisample TexStorage3DMultisample}.
@@ -1957,21 +1822,13 @@ public class ARBDirectStateAccess {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, samples, internalformat, width, height, depth, fixedsamplelocations);
+		nglTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureSubImage1D ] ---
 
 	/** Unsafe version of: {@link #glTextureSubImage1D TextureSubImage1D} */
-	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
-	}
+	public static native void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels);
 
 	/**
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
@@ -2066,12 +1923,7 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureSubImage2D ] ---
 
 	/** Unsafe version of: {@link #glTextureSubImage2D TextureSubImage2D} */
-	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
-	}
+	public static native void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels);
 
 	/**
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
@@ -2178,12 +2030,7 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureSubImage3D ] ---
 
 	/** Unsafe version of: {@link #glTextureSubImage3D TextureSubImage3D} */
-	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-	}
+	public static native void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	/**
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
@@ -2306,12 +2153,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
-	}
+	public static native void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data);
 
 	/**
 	 * DSA version of {@link GL13#glCompressedTexSubImage1D CompressedTexSubImage1D}.
@@ -2349,12 +2191,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
-	}
+	public static native void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	/**
 	 * DSA version of {@link GL13#glCompressedTexSubImage2D CompressedTexSubImage2D}.
@@ -2396,12 +2233,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-	}
+	public static native void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
 	/**
 	 * DSA version of {@link GL13#glCompressedTexSubImage3D CompressedTexSubImage3D}.
@@ -2442,6 +2274,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glCopyTextureSubImage1D ] ---
 
+	/** Unsafe version of: {@link #glCopyTextureSubImage1D CopyTextureSubImage1D} */
+	public static native void nglCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width);
+
 	/**
 	 * DSA version of {@link GL11#glCopyTexSubImage1D CopyTexSubImage1D}.
 	 *
@@ -2453,13 +2288,13 @@ public class ARBDirectStateAccess {
 	 * @param width   the texture subregion width
 	 */
 	public static void glCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level, xoffset, x, y, width);
+		nglCopyTextureSubImage1D(texture, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTextureSubImage2D ] ---
+
+	/** Unsafe version of: {@link #glCopyTextureSubImage2D CopyTextureSubImage2D} */
+	public static native void nglCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 	/**
 	 * DSA version of {@link GL11#glCopyTexSubImage2D CopyTexSubImage2D}.
@@ -2474,13 +2309,13 @@ public class ARBDirectStateAccess {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level, xoffset, yoffset, x, y, width, height);
+		nglCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glCopyTextureSubImage3D ] ---
+
+	/** Unsafe version of: {@link #glCopyTextureSubImage3D CopyTextureSubImage3D} */
+	public static native void nglCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	/**
 	 * DSA version of {@link GL12#glCopyTexSubImage3D CopyTexSubImage3D}.
@@ -2496,13 +2331,13 @@ public class ARBDirectStateAccess {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, x, y, width, height);
+		nglCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glTextureParameterf ] ---
+
+	/** Unsafe version of: {@link #glTextureParameterf TextureParameterf} */
+	public static native void nglTextureParameterf(int texture, int pname, float param);
 
 	/**
 	 * DSA version of {@link GL11#glTexParameterf TexParameterf}.
@@ -2512,21 +2347,13 @@ public class ARBDirectStateAccess {
 	 * @param param   the parameter value
 	 */
 	public static void glTextureParameterf(int texture, int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, pname, param);
+		nglTextureParameterf(texture, pname, param);
 	}
 
 	// --- [ glTextureParameterfv ] ---
 
 	/** Unsafe version of: {@link #glTextureParameterfv TextureParameterfv} */
-	public static void nglTextureParameterfv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglTextureParameterfv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL11#glTexParameterfv TexParameterfv}.
@@ -2543,6 +2370,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glTextureParameteri ] ---
 
+	/** Unsafe version of: {@link #glTextureParameteri TextureParameteri} */
+	public static native void nglTextureParameteri(int texture, int pname, int param);
+
 	/**
 	 * DSA version of {@link GL11#glTexParameteri TexParameteri}.
 	 *
@@ -2551,21 +2381,13 @@ public class ARBDirectStateAccess {
 	 * @param param   the parameter value
 	 */
 	public static void glTextureParameteri(int texture, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, pname, param);
+		nglTextureParameteri(texture, pname, param);
 	}
 
 	// --- [ glTextureParameterIiv ] ---
 
 	/** Unsafe version of: {@link #glTextureParameterIiv TextureParameterIiv} */
-	public static void nglTextureParameterIiv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglTextureParameterIiv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL30#glTexParameterIiv TexParameterIiv}.
@@ -2599,12 +2421,7 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureParameterIuiv ] ---
 
 	/** Unsafe version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
-	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglTextureParameterIuiv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL30#glTexParameterIuiv TexParameterIuiv}.
@@ -2638,12 +2455,7 @@ public class ARBDirectStateAccess {
 	// --- [ glTextureParameteriv ] ---
 
 	/** Unsafe version of: {@link #glTextureParameteriv TextureParameteriv} */
-	public static void nglTextureParameteriv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglTextureParameteriv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL11#glTexParameteriv TexParameteriv}.
@@ -2660,19 +2472,22 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGenerateTextureMipmap ] ---
 
+	/** Unsafe version of: {@link #glGenerateTextureMipmap GenerateTextureMipmap} */
+	public static native void nglGenerateTextureMipmap(int texture);
+
 	/**
 	 * DSA version of {@link GL30#glGenerateMipmap GenerateMipmap}.
 	 *
 	 * @param texture the texture name
 	 */
 	public static void glGenerateTextureMipmap(int texture) {
-		long __functionAddress = GL.getCapabilities().glGenerateTextureMipmap;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture);
+		nglGenerateTextureMipmap(texture);
 	}
 
 	// --- [ glBindTextureUnit ] ---
+
+	/** Unsafe version of: {@link #glBindTextureUnit BindTextureUnit} */
+	public static native void nglBindTextureUnit(int unit, int texture);
 
 	/**
 	 * Binds an existing texture object to the texture unit numbered {@code unit}.
@@ -2685,10 +2500,7 @@ public class ARBDirectStateAccess {
 	 * @param texture the texture name
 	 */
 	public static void glBindTextureUnit(int unit, int texture) {
-		long __functionAddress = GL.getCapabilities().glBindTextureUnit;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, unit, texture);
+		nglBindTextureUnit(unit, texture);
 	}
 
 	// --- [ glGetTextureImage ] ---
@@ -2698,12 +2510,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param bufSize the size of the buffer to receive the retrieved pixel data
 	 */
-	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, format, type, bufSize, pixels);
-	}
+	public static native void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels);
 
 	/**
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
@@ -2791,12 +2598,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param bufSize the size of the buffer to receive the retrieved pixel data
 	 */
-	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, bufSize, pixels);
-	}
+	public static native void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels);
 
 	/**
 	 * DSA version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}.
@@ -2827,12 +2629,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureLevelParameterfv ] ---
 
 	/** Unsafe version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
-	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, pname, params);
-	}
+	public static native void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL11#glGetTexLevelParameterfv GetTexLevelParameterfv}.
@@ -2869,12 +2666,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureLevelParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
-	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, pname, params);
-	}
+	public static native void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL11#glGetTexLevelParameteriv GetTexLevelParameteriv}.
@@ -2911,12 +2703,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameterfv ] ---
 
 	/** Unsafe version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
-	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglGetTextureParameterfv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL11#glGetTexParameterfv GetTexParameterfv}.
@@ -2951,12 +2738,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameterIiv ] ---
 
 	/** Unsafe version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
-	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglGetTextureParameterIiv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL30#glGetTexParameterIiv GetTexParameterIiv}.
@@ -2991,12 +2773,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameterIuiv ] ---
 
 	/** Unsafe version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
-	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglGetTextureParameterIuiv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL30#glGetTexParameterIuiv GetTexParameterIuiv}.
@@ -3031,12 +2808,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetTextureParameteriv ] ---
 
 	/** Unsafe version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
-	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, pname, params);
-	}
+	public static native void nglGetTextureParameteriv(int texture, int pname, long params);
 
 	/**
 	 * DSA version of {@link GL11#glGetTexParameteriv GetTexParameteriv}.
@@ -3075,12 +2847,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of vertex array object names to create
 	 */
-	public static void nglCreateVertexArrays(int n, long arrays) {
-		long __functionAddress = GL.getCapabilities().glCreateVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglCreateVertexArrays(int n, long arrays);
 
 	/**
 	 * Returns {@code n} previously unused vertex array object names in {@code arrays}.
@@ -3105,6 +2872,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glDisableVertexArrayAttrib ] ---
 
+	/** Unsafe version of: {@link #glDisableVertexArrayAttrib DisableVertexArrayAttrib} */
+	public static native void nglDisableVertexArrayAttrib(int vaobj, int index);
+
 	/**
 	 * DSA version of {@link GL20#glDisableVertexAttribArray DisableVertexAttribArray}.
 	 *
@@ -3112,13 +2882,13 @@ public class ARBDirectStateAccess {
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
 	public static void glDisableVertexArrayAttrib(int vaobj, int index) {
-		long __functionAddress = GL.getCapabilities().glDisableVertexArrayAttrib;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, index);
+		nglDisableVertexArrayAttrib(vaobj, index);
 	}
 
 	// --- [ glEnableVertexArrayAttrib ] ---
+
+	/** Unsafe version of: {@link #glEnableVertexArrayAttrib EnableVertexArrayAttrib} */
+	public static native void nglEnableVertexArrayAttrib(int vaobj, int index);
 
 	/**
 	 * DSA version of {@link GL20#glEnableVertexAttribArray EnableVertexAttribArray}.
@@ -3127,13 +2897,13 @@ public class ARBDirectStateAccess {
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
 	public static void glEnableVertexArrayAttrib(int vaobj, int index) {
-		long __functionAddress = GL.getCapabilities().glEnableVertexArrayAttrib;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, index);
+		nglEnableVertexArrayAttrib(vaobj, index);
 	}
 
 	// --- [ glVertexArrayElementBuffer ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayElementBuffer VertexArrayElementBuffer} */
+	public static native void nglVertexArrayElementBuffer(int vaobj, int buffer);
 
 	/**
 	 * Binds a buffer object to the element array buffer bind point of a vertex array object.
@@ -3142,13 +2912,13 @@ public class ARBDirectStateAccess {
 	 * @param buffer the buffer object name. If {@code buffer} is zero, any existing element array buffer binding to {@code vaobj} is removed.
 	 */
 	public static void glVertexArrayElementBuffer(int vaobj, int buffer) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayElementBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, buffer);
+		nglVertexArrayElementBuffer(vaobj, buffer);
 	}
 
 	// --- [ glVertexArrayVertexBuffer ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayVertexBuffer VertexArrayVertexBuffer} */
+	public static native void nglVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride);
 
 	/**
 	 * DSA version of {@link GL43#glBindVertexBuffer BindVertexBuffer}.
@@ -3160,10 +2930,7 @@ public class ARBDirectStateAccess {
 	 * @param stride       the distance between elements within the buffer
 	 */
 	public static void glVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
+		nglVertexArrayVertexBuffer(vaobj, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexArrayVertexBuffers ] ---
@@ -3173,12 +2940,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param count the number of vertex buffer binding points
 	 */
-	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
-	}
+	public static native void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides);
 
 	/**
 	 * DSA version of {@link GL44#glBindVertexBuffers BindVertexBuffers}.
@@ -3199,6 +2961,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glVertexArrayAttribFormat ] ---
 
+	/** Unsafe version of: {@link #glVertexArrayAttribFormat VertexArrayAttribFormat} */
+	public static native void nglVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset);
+
 	/**
 	 * DSA version of {@link GL43#glVertexAttribFormat VertexAttribFormat}.
 	 *
@@ -3211,13 +2976,13 @@ public class ARBDirectStateAccess {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayAttribFormat;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
+		nglVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribIFormat ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayAttribIFormat VertexArrayAttribIFormat} */
+	public static native void nglVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset);
 
 	/**
 	 * DSA version of {@link GL43#glVertexAttribIFormat VertexAttribIFormat}.
@@ -3229,13 +2994,13 @@ public class ARBDirectStateAccess {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayAttribIFormat;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		nglVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribLFormat ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayAttribLFormat VertexArrayAttribLFormat} */
+	public static native void nglVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset);
 
 	/**
 	 * DSA version of {@link GL43#glVertexAttribLFormat VertexAttribLFormat}.
@@ -3247,13 +3012,13 @@ public class ARBDirectStateAccess {
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
 	public static void glVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayAttribLFormat;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		nglVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribBinding ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayAttribBinding VertexArrayAttribBinding} */
+	public static native void nglVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex);
 
 	/**
 	 * DSA version of {@link GL43#glVertexAttribBinding VertexAttribBinding}.
@@ -3263,13 +3028,13 @@ public class ARBDirectStateAccess {
 	 * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
 	 */
 	public static void glVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayAttribBinding;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, attribindex, bindingindex);
+		nglVertexArrayAttribBinding(vaobj, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexArrayBindingDivisor ] ---
+
+	/** Unsafe version of: {@link #glVertexArrayBindingDivisor VertexArrayBindingDivisor} */
+	public static native void nglVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor);
 
 	/**
 	 * DSA version of {@link GL43#glVertexBindingDivisor VertexBindingDivisor}.
@@ -3279,21 +3044,13 @@ public class ARBDirectStateAccess {
 	 * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
 	public static void glVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayBindingDivisor;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, bindingindex, divisor);
+		nglVertexArrayBindingDivisor(vaobj, bindingindex, divisor);
 	}
 
 	// --- [ glGetVertexArrayiv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
-	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, pname, param);
-	}
+	public static native void nglGetVertexArrayiv(int vaobj, int pname, long param);
 
 	/**
 	 * Queries parameters of a vertex array object.
@@ -3328,12 +3085,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetVertexArrayIndexediv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
-	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexediv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, index, pname, param);
-	}
+	public static native void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param);
 
 	/**
 	 * Queries parameters of an attribute of a vertex array object.
@@ -3370,12 +3122,7 @@ public class ARBDirectStateAccess {
 	// --- [ glGetVertexArrayIndexed64iv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
-	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexed64iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, index, pname, param);
-	}
+	public static native void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param);
 
 	/**
 	 * Queries parameters of an attribute of a vertex array object.
@@ -3416,12 +3163,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of sampler object names to create
 	 */
-	public static void nglCreateSamplers(int n, long samplers) {
-		long __functionAddress = GL.getCapabilities().glCreateSamplers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, samplers);
-	}
+	public static native void nglCreateSamplers(int n, long samplers);
 
 	/**
 	 * Returns {@code n} previously unused sampler names in {@code samplers}, each representing a new sampler object.
@@ -3451,12 +3193,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of program pipeline names to create
 	 */
-	public static void nglCreateProgramPipelines(int n, long pipelines) {
-		long __functionAddress = GL.getCapabilities().glCreateProgramPipelines;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, pipelines);
-	}
+	public static native void nglCreateProgramPipelines(int n, long pipelines);
 
 	/**
 	 * Returns {@code n} previously unused program pipeline names in {@code pipelines}, each representing a new program pipeline object.
@@ -3486,12 +3223,7 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param n the number of query object names to create
 	 */
-	public static void nglCreateQueries(int target, int n, long ids) {
-		long __functionAddress = GL.getCapabilities().glCreateQueries;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, n, ids);
-	}
+	public static native void nglCreateQueries(int target, int n, long ids);
 
 	/**
 	 * Returns {@code n} previously unused query object names in {@code ids}, each representing a new query object with the specified {@code target}.
@@ -3521,6 +3253,9 @@ public class ARBDirectStateAccess {
 
 	// --- [ glGetQueryBufferObjecti64v ] ---
 
+	/** Unsafe version of: {@link #glGetQueryBufferObjecti64v GetQueryBufferObjecti64v} */
+	public static native void nglGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset);
+
 	/**
 	 * 64bit version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
@@ -3530,13 +3265,13 @@ public class ARBDirectStateAccess {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset) {
-		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjecti64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, buffer, pname, offset);
+		nglGetQueryBufferObjecti64v(id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectiv ] ---
+
+	/** Unsafe version of: {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv} */
+	public static native void nglGetQueryBufferObjectiv(int id, int buffer, int pname, long offset);
 
 	/**
 	 * Queries the state of a query object.
@@ -3547,13 +3282,13 @@ public class ARBDirectStateAccess {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjectiv(int id, int buffer, int pname, long offset) {
-		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, buffer, pname, offset);
+		nglGetQueryBufferObjectiv(id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectui64v ] ---
+
+	/** Unsafe version of: {@link #glGetQueryBufferObjectui64v GetQueryBufferObjectui64v} */
+	public static native void nglGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset);
 
 	/**
 	 * 64bit version of {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
@@ -3564,13 +3299,13 @@ public class ARBDirectStateAccess {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset) {
-		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectui64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, buffer, pname, offset);
+		nglGetQueryBufferObjectui64v(id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectuiv ] ---
+
+	/** Unsafe version of: {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv} */
+	public static native void nglGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset);
 
 	/**
 	 * Unsigned version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
@@ -3581,15 +3316,12 @@ public class ARBDirectStateAccess {
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
 	public static void glGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset) {
-		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, buffer, pname, offset);
+		nglGetQueryBufferObjectuiv(id, buffer, pname, offset);
 	}
 
 	/** Array version of: {@link #glCreateTransformFeedbacks CreateTransformFeedbacks} */
 	public static void glCreateTransformFeedbacks(int[] ids) {
-		long __functionAddress = GL.getCapabilities().glCreateTransformFeedbacks;
+		long __functionAddress = GL.getICD().glCreateTransformFeedbacks;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -3597,7 +3329,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static void glGetTransformFeedbackiv(int xfb, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackiv;
+		long __functionAddress = GL.getICD().glGetTransformFeedbackiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -3607,7 +3339,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki_v;
+		long __functionAddress = GL.getICD().glGetTransformFeedbacki_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -3617,7 +3349,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, long[] param) {
-		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki64_v;
+		long __functionAddress = GL.getICD().glGetTransformFeedbacki64_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -3627,7 +3359,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateBuffers CreateBuffers} */
 	public static void glCreateBuffers(int[] buffers) {
-		long __functionAddress = GL.getCapabilities().glCreateBuffers;
+		long __functionAddress = GL.getICD().glCreateBuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffers.length, buffers);
@@ -3635,7 +3367,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void glNamedBufferStorage(int buffer, short[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		long __functionAddress = GL.getICD().glNamedBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
@@ -3643,7 +3375,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void glNamedBufferStorage(int buffer, int[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		long __functionAddress = GL.getICD().glNamedBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
@@ -3651,7 +3383,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void glNamedBufferStorage(int buffer, float[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		long __functionAddress = GL.getICD().glNamedBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
@@ -3659,7 +3391,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void glNamedBufferStorage(int buffer, double[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		long __functionAddress = GL.getICD().glNamedBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, flags);
@@ -3667,7 +3399,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, short[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		long __functionAddress = GL.getICD().glNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, usage);
@@ -3675,7 +3407,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, int[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		long __functionAddress = GL.getICD().glNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
@@ -3683,7 +3415,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, float[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		long __functionAddress = GL.getICD().glNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
@@ -3691,7 +3423,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, double[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		long __functionAddress = GL.getICD().glNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
@@ -3699,7 +3431,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, short[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		long __functionAddress = GL.getICD().glNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
@@ -3707,7 +3439,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, int[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		long __functionAddress = GL.getICD().glNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -3715,7 +3447,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, float[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		long __functionAddress = GL.getICD().glNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -3723,7 +3455,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, double[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		long __functionAddress = GL.getICD().glNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
@@ -3731,7 +3463,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
 	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		long __functionAddress = GL.getICD().glClearNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -3739,7 +3471,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
 	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		long __functionAddress = GL.getICD().glClearNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -3747,7 +3479,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
 	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		long __functionAddress = GL.getICD().glClearNamedBufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, buffer, internalformat, format, type, data);
@@ -3755,7 +3487,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
 	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		long __functionAddress = GL.getICD().glClearNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -3763,7 +3495,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
 	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		long __functionAddress = GL.getICD().glClearNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -3771,7 +3503,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
 	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		long __functionAddress = GL.getICD().glClearNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
@@ -3779,7 +3511,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static void glGetNamedBufferParameteriv(int buffer, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteriv;
+		long __functionAddress = GL.getICD().glGetNamedBufferParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3789,7 +3521,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static void glGetNamedBufferParameteri64v(int buffer, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteri64v;
+		long __functionAddress = GL.getICD().glGetNamedBufferParameteri64v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3799,7 +3531,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, short[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
@@ -3807,7 +3539,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -3815,7 +3547,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, float[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -3823,7 +3555,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, double[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
@@ -3831,7 +3563,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateFramebuffers CreateFramebuffers} */
 	public static void glCreateFramebuffers(int[] framebuffers) {
-		long __functionAddress = GL.getCapabilities().glCreateFramebuffers;
+		long __functionAddress = GL.getICD().glCreateFramebuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
@@ -3839,7 +3571,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers} */
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, int[] bufs) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffers;
+		long __functionAddress = GL.getICD().glNamedFramebufferDrawBuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, bufs.length, bufs);
@@ -3847,7 +3579,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData} */
 	public static void glInvalidateNamedFramebufferData(int framebuffer, int[] attachments) {
-		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferData;
+		long __functionAddress = GL.getICD().glInvalidateNamedFramebufferData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, attachments.length, attachments);
@@ -3855,7 +3587,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData} */
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int[] attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
+		long __functionAddress = GL.getICD().glInvalidateNamedFramebufferSubData;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, attachments.length, attachments, x, y, width, height);
@@ -3863,7 +3595,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, int[] value) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferiv;
+		long __functionAddress = GL.getICD().glClearNamedFramebufferiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -3873,7 +3605,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, int[] value) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferuiv;
+		long __functionAddress = GL.getICD().glClearNamedFramebufferuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 4);
@@ -3883,7 +3615,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, float[] value) {
-		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfv;
+		long __functionAddress = GL.getICD().glClearNamedFramebufferfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(value, 1);
@@ -3893,7 +3625,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameteriv;
+		long __functionAddress = GL.getICD().glGetNamedFramebufferParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3903,7 +3635,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameteriv;
+		long __functionAddress = GL.getICD().glGetNamedFramebufferAttachmentParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3913,7 +3645,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateRenderbuffers CreateRenderbuffers} */
 	public static void glCreateRenderbuffers(int[] renderbuffers) {
-		long __functionAddress = GL.getCapabilities().glCreateRenderbuffers;
+		long __functionAddress = GL.getICD().glCreateRenderbuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
@@ -3921,7 +3653,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameteriv;
+		long __functionAddress = GL.getICD().glGetNamedRenderbufferParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3931,7 +3663,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateTextures CreateTextures} */
 	public static void glCreateTextures(int target, int[] textures) {
-		long __functionAddress = GL.getCapabilities().glCreateTextures;
+		long __functionAddress = GL.getICD().glCreateTextures;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, textures.length, textures);
@@ -3939,7 +3671,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		long __functionAddress = GL.getICD().glTextureSubImage1D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
@@ -3947,7 +3679,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		long __functionAddress = GL.getICD().glTextureSubImage1D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
@@ -3955,7 +3687,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		long __functionAddress = GL.getICD().glTextureSubImage1D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
@@ -3963,7 +3695,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		long __functionAddress = GL.getICD().glTextureSubImage1D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
@@ -3971,7 +3703,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		long __functionAddress = GL.getICD().glTextureSubImage2D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3979,7 +3711,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		long __functionAddress = GL.getICD().glTextureSubImage2D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3987,7 +3719,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		long __functionAddress = GL.getICD().glTextureSubImage2D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3995,7 +3727,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		long __functionAddress = GL.getICD().glTextureSubImage2D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -4003,7 +3735,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		long __functionAddress = GL.getICD().glTextureSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4011,7 +3743,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		long __functionAddress = GL.getICD().glTextureSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4019,7 +3751,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		long __functionAddress = GL.getICD().glTextureSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4027,7 +3759,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		long __functionAddress = GL.getICD().glTextureSubImage3D;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4035,7 +3767,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterfv TextureParameterfv} */
 	public static void glTextureParameterfv(int texture, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterfv;
+		long __functionAddress = GL.getICD().glTextureParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4045,7 +3777,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void glTextureParameterIiv(int texture, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIiv;
+		long __functionAddress = GL.getICD().glTextureParameterIiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4055,7 +3787,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void glTextureParameterIuiv(int texture, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIuiv;
+		long __functionAddress = GL.getICD().glTextureParameterIuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4065,7 +3797,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameteriv TextureParameteriv} */
 	public static void glTextureParameteriv(int texture, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameteriv;
+		long __functionAddress = GL.getICD().glTextureParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4075,7 +3807,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		long __functionAddress = GL.getICD().glGetTextureImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 1, pixels);
@@ -4083,7 +3815,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		long __functionAddress = GL.getICD().glGetTextureImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 2, pixels);
@@ -4091,7 +3823,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		long __functionAddress = GL.getICD().glGetTextureImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 2, pixels);
@@ -4099,7 +3831,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		long __functionAddress = GL.getICD().glGetTextureImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 3, pixels);
@@ -4107,7 +3839,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfv;
+		long __functionAddress = GL.getICD().glGetTextureLevelParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4117,7 +3849,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameteriv;
+		long __functionAddress = GL.getICD().glGetTextureLevelParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4127,7 +3859,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static void glGetTextureParameterfv(int texture, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterfv;
+		long __functionAddress = GL.getICD().glGetTextureParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4137,7 +3869,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static void glGetTextureParameterIiv(int texture, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIiv;
+		long __functionAddress = GL.getICD().glGetTextureParameterIiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4147,7 +3879,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static void glGetTextureParameterIuiv(int texture, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuiv;
+		long __functionAddress = GL.getICD().glGetTextureParameterIuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4157,7 +3889,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static void glGetTextureParameteriv(int texture, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameteriv;
+		long __functionAddress = GL.getICD().glGetTextureParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4167,7 +3899,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateVertexArrays CreateVertexArrays} */
 	public static void glCreateVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getCapabilities().glCreateVertexArrays;
+		long __functionAddress = GL.getICD().glCreateVertexArrays;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);
@@ -4175,7 +3907,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, int[] buffers, PointerBuffer offsets, int[] strides) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
+		long __functionAddress = GL.getICD().glVertexArrayVertexBuffers;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(offsets, lengthSafe(buffers));
@@ -4186,7 +3918,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static void glGetVertexArrayiv(int vaobj, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayiv;
+		long __functionAddress = GL.getICD().glGetVertexArrayiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -4196,7 +3928,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexediv;
+		long __functionAddress = GL.getICD().glGetVertexArrayIndexediv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -4206,7 +3938,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long[] param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexed64iv;
+		long __functionAddress = GL.getICD().glGetVertexArrayIndexed64iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -4216,7 +3948,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateSamplers CreateSamplers} */
 	public static void glCreateSamplers(int[] samplers) {
-		long __functionAddress = GL.getCapabilities().glCreateSamplers;
+		long __functionAddress = GL.getICD().glCreateSamplers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, samplers.length, samplers);
@@ -4224,7 +3956,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateProgramPipelines CreateProgramPipelines} */
 	public static void glCreateProgramPipelines(int[] pipelines) {
-		long __functionAddress = GL.getCapabilities().glCreateProgramPipelines;
+		long __functionAddress = GL.getICD().glCreateProgramPipelines;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, pipelines.length, pipelines);
@@ -4232,7 +3964,7 @@ public class ARBDirectStateAccess {
 
 	/** Array version of: {@link #glCreateQueries CreateQueries} */
 	public static void glCreateQueries(int target, int[] ids) {
-		long __functionAddress = GL.getCapabilities().glCreateQueries;
+		long __functionAddress = GL.getICD().glCreateQueries;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, ids.length, ids);

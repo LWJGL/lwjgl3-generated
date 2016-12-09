@@ -41,6 +41,8 @@ public class NVViewportArray {
 		GL_VIEWPORT_BOUNDS_RANGE_NV           = 0x825D,
 		GL_VIEWPORT_INDEX_PROVOKING_VERTEX_NV = 0x825F;
 
+	static { GLES.initialize(); }
+
 	protected NVViewportArray() {
 		throw new UnsupportedOperationException();
 	}
@@ -55,12 +57,7 @@ public class NVViewportArray {
 
 	// --- [ glViewportArrayvNV ] ---
 
-	public static void nglViewportArrayvNV(int first, int count, long v) {
-		long __functionAddress = GLES.getCapabilities().glViewportArrayvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglViewportArrayvNV(int first, int count, long v);
 
 	public static void glViewportArrayvNV(int first, FloatBuffer v) {
 		nglViewportArrayvNV(first, v.remaining() >> 2, memAddress(v));
@@ -68,21 +65,15 @@ public class NVViewportArray {
 
 	// --- [ glViewportIndexedfNV ] ---
 
+	public static native void nglViewportIndexedfNV(int index, float x, float y, float w, float h);
+
 	public static void glViewportIndexedfNV(int index, float x, float y, float w, float h) {
-		long __functionAddress = GLES.getCapabilities().glViewportIndexedfNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, w, h);
+		nglViewportIndexedfNV(index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfvNV ] ---
 
-	public static void nglViewportIndexedfvNV(int index, long v) {
-		long __functionAddress = GLES.getCapabilities().glViewportIndexedfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglViewportIndexedfvNV(int index, long v);
 
 	public static void glViewportIndexedfvNV(int index, FloatBuffer v) {
 		if ( CHECKS )
@@ -92,12 +83,7 @@ public class NVViewportArray {
 
 	// --- [ glScissorArrayvNV ] ---
 
-	public static void nglScissorArrayvNV(int first, int count, long v) {
-		long __functionAddress = GLES.getCapabilities().glScissorArrayvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglScissorArrayvNV(int first, int count, long v);
 
 	public static void glScissorArrayvNV(int first, IntBuffer v) {
 		nglScissorArrayvNV(first, v.remaining() >> 2, memAddress(v));
@@ -105,21 +91,15 @@ public class NVViewportArray {
 
 	// --- [ glScissorIndexedNV ] ---
 
+	public static native void nglScissorIndexedNV(int index, int left, int bottom, int width, int height);
+
 	public static void glScissorIndexedNV(int index, int left, int bottom, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glScissorIndexedNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, left, bottom, width, height);
+		nglScissorIndexedNV(index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedvNV ] ---
 
-	public static void nglScissorIndexedvNV(int index, long v) {
-		long __functionAddress = GLES.getCapabilities().glScissorIndexedvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglScissorIndexedvNV(int index, long v);
 
 	public static void glScissorIndexedvNV(int index, IntBuffer v) {
 		if ( CHECKS )
@@ -129,12 +109,7 @@ public class NVViewportArray {
 
 	// --- [ glDepthRangeArrayfvNV ] ---
 
-	public static void nglDepthRangeArrayfvNV(int first, int count, long v) {
-		long __functionAddress = GLES.getCapabilities().glDepthRangeArrayfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglDepthRangeArrayfvNV(int first, int count, long v);
 
 	public static void glDepthRangeArrayfvNV(int first, FloatBuffer v) {
 		nglDepthRangeArrayfvNV(first, v.remaining() >> 1, memAddress(v));
@@ -142,21 +117,15 @@ public class NVViewportArray {
 
 	// --- [ glDepthRangeIndexedfNV ] ---
 
+	public static native void nglDepthRangeIndexedfNV(int index, float n, float f);
+
 	public static void glDepthRangeIndexedfNV(int index, float n, float f) {
-		long __functionAddress = GLES.getCapabilities().glDepthRangeIndexedfNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, n, f);
+		nglDepthRangeIndexedfNV(index, n, f);
 	}
 
 	// --- [ glGetFloati_vNV ] ---
 
-	public static void nglGetFloati_vNV(int target, int index, long data) {
-		long __functionAddress = GLES.getCapabilities().glGetFloati_vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetFloati_vNV(int target, int index, long data);
 
 	public static void glGetFloati_vNV(int target, int index, FloatBuffer data) {
 		if ( CHECKS )
@@ -177,34 +146,31 @@ public class NVViewportArray {
 
 	// --- [ glEnableiNV ] ---
 
+	public static native void nglEnableiNV(int target, int index);
+
 	public static void glEnableiNV(int target, int index) {
-		long __functionAddress = GLES.getCapabilities().glEnableiNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglEnableiNV(target, index);
 	}
 
 	// --- [ glDisableiNV ] ---
 
+	public static native void nglDisableiNV(int target, int index);
+
 	public static void glDisableiNV(int target, int index) {
-		long __functionAddress = GLES.getCapabilities().glDisableiNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglDisableiNV(target, index);
 	}
 
 	// --- [ glIsEnablediNV ] ---
 
+	public static native boolean nglIsEnablediNV(int target, int index);
+
 	public static boolean glIsEnablediNV(int target, int index) {
-		long __functionAddress = GLES.getCapabilities().glIsEnablediNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target, index);
+		return nglIsEnablediNV(target, index);
 	}
 
 	/** Array version of: {@link #glViewportArrayvNV ViewportArrayvNV} */
 	public static void glViewportArrayvNV(int first, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glViewportArrayvNV;
+		long __functionAddress = GLES.getICD().glViewportArrayvNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
@@ -212,7 +178,7 @@ public class NVViewportArray {
 
 	/** Array version of: {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
 	public static void glViewportIndexedfvNV(int index, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glViewportIndexedfvNV;
+		long __functionAddress = GLES.getICD().glViewportIndexedfvNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -222,7 +188,7 @@ public class NVViewportArray {
 
 	/** Array version of: {@link #glScissorArrayvNV ScissorArrayvNV} */
 	public static void glScissorArrayvNV(int first, int[] v) {
-		long __functionAddress = GLES.getCapabilities().glScissorArrayvNV;
+		long __functionAddress = GLES.getICD().glScissorArrayvNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
@@ -230,7 +196,7 @@ public class NVViewportArray {
 
 	/** Array version of: {@link #glScissorIndexedvNV ScissorIndexedvNV} */
 	public static void glScissorIndexedvNV(int index, int[] v) {
-		long __functionAddress = GLES.getCapabilities().glScissorIndexedvNV;
+		long __functionAddress = GLES.getICD().glScissorIndexedvNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -240,7 +206,7 @@ public class NVViewportArray {
 
 	/** Array version of: {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
 	public static void glDepthRangeArrayfvNV(int first, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glDepthRangeArrayfvNV;
+		long __functionAddress = GLES.getICD().glDepthRangeArrayfvNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 1, v);
@@ -248,7 +214,7 @@ public class NVViewportArray {
 
 	/** Array version of: {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static void glGetFloati_vNV(int target, int index, float[] data) {
-		long __functionAddress = GLES.getCapabilities().glGetFloati_vNV;
+		long __functionAddress = GLES.getICD().glGetFloati_vNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);

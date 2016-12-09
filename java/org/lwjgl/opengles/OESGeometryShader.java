@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_geometry_shader.txt">OES_geometry_shader</a> extension.
@@ -106,6 +105,8 @@ public class OESGeometryShader {
 	/** Accepted by the {@code props} parameter of GetProgramResourceiv. */
 	public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_OES = 0x9309;
 
+	static { GLES.initialize(); }
+
 	protected OESGeometryShader() {
 		throw new UnsupportedOperationException();
 	}
@@ -118,11 +119,10 @@ public class OESGeometryShader {
 
 	// --- [ glFramebufferTextureOES ] ---
 
+	public static native void nglFramebufferTextureOES(int target, int attachment, int texture, int level);
+
 	public static void glFramebufferTextureOES(int target, int attachment, int texture, int level) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTextureOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level);
+		nglFramebufferTextureOES(target, attachment, texture, level);
 	}
 
 }

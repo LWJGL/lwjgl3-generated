@@ -30,6 +30,8 @@ public class ANGLETranslatedShaderSource {
 	/** Accepted by the {@code pname} parameter of GetShaderiv. */
 	public static final int GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
 
+	static { GLES.initialize(); }
+
 	protected ANGLETranslatedShaderSource() {
 		throw new UnsupportedOperationException();
 	}
@@ -42,12 +44,7 @@ public class ANGLETranslatedShaderSource {
 
 	// --- [ glGetTranslatedShaderSourceANGLE ] ---
 
-	public static void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source) {
-		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shader, bufsize, length, source);
-	}
+	public static native void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source);
 
 	public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
@@ -84,7 +81,7 @@ public class ANGLETranslatedShaderSource {
 
 	/** Array version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static void glGetTranslatedShaderSourceANGLE(int shader, int[] length, ByteBuffer source) {
-		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
+		long __functionAddress = GLES.getICD().glGetTranslatedShaderSourceANGLE;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);

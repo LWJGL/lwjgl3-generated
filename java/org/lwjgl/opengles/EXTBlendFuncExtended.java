@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -51,6 +50,8 @@ public class EXTBlendFuncExtended {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT = 0x88FC;
 
+	static { GLES.initialize(); }
+
 	protected EXTBlendFuncExtended() {
 		throw new UnsupportedOperationException();
 	}
@@ -63,12 +64,7 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glBindFragDataLocationIndexedEXT ] ---
 
-	public static void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name) {
-		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, colorNumber, index, name);
-	}
+	public static native void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name);
 
 	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, ByteBuffer name) {
 		if ( CHECKS )
@@ -88,12 +84,7 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glGetFragDataIndexEXT ] ---
 
-	public static int nglGetFragDataIndexEXT(int program, long name) {
-		long __functionAddress = GLES.getCapabilities().glGetFragDataIndexEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetFragDataIndexEXT(int program, long name);
 
 	public static int glGetFragDataIndexEXT(int program, ByteBuffer name) {
 		if ( CHECKS )
@@ -113,12 +104,7 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glBindFragDataLocationEXT ] ---
 
-	public static void nglBindFragDataLocationEXT(int program, int colorNumber, long name) {
-		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, colorNumber, name);
-	}
+	public static native void nglBindFragDataLocationEXT(int program, int colorNumber, long name);
 
 	public static void glBindFragDataLocationEXT(int program, int colorNumber, ByteBuffer name) {
 		if ( CHECKS )
@@ -138,12 +124,7 @@ public class EXTBlendFuncExtended {
 
 	// --- [ glGetProgramResourceLocationIndexEXT ] ---
 
-	public static int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramResourceLocationIndexEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, programInterface, name);
-	}
+	public static native int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name);
 
 	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, ByteBuffer name) {
 		if ( CHECKS )

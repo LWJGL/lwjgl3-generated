@@ -8,7 +8,6 @@ package org.lwjgl.opengles;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -31,6 +30,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVDrawInstanced {
 
+	static { GLES.initialize(); }
+
 	protected NVDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
@@ -43,11 +44,10 @@ public class NVDrawInstanced {
 
 	// --- [ glDrawArraysInstancedNV ] ---
 
+	public static native void nglDrawArraysInstancedNV(int mode, int first, int count, int primcount);
+
 	public static void glDrawArraysInstancedNV(int mode, int first, int count, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, primcount);
+		nglDrawArraysInstancedNV(mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedNV ] ---
@@ -57,12 +57,7 @@ public class NVDrawInstanced {
 	 *
 	 * @param type {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
 	 */
-	public static void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount);
 
 	/**
 	 * 

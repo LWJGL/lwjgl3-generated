@@ -158,6 +158,8 @@ public class KHRDebug {
 		GL_SAMPLER          = 0x82E6,
 		GL_DISPLAY_LIST     = 0x82E7;
 
+	static { GL.initialize(); }
+
 	protected KHRDebug() {
 		throw new UnsupportedOperationException();
 	}
@@ -176,12 +178,7 @@ public class KHRDebug {
 	 *
 	 * @param count the length of the array {@code ids}
 	 */
-	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, severity, count, ids, enabled);
-	}
+	public static native void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled);
 
 	/**
 	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
@@ -207,11 +204,11 @@ public class KHRDebug {
 	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
 	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
 	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are disabled.</p>
+	 * <p>If the {@link GL43#GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are disabled.</p>
 	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
-	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
-	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
+	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link GL43#GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link GL43#GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link GL43#GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
+	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link GL43#GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link GL43#GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link GL43#GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link GL43#GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
+	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link GL43#GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link GL43#GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
 	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
@@ -243,11 +240,11 @@ public class KHRDebug {
 	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
 	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
 	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are disabled.</p>
+	 * <p>If the {@link GL43#GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are disabled.</p>
 	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
-	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
-	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
+	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link GL43#GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link GL43#GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link GL43#GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
+	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link GL43#GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link GL43#GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link GL43#GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link GL43#GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
+	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link GL43#GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link GL43#GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
@@ -267,12 +264,7 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the string contained in the character array whose address is given by {@code message}
 	 */
-	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageInsert;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, id, severity, length, message);
-	}
+	public static native void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message);
 
 	/**
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
@@ -282,13 +274,13 @@ public class KHRDebug {
 	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
 	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
 	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
-	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * {@link GL43#GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
 	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+	 * <p>If the {@link GL43#GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
 	 *
-	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
-	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
+	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link GL43#GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link GL43#GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link GL43#GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
+	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link GL43#GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link GL43#GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link GL43#GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link GL43#GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link GL43#GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link GL43#GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
 	 * @param severity the severity of the debug messages to insert
 	 * @param message  a character array containing the message to insert
 	 */
@@ -304,13 +296,13 @@ public class KHRDebug {
 	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
 	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
 	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
-	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * {@link GL43#GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
 	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+	 * <p>If the {@link GL43#GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
 	 *
-	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link #GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
-	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link #GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
+	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SOURCE_API DEBUG_SOURCE_API}</td><td>{@link GL43#GL_DEBUG_SOURCE_WINDOW_SYSTEM DEBUG_SOURCE_WINDOW_SYSTEM}</td><td>{@link GL43#GL_DEBUG_SOURCE_SHADER_COMPILER DEBUG_SOURCE_SHADER_COMPILER}</td></tr><tr><td>{@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td><td>{@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link GL43#GL_DEBUG_SOURCE_OTHER DEBUG_SOURCE_OTHER}</td></tr></table>
+	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_TYPE_ERROR DEBUG_TYPE_ERROR}</td><td>{@link GL43#GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR DEBUG_TYPE_DEPRECATED_BEHAVIOR}</td><td>{@link GL43#GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR DEBUG_TYPE_UNDEFINED_BEHAVIOR}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_PORTABILITY DEBUG_TYPE_PORTABILITY}</td><td>{@link GL43#GL_DEBUG_TYPE_PERFORMANCE DEBUG_TYPE_PERFORMANCE}</td><td>{@link GL43#GL_DEBUG_TYPE_OTHER DEBUG_TYPE_OTHER}</td></tr><tr><td>{@link GL43#GL_DEBUG_TYPE_MARKER DEBUG_TYPE_MARKER}</td></tr></table>
+	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link GL43#GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link GL43#GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
 	 * @param severity the severity of the debug messages to insert
 	 * @param message  a character array containing the message to insert
 	 */
@@ -328,12 +320,7 @@ public class KHRDebug {
 	// --- [ glDebugMessageCallback ] ---
 
 	/** Unsafe version of: {@link #glDebugMessageCallback DebugMessageCallback} */
-	public static void nglDebugMessageCallback(long callback, long userParam) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageCallback;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, callback, userParam);
-	}
+	public static native void nglDebugMessageCallback(long callback, long userParam);
 
 	/**
 	 * Specifies a callback to receive debugging messages from the GL.
@@ -349,8 +336,8 @@ public class KHRDebug {
 	 * {@code severity}, respectively. The string representation of the message is stored in {@code message} and its length (excluding the null-terminator) is
 	 * stored in {@code length}. The parameter {@code userParam} is the user-specified parameter that was given when calling DebugMessageCallback.</p>
 	 * 
-	 * <p>Applications can query the current callback function and the current user-specified parameter by obtaining the values of {@link #GL_DEBUG_CALLBACK_FUNCTION DEBUG_CALLBACK_FUNCTION} and
-	 * {@link #GL_DEBUG_CALLBACK_USER_PARAM DEBUG_CALLBACK_USER_PARAM}, respectively.</p>
+	 * <p>Applications can query the current callback function and the current user-specified parameter by obtaining the values of {@link GL43#GL_DEBUG_CALLBACK_FUNCTION DEBUG_CALLBACK_FUNCTION} and
+	 * {@link GL43#GL_DEBUG_CALLBACK_USER_PARAM DEBUG_CALLBACK_USER_PARAM}, respectively.</p>
 	 * 
 	 * <p>Applications that specify a callback function must be aware of certain special conditions when executing code inside a callback when it is called by the
 	 * GL, regardless of the debug source.</p>
@@ -361,7 +348,7 @@ public class KHRDebug {
 	 * 
 	 * <p>Care must also be taken in securing debug callbacks for use with asynchronous debug output by multi-threaded GL implementations.</p>
 	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled then the GL will not call the callback function.</p>
+	 * <p>If the {@link GL43#GL_DEBUG_OUTPUT DEBUG_OUTPUT} state is disabled then the GL will not call the callback function.</p>
 	 *
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
@@ -377,12 +364,7 @@ public class KHRDebug {
 	 *
 	 * @param bufsize the size of the buffer whose address is given by {@code messageLog}
 	 */
-	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
-	}
+	public static native int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog);
 
 	/**
 	 * Retrieves messages from the debug message log.
@@ -406,7 +388,7 @@ public class KHRDebug {
 	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function
 	 * with null pointers for all attribute arrays.</p>
 	 * 
-	 * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT CONTEXT_FLAG_DEBUG_BIT} in the {@link GL30#GL_CONTEXT_FLAGS CONTEXT_FLAGS} state, then the GL can opt to never add messages to the
+	 * <p>If the context was created without the {@link GL43#GL_CONTEXT_FLAG_DEBUG_BIT CONTEXT_FLAG_DEBUG_BIT} in the {@link GL30#GL_CONTEXT_FLAGS CONTEXT_FLAGS} state, then the GL can opt to never add messages to the
 	 * message log so GetDebugMessageLog will always return zero.</p>
 	 *
 	 * @param count      the number of debug messages to retrieve from the log
@@ -435,26 +417,21 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the message to be sent to the debug output stream
 	 */
-	public static void nglPushDebugGroup(int source, int id, int length, long message) {
-		long __functionAddress = GL.getCapabilities().glPushDebugGroup;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, id, length, message);
-	}
+	public static native void nglPushDebugGroup(int source, int id, int length, long message);
 
 	/**
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
 	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
-	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
-	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link GL43#GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
+	 * {@code severity} {@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
 	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
 	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug group.
 	 * 
-	 * <p>An {@link GL11#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
+	 * <p>An {@link GL11#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
 	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator, is
-	 * not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * not less than the value of {@link GL43#GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
 	 *
-	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td></tr></table>
+	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td></tr></table>
 	 * @param id      the identifier of the message
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
@@ -465,16 +442,16 @@ public class KHRDebug {
 	/**
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
 	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
-	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
-	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link GL43#GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}, and
+	 * {@code severity} {@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
 	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
 	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug group.
 	 * 
-	 * <p>An {@link GL11#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
+	 * <p>An {@link GL11#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION} nor {@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}. An
 	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator, is
-	 * not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
+	 * not less than the value of {@link GL43#GL_MAX_DEBUG_MESSAGE_LENGTH MAX_DEBUG_MESSAGE_LENGTH}.</p>
 	 *
-	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td></tr></table>
+	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SOURCE_APPLICATION DEBUG_SOURCE_APPLICATION}</td><td>{@link GL43#GL_DEBUG_SOURCE_THIRD_PARTY DEBUG_SOURCE_THIRD_PARTY}</td></tr></table>
 	 * @param id      the identifier of the message
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
@@ -491,20 +468,20 @@ public class KHRDebug {
 
 	// --- [ glPopDebugGroup ] ---
 
+	/** Unsafe version of: {@link #glPopDebugGroup PopDebugGroup} */
+	public static native void nglPopDebugGroup();
+
 	/**
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
-	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command. {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}
-	 * and {@link #GL_DEBUG_TYPE_POP_GROUP DEBUG_TYPE_POP_GROUP} share a single namespace for message {@code id}. {@code severity} has the value {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The {@code type}
-	 * has the value {@link #GL_DEBUG_TYPE_POP_GROUP DEBUG_TYPE_POP_GROUP}. Popping a debug group restores the debug output volume control of the parent debug group.
+	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command. {@link GL43#GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}
+	 * and {@link GL43#GL_DEBUG_TYPE_POP_GROUP DEBUG_TYPE_POP_GROUP} share a single namespace for message {@code id}. {@code severity} has the value {@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The {@code type}
+	 * has the value {@link GL43#GL_DEBUG_TYPE_POP_GROUP DEBUG_TYPE_POP_GROUP}. Popping a debug group restores the debug output volume control of the parent debug group.
 	 * 
 	 * <p>Attempting to pop the default debug group off the stack generates a {@link GL11#GL_STACK_UNDERFLOW STACK_UNDERFLOW} error; pushing a debug group onto a stack containing
-	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH MAX_DEBUG_GROUP_STACK_DEPTH} minus one elements will generate a {@link GL11#GL_STACK_OVERFLOW STACK_OVERFLOW} error.</p>
+	 * {@link GL43#GL_MAX_DEBUG_GROUP_STACK_DEPTH MAX_DEBUG_GROUP_STACK_DEPTH} minus one elements will generate a {@link GL11#GL_STACK_OVERFLOW STACK_OVERFLOW} error.</p>
 	 */
 	public static void glPopDebugGroup() {
-		long __functionAddress = GL.getCapabilities().glPopDebugGroup;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglPopDebugGroup();
 	}
 
 	// --- [ glObjectLabel ] ---
@@ -514,17 +491,12 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the label to be used for the object
 	 */
-	public static void nglObjectLabel(int identifier, int name, int length, long label) {
-		long __functionAddress = GL.getCapabilities().glObjectLabel;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, identifier, name, length, label);
-	}
+	public static native void nglObjectLabel(int identifier, int name, int length, long label);
 
 	/**
 	 * Labels a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER BUFFER}</td><td>{@link #GL_SHADER SHADER}</td><td>{@link #GL_PROGRAM PROGRAM}</td><td>{@link #GL_QUERY QUERY}</td><td>{@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link #GL_SAMPLER SAMPLER}</td><td>{@link #GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link GL43#GL_BUFFER BUFFER}</td><td>{@link GL43#GL_SHADER SHADER}</td><td>{@link GL43#GL_PROGRAM PROGRAM}</td><td>{@link GL43#GL_QUERY QUERY}</td><td>{@link GL43#GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link GL43#GL_SAMPLER SAMPLER}</td><td>{@link GL43#GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object to label
 	 * @param label      a string containing the label to assign to the object
 	 */
@@ -535,7 +507,7 @@ public class KHRDebug {
 	/**
 	 * Labels a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER BUFFER}</td><td>{@link #GL_SHADER SHADER}</td><td>{@link #GL_PROGRAM PROGRAM}</td><td>{@link #GL_QUERY QUERY}</td><td>{@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link #GL_SAMPLER SAMPLER}</td><td>{@link #GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link GL43#GL_BUFFER BUFFER}</td><td>{@link GL43#GL_SHADER SHADER}</td><td>{@link GL43#GL_PROGRAM PROGRAM}</td><td>{@link GL43#GL_QUERY QUERY}</td><td>{@link GL43#GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link GL43#GL_SAMPLER SAMPLER}</td><td>{@link GL43#GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object to label
 	 * @param label      a string containing the label to assign to the object
 	 */
@@ -557,17 +529,12 @@ public class KHRDebug {
 	 *
 	 * @param bufSize the length of the buffer whose address is in {@code label}
 	 */
-	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
-		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, identifier, name, bufSize, length, label);
-	}
+	public static native void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label);
 
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER BUFFER}</td><td>{@link #GL_SHADER SHADER}</td><td>{@link #GL_PROGRAM PROGRAM}</td><td>{@link #GL_QUERY QUERY}</td><td>{@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link #GL_SAMPLER SAMPLER}</td><td>{@link #GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link GL43#GL_BUFFER BUFFER}</td><td>{@link GL43#GL_SHADER SHADER}</td><td>{@link GL43#GL_PROGRAM PROGRAM}</td><td>{@link GL43#GL_QUERY QUERY}</td><td>{@link GL43#GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link GL43#GL_SAMPLER SAMPLER}</td><td>{@link GL43#GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 * @param length     the address of a variable to receive the length of the object label
 	 * @param label      a string that will receive the object label
@@ -581,7 +548,7 @@ public class KHRDebug {
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER BUFFER}</td><td>{@link #GL_SHADER SHADER}</td><td>{@link #GL_PROGRAM PROGRAM}</td><td>{@link #GL_QUERY QUERY}</td><td>{@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link #GL_SAMPLER SAMPLER}</td><td>{@link #GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link GL43#GL_BUFFER BUFFER}</td><td>{@link GL43#GL_SHADER SHADER}</td><td>{@link GL43#GL_PROGRAM PROGRAM}</td><td>{@link GL43#GL_QUERY QUERY}</td><td>{@link GL43#GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link GL43#GL_SAMPLER SAMPLER}</td><td>{@link GL43#GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 * @param bufSize    the length of the buffer whose address is in {@code label}
 	 */
@@ -600,7 +567,7 @@ public class KHRDebug {
 	/**
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER BUFFER}</td><td>{@link #GL_SHADER SHADER}</td><td>{@link #GL_PROGRAM PROGRAM}</td><td>{@link #GL_QUERY QUERY}</td><td>{@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link #GL_SAMPLER SAMPLER}</td><td>{@link #GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link GL43#GL_BUFFER BUFFER}</td><td>{@link GL43#GL_SHADER SHADER}</td><td>{@link GL43#GL_PROGRAM PROGRAM}</td><td>{@link GL43#GL_QUERY QUERY}</td><td>{@link GL43#GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}</td><td>{@link GL43#GL_SAMPLER SAMPLER}</td><td>{@link GL43#GL_DISPLAY_LIST DISPLAY_LIST}</td><td>{@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link GL11#GL_TEXTURE TEXTURE}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param name       the name of the object whose label to retrieve
 	 */
 	public static String glGetObjectLabel(int identifier, int name) {
@@ -623,14 +590,7 @@ public class KHRDebug {
 	 *
 	 * @param length the length of the label to be used for the object
 	 */
-	public static void nglObjectPtrLabel(long ptr, int length, long label) {
-		long __functionAddress = GL.getCapabilities().glObjectPtrLabel;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(ptr);
-		}
-		callPPV(__functionAddress, ptr, length, label);
-	}
+	public static native void nglObjectPtrLabel(long ptr, int length, long label);
 
 	/**
 	 * Labels a sync object identified by a pointer.
@@ -639,6 +599,8 @@ public class KHRDebug {
 	 * @param label a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
+		if ( CHECKS )
+			check(ptr);
 		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
 	}
 
@@ -649,6 +611,8 @@ public class KHRDebug {
 	 * @param label a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
+		if ( CHECKS )
+			check(ptr);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer labelEncoded = stack.UTF8(label, false);
@@ -666,14 +630,7 @@ public class KHRDebug {
 	 *
 	 * @param bufSize the length of the buffer whose address is in {@code label}
 	 */
-	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
-		long __functionAddress = GL.getCapabilities().glGetObjectPtrLabel;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(ptr);
-		}
-		callPPPV(__functionAddress, ptr, bufSize, length, label);
-	}
+	public static native void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label);
 
 	/**
 	 * Retrieves the label of a sync object identified by a pointer.
@@ -683,8 +640,10 @@ public class KHRDebug {
 	 * @param label  a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(ptr);
 			checkSafe(length, 1);
+		}
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -695,6 +654,8 @@ public class KHRDebug {
 	 * @param bufSize the length of the buffer whose address is in {@code label}
 	 */
 	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
+		if ( CHECKS )
+			check(ptr);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer length = stack.ints(0);
@@ -713,6 +674,8 @@ public class KHRDebug {
 	 */
 	public static String glGetObjectPtrLabel(long ptr) {
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
+		if ( CHECKS )
+			check(ptr);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer length = stack.ints(0);
@@ -726,7 +689,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, int[] ids, boolean enabled) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
+		long __functionAddress = GL.getICD().glDebugMessageControl;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
@@ -734,7 +697,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
+		long __functionAddress = GL.getICD().glGetDebugMessageLog;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(sources, count);
@@ -748,7 +711,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, int[] length, ByteBuffer label) {
-		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
+		long __functionAddress = GL.getICD().glGetObjectLabel;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -758,7 +721,7 @@ public class KHRDebug {
 
 	/** Array version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, int[] length, ByteBuffer label) {
-		long __functionAddress = GL.getCapabilities().glGetObjectPtrLabel;
+		long __functionAddress = GL.getICD().glGetObjectPtrLabel;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(ptr);

@@ -33,6 +33,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBMultiBind {
 
+	static { GL.initialize(); }
+
 	protected ARBMultiBind() {
 		throw new UnsupportedOperationException();
 	}
@@ -50,12 +52,7 @@ public class ARBMultiBind {
 	 *
 	 * @param count the number of bindings
 	 */
-	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, first, count, buffers);
-	}
+	public static native void nglBindBuffersBase(int target, int first, int count, long buffers);
 
 	/**
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
@@ -87,12 +84,7 @@ public class ARBMultiBind {
 	 *
 	 * @param count the number of bindings
 	 */
-	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
-	}
+	public static native void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes);
 
 	/**
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
@@ -136,12 +128,7 @@ public class ARBMultiBind {
 	 *
 	 * @param count the number of texture objects
 	 */
-	public static void nglBindTextures(int first, int count, long textures) {
-		long __functionAddress = GL.getCapabilities().glBindTextures;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, textures);
-	}
+	public static native void nglBindTextures(int first, int count, long textures);
 
 	/**
 	 * Binds {@code count} existing texture objects to texture image units numbered {@code first} through {@code first+count-1}. If {@code textures} is not
@@ -192,12 +179,7 @@ public class ARBMultiBind {
 	 *
 	 * @param count the number of sampler objects
 	 */
-	public static void nglBindSamplers(int first, int count, long samplers) {
-		long __functionAddress = GL.getCapabilities().glBindSamplers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, samplers);
-	}
+	public static native void nglBindSamplers(int first, int count, long samplers);
 
 	/**
 	 * Binds {@code count} existing sampler objects to texture image units numbered {@code first} through {@code first+count-1}. If {@code samplers} is not
@@ -232,12 +214,7 @@ public class ARBMultiBind {
 	 *
 	 * @param count the number of image units
 	 */
-	public static void nglBindImageTextures(int first, int count, long textures) {
-		long __functionAddress = GL.getCapabilities().glBindImageTextures;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, textures);
-	}
+	public static native void nglBindImageTextures(int first, int count, long textures);
 
 	/**
 	 * Binds {@code count} existing texture objects to image units numbered {@code first} through {@code first+count-1}. If {@code textures} is not {@code NULL}, it
@@ -283,12 +260,7 @@ public class ARBMultiBind {
 	 *
 	 * @param count the number of vertex buffer binding points
 	 */
-	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
-		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, first, count, buffers, offsets, strides);
-	}
+	public static native void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides);
 
 	/**
 	 * Binds {@code count} existing buffer objects to vertex buffer binding points numbered {@code first} through {@code first+count-1}. If {@code buffers} is
@@ -329,7 +301,7 @@ public class ARBMultiBind {
 
 	/** Array version of: {@link #glBindBuffersBase BindBuffersBase} */
 	public static void glBindBuffersBase(int target, int first, int[] buffers) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
+		long __functionAddress = GL.getICD().glBindBuffersBase;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, first, lengthSafe(buffers), buffers);
@@ -337,7 +309,7 @@ public class ARBMultiBind {
 
 	/** Array version of: {@link #glBindBuffersRange BindBuffersRange} */
 	public static void glBindBuffersRange(int target, int first, int[] buffers, PointerBuffer offsets, PointerBuffer sizes) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
+		long __functionAddress = GL.getICD().glBindBuffersRange;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(offsets, lengthSafe(buffers));
@@ -348,7 +320,7 @@ public class ARBMultiBind {
 
 	/** Array version of: {@link #glBindTextures BindTextures} */
 	public static void glBindTextures(int first, int[] textures) {
-		long __functionAddress = GL.getCapabilities().glBindTextures;
+		long __functionAddress = GL.getICD().glBindTextures;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(textures), textures);
@@ -356,7 +328,7 @@ public class ARBMultiBind {
 
 	/** Array version of: {@link #glBindSamplers BindSamplers} */
 	public static void glBindSamplers(int first, int[] samplers) {
-		long __functionAddress = GL.getCapabilities().glBindSamplers;
+		long __functionAddress = GL.getICD().glBindSamplers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(samplers), samplers);
@@ -364,7 +336,7 @@ public class ARBMultiBind {
 
 	/** Array version of: {@link #glBindImageTextures BindImageTextures} */
 	public static void glBindImageTextures(int first, int[] textures) {
-		long __functionAddress = GL.getCapabilities().glBindImageTextures;
+		long __functionAddress = GL.getICD().glBindImageTextures;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(textures), textures);
@@ -372,7 +344,7 @@ public class ARBMultiBind {
 
 	/** Array version of: {@link #glBindVertexBuffers BindVertexBuffers} */
 	public static void glBindVertexBuffers(int first, int[] buffers, PointerBuffer offsets, int[] strides) {
-		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
+		long __functionAddress = GL.getICD().glBindVertexBuffers;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(offsets, lengthSafe(buffers));

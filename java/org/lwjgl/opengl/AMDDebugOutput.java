@@ -70,6 +70,8 @@ public class AMDDebugOutput {
 		GL_DEBUG_CATEGORY_APPLICATION_AMD        = 0x914F,
 		GL_DEBUG_CATEGORY_OTHER_AMD              = 0x9150;
 
+	static { GL.initialize(); }
+
 	protected AMDDebugOutput() {
 		throw new UnsupportedOperationException();
 	}
@@ -87,12 +89,7 @@ public class AMDDebugOutput {
 	 *
 	 * @param count the number of values in the {@code ids} array
 	 */
-	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, category, severity, count, ids, enabled);
-	}
+	public static native void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled);
 
 	/**
 	 * Allows disabling or enabling generation of subsets of messages. If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages is enabled. If
@@ -184,12 +181,7 @@ public class AMDDebugOutput {
 	 *
 	 * @param length the number of character in the message
 	 */
-	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageInsertAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, category, severity, id, length, buf);
-	}
+	public static native void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf);
 
 	/**
 	 * Injects an application-supplied message into the debug message stream.
@@ -241,12 +233,7 @@ public class AMDDebugOutput {
 	// --- [ glDebugMessageCallbackAMD ] ---
 
 	/** Unsafe version of: {@link #glDebugMessageCallbackAMD DebugMessageCallbackAMD} */
-	public static void nglDebugMessageCallbackAMD(long callback, long userParam) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, callback, userParam);
-	}
+	public static native void nglDebugMessageCallbackAMD(long callback, long userParam);
 
 	/**
 	 * Specifies a callback to receive debugging messages from the GL.
@@ -286,12 +273,7 @@ public class AMDDebugOutput {
 	 *
 	 * @param bufsize the maximum number of characters that can be written in the {@code message} array
 	 */
-	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
-	}
+	public static native int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog);
 
 	/**
 	 * Retrieves messages from the debug message log.
@@ -329,7 +311,7 @@ public class AMDDebugOutput {
 
 	/** Array version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	public static void glDebugMessageEnableAMD(int category, int severity, int[] ids, boolean enabled) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
+		long __functionAddress = GL.getICD().glDebugMessageEnableAMD;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, category, severity, lengthSafe(ids), ids, enabled);
@@ -337,7 +319,7 @@ public class AMDDebugOutput {
 
 	/** Array version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, int[] categories, int[] severities, int[] ids, int[] lengths, ByteBuffer messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
+		long __functionAddress = GL.getICD().glGetDebugMessageLogAMD;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(categories, count);

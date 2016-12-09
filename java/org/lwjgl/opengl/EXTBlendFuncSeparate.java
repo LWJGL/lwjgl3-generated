@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_func_separate.txt">EXT_blend_func_separate</a> extension.
@@ -25,6 +24,8 @@ public class EXTBlendFuncSeparate {
 		GL_BLEND_DST_ALPHA_EXT = 0x80CA,
 		GL_BLEND_SRC_ALPHA_EXT = 0x80CB;
 
+	static { GL.initialize(); }
+
 	protected EXTBlendFuncSeparate() {
 		throw new UnsupportedOperationException();
 	}
@@ -37,11 +38,10 @@ public class EXTBlendFuncSeparate {
 
 	// --- [ glBlendFuncSeparateEXT ] ---
 
+	public static native void nglBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
+
 	public static void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+		nglBlendFuncSeparateEXT(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 }

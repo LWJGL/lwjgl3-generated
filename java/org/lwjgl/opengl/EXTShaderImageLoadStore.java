@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/shader_image_load_store.txt">EXT_shader_image_load_store</a> extension.
@@ -106,6 +105,8 @@ public class EXTShaderImageLoadStore {
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_EXT       = 0x906B,
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT = 0x906C;
 
+	static { GL.initialize(); }
+
 	protected EXTShaderImageLoadStore() {
 		throw new UnsupportedOperationException();
 	}
@@ -118,20 +119,18 @@ public class EXTShaderImageLoadStore {
 
 	// --- [ glBindImageTextureEXT ] ---
 
+	public static native void nglBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format);
+
 	public static void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format) {
-		long __functionAddress = GL.getCapabilities().glBindImageTextureEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, texture, level, layered, layer, access, format);
+		nglBindImageTextureEXT(index, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrierEXT ] ---
 
+	public static native void nglMemoryBarrierEXT(int barriers);
+
 	public static void glMemoryBarrierEXT(int barriers) {
-		long __functionAddress = GL.getCapabilities().glMemoryBarrierEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, barriers);
+		nglMemoryBarrierEXT(barriers);
 	}
 
 }

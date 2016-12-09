@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/draw_buffers_blend.txt">ARB_draw_buffers_blend</a> extension.
@@ -21,6 +20,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBDrawBuffersBlend {
 
+	static { GL.initialize(); }
+
 	protected ARBDrawBuffersBlend() {
 		throw new UnsupportedOperationException();
 	}
@@ -32,6 +33,9 @@ public class ARBDrawBuffersBlend {
 	}
 
 	// --- [ glBlendEquationiARB ] ---
+
+	/** Unsafe version of: {@link #glBlendEquationiARB BlendEquationiARB} */
+	public static native void nglBlendEquationiARB(int buf, int mode);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -50,13 +54,13 @@ public class ARBDrawBuffersBlend {
 	 * @param mode determines both the RGB and alpha blend equations. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
 	public static void glBlendEquationiARB(int buf, int mode) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationiARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, mode);
+		nglBlendEquationiARB(buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiARB ] ---
+
+	/** Unsafe version of: {@link #glBlendEquationSeparateiARB BlendEquationSeparateiARB} */
+	public static native void nglBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -76,13 +80,13 @@ public class ARBDrawBuffersBlend {
 	 * @param modeAlpha the alpha blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
 	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateiARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, modeRGB, modeAlpha);
+		nglBlendEquationSeparateiARB(buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciARB ] ---
+
+	/** Unsafe version of: {@link #glBlendFunciARB BlendFunciARB} */
+	public static native void nglBlendFunciARB(int buf, int src, int dst);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -101,13 +105,13 @@ public class ARBDrawBuffersBlend {
 	 * @param dst determines both RGB and alpha destination functions
 	 */
 	public static void glBlendFunciARB(int buf, int src, int dst) {
-		long __functionAddress = GL.getCapabilities().glBlendFunciARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, src, dst);
+		nglBlendFunciARB(buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiARB ] ---
+
+	/** Unsafe version of: {@link #glBlendFuncSeparateiARB BlendFuncSeparateiARB} */
+	public static native void nglBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -128,10 +132,7 @@ public class ARBDrawBuffersBlend {
 	 * @param dstAlpha the destination alpha blend function
 	 */
 	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateiARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		nglBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 }

@@ -73,6 +73,8 @@ public class KHRRobustness {
 	/** Returned by {@link GL11#glGetError GetError}. */
 	public static final int GL_CONTEXT_LOST = 0x507;
 
+	static { GL.initialize(); }
+
 	protected KHRRobustness() {
 		throw new UnsupportedOperationException();
 	}
@@ -85,32 +87,35 @@ public class KHRRobustness {
 
 	// --- [ glGetGraphicsResetStatus ] ---
 
+	/** Unsafe version of: {@link #glGetGraphicsResetStatus GetGraphicsResetStatus} */
+	public static native int nglGetGraphicsResetStatus();
+
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * 
 	 * <ul>
 	 * <li>{@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
-	 * <li>{@link #GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
-	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
-	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>
+	 * <li>{@link GL45#GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
+	 * <li>{@link GL45#GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
+	 * <li>{@link GL45#GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>
 	 * </ul>
 	 * 
 	 * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
 	 * status is repeatedly returned, the context may be in the process of resetting.</p>
 	 * 
 	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
-	 * {@link #GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}.</p>
+	 * {@link GL45#GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}.</p>
 	 * 
-	 * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION}, then the implementation will never deliver notification of reset events, and
+	 * <p>If the reset notification behavior is {@link GL45#GL_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION}, then the implementation will never deliver notification of reset events, and
 	 * GetGraphicsResetStatus will always return NO_ERROR.</p>
 	 * 
-	 * <p>If the behavior is {@link #GL_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}, a graphics reset will result in a lost context and require creating a new context as described
+	 * <p>If the behavior is {@link GL45#GL_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}, a graphics reset will result in a lost context and require creating a new context as described
 	 * above. In this case GetGraphicsResetStatus will return an appropriate value from those described above.</p>
 	 * 
 	 * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
 	 * 
 	 * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
-	 * {@link #GL_CONTEXT_LOST CONTEXT_LOST} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
+	 * {@link GL45#GL_CONTEXT_LOST CONTEXT_LOST} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
 	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:</p>
 	 * 
 	 * <ul>
@@ -121,10 +126,7 @@ public class KHRRobustness {
 	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatus() {
-		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatus;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
+		return nglGetGraphicsResetStatus();
 	}
 
 	// --- [ glReadnPixels ] ---
@@ -134,12 +136,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = GL.getCapabilities().glReadnPixels;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
-	}
+	public static native void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels);
 
 	/**
 	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
@@ -224,12 +221,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
-	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformfv(int program, int location, int bufSize, long params);
 
 	/**
 	 * Returns the value or values of a uniform of the default uniform block.
@@ -266,12 +258,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
-	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformiv(int program, int location, int bufSize, long params);
 
 	/**
 	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
@@ -308,12 +295,7 @@ public class KHRRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
-	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformuiv(int program, int location, int bufSize, long params);
 
 	/**
 	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
@@ -345,7 +327,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		long __functionAddress = GL.getICD().glReadnPixels;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
@@ -353,7 +335,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		long __functionAddress = GL.getICD().glReadnPixels;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
@@ -361,7 +343,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		long __functionAddress = GL.getICD().glReadnPixels;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
@@ -369,7 +351,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glGetnUniformfv GetnUniformfv} */
 	public static void glGetnUniformfv(int program, int location, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
+		long __functionAddress = GL.getICD().glGetnUniformfv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -377,7 +359,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glGetnUniformiv GetnUniformiv} */
 	public static void glGetnUniformiv(int program, int location, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
+		long __functionAddress = GL.getICD().glGetnUniformiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -385,7 +367,7 @@ public class KHRRobustness {
 
 	/** Array version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void glGetnUniformuiv(int program, int location, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
+		long __functionAddress = GL.getICD().glGetnUniformuiv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);

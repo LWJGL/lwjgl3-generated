@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/compiled_vertex_array.txt">EXT_compiled_vertex_array</a> extension.
@@ -27,6 +26,8 @@ public class EXTCompiledVertexArray {
 		GL_ARRAY_ELEMENT_LOCK_FIRST_EXT = 0x81A8,
 		GL_ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;
 
+	static { GL.initialize(); }
+
 	protected EXTCompiledVertexArray() {
 		throw new UnsupportedOperationException();
 	}
@@ -39,20 +40,18 @@ public class EXTCompiledVertexArray {
 
 	// --- [ glLockArraysEXT ] ---
 
+	public static native void nglLockArraysEXT(int first, int count);
+
 	public static void glLockArraysEXT(int first, int count) {
-		long __functionAddress = GL.getCapabilities().glLockArraysEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, first, count);
+		nglLockArraysEXT(first, count);
 	}
 
 	// --- [ glUnlockArraysEXT ] ---
 
+	public static native void nglUnlockArraysEXT();
+
 	public static void glUnlockArraysEXT() {
-		long __functionAddress = GL.getCapabilities().glUnlockArraysEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglUnlockArraysEXT();
 	}
 
 }

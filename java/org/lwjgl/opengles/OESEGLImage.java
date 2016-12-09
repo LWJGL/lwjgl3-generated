@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_EGL_image.txt">OES_EGL_image</a> extension.
@@ -22,6 +21,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class OESEGLImage {
 
+	static { GLES.initialize(); }
+
 	protected OESEGLImage() {
 		throw new UnsupportedOperationException();
 	}
@@ -34,24 +35,22 @@ public class OESEGLImage {
 
 	// --- [ glEGLImageTargetTexture2DOES ] ---
 
+	public static native void nglEGLImageTargetTexture2DOES(int target, long image);
+
 	public static void glEGLImageTargetTexture2DOES(int target, long image) {
-		long __functionAddress = GLES.getCapabilities().glEGLImageTargetTexture2DOES;
-		if ( CHECKS ) {
-			check(__functionAddress);
+		if ( CHECKS )
 			check(image);
-		}
-		callPV(__functionAddress, target, image);
+		nglEGLImageTargetTexture2DOES(target, image);
 	}
 
 	// --- [ glEGLImageTargetRenderbufferStorageOES ] ---
 
+	public static native void nglEGLImageTargetRenderbufferStorageOES(int target, long image);
+
 	public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
-		long __functionAddress = GLES.getCapabilities().glEGLImageTargetRenderbufferStorageOES;
-		if ( CHECKS ) {
-			check(__functionAddress);
+		if ( CHECKS )
 			check(image);
-		}
-		callPV(__functionAddress, target, image);
+		nglEGLImageTargetRenderbufferStorageOES(target, image);
 	}
 
 }

@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/blend_equation_advanced.txt">NV_blend_equation_advanced</a> extension.
@@ -121,6 +120,8 @@ public class NVBlendEquationAdvanced {
 		GL_GREEN_NV              = 0x1904,
 		GL_BLUE_NV               = 0x1905;
 
+	static { GLES.initialize(); }
+
 	protected NVBlendEquationAdvanced() {
 		throw new UnsupportedOperationException();
 	}
@@ -133,20 +134,18 @@ public class NVBlendEquationAdvanced {
 
 	// --- [ glBlendParameteriNV ] ---
 
+	public static native void nglBlendParameteriNV(int pname, int value);
+
 	public static void glBlendParameteriNV(int pname, int value) {
-		long __functionAddress = GLES.getCapabilities().glBlendParameteriNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, value);
+		nglBlendParameteriNV(pname, value);
 	}
 
 	// --- [ glBlendBarrierNV ] ---
 
+	public static native void nglBlendBarrierNV();
+
 	public static void glBlendBarrierNV() {
-		long __functionAddress = GLES.getCapabilities().glBlendBarrierNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglBlendBarrierNV();
 	}
 
 }

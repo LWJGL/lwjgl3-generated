@@ -31,6 +31,8 @@ public class ARBVertexArrayObject {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
 
+	static { GL.initialize(); }
+
 	protected ARBVertexArrayObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -43,16 +45,16 @@ public class ARBVertexArrayObject {
 
 	// --- [ glBindVertexArray ] ---
 
+	/** Unsafe version of: {@link #glBindVertexArray BindVertexArray} */
+	public static native void nglBindVertexArray(int array);
+
 	/**
 	 * Binds a vertex array object
 	 *
 	 * @param array the name of the vertex array to bind
 	 */
 	public static void glBindVertexArray(int array) {
-		long __functionAddress = GL.getCapabilities().glBindVertexArray;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array);
+		nglBindVertexArray(array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -62,12 +64,7 @@ public class ARBVertexArrayObject {
 	 *
 	 * @param n the number of vertex array objects to be deleted
 	 */
-	public static void nglDeleteVertexArrays(int n, long arrays) {
-		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglDeleteVertexArrays(int n, long arrays);
 
 	/**
 	 * Deletes vertex array objects.
@@ -96,12 +93,7 @@ public class ARBVertexArrayObject {
 	 *
 	 * @param n the number of vertex array object names to generate
 	 */
-	public static void nglGenVertexArrays(int n, long arrays) {
-		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, arrays);
-	}
+	public static native void nglGenVertexArrays(int n, long arrays);
 
 	/**
 	 * Generates vertex array object names.
@@ -126,21 +118,21 @@ public class ARBVertexArrayObject {
 
 	// --- [ glIsVertexArray ] ---
 
+	/** Unsafe version of: {@link #glIsVertexArray IsVertexArray} */
+	public static native boolean nglIsVertexArray(int array);
+
 	/**
 	 * Determines if a name corresponds to a vertex array object.
 	 *
 	 * @param array a value that may be the name of a vertex array object
 	 */
 	public static boolean glIsVertexArray(int array) {
-		long __functionAddress = GL.getCapabilities().glIsVertexArray;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, array);
+		return nglIsVertexArray(array);
 	}
 
 	/** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
+		long __functionAddress = GL.getICD().glDeleteVertexArrays;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);
@@ -148,7 +140,7 @@ public class ARBVertexArrayObject {
 
 	/** Array version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static void glGenVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
+		long __functionAddress = GL.getICD().glGenVertexArrays;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);

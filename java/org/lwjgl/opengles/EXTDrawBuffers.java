@@ -72,6 +72,8 @@ public class EXTDrawBuffers {
 		GL_COLOR_ATTACHMENT14_EXT = 0x8CEE,
 		GL_COLOR_ATTACHMENT15_EXT = 0x8CEF;
 
+	static { GLES.initialize(); }
+
 	protected EXTDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
@@ -84,12 +86,7 @@ public class EXTDrawBuffers {
 
 	// --- [ glDrawBuffersEXT ] ---
 
-	public static void nglDrawBuffersEXT(int n, long bufs) {
-		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, bufs);
-	}
+	public static native void nglDrawBuffersEXT(int n, long bufs);
 
 	public static void glDrawBuffersEXT(IntBuffer bufs) {
 		nglDrawBuffersEXT(bufs.remaining(), memAddress(bufs));
@@ -107,7 +104,7 @@ public class EXTDrawBuffers {
 
 	/** Array version of: {@link #glDrawBuffersEXT DrawBuffersEXT} */
 	public static void glDrawBuffersEXT(int[] bufs) {
-		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
+		long __functionAddress = GLES.getICD().glDrawBuffersEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);

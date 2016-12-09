@@ -175,6 +175,8 @@ public class ARBInternalformatQuery2 {
 		GL_VIEW_CLASS_BPTC_UNORM     = 0x82D2,
 		GL_VIEW_CLASS_BPTC_FLOAT     = 0x82D3;
 
+	static { GL.initialize(); }
+
 	protected ARBInternalformatQuery2() {
 		throw new UnsupportedOperationException();
 	}
@@ -192,12 +194,7 @@ public class ARBInternalformatQuery2 {
 	 *
 	 * @param bufSize the maximum number of values that may be written to params by the function
 	 */
-	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, pname, bufSize, params);
-	}
+	public static native void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params);
 
 	/**
 	 * Retrieves information about implementation-dependent support for internal formats.
@@ -231,7 +228,7 @@ public class ARBInternalformatQuery2 {
 
 	/** Array version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static void glGetInternalformati64v(int target, int internalformat, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
+		long __functionAddress = GL.getICD().glGetInternalformati64v;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, params.length, params);

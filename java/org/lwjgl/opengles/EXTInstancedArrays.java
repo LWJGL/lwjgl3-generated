@@ -8,7 +8,6 @@ package org.lwjgl.opengles;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -33,6 +32,8 @@ public class EXTInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
 
+	static { GLES.initialize(); }
+
 	protected EXTInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,21 +46,15 @@ public class EXTInstancedArrays {
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
+	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
+
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, start, count, primcount);
+		nglDrawArraysInstancedEXT(mode, start, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedEXT ] ---
 
-	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount);
 
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount);
@@ -83,11 +78,10 @@ public class EXTInstancedArrays {
 
 	// --- [ glVertexAttribDivisorEXT ] ---
 
+	public static native void nglVertexAttribDivisorEXT(int index, int divisor);
+
 	public static void glVertexAttribDivisorEXT(int index, int divisor) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, divisor);
+		nglVertexAttribDivisorEXT(index, divisor);
 	}
 
 }

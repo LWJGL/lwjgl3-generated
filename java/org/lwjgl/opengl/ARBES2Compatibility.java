@@ -50,6 +50,8 @@ public class ARBES2Compatibility {
 	/** Accepted by the {@code format} parameter of most commands taking sized internal formats. */
 	public static final int GL_RGB565 = 0x8D62;
 
+	static { GL.initialize(); }
+
 	protected ARBES2Compatibility() {
 		throw new UnsupportedOperationException();
 	}
@@ -62,12 +64,12 @@ public class ARBES2Compatibility {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
+	/** Unsafe version of: {@link #glReleaseShaderCompiler ReleaseShaderCompiler} */
+	public static native void nglReleaseShaderCompiler();
+
 	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
 	public static void glReleaseShaderCompiler() {
-		long __functionAddress = GL.getCapabilities().glReleaseShaderCompiler;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglReleaseShaderCompiler();
 	}
 
 	// --- [ glShaderBinary ] ---
@@ -78,12 +80,7 @@ public class ARBES2Compatibility {
 	 * @param count  the number of shader object handles contained in {@code shaders}
 	 * @param length the length of the array whose address is given in binary
 	 */
-	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
-		long __functionAddress = GL.getCapabilities().glShaderBinary;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, count, shaders, binaryformat, binary, length);
-	}
+	public static native void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length);
 
 	/**
 	 * Loads pre-compiled shader binaries.
@@ -99,12 +96,7 @@ public class ARBES2Compatibility {
 	// --- [ glGetShaderPrecisionFormat ] ---
 
 	/** Unsafe version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
-	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
-		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
-	}
+	public static native void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision);
 
 	/**
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
@@ -144,6 +136,9 @@ public class ARBES2Compatibility {
 
 	// --- [ glDepthRangef ] ---
 
+	/** Unsafe version of: {@link #glDepthRangef DepthRangef} */
+	public static native void nglDepthRangef(float zNear, float zFar);
+
 	/**
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates
 	 *
@@ -151,13 +146,13 @@ public class ARBES2Compatibility {
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.0f.
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
-		long __functionAddress = GL.getCapabilities().glDepthRangef;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, zNear, zFar);
+		nglDepthRangef(zNear, zFar);
 	}
 
 	// --- [ glClearDepthf ] ---
+
+	/** Unsafe version of: {@link #glClearDepthf ClearDepthf} */
+	public static native void nglClearDepthf(float depth);
 
 	/**
 	 * Specifies the clear value for the depth buffer
@@ -165,15 +160,12 @@ public class ARBES2Compatibility {
 	 * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
 	 */
 	public static void glClearDepthf(float depth) {
-		long __functionAddress = GL.getCapabilities().glClearDepthf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, depth);
+		nglClearDepthf(depth);
 	}
 
 	/** Array version of: {@link #glShaderBinary ShaderBinary} */
 	public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {
-		long __functionAddress = GL.getCapabilities().glShaderBinary;
+		long __functionAddress = GL.getICD().glShaderBinary;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, shaders.length, shaders, binaryformat, memAddress(binary), binary.remaining());
@@ -181,7 +173,7 @@ public class ARBES2Compatibility {
 
 	/** Array version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
-		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
+		long __functionAddress = GL.getICD().glGetShaderPrecisionFormat;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(range, 2);

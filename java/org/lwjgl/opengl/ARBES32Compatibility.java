@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/ES3_2_compatibility.txt">ARB_ES3_2_compatibility</a> extension.
@@ -35,6 +34,8 @@ public class ARBES32Compatibility {
 		GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB       = 0x9381,
 		GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB = 0x9382;
 
+	static { GL.initialize(); }
+
 	protected ARBES32Compatibility() {
 		throw new UnsupportedOperationException();
 	}
@@ -46,6 +47,9 @@ public class ARBES32Compatibility {
 	}
 
 	// --- [ glPrimitiveBoundingBoxARB ] ---
+
+	/** Unsafe version of: {@link #glPrimitiveBoundingBoxARB PrimitiveBoundingBoxARB} */
+	public static native void nglPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 	/**
 	 * Specifies the primitive bounding box.
@@ -64,10 +68,7 @@ public class ARBES32Compatibility {
 	 * @param maxW the maximum w clip space coordinate
 	 */
 	public static void glPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		long __functionAddress = GL.getCapabilities().glPrimitiveBoundingBoxARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
+		nglPrimitiveBoundingBoxARB(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
 }

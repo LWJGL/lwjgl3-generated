@@ -8,6 +8,8 @@ package org.lwjgl.openal;
 import org.lwjgl.system.*;
 import java.util.Set;
 
+import static org.lwjgl.system.APIUtil.*;
+
 /** Defines the capabilities of the OpenAL Context API. */
 public final class ALCCapabilities {
 
@@ -106,19 +108,28 @@ public final class ALCCapabilities {
 		alcSetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
 		alcSuspendContext = provider.getFunctionAddress("alcSuspendContext");
 
-		OpenALC10 = ext.contains("OpenALC10") && ALC.checkExtension("OpenALC10", ALC10.isAvailable(this));
-		OpenALC11 = ext.contains("OpenALC11") && ALC.checkExtension("OpenALC11", ALC11.isAvailable(this));
+		OpenALC10 = ext.contains("OpenALC10") && checkExtension("OpenALC10", ALC10.isAvailable(this));
+		OpenALC11 = ext.contains("OpenALC11") && checkExtension("OpenALC11", ALC11.isAvailable(this));
 		ALC_ENUMERATE_ALL_EXT = ext.contains("ALC_ENUMERATE_ALL_EXT");
 		ALC_ENUMERATION_EXT = ext.contains("ALC_ENUMERATION_EXT");
-		ALC_EXT_CAPTURE = ext.contains("ALC_EXT_CAPTURE") && ALC.checkExtension("ALC_EXT_CAPTURE", EXTCapture.isAvailable(this));
+		ALC_EXT_CAPTURE = ext.contains("ALC_EXT_CAPTURE") && checkExtension("ALC_EXT_CAPTURE", EXTCapture.isAvailable(this));
 		ALC_EXT_DEDICATED = ext.contains("ALC_EXT_DEDICATED");
 		ALC_EXT_DEFAULT_FILTER_ORDER = ext.contains("ALC_EXT_DEFAULT_FILTER_ORDER");
 		ALC_EXT_disconnect = ext.contains("ALC_EXT_disconnect");
 		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
-		ALC_EXT_thread_local_context = ext.contains("ALC_EXT_thread_local_context") && ALC.checkExtension("ALC_EXT_thread_local_context", EXTThreadLocalContext.isAvailable(this));
+		ALC_EXT_thread_local_context = ext.contains("ALC_EXT_thread_local_context") && checkExtension("ALC_EXT_thread_local_context", EXTThreadLocalContext.isAvailable(this));
 		ALC_LOKI_audio_channel = ext.contains("ALC_LOKI_audio_channel");
-		ALC_SOFT_HRTF = ext.contains("ALC_SOFT_HRTF") && ALC.checkExtension("ALC_SOFT_HRTF", SOFTHRTF.isAvailable(this));
-		ALC_SOFT_loopback = ext.contains("ALC_SOFT_loopback") && ALC.checkExtension("ALC_SOFT_loopback", SOFTLoopback.isAvailable(this));
-		ALC_SOFT_pause_device = ext.contains("ALC_SOFT_pause_device") && ALC.checkExtension("ALC_SOFT_pause_device", SOFTPauseDevice.isAvailable(this));
+		ALC_SOFT_HRTF = ext.contains("ALC_SOFT_HRTF") && checkExtension("ALC_SOFT_HRTF", SOFTHRTF.isAvailable(this));
+		ALC_SOFT_loopback = ext.contains("ALC_SOFT_loopback") && checkExtension("ALC_SOFT_loopback", SOFTLoopback.isAvailable(this));
+		ALC_SOFT_pause_device = ext.contains("ALC_SOFT_pause_device") && checkExtension("ALC_SOFT_pause_device", SOFTPauseDevice.isAvailable(this));
 	}
+
+	private static boolean checkExtension(String extension, boolean supported) {
+		if ( supported )
+			return true;
+
+		apiLog("[ALC] " + extension + " was reported as available but an entry point is missing.");
+		return false;
+	}
+
 }

@@ -80,6 +80,8 @@ public class ARBShadingLanguageInclude {
 		GL_NAMED_STRING_LENGTH_ARB = 0x8DE9,
 		GL_NAMED_STRING_TYPE_ARB   = 0x8DEA;
 
+	static { GL.initialize(); }
+
 	protected ARBShadingLanguageInclude() {
 		throw new UnsupportedOperationException();
 	}
@@ -99,12 +101,7 @@ public class ARBShadingLanguageInclude {
 	 * @param namelen   the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 * @param stringlen the number of characters in {@code string}. If negative, {@code string} is considered to be a null-terminated string.
 	 */
-	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
-		long __functionAddress = GL.getCapabilities().glNamedStringARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, type, namelen, name, stringlen, string);
-	}
+	public static native void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string);
 
 	/**
 	 * Specifies a string and its name. Such strings can be included by name in shaders during compilation, allowing reuse of the same code segments.
@@ -150,12 +147,7 @@ public class ARBShadingLanguageInclude {
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 */
-	public static void nglDeleteNamedStringARB(int namelen, long name) {
-		long __functionAddress = GL.getCapabilities().glDeleteNamedStringARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, namelen, name);
-	}
+	public static native void nglDeleteNamedStringARB(int namelen, long name);
 
 	/**
 	 * Deletes a named string.
@@ -185,12 +177,7 @@ public class ARBShadingLanguageInclude {
 	// --- [ glCompileShaderIncludeARB ] ---
 
 	/** Unsafe version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
-	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
-		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shader, count, path, length);
-	}
+	public static native void nglCompileShaderIncludeARB(int shader, int count, long path, long length);
 
 	/**
 	 * Compiles a shader object.
@@ -216,12 +203,7 @@ public class ARBShadingLanguageInclude {
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 */
-	public static boolean nglIsNamedStringARB(int namelen, long name) {
-		long __functionAddress = GL.getCapabilities().glIsNamedStringARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, namelen, name);
-	}
+	public static native boolean nglIsNamedStringARB(int namelen, long name);
 
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the tree location corresponding to {@code name} has a string associated with it, and {@link GL11#GL_FALSE FALSE} if the tree location has no string
@@ -258,12 +240,7 @@ public class ARBShadingLanguageInclude {
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 * @param bufSize the maximum number of characters that may be written into {@code string}, including the null terminator
 	 */
-	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
-		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
-	}
+	public static native void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string);
 
 	/**
 	 * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
@@ -347,12 +324,7 @@ public class ARBShadingLanguageInclude {
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
 	 */
-	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, namelen, name, pname, params);
-	}
+	public static native void nglGetNamedStringivARB(int namelen, long name, int pname, long params);
 
 	/**
 	 * Returns properties of the named string whose tree location corresponds to {@code name}.
@@ -408,7 +380,7 @@ public class ARBShadingLanguageInclude {
 
 	/** Array version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
 	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, int[] length) {
-		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
+		long __functionAddress = GL.getICD().glCompileShaderIncludeARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, path.remaining());
@@ -418,7 +390,7 @@ public class ARBShadingLanguageInclude {
 
 	/** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
 	public static void glGetNamedStringARB(ByteBuffer name, int[] stringlen, ByteBuffer string) {
-		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
+		long __functionAddress = GL.getICD().glGetNamedStringARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(stringlen, 1);
@@ -428,7 +400,7 @@ public class ARBShadingLanguageInclude {
 
 	/** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
 	public static void glGetNamedStringARB(CharSequence name, int[] stringlen, ByteBuffer string) {
-		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
+		long __functionAddress = GL.getICD().glGetNamedStringARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(stringlen, 1);
@@ -445,7 +417,7 @@ public class ARBShadingLanguageInclude {
 
 	/** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	public static void glGetNamedStringivARB(ByteBuffer name, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
+		long __functionAddress = GL.getICD().glGetNamedStringivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -455,7 +427,7 @@ public class ARBShadingLanguageInclude {
 
 	/** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	public static void glGetNamedStringivARB(CharSequence name, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
+		long __functionAddress = GL.getICD().glGetNamedStringivARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

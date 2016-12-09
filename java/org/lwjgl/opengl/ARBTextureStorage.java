@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_storage.txt">ARB_texture_storage</a> extension.
@@ -31,6 +30,8 @@ public class ARBTextureStorage {
 	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
 	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
+	static { GL.initialize(); }
+
 	protected ARBTextureStorage() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,6 +46,9 @@ public class ARBTextureStorage {
 
 	// --- [ glTexStorage1D ] ---
 
+	/** Unsafe version of: {@link #glTexStorage1D TexStorage1D} */
+	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width);
+
 	/**
 	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
 	 *
@@ -54,13 +58,13 @@ public class ARBTextureStorage {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
-		long __functionAddress = GL.getCapabilities().glTexStorage1D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width);
+		nglTexStorage1D(target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
+
+	/** Unsafe version of: {@link #glTexStorage2D TexStorage2D} */
+	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
 	/**
 	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
@@ -72,13 +76,13 @@ public class ARBTextureStorage {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glTexStorage2D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width, height);
+		nglTexStorage2D(target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
+
+	/** Unsafe version of: {@link #glTexStorage3D TexStorage3D} */
+	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
 	/**
 	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
@@ -91,13 +95,13 @@ public class ARBTextureStorage {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilities().glTexStorage3D;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width, height, depth);
+		nglTexStorage3D(target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage1DEXT TextureStorage1DEXT} */
+	public static native void nglTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width);
 
 	/**
 	 * DSA version of {@link #glTexStorage1D TexStorage1D}.
@@ -109,13 +113,13 @@ public class ARBTextureStorage {
 	 * @param width          the width of the texture, in texels
 	 */
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, levels, internalformat, width);
+		nglTextureStorage1DEXT(texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage2DEXT TextureStorage2DEXT} */
+	public static native void nglTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height);
 
 	/**
 	 * DSA version of {@link #glTexStorage2D TexStorage2D}.
@@ -128,13 +132,13 @@ public class ARBTextureStorage {
 	 * @param height         the height of the texture, in texels
 	 */
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, levels, internalformat, width, height);
+		nglTextureStorage2DEXT(texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage3DEXT TextureStorage3DEXT} */
+	public static native void nglTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth);
 
 	/**
 	 * DSA version of {@link #glTexStorage3D TexStorage3D}.
@@ -148,10 +152,7 @@ public class ARBTextureStorage {
 	 * @param depth          the depth of the texture, in texels
 	 */
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
+		nglTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/copy_buffer.txt">ARB_copy_buffer</a> extension.
@@ -26,6 +25,8 @@ public class ARBCopyBuffer {
 		GL_COPY_READ_BUFFER  = 0x8F36,
 		GL_COPY_WRITE_BUFFER = 0x8F37;
 
+	static { GL.initialize(); }
+
 	protected ARBCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -37,6 +38,9 @@ public class ARBCopyBuffer {
 	}
 
 	// --- [ glCopyBufferSubData ] ---
+
+	/** Unsafe version of: {@link #glCopyBufferSubData CopyBufferSubData} */
+	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 	/**
 	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
@@ -51,17 +55,14 @@ public class ARBCopyBuffer {
 	 * 
 	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the buffer objects bound to either readtarget or writetarget are mapped.</p>
 	 *
-	 * @param readTarget  the source buffer object target. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td><td>{@link #GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td></tr><tr><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td></tr></table>
+	 * @param readTarget  the source buffer object target. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td></tr><tr><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td></tr></table>
 	 * @param writeTarget the destination buffer object target
 	 * @param readOffset  the source buffer object offset, in bytes
 	 * @param writeOffset the destination buffer object offset, in bytes
 	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GL.getCapabilities().glCopyBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 }

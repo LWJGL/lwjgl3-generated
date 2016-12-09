@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/parallel_shader_compile.txt">ARB_parallel_shader_compile</a> extension.
@@ -25,6 +24,8 @@ public class ARBParallelShaderCompile {
 	/** Accepted as part of the {@code pname} parameter to GetShaderiv() and accepted as part of the {@code pname} parameter to GetProgramiv(). */
 	public static final int GL_COMPLETION_STATUS_ARB = 0x91B1;
 
+	static { GL.initialize(); }
+
 	protected ARBParallelShaderCompile() {
 		throw new UnsupportedOperationException();
 	}
@@ -36,6 +37,9 @@ public class ARBParallelShaderCompile {
 	}
 
 	// --- [ glMaxShaderCompilerThreadsARB ] ---
+
+	/** Unsafe version of: {@link #glMaxShaderCompilerThreadsARB MaxShaderCompilerThreadsARB} */
+	public static native void nglMaxShaderCompilerThreadsARB(int count);
 
 	/**
 	 * Application may use the following to hint to the driver the maximum number background threads it would like to be used in the process of compiling
@@ -50,10 +54,7 @@ public class ARBParallelShaderCompile {
 	 *              {@code 0xFFFFFFFF} requests an implementation-specific maximum.
 	 */
 	public static void glMaxShaderCompilerThreadsARB(int count) {
-		long __functionAddress = GL.getCapabilities().glMaxShaderCompilerThreadsARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, count);
+		nglMaxShaderCompilerThreadsARB(count);
 	}
 
 }

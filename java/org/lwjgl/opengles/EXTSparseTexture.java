@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_sparse_texture.txt">EXT_sparse_texture</a> extension.
@@ -58,6 +57,8 @@ public class EXTSparseTexture {
 		GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT        = 0x919A,
 		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT = 0x91A9;
 
+	static { GLES.initialize(); }
+
 	protected EXTSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -70,11 +71,10 @@ public class EXTSparseTexture {
 
 	// --- [ glTexPageCommitmentARB ] ---
 
+	public static native void nglTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
+
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		long __functionAddress = GLES.getCapabilities().glTexPageCommitmentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

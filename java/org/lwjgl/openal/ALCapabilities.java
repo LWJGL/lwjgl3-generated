@@ -7,6 +7,9 @@ package org.lwjgl.openal;
 
 import org.lwjgl.system.*;
 import java.util.Set;
+import org.lwjgl.*;
+
+import static org.lwjgl.system.APIUtil.*;
 
 /** Defines the capabilities of an OpenAL context. */
 public final class ALCapabilities {
@@ -193,6 +196,9 @@ public final class ALCapabilities {
 	/** When true, {@link SOFTSourceLength} is supported. */
 	public final boolean AL_SOFT_source_length;
 
+	/** Off-heap array of the above function addresses. */
+	final PointerBuffer addresses;
+
 	ALCapabilities(FunctionProvider provider, Set<String> ext) {
 		alAuxiliaryEffectSlotf = provider.getFunctionAddress("alAuxiliaryEffectSlotf");
 		alAuxiliaryEffectSlotfv = provider.getFunctionAddress("alAuxiliaryEffectSlotfv");
@@ -312,12 +318,12 @@ public final class ALCapabilities {
 		alSourceiv = provider.getFunctionAddress("alSourceiv");
 		alSpeedOfSound = provider.getFunctionAddress("alSpeedOfSound");
 
-		OpenAL10 = ext.contains("OpenAL10") && AL.checkExtension("OpenAL10", AL10.isAvailable(this));
-		OpenAL11 = ext.contains("OpenAL11") && AL.checkExtension("OpenAL11", AL11.isAvailable(this));
+		OpenAL10 = ext.contains("OpenAL10") && checkExtension("OpenAL10", AL10.isAvailable(this));
+		OpenAL11 = ext.contains("OpenAL11") && checkExtension("OpenAL11", AL11.isAvailable(this));
 		AL_EXT_ALAW = ext.contains("AL_EXT_ALAW");
 		AL_EXT_BFORMAT = ext.contains("AL_EXT_BFORMAT");
 		AL_EXT_DOUBLE = ext.contains("AL_EXT_DOUBLE");
-		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX") && AL.checkExtension("ALC_EXT_EFX", EXTEfx.isAvailable(this));
+		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX") && checkExtension("ALC_EXT_EFX", EXTEfx.isAvailable(this));
 		AL_EXT_EXPONENT_DISTANCE = ext.contains("AL_EXT_EXPONENT_DISTANCE");
 		AL_EXT_FLOAT32 = ext.contains("AL_EXT_FLOAT32");
 		AL_EXT_IMA4 = ext.contains("AL_EXT_IMA4");
@@ -329,19 +335,30 @@ public final class ALCapabilities {
 		AL_EXT_OFFSET = ext.contains("AL_EXT_OFFSET");
 		AL_EXT_source_distance_model = ext.contains("AL_EXT_source_distance_model");
 		AL_EXT_SOURCE_RADIUS = ext.contains("AL_EXT_SOURCE_RADIUS");
-		AL_EXT_static_buffer = ext.contains("AL_EXT_static_buffer") && AL.checkExtension("AL_EXT_static_buffer", EXTStaticBuffer.isAvailable(this));
+		AL_EXT_static_buffer = ext.contains("AL_EXT_static_buffer") && checkExtension("AL_EXT_static_buffer", EXTStaticBuffer.isAvailable(this));
 		AL_EXT_STEREO_ANGLES = ext.contains("AL_EXT_STEREO_ANGLES");
 		AL_EXT_vorbis = ext.contains("AL_EXT_vorbis");
 		AL_LOKI_IMA_ADPCM = ext.contains("AL_LOKI_IMA_ADPCM");
 		AL_LOKI_quadriphonic = ext.contains("AL_LOKI_quadriphonic");
 		AL_LOKI_WAVE_format = ext.contains("AL_LOKI_WAVE_format");
 		AL_SOFT_block_alignment = ext.contains("AL_SOFT_block_alignment");
-		AL_SOFT_deferred_updates = ext.contains("AL_SOFT_deferred_updates") && AL.checkExtension("AL_SOFT_deferred_updates", SOFTDeferredUpdates.isAvailable(this));
+		AL_SOFT_deferred_updates = ext.contains("AL_SOFT_deferred_updates") && checkExtension("AL_SOFT_deferred_updates", SOFTDeferredUpdates.isAvailable(this));
 		AL_SOFT_direct_channels = ext.contains("AL_SOFT_direct_channels");
 		AL_SOFT_gain_clamp_ex = ext.contains("AL_SOFT_gain_clamp_ex");
 		AL_SOFT_loop_points = ext.contains("AL_SOFT_loop_points");
 		AL_SOFT_MSADPCM = ext.contains("AL_SOFT_MSADPCM");
-		AL_SOFT_source_latency = ext.contains("AL_SOFT_source_latency") && AL.checkExtension("AL_SOFT_source_latency", SOFTSourceLatency.isAvailable(this));
+		AL_SOFT_source_latency = ext.contains("AL_SOFT_source_latency") && checkExtension("AL_SOFT_source_latency", SOFTSourceLatency.isAvailable(this));
 		AL_SOFT_source_length = ext.contains("AL_SOFT_source_length");
+
+		addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);
 	}
+
+	private static boolean checkExtension(String extension, boolean supported) {
+		if ( supported )
+			return true;
+
+		apiLog("[AL] " + extension + " was reported as available but an entry point is missing.");
+		return false;
+	}
+
 }

@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -42,6 +41,8 @@ public class ARBBlendFuncExtended {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
 	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
+	static { GL.initialize(); }
+
 	protected ARBBlendFuncExtended() {
 		throw new UnsupportedOperationException();
 	}
@@ -55,12 +56,7 @@ public class ARBBlendFuncExtended {
 	// --- [ glBindFragDataLocationIndexed ] ---
 
 	/** Unsafe version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
-	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
-		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, colorNumber, index, name);
-	}
+	public static native void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name);
 
 	/**
 	 * Binds a user-defined varying out variable to a fragment shader color number and index.
@@ -97,12 +93,7 @@ public class ARBBlendFuncExtended {
 	// --- [ glGetFragDataIndex ] ---
 
 	/** Unsafe version of: {@link #glGetFragDataIndex GetFragDataIndex} */
-	public static int nglGetFragDataIndex(int program, long name) {
-		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetFragDataIndex(int program, long name);
 
 	/**
 	 * Queries the bindings of color indices to user-defined varying out variables.

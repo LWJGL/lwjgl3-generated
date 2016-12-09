@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_primitive_bounding_box.txt">EXT_primitive_bounding_box</a> extension.
@@ -33,6 +32,8 @@ public class EXTPrimitiveBoundingBox {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int GL_PRIMITIVE_BOUNDING_BOX_EXT = 0x92BE;
 
+	static { GLES.initialize(); }
+
 	protected EXTPrimitiveBoundingBox() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,11 +46,10 @@ public class EXTPrimitiveBoundingBox {
 
 	// --- [ glPrimitiveBoundingBoxEXT ] ---
 
+	public static native void nglPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+
 	public static void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		long __functionAddress = GLES.getCapabilities().glPrimitiveBoundingBoxEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
+		nglPrimitiveBoundingBoxEXT(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
 }

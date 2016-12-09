@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/raster_multisample.txt">EXT_raster_multisample</a> extension.
@@ -37,6 +36,8 @@ public class EXTRasterMultisample {
 		GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
 		GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C;
 
+	static { GLES.initialize(); }
+
 	protected EXTRasterMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -49,11 +50,10 @@ public class EXTRasterMultisample {
 
 	// --- [ glRasterSamplesEXT ] ---
 
+	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		long __functionAddress = GLES.getCapabilities().glRasterSamplesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, samples, fixedsamplelocations);
+		nglRasterSamplesEXT(samples, fixedsamplelocations);
 	}
 
 }

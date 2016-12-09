@@ -30,6 +30,8 @@ public class ARBInternalformatQuery {
 	/** Accepted by the {@code pname} parameter of GetInternalformativ. */
 	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
 
+	static { GL.initialize(); }
+
 	protected ARBInternalformatQuery() {
 		throw new UnsupportedOperationException();
 	}
@@ -47,12 +49,7 @@ public class ARBInternalformatQuery {
 	 *
 	 * @param bufSize the maximum number of values that may be written to params by the function
 	 */
-	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, pname, bufSize, params);
-	}
+	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
 
 	/**
 	 * Retrieves information about implementation-dependent support for internal formats.
@@ -86,7 +83,7 @@ public class ARBInternalformatQuery {
 
 	/** Array version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
+		long __functionAddress = GL.getICD().glGetInternalformativ;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, params.length, params);

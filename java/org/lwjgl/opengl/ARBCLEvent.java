@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.opencl.*;
 
@@ -27,6 +26,8 @@ public class ARBCLEvent {
 	/** Returned in {@code values} for {@link GL32#glGetSynciv GetSynciv} {@code pname} {@link GL32#GL_SYNC_CONDITION SYNC_CONDITION}. */
 	public static final int GL_SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;
 
+	static { GL.initialize(); }
+
 	protected ARBCLEvent() {
 		throw new UnsupportedOperationException();
 	}
@@ -38,6 +39,9 @@ public class ARBCLEvent {
 	}
 
 	// --- [ glCreateSyncFromCLeventARB ] ---
+
+	/** Unsafe version of: {@link #glCreateSyncFromCLeventARB CreateSyncFromCLeventARB} */
+	public static native long nglCreateSyncFromCLeventARB(long context, long event, int flags);
 
 	/**
 	 * Creates a linked sync object. {@code context} and {@code event} must be handles to a valid OpenCL context and a valid event in that context,
@@ -56,13 +60,11 @@ public class ARBCLEvent {
 	 * @param flags   must be 0 (placeholder for anticipated future extensions of sync object capabilities)
 	 */
 	public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
-		long __functionAddress = GL.getCapabilities().glCreateSyncFromCLeventARB;
 		if ( CHECKS ) {
-			check(__functionAddress);
 			check(context);
 			check(event);
 		}
-		return callPPP(__functionAddress, context, event, flags);
+		return nglCreateSyncFromCLeventARB(context, event, flags);
 	}
 
 }

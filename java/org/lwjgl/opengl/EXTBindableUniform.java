@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> extension.
@@ -35,6 +34,8 @@ public class EXTBindableUniform {
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
 	public static final int GL_UNIFORM_BUFFER_EXT = 0x8DEE;
 
+	static { GL.initialize(); }
+
 	protected EXTBindableUniform() {
 		throw new UnsupportedOperationException();
 	}
@@ -47,29 +48,26 @@ public class EXTBindableUniform {
 
 	// --- [ glUniformBufferEXT ] ---
 
+	public static native void nglUniformBufferEXT(int program, int location, int buffer);
+
 	public static void glUniformBufferEXT(int program, int location, int buffer) {
-		long __functionAddress = GL.getCapabilities().glUniformBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, buffer);
+		nglUniformBufferEXT(program, location, buffer);
 	}
 
 	// --- [ glGetUniformBufferSizeEXT ] ---
 
+	public static native int nglGetUniformBufferSizeEXT(int program, int location);
+
 	public static int glGetUniformBufferSizeEXT(int program, int location) {
-		long __functionAddress = GL.getCapabilities().glGetUniformBufferSizeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, program, location);
+		return nglGetUniformBufferSizeEXT(program, location);
 	}
 
 	// --- [ glGetUniformOffsetEXT ] ---
 
+	public static native long nglGetUniformOffsetEXT(int program, int location);
+
 	public static long glGetUniformOffsetEXT(int program, int location) {
-		long __functionAddress = GL.getCapabilities().glGetUniformOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, program, location);
+		return nglGetUniformOffsetEXT(program, location);
 	}
 
 }

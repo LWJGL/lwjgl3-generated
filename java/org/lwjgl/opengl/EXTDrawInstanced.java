@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -20,6 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
 public class EXTDrawInstanced {
+
+	static { GL.initialize(); }
 
 	protected EXTDrawInstanced() {
 		throw new UnsupportedOperationException();
@@ -33,21 +34,15 @@ public class EXTDrawInstanced {
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
+	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
+
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, start, count, primcount);
+		nglDrawArraysInstancedEXT(mode, start, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedEXT ] ---
 
-	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount);
 
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount);

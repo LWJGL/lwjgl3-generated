@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_framebuffer_multisample.txt">NV_framebuffer_multisample</a> extension.
@@ -38,6 +37,8 @@ public class NVFramebufferMultisample {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int GL_MAX_SAMPLES_NV = 0x8D57;
 
+	static { GLES.initialize(); }
+
 	protected NVFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -50,11 +51,10 @@ public class NVFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleNV ] ---
 
+	public static native void nglRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height);
+
 	public static void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height);
+		nglRenderbufferStorageMultisampleNV(target, samples, internalformat, width, height);
 	}
 
 }

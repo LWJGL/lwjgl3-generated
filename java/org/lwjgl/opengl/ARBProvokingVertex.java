@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/provoking_vertex.txt">ARB_provoking_vertex</a> extension.
@@ -41,6 +40,8 @@ public class ARBProvokingVertex {
 		GL_PROVOKING_VERTEX                         = 0x8E4F,
 		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
 
+	static { GL.initialize(); }
+
 	protected ARBProvokingVertex() {
 		throw new UnsupportedOperationException();
 	}
@@ -53,16 +54,16 @@ public class ARBProvokingVertex {
 
 	// --- [ glProvokingVertex ] ---
 
+	/** Unsafe version of: {@link #glProvokingVertex ProvokingVertex} */
+	public static native void nglProvokingVertex(int mode);
+
 	/**
 	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
 	 *
-	 * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
+	 * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link GL32#GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link GL32#GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
 	 */
 	public static void glProvokingVertex(int mode) {
-		long __functionAddress = GL.getCapabilities().glProvokingVertex;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglProvokingVertex(mode);
 	}
 
 }

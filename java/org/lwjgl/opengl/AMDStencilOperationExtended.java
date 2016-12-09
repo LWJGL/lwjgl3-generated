@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/stencil_operation_extended.txt">AMD_stencil_operation_extended</a> extension.
@@ -32,6 +31,8 @@ public class AMDStencilOperationExtended {
 		GL_STENCIL_OP_VALUE_AMD      = 0x874C,
 		GL_STENCIL_BACK_OP_VALUE_AMD = 0x874D;
 
+	static { GL.initialize(); }
+
 	protected AMDStencilOperationExtended() {
 		throw new UnsupportedOperationException();
 	}
@@ -44,11 +45,10 @@ public class AMDStencilOperationExtended {
 
 	// --- [ glStencilOpValueAMD ] ---
 
+	public static native void nglStencilOpValueAMD(int face, int value);
+
 	public static void glStencilOpValueAMD(int face, int value) {
-		long __functionAddress = GL.getCapabilities().glStencilOpValueAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, face, value);
+		nglStencilOpValueAMD(face, value);
 	}
 
 }

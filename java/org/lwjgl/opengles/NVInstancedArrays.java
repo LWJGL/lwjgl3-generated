@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_instanced_arrays.txt">NV_instanced_arrays</a> extension.
@@ -33,6 +32,8 @@ public class NVInstancedArrays {
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv, and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV = 0x88FE;
 
+	static { GLES.initialize(); }
+
 	protected NVInstancedArrays() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,11 +46,10 @@ public class NVInstancedArrays {
 
 	// --- [ glVertexAttribDivisorNV ] ---
 
+	public static native void nglVertexAttribDivisorNV(int index, int divisor);
+
 	public static void glVertexAttribDivisorNV(int index, int divisor) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, divisor);
+		nglVertexAttribDivisorNV(index, divisor);
 	}
 
 }

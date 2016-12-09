@@ -110,6 +110,8 @@ public class ARBTessellationShader {
 		GL_TESS_EVALUATION_SHADER = 0x8E87,
 		GL_TESS_CONTROL_SHADER    = 0x8E88;
 
+	static { GL.initialize(); }
+
 	protected ARBTessellationShader() {
 		throw new UnsupportedOperationException();
 	}
@@ -122,33 +124,28 @@ public class ARBTessellationShader {
 
 	// --- [ glPatchParameteri ] ---
 
+	/** Unsafe version of: {@link #glPatchParameteri PatchParameteri} */
+	public static native void nglPatchParameteri(int pname, int value);
+
 	/**
 	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
-	 * @param pname the name of the parameter to set. Must be:<br><table><tr><td>{@link #GL_PATCH_VERTICES PATCH_VERTICES}</td></tr></table>
+	 * @param pname the name of the parameter to set. Must be:<br><table><tr><td>{@link GL40#GL_PATCH_VERTICES PATCH_VERTICES}</td></tr></table>
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameteri(int pname, int value) {
-		long __functionAddress = GL.getCapabilities().glPatchParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, value);
+		nglPatchParameteri(pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
 
 	/** Unsafe version of: {@link #glPatchParameterfv PatchParameterfv} */
-	public static void nglPatchParameterfv(int pname, long values) {
-		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, values);
-	}
+	public static native void nglPatchParameterfv(int pname, long values);
 
 	/**
 	 * Specifies an array of float values for the specified parameter for patch primitives.
 	 *
-	 * @param pname  the name of the parameter to set. One of:<br><table><tr><td>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}</td><td>{@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}</td></tr></table>
+	 * @param pname  the name of the parameter to set. One of:<br><table><tr><td>{@link GL40#GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}</td><td>{@link GL40#GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}</td></tr></table>
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameterfv(int pname, FloatBuffer values) {
@@ -160,7 +157,7 @@ public class ARBTessellationShader {
 
 	/** Array version of: {@link #glPatchParameterfv PatchParameterfv} */
 	public static void glPatchParameterfv(int pname, float[] values) {
-		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
+		long __functionAddress = GL.getICD().glPatchParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			if ( DEBUG )

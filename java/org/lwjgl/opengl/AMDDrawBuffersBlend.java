@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/draw_buffers_blend.txt">AMD_draw_buffers_blend</a> extension.
@@ -21,6 +20,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class AMDDrawBuffersBlend {
 
+	static { GL.initialize(); }
+
 	protected AMDDrawBuffersBlend() {
 		throw new UnsupportedOperationException();
 	}
@@ -33,38 +34,34 @@ public class AMDDrawBuffersBlend {
 
 	// --- [ glBlendFuncIndexedAMD ] ---
 
+	public static native void nglBlendFuncIndexedAMD(int buf, int src, int dst);
+
 	public static void glBlendFuncIndexedAMD(int buf, int src, int dst) {
-		long __functionAddress = GL.getCapabilities().glBlendFuncIndexedAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, src, dst);
+		nglBlendFuncIndexedAMD(buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateIndexedAMD ] ---
 
+	public static native void nglBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+
 	public static void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateIndexedAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		nglBlendFuncSeparateIndexedAMD(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glBlendEquationIndexedAMD ] ---
 
+	public static native void nglBlendEquationIndexedAMD(int buf, int mode);
+
 	public static void glBlendEquationIndexedAMD(int buf, int mode) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationIndexedAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, mode);
+		nglBlendEquationIndexedAMD(buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateIndexedAMD ] ---
 
+	public static native void nglBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha);
+
 	public static void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateIndexedAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, buf, modeRGB, modeAlpha);
+		nglBlendEquationSeparateIndexedAMD(buf, modeRGB, modeAlpha);
 	}
 
 }

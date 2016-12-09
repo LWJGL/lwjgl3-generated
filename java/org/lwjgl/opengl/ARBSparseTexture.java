@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sparse_texture.txt">ARB_sparse_texture</a> extension.
@@ -45,6 +44,8 @@ public class ARBSparseTexture {
 		GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB        = 0x919A,
 		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB = 0x91A9;
 
+	static { GL.initialize(); }
+
 	protected ARBSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -56,6 +57,9 @@ public class ARBSparseTexture {
 	}
 
 	// --- [ glTexPageCommitmentARB ] ---
+
+	/** Unsafe version of: {@link #glTexPageCommitmentARB TexPageCommitmentARB} */
+	public static native void nglTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 	/**
 	 * Makes individual pages of a sparse texture resident or non resident.
@@ -132,13 +136,13 @@ public class ARBSparseTexture {
 	 * @param commit  the commit flag
 	 */
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		long __functionAddress = GL.getCapabilities().glTexPageCommitmentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 	// --- [ glTexturePageCommitmentEXT ] ---
+
+	/** Unsafe version of: {@link #glTexturePageCommitmentEXT TexturePageCommitmentEXT} */
+	public static native void nglTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 	/**
 	 * DSA version of {@link #glTexPageCommitmentARB TexPageCommitmentARB}.
@@ -154,10 +158,7 @@ public class ARBSparseTexture {
 	 * @param commit  the commit flag
 	 */
 	public static void glTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		long __functionAddress = GL.getCapabilities().glTexturePageCommitmentEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		nglTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

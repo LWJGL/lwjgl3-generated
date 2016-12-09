@@ -173,6 +173,8 @@ public class GL20 {
 		GL_STENCIL_BACK_VALUE_MASK      = 0x8CA4,
 		GL_STENCIL_BACK_WRITEMASK       = 0x8CA5;
 
+	static { GL.initialize(); }
+
 	protected GL20() {
 		throw new UnsupportedOperationException();
 	}
@@ -200,19 +202,22 @@ public class GL20 {
 
 	// --- [ glCreateProgram ] ---
 
+	/** Unsafe version of: {@link #glCreateProgram CreateProgram} */
+	public static native int nglCreateProgram();
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgram.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Creates a program object.
 	 */
 	public static int glCreateProgram() {
-		long __functionAddress = GL.getCapabilities().glCreateProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
+		return nglCreateProgram();
 	}
 
 	// --- [ glDeleteProgram ] ---
+
+	/** Unsafe version of: {@link #glDeleteProgram DeleteProgram} */
+	public static native void nglDeleteProgram(int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -222,13 +227,13 @@ public class GL20 {
 	 * @param program the program object to be deleted
 	 */
 	public static void glDeleteProgram(int program) {
-		long __functionAddress = GL.getCapabilities().glDeleteProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program);
+		nglDeleteProgram(program);
 	}
 
 	// --- [ glIsProgram ] ---
+
+	/** Unsafe version of: {@link #glIsProgram IsProgram} */
+	public static native boolean nglIsProgram(int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -239,13 +244,13 @@ public class GL20 {
 	 * @param program the program object name to query
 	 */
 	public static boolean glIsProgram(int program) {
-		long __functionAddress = GL.getCapabilities().glIsProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, program);
+		return nglIsProgram(program);
 	}
 
 	// --- [ glCreateShader ] ---
+
+	/** Unsafe version of: {@link #glCreateShader CreateShader} */
+	public static native int nglCreateShader(int type);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateShader.xhtml">OpenGL SDK Reference</a></p>
@@ -255,13 +260,13 @@ public class GL20 {
 	 * @param type the type of shader to be created. One of:<br><table><tr><td>{@link #GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link #GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
 	 */
 	public static int glCreateShader(int type) {
-		long __functionAddress = GL.getCapabilities().glCreateShader;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, type);
+		return nglCreateShader(type);
 	}
 
 	// --- [ glDeleteShader ] ---
+
+	/** Unsafe version of: {@link #glDeleteShader DeleteShader} */
+	public static native void nglDeleteShader(int shader);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteShader.xhtml">OpenGL SDK Reference</a></p>
@@ -271,13 +276,13 @@ public class GL20 {
 	 * @param shader the shader object to be deleted
 	 */
 	public static void glDeleteShader(int shader) {
-		long __functionAddress = GL.getCapabilities().glDeleteShader;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, shader);
+		nglDeleteShader(shader);
 	}
 
 	// --- [ glIsShader ] ---
+
+	/** Unsafe version of: {@link #glIsShader IsShader} */
+	public static native boolean nglIsShader(int shader);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsShader.xhtml">OpenGL SDK Reference</a></p>
@@ -288,13 +293,13 @@ public class GL20 {
 	 * @param shader the shader object name to query
 	 */
 	public static boolean glIsShader(int shader) {
-		long __functionAddress = GL.getCapabilities().glIsShader;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, shader);
+		return nglIsShader(shader);
 	}
 
 	// --- [ glAttachShader ] ---
+
+	/** Unsafe version of: {@link #glAttachShader AttachShader} */
+	public static native void nglAttachShader(int program, int shader);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glAttachShader.xhtml">OpenGL SDK Reference</a></p>
@@ -316,13 +321,13 @@ public class GL20 {
 	 * @param shader  the shader object that is to be attached
 	 */
 	public static void glAttachShader(int program, int shader) {
-		long __functionAddress = GL.getCapabilities().glAttachShader;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, shader);
+		nglAttachShader(program, shader);
 	}
 
 	// --- [ glDetachShader ] ---
+
+	/** Unsafe version of: {@link #glDetachShader DetachShader} */
+	public static native void nglDetachShader(int program, int shader);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDetachShader.xhtml">OpenGL SDK Reference</a></p>
@@ -333,10 +338,7 @@ public class GL20 {
 	 * @param shader  the shader object to be detached
 	 */
 	public static void glDetachShader(int program, int shader) {
-		long __functionAddress = GL.getCapabilities().glDetachShader;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, shader);
+		nglDetachShader(program, shader);
 	}
 
 	// --- [ glShaderSource ] ---
@@ -346,12 +348,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements in the string and length arrays
 	 */
-	public static void nglShaderSource(int shader, int count, long strings, long length) {
-		long __functionAddress = GL.getCapabilities().glShaderSource;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shader, count, strings, length);
-	}
+	public static native void nglShaderSource(int shader, int count, long strings, long length);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>
@@ -422,6 +419,9 @@ public class GL20 {
 
 	// --- [ glCompileShader ] ---
 
+	/** Unsafe version of: {@link #glCompileShader CompileShader} */
+	public static native void nglCompileShader(int shader);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompileShader.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -430,13 +430,13 @@ public class GL20 {
 	 * @param shader the shader object to be compiled
 	 */
 	public static void glCompileShader(int shader) {
-		long __functionAddress = GL.getCapabilities().glCompileShader;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, shader);
+		nglCompileShader(shader);
 	}
 
 	// --- [ glLinkProgram ] ---
+
+	/** Unsafe version of: {@link #glLinkProgram LinkProgram} */
+	public static native void nglLinkProgram(int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLinkProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -446,13 +446,13 @@ public class GL20 {
 	 * @param program the program object to be linked
 	 */
 	public static void glLinkProgram(int program) {
-		long __functionAddress = GL.getCapabilities().glLinkProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program);
+		nglLinkProgram(program);
 	}
 
 	// --- [ glUseProgram ] ---
+
+	/** Unsafe version of: {@link #glUseProgram UseProgram} */
+	public static native void nglUseProgram(int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -462,13 +462,13 @@ public class GL20 {
 	 * @param program the program object whose executables are to be used as part of current rendering state
 	 */
 	public static void glUseProgram(int program) {
-		long __functionAddress = GL.getCapabilities().glUseProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program);
+		nglUseProgram(program);
 	}
 
 	// --- [ glValidateProgram ] ---
+
+	/** Unsafe version of: {@link #glValidateProgram ValidateProgram} */
+	public static native void nglValidateProgram(int program);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -478,13 +478,13 @@ public class GL20 {
 	 * @param program the program object to be validated
 	 */
 	public static void glValidateProgram(int program) {
-		long __functionAddress = GL.getCapabilities().glValidateProgram;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program);
+		nglValidateProgram(program);
 	}
 
 	// --- [ glUniform1f ] ---
+
+	/** Unsafe version of: {@link #glUniform1f Uniform1f} */
+	public static native void nglUniform1f(int location, float v0);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1f.xhtml">OpenGL SDK Reference</a></p>
@@ -495,13 +495,13 @@ public class GL20 {
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1f(int location, float v0) {
-		long __functionAddress = GL.getCapabilities().glUniform1f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0);
+		nglUniform1f(location, v0);
 	}
 
 	// --- [ glUniform2f ] ---
+
+	/** Unsafe version of: {@link #glUniform2f Uniform2f} */
+	public static native void nglUniform2f(int location, float v0, float v1);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2f.xhtml">OpenGL SDK Reference</a></p>
@@ -513,13 +513,13 @@ public class GL20 {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2f(int location, float v0, float v1) {
-		long __functionAddress = GL.getCapabilities().glUniform2f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2f(location, v0, v1);
 	}
 
 	// --- [ glUniform3f ] ---
+
+	/** Unsafe version of: {@link #glUniform3f Uniform3f} */
+	public static native void nglUniform3f(int location, float v0, float v1, float v2);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3f.xhtml">OpenGL SDK Reference</a></p>
@@ -532,13 +532,13 @@ public class GL20 {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
-		long __functionAddress = GL.getCapabilities().glUniform3f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3f(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4f ] ---
+
+	/** Unsafe version of: {@link #glUniform4f Uniform4f} */
+	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4f.xhtml">OpenGL SDK Reference</a></p>
@@ -552,13 +552,13 @@ public class GL20 {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
-		long __functionAddress = GL.getCapabilities().glUniform4f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4f(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1i ] ---
+
+	/** Unsafe version of: {@link #glUniform1i Uniform1i} */
+	public static native void nglUniform1i(int location, int v0);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1i.xhtml">OpenGL SDK Reference</a></p>
@@ -569,13 +569,13 @@ public class GL20 {
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1i(int location, int v0) {
-		long __functionAddress = GL.getCapabilities().glUniform1i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0);
+		nglUniform1i(location, v0);
 	}
 
 	// --- [ glUniform2i ] ---
+
+	/** Unsafe version of: {@link #glUniform2i Uniform2i} */
+	public static native void nglUniform2i(int location, int v0, int v1);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2i.xhtml">OpenGL SDK Reference</a></p>
@@ -587,13 +587,13 @@ public class GL20 {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2i(int location, int v0, int v1) {
-		long __functionAddress = GL.getCapabilities().glUniform2i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2i(location, v0, v1);
 	}
 
 	// --- [ glUniform3i ] ---
+
+	/** Unsafe version of: {@link #glUniform3i Uniform3i} */
+	public static native void nglUniform3i(int location, int v0, int v1, int v2);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3i.xhtml">OpenGL SDK Reference</a></p>
@@ -606,13 +606,13 @@ public class GL20 {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
-		long __functionAddress = GL.getCapabilities().glUniform3i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3i(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4i ] ---
+
+	/** Unsafe version of: {@link #glUniform4i Uniform4i} */
+	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4i.xhtml">OpenGL SDK Reference</a></p>
@@ -626,10 +626,7 @@ public class GL20 {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = GL.getCapabilities().glUniform4i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4i(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1fv ] ---
@@ -639,12 +636,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1fv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1fv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
@@ -665,12 +657,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2fv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2fv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
@@ -691,12 +678,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3fv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3fv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
@@ -717,12 +699,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4fv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4fv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
@@ -743,12 +720,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1iv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1iv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
@@ -769,12 +741,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2iv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2iv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
@@ -795,12 +762,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3iv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3iv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
@@ -821,12 +783,7 @@ public class GL20 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4iv(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4iv(int location, int count, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
@@ -847,12 +804,7 @@ public class GL20 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
@@ -874,12 +826,7 @@ public class GL20 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
@@ -901,12 +848,7 @@ public class GL20 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
@@ -924,12 +866,7 @@ public class GL20 {
 	// --- [ glGetShaderiv ] ---
 
 	/** Unsafe version of: {@link #glGetShaderiv GetShaderiv} */
-	public static void nglGetShaderiv(int shader, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetShaderiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, shader, pname, params);
-	}
+	public static native void nglGetShaderiv(int shader, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShader.xhtml">OpenGL SDK Reference</a></p>
@@ -968,12 +905,7 @@ public class GL20 {
 	// --- [ glGetProgramiv ] ---
 
 	/** Unsafe version of: {@link #glGetProgramiv GetProgramiv} */
-	public static void nglGetProgramiv(int program, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, pname, params);
-	}
+	public static native void nglGetProgramiv(int program, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -1016,12 +948,7 @@ public class GL20 {
 	 *
 	 * @param maxLength the size of the character buffer for storing the returned information log
 	 */
-	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shader, maxLength, length, infoLog);
-	}
+	public static native void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderInfoLog.xhtml">OpenGL SDK Reference</a></p>
@@ -1087,12 +1014,7 @@ public class GL20 {
 	 *
 	 * @param maxLength the size of the character buffer for storing the returned information log
 	 */
-	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, maxLength, length, infoLog);
-	}
+	public static native void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInfoLog.xhtml">OpenGL SDK Reference</a></p>
@@ -1158,12 +1080,7 @@ public class GL20 {
 	 *
 	 * @param maxCount the size of the array for storing the returned object names
 	 */
-	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
-		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, maxCount, count, shaders);
-	}
+	public static native void nglGetAttachedShaders(int program, int maxCount, long count, long shaders);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttachedShaders.xhtml">OpenGL SDK Reference</a></p>
@@ -1183,12 +1100,7 @@ public class GL20 {
 	// --- [ glGetUniformLocation ] ---
 
 	/** Unsafe version of: {@link #glGetUniformLocation GetUniformLocation} */
-	public static int nglGetUniformLocation(int program, long name) {
-		long __functionAddress = GL.getCapabilities().glGetUniformLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetUniformLocation(int program, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformLocation.xhtml">OpenGL SDK Reference</a></p>
@@ -1229,12 +1141,7 @@ public class GL20 {
 	 *
 	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
 	 */
-	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
-	}
+	public static native void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1314,12 +1221,7 @@ public class GL20 {
 	// --- [ glGetUniformfv ] ---
 
 	/** Unsafe version of: {@link #glGetUniformfv GetUniformfv} */
-	public static void nglGetUniformfv(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformfv(int program, int location, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1358,12 +1260,7 @@ public class GL20 {
 	// --- [ glGetUniformiv ] ---
 
 	/** Unsafe version of: {@link #glGetUniformiv GetUniformiv} */
-	public static void nglGetUniformiv(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformiv(int program, int location, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
@@ -1406,12 +1303,7 @@ public class GL20 {
 	 *
 	 * @param maxLength the size of the character buffer for storing the returned source code string
 	 */
-	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
-		long __functionAddress = GL.getCapabilities().glGetShaderSource;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, shader, maxLength, length, source);
-	}
+	public static native void nglGetShaderSource(int shader, int maxLength, long length, long source);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderSource.xhtml">OpenGL SDK Reference</a></p>
@@ -1472,6 +1364,9 @@ public class GL20 {
 
 	// --- [ glVertexAttrib1f ] ---
 
+	/** Unsafe version of: {@link #glVertexAttrib1f VertexAttrib1f} */
+	public static native void nglVertexAttrib1f(int index, float v0);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1f.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1481,13 +1376,13 @@ public class GL20 {
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1f(int index, float v0) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0);
+		nglVertexAttrib1f(index, v0);
 	}
 
 	// --- [ glVertexAttrib1s ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib1s VertexAttrib1s} */
+	public static native void nglVertexAttrib1s(int index, short v0);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1s.xhtml">OpenGL SDK Reference</a></p>
@@ -1498,13 +1393,13 @@ public class GL20 {
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1s(int index, short v0) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0);
+		nglVertexAttrib1s(index, v0);
 	}
 
 	// --- [ glVertexAttrib1d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib1d VertexAttrib1d} */
+	public static native void nglVertexAttrib1d(int index, double v0);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1d.xhtml">OpenGL SDK Reference</a></p>
@@ -1515,13 +1410,13 @@ public class GL20 {
 	 * @param v0    the vertex attribute x component
 	 */
 	public static void glVertexAttrib1d(int index, double v0) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0);
+		nglVertexAttrib1d(index, v0);
 	}
 
 	// --- [ glVertexAttrib2f ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib2f VertexAttrib2f} */
+	public static native void nglVertexAttrib2f(int index, float v0, float v1);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2f.xhtml">OpenGL SDK Reference</a></p>
@@ -1533,13 +1428,13 @@ public class GL20 {
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2f(int index, float v0, float v1) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1);
+		nglVertexAttrib2f(index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2s ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib2s VertexAttrib2s} */
+	public static native void nglVertexAttrib2s(int index, short v0, short v1);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2s.xhtml">OpenGL SDK Reference</a></p>
@@ -1551,13 +1446,13 @@ public class GL20 {
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2s(int index, short v0, short v1) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1);
+		nglVertexAttrib2s(index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib2d VertexAttrib2d} */
+	public static native void nglVertexAttrib2d(int index, double v0, double v1);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2d.xhtml">OpenGL SDK Reference</a></p>
@@ -1569,13 +1464,13 @@ public class GL20 {
 	 * @param v1    the vertex attribute y component
 	 */
 	public static void glVertexAttrib2d(int index, double v0, double v1) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1);
+		nglVertexAttrib2d(index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib3f ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib3f VertexAttrib3f} */
+	public static native void nglVertexAttrib3f(int index, float v0, float v1, float v2);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3f.xhtml">OpenGL SDK Reference</a></p>
@@ -1588,13 +1483,13 @@ public class GL20 {
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2);
+		nglVertexAttrib3f(index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3s ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib3s VertexAttrib3s} */
+	public static native void nglVertexAttrib3s(int index, short v0, short v1, short v2);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3s.xhtml">OpenGL SDK Reference</a></p>
@@ -1607,13 +1502,13 @@ public class GL20 {
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2);
+		nglVertexAttrib3s(index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib3d VertexAttrib3d} */
+	public static native void nglVertexAttrib3d(int index, double v0, double v1, double v2);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3d.xhtml">OpenGL SDK Reference</a></p>
@@ -1626,13 +1521,13 @@ public class GL20 {
 	 * @param v2    the vertex attribute z component
 	 */
 	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2);
+		nglVertexAttrib3d(index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib4f ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4f VertexAttrib4f} */
+	public static native void nglVertexAttrib4f(int index, float v0, float v1, float v2, float v3);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4f.xhtml">OpenGL SDK Reference</a></p>
@@ -1646,13 +1541,13 @@ public class GL20 {
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2, v3);
+		nglVertexAttrib4f(index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4s ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4s VertexAttrib4s} */
+	public static native void nglVertexAttrib4s(int index, short v0, short v1, short v2, short v3);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4s.xhtml">OpenGL SDK Reference</a></p>
@@ -1666,13 +1561,13 @@ public class GL20 {
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2, v3);
+		nglVertexAttrib4s(index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4d ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4d VertexAttrib4d} */
+	public static native void nglVertexAttrib4d(int index, double v0, double v1, double v2, double v3);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4d.xhtml">OpenGL SDK Reference</a></p>
@@ -1686,13 +1581,13 @@ public class GL20 {
 	 * @param v3    the vertex attribute w component
 	 */
 	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, v0, v1, v2, v3);
+		nglVertexAttrib4d(index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4Nub ] ---
+
+	/** Unsafe version of: {@link #glVertexAttrib4Nub VertexAttrib4Nub} */
+	public static native void nglVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
@@ -1706,21 +1601,13 @@ public class GL20 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nub;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttrib4Nub(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib1fv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib1fv VertexAttrib1fv} */
-	public static void nglVertexAttrib1fv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1fv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
@@ -1739,12 +1626,7 @@ public class GL20 {
 	// --- [ glVertexAttrib1sv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib1sv VertexAttrib1sv} */
-	public static void nglVertexAttrib1sv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1sv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
@@ -1763,12 +1645,7 @@ public class GL20 {
 	// --- [ glVertexAttrib1dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib1dv VertexAttrib1dv} */
-	public static void nglVertexAttrib1dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
@@ -1787,12 +1664,7 @@ public class GL20 {
 	// --- [ glVertexAttrib2fv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib2fv VertexAttrib2fv} */
-	public static void nglVertexAttrib2fv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2fv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
@@ -1811,12 +1683,7 @@ public class GL20 {
 	// --- [ glVertexAttrib2sv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib2sv VertexAttrib2sv} */
-	public static void nglVertexAttrib2sv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2sv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
@@ -1835,12 +1702,7 @@ public class GL20 {
 	// --- [ glVertexAttrib2dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib2dv VertexAttrib2dv} */
-	public static void nglVertexAttrib2dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
@@ -1859,12 +1721,7 @@ public class GL20 {
 	// --- [ glVertexAttrib3fv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib3fv VertexAttrib3fv} */
-	public static void nglVertexAttrib3fv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3fv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
@@ -1883,12 +1740,7 @@ public class GL20 {
 	// --- [ glVertexAttrib3sv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib3sv VertexAttrib3sv} */
-	public static void nglVertexAttrib3sv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3sv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
@@ -1907,12 +1759,7 @@ public class GL20 {
 	// --- [ glVertexAttrib3dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib3dv VertexAttrib3dv} */
-	public static void nglVertexAttrib3dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
@@ -1931,12 +1778,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4fv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4fv VertexAttrib4fv} */
-	public static void nglVertexAttrib4fv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4fv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
@@ -1955,12 +1797,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4sv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4sv VertexAttrib4sv} */
-	public static void nglVertexAttrib4sv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4sv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
@@ -1979,12 +1816,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4dv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4dv VertexAttrib4dv} */
-	public static void nglVertexAttrib4dv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4dv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
@@ -2003,12 +1835,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4iv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4iv VertexAttrib4iv} */
-	public static void nglVertexAttrib4iv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4iv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
@@ -2027,12 +1854,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4bv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4bv VertexAttrib4bv} */
-	public static void nglVertexAttrib4bv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4bv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4bv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4b.xhtml">OpenGL SDK Reference</a></p>
@@ -2051,12 +1873,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4ubv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
-	public static void nglVertexAttrib4ubv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4ubv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4ub.xhtml">OpenGL SDK Reference</a></p>
@@ -2075,12 +1892,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4usv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4usv VertexAttrib4usv} */
-	public static void nglVertexAttrib4usv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4usv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
@@ -2099,12 +1911,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4uiv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
-	public static void nglVertexAttrib4uiv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4uiv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
@@ -2123,12 +1930,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4Nbv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
-	public static void nglVertexAttrib4Nbv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nbv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4Nbv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nb.xhtml">OpenGL SDK Reference</a></p>
@@ -2147,12 +1949,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4Nsv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
-	public static void nglVertexAttrib4Nsv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4Nsv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
@@ -2171,12 +1968,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4Niv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
-	public static void nglVertexAttrib4Niv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4Niv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
@@ -2195,12 +1987,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4Nubv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
-	public static void nglVertexAttrib4Nubv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nubv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4Nubv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
@@ -2219,12 +2006,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4Nusv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
-	public static void nglVertexAttrib4Nusv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4Nusv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
@@ -2243,12 +2025,7 @@ public class GL20 {
 	// --- [ glVertexAttrib4Nuiv ] ---
 
 	/** Unsafe version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
-	public static void nglVertexAttrib4Nuiv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4Nuiv(int index, long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
@@ -2267,12 +2044,7 @@ public class GL20 {
 	// --- [ glVertexAttribPointer ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
+	public static native void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
@@ -2366,6 +2138,9 @@ public class GL20 {
 
 	// --- [ glEnableVertexAttribArray ] ---
 
+	/** Unsafe version of: {@link #glEnableVertexAttribArray EnableVertexAttribArray} */
+	public static native void nglEnableVertexAttribArray(int index);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2374,13 +2149,13 @@ public class GL20 {
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
 	public static void glEnableVertexAttribArray(int index) {
-		long __functionAddress = GL.getCapabilities().glEnableVertexAttribArray;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglEnableVertexAttribArray(index);
 	}
 
 	// --- [ glDisableVertexAttribArray ] ---
+
+	/** Unsafe version of: {@link #glDisableVertexAttribArray DisableVertexAttribArray} */
+	public static native void nglDisableVertexAttribArray(int index);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
@@ -2390,21 +2165,13 @@ public class GL20 {
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
 	public static void glDisableVertexAttribArray(int index) {
-		long __functionAddress = GL.getCapabilities().glDisableVertexAttribArray;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglDisableVertexAttribArray(index);
 	}
 
 	// --- [ glBindAttribLocation ] ---
 
 	/** Unsafe version of: {@link #glBindAttribLocation BindAttribLocation} */
-	public static void nglBindAttribLocation(int program, int index, long name) {
-		long __functionAddress = GL.getCapabilities().glBindAttribLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, index, name);
-	}
+	public static native void nglBindAttribLocation(int program, int index, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindAttribLocation.xhtml">OpenGL SDK Reference</a></p>
@@ -2447,12 +2214,7 @@ public class GL20 {
 	 *
 	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
 	 */
-	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
-	}
+	public static native void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2533,12 +2295,7 @@ public class GL20 {
 	// --- [ glGetAttribLocation ] ---
 
 	/** Unsafe version of: {@link #glGetAttribLocation GetAttribLocation} */
-	public static int nglGetAttribLocation(int program, long name) {
-		long __functionAddress = GL.getCapabilities().glGetAttribLocation;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetAttribLocation(int program, long name);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttribLocation.xhtml">OpenGL SDK Reference</a></p>
@@ -2575,12 +2332,7 @@ public class GL20 {
 	// --- [ glGetVertexAttribiv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
-	public static void nglGetVertexAttribiv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribiv(int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2619,12 +2371,7 @@ public class GL20 {
 	// --- [ glGetVertexAttribfv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribfv GetVertexAttribfv} */
-	public static void nglGetVertexAttribfv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribfv(int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2644,12 +2391,7 @@ public class GL20 {
 	// --- [ glGetVertexAttribdv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribdv GetVertexAttribdv} */
-	public static void nglGetVertexAttribdv(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribdv(int index, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
@@ -2669,12 +2411,7 @@ public class GL20 {
 	// --- [ glGetVertexAttribPointerv ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
-	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointerv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, pointer);
-	}
+	public static native void nglGetVertexAttribPointerv(int index, int pname, long pointer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
@@ -2717,12 +2454,7 @@ public class GL20 {
 	 *
 	 * @param n the number of buffers in {@code bufs}
 	 */
-	public static void nglDrawBuffers(int n, long bufs) {
-		long __functionAddress = GL.getCapabilities().glDrawBuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, bufs);
-	}
+	public static native void nglDrawBuffers(int n, long bufs);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
@@ -2752,6 +2484,9 @@ public class GL20 {
 
 	// --- [ glBlendEquationSeparate ] ---
 
+	/** Unsafe version of: {@link #glBlendEquationSeparate BlendEquationSeparate} */
+	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2761,13 +2496,13 @@ public class GL20 {
 	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined
 	 */
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationSeparate;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, modeRGB, modeAlpha);
+		nglBlendEquationSeparate(modeRGB, modeAlpha);
 	}
 
 	// --- [ glStencilOpSeparate ] ---
+
+	/** Unsafe version of: {@link #glStencilOpSeparate StencilOpSeparate} */
+	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilOpSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -2781,13 +2516,13 @@ public class GL20 {
 	 *               testing is not enabled. The initial value is GL_KEEP
 	 */
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
-		long __functionAddress = GL.getCapabilities().glStencilOpSeparate;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, face, sfail, dpfail, dppass);
+		nglStencilOpSeparate(face, sfail, dpfail, dppass);
 	}
 
 	// --- [ glStencilFuncSeparate ] ---
+
+	/** Unsafe version of: {@link #glStencilFuncSeparate StencilFuncSeparate} */
+	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -2801,13 +2536,13 @@ public class GL20 {
 	 * @param mask a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The initial value is all 1's.
 	 */
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
-		long __functionAddress = GL.getCapabilities().glStencilFuncSeparate;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, face, func, ref, mask);
+		nglStencilFuncSeparate(face, func, ref, mask);
 	}
 
 	// --- [ glStencilMaskSeparate ] ---
+
+	/** Unsafe version of: {@link #glStencilMaskSeparate StencilMaskSeparate} */
+	public static native void nglStencilMaskSeparate(int face, int mask);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilMaskSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -2818,10 +2553,7 @@ public class GL20 {
 	 * @param mask a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 1's.
 	 */
 	public static void glStencilMaskSeparate(int face, int mask) {
-		long __functionAddress = GL.getCapabilities().glStencilMaskSeparate;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, face, mask);
+		nglStencilMaskSeparate(face, mask);
 	}
 
 	/**
@@ -2830,7 +2562,7 @@ public class GL20 {
 	 * Array version of: {@link #glShaderSource ShaderSource}
 	 */
 	public static void glShaderSource(int shader, PointerBuffer strings, int[] length) {
-		long __functionAddress = GL.getCapabilities().glShaderSource;
+		long __functionAddress = GL.getICD().glShaderSource;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, strings.remaining());
@@ -2844,7 +2576,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform1fv Uniform1fv}
 	 */
 	public static void glUniform1fv(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1fv;
+		long __functionAddress = GL.getICD().glUniform1fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -2856,7 +2588,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform2fv Uniform2fv}
 	 */
 	public static void glUniform2fv(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2fv;
+		long __functionAddress = GL.getICD().glUniform2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -2868,7 +2600,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform3fv Uniform3fv}
 	 */
 	public static void glUniform3fv(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3fv;
+		long __functionAddress = GL.getICD().glUniform3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -2880,7 +2612,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform4fv Uniform4fv}
 	 */
 	public static void glUniform4fv(int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4fv;
+		long __functionAddress = GL.getICD().glUniform4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -2892,7 +2624,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform1iv Uniform1iv}
 	 */
 	public static void glUniform1iv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1iv;
+		long __functionAddress = GL.getICD().glUniform1iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -2904,7 +2636,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform2iv Uniform2iv}
 	 */
 	public static void glUniform2iv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2iv;
+		long __functionAddress = GL.getICD().glUniform2iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -2916,7 +2648,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform3iv Uniform3iv}
 	 */
 	public static void glUniform3iv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3iv;
+		long __functionAddress = GL.getICD().glUniform3iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -2928,7 +2660,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniform4iv Uniform4iv}
 	 */
 	public static void glUniform4iv(int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4iv;
+		long __functionAddress = GL.getICD().glUniform4iv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -2940,7 +2672,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniformMatrix2fv UniformMatrix2fv}
 	 */
 	public static void glUniformMatrix2fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
+		long __functionAddress = GL.getICD().glUniformMatrix2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
@@ -2952,7 +2684,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniformMatrix3fv UniformMatrix3fv}
 	 */
 	public static void glUniformMatrix3fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
+		long __functionAddress = GL.getICD().glUniformMatrix3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
@@ -2964,7 +2696,7 @@ public class GL20 {
 	 * Array version of: {@link #glUniformMatrix4fv UniformMatrix4fv}
 	 */
 	public static void glUniformMatrix4fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
+		long __functionAddress = GL.getICD().glUniformMatrix4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
@@ -2976,7 +2708,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetShaderiv GetShaderiv}
 	 */
 	public static void glGetShaderiv(int shader, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetShaderiv;
+		long __functionAddress = GL.getICD().glGetShaderiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -2990,7 +2722,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetProgramiv GetProgramiv}
 	 */
 	public static void glGetProgramiv(int program, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetProgramiv;
+		long __functionAddress = GL.getICD().glGetProgramiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3004,7 +2736,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetShaderInfoLog GetShaderInfoLog}
 	 */
 	public static void glGetShaderInfoLog(int shader, int[] length, ByteBuffer infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
+		long __functionAddress = GL.getICD().glGetShaderInfoLog;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3018,7 +2750,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetProgramInfoLog GetProgramInfoLog}
 	 */
 	public static void glGetProgramInfoLog(int program, int[] length, ByteBuffer infoLog) {
-		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
+		long __functionAddress = GL.getICD().glGetProgramInfoLog;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3032,7 +2764,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetAttachedShaders GetAttachedShaders}
 	 */
 	public static void glGetAttachedShaders(int program, int[] count, int[] shaders) {
-		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
+		long __functionAddress = GL.getICD().glGetAttachedShaders;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(count, 1);
@@ -3046,7 +2778,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetActiveUniform GetActiveUniform}
 	 */
 	public static void glGetActiveUniform(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
+		long __functionAddress = GL.getICD().glGetActiveUniform;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3062,7 +2794,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetUniformfv GetUniformfv}
 	 */
 	public static void glGetUniformfv(int program, int location, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformfv;
+		long __functionAddress = GL.getICD().glGetUniformfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3076,7 +2808,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetUniformiv GetUniformiv}
 	 */
 	public static void glGetUniformiv(int program, int location, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformiv;
+		long __functionAddress = GL.getICD().glGetUniformiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3090,7 +2822,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetShaderSource GetShaderSource}
 	 */
 	public static void glGetShaderSource(int shader, int[] length, ByteBuffer source) {
-		long __functionAddress = GL.getCapabilities().glGetShaderSource;
+		long __functionAddress = GL.getICD().glGetShaderSource;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3104,7 +2836,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib1fv VertexAttrib1fv}
 	 */
 	public static void glVertexAttrib1fv(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
+		long __functionAddress = GL.getICD().glVertexAttrib1fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -3118,7 +2850,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib1sv VertexAttrib1sv}
 	 */
 	public static void glVertexAttrib1sv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
+		long __functionAddress = GL.getICD().glVertexAttrib1sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -3132,7 +2864,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib1dv VertexAttrib1dv}
 	 */
 	public static void glVertexAttrib1dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
+		long __functionAddress = GL.getICD().glVertexAttrib1dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -3146,7 +2878,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib2fv VertexAttrib2fv}
 	 */
 	public static void glVertexAttrib2fv(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
+		long __functionAddress = GL.getICD().glVertexAttrib2fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -3160,7 +2892,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib2sv VertexAttrib2sv}
 	 */
 	public static void glVertexAttrib2sv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
+		long __functionAddress = GL.getICD().glVertexAttrib2sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -3174,7 +2906,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib2dv VertexAttrib2dv}
 	 */
 	public static void glVertexAttrib2dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
+		long __functionAddress = GL.getICD().glVertexAttrib2dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 2);
@@ -3188,7 +2920,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib3fv VertexAttrib3fv}
 	 */
 	public static void glVertexAttrib3fv(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
+		long __functionAddress = GL.getICD().glVertexAttrib3fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -3202,7 +2934,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib3sv VertexAttrib3sv}
 	 */
 	public static void glVertexAttrib3sv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
+		long __functionAddress = GL.getICD().glVertexAttrib3sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -3216,7 +2948,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib3dv VertexAttrib3dv}
 	 */
 	public static void glVertexAttrib3dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
+		long __functionAddress = GL.getICD().glVertexAttrib3dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -3230,7 +2962,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4fv VertexAttrib4fv}
 	 */
 	public static void glVertexAttrib4fv(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
+		long __functionAddress = GL.getICD().glVertexAttrib4fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3244,7 +2976,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4sv VertexAttrib4sv}
 	 */
 	public static void glVertexAttrib4sv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
+		long __functionAddress = GL.getICD().glVertexAttrib4sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3258,7 +2990,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4dv VertexAttrib4dv}
 	 */
 	public static void glVertexAttrib4dv(int index, double[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
+		long __functionAddress = GL.getICD().glVertexAttrib4dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3272,7 +3004,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4iv VertexAttrib4iv}
 	 */
 	public static void glVertexAttrib4iv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
+		long __functionAddress = GL.getICD().glVertexAttrib4iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3286,7 +3018,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4usv VertexAttrib4usv}
 	 */
 	public static void glVertexAttrib4usv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
+		long __functionAddress = GL.getICD().glVertexAttrib4usv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3300,7 +3032,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv}
 	 */
 	public static void glVertexAttrib4uiv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
+		long __functionAddress = GL.getICD().glVertexAttrib4uiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3314,7 +3046,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv}
 	 */
 	public static void glVertexAttrib4Nsv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
+		long __functionAddress = GL.getICD().glVertexAttrib4Nsv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3328,7 +3060,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv}
 	 */
 	public static void glVertexAttrib4Niv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
+		long __functionAddress = GL.getICD().glVertexAttrib4Niv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3342,7 +3074,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv}
 	 */
 	public static void glVertexAttrib4Nusv(int index, short[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
+		long __functionAddress = GL.getICD().glVertexAttrib4Nusv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3356,7 +3088,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv}
 	 */
 	public static void glVertexAttrib4Nuiv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
+		long __functionAddress = GL.getICD().glVertexAttrib4Nuiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -3370,7 +3102,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
+		long __functionAddress = GL.getICD().glVertexAttribPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -3382,7 +3114,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
+		long __functionAddress = GL.getICD().glVertexAttribPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -3394,7 +3126,7 @@ public class GL20 {
 	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
+		long __functionAddress = GL.getICD().glVertexAttribPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
@@ -3406,7 +3138,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetActiveAttrib GetActiveAttrib}
 	 */
 	public static void glGetActiveAttrib(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
+		long __functionAddress = GL.getICD().glGetActiveAttrib;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -3422,7 +3154,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetVertexAttribiv GetVertexAttribiv}
 	 */
 	public static void glGetVertexAttribiv(int index, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
+		long __functionAddress = GL.getICD().glGetVertexAttribiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3436,7 +3168,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetVertexAttribfv GetVertexAttribfv}
 	 */
 	public static void glGetVertexAttribfv(int index, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
+		long __functionAddress = GL.getICD().glGetVertexAttribfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -3450,7 +3182,7 @@ public class GL20 {
 	 * Array version of: {@link #glGetVertexAttribdv GetVertexAttribdv}
 	 */
 	public static void glGetVertexAttribdv(int index, int pname, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
+		long __functionAddress = GL.getICD().glGetVertexAttribdv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -3464,7 +3196,7 @@ public class GL20 {
 	 * Array version of: {@link #glDrawBuffers DrawBuffers}
 	 */
 	public static void glDrawBuffers(int[] bufs) {
-		long __functionAddress = GL.getCapabilities().glDrawBuffers;
+		long __functionAddress = GL.getICD().glDrawBuffers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);

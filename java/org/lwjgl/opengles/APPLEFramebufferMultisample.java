@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_framebuffer_multisample.txt">APPLE_framebuffer_multisample</a> extension.
@@ -53,6 +52,8 @@ public class APPLEFramebufferMultisample {
 		GL_DRAW_FRAMEBUFFER_BINDING_APPLE = 0x8CA6,
 		GL_READ_FRAMEBUFFER_BINDING_APPLE = 0x8CAA;
 
+	static { GLES.initialize(); }
+
 	protected APPLEFramebufferMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -65,20 +66,18 @@ public class APPLEFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleAPPLE ] ---
 
+	public static native void nglRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
+
 	public static void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleAPPLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height);
+		nglRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height);
 	}
 
 	// --- [ glResolveMultisampleFramebufferAPPLE ] ---
 
+	public static native void nglResolveMultisampleFramebufferAPPLE();
+
 	public static void glResolveMultisampleFramebufferAPPLE() {
-		long __functionAddress = GLES.getCapabilities().glResolveMultisampleFramebufferAPPLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglResolveMultisampleFramebufferAPPLE();
 	}
 
 }

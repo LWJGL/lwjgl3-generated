@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a> extension.
@@ -28,6 +27,8 @@ public class EXTBlendColor {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_BLEND_COLOR_EXT = 0x8005;
 
+	static { GL.initialize(); }
+
 	protected EXTBlendColor() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,11 +41,10 @@ public class EXTBlendColor {
 
 	// --- [ glBlendColorEXT ] ---
 
+	public static native void nglBlendColorEXT(float red, float green, float blue, float alpha);
+
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
-		long __functionAddress = GL.getCapabilities().glBlendColorEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue, alpha);
+		nglBlendColorEXT(red, green, blue, alpha);
 	}
 
 }

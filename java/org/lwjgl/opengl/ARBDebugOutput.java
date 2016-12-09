@@ -135,6 +135,8 @@ public class ARBDebugOutput {
 		GL_DEBUG_SEVERITY_MEDIUM_ARB = 0x9147,
 		GL_DEBUG_SEVERITY_LOW_ARB    = 0x9148;
 
+	static { GL.initialize(); }
+
 	protected ARBDebugOutput() {
 		throw new UnsupportedOperationException();
 	}
@@ -152,12 +154,7 @@ public class ARBDebugOutput {
 	 *
 	 * @param count the number of message IDs in {@code ids}
 	 */
-	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, severity, count, ids, enabled);
-	}
+	public static native void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled);
 
 	/**
 	 * Controls the volume of debug output by disabling specific or groups of messages.
@@ -233,12 +230,7 @@ public class ARBDebugOutput {
 	 *
 	 * @param length the number of characters in {@code buf}. If negative, it is implied that {@code buf} contains a null terminated string.
 	 */
-	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageInsertARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, id, severity, length, buf);
-	}
+	public static native void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf);
 
 	/**
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
@@ -284,12 +276,7 @@ public class ARBDebugOutput {
 	// --- [ glDebugMessageCallbackARB ] ---
 
 	/** Unsafe version of: {@link #glDebugMessageCallbackARB DebugMessageCallbackARB} */
-	public static void nglDebugMessageCallbackARB(long callback, long userParam) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, callback, userParam);
-	}
+	public static native void nglDebugMessageCallbackARB(long callback, long userParam);
 
 	/**
 	 * Specifies a callback function for receiving debug messages.
@@ -340,12 +327,7 @@ public class ARBDebugOutput {
 	 *
 	 * @param bufSize the maximum number of characters that can be written in the {@code messageLog} array
 	 */
-	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
-	}
+	public static native int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog);
 
 	/**
 	 * When no debug callback is set, debug messages are stored in a debug message log. Messages can be queried from the log by calling this function.
@@ -389,7 +371,7 @@ public class ARBDebugOutput {
 
 	/** Array version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
 	public static void glDebugMessageControlARB(int source, int type, int severity, int[] ids, boolean enabled) {
-		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
+		long __functionAddress = GL.getICD().glDebugMessageControlARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
@@ -397,7 +379,7 @@ public class ARBDebugOutput {
 
 	/** Array version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
 	public static int glGetDebugMessageLogARB(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
-		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
+		long __functionAddress = GL.getICD().glGetDebugMessageLogARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(sources, count);

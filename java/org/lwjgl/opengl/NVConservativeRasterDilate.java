@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/conservative_raster_dilate.txt">NV_conservative_raster_dilate</a> extension.
@@ -28,6 +27,8 @@ public class NVConservativeRasterDilate {
 		GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV       = 0x937A,
 		GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV = 0x937B;
 
+	static { GL.initialize(); }
+
 	protected NVConservativeRasterDilate() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,11 +41,10 @@ public class NVConservativeRasterDilate {
 
 	// --- [ glConservativeRasterParameterfNV ] ---
 
+	public static native void nglConservativeRasterParameterfNV(int pname, float value);
+
 	public static void glConservativeRasterParameterfNV(int pname, float value) {
-		long __functionAddress = GL.getCapabilities().glConservativeRasterParameterfNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, value);
+		nglConservativeRasterParameterfNV(pname, value);
 	}
 
 }

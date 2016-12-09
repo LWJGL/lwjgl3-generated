@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_storage_multisample_2d_array.txt">OES_texture_storage_multisample_2d_array</a> extension.
@@ -32,6 +31,8 @@ public class OESTextureStorageMultisample2DArray {
 		GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES          = 0x910C,
 		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910D;
 
+	static { GLES.initialize(); }
+
 	protected OESTextureStorageMultisample2DArray() {
 		throw new UnsupportedOperationException();
 	}
@@ -44,11 +45,10 @@ public class OESTextureStorageMultisample2DArray {
 
 	// --- [ glTexStorage3DMultisampleOES ] ---
 
+	public static native void nglTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
+
 	public static void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = GLES.getCapabilities().glTexStorage3DMultisampleOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		nglTexStorage3DMultisampleOES(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

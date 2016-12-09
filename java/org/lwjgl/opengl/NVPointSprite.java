@@ -49,6 +49,8 @@ public class NVPointSprite {
 	 */
 	public static final int GL_POINT_SPRITE_R_MODE_NV = 0x8863;
 
+	static { GL.initialize(); }
+
 	protected NVPointSprite() {
 		throw new UnsupportedOperationException();
 	}
@@ -61,21 +63,15 @@ public class NVPointSprite {
 
 	// --- [ glPointParameteriNV ] ---
 
+	public static native void nglPointParameteriNV(int pname, int param);
+
 	public static void glPointParameteriNV(int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glPointParameteriNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, param);
+		nglPointParameteriNV(pname, param);
 	}
 
 	// --- [ glPointParameterivNV ] ---
 
-	public static void nglPointParameterivNV(int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glPointParameterivNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, params);
-	}
+	public static native void nglPointParameterivNV(int pname, long params);
 
 	public static void glPointParameterivNV(int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -85,7 +81,7 @@ public class NVPointSprite {
 
 	/** Array version of: {@link #glPointParameterivNV PointParameterivNV} */
 	public static void glPointParameterivNV(int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glPointParameterivNV;
+		long __functionAddress = GL.getICD().glPointParameterivNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

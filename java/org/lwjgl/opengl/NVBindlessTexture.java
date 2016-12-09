@@ -61,6 +61,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVBindlessTexture {
 
+	static { GL.initialize(); }
+
 	protected NVBindlessTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -76,6 +78,9 @@ public class NVBindlessTexture {
 
 	// --- [ glGetTextureHandleNV ] ---
 
+	/** Unsafe version of: {@link #glGetTextureHandleNV GetTextureHandleNV} */
+	public static native long nglGetTextureHandleNV(int texture);
+
 	/**
 	 * Creates a texture handle using the current state of the texture named {@code texture}, including any embedded sampler state. See
 	 * {@link #glGetTextureSamplerHandleNV GetTextureSamplerHandleNV} for details.
@@ -83,13 +88,13 @@ public class NVBindlessTexture {
 	 * @param texture the texture object
 	 */
 	public static long glGetTextureHandleNV(int texture) {
-		long __functionAddress = GL.getCapabilities().glGetTextureHandleNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress, texture);
+		return nglGetTextureHandleNV(texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleNV ] ---
+
+	/** Unsafe version of: {@link #glGetTextureSamplerHandleNV GetTextureSamplerHandleNV} */
+	public static native long nglGetTextureSamplerHandleNV(int texture, int sampler);
 
 	/**
 	 * Creates a texture handle using the current non-sampler state from the texture named {@code texture} and the sampler state from the sampler object
@@ -123,13 +128,13 @@ public class NVBindlessTexture {
 	 * @param sampler the sampler object
 	 */
 	public static long glGetTextureSamplerHandleNV(int texture, int sampler) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSamplerHandleNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress, texture, sampler);
+		return nglGetTextureSamplerHandleNV(texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentNV ] ---
+
+	/** Unsafe version of: {@link #glMakeTextureHandleResidentNV MakeTextureHandleResidentNV} */
+	public static native void nglMakeTextureHandleResidentNV(long handle);
 
 	/**
 	 * Make a texture handle resident, so that it is accessible to shaders for texture mapping operations.
@@ -142,13 +147,13 @@ public class NVBindlessTexture {
 	 * @param handle the texture handle
 	 */
 	public static void glMakeTextureHandleResidentNV(long handle) {
-		long __functionAddress = GL.getCapabilities().glMakeTextureHandleResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle);
+		nglMakeTextureHandleResidentNV(handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentNV ] ---
+
+	/** Unsafe version of: {@link #glMakeTextureHandleNonResidentNV MakeTextureHandleNonResidentNV} */
+	public static native void nglMakeTextureHandleNonResidentNV(long handle);
 
 	/**
 	 * Makes a texture handle inaccessible to shaders.
@@ -159,13 +164,13 @@ public class NVBindlessTexture {
 	 * @param handle the texture handle
 	 */
 	public static void glMakeTextureHandleNonResidentNV(long handle) {
-		long __functionAddress = GL.getCapabilities().glMakeTextureHandleNonResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle);
+		nglMakeTextureHandleNonResidentNV(handle);
 	}
 
 	// --- [ glGetImageHandleNV ] ---
+
+	/** Unsafe version of: {@link #glGetImageHandleNV GetImageHandleNV} */
+	public static native long nglGetImageHandleNV(int texture, int level, boolean layered, int layer, int format);
 
 	/**
 	 * Creates and returns an image handle for level {@code level} of the texture named {@code texture}. If {@code layered} is {@link GL11#GL_TRUE TRUE}, a handle is created
@@ -210,13 +215,13 @@ public class NVBindlessTexture {
 	 * @param format  the texture format
 	 */
 	public static long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format) {
-		long __functionAddress = GL.getCapabilities().glGetImageHandleNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress, texture, level, layered, layer, format);
+		return nglGetImageHandleNV(texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentNV ] ---
+
+	/** Unsafe version of: {@link #glMakeImageHandleResidentNV MakeImageHandleResidentNV} */
+	public static native void nglMakeImageHandleResidentNV(long handle, int access);
 
 	/**
 	 * Makes an image handle resident, so that it is accessible to shaders for image loads, stores, and atomic operations.
@@ -234,13 +239,13 @@ public class NVBindlessTexture {
 	 * @param access the access type. One of:<br><table><tr><td>{@link GL15#GL_READ_ONLY READ_ONLY}</td><td>{@link GL15#GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link GL15#GL_READ_WRITE READ_WRITE}</td></tr></table>
 	 */
 	public static void glMakeImageHandleResidentNV(long handle, int access) {
-		long __functionAddress = GL.getCapabilities().glMakeImageHandleResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle, access);
+		nglMakeImageHandleResidentNV(handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentNV ] ---
+
+	/** Unsafe version of: {@link #glMakeImageHandleNonResidentNV MakeImageHandleNonResidentNV} */
+	public static native void nglMakeImageHandleNonResidentNV(long handle);
 
 	/**
 	 * Makes an image handle inaccessible to shaders.
@@ -248,13 +253,13 @@ public class NVBindlessTexture {
 	 * @param handle the image handle
 	 */
 	public static void glMakeImageHandleNonResidentNV(long handle) {
-		long __functionAddress = GL.getCapabilities().glMakeImageHandleNonResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle);
+		nglMakeImageHandleNonResidentNV(handle);
 	}
 
 	// --- [ glUniformHandleui64NV ] ---
+
+	/** Unsafe version of: {@link #glUniformHandleui64NV UniformHandleui64NV} */
+	public static native void nglUniformHandleui64NV(int location, long value);
 
 	/**
 	 * Loads a 64-bit unsigned integer handle into a uniform location corresponding to sampler or image variable types.
@@ -263,10 +268,7 @@ public class NVBindlessTexture {
 	 * @param value    the handle value
 	 */
 	public static void glUniformHandleui64NV(int location, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformHandleui64NV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, location, value);
+		nglUniformHandleui64NV(location, value);
 	}
 
 	// --- [ glUniformHandleui64vNV ] ---
@@ -276,12 +278,7 @@ public class NVBindlessTexture {
 	 *
 	 * @param count the number of handles to load
 	 */
-	public static void nglUniformHandleui64vNV(int location, int count, long values) {
-		long __functionAddress = GL.getCapabilities().glUniformHandleui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, values);
-	}
+	public static native void nglUniformHandleui64vNV(int location, int count, long values);
 
 	/**
 	 * Loads {@code count} 64-bit unsigned integer handles into a uniform location corresponding to sampler or image variable types.
@@ -295,6 +292,9 @@ public class NVBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64NV ] ---
 
+	/** Unsafe version of: {@link #glProgramUniformHandleui64NV ProgramUniformHandleui64NV} */
+	public static native void nglProgramUniformHandleui64NV(int program, int location, long value);
+
 	/**
 	 * DSA version of {@link #glUniformHandleui64NV UniformHandleui64NV}.
 	 *
@@ -303,10 +303,7 @@ public class NVBindlessTexture {
 	 * @param value    the handle value
 	 */
 	public static void glProgramUniformHandleui64NV(int program, int location, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64NV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, program, location, value);
+		nglProgramUniformHandleui64NV(program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vNV ] ---
@@ -316,12 +313,7 @@ public class NVBindlessTexture {
 	 *
 	 * @param count the number of handles to load
 	 */
-	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, values);
-	}
+	public static native void nglProgramUniformHandleui64vNV(int program, int location, int count, long values);
 
 	/**
 	 * DSA version of {@link #glUniformHandleui64vNV UniformHandleui64vNV}.
@@ -336,19 +328,22 @@ public class NVBindlessTexture {
 
 	// --- [ glIsTextureHandleResidentNV ] ---
 
+	/** Unsafe version of: {@link #glIsTextureHandleResidentNV IsTextureHandleResidentNV} */
+	public static native boolean nglIsTextureHandleResidentNV(long handle);
+
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified texture handle is resident in the current context.
 	 *
 	 * @param handle the texture handle
 	 */
 	public static boolean glIsTextureHandleResidentNV(long handle) {
-		long __functionAddress = GL.getCapabilities().glIsTextureHandleResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJZ(__functionAddress, handle);
+		return nglIsTextureHandleResidentNV(handle);
 	}
 
 	// --- [ glIsImageHandleResidentNV ] ---
+
+	/** Unsafe version of: {@link #glIsImageHandleResidentNV IsImageHandleResidentNV} */
+	public static native boolean nglIsImageHandleResidentNV(long handle);
 
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified image handle is resident in the current context.
@@ -356,15 +351,12 @@ public class NVBindlessTexture {
 	 * @param handle the image handle
 	 */
 	public static boolean glIsImageHandleResidentNV(long handle) {
-		long __functionAddress = GL.getCapabilities().glIsImageHandleResidentNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJZ(__functionAddress, handle);
+		return nglIsImageHandleResidentNV(handle);
 	}
 
 	/** Array version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
 	public static void glUniformHandleui64vNV(int location, long[] values) {
-		long __functionAddress = GL.getCapabilities().glUniformHandleui64vNV;
+		long __functionAddress = GL.getICD().glUniformHandleui64vNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, values.length, values);
@@ -372,7 +364,7 @@ public class NVBindlessTexture {
 
 	/** Array version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
 	public static void glProgramUniformHandleui64vNV(int program, int location, long[] values) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vNV;
+		long __functionAddress = GL.getICD().glProgramUniformHandleui64vNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, values.length, values);

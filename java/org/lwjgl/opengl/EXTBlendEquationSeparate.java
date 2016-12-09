@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_equation_separate.txt">EXT_blend_equation_separate</a> extension.
@@ -30,6 +29,8 @@ public class EXTBlendEquationSeparate {
 		GL_BLEND_EQUATION_RGB_EXT   = 0x8009,
 		GL_BLEND_EQUATION_ALPHA_EXT = 0x883D;
 
+	static { GL.initialize(); }
+
 	protected EXTBlendEquationSeparate() {
 		throw new UnsupportedOperationException();
 	}
@@ -42,11 +43,10 @@ public class EXTBlendEquationSeparate {
 
 	// --- [ glBlendEquationSeparateEXT ] ---
 
+	public static native void nglBlendEquationSeparateEXT(int modeRGB, int modeAlpha);
+
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, modeRGB, modeAlpha);
+		nglBlendEquationSeparateEXT(modeRGB, modeAlpha);
 	}
 
 }

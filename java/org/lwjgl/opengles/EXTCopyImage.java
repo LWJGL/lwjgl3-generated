@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_copy_image.txt">EXT_copy_image</a> extension.
@@ -27,6 +26,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTCopyImage {
 
+	static { GLES.initialize(); }
+
 	protected EXTCopyImage() {
 		throw new UnsupportedOperationException();
 	}
@@ -39,11 +40,10 @@ public class EXTCopyImage {
 
 	// --- [ glCopyImageSubDataEXT ] ---
 
+	public static native void nglCopyImageSubDataEXT(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
+
 	public static void glCopyImageSubDataEXT(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		long __functionAddress = GLES.getCapabilities().glCopyImageSubDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
+		nglCopyImageSubDataEXT(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 
 }

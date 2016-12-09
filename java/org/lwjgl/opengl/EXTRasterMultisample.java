@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/raster_multisample.txt">EXT_raster_multisample</a> extension.
@@ -35,6 +34,8 @@ public class EXTRasterMultisample {
 		GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
 		GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C;
 
+	static { GL.initialize(); }
+
 	protected EXTRasterMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -46,6 +47,9 @@ public class EXTRasterMultisample {
 	}
 
 	// --- [ glRasterSamplesEXT ] ---
+
+	/** Unsafe version of: {@link #glRasterSamplesEXT RasterSamplesEXT} */
+	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations);
 
 	/**
 	 * Selects the number of samples to be used for rasterization. {@code samples} represents a request for a desired minimum number of samples. Since
@@ -79,10 +83,7 @@ public class EXTRasterMultisample {
 	 * @param fixedsamplelocations if {@link GL11#GL_TRUE TRUE}, identical sample locations will be used for all pixels
 	 */
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glRasterSamplesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, samples, fixedsamplelocations);
+		nglRasterSamplesEXT(samples, fixedsamplelocations);
 	}
 
 }

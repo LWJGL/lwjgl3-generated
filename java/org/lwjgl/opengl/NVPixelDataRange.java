@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -66,6 +65,8 @@ public class NVPixelDataRange {
 		GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV = 0x887C,
 		GL_READ_PIXEL_DATA_RANGE_POINTER_NV  = 0x887D;
 
+	static { GL.initialize(); }
+
 	protected NVPixelDataRange() {
 		throw new UnsupportedOperationException();
 	}
@@ -78,12 +79,7 @@ public class NVPixelDataRange {
 
 	// --- [ glPixelDataRangeNV ] ---
 
-	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
-		long __functionAddress = GL.getCapabilities().glPixelDataRangeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, length, pointer);
-	}
+	public static native void nglPixelDataRangeNV(int target, int length, long pointer);
 
 	public static void glPixelDataRangeNV(int target, ByteBuffer pointer) {
 		nglPixelDataRangeNV(target, pointer.remaining(), memAddress(pointer));
@@ -91,11 +87,10 @@ public class NVPixelDataRange {
 
 	// --- [ glFlushPixelDataRangeNV ] ---
 
+	public static native void nglFlushPixelDataRangeNV(int target);
+
 	public static void glFlushPixelDataRangeNV(int target) {
-		long __functionAddress = GL.getCapabilities().glFlushPixelDataRangeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglFlushPixelDataRangeNV(target);
 	}
 
 }

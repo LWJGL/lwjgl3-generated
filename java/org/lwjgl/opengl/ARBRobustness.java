@@ -90,6 +90,8 @@ public class ARBRobustness {
 	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
 	public static final int GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB = 0x4;
 
+	static { GL.initialize(); }
+
 	protected ARBRobustness() {
 		throw new UnsupportedOperationException();
 	}
@@ -113,6 +115,9 @@ public class ARBRobustness {
 
 	// --- [ glGetGraphicsResetStatusARB ] ---
 
+	/** Unsafe version of: {@link #glGetGraphicsResetStatusARB GetGraphicsResetStatusARB} */
+	public static native int nglGetGraphicsResetStatusARB();
+
 	/**
 	 * The symbolic constant returned indicates if the GL context has been in a reset state at any point since the last call to {@code GetGraphicsResetStatusARB}.
 	 * {@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call. {@link #GL_GUILTY_CONTEXT_RESET_ARB GUILTY_CONTEXT_RESET_ARB} indicates that a reset has
@@ -134,10 +139,7 @@ public class ARBRobustness {
 	 * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
 	 */
 	public static int glGetGraphicsResetStatusARB() {
-		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatusARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
+		return nglGetGraphicsResetStatusARB();
 	}
 
 	// --- [ glGetnMapdvARB ] ---
@@ -147,12 +149,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglGetnMapdvARB(int target, int query, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, query, bufSize, data);
-	}
+	public static native void nglGetnMapdvARB(int target, int query, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glGetMapdv GetMapdv}
@@ -189,12 +186,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglGetnMapfvARB(int target, int query, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, query, bufSize, data);
-	}
+	public static native void nglGetnMapfvARB(int target, int query, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glGetMapfv GetMapfv}
@@ -231,12 +223,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglGetnMapivARB(int target, int query, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, query, bufSize, data);
-	}
+	public static native void nglGetnMapivARB(int target, int query, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glGetMapiv GetMapiv}
@@ -273,12 +260,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglGetnPixelMapfvARB(int map, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, map, bufSize, data);
-	}
+	public static native void nglGetnPixelMapfvARB(int map, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glGetPixelMapfv GetPixelMapfv}
@@ -297,12 +279,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglGetnPixelMapuivARB(int map, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, map, bufSize, data);
-	}
+	public static native void nglGetnPixelMapuivARB(int map, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glGetPixelMapuiv GetPixelMapuiv}
@@ -321,12 +298,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglGetnPixelMapusvARB(int map, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, map, bufSize, data);
-	}
+	public static native void nglGetnPixelMapusvARB(int map, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glGetPixelMapusv GetPixelMapusv}
@@ -345,12 +317,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code pattern}
 	 */
-	public static void nglGetnPolygonStippleARB(int bufSize, long pattern) {
-		long __functionAddress = GL.getCapabilities().glGetnPolygonStippleARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, bufSize, pattern);
-	}
+	public static native void nglGetnPolygonStippleARB(int bufSize, long pattern);
 
 	/**
 	 * Robust version of {@link GL11#glGetPolygonStipple GetPolygonStipple}
@@ -378,12 +345,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code img}
 	 */
-	public static void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img) {
-		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, tex, level, format, type, bufSize, img);
-	}
+	public static native void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img);
 
 	/**
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
@@ -471,12 +433,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 */
-	public static void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
-		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
-	}
+	public static native void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data);
 
 	/**
 	 * Robust version of {@link GL11#glReadPixels ReadPixels}
@@ -561,12 +518,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code table}
 	 */
-	public static void nglGetnColorTableARB(int target, int format, int type, int bufSize, long table) {
-		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, format, type, bufSize, table);
-	}
+	public static native void nglGetnColorTableARB(int target, int format, int type, int bufSize, long table);
 
 	/**
 	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
@@ -636,12 +588,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code image}
 	 */
-	public static void nglGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long image) {
-		long __functionAddress = GL.getCapabilities().glGetnConvolutionFilterARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, format, type, bufSize, image);
-	}
+	public static native void nglGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long image);
 
 	/**
 	 * Robust version of {@link ARBImaging#glGetConvolutionFilter GetConvolutionFilter}
@@ -676,12 +623,7 @@ public class ARBRobustness {
 	 * @param rowBufSize    the maximum number of bytes to write into {@code row}
 	 * @param columnBufSize the maximum number of bytes to write into {@code column}
 	 */
-	public static void nglGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
-		long __functionAddress = GL.getCapabilities().glGetnSeparableFilterARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
-	}
+	public static native void nglGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span);
 
 	/**
 	 * Robust version of {@link ARBImaging#glGetSeparableFilter GetSeparableFilter}
@@ -720,12 +662,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code values}
 	 */
-	public static void nglGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long values) {
-		long __functionAddress = GL.getCapabilities().glGetnHistogramARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, reset, format, type, bufSize, values);
-	}
+	public static native void nglGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long values);
 
 	/**
 	 * Robust version of {@link ARBImaging#glGetHistogram GetHistogram}
@@ -761,12 +698,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code values}
 	 */
-	public static void nglGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long values) {
-		long __functionAddress = GL.getCapabilities().glGetnMinmaxARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, reset, format, type, bufSize, values);
-	}
+	public static native void nglGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long values);
 
 	/**
 	 * Robust version of {@link ARBImaging#glGetMinmax GetMinmax}
@@ -804,12 +736,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code img}
 	 */
-	public static void nglGetnCompressedTexImageARB(int target, int level, int bufSize, long img) {
-		long __functionAddress = GL.getCapabilities().glGetnCompressedTexImageARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, bufSize, img);
-	}
+	public static native void nglGetnCompressedTexImageARB(int target, int level, int bufSize, long img);
 
 	/**
 	 * Robust version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}
@@ -844,12 +771,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code params}
 	 */
-	public static void nglGetnUniformfvARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformfvARB(int program, int location, int bufSize, long params);
 
 	/**
 	 * Robust version of {@link GL20#glGetUniformfv GetUniformfv}
@@ -886,12 +808,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code params}
 	 */
-	public static void nglGetnUniformivARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformivARB(int program, int location, int bufSize, long params);
 
 	/**
 	 * Robust version of {@link GL20#glGetUniformiv GetUniformiv}
@@ -928,12 +845,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code params}
 	 */
-	public static void nglGetnUniformuivARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformuivARB(int program, int location, int bufSize, long params);
 
 	/**
 	 * Robust version of {@link GL30#glGetUniformuiv GetUniformuiv}
@@ -970,12 +882,7 @@ public class ARBRobustness {
 	 *
 	 * @param bufSize the maximum number of bytes to write into {@code params}
 	 */
-	public static void nglGetnUniformdvARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformdvARB(int program, int location, int bufSize, long params);
 
 	/**
 	 * Robust version of {@link GL40#glGetUniformdv GetUniformdv}
@@ -1007,7 +914,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnMapdvARB GetnMapdvARB} */
 	public static void glGetnMapdvARB(int target, int query, double[] data) {
-		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
+		long __functionAddress = GL.getICD().glGetnMapdvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, query, data.length, data);
@@ -1015,7 +922,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnMapfvARB GetnMapfvARB} */
 	public static void glGetnMapfvARB(int target, int query, float[] data) {
-		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
+		long __functionAddress = GL.getICD().glGetnMapfvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, query, data.length, data);
@@ -1023,7 +930,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnMapivARB GetnMapivARB} */
 	public static void glGetnMapivARB(int target, int query, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
+		long __functionAddress = GL.getICD().glGetnMapivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, query, data.length, data);
@@ -1031,7 +938,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
 	public static void glGetnPixelMapfvARB(int map, float[] data) {
-		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
+		long __functionAddress = GL.getICD().glGetnPixelMapfvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, map, data.length, data);
@@ -1039,7 +946,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
 	public static void glGetnPixelMapuivARB(int map, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
+		long __functionAddress = GL.getICD().glGetnPixelMapuivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, map, data.length, data);
@@ -1047,7 +954,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
 	public static void glGetnPixelMapusvARB(int map, short[] data) {
-		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
+		long __functionAddress = GL.getICD().glGetnPixelMapusvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, map, data.length, data);
@@ -1055,7 +962,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, short[] img) {
-		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		long __functionAddress = GL.getICD().glGetnTexImageARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 1, img);
@@ -1063,7 +970,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, int[] img) {
-		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		long __functionAddress = GL.getICD().glGetnTexImageARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
@@ -1071,7 +978,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, float[] img) {
-		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		long __functionAddress = GL.getICD().glGetnTexImageARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
@@ -1079,7 +986,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, double[] img) {
-		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		long __functionAddress = GL.getICD().glGetnTexImageARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 3, img);
@@ -1087,7 +994,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		long __functionAddress = GL.getICD().glReadnPixelsARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
@@ -1095,7 +1002,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		long __functionAddress = GL.getICD().glReadnPixelsARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
@@ -1103,7 +1010,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		long __functionAddress = GL.getICD().glReadnPixelsARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
@@ -1111,7 +1018,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, short[] table) {
-		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
+		long __functionAddress = GL.getICD().glGetnColorTableARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table.length << 1, table);
@@ -1119,7 +1026,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, int[] table) {
-		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
+		long __functionAddress = GL.getICD().glGetnColorTableARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table.length << 2, table);
@@ -1127,7 +1034,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, float[] table) {
-		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
+		long __functionAddress = GL.getICD().glGetnColorTableARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table.length << 2, table);
@@ -1135,7 +1042,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnUniformfvARB GetnUniformfvARB} */
 	public static void glGetnUniformfvARB(int program, int location, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
+		long __functionAddress = GL.getICD().glGetnUniformfvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -1143,7 +1050,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnUniformivARB GetnUniformivARB} */
 	public static void glGetnUniformivARB(int program, int location, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
+		long __functionAddress = GL.getICD().glGetnUniformivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -1151,7 +1058,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnUniformuivARB GetnUniformuivARB} */
 	public static void glGetnUniformuivARB(int program, int location, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
+		long __functionAddress = GL.getICD().glGetnUniformuivARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -1159,7 +1066,7 @@ public class ARBRobustness {
 
 	/** Array version of: {@link #glGetnUniformdvARB GetnUniformdvARB} */
 	public static void glGetnUniformdvARB(int program, int location, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
+		long __functionAddress = GL.getICD().glGetnUniformdvARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a> extension.
@@ -37,6 +36,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBES31Compatibility {
 
+	static { GL.initialize(); }
+
 	protected ARBES31Compatibility() {
 		throw new UnsupportedOperationException();
 	}
@@ -48,6 +49,9 @@ public class ARBES31Compatibility {
 	}
 
 	// --- [ glMemoryBarrierByRegion ] ---
+
+	/** Unsafe version of: {@link #glMemoryBarrierByRegion MemoryBarrierByRegion} */
+	public static native void nglMemoryBarrierByRegion(int barriers);
 
 	/**
 	 * Behaves like {@link GL42#glMemoryBarrier MemoryBarrier}, with two differences:
@@ -67,10 +71,7 @@ public class ARBES31Compatibility {
 	 * @param barriers the barriers to insert. One or more of:<br><table><tr><td>{@link GL42#GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td><td>{@link GL42#GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link GL42#GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td><td>{@link GL42#GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link GL42#GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr></table>
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
-		long __functionAddress = GL.getCapabilities().glMemoryBarrierByRegion;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, barriers);
+		nglMemoryBarrierByRegion(barriers);
 	}
 
 }

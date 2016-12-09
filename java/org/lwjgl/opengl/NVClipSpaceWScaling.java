@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Virtual Reality (VR) applications often involve a post-processing step to apply a "barrel" distortion to the rendered image to correct the "pincushion"
@@ -37,6 +36,8 @@ public class NVClipSpaceWScaling {
 		GL_VIEWPORT_POSITION_W_SCALE_X_COEFF = 0x937D,
 		GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF = 0x937E;
 
+	static { GL.initialize(); }
+
 	protected NVClipSpaceWScaling() {
 		throw new UnsupportedOperationException();
 	}
@@ -48,6 +49,9 @@ public class NVClipSpaceWScaling {
 	}
 
 	// --- [ glViewportPositionWScaleNV ] ---
+
+	/** Unsafe version of: {@link #glViewportPositionWScaleNV ViewportPositionWScaleNV} */
+	public static native void nglViewportPositionWScaleNV(int index, float xcoeff, float ycoeff);
 
 	/**
 	 * If {@link #GL_VIEWPORT_POSITION_W_SCALE_NV VIEWPORT_POSITION_W_SCALE_NV} is enabled, the w coordinates for each primitive sent to a given viewport will be scaled as a function of its x and y
@@ -75,10 +79,7 @@ public class NVClipSpaceWScaling {
 	 * @param ycoeff the y coefficient
 	 */
 	public static void glViewportPositionWScaleNV(int index, float xcoeff, float ycoeff) {
-		long __functionAddress = GL.getCapabilities().glViewportPositionWScaleNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, xcoeff, ycoeff);
+		nglViewportPositionWScaleNV(index, xcoeff, ycoeff);
 	}
 
 }

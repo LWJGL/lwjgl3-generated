@@ -27,6 +27,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDrawBuffers2 {
 
+	static { GL.initialize(); }
+
 	protected EXTDrawBuffers2() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,21 +42,15 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glColorMaskIndexedEXT ] ---
 
+	public static native void nglColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a);
+
 	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = GL.getCapabilities().glColorMaskIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, r, g, b, a);
+		nglColorMaskIndexedEXT(index, r, g, b, a);
 	}
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetBooleanIndexedvEXT(int target, int index, long data);
 
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer data) {
 		if ( CHECKS )
@@ -75,12 +71,7 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetIntegerIndexedvEXT(int target, int index, long data);
 
 	public static void glGetIntegerIndexedvEXT(int target, int index, IntBuffer data) {
 		if ( CHECKS )
@@ -101,34 +92,31 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glEnableIndexedEXT ] ---
 
+	public static native void nglEnableIndexedEXT(int target, int index);
+
 	public static void glEnableIndexedEXT(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glEnableIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglEnableIndexedEXT(target, index);
 	}
 
 	// --- [ glDisableIndexedEXT ] ---
 
+	public static native void nglDisableIndexedEXT(int target, int index);
+
 	public static void glDisableIndexedEXT(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glDisableIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglDisableIndexedEXT(target, index);
 	}
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
+	public static native boolean nglIsEnabledIndexedEXT(int target, int index);
+
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glIsEnabledIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target, index);
+		return nglIsEnabledIndexedEXT(target, index);
 	}
 
 	/** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int target, int index, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
+		long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);

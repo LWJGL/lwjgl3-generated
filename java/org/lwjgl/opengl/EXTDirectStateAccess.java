@@ -166,6 +166,8 @@ public class EXTDirectStateAccess {
 		GL_TRANSPOSE_PROGRAM_MATRIX_EXT   = 0x8E2E,
 		GL_PROGRAM_MATRIX_STACK_DEPTH_EXT = 0x8E2F;
 
+	static { GL.initialize(); }
+
 	protected EXTDirectStateAccess() {
 		throw new UnsupportedOperationException();
 	}
@@ -292,30 +294,23 @@ public class EXTDirectStateAccess {
 
 	// --- [ glClientAttribDefaultEXT ] ---
 
+	public static native void nglClientAttribDefaultEXT(int mask);
+
 	public static void glClientAttribDefaultEXT(int mask) {
-		long __functionAddress = GL.getCapabilities().glClientAttribDefaultEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mask);
+		nglClientAttribDefaultEXT(mask);
 	}
 
 	// --- [ glPushClientAttribDefaultEXT ] ---
 
+	public static native void nglPushClientAttribDefaultEXT(int mask);
+
 	public static void glPushClientAttribDefaultEXT(int mask) {
-		long __functionAddress = GL.getCapabilities().glPushClientAttribDefaultEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mask);
+		nglPushClientAttribDefaultEXT(mask);
 	}
 
 	// --- [ glMatrixLoadfEXT ] ---
 
-	public static void nglMatrixLoadfEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadfEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixLoadfEXT(int matrixMode, long m);
 
 	public static void glMatrixLoadfEXT(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
@@ -325,12 +320,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixLoaddEXT ] ---
 
-	public static void nglMatrixLoaddEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoaddEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixLoaddEXT(int matrixMode, long m);
 
 	public static void glMatrixLoaddEXT(int matrixMode, DoubleBuffer m) {
 		if ( CHECKS )
@@ -340,12 +330,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixMultfEXT ] ---
 
-	public static void nglMatrixMultfEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultfEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixMultfEXT(int matrixMode, long m);
 
 	public static void glMatrixMultfEXT(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
@@ -355,12 +340,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixMultdEXT ] ---
 
-	public static void nglMatrixMultdEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultdEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixMultdEXT(int matrixMode, long m);
 
 	public static void glMatrixMultdEXT(int matrixMode, DoubleBuffer m) {
 		if ( CHECKS )
@@ -370,120 +350,103 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixLoadIdentityEXT ] ---
 
+	public static native void nglMatrixLoadIdentityEXT(int matrixMode);
+
 	public static void glMatrixLoadIdentityEXT(int matrixMode) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadIdentityEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode);
+		nglMatrixLoadIdentityEXT(matrixMode);
 	}
 
 	// --- [ glMatrixRotatefEXT ] ---
 
+	public static native void nglMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z);
+
 	public static void glMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z) {
-		long __functionAddress = GL.getCapabilities().glMatrixRotatefEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, angle, x, y, z);
+		nglMatrixRotatefEXT(matrixMode, angle, x, y, z);
 	}
 
 	// --- [ glMatrixRotatedEXT ] ---
 
+	public static native void nglMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z);
+
 	public static void glMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glMatrixRotatedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, angle, x, y, z);
+		nglMatrixRotatedEXT(matrixMode, angle, x, y, z);
 	}
 
 	// --- [ glMatrixScalefEXT ] ---
 
+	public static native void nglMatrixScalefEXT(int matrixMode, float x, float y, float z);
+
 	public static void glMatrixScalefEXT(int matrixMode, float x, float y, float z) {
-		long __functionAddress = GL.getCapabilities().glMatrixScalefEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, x, y, z);
+		nglMatrixScalefEXT(matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixScaledEXT ] ---
 
+	public static native void nglMatrixScaledEXT(int matrixMode, double x, double y, double z);
+
 	public static void glMatrixScaledEXT(int matrixMode, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glMatrixScaledEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, x, y, z);
+		nglMatrixScaledEXT(matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixTranslatefEXT ] ---
 
+	public static native void nglMatrixTranslatefEXT(int matrixMode, float x, float y, float z);
+
 	public static void glMatrixTranslatefEXT(int matrixMode, float x, float y, float z) {
-		long __functionAddress = GL.getCapabilities().glMatrixTranslatefEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, x, y, z);
+		nglMatrixTranslatefEXT(matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixTranslatedEXT ] ---
 
+	public static native void nglMatrixTranslatedEXT(int matrixMode, double x, double y, double z);
+
 	public static void glMatrixTranslatedEXT(int matrixMode, double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glMatrixTranslatedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, x, y, z);
+		nglMatrixTranslatedEXT(matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixOrthoEXT ] ---
 
+	public static native void nglMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f);
+
 	public static void glMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
-		long __functionAddress = GL.getCapabilities().glMatrixOrthoEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, l, r, b, t, n, f);
+		nglMatrixOrthoEXT(matrixMode, l, r, b, t, n, f);
 	}
 
 	// --- [ glMatrixFrustumEXT ] ---
 
+	public static native void nglMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f);
+
 	public static void glMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
-		long __functionAddress = GL.getCapabilities().glMatrixFrustumEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode, l, r, b, t, n, f);
+		nglMatrixFrustumEXT(matrixMode, l, r, b, t, n, f);
 	}
 
 	// --- [ glMatrixPushEXT ] ---
 
+	public static native void nglMatrixPushEXT(int matrixMode);
+
 	public static void glMatrixPushEXT(int matrixMode) {
-		long __functionAddress = GL.getCapabilities().glMatrixPushEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode);
+		nglMatrixPushEXT(matrixMode);
 	}
 
 	// --- [ glMatrixPopEXT ] ---
 
+	public static native void nglMatrixPopEXT(int matrixMode);
+
 	public static void glMatrixPopEXT(int matrixMode) {
-		long __functionAddress = GL.getCapabilities().glMatrixPopEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, matrixMode);
+		nglMatrixPopEXT(matrixMode);
 	}
 
 	// --- [ glTextureParameteriEXT ] ---
 
+	public static native void nglTextureParameteriEXT(int texture, int target, int pname, int param);
+
 	public static void glTextureParameteriEXT(int texture, int target, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameteriEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, pname, param);
+		nglTextureParameteriEXT(texture, target, pname, param);
 	}
 
 	// --- [ glTextureParameterivEXT ] ---
 
-	public static void nglTextureParameterivEXT(int texture, int target, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, param);
-	}
+	public static native void nglTextureParameterivEXT(int texture, int target, int pname, long param);
 
 	public static void glTextureParameterivEXT(int texture, int target, int pname, IntBuffer param) {
 		if ( CHECKS )
@@ -493,21 +456,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterfEXT ] ---
 
+	public static native void nglTextureParameterfEXT(int texture, int target, int pname, float param);
+
 	public static void glTextureParameterfEXT(int texture, int target, int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterfEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, pname, param);
+		nglTextureParameterfEXT(texture, target, pname, param);
 	}
 
 	// --- [ glTextureParameterfvEXT ] ---
 
-	public static void nglTextureParameterfvEXT(int texture, int target, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, param);
-	}
+	public static native void nglTextureParameterfvEXT(int texture, int target, int pname, long param);
 
 	public static void glTextureParameterfvEXT(int texture, int target, int pname, FloatBuffer param) {
 		if ( CHECKS )
@@ -517,12 +474,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureImage1DEXT ] ---
 
-	public static void nglTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
-	}
+	public static native void nglTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, long pixels);
 
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
@@ -550,12 +502,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureImage2DEXT ] ---
 
-	public static void nglTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
-	}
+	public static native void nglTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels);
 
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
@@ -583,12 +530,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureSubImage1DEXT ] ---
 
-	public static void nglTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
-	}
+	public static native void nglTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, long pixels);
 
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, memAddress(pixels));
@@ -616,12 +558,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureSubImage2DEXT ] ---
 
-	public static void nglTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
-	}
+	public static native void nglTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels);
 
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
@@ -649,48 +586,39 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyTextureImage1DEXT ] ---
 
+	public static native void nglCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border);
+
 	public static void glCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, level, internalformat, x, y, width, border);
+		nglCopyTextureImage1DEXT(texture, target, level, internalformat, x, y, width, border);
 	}
 
 	// --- [ glCopyTextureImage2DEXT ] ---
 
+	public static native void nglCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border);
+
 	public static void glCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, level, internalformat, x, y, width, height, border);
+		nglCopyTextureImage2DEXT(texture, target, level, internalformat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTextureSubImage1DEXT ] ---
 
+	public static native void nglCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width);
+
 	public static void glCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, level, xoffset, x, y, width);
+		nglCopyTextureSubImage1DEXT(texture, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTextureSubImage2DEXT ] ---
 
+	public static native void nglCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
+
 	public static void glCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, level, xoffset, yoffset, x, y, width, height);
+		nglCopyTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glGetTextureImageEXT ] ---
 
-	public static void nglGetTextureImageEXT(int texture, int target, int level, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, format, type, pixels);
-	}
+	public static native void nglGetTextureImageEXT(int texture, int target, int level, int format, int type, long pixels);
 
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, ByteBuffer pixels) {
 		nglGetTextureImageEXT(texture, target, level, format, type, memAddress(pixels));
@@ -718,12 +646,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterfvEXT ] ---
 
-	public static void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, params);
-	}
+	public static native void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params);
 
 	public static void glGetTextureParameterfvEXT(int texture, int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -744,12 +667,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterivEXT ] ---
 
-	public static void nglGetTextureParameterivEXT(int texture, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, params);
-	}
+	public static native void nglGetTextureParameterivEXT(int texture, int target, int pname, long params);
 
 	public static void glGetTextureParameterivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -770,12 +688,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetTextureLevelParameterfvEXT ] ---
 
-	public static void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, pname, params);
-	}
+	public static native void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params);
 
 	public static void glGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -796,12 +709,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetTextureLevelParameterivEXT ] ---
 
-	public static void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, pname, params);
-	}
+	public static native void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params);
 
 	public static void glGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -822,12 +730,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureImage3DEXT ] ---
 
-	public static void nglTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
-	}
+	public static native void nglTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels);
 
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
 		nglTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
@@ -855,12 +758,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureSubImage3DEXT ] ---
 
-	public static void nglTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-	}
+	public static native void nglTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
 		nglTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
@@ -888,30 +786,23 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyTextureSubImage3DEXT ] ---
 
+	public static native void nglCopyTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
+
 	public static void glCopyTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		nglCopyTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glBindMultiTextureEXT ] ---
 
+	public static native void nglBindMultiTextureEXT(int texunit, int target, int texture);
+
 	public static void glBindMultiTextureEXT(int texunit, int target, int texture) {
-		long __functionAddress = GL.getCapabilities().glBindMultiTextureEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, texture);
+		nglBindMultiTextureEXT(texunit, target, texture);
 	}
 
 	// --- [ glMultiTexCoordPointerEXT ] ---
 
-	public static void nglMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, size, type, stride, pointer);
-	}
+	public static native void nglMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, long pointer);
 
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, ByteBuffer pointer) {
 		nglMultiTexCoordPointerEXT(texunit, size, type, stride, memAddress(pointer));
@@ -935,21 +826,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexEnvfEXT ] ---
 
+	public static native void nglMultiTexEnvfEXT(int texunit, int target, int pname, float param);
+
 	public static void glMultiTexEnvfEXT(int texunit, int target, int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexEnvfEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, pname, param);
+		nglMultiTexEnvfEXT(texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexEnvfvEXT ] ---
 
-	public static void nglMultiTexEnvfvEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexEnvfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglMultiTexEnvfvEXT(int texunit, int target, int pname, long params);
 
 	public static void glMultiTexEnvfvEXT(int texunit, int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -959,21 +844,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexEnviEXT ] ---
 
+	public static native void nglMultiTexEnviEXT(int texunit, int target, int pname, int param);
+
 	public static void glMultiTexEnviEXT(int texunit, int target, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexEnviEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, pname, param);
+		nglMultiTexEnviEXT(texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexEnvivEXT ] ---
 
-	public static void nglMultiTexEnvivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexEnvivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglMultiTexEnvivEXT(int texunit, int target, int pname, long params);
 
 	public static void glMultiTexEnvivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -983,21 +862,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGendEXT ] ---
 
+	public static native void nglMultiTexGendEXT(int texunit, int coord, int pname, double param);
+
 	public static void glMultiTexGendEXT(int texunit, int coord, int pname, double param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGendEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, coord, pname, param);
+		nglMultiTexGendEXT(texunit, coord, pname, param);
 	}
 
 	// --- [ glMultiTexGendvEXT ] ---
 
-	public static void nglMultiTexGendvEXT(int texunit, int coord, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGendvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, coord, pname, params);
-	}
+	public static native void nglMultiTexGendvEXT(int texunit, int coord, int pname, long params);
 
 	public static void glMultiTexGendvEXT(int texunit, int coord, int pname, DoubleBuffer params) {
 		if ( CHECKS )
@@ -1007,21 +880,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGenfEXT ] ---
 
+	public static native void nglMultiTexGenfEXT(int texunit, int coord, int pname, float param);
+
 	public static void glMultiTexGenfEXT(int texunit, int coord, int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGenfEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, coord, pname, param);
+		nglMultiTexGenfEXT(texunit, coord, pname, param);
 	}
 
 	// --- [ glMultiTexGenfvEXT ] ---
 
-	public static void nglMultiTexGenfvEXT(int texunit, int coord, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGenfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, coord, pname, params);
-	}
+	public static native void nglMultiTexGenfvEXT(int texunit, int coord, int pname, long params);
 
 	public static void glMultiTexGenfvEXT(int texunit, int coord, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1031,21 +898,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGeniEXT ] ---
 
+	public static native void nglMultiTexGeniEXT(int texunit, int coord, int pname, int param);
+
 	public static void glMultiTexGeniEXT(int texunit, int coord, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGeniEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, coord, pname, param);
+		nglMultiTexGeniEXT(texunit, coord, pname, param);
 	}
 
 	// --- [ glMultiTexGenivEXT ] ---
 
-	public static void nglMultiTexGenivEXT(int texunit, int coord, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGenivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, coord, pname, params);
-	}
+	public static native void nglMultiTexGenivEXT(int texunit, int coord, int pname, long params);
 
 	public static void glMultiTexGenivEXT(int texunit, int coord, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1055,12 +916,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexEnvfvEXT ] ---
 
-	public static void nglGetMultiTexEnvfvEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexEnvfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglGetMultiTexEnvfvEXT(int texunit, int target, int pname, long params);
 
 	public static void glGetMultiTexEnvfvEXT(int texunit, int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1081,12 +937,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexEnvivEXT ] ---
 
-	public static void nglGetMultiTexEnvivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexEnvivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglGetMultiTexEnvivEXT(int texunit, int target, int pname, long params);
 
 	public static void glGetMultiTexEnvivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1107,12 +958,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexGendvEXT ] ---
 
-	public static void nglGetMultiTexGendvEXT(int texunit, int coord, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexGendvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, coord, pname, params);
-	}
+	public static native void nglGetMultiTexGendvEXT(int texunit, int coord, int pname, long params);
 
 	public static void glGetMultiTexGendvEXT(int texunit, int coord, int pname, DoubleBuffer params) {
 		if ( CHECKS )
@@ -1133,12 +979,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexGenfvEXT ] ---
 
-	public static void nglGetMultiTexGenfvEXT(int texunit, int coord, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexGenfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, coord, pname, params);
-	}
+	public static native void nglGetMultiTexGenfvEXT(int texunit, int coord, int pname, long params);
 
 	public static void glGetMultiTexGenfvEXT(int texunit, int coord, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1159,12 +1000,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexGenivEXT ] ---
 
-	public static void nglGetMultiTexGenivEXT(int texunit, int coord, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexGenivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, coord, pname, params);
-	}
+	public static native void nglGetMultiTexGenivEXT(int texunit, int coord, int pname, long params);
 
 	public static void glGetMultiTexGenivEXT(int texunit, int coord, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1185,21 +1021,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameteriEXT ] ---
 
+	public static native void nglMultiTexParameteriEXT(int texunit, int target, int pname, int param);
+
 	public static void glMultiTexParameteriEXT(int texunit, int target, int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameteriEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, pname, param);
+		nglMultiTexParameteriEXT(texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexParameterivEXT ] ---
 
-	public static void nglMultiTexParameterivEXT(int texunit, int target, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, param);
-	}
+	public static native void nglMultiTexParameterivEXT(int texunit, int target, int pname, long param);
 
 	public static void glMultiTexParameterivEXT(int texunit, int target, int pname, IntBuffer param) {
 		if ( CHECKS )
@@ -1209,21 +1039,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterfEXT ] ---
 
+	public static native void nglMultiTexParameterfEXT(int texunit, int target, int pname, float param);
+
 	public static void glMultiTexParameterfEXT(int texunit, int target, int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterfEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, pname, param);
+		nglMultiTexParameterfEXT(texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexParameterfvEXT ] ---
 
-	public static void nglMultiTexParameterfvEXT(int texunit, int target, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, param);
-	}
+	public static native void nglMultiTexParameterfvEXT(int texunit, int target, int pname, long param);
 
 	public static void glMultiTexParameterfvEXT(int texunit, int target, int pname, FloatBuffer param) {
 		if ( CHECKS )
@@ -1233,12 +1057,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexImage1DEXT ] ---
 
-	public static void nglMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
-	}
+	public static native void nglMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, long pixels);
 
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
 		nglMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
@@ -1266,12 +1085,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexImage2DEXT ] ---
 
-	public static void nglMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
-	}
+	public static native void nglMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels);
 
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
 		nglMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
@@ -1299,12 +1113,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexSubImage1DEXT ] ---
 
-	public static void nglMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
-	}
+	public static native void nglMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, long pixels);
 
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
 		nglMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, memAddress(pixels));
@@ -1332,12 +1141,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexSubImage2DEXT ] ---
 
-	public static void nglMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
-	}
+	public static native void nglMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels);
 
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
 		nglMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
@@ -1365,48 +1169,39 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyMultiTexImage1DEXT ] ---
 
+	public static native void nglCopyMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int border);
+
 	public static void glCopyMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int border) {
-		long __functionAddress = GL.getCapabilities().glCopyMultiTexImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, level, internalformat, x, y, width, border);
+		nglCopyMultiTexImage1DEXT(texunit, target, level, internalformat, x, y, width, border);
 	}
 
 	// --- [ glCopyMultiTexImage2DEXT ] ---
 
+	public static native void nglCopyMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int height, int border);
+
 	public static void glCopyMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int height, int border) {
-		long __functionAddress = GL.getCapabilities().glCopyMultiTexImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, level, internalformat, x, y, width, height, border);
+		nglCopyMultiTexImage2DEXT(texunit, target, level, internalformat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyMultiTexSubImage1DEXT ] ---
 
+	public static native void nglCopyMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int x, int y, int width);
+
 	public static void glCopyMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int x, int y, int width) {
-		long __functionAddress = GL.getCapabilities().glCopyMultiTexSubImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, level, xoffset, x, y, width);
+		nglCopyMultiTexSubImage1DEXT(texunit, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyMultiTexSubImage2DEXT ] ---
 
+	public static native void nglCopyMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
+
 	public static void glCopyMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyMultiTexSubImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, level, xoffset, yoffset, x, y, width, height);
+		nglCopyMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glGetMultiTexImageEXT ] ---
 
-	public static void nglGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, format, type, pixels);
-	}
+	public static native void nglGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, long pixels);
 
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, ByteBuffer pixels) {
 		nglGetMultiTexImageEXT(texunit, target, level, format, type, memAddress(pixels));
@@ -1434,12 +1229,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterfvEXT ] ---
 
-	public static void nglGetMultiTexParameterfvEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglGetMultiTexParameterfvEXT(int texunit, int target, int pname, long params);
 
 	public static void glGetMultiTexParameterfvEXT(int texunit, int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1460,12 +1250,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterivEXT ] ---
 
-	public static void nglGetMultiTexParameterivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglGetMultiTexParameterivEXT(int texunit, int target, int pname, long params);
 
 	public static void glGetMultiTexParameterivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1486,12 +1271,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexLevelParameterfvEXT ] ---
 
-	public static void nglGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexLevelParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, pname, params);
-	}
+	public static native void nglGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, long params);
 
 	public static void glGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1512,12 +1292,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexLevelParameterivEXT ] ---
 
-	public static void nglGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexLevelParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, pname, params);
-	}
+	public static native void nglGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, long params);
 
 	public static void glGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1538,12 +1313,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexImage3DEXT ] ---
 
-	public static void nglMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
-	}
+	public static native void nglMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels);
 
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
 		nglMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
@@ -1571,12 +1341,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexSubImage3DEXT ] ---
 
-	public static void nglMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-	}
+	public static native void nglMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
 		nglMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
@@ -1604,57 +1369,47 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyMultiTexSubImage3DEXT ] ---
 
+	public static native void nglCopyMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
+
 	public static void glCopyMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glCopyMultiTexSubImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		nglCopyMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glEnableClientStateIndexedEXT ] ---
 
+	public static native void nglEnableClientStateIndexedEXT(int array, int index);
+
 	public static void glEnableClientStateIndexedEXT(int array, int index) {
-		long __functionAddress = GL.getCapabilities().glEnableClientStateIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array, index);
+		nglEnableClientStateIndexedEXT(array, index);
 	}
 
 	// --- [ glDisableClientStateIndexedEXT ] ---
 
+	public static native void nglDisableClientStateIndexedEXT(int array, int index);
+
 	public static void glDisableClientStateIndexedEXT(int array, int index) {
-		long __functionAddress = GL.getCapabilities().glDisableClientStateIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array, index);
+		nglDisableClientStateIndexedEXT(array, index);
 	}
 
 	// --- [ glEnableClientStateiEXT ] ---
 
+	public static native void nglEnableClientStateiEXT(int array, int index);
+
 	public static void glEnableClientStateiEXT(int array, int index) {
-		long __functionAddress = GL.getCapabilities().glEnableClientStateiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array, index);
+		nglEnableClientStateiEXT(array, index);
 	}
 
 	// --- [ glDisableClientStateiEXT ] ---
 
+	public static native void nglDisableClientStateiEXT(int array, int index);
+
 	public static void glDisableClientStateiEXT(int array, int index) {
-		long __functionAddress = GL.getCapabilities().glDisableClientStateiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, array, index);
+		nglDisableClientStateiEXT(array, index);
 	}
 
 	// --- [ glGetFloatIndexedvEXT ] ---
 
-	public static void nglGetFloatIndexedvEXT(int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetFloatIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params);
-	}
+	public static native void nglGetFloatIndexedvEXT(int target, int index, long params);
 
 	public static void glGetFloatIndexedvEXT(int target, int index, FloatBuffer params) {
 		if ( CHECKS )
@@ -1675,12 +1430,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetDoubleIndexedvEXT ] ---
 
-	public static void nglGetDoubleIndexedvEXT(int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetDoubleIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params);
-	}
+	public static native void nglGetDoubleIndexedvEXT(int target, int index, long params);
 
 	public static void glGetDoubleIndexedvEXT(int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
@@ -1701,12 +1451,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetPointerIndexedvEXT ] ---
 
-	public static void nglGetPointerIndexedvEXT(int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetPointerIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params);
-	}
+	public static native void nglGetPointerIndexedvEXT(int target, int index, long params);
 
 	public static void glGetPointerIndexedvEXT(int target, int index, PointerBuffer params) {
 		if ( CHECKS )
@@ -1727,12 +1472,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetFloati_vEXT ] ---
 
-	public static void nglGetFloati_vEXT(int pname, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetFloati_vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, index, params);
-	}
+	public static native void nglGetFloati_vEXT(int pname, int index, long params);
 
 	public static void glGetFloati_vEXT(int pname, int index, FloatBuffer params) {
 		if ( CHECKS )
@@ -1753,12 +1493,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetDoublei_vEXT ] ---
 
-	public static void nglGetDoublei_vEXT(int pname, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetDoublei_vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, index, params);
-	}
+	public static native void nglGetDoublei_vEXT(int pname, int index, long params);
 
 	public static void glGetDoublei_vEXT(int pname, int index, DoubleBuffer params) {
 		if ( CHECKS )
@@ -1779,12 +1514,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetPointeri_vEXT ] ---
 
-	public static void nglGetPointeri_vEXT(int pname, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetPointeri_vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, index, params);
-	}
+	public static native void nglGetPointeri_vEXT(int pname, int index, long params);
 
 	public static void glGetPointeri_vEXT(int pname, int index, PointerBuffer params) {
 		if ( CHECKS )
@@ -1805,39 +1535,31 @@ public class EXTDirectStateAccess {
 
 	// --- [ glEnableIndexedEXT ] ---
 
+	public static native void nglEnableIndexedEXT(int cap, int index);
+
 	public static void glEnableIndexedEXT(int cap, int index) {
-		long __functionAddress = GL.getCapabilities().glEnableIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, cap, index);
+		nglEnableIndexedEXT(cap, index);
 	}
 
 	// --- [ glDisableIndexedEXT ] ---
 
+	public static native void nglDisableIndexedEXT(int cap, int index);
+
 	public static void glDisableIndexedEXT(int cap, int index) {
-		long __functionAddress = GL.getCapabilities().glDisableIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, cap, index);
+		nglDisableIndexedEXT(cap, index);
 	}
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
+	public static native boolean nglIsEnabledIndexedEXT(int target, int index);
+
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glIsEnabledIndexedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target, index);
+		return nglIsEnabledIndexedEXT(target, index);
 	}
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	public static void nglGetIntegerIndexedvEXT(int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params);
-	}
+	public static native void nglGetIntegerIndexedvEXT(int target, int index, long params);
 
 	public static void glGetIntegerIndexedvEXT(int target, int index, IntBuffer params) {
 		if ( CHECKS )
@@ -1858,12 +1580,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	public static void nglGetBooleanIndexedvEXT(int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params);
-	}
+	public static native void nglGetBooleanIndexedvEXT(int target, int index, long params);
 
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer params) {
 		if ( CHECKS )
@@ -1884,12 +1601,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramStringEXT ] ---
 
-	public static void nglNamedProgramStringEXT(int program, int target, int format, int len, long string) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramStringEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, format, len, string);
-	}
+	public static native void nglNamedProgramStringEXT(int program, int target, int format, int len, long string);
 
 	public static void glNamedProgramStringEXT(int program, int target, int format, ByteBuffer string) {
 		nglNamedProgramStringEXT(program, target, format, string.remaining(), memAddress(string));
@@ -1897,21 +1609,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameter4dEXT ] ---
 
+	public static native void nglNamedProgramLocalParameter4dEXT(int program, int target, int index, double x, double y, double z, double w);
+
 	public static void glNamedProgramLocalParameter4dEXT(int program, int target, int index, double x, double y, double z, double w) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameter4dEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, target, index, x, y, z, w);
+		nglNamedProgramLocalParameter4dEXT(program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameter4dvEXT ] ---
 
-	public static void nglNamedProgramLocalParameter4dvEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameter4dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglNamedProgramLocalParameter4dvEXT(int program, int target, int index, long params);
 
 	public static void glNamedProgramLocalParameter4dvEXT(int program, int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
@@ -1921,21 +1627,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameter4fEXT ] ---
 
+	public static native void nglNamedProgramLocalParameter4fEXT(int program, int target, int index, float x, float y, float z, float w);
+
 	public static void glNamedProgramLocalParameter4fEXT(int program, int target, int index, float x, float y, float z, float w) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameter4fEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, target, index, x, y, z, w);
+		nglNamedProgramLocalParameter4fEXT(program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameter4fvEXT ] ---
 
-	public static void nglNamedProgramLocalParameter4fvEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameter4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglNamedProgramLocalParameter4fvEXT(int program, int target, int index, long params);
 
 	public static void glNamedProgramLocalParameter4fvEXT(int program, int target, int index, FloatBuffer params) {
 		if ( CHECKS )
@@ -1945,12 +1645,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterdvEXT ] ---
 
-	public static void nglGetNamedProgramLocalParameterdvEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterdvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglGetNamedProgramLocalParameterdvEXT(int program, int target, int index, long params);
 
 	public static void glGetNamedProgramLocalParameterdvEXT(int program, int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
@@ -1960,12 +1655,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterfvEXT ] ---
 
-	public static void nglGetNamedProgramLocalParameterfvEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglGetNamedProgramLocalParameterfvEXT(int program, int target, int index, long params);
 
 	public static void glGetNamedProgramLocalParameterfvEXT(int program, int target, int index, FloatBuffer params) {
 		if ( CHECKS )
@@ -1975,12 +1665,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramivEXT ] ---
 
-	public static void nglGetNamedProgramivEXT(int program, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, pname, params);
-	}
+	public static native void nglGetNamedProgramivEXT(int program, int target, int pname, long params);
 
 	public static void glGetNamedProgramivEXT(int program, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2001,12 +1686,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramStringEXT ] ---
 
-	public static void nglGetNamedProgramStringEXT(int program, int target, int pname, long string) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramStringEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, pname, string);
-	}
+	public static native void nglGetNamedProgramStringEXT(int program, int target, int pname, long string);
 
 	public static void glGetNamedProgramStringEXT(int program, int target, int pname, ByteBuffer string) {
 		if ( CHECKS )
@@ -2017,12 +1697,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedTextureImage3DEXT ] ---
 
-	public static void nglCompressedTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, imageSize, data);
-	}
+	public static native void nglCompressedTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data);
 
 	public static void glCompressedTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		nglCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, imageSize, data);
@@ -2034,12 +1709,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedTextureImage2DEXT ] ---
 
-	public static void nglCompressedTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, imageSize, data);
-	}
+	public static native void nglCompressedTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data);
 
 	public static void glCompressedTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		nglCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, imageSize, data);
@@ -2051,12 +1721,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedTextureImage1DEXT ] ---
 
-	public static void nglCompressedTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, internalformat, width, border, imageSize, data);
-	}
+	public static native void nglCompressedTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int imageSize, long data);
 
 	public static void glCompressedTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		nglCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, imageSize, data);
@@ -2068,12 +1733,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedTextureSubImage3DEXT ] ---
 
-	public static void nglCompressedTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-	}
+	public static native void nglCompressedTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
 	public static void glCompressedTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		nglCompressedTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
@@ -2085,12 +1745,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedTextureSubImage2DEXT ] ---
 
-	public static void nglCompressedTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, imageSize, data);
-	}
+	public static native void nglCompressedTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	public static void glCompressedTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		nglCompressedTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, imageSize, data);
@@ -2102,12 +1757,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedTextureSubImage1DEXT ] ---
 
-	public static void nglCompressedTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, xoffset, width, format, imageSize, data);
-	}
+	public static native void nglCompressedTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int imageSize, long data);
 
 	public static void glCompressedTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		nglCompressedTextureSubImage1DEXT(texture, target, level, xoffset, width, format, imageSize, data);
@@ -2119,12 +1769,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetCompressedTextureImageEXT ] ---
 
-	public static void nglGetCompressedTextureImageEXT(int texture, int target, int level, long img) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTextureImageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, level, img);
-	}
+	public static native void nglGetCompressedTextureImageEXT(int texture, int target, int level, long img);
 
 	public static void glGetCompressedTextureImageEXT(int texture, int target, int level, ByteBuffer img) {
 		if ( CHECKS )
@@ -2139,12 +1784,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedMultiTexImage3DEXT ] ---
 
-	public static void nglCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedMultiTexImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, imageSize, data);
-	}
+	public static native void nglCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data);
 
 	public static void glCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		nglCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, imageSize, data);
@@ -2156,12 +1796,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedMultiTexImage2DEXT ] ---
 
-	public static void nglCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedMultiTexImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, imageSize, data);
-	}
+	public static native void nglCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data);
 
 	public static void glCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		nglCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, imageSize, data);
@@ -2173,12 +1808,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedMultiTexImage1DEXT ] ---
 
-	public static void nglCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedMultiTexImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, internalformat, width, border, imageSize, data);
-	}
+	public static native void nglCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int imageSize, long data);
 
 	public static void glCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		nglCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, imageSize, data);
@@ -2190,12 +1820,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedMultiTexSubImage3DEXT ] ---
 
-	public static void nglCompressedMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedMultiTexSubImage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-	}
+	public static native void nglCompressedMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
 	public static void glCompressedMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		nglCompressedMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
@@ -2207,12 +1832,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedMultiTexSubImage2DEXT ] ---
 
-	public static void nglCompressedMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedMultiTexSubImage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, imageSize, data);
-	}
+	public static native void nglCompressedMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	public static void glCompressedMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		nglCompressedMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, imageSize, data);
@@ -2224,12 +1844,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCompressedMultiTexSubImage1DEXT ] ---
 
-	public static void nglCompressedMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedMultiTexSubImage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, xoffset, width, format, imageSize, data);
-	}
+	public static native void nglCompressedMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int imageSize, long data);
 
 	public static void glCompressedMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		nglCompressedMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, imageSize, data);
@@ -2241,12 +1856,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetCompressedMultiTexImageEXT ] ---
 
-	public static void nglGetCompressedMultiTexImageEXT(int texunit, int target, int level, long img) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedMultiTexImageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, level, img);
-	}
+	public static native void nglGetCompressedMultiTexImageEXT(int texunit, int target, int level, long img);
 
 	public static void glGetCompressedMultiTexImageEXT(int texunit, int target, int level, ByteBuffer img) {
 		if ( CHECKS )
@@ -2261,12 +1871,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixLoadTransposefEXT ] ---
 
-	public static void nglMatrixLoadTransposefEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadTransposefEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixLoadTransposefEXT(int matrixMode, long m);
 
 	public static void glMatrixLoadTransposefEXT(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
@@ -2276,12 +1881,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixLoadTransposedEXT ] ---
 
-	public static void nglMatrixLoadTransposedEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadTransposedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixLoadTransposedEXT(int matrixMode, long m);
 
 	public static void glMatrixLoadTransposedEXT(int matrixMode, DoubleBuffer m) {
 		if ( CHECKS )
@@ -2291,12 +1891,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixMultTransposefEXT ] ---
 
-	public static void nglMatrixMultTransposefEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultTransposefEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixMultTransposefEXT(int matrixMode, long m);
 
 	public static void glMatrixMultTransposefEXT(int matrixMode, FloatBuffer m) {
 		if ( CHECKS )
@@ -2306,12 +1901,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixMultTransposedEXT ] ---
 
-	public static void nglMatrixMultTransposedEXT(int matrixMode, long m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultTransposedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, matrixMode, m);
-	}
+	public static native void nglMatrixMultTransposedEXT(int matrixMode, long m);
 
 	public static void glMatrixMultTransposedEXT(int matrixMode, DoubleBuffer m) {
 		if ( CHECKS )
@@ -2321,12 +1911,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedBufferDataEXT ] ---
 
-	public static void nglNamedBufferDataEXT(int buffer, long size, long data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, size, data, usage);
-	}
+	public static native void nglNamedBufferDataEXT(int buffer, long size, long data, int usage);
 
 	public static void glNamedBufferDataEXT(int buffer, long size, int usage) {
 		nglNamedBufferDataEXT(buffer, size, NULL, usage);
@@ -2354,12 +1939,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedBufferSubDataEXT ] ---
 
-	public static void nglNamedBufferSubDataEXT(int buffer, long offset, long size, long data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, offset, size, data);
-	}
+	public static native void nglNamedBufferSubDataEXT(int buffer, long offset, long size, long data);
 
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, ByteBuffer data) {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
@@ -2383,12 +1963,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMapNamedBufferEXT ] ---
 
-	public static long nglMapNamedBufferEXT(int buffer, int access) {
-		long __functionAddress = GL.getCapabilities().glMapNamedBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, buffer, access);
-	}
+	public static native long nglMapNamedBufferEXT(int buffer, int access);
 
 	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access) {
 		long __result = nglMapNamedBufferEXT(buffer, access);
@@ -2408,21 +1983,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glUnmapNamedBufferEXT ] ---
 
+	public static native boolean nglUnmapNamedBufferEXT(int buffer);
+
 	public static boolean glUnmapNamedBufferEXT(int buffer) {
-		long __functionAddress = GL.getCapabilities().glUnmapNamedBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, buffer);
+		return nglUnmapNamedBufferEXT(buffer);
 	}
 
 	// --- [ glGetNamedBufferParameterivEXT ] ---
 
-	public static void nglGetNamedBufferParameterivEXT(int buffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, pname, params);
-	}
+	public static native void nglGetNamedBufferParameterivEXT(int buffer, int pname, long params);
 
 	public static void glGetNamedBufferParameterivEXT(int buffer, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2443,12 +2012,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedBufferSubDataEXT ] ---
 
-	public static void nglGetNamedBufferSubDataEXT(int buffer, long offset, long size, long data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, offset, size, data);
-	}
+	public static native void nglGetNamedBufferSubDataEXT(int buffer, long offset, long size, long data);
 
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, ByteBuffer data) {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
@@ -2472,84 +2036,71 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1fEXT ] ---
 
+	public static native void nglProgramUniform1fEXT(int program, int location, float v0);
+
 	public static void glProgramUniform1fEXT(int program, int location, float v0) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1fEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0);
+		nglProgramUniform1fEXT(program, location, v0);
 	}
 
 	// --- [ glProgramUniform2fEXT ] ---
 
+	public static native void nglProgramUniform2fEXT(int program, int location, float v0, float v1);
+
 	public static void glProgramUniform2fEXT(int program, int location, float v0, float v1) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2fEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1);
+		nglProgramUniform2fEXT(program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3fEXT ] ---
 
+	public static native void nglProgramUniform3fEXT(int program, int location, float v0, float v1, float v2);
+
 	public static void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3fEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1, v2);
+		nglProgramUniform3fEXT(program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4fEXT ] ---
 
+	public static native void nglProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3);
+
 	public static void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4fEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1, v2, v3);
+		nglProgramUniform4fEXT(program, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glProgramUniform1iEXT ] ---
 
+	public static native void nglProgramUniform1iEXT(int program, int location, int v0);
+
 	public static void glProgramUniform1iEXT(int program, int location, int v0) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1iEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0);
+		nglProgramUniform1iEXT(program, location, v0);
 	}
 
 	// --- [ glProgramUniform2iEXT ] ---
 
+	public static native void nglProgramUniform2iEXT(int program, int location, int v0, int v1);
+
 	public static void glProgramUniform2iEXT(int program, int location, int v0, int v1) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2iEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1);
+		nglProgramUniform2iEXT(program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3iEXT ] ---
 
+	public static native void nglProgramUniform3iEXT(int program, int location, int v0, int v1, int v2);
+
 	public static void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3iEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1, v2);
+		nglProgramUniform3iEXT(program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4iEXT ] ---
 
+	public static native void nglProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3);
+
 	public static void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4iEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1, v2, v3);
+		nglProgramUniform4iEXT(program, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glProgramUniform1fvEXT ] ---
 
-	public static void nglProgramUniform1fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1fvEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform1fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform1fvEXT(program, location, value.remaining(), memAddress(value));
@@ -2557,12 +2108,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform2fvEXT ] ---
 
-	public static void nglProgramUniform2fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2fvEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform2fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform2fvEXT(program, location, value.remaining() >> 1, memAddress(value));
@@ -2570,12 +2116,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform3fvEXT ] ---
 
-	public static void nglProgramUniform3fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3fvEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform3fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform3fvEXT(program, location, value.remaining() / 3, memAddress(value));
@@ -2583,12 +2124,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform4fvEXT ] ---
 
-	public static void nglProgramUniform4fvEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4fvEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform4fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform4fvEXT(program, location, value.remaining() >> 2, memAddress(value));
@@ -2596,12 +2132,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1ivEXT ] ---
 
-	public static void nglProgramUniform1ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1ivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform1ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform1ivEXT(program, location, value.remaining(), memAddress(value));
@@ -2609,12 +2140,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform2ivEXT ] ---
 
-	public static void nglProgramUniform2ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2ivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform2ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform2ivEXT(program, location, value.remaining() >> 1, memAddress(value));
@@ -2622,12 +2148,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform3ivEXT ] ---
 
-	public static void nglProgramUniform3ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3ivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform3ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform3ivEXT(program, location, value.remaining() / 3, memAddress(value));
@@ -2635,12 +2156,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform4ivEXT ] ---
 
-	public static void nglProgramUniform4ivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4ivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform4ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform4ivEXT(program, location, value.remaining() >> 2, memAddress(value));
@@ -2648,12 +2164,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix2fvEXT ] ---
 
-	public static void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2fvEXT(program, location, value.remaining() >> 2, transpose, memAddress(value));
@@ -2661,12 +2172,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix3fvEXT ] ---
 
-	public static void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3fvEXT(program, location, value.remaining() / 9, transpose, memAddress(value));
@@ -2674,12 +2180,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix4fvEXT ] ---
 
-	public static void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4fvEXT(program, location, value.remaining() >> 4, transpose, memAddress(value));
@@ -2687,12 +2188,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix2x3fvEXT ] ---
 
-	public static void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x3fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
@@ -2700,12 +2196,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix3x2fvEXT ] ---
 
-	public static void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x2fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
@@ -2713,12 +2204,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix2x4fvEXT ] ---
 
-	public static void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x4fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
@@ -2726,12 +2212,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix4x2fvEXT ] ---
 
-	public static void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x2fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
@@ -2739,12 +2220,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix3x4fvEXT ] ---
 
-	public static void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x4fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
@@ -2752,12 +2228,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniformMatrix4x3fvEXT ] ---
 
-	public static void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, transpose, value);
-	}
+	public static native void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value);
 
 	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x3fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
@@ -2765,30 +2236,23 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureBufferEXT ] ---
 
+	public static native void nglTextureBufferEXT(int texture, int target, int internalformat, int buffer);
+
 	public static void glTextureBufferEXT(int texture, int target, int internalformat, int buffer) {
-		long __functionAddress = GL.getCapabilities().glTextureBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, internalformat, buffer);
+		nglTextureBufferEXT(texture, target, internalformat, buffer);
 	}
 
 	// --- [ glMultiTexBufferEXT ] ---
 
+	public static native void nglMultiTexBufferEXT(int texunit, int target, int internalformat, int buffer);
+
 	public static void glMultiTexBufferEXT(int texunit, int target, int internalformat, int buffer) {
-		long __functionAddress = GL.getCapabilities().glMultiTexBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, internalformat, buffer);
+		nglMultiTexBufferEXT(texunit, target, internalformat, buffer);
 	}
 
 	// --- [ glTextureParameterIivEXT ] ---
 
-	public static void nglTextureParameterIivEXT(int texture, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, params);
-	}
+	public static native void nglTextureParameterIivEXT(int texture, int target, int pname, long params);
 
 	public static void glTextureParameterIivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2798,12 +2262,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterIuivEXT ] ---
 
-	public static void nglTextureParameterIuivEXT(int texture, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIuivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, params);
-	}
+	public static native void nglTextureParameterIuivEXT(int texture, int target, int pname, long params);
 
 	public static void glTextureParameterIuivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2813,12 +2272,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterIivEXT ] ---
 
-	public static void nglGetTextureParameterIivEXT(int texture, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, params);
-	}
+	public static native void nglGetTextureParameterIivEXT(int texture, int target, int pname, long params);
 
 	public static void glGetTextureParameterIivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2839,12 +2293,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterIuivEXT ] ---
 
-	public static void nglGetTextureParameterIuivEXT(int texture, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, target, pname, params);
-	}
+	public static native void nglGetTextureParameterIuivEXT(int texture, int target, int pname, long params);
 
 	public static void glGetTextureParameterIuivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2865,12 +2314,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterIivEXT ] ---
 
-	public static void nglMultiTexParameterIivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterIivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglMultiTexParameterIivEXT(int texunit, int target, int pname, long params);
 
 	public static void glMultiTexParameterIivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2880,12 +2324,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterIuivEXT ] ---
 
-	public static void nglMultiTexParameterIuivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterIuivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglMultiTexParameterIuivEXT(int texunit, int target, int pname, long params);
 
 	public static void glMultiTexParameterIuivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2895,12 +2334,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterIivEXT ] ---
 
-	public static void nglGetMultiTexParameterIivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterIivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglGetMultiTexParameterIivEXT(int texunit, int target, int pname, long params);
 
 	public static void glGetMultiTexParameterIivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2921,12 +2355,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterIuivEXT ] ---
 
-	public static void nglGetMultiTexParameterIuivEXT(int texunit, int target, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterIuivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texunit, target, pname, params);
-	}
+	public static native void nglGetMultiTexParameterIuivEXT(int texunit, int target, int pname, long params);
 
 	public static void glGetMultiTexParameterIuivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -2947,48 +2376,39 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1uiEXT ] ---
 
+	public static native void nglProgramUniform1uiEXT(int program, int location, int v0);
+
 	public static void glProgramUniform1uiEXT(int program, int location, int v0) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1uiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0);
+		nglProgramUniform1uiEXT(program, location, v0);
 	}
 
 	// --- [ glProgramUniform2uiEXT ] ---
 
+	public static native void nglProgramUniform2uiEXT(int program, int location, int v0, int v1);
+
 	public static void glProgramUniform2uiEXT(int program, int location, int v0, int v1) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2uiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1);
+		nglProgramUniform2uiEXT(program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3uiEXT ] ---
 
+	public static native void nglProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2);
+
 	public static void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3uiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1, v2);
+		nglProgramUniform3uiEXT(program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4uiEXT ] ---
 
+	public static native void nglProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3);
+
 	public static void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4uiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, location, v0, v1, v2, v3);
+		nglProgramUniform4uiEXT(program, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glProgramUniform1uivEXT ] ---
 
-	public static void nglProgramUniform1uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1uivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform1uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform1uivEXT(program, location, value.remaining(), memAddress(value));
@@ -2996,12 +2416,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform2uivEXT ] ---
 
-	public static void nglProgramUniform2uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2uivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform2uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform2uivEXT(program, location, value.remaining() >> 1, memAddress(value));
@@ -3009,12 +2424,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform3uivEXT ] ---
 
-	public static void nglProgramUniform3uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3uivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform3uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform3uivEXT(program, location, value.remaining() / 3, memAddress(value));
@@ -3022,12 +2432,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform4uivEXT ] ---
 
-	public static void nglProgramUniform4uivEXT(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4uivEXT(int program, int location, int count, long value);
 
 	public static void glProgramUniform4uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform4uivEXT(program, location, value.remaining() >> 2, memAddress(value));
@@ -3035,12 +2440,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameters4fvEXT ] ---
 
-	public static void nglNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameters4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, count, params);
-	}
+	public static native void nglNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, long params);
 
 	public static void glNamedProgramLocalParameters4fvEXT(int program, int target, int index, FloatBuffer params) {
 		nglNamedProgramLocalParameters4fvEXT(program, target, index, params.remaining() >> 2, memAddress(params));
@@ -3048,21 +2448,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameterI4iEXT ] ---
 
+	public static native void nglNamedProgramLocalParameterI4iEXT(int program, int target, int index, int x, int y, int z, int w);
+
 	public static void glNamedProgramLocalParameterI4iEXT(int program, int target, int index, int x, int y, int z, int w) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameterI4iEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, target, index, x, y, z, w);
+		nglNamedProgramLocalParameterI4iEXT(program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameterI4ivEXT ] ---
 
-	public static void nglNamedProgramLocalParameterI4ivEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameterI4ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglNamedProgramLocalParameterI4ivEXT(int program, int target, int index, long params);
 
 	public static void glNamedProgramLocalParameterI4ivEXT(int program, int target, int index, IntBuffer params) {
 		if ( CHECKS )
@@ -3072,12 +2466,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParametersI4ivEXT ] ---
 
-	public static void nglNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParametersI4ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, count, params);
-	}
+	public static native void nglNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, long params);
 
 	public static void glNamedProgramLocalParametersI4ivEXT(int program, int target, int index, IntBuffer params) {
 		nglNamedProgramLocalParametersI4ivEXT(program, target, index, params.remaining() >> 2, memAddress(params));
@@ -3085,21 +2474,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameterI4uiEXT ] ---
 
+	public static native void nglNamedProgramLocalParameterI4uiEXT(int program, int target, int index, int x, int y, int z, int w);
+
 	public static void glNamedProgramLocalParameterI4uiEXT(int program, int target, int index, int x, int y, int z, int w) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameterI4uiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, target, index, x, y, z, w);
+		nglNamedProgramLocalParameterI4uiEXT(program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameterI4uivEXT ] ---
 
-	public static void nglNamedProgramLocalParameterI4uivEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameterI4uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglNamedProgramLocalParameterI4uivEXT(int program, int target, int index, long params);
 
 	public static void glNamedProgramLocalParameterI4uivEXT(int program, int target, int index, IntBuffer params) {
 		if ( CHECKS )
@@ -3109,12 +2492,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParametersI4uivEXT ] ---
 
-	public static void nglNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, long params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParametersI4uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, count, params);
-	}
+	public static native void nglNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, long params);
 
 	public static void glNamedProgramLocalParametersI4uivEXT(int program, int target, int index, IntBuffer params) {
 		nglNamedProgramLocalParametersI4uivEXT(program, target, index, params.remaining() >> 2, memAddress(params));
@@ -3122,12 +2500,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterIivEXT ] ---
 
-	public static void nglGetNamedProgramLocalParameterIivEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterIivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglGetNamedProgramLocalParameterIivEXT(int program, int target, int index, long params);
 
 	public static void glGetNamedProgramLocalParameterIivEXT(int program, int target, int index, IntBuffer params) {
 		if ( CHECKS )
@@ -3137,12 +2510,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterIuivEXT ] ---
 
-	public static void nglGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterIuivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, target, index, params);
-	}
+	public static native void nglGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, long params);
 
 	public static void glGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, IntBuffer params) {
 		if ( CHECKS )
@@ -3152,21 +2520,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedRenderbufferStorageEXT ] ---
 
+	public static native void nglNamedRenderbufferStorageEXT(int renderbuffer, int internalformat, int width, int height);
+
 	public static void glNamedRenderbufferStorageEXT(int renderbuffer, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, renderbuffer, internalformat, width, height);
+		nglNamedRenderbufferStorageEXT(renderbuffer, internalformat, width, height);
 	}
 
 	// --- [ glGetNamedRenderbufferParameterivEXT ] ---
 
-	public static void nglGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, renderbuffer, pname, params);
-	}
+	public static native void nglGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, long params);
 
 	public static void glGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -3187,75 +2549,63 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedRenderbufferStorageMultisampleEXT ] ---
 
+	public static native void nglNamedRenderbufferStorageMultisampleEXT(int renderbuffer, int samples, int internalformat, int width, int height);
+
 	public static void glNamedRenderbufferStorageMultisampleEXT(int renderbuffer, int samples, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorageMultisampleEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, renderbuffer, samples, internalformat, width, height);
+		nglNamedRenderbufferStorageMultisampleEXT(renderbuffer, samples, internalformat, width, height);
 	}
 
 	// --- [ glNamedRenderbufferStorageMultisampleCoverageEXT ] ---
 
+	public static native void nglNamedRenderbufferStorageMultisampleCoverageEXT(int renderbuffer, int coverageSamples, int colorSamples, int internalformat, int width, int height);
+
 	public static void glNamedRenderbufferStorageMultisampleCoverageEXT(int renderbuffer, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorageMultisampleCoverageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, renderbuffer, coverageSamples, colorSamples, internalformat, width, height);
+		nglNamedRenderbufferStorageMultisampleCoverageEXT(renderbuffer, coverageSamples, colorSamples, internalformat, width, height);
 	}
 
 	// --- [ glCheckNamedFramebufferStatusEXT ] ---
 
+	public static native int nglCheckNamedFramebufferStatusEXT(int framebuffer, int target);
+
 	public static int glCheckNamedFramebufferStatusEXT(int framebuffer, int target) {
-		long __functionAddress = GL.getCapabilities().glCheckNamedFramebufferStatusEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, framebuffer, target);
+		return nglCheckNamedFramebufferStatusEXT(framebuffer, target);
 	}
 
 	// --- [ glNamedFramebufferTexture1DEXT ] ---
 
+	public static native void nglNamedFramebufferTexture1DEXT(int framebuffer, int attachment, int textarget, int texture, int level);
+
 	public static void glNamedFramebufferTexture1DEXT(int framebuffer, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTexture1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, textarget, texture, level);
+		nglNamedFramebufferTexture1DEXT(framebuffer, attachment, textarget, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTexture2DEXT ] ---
 
+	public static native void nglNamedFramebufferTexture2DEXT(int framebuffer, int attachment, int textarget, int texture, int level);
+
 	public static void glNamedFramebufferTexture2DEXT(int framebuffer, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTexture2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, textarget, texture, level);
+		nglNamedFramebufferTexture2DEXT(framebuffer, attachment, textarget, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTexture3DEXT ] ---
 
+	public static native void nglNamedFramebufferTexture3DEXT(int framebuffer, int attachment, int textarget, int texture, int level, int zoffset);
+
 	public static void glNamedFramebufferTexture3DEXT(int framebuffer, int attachment, int textarget, int texture, int level, int zoffset) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTexture3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, textarget, texture, level, zoffset);
+		nglNamedFramebufferTexture3DEXT(framebuffer, attachment, textarget, texture, level, zoffset);
 	}
 
 	// --- [ glNamedFramebufferRenderbufferEXT ] ---
 
+	public static native void nglNamedFramebufferRenderbufferEXT(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer);
+
 	public static void glNamedFramebufferRenderbufferEXT(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferRenderbufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
+		nglNamedFramebufferRenderbufferEXT(framebuffer, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetNamedFramebufferAttachmentParameterivEXT ] ---
 
-	public static void nglGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, attachment, pname, params);
-	}
+	public static native void nglGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, long params);
 
 	public static void glGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -3276,39 +2626,31 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGenerateTextureMipmapEXT ] ---
 
+	public static native void nglGenerateTextureMipmapEXT(int texture, int target);
+
 	public static void glGenerateTextureMipmapEXT(int texture, int target) {
-		long __functionAddress = GL.getCapabilities().glGenerateTextureMipmapEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target);
+		nglGenerateTextureMipmapEXT(texture, target);
 	}
 
 	// --- [ glGenerateMultiTexMipmapEXT ] ---
 
+	public static native void nglGenerateMultiTexMipmapEXT(int texunit, int target);
+
 	public static void glGenerateMultiTexMipmapEXT(int texunit, int target) {
-		long __functionAddress = GL.getCapabilities().glGenerateMultiTexMipmapEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target);
+		nglGenerateMultiTexMipmapEXT(texunit, target);
 	}
 
 	// --- [ glFramebufferDrawBufferEXT ] ---
 
+	public static native void nglFramebufferDrawBufferEXT(int framebuffer, int mode);
+
 	public static void glFramebufferDrawBufferEXT(int framebuffer, int mode) {
-		long __functionAddress = GL.getCapabilities().glFramebufferDrawBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, mode);
+		nglFramebufferDrawBufferEXT(framebuffer, mode);
 	}
 
 	// --- [ glFramebufferDrawBuffersEXT ] ---
 
-	public static void nglFramebufferDrawBuffersEXT(int framebuffer, int n, long bufs) {
-		long __functionAddress = GL.getCapabilities().glFramebufferDrawBuffersEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, n, bufs);
-	}
+	public static native void nglFramebufferDrawBuffersEXT(int framebuffer, int n, long bufs);
 
 	public static void glFramebufferDrawBuffersEXT(int framebuffer, IntBuffer bufs) {
 		nglFramebufferDrawBuffersEXT(framebuffer, bufs.remaining(), memAddress(bufs));
@@ -3316,21 +2658,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glFramebufferReadBufferEXT ] ---
 
+	public static native void nglFramebufferReadBufferEXT(int framebuffer, int mode);
+
 	public static void glFramebufferReadBufferEXT(int framebuffer, int mode) {
-		long __functionAddress = GL.getCapabilities().glFramebufferReadBufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, mode);
+		nglFramebufferReadBufferEXT(framebuffer, mode);
 	}
 
 	// --- [ glGetFramebufferParameterivEXT ] ---
 
-	public static void nglGetFramebufferParameterivEXT(int framebuffer, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetFramebufferParameterivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, pname, param);
-	}
+	public static native void nglGetFramebufferParameterivEXT(int framebuffer, int pname, long param);
 
 	public static void glGetFramebufferParameterivEXT(int framebuffer, int pname, IntBuffer param) {
 		if ( CHECKS )
@@ -3351,201 +2687,175 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedCopyBufferSubDataEXT ] ---
 
+	public static native void nglNamedCopyBufferSubDataEXT(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
+
 	public static void glNamedCopyBufferSubDataEXT(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GL.getCapabilities().glNamedCopyBufferSubDataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
+		nglNamedCopyBufferSubDataEXT(readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 	// --- [ glNamedFramebufferTextureEXT ] ---
 
+	public static native void nglNamedFramebufferTextureEXT(int framebuffer, int attachment, int texture, int level);
+
 	public static void glNamedFramebufferTextureEXT(int framebuffer, int attachment, int texture, int level) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTextureEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, texture, level);
+		nglNamedFramebufferTextureEXT(framebuffer, attachment, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTextureLayerEXT ] ---
 
+	public static native void nglNamedFramebufferTextureLayerEXT(int framebuffer, int attachment, int texture, int level, int layer);
+
 	public static void glNamedFramebufferTextureLayerEXT(int framebuffer, int attachment, int texture, int level, int layer) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTextureLayerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, texture, level, layer);
+		nglNamedFramebufferTextureLayerEXT(framebuffer, attachment, texture, level, layer);
 	}
 
 	// --- [ glNamedFramebufferTextureFaceEXT ] ---
 
+	public static native void nglNamedFramebufferTextureFaceEXT(int framebuffer, int attachment, int texture, int level, int face);
+
 	public static void glNamedFramebufferTextureFaceEXT(int framebuffer, int attachment, int texture, int level, int face) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferTextureFaceEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, framebuffer, attachment, texture, level, face);
+		nglNamedFramebufferTextureFaceEXT(framebuffer, attachment, texture, level, face);
 	}
 
 	// --- [ glTextureRenderbufferEXT ] ---
 
+	public static native void nglTextureRenderbufferEXT(int texture, int target, int renderbuffer);
+
 	public static void glTextureRenderbufferEXT(int texture, int target, int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glTextureRenderbufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, renderbuffer);
+		nglTextureRenderbufferEXT(texture, target, renderbuffer);
 	}
 
 	// --- [ glMultiTexRenderbufferEXT ] ---
 
+	public static native void nglMultiTexRenderbufferEXT(int texunit, int target, int renderbuffer);
+
 	public static void glMultiTexRenderbufferEXT(int texunit, int target, int renderbuffer) {
-		long __functionAddress = GL.getCapabilities().glMultiTexRenderbufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texunit, target, renderbuffer);
+		nglMultiTexRenderbufferEXT(texunit, target, renderbuffer);
 	}
 
 	// --- [ glVertexArrayVertexOffsetEXT ] ---
 
+	public static native void nglVertexArrayVertexOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
+
 	public static void glVertexArrayVertexOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		nglVertexArrayVertexOffsetEXT(vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayColorOffsetEXT ] ---
 
+	public static native void nglVertexArrayColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
+
 	public static void glVertexArrayColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayColorOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		nglVertexArrayColorOffsetEXT(vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayEdgeFlagOffsetEXT ] ---
 
+	public static native void nglVertexArrayEdgeFlagOffsetEXT(int vaobj, int buffer, int stride, long offset);
+
 	public static void glVertexArrayEdgeFlagOffsetEXT(int vaobj, int buffer, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayEdgeFlagOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, stride, offset);
+		nglVertexArrayEdgeFlagOffsetEXT(vaobj, buffer, stride, offset);
 	}
 
 	// --- [ glVertexArrayIndexOffsetEXT ] ---
 
+	public static native void nglVertexArrayIndexOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
+
 	public static void glVertexArrayIndexOffsetEXT(int vaobj, int buffer, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayIndexOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, type, stride, offset);
+		nglVertexArrayIndexOffsetEXT(vaobj, buffer, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayNormalOffsetEXT ] ---
 
+	public static native void nglVertexArrayNormalOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
+
 	public static void glVertexArrayNormalOffsetEXT(int vaobj, int buffer, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayNormalOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, type, stride, offset);
+		nglVertexArrayNormalOffsetEXT(vaobj, buffer, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayTexCoordOffsetEXT ] ---
 
+	public static native void nglVertexArrayTexCoordOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
+
 	public static void glVertexArrayTexCoordOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayTexCoordOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		nglVertexArrayTexCoordOffsetEXT(vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayMultiTexCoordOffsetEXT ] ---
 
+	public static native void nglVertexArrayMultiTexCoordOffsetEXT(int vaobj, int buffer, int texunit, int size, int type, int stride, long offset);
+
 	public static void glVertexArrayMultiTexCoordOffsetEXT(int vaobj, int buffer, int texunit, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayMultiTexCoordOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, texunit, size, type, stride, offset);
+		nglVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayFogCoordOffsetEXT ] ---
 
+	public static native void nglVertexArrayFogCoordOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
+
 	public static void glVertexArrayFogCoordOffsetEXT(int vaobj, int buffer, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayFogCoordOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, type, stride, offset);
+		nglVertexArrayFogCoordOffsetEXT(vaobj, buffer, type, stride, offset);
 	}
 
 	// --- [ glVertexArraySecondaryColorOffsetEXT ] ---
 
+	public static native void nglVertexArraySecondaryColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
+
 	public static void glVertexArraySecondaryColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArraySecondaryColorOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		nglVertexArraySecondaryColorOffsetEXT(vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayVertexAttribOffsetEXT ] ---
 
+	public static native void nglVertexArrayVertexAttribOffsetEXT(int vaobj, int buffer, int index, int size, int type, boolean normalized, int stride, long offset);
+
 	public static void glVertexArrayVertexAttribOffsetEXT(int vaobj, int buffer, int index, int size, int type, boolean normalized, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, index, size, type, normalized, stride, offset);
+		nglVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, type, normalized, stride, offset);
 	}
 
 	// --- [ glVertexArrayVertexAttribIOffsetEXT ] ---
 
+	public static native void nglVertexArrayVertexAttribIOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
+
 	public static void glVertexArrayVertexAttribIOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
-		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribIOffsetEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+		nglVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, type, stride, offset);
 	}
 
 	// --- [ glEnableVertexArrayEXT ] ---
 
+	public static native void nglEnableVertexArrayEXT(int vaobj, int array);
+
 	public static void glEnableVertexArrayEXT(int vaobj, int array) {
-		long __functionAddress = GL.getCapabilities().glEnableVertexArrayEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, array);
+		nglEnableVertexArrayEXT(vaobj, array);
 	}
 
 	// --- [ glDisableVertexArrayEXT ] ---
 
+	public static native void nglDisableVertexArrayEXT(int vaobj, int array);
+
 	public static void glDisableVertexArrayEXT(int vaobj, int array) {
-		long __functionAddress = GL.getCapabilities().glDisableVertexArrayEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, array);
+		nglDisableVertexArrayEXT(vaobj, array);
 	}
 
 	// --- [ glEnableVertexArrayAttribEXT ] ---
 
+	public static native void nglEnableVertexArrayAttribEXT(int vaobj, int index);
+
 	public static void glEnableVertexArrayAttribEXT(int vaobj, int index) {
-		long __functionAddress = GL.getCapabilities().glEnableVertexArrayAttribEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, index);
+		nglEnableVertexArrayAttribEXT(vaobj, index);
 	}
 
 	// --- [ glDisableVertexArrayAttribEXT ] ---
 
+	public static native void nglDisableVertexArrayAttribEXT(int vaobj, int index);
+
 	public static void glDisableVertexArrayAttribEXT(int vaobj, int index) {
-		long __functionAddress = GL.getCapabilities().glDisableVertexArrayAttribEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, vaobj, index);
+		nglDisableVertexArrayAttribEXT(vaobj, index);
 	}
 
 	// --- [ glGetVertexArrayIntegervEXT ] ---
 
-	public static void nglGetVertexArrayIntegervEXT(int vaobj, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIntegervEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, pname, param);
-	}
+	public static native void nglGetVertexArrayIntegervEXT(int vaobj, int pname, long param);
 
 	public static void glGetVertexArrayIntegervEXT(int vaobj, int pname, IntBuffer param) {
 		if ( CHECKS )
@@ -3566,12 +2876,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayPointervEXT ] ---
 
-	public static void nglGetVertexArrayPointervEXT(int vaobj, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayPointervEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, pname, param);
-	}
+	public static native void nglGetVertexArrayPointervEXT(int vaobj, int pname, long param);
 
 	public static void glGetVertexArrayPointervEXT(int vaobj, int pname, PointerBuffer param) {
 		if ( CHECKS )
@@ -3592,12 +2897,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayIntegeri_vEXT ] ---
 
-	public static void nglGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIntegeri_vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, index, pname, param);
-	}
+	public static native void nglGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, long param);
 
 	public static void glGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, IntBuffer param) {
 		if ( CHECKS )
@@ -3618,12 +2918,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayPointeri_vEXT ] ---
 
-	public static void nglGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, long param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayPointeri_vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, vaobj, index, pname, param);
-	}
+	public static native void nglGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, long param);
 
 	public static void glGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, PointerBuffer param) {
 		if ( CHECKS )
@@ -3644,12 +2939,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMapNamedBufferRangeEXT ] ---
 
-	public static long nglMapNamedBufferRangeEXT(int buffer, long offset, long length, int access) {
-		long __functionAddress = GL.getCapabilities().glMapNamedBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPP(__functionAddress, buffer, offset, length, access);
-	}
+	public static native long nglMapNamedBufferRangeEXT(int buffer, long offset, long length, int access);
 
 	public static ByteBuffer glMapNamedBufferRangeEXT(int buffer, long offset, long length, int access) {
 		long __result = nglMapNamedBufferRangeEXT(buffer, offset, length, access);
@@ -3663,16 +2953,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glFlushMappedNamedBufferRangeEXT ] ---
 
+	public static native void nglFlushMappedNamedBufferRangeEXT(int buffer, long offset, long length);
+
 	public static void glFlushMappedNamedBufferRangeEXT(int buffer, long offset, long length) {
-		long __functionAddress = GL.getCapabilities().glFlushMappedNamedBufferRangeEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, offset, length);
+		nglFlushMappedNamedBufferRangeEXT(buffer, offset, length);
 	}
 
 	/** Array version of: {@link #glMatrixLoadfEXT MatrixLoadfEXT} */
 	public static void glMatrixLoadfEXT(int matrixMode, float[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadfEXT;
+		long __functionAddress = GL.getICD().glMatrixLoadfEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -3682,7 +2971,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixLoaddEXT MatrixLoaddEXT} */
 	public static void glMatrixLoaddEXT(int matrixMode, double[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoaddEXT;
+		long __functionAddress = GL.getICD().glMatrixLoaddEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -3692,7 +2981,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixMultfEXT MatrixMultfEXT} */
 	public static void glMatrixMultfEXT(int matrixMode, float[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultfEXT;
+		long __functionAddress = GL.getICD().glMatrixMultfEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -3702,7 +2991,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixMultdEXT MatrixMultdEXT} */
 	public static void glMatrixMultdEXT(int matrixMode, double[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultdEXT;
+		long __functionAddress = GL.getICD().glMatrixMultdEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -3712,7 +3001,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterivEXT TextureParameterivEXT} */
 	public static void glTextureParameterivEXT(int texture, int target, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterivEXT;
+		long __functionAddress = GL.getICD().glTextureParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 4);
@@ -3722,7 +3011,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterfvEXT TextureParameterfvEXT} */
 	public static void glTextureParameterfvEXT(int texture, int target, int pname, float[] param) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterfvEXT;
+		long __functionAddress = GL.getICD().glTextureParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 4);
@@ -3732,7 +3021,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
@@ -3740,7 +3029,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
@@ -3748,7 +3037,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
@@ -3756,7 +3045,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
@@ -3764,7 +3053,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
@@ -3772,7 +3061,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
@@ -3780,7 +3069,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
@@ -3788,7 +3077,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
@@ -3796,7 +3085,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
@@ -3804,7 +3093,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
@@ -3812,7 +3101,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
@@ -3820,7 +3109,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
@@ -3828,7 +3117,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3836,7 +3125,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3844,7 +3133,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3852,7 +3141,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -3860,7 +3149,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
+		long __functionAddress = GL.getICD().glGetTextureImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
@@ -3868,7 +3157,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
+		long __functionAddress = GL.getICD().glGetTextureImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
@@ -3876,7 +3165,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
+		long __functionAddress = GL.getICD().glGetTextureImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
@@ -3884,7 +3173,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
+		long __functionAddress = GL.getICD().glGetTextureImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
@@ -3892,7 +3181,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterfvEXT GetTextureParameterfvEXT} */
 	public static void glGetTextureParameterfvEXT(int texture, int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterfvEXT;
+		long __functionAddress = GL.getICD().glGetTextureParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3902,7 +3191,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterivEXT GetTextureParameterivEXT} */
 	public static void glGetTextureParameterivEXT(int texture, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterivEXT;
+		long __functionAddress = GL.getICD().glGetTextureParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3912,7 +3201,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureLevelParameterfvEXT GetTextureLevelParameterfvEXT} */
 	public static void glGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfvEXT;
+		long __functionAddress = GL.getICD().glGetTextureLevelParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3922,7 +3211,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureLevelParameterivEXT GetTextureLevelParameterivEXT} */
 	public static void glGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterivEXT;
+		long __functionAddress = GL.getICD().glGetTextureLevelParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -3932,7 +3221,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -3940,7 +3229,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -3948,7 +3237,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -3956,7 +3245,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -3964,7 +3253,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -3972,7 +3261,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -3980,7 +3269,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -3988,7 +3277,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
+		long __functionAddress = GL.getICD().glTextureSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -3996,7 +3285,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
+		long __functionAddress = GL.getICD().glMultiTexCoordPointerEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, size, type, stride, pointer);
@@ -4004,7 +3293,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
+		long __functionAddress = GL.getICD().glMultiTexCoordPointerEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, size, type, stride, pointer);
@@ -4012,7 +3301,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
+		long __functionAddress = GL.getICD().glMultiTexCoordPointerEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, size, type, stride, pointer);
@@ -4020,7 +3309,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexEnvfvEXT MultiTexEnvfvEXT} */
 	public static void glMultiTexEnvfvEXT(int texunit, int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexEnvfvEXT;
+		long __functionAddress = GL.getICD().glMultiTexEnvfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4030,7 +3319,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexEnvivEXT MultiTexEnvivEXT} */
 	public static void glMultiTexEnvivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexEnvivEXT;
+		long __functionAddress = GL.getICD().glMultiTexEnvivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4040,7 +3329,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexGendvEXT MultiTexGendvEXT} */
 	public static void glMultiTexGendvEXT(int texunit, int coord, int pname, double[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGendvEXT;
+		long __functionAddress = GL.getICD().glMultiTexGendvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4050,7 +3339,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexGenfvEXT MultiTexGenfvEXT} */
 	public static void glMultiTexGenfvEXT(int texunit, int coord, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGenfvEXT;
+		long __functionAddress = GL.getICD().glMultiTexGenfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4060,7 +3349,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexGenivEXT MultiTexGenivEXT} */
 	public static void glMultiTexGenivEXT(int texunit, int coord, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexGenivEXT;
+		long __functionAddress = GL.getICD().glMultiTexGenivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4070,7 +3359,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexEnvfvEXT GetMultiTexEnvfvEXT} */
 	public static void glGetMultiTexEnvfvEXT(int texunit, int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexEnvfvEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexEnvfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4080,7 +3369,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexEnvivEXT GetMultiTexEnvivEXT} */
 	public static void glGetMultiTexEnvivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexEnvivEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexEnvivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4090,7 +3379,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexGendvEXT GetMultiTexGendvEXT} */
 	public static void glGetMultiTexGendvEXT(int texunit, int coord, int pname, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexGendvEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexGendvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4100,7 +3389,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexGenfvEXT GetMultiTexGenfvEXT} */
 	public static void glGetMultiTexGenfvEXT(int texunit, int coord, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexGenfvEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexGenfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4110,7 +3399,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexGenivEXT GetMultiTexGenivEXT} */
 	public static void glGetMultiTexGenivEXT(int texunit, int coord, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexGenivEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexGenivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4120,7 +3409,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexParameterivEXT MultiTexParameterivEXT} */
 	public static void glMultiTexParameterivEXT(int texunit, int target, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterivEXT;
+		long __functionAddress = GL.getICD().glMultiTexParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 4);
@@ -4130,7 +3419,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexParameterfvEXT MultiTexParameterfvEXT} */
 	public static void glMultiTexParameterfvEXT(int texunit, int target, int pname, float[] param) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterfvEXT;
+		long __functionAddress = GL.getICD().glMultiTexParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 4);
@@ -4140,7 +3429,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
@@ -4148,7 +3437,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
@@ -4156,7 +3445,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
@@ -4164,7 +3453,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
@@ -4172,7 +3461,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
@@ -4180,7 +3469,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
@@ -4188,7 +3477,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
@@ -4196,7 +3485,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
@@ -4204,7 +3493,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
@@ -4212,7 +3501,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
@@ -4220,7 +3509,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
@@ -4228,7 +3517,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
@@ -4236,7 +3525,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -4244,7 +3533,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -4252,7 +3541,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -4260,7 +3549,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -4268,7 +3557,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
@@ -4276,7 +3565,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
@@ -4284,7 +3573,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
@@ -4292,7 +3581,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexImageEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
@@ -4300,7 +3589,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexParameterfvEXT GetMultiTexParameterfvEXT} */
 	public static void glGetMultiTexParameterfvEXT(int texunit, int target, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterfvEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4310,7 +3599,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexParameterivEXT GetMultiTexParameterivEXT} */
 	public static void glGetMultiTexParameterivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterivEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4320,7 +3609,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexLevelParameterfvEXT GetMultiTexLevelParameterfvEXT} */
 	public static void glGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexLevelParameterfvEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexLevelParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4330,7 +3619,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexLevelParameterivEXT GetMultiTexLevelParameterivEXT} */
 	public static void glGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexLevelParameterivEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexLevelParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4340,7 +3629,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -4348,7 +3637,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -4356,7 +3645,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -4364,7 +3653,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
@@ -4372,7 +3661,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4380,7 +3669,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4388,7 +3677,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4396,7 +3685,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
-		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
+		long __functionAddress = GL.getICD().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -4404,7 +3693,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetFloatIndexedvEXT GetFloatIndexedvEXT} */
 	public static void glGetFloatIndexedvEXT(int target, int index, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetFloatIndexedvEXT;
+		long __functionAddress = GL.getICD().glGetFloatIndexedvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4414,7 +3703,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetDoubleIndexedvEXT GetDoubleIndexedvEXT} */
 	public static void glGetDoubleIndexedvEXT(int target, int index, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetDoubleIndexedvEXT;
+		long __functionAddress = GL.getICD().glGetDoubleIndexedvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4424,7 +3713,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetFloati_vEXT GetFloati_vEXT} */
 	public static void glGetFloati_vEXT(int pname, int index, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetFloati_vEXT;
+		long __functionAddress = GL.getICD().glGetFloati_vEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4434,7 +3723,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetDoublei_vEXT GetDoublei_vEXT} */
 	public static void glGetDoublei_vEXT(int pname, int index, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetDoublei_vEXT;
+		long __functionAddress = GL.getICD().glGetDoublei_vEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4444,7 +3733,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
+		long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4454,7 +3743,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParameter4dvEXT NamedProgramLocalParameter4dvEXT} */
 	public static void glNamedProgramLocalParameter4dvEXT(int program, int target, int index, double[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameter4dvEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParameter4dvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4464,7 +3753,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParameter4fvEXT NamedProgramLocalParameter4fvEXT} */
 	public static void glNamedProgramLocalParameter4fvEXT(int program, int target, int index, float[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameter4fvEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParameter4fvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4474,7 +3763,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedProgramLocalParameterdvEXT GetNamedProgramLocalParameterdvEXT} */
 	public static void glGetNamedProgramLocalParameterdvEXT(int program, int target, int index, double[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterdvEXT;
+		long __functionAddress = GL.getICD().glGetNamedProgramLocalParameterdvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4484,7 +3773,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedProgramLocalParameterfvEXT GetNamedProgramLocalParameterfvEXT} */
 	public static void glGetNamedProgramLocalParameterfvEXT(int program, int target, int index, float[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterfvEXT;
+		long __functionAddress = GL.getICD().glGetNamedProgramLocalParameterfvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4494,7 +3783,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedProgramivEXT GetNamedProgramivEXT} */
 	public static void glGetNamedProgramivEXT(int program, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramivEXT;
+		long __functionAddress = GL.getICD().glGetNamedProgramivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4504,7 +3793,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixLoadTransposefEXT MatrixLoadTransposefEXT} */
 	public static void glMatrixLoadTransposefEXT(int matrixMode, float[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadTransposefEXT;
+		long __functionAddress = GL.getICD().glMatrixLoadTransposefEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -4514,7 +3803,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixLoadTransposedEXT MatrixLoadTransposedEXT} */
 	public static void glMatrixLoadTransposedEXT(int matrixMode, double[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixLoadTransposedEXT;
+		long __functionAddress = GL.getICD().glMatrixLoadTransposedEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -4524,7 +3813,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixMultTransposefEXT MatrixMultTransposefEXT} */
 	public static void glMatrixMultTransposefEXT(int matrixMode, float[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultTransposefEXT;
+		long __functionAddress = GL.getICD().glMatrixMultTransposefEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -4534,7 +3823,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMatrixMultTransposedEXT MatrixMultTransposedEXT} */
 	public static void glMatrixMultTransposedEXT(int matrixMode, double[] m) {
-		long __functionAddress = GL.getCapabilities().glMatrixMultTransposedEXT;
+		long __functionAddress = GL.getICD().glMatrixMultTransposedEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -4544,7 +3833,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, short[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, usage);
@@ -4552,7 +3841,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, int[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
@@ -4560,7 +3849,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, float[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
@@ -4568,7 +3857,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, double[] data, int usage) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
@@ -4576,7 +3865,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, short[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
@@ -4584,7 +3873,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, int[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -4592,7 +3881,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, float[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -4600,7 +3889,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, double[] data) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
@@ -4608,7 +3897,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
 	public static void glGetNamedBufferParameterivEXT(int buffer, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameterivEXT;
+		long __functionAddress = GL.getICD().glGetNamedBufferParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4618,7 +3907,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, short[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
@@ -4626,7 +3915,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, int[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -4634,7 +3923,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, float[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
@@ -4642,7 +3931,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, double[] data) {
-		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
+		long __functionAddress = GL.getICD().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
@@ -4650,7 +3939,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
 	public static void glProgramUniform1fvEXT(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform1fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -4658,7 +3947,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
 	public static void glProgramUniform2fvEXT(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform2fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -4666,7 +3955,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
 	public static void glProgramUniform3fvEXT(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform3fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -4674,7 +3963,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
 	public static void glProgramUniform4fvEXT(int program, int location, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniform4fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -4682,7 +3971,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
 	public static void glProgramUniform1ivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform1ivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -4690,7 +3979,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
 	public static void glProgramUniform2ivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform2ivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -4698,7 +3987,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
 	public static void glProgramUniform3ivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform3ivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -4706,7 +3995,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
 	public static void glProgramUniform4ivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform4ivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -4714,7 +4003,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
 	public static void glProgramUniformMatrix2fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, transpose, value);
@@ -4722,7 +4011,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
 	public static void glProgramUniformMatrix3fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 9, transpose, value);
@@ -4730,7 +4019,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
 	public static void glProgramUniformMatrix4fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 4, transpose, value);
@@ -4738,7 +4027,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
 	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x3fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -4746,7 +4035,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
 	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x2fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 6, transpose, value);
@@ -4754,7 +4043,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
 	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix2x4fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -4762,7 +4051,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
 	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x2fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 3, transpose, value);
@@ -4770,7 +4059,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
 	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix3x4fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -4778,7 +4067,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
 	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3fvEXT;
+		long __functionAddress = GL.getICD().glProgramUniformMatrix4x3fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 12, transpose, value);
@@ -4786,7 +4075,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterIivEXT TextureParameterIivEXT} */
 	public static void glTextureParameterIivEXT(int texture, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIivEXT;
+		long __functionAddress = GL.getICD().glTextureParameterIivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4796,7 +4085,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glTextureParameterIuivEXT TextureParameterIuivEXT} */
 	public static void glTextureParameterIuivEXT(int texture, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glTextureParameterIuivEXT;
+		long __functionAddress = GL.getICD().glTextureParameterIuivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4806,7 +4095,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterIivEXT GetTextureParameterIivEXT} */
 	public static void glGetTextureParameterIivEXT(int texture, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIivEXT;
+		long __functionAddress = GL.getICD().glGetTextureParameterIivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4816,7 +4105,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetTextureParameterIuivEXT GetTextureParameterIuivEXT} */
 	public static void glGetTextureParameterIuivEXT(int texture, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuivEXT;
+		long __functionAddress = GL.getICD().glGetTextureParameterIuivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4826,7 +4115,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexParameterIivEXT MultiTexParameterIivEXT} */
 	public static void glMultiTexParameterIivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterIivEXT;
+		long __functionAddress = GL.getICD().glMultiTexParameterIivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4836,7 +4125,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glMultiTexParameterIuivEXT MultiTexParameterIuivEXT} */
 	public static void glMultiTexParameterIuivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glMultiTexParameterIuivEXT;
+		long __functionAddress = GL.getICD().glMultiTexParameterIuivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4846,7 +4135,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexParameterIivEXT GetMultiTexParameterIivEXT} */
 	public static void glGetMultiTexParameterIivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterIivEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexParameterIivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4856,7 +4145,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetMultiTexParameterIuivEXT GetMultiTexParameterIuivEXT} */
 	public static void glGetMultiTexParameterIuivEXT(int texunit, int target, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetMultiTexParameterIuivEXT;
+		long __functionAddress = GL.getICD().glGetMultiTexParameterIuivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4866,7 +4155,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
 	public static void glProgramUniform1uivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1uivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform1uivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -4874,7 +4163,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
 	public static void glProgramUniform2uivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2uivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform2uivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -4882,7 +4171,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
 	public static void glProgramUniform3uivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3uivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform3uivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -4890,7 +4179,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
 	public static void glProgramUniform4uivEXT(int program, int location, int[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4uivEXT;
+		long __functionAddress = GL.getICD().glProgramUniform4uivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -4898,7 +4187,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParameters4fvEXT NamedProgramLocalParameters4fvEXT} */
 	public static void glNamedProgramLocalParameters4fvEXT(int program, int target, int index, float[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameters4fvEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParameters4fvEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, target, index, params.length >> 2, params);
@@ -4906,7 +4195,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParameterI4ivEXT NamedProgramLocalParameterI4ivEXT} */
 	public static void glNamedProgramLocalParameterI4ivEXT(int program, int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameterI4ivEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParameterI4ivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4916,7 +4205,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParametersI4ivEXT NamedProgramLocalParametersI4ivEXT} */
 	public static void glNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParametersI4ivEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParametersI4ivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, target, index, params.length >> 2, params);
@@ -4924,7 +4213,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParameterI4uivEXT NamedProgramLocalParameterI4uivEXT} */
 	public static void glNamedProgramLocalParameterI4uivEXT(int program, int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParameterI4uivEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParameterI4uivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4934,7 +4223,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glNamedProgramLocalParametersI4uivEXT NamedProgramLocalParametersI4uivEXT} */
 	public static void glNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glNamedProgramLocalParametersI4uivEXT;
+		long __functionAddress = GL.getICD().glNamedProgramLocalParametersI4uivEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, target, index, params.length >> 2, params);
@@ -4942,7 +4231,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedProgramLocalParameterIivEXT GetNamedProgramLocalParameterIivEXT} */
 	public static void glGetNamedProgramLocalParameterIivEXT(int program, int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterIivEXT;
+		long __functionAddress = GL.getICD().glGetNamedProgramLocalParameterIivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4952,7 +4241,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedProgramLocalParameterIuivEXT GetNamedProgramLocalParameterIuivEXT} */
 	public static void glGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedProgramLocalParameterIuivEXT;
+		long __functionAddress = GL.getICD().glGetNamedProgramLocalParameterIuivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 4);
@@ -4962,7 +4251,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedRenderbufferParameterivEXT GetNamedRenderbufferParameterivEXT} */
 	public static void glGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameterivEXT;
+		long __functionAddress = GL.getICD().glGetNamedRenderbufferParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4972,7 +4261,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetNamedFramebufferAttachmentParameterivEXT GetNamedFramebufferAttachmentParameterivEXT} */
 	public static void glGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameterivEXT;
+		long __functionAddress = GL.getICD().glGetNamedFramebufferAttachmentParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -4982,7 +4271,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glFramebufferDrawBuffersEXT FramebufferDrawBuffersEXT} */
 	public static void glFramebufferDrawBuffersEXT(int framebuffer, int[] bufs) {
-		long __functionAddress = GL.getCapabilities().glFramebufferDrawBuffersEXT;
+		long __functionAddress = GL.getICD().glFramebufferDrawBuffersEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, bufs.length, bufs);
@@ -4990,7 +4279,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetFramebufferParameterivEXT GetFramebufferParameterivEXT} */
 	public static void glGetFramebufferParameterivEXT(int framebuffer, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetFramebufferParameterivEXT;
+		long __functionAddress = GL.getICD().glGetFramebufferParameterivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -5000,7 +4289,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetVertexArrayIntegervEXT GetVertexArrayIntegervEXT} */
 	public static void glGetVertexArrayIntegervEXT(int vaobj, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIntegervEXT;
+		long __functionAddress = GL.getICD().glGetVertexArrayIntegervEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);
@@ -5010,7 +4299,7 @@ public class EXTDirectStateAccess {
 
 	/** Array version of: {@link #glGetVertexArrayIntegeri_vEXT GetVertexArrayIntegeri_vEXT} */
 	public static void glGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, int[] param) {
-		long __functionAddress = GL.getCapabilities().glGetVertexArrayIntegeri_vEXT;
+		long __functionAddress = GL.getICD().glGetVertexArrayIntegeri_vEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(param, 1);

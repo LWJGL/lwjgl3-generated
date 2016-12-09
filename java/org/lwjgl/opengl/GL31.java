@@ -160,6 +160,8 @@ public class GL31 {
 	/** Returned by GetActiveUniformsiv and GetUniformBlockIndex. */
 	public static final int GL_INVALID_INDEX = 0xFFFFFFFF;
 
+	static { GL.initialize(); }
+
 	protected GL31() {
 		throw new UnsupportedOperationException();
 	}
@@ -174,6 +176,9 @@ public class GL31 {
 
 	// --- [ glDrawArraysInstanced ] ---
 
+	/** Unsafe version of: {@link #glDrawArraysInstanced DrawArraysInstanced} */
+	public static native void nglDrawArraysInstanced(int mode, int first, int count, int primcount);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstanced.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -185,10 +190,7 @@ public class GL31 {
 	 * @param primcount the number of instances of the specified range of vertices to be rendered
 	 */
 	public static void glDrawArraysInstanced(int mode, int first, int count, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysInstanced;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, primcount);
+		nglDrawArraysInstanced(mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstanced ] ---
@@ -199,12 +201,7 @@ public class GL31 {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstanced;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
@@ -276,6 +273,9 @@ public class GL31 {
 
 	// --- [ glCopyBufferSubData ] ---
 
+	/** Unsafe version of: {@link #glCopyBufferSubData CopyBufferSubData} */
+	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -298,13 +298,13 @@ public class GL31 {
 	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GL.getCapabilities().glCopyBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 	// --- [ glPrimitiveRestartIndex ] ---
+
+	/** Unsafe version of: {@link #glPrimitiveRestartIndex PrimitiveRestartIndex} */
+	public static native void nglPrimitiveRestartIndex(int index);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPrimitiveRestartIndex.xhtml">OpenGL SDK Reference</a></p>
@@ -314,13 +314,13 @@ public class GL31 {
 	 * @param index the value to be interpreted as the primitive restart index
 	 */
 	public static void glPrimitiveRestartIndex(int index) {
-		long __functionAddress = GL.getCapabilities().glPrimitiveRestartIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index);
+		nglPrimitiveRestartIndex(index);
 	}
 
 	// --- [ glTexBuffer ] ---
+
+	/** Unsafe version of: {@link #glTexBuffer TexBuffer} */
+	public static native void nglTexBuffer(int target, int internalformat, int buffer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -352,10 +352,7 @@ public class GL31 {
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTexBuffer(int target, int internalformat, int buffer) {
-		long __functionAddress = GL.getCapabilities().glTexBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, buffer);
+		nglTexBuffer(target, internalformat, buffer);
 	}
 
 	// --- [ glGetUniformIndices ] ---
@@ -365,12 +362,7 @@ public class GL31 {
 	 *
 	 * @param uniformCount the number of uniforms whose indices to query
 	 */
-	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
-		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
-	}
+	public static native void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
@@ -436,12 +428,7 @@ public class GL31 {
 	 *
 	 * @param uniformCount the number of elements in the array of indices {@code uniformIndices} and the number of parameters written to {@code params} upon successful return
 	 */
-	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
-	}
+	public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
@@ -486,12 +473,7 @@ public class GL31 {
 	 *
 	 * @param bufSize the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
 	 */
-	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
-	}
+	public static native void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
@@ -554,12 +536,7 @@ public class GL31 {
 	// --- [ glGetUniformBlockIndex ] ---
 
 	/** Unsafe version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
-	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
-		long __functionAddress = GL.getCapabilities().glGetUniformBlockIndex;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, program, uniformBlockName);
-	}
+	public static native int nglGetUniformBlockIndex(int program, long uniformBlockName);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a></p>
@@ -596,12 +573,7 @@ public class GL31 {
 	// --- [ glGetActiveUniformBlockiv ] ---
 
 	/** Unsafe version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
-	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, uniformBlockIndex, pname, params);
-	}
+	public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
@@ -646,12 +618,7 @@ public class GL31 {
 	 *
 	 * @param bufSize the size of the buffer addressed by {@code uniformBlockName}
 	 */
-	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
-	}
+	public static native void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
@@ -713,6 +680,9 @@ public class GL31 {
 
 	// --- [ glUniformBlockBinding ] ---
 
+	/** Unsafe version of: {@link #glUniformBlockBinding UniformBlockBinding} */
+	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformBlockBinding.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -723,10 +693,7 @@ public class GL31 {
 	 * @param uniformBlockBinding the binding point to which to bind the uniform block with index {@code uniformBlockIndex} within {@code program}
 	 */
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
-		long __functionAddress = GL.getCapabilities().glUniformBlockBinding;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+		nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 	}
 
 	/**
@@ -735,7 +702,7 @@ public class GL31 {
 	 * Array version of: {@link #glGetUniformIndices GetUniformIndices}
 	 */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {
-		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
+		long __functionAddress = GL.getICD().glGetUniformIndices;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(uniformIndices, uniformNames.remaining());
@@ -749,7 +716,7 @@ public class GL31 {
 	 * Array version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv}
 	 */
 	public static void glGetActiveUniformsiv(int program, int[] uniformIndices, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
+		long __functionAddress = GL.getICD().glGetActiveUniformsiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, uniformIndices.length);
@@ -763,7 +730,7 @@ public class GL31 {
 	 * Array version of: {@link #glGetActiveUniformName GetActiveUniformName}
 	 */
 	public static void glGetActiveUniformName(int program, int uniformIndex, int[] length, ByteBuffer uniformName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
+		long __functionAddress = GL.getICD().glGetActiveUniformName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);
@@ -777,7 +744,7 @@ public class GL31 {
 	 * Array version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv}
 	 */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
+		long __functionAddress = GL.getICD().glGetActiveUniformBlockiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -791,7 +758,7 @@ public class GL31 {
 	 * Array version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName}
 	 */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int[] length, ByteBuffer uniformBlockName) {
-		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
+		long __functionAddress = GL.getICD().glGetActiveUniformBlockName;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);

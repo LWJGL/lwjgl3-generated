@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/provoking_vertex.txt">EXT_provoking_vertex</a> extension.
@@ -41,6 +40,8 @@ public class EXTProvokingVertex {
 		GL_PROVOKING_VERTEX_EXT                         = 0x8E4F,
 		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT = 0x8E4C;
 
+	static { GL.initialize(); }
+
 	protected EXTProvokingVertex() {
 		throw new UnsupportedOperationException();
 	}
@@ -53,11 +54,10 @@ public class EXTProvokingVertex {
 
 	// --- [ glProvokingVertexEXT ] ---
 
+	public static native void nglProvokingVertexEXT(int mode);
+
 	public static void glProvokingVertexEXT(int mode) {
-		long __functionAddress = GL.getCapabilities().glProvokingVertexEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglProvokingVertexEXT(mode);
 	}
 
 }

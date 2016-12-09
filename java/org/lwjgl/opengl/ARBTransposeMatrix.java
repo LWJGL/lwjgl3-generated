@@ -33,6 +33,8 @@ public class ARBTransposeMatrix {
 		GL_TRANSPOSE_TEXTURE_MATRIX_ARB    = 0x84E5,
 		GL_TRANSPOSE_COLOR_MATRIX_ARB      = 0x84E6;
 
+	static { GL.initialize(); }
+
 	protected ARBTransposeMatrix() {
 		throw new UnsupportedOperationException();
 	}
@@ -46,12 +48,7 @@ public class ARBTransposeMatrix {
 	// --- [ glLoadTransposeMatrixfARB ] ---
 
 	/** Unsafe version of: {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
-	public static void nglLoadTransposeMatrixfARB(long m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixfARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglLoadTransposeMatrixfARB(long m);
 
 	/**
 	 * Sets the current matrix to a 4 &times; 4 matrix in row-major order.
@@ -76,12 +73,7 @@ public class ARBTransposeMatrix {
 	// --- [ glLoadTransposeMatrixdARB ] ---
 
 	/** Unsafe version of: {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
-	public static void nglLoadTransposeMatrixdARB(long m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixdARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglLoadTransposeMatrixdARB(long m);
 
 	/**
 	 * Double version of {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB}.
@@ -97,12 +89,7 @@ public class ARBTransposeMatrix {
 	// --- [ glMultTransposeMatrixfARB ] ---
 
 	/** Unsafe version of: {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
-	public static void nglMultTransposeMatrixfARB(long m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixfARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglMultTransposeMatrixfARB(long m);
 
 	/**
 	 * Multiplies the current matrix with a 4 &times; 4 matrix in row-major order. See {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} for details.
@@ -118,12 +105,7 @@ public class ARBTransposeMatrix {
 	// --- [ glMultTransposeMatrixdARB ] ---
 
 	/** Unsafe version of: {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
-	public static void nglMultTransposeMatrixdARB(long m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixdARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, m);
-	}
+	public static native void nglMultTransposeMatrixdARB(long m);
 
 	/**
 	 * Double version of {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB}.
@@ -138,7 +120,7 @@ public class ARBTransposeMatrix {
 
 	/** Array version of: {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
 	public static void glLoadTransposeMatrixfARB(float[] m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixfARB;
+		long __functionAddress = GL.getICD().glLoadTransposeMatrixfARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -148,7 +130,7 @@ public class ARBTransposeMatrix {
 
 	/** Array version of: {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
 	public static void glLoadTransposeMatrixdARB(double[] m) {
-		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixdARB;
+		long __functionAddress = GL.getICD().glLoadTransposeMatrixdARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -158,7 +140,7 @@ public class ARBTransposeMatrix {
 
 	/** Array version of: {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
 	public static void glMultTransposeMatrixfARB(float[] m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixfARB;
+		long __functionAddress = GL.getICD().glMultTransposeMatrixfARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);
@@ -168,7 +150,7 @@ public class ARBTransposeMatrix {
 
 	/** Array version of: {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
 	public static void glMultTransposeMatrixdARB(double[] m) {
-		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixdARB;
+		long __functionAddress = GL.getICD().glMultTransposeMatrixdARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(m, 16);

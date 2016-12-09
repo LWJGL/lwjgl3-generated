@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -20,6 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Requires {@link NVBindlessMultiDrawIndirect NV_bindless_multi_draw_indirect}, {@link ARBIndirectParameters ARB_indirect_parameters}.</p>
  */
 public class NVBindlessMultiDrawIndirectCount {
+
+	static { GL.initialize(); }
 
 	protected NVBindlessMultiDrawIndirectCount() {
 		throw new UnsupportedOperationException();
@@ -34,12 +35,7 @@ public class NVBindlessMultiDrawIndirectCount {
 	// --- [ glMultiDrawArraysIndirectBindlessCountNV ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawArraysIndirectBindlessCountNV MultiDrawArraysIndirectBindlessCountNV} */
-	public static void nglMultiDrawArraysIndirectBindlessCountNV(int mode, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectBindlessCountNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
-	}
+	public static native void nglMultiDrawArraysIndirectBindlessCountNV(int mode, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount);
 
 	/**
 	 * Behaves similarly to {@link NVBindlessMultiDrawIndirect#glMultiDrawArraysIndirectBindlessNV MultiDrawArraysIndirectBindlessNV}, except that {@code drawCount} defines an offset (in bytes) into
@@ -63,12 +59,7 @@ public class NVBindlessMultiDrawIndirectCount {
 	// --- [ glMultiDrawElementsIndirectBindlessCountNV ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawElementsIndirectBindlessCountNV MultiDrawElementsIndirectBindlessCountNV} */
-	public static void nglMultiDrawElementsIndirectBindlessCountNV(int mode, int type, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectBindlessCountNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
-	}
+	public static native void nglMultiDrawElementsIndirectBindlessCountNV(int mode, int type, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount);
 
 	/**
 	 * Behaves similarly to {@link NVBindlessMultiDrawIndirect#glMultiDrawElementsIndirectBindlessNV MultiDrawElementsIndirectBindlessNV}, except that {@code drawCount} defines an offset (in bytes) into

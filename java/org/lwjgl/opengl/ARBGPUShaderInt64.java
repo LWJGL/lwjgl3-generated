@@ -43,6 +43,8 @@ public class ARBGPUShaderInt64 {
 		GL_UNSIGNED_INT64_VEC3_ARB = 0x8FF6,
 		GL_UNSIGNED_INT64_VEC4_ARB = 0x8FF7;
 
+	static { GL.initialize(); }
+
 	protected ARBGPUShaderInt64() {
 		throw new UnsupportedOperationException();
 	}
@@ -62,6 +64,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform1i64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform1i64ARB Uniform1i64ARB} */
+	public static native void nglUniform1i64ARB(int location, long x);
+
 	/**
 	 * Specifies the value of an int64_t uniform variable for the current program object.
 	 *
@@ -69,10 +74,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 */
 	public static void glUniform1i64ARB(int location, long x) {
-		long __functionAddress = GL.getCapabilities().glUniform1i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, location, x);
+		nglUniform1i64ARB(location, x);
 	}
 
 	// --- [ glUniform1i64vARB ] ---
@@ -82,12 +84,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1i64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1i64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single int64_t uniform variable or a int64_t uniform variable array for the current program object.
@@ -101,6 +98,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform1i64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform1i64ARB ProgramUniform1i64ARB} */
+	public static native void nglProgramUniform1i64ARB(int program, int location, long x);
+
 	/**
 	 * Specifies the value of an int64_t uniform variable for the specified program object.
 	 *
@@ -109,10 +109,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1i64ARB(int program, int location, long x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, program, location, x);
+		nglProgramUniform1i64ARB(program, location, x);
 	}
 
 	// --- [ glProgramUniform1i64vARB ] ---
@@ -122,12 +119,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1i64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1i64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single int64_t uniform variable or a int64_t uniform variable array for the specified program object.
@@ -142,6 +134,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform2i64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform2i64ARB Uniform2i64ARB} */
+	public static native void nglUniform2i64ARB(int location, long x, long y);
+
 	/**
 	 * Specifies the value of an i64vec2 uniform variable for the current program object.
 	 *
@@ -150,10 +145,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 */
 	public static void glUniform2i64ARB(int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glUniform2i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJV(__functionAddress, location, x, y);
+		nglUniform2i64ARB(location, x, y);
 	}
 
 	// --- [ glUniform2i64vARB ] ---
@@ -163,12 +155,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2i64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2i64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single i64vec2 uniform variable or a i64vec2 uniform variable array for the current program object.
@@ -182,6 +169,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform2i64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform2i64ARB ProgramUniform2i64ARB} */
+	public static native void nglProgramUniform2i64ARB(int program, int location, long x, long y);
+
 	/**
 	 * Specifies the value of an i64vec2 uniform variable for the specified program object.
 	 *
@@ -191,10 +181,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2i64ARB(int program, int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJV(__functionAddress, program, location, x, y);
+		nglProgramUniform2i64ARB(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform2i64vARB ] ---
@@ -204,12 +191,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2i64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2i64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single i64vec2 uniform variable or a i64vec2 uniform variable array for the specified program object.
@@ -224,6 +206,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform3i64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform3i64ARB Uniform3i64ARB} */
+	public static native void nglUniform3i64ARB(int location, long x, long y, long z);
+
 	/**
 	 * Specifies the value of an i64vec3 uniform variable for the current program object.
 	 *
@@ -233,10 +218,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 */
 	public static void glUniform3i64ARB(int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glUniform3i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJV(__functionAddress, location, x, y, z);
+		nglUniform3i64ARB(location, x, y, z);
 	}
 
 	// --- [ glUniform3i64vARB ] ---
@@ -246,12 +228,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3i64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3i64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single i64vec3 uniform variable or a i64vec3 uniform variable array for the current program object.
@@ -265,6 +242,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform3i64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform3i64ARB ProgramUniform3i64ARB} */
+	public static native void nglProgramUniform3i64ARB(int program, int location, long x, long y, long z);
+
 	/**
 	 * Specifies the value of an i64vec3 uniform variable for the specified program object.
 	 *
@@ -275,10 +255,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3i64ARB(int program, int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3i64ARB(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform3i64vARB ] ---
@@ -288,12 +265,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3i64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3i64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single i64vec3 uniform variable or a i64vec3 uniform variable array for the specified program object.
@@ -308,6 +280,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform4i64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform4i64ARB Uniform4i64ARB} */
+	public static native void nglUniform4i64ARB(int location, long x, long y, long z, long w);
+
 	/**
 	 * Specifies the value of an i64vec4 uniform variable for the current program object.
 	 *
@@ -318,10 +293,7 @@ public class ARBGPUShaderInt64 {
 	 * @param w        the uniform w value
 	 */
 	public static void glUniform4i64ARB(int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glUniform4i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJJV(__functionAddress, location, x, y, z, w);
+		nglUniform4i64ARB(location, x, y, z, w);
 	}
 
 	// --- [ glUniform4i64vARB ] ---
@@ -331,12 +303,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4i64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4i64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single i64vec4 uniform variable or a i64vec4 uniform variable array for the current program object.
@@ -350,6 +317,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform4i64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform4i64ARB ProgramUniform4i64ARB} */
+	public static native void nglProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w);
+
 	/**
 	 * Specifies the value of an i64vec4 uniform variable for the specified program object.
 	 *
@@ -361,10 +331,7 @@ public class ARBGPUShaderInt64 {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4i64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJJV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4i64ARB(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform4i64vARB ] ---
@@ -374,12 +341,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4i64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4i64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4i64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single i64vec4 uniform variable or a i64vec4 uniform variable array for the specified program object.
@@ -394,6 +356,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform1ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform1ui64ARB Uniform1ui64ARB} */
+	public static native void nglUniform1ui64ARB(int location, long x);
+
 	/**
 	 * Specifies the value of an uint64_t uniform variable for the current program object.
 	 *
@@ -401,10 +366,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 */
 	public static void glUniform1ui64ARB(int location, long x) {
-		long __functionAddress = GL.getCapabilities().glUniform1ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, location, x);
+		nglUniform1ui64ARB(location, x);
 	}
 
 	// --- [ glUniform1ui64vARB ] ---
@@ -414,12 +376,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform1ui64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1ui64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single uint64_t uniform variable or a uint64_t uniform variable array for the current program object.
@@ -433,6 +390,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform1ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform1ui64ARB ProgramUniform1ui64ARB} */
+	public static native void nglProgramUniform1ui64ARB(int program, int location, long x);
+
 	/**
 	 * Specifies the value of an uint64_t uniform variable for the current program object.
 	 *
@@ -441,10 +401,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 */
 	public static void glProgramUniform1ui64ARB(int program, int location, long x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, program, location, x);
+		nglProgramUniform1ui64ARB(program, location, x);
 	}
 
 	// --- [ glProgramUniform1ui64vARB ] ---
@@ -454,12 +411,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform1ui64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform1ui64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single uint64_t uniform variable or a uint64_t uniform variable array for the specified program object.
@@ -474,6 +426,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform2ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform2ui64ARB Uniform2ui64ARB} */
+	public static native void nglUniform2ui64ARB(int location, long x, long y);
+
 	/**
 	 * Specifies the value of an u64vec2 uniform variable for the current program object.
 	 *
@@ -482,10 +437,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 */
 	public static void glUniform2ui64ARB(int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glUniform2ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJV(__functionAddress, location, x, y);
+		nglUniform2ui64ARB(location, x, y);
 	}
 
 	// --- [ glUniform2ui64vARB ] ---
@@ -495,12 +447,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform2ui64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2ui64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single u64vec2 uniform variable or a u64vec2 uniform variable array for the current program object.
@@ -514,6 +461,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform2ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform2ui64ARB ProgramUniform2ui64ARB} */
+	public static native void nglProgramUniform2ui64ARB(int program, int location, long x, long y);
+
 	/**
 	 * Specifies the value of an u64vec2 uniform variable for the current program object.
 	 *
@@ -523,10 +473,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 */
 	public static void glProgramUniform2ui64ARB(int program, int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJV(__functionAddress, program, location, x, y);
+		nglProgramUniform2ui64ARB(program, location, x, y);
 	}
 
 	// --- [ glProgramUniform2ui64vARB ] ---
@@ -536,12 +483,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform2ui64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform2ui64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single u64vec2 uniform variable or a u64vec2 uniform variable array for the specified program object.
@@ -556,6 +498,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform3ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform3ui64ARB Uniform3ui64ARB} */
+	public static native void nglUniform3ui64ARB(int location, long x, long y, long z);
+
 	/**
 	 * Specifies the value of an u64vec3 uniform variable for the current program object.
 	 *
@@ -565,10 +510,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 */
 	public static void glUniform3ui64ARB(int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glUniform3ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJV(__functionAddress, location, x, y, z);
+		nglUniform3ui64ARB(location, x, y, z);
 	}
 
 	// --- [ glUniform3ui64vARB ] ---
@@ -578,12 +520,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform3ui64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3ui64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single u64vec3 uniform variable or a u64vec3 uniform variable array for the current program object.
@@ -597,6 +534,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform3ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform3ui64ARB ProgramUniform3ui64ARB} */
+	public static native void nglProgramUniform3ui64ARB(int program, int location, long x, long y, long z);
+
 	/**
 	 * Specifies the value of an u64vec3 uniform variable for the current program object.
 	 *
@@ -607,10 +547,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 */
 	public static void glProgramUniform3ui64ARB(int program, int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJV(__functionAddress, program, location, x, y, z);
+		nglProgramUniform3ui64ARB(program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform3ui64vARB ] ---
@@ -620,12 +557,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform3ui64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform3ui64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single u64vec3 uniform variable or a u64vec3 uniform variable array for the specified program object.
@@ -640,6 +572,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform4ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glUniform4ui64ARB Uniform4ui64ARB} */
+	public static native void nglUniform4ui64ARB(int location, long x, long y, long z, long w);
+
 	/**
 	 * Specifies the value of an u64vec4 uniform variable for the current program object.
 	 *
@@ -650,10 +585,7 @@ public class ARBGPUShaderInt64 {
 	 * @param w        the uniform w value
 	 */
 	public static void glUniform4ui64ARB(int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glUniform4ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJJV(__functionAddress, location, x, y, z, w);
+		nglUniform4ui64ARB(location, x, y, z, w);
 	}
 
 	// --- [ glUniform4ui64vARB ] ---
@@ -663,12 +595,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglUniform4ui64vARB(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4ui64vARB(int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single u64vec4 uniform variable or a u64vec4 uniform variable array for the current program object.
@@ -682,6 +609,9 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform4ui64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniform4ui64ARB ProgramUniform4ui64ARB} */
+	public static native void nglProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w);
+
 	/**
 	 * Specifies the value of an u64vec4 uniform variable for the current program object.
 	 *
@@ -693,10 +623,7 @@ public class ARBGPUShaderInt64 {
 	 * @param w        the uniform w value
 	 */
 	public static void glProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJJJJV(__functionAddress, program, location, x, y, z, w);
+		nglProgramUniform4ui64ARB(program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform4ui64vARB ] ---
@@ -706,12 +633,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
-	public static void nglProgramUniform4ui64vARB(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, value);
-	}
+	public static native void nglProgramUniform4ui64vARB(int program, int location, int count, long value);
 
 	/**
 	 * Specifies the value of a single u64vec4 uniform variable or a u64vec4 uniform variable array for the specified program object.
@@ -727,12 +649,7 @@ public class ARBGPUShaderInt64 {
 	// --- [ glGetUniformi64vARB ] ---
 
 	/** Unsafe version of: {@link #glGetUniformi64vARB GetUniformi64vARB} */
-	public static void nglGetUniformi64vARB(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformi64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformi64vARB(int program, int location, long params);
 
 	/**
 	 * Returns the int64_t value(s) of a uniform variable.
@@ -767,12 +684,7 @@ public class ARBGPUShaderInt64 {
 	// --- [ glGetUniformui64vARB ] ---
 
 	/** Unsafe version of: {@link #glGetUniformui64vARB GetUniformui64vARB} */
-	public static void nglGetUniformui64vARB(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformui64vARB(int program, int location, long params);
 
 	/**
 	 * Returns the uint64_t value(s) of a uniform variable.
@@ -811,12 +723,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param bufSize the maximum number of values to write in {@code params}
 	 */
-	public static void nglGetnUniformi64vARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformi64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformi64vARB(int program, int location, int bufSize, long params);
 
 	/**
 	 * Robust version of {@link #glGetUniformi64vARB GetUniformi64vARB}.
@@ -853,12 +760,7 @@ public class ARBGPUShaderInt64 {
 	 *
 	 * @param bufSize the maximum number of values to write in {@code params}
 	 */
-	public static void nglGetnUniformui64vARB(int program, int location, int bufSize, long params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, bufSize, params);
-	}
+	public static native void nglGetnUniformui64vARB(int program, int location, int bufSize, long params);
 
 	/**
 	 * Robust version of {@link #glGetUniformui64vARB GetUniformui64vARB}.
@@ -890,7 +792,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform1i64vARB Uniform1i64vARB} */
 	public static void glUniform1i64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1i64vARB;
+		long __functionAddress = GL.getICD().glUniform1i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -898,7 +800,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform1i64vARB ProgramUniform1i64vARB} */
 	public static void glProgramUniform1i64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1i64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform1i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -906,7 +808,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform2i64vARB Uniform2i64vARB} */
 	public static void glUniform2i64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2i64vARB;
+		long __functionAddress = GL.getICD().glUniform2i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -914,7 +816,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform2i64vARB ProgramUniform2i64vARB} */
 	public static void glProgramUniform2i64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2i64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform2i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -922,7 +824,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform3i64vARB Uniform3i64vARB} */
 	public static void glUniform3i64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3i64vARB;
+		long __functionAddress = GL.getICD().glUniform3i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -930,7 +832,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform3i64vARB ProgramUniform3i64vARB} */
 	public static void glProgramUniform3i64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3i64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform3i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -938,7 +840,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform4i64vARB Uniform4i64vARB} */
 	public static void glUniform4i64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4i64vARB;
+		long __functionAddress = GL.getICD().glUniform4i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -946,7 +848,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform4i64vARB ProgramUniform4i64vARB} */
 	public static void glProgramUniform4i64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4i64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform4i64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -954,7 +856,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform1ui64vARB Uniform1ui64vARB} */
 	public static void glUniform1ui64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform1ui64vARB;
+		long __functionAddress = GL.getICD().glUniform1ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
@@ -962,7 +864,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform1ui64vARB ProgramUniform1ui64vARB} */
 	public static void glProgramUniform1ui64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform1ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
@@ -970,7 +872,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform2ui64vARB Uniform2ui64vARB} */
 	public static void glUniform2ui64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform2ui64vARB;
+		long __functionAddress = GL.getICD().glUniform2ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
@@ -978,7 +880,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform2ui64vARB ProgramUniform2ui64vARB} */
 	public static void glProgramUniform2ui64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform2ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
@@ -986,7 +888,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform3ui64vARB Uniform3ui64vARB} */
 	public static void glUniform3ui64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform3ui64vARB;
+		long __functionAddress = GL.getICD().glUniform3ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
@@ -994,7 +896,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform3ui64vARB ProgramUniform3ui64vARB} */
 	public static void glProgramUniform3ui64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform3ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
@@ -1002,7 +904,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glUniform4ui64vARB Uniform4ui64vARB} */
 	public static void glUniform4ui64vARB(int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glUniform4ui64vARB;
+		long __functionAddress = GL.getICD().glUniform4ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
@@ -1010,7 +912,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glProgramUniform4ui64vARB ProgramUniform4ui64vARB} */
 	public static void glProgramUniform4ui64vARB(int program, int location, long[] value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64vARB;
+		long __functionAddress = GL.getICD().glProgramUniform4ui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
@@ -1018,7 +920,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glGetUniformi64vARB GetUniformi64vARB} */
 	public static void glGetUniformi64vARB(int program, int location, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformi64vARB;
+		long __functionAddress = GL.getICD().glGetUniformi64vARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1028,7 +930,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glGetUniformui64vARB GetUniformui64vARB} */
 	public static void glGetUniformui64vARB(int program, int location, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformui64vARB;
+		long __functionAddress = GL.getICD().glGetUniformui64vARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -1038,7 +940,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glGetnUniformi64vARB GetnUniformi64vARB} */
 	public static void glGetnUniformi64vARB(int program, int location, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformi64vARB;
+		long __functionAddress = GL.getICD().glGetnUniformi64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
@@ -1046,7 +948,7 @@ public class ARBGPUShaderInt64 {
 
 	/** Array version of: {@link #glGetnUniformui64vARB GetnUniformui64vARB} */
 	public static void glGetnUniformui64vARB(int program, int location, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetnUniformui64vARB;
+		long __functionAddress = GL.getICD().glGetnUniformui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);

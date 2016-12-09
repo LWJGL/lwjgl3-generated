@@ -159,6 +159,8 @@ public class GL14 {
 	 */
 	public static final int GL_MIRRORED_REPEAT = 0x8370;
 
+	static { GL.initialize(); }
+
 	protected GL14() {
 		throw new UnsupportedOperationException();
 	}
@@ -180,6 +182,9 @@ public class GL14 {
 
 	// --- [ glBlendColor ] ---
 
+	/** Unsafe version of: {@link #glBlendColor BlendColor} */
+	public static native void nglBlendColor(float red, float green, float blue, float alpha);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendColor.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -191,13 +196,13 @@ public class GL14 {
 	 * @param alpha the alpha color component
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = GL.getCapabilities().glBlendColor;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue, alpha);
+		nglBlendColor(red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
+
+	/** Unsafe version of: {@link #glBlendEquation BlendEquation} */
+	public static native void nglBlendEquation(int mode);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
@@ -207,13 +212,13 @@ public class GL14 {
 	 * @param mode the blend equation. One of:<br><table><tr><td>{@link #GL_FUNC_ADD FUNC_ADD}</td><td>{@link #GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link #GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link #GL_MIN MIN}</td><td>{@link #GL_MAX MAX}</td></tr></table>
 	 */
 	public static void glBlendEquation(int mode) {
-		long __functionAddress = GL.getCapabilities().glBlendEquation;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode);
+		nglBlendEquation(mode);
 	}
 
 	// --- [ glFogCoordf ] ---
+
+	/** Unsafe version of: {@link #glFogCoordf FogCoordf} */
+	public static native void nglFogCoordf(float coord);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -223,13 +228,13 @@ public class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordf(float coord) {
-		long __functionAddress = GL.getCapabilities().glFogCoordf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, coord);
+		nglFogCoordf(coord);
 	}
 
 	// --- [ glFogCoordd ] ---
+
+	/** Unsafe version of: {@link #glFogCoordd FogCoordd} */
+	public static native void nglFogCoordd(double coord);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -239,21 +244,13 @@ public class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordd(double coord) {
-		long __functionAddress = GL.getCapabilities().glFogCoordd;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, coord);
+		nglFogCoordd(coord);
 	}
 
 	// --- [ glFogCoordfv ] ---
 
 	/** Unsafe version of: {@link #glFogCoordfv FogCoordfv} */
-	public static void nglFogCoordfv(long coord) {
-		long __functionAddress = GL.getCapabilities().glFogCoordfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, coord);
-	}
+	public static native void nglFogCoordfv(long coord);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -271,12 +268,7 @@ public class GL14 {
 	// --- [ glFogCoorddv ] ---
 
 	/** Unsafe version of: {@link #glFogCoorddv FogCoorddv} */
-	public static void nglFogCoorddv(long coord) {
-		long __functionAddress = GL.getCapabilities().glFogCoorddv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, coord);
-	}
+	public static native void nglFogCoorddv(long coord);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -294,12 +286,7 @@ public class GL14 {
 	// --- [ glFogCoordPointer ] ---
 
 	/** Unsafe version of: {@link #glFogCoordPointer FogCoordPointer} */
-	public static void nglFogCoordPointer(int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, stride, pointer);
-	}
+	public static native void nglFogCoordPointer(int type, int stride, long pointer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -360,12 +347,7 @@ public class GL14 {
 	 *
 	 * @param primcount the size of {@code first} and {@code count}
 	 */
-	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, first, count, primcount);
-	}
+	public static native void nglMultiDrawArrays(int mode, long first, long count, int primcount);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArrays.xhtml">OpenGL SDK Reference</a></p>
@@ -389,12 +371,7 @@ public class GL14 {
 	 *
 	 * @param primcount the size of the {@code count} array
 	 */
-	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElements.xhtml">OpenGL SDK Reference</a></p>
@@ -416,6 +393,9 @@ public class GL14 {
 
 	// --- [ glPointParameterf ] ---
 
+	/** Unsafe version of: {@link #glPointParameterf PointParameterf} */
+	public static native void nglPointParameterf(int pname, float param);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameterf.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -425,13 +405,13 @@ public class GL14 {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterf(int pname, float param) {
-		long __functionAddress = GL.getCapabilities().glPointParameterf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, param);
+		nglPointParameterf(pname, param);
 	}
 
 	// --- [ glPointParameteri ] ---
+
+	/** Unsafe version of: {@link #glPointParameteri PointParameteri} */
+	public static native void nglPointParameteri(int pname, int param);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameteri.xhtml">OpenGL SDK Reference</a></p>
@@ -442,21 +422,13 @@ public class GL14 {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameteri(int pname, int param) {
-		long __functionAddress = GL.getCapabilities().glPointParameteri;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, pname, param);
+		nglPointParameteri(pname, param);
 	}
 
 	// --- [ glPointParameterfv ] ---
 
 	/** Unsafe version of: {@link #glPointParameterfv PointParameterfv} */
-	public static void nglPointParameterfv(int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glPointParameterfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, params);
-	}
+	public static native void nglPointParameterfv(int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a></p>
@@ -475,12 +447,7 @@ public class GL14 {
 	// --- [ glPointParameteriv ] ---
 
 	/** Unsafe version of: {@link #glPointParameteriv PointParameteriv} */
-	public static void nglPointParameteriv(int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glPointParameteriv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pname, params);
-	}
+	public static native void nglPointParameteriv(int pname, long params);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a></p>
@@ -498,6 +465,9 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3b ] ---
 
+	/** Unsafe version of: {@link #glSecondaryColor3b SecondaryColor3b} */
+	public static native void nglSecondaryColor3b(byte red, byte green, byte blue);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -508,13 +478,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3b;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3b(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3s ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3s SecondaryColor3s} */
+	public static native void nglSecondaryColor3s(short red, short green, short blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -526,13 +496,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3s(short red, short green, short blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3s(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3i ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3i SecondaryColor3i} */
+	public static native void nglSecondaryColor3i(int red, int green, int blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -544,13 +514,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3i(int red, int green, int blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3i(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3f ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3f SecondaryColor3f} */
+	public static native void nglSecondaryColor3f(float red, float green, float blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -562,13 +532,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3f(float red, float green, float blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3f(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3d ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3d SecondaryColor3d} */
+	public static native void nglSecondaryColor3d(double red, double green, double blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -580,13 +550,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3d(double red, double green, double blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3d(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ub ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3ub SecondaryColor3ub} */
+	public static native void nglSecondaryColor3ub(byte red, byte green, byte blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -598,13 +568,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ub;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3ub(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3us ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3us SecondaryColor3us} */
+	public static native void nglSecondaryColor3us(short red, short green, short blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -616,13 +586,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3us(short red, short green, short blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3us;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3us(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ui ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3ui SecondaryColor3ui} */
+	public static native void nglSecondaryColor3ui(int red, int green, int blue);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -634,21 +604,13 @@ public class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ui(int red, int green, int blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ui;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3ui(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3bv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3bv SecondaryColor3bv} */
-	public static void nglSecondaryColor3bv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3bv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3bv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -666,12 +628,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3sv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3sv SecondaryColor3sv} */
-	public static void nglSecondaryColor3sv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3sv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -689,12 +646,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3iv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3iv SecondaryColor3iv} */
-	public static void nglSecondaryColor3iv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3iv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -712,12 +664,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3fv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3fv SecondaryColor3fv} */
-	public static void nglSecondaryColor3fv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3fv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -735,12 +682,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3dv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3dv SecondaryColor3dv} */
-	public static void nglSecondaryColor3dv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3dv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -758,12 +700,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3ubv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
-	public static void nglSecondaryColor3ubv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3ubv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -781,12 +718,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3usv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3usv SecondaryColor3usv} */
-	public static void nglSecondaryColor3usv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3usv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -804,12 +736,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3uiv ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
-	public static void nglSecondaryColor3uiv(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3uiv(long v);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -827,12 +754,7 @@ public class GL14 {
 	// --- [ glSecondaryColorPointer ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
-	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
+	public static native void nglSecondaryColorPointer(int size, int type, int stride, long pointer);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -906,6 +828,9 @@ public class GL14 {
 
 	// --- [ glBlendFuncSeparate ] ---
 
+	/** Unsafe version of: {@link #glBlendFuncSeparate BlendFuncSeparate} */
+	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -917,13 +842,13 @@ public class GL14 {
 	 * @param dfactorAlpha how the alpha destination blending factor is computed. The initial value is GL_ZERO.
 	 */
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		long __functionAddress = GL.getCapabilities().glBlendFuncSeparate;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 	// --- [ glWindowPos2i ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2i WindowPos2i} */
+	public static native void nglWindowPos2i(int x, int y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -934,13 +859,13 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2i(int x, int y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2i(x, y);
 	}
 
 	// --- [ glWindowPos2s ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2s WindowPos2s} */
+	public static native void nglWindowPos2s(short x, short y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -951,13 +876,13 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2s(short x, short y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2s(x, y);
 	}
 
 	// --- [ glWindowPos2f ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2f WindowPos2f} */
+	public static native void nglWindowPos2f(float x, float y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -968,13 +893,13 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2f(float x, float y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2f(x, y);
 	}
 
 	// --- [ glWindowPos2d ] ---
+
+	/** Unsafe version of: {@link #glWindowPos2d WindowPos2d} */
+	public static native void nglWindowPos2d(double x, double y);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -985,21 +910,13 @@ public class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2d(double x, double y) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y);
+		nglWindowPos2d(x, y);
 	}
 
 	// --- [ glWindowPos2iv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2iv WindowPos2iv} */
-	public static void nglWindowPos2iv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2iv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1017,12 +934,7 @@ public class GL14 {
 	// --- [ glWindowPos2sv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2sv WindowPos2sv} */
-	public static void nglWindowPos2sv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2sv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1040,12 +952,7 @@ public class GL14 {
 	// --- [ glWindowPos2fv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2fv WindowPos2fv} */
-	public static void nglWindowPos2fv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2fv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1063,12 +970,7 @@ public class GL14 {
 	// --- [ glWindowPos2dv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos2dv WindowPos2dv} */
-	public static void nglWindowPos2dv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos2dv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1085,6 +987,9 @@ public class GL14 {
 
 	// --- [ glWindowPos3i ] ---
 
+	/** Unsafe version of: {@link #glWindowPos3i WindowPos3i} */
+	public static native void nglWindowPos3i(int x, int y, int z);
+
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1095,13 +1000,13 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3i(int x, int y, int z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3i;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3i(x, y, z);
 	}
 
 	// --- [ glWindowPos3s ] ---
+
+	/** Unsafe version of: {@link #glWindowPos3s WindowPos3s} */
+	public static native void nglWindowPos3s(short x, short y, short z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1113,13 +1018,13 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3s(short x, short y, short z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3s;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3s(x, y, z);
 	}
 
 	// --- [ glWindowPos3f ] ---
+
+	/** Unsafe version of: {@link #glWindowPos3f WindowPos3f} */
+	public static native void nglWindowPos3f(float x, float y, float z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1131,13 +1036,13 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3f(float x, float y, float z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3f;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3f(x, y, z);
 	}
 
 	// --- [ glWindowPos3d ] ---
+
+	/** Unsafe version of: {@link #glWindowPos3d WindowPos3d} */
+	public static native void nglWindowPos3d(double x, double y, double z);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1149,21 +1054,13 @@ public class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3d(double x, double y, double z) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3d;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, x, y, z);
+		nglWindowPos3d(x, y, z);
 	}
 
 	// --- [ glWindowPos3iv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3iv WindowPos3iv} */
-	public static void nglWindowPos3iv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3iv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1181,12 +1078,7 @@ public class GL14 {
 	// --- [ glWindowPos3sv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3sv WindowPos3sv} */
-	public static void nglWindowPos3sv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3sv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1204,12 +1096,7 @@ public class GL14 {
 	// --- [ glWindowPos3fv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3fv WindowPos3fv} */
-	public static void nglWindowPos3fv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3fv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1227,12 +1114,7 @@ public class GL14 {
 	// --- [ glWindowPos3dv ] ---
 
 	/** Unsafe version of: {@link #glWindowPos3dv WindowPos3dv} */
-	public static void nglWindowPos3dv(long p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, p);
-	}
+	public static native void nglWindowPos3dv(long p);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1253,7 +1135,7 @@ public class GL14 {
 	 * Array version of: {@link #glFogCoordfv FogCoordfv}
 	 */
 	public static void glFogCoordfv(float[] coord) {
-		long __functionAddress = GL.getCapabilities().glFogCoordfv;
+		long __functionAddress = GL.getICD().glFogCoordfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(coord, 1);
@@ -1267,7 +1149,7 @@ public class GL14 {
 	 * Array version of: {@link #glFogCoorddv FogCoorddv}
 	 */
 	public static void glFogCoorddv(double[] coord) {
-		long __functionAddress = GL.getCapabilities().glFogCoorddv;
+		long __functionAddress = GL.getICD().glFogCoorddv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(coord, 1);
@@ -1281,7 +1163,7 @@ public class GL14 {
 	 * Array version of: {@link #glFogCoordPointer FogCoordPointer}
 	 */
 	public static void glFogCoordPointer(int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
+		long __functionAddress = GL.getICD().glFogCoordPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
@@ -1293,7 +1175,7 @@ public class GL14 {
 	 * Array version of: {@link #glFogCoordPointer FogCoordPointer}
 	 */
 	public static void glFogCoordPointer(int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
+		long __functionAddress = GL.getICD().glFogCoordPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
@@ -1305,7 +1187,7 @@ public class GL14 {
 	 * Array version of: {@link #glMultiDrawArrays MultiDrawArrays}
 	 */
 	public static void glMultiDrawArrays(int mode, int[] first, int[] count) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArrays;
+		long __functionAddress = GL.getICD().glMultiDrawArrays;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(count, first.length);
@@ -1319,7 +1201,7 @@ public class GL14 {
 	 * Array version of: {@link #glMultiDrawElements MultiDrawElements}
 	 */
 	public static void glMultiDrawElements(int mode, int[] count, int type, PointerBuffer indices) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
+		long __functionAddress = GL.getICD().glMultiDrawElements;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indices, count.length);
@@ -1333,7 +1215,7 @@ public class GL14 {
 	 * Array version of: {@link #glPointParameterfv PointParameterfv}
 	 */
 	public static void glPointParameterfv(int pname, float[] params) {
-		long __functionAddress = GL.getCapabilities().glPointParameterfv;
+		long __functionAddress = GL.getICD().glPointParameterfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 3);
@@ -1347,7 +1229,7 @@ public class GL14 {
 	 * Array version of: {@link #glPointParameteriv PointParameteriv}
 	 */
 	public static void glPointParameteriv(int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glPointParameteriv;
+		long __functionAddress = GL.getICD().glPointParameteriv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 3);
@@ -1361,7 +1243,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColor3sv SecondaryColor3sv}
 	 */
 	public static void glSecondaryColor3sv(short[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
+		long __functionAddress = GL.getICD().glSecondaryColor3sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1375,7 +1257,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColor3iv SecondaryColor3iv}
 	 */
 	public static void glSecondaryColor3iv(int[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
+		long __functionAddress = GL.getICD().glSecondaryColor3iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1389,7 +1271,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColor3fv SecondaryColor3fv}
 	 */
 	public static void glSecondaryColor3fv(float[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
+		long __functionAddress = GL.getICD().glSecondaryColor3fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1403,7 +1285,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColor3dv SecondaryColor3dv}
 	 */
 	public static void glSecondaryColor3dv(double[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
+		long __functionAddress = GL.getICD().glSecondaryColor3dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1417,7 +1299,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColor3usv SecondaryColor3usv}
 	 */
 	public static void glSecondaryColor3usv(short[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
+		long __functionAddress = GL.getICD().glSecondaryColor3usv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1431,7 +1313,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv}
 	 */
 	public static void glSecondaryColor3uiv(int[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
+		long __functionAddress = GL.getICD().glSecondaryColor3uiv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -1445,7 +1327,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
+		long __functionAddress = GL.getICD().glSecondaryColorPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
@@ -1457,7 +1339,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
+		long __functionAddress = GL.getICD().glSecondaryColorPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
@@ -1469,7 +1351,7 @@ public class GL14 {
 	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
+		long __functionAddress = GL.getICD().glSecondaryColorPointer;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
@@ -1481,7 +1363,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos2iv WindowPos2iv}
 	 */
 	public static void glWindowPos2iv(int[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
+		long __functionAddress = GL.getICD().glWindowPos2iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -1495,7 +1377,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos2sv WindowPos2sv}
 	 */
 	public static void glWindowPos2sv(short[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
+		long __functionAddress = GL.getICD().glWindowPos2sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -1509,7 +1391,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos2fv WindowPos2fv}
 	 */
 	public static void glWindowPos2fv(float[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
+		long __functionAddress = GL.getICD().glWindowPos2fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -1523,7 +1405,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos2dv WindowPos2dv}
 	 */
 	public static void glWindowPos2dv(double[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
+		long __functionAddress = GL.getICD().glWindowPos2dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 2);
@@ -1537,7 +1419,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos3iv WindowPos3iv}
 	 */
 	public static void glWindowPos3iv(int[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
+		long __functionAddress = GL.getICD().glWindowPos3iv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);
@@ -1551,7 +1433,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos3sv WindowPos3sv}
 	 */
 	public static void glWindowPos3sv(short[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
+		long __functionAddress = GL.getICD().glWindowPos3sv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);
@@ -1565,7 +1447,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos3fv WindowPos3fv}
 	 */
 	public static void glWindowPos3fv(float[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
+		long __functionAddress = GL.getICD().glWindowPos3fv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);
@@ -1579,7 +1461,7 @@ public class GL14 {
 	 * Array version of: {@link #glWindowPos3dv WindowPos3dv}
 	 */
 	public static void glWindowPos3dv(double[] p) {
-		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
+		long __functionAddress = GL.getICD().glWindowPos3dv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(p, 3);

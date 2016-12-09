@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a> extension.
@@ -22,6 +21,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBTextureStorageMultisample {
 
+	static { GL.initialize(); }
+
 	protected ARBTextureStorageMultisample() {
 		throw new UnsupportedOperationException();
 	}
@@ -36,6 +37,9 @@ public class ARBTextureStorageMultisample {
 
 	// --- [ glTexStorage2DMultisample ] ---
 
+	/** Unsafe version of: {@link #glTexStorage2DMultisample TexStorage2DMultisample} */
+	public static native void nglTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
+
 	/**
 	 * Specifies storage for a two-dimensional multisample texture.
 	 *
@@ -48,13 +52,13 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTexStorage2DMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		nglTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexStorage3DMultisample ] ---
+
+	/** Unsafe version of: {@link #glTexStorage3DMultisample TexStorage3DMultisample} */
+	public static native void nglTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	/**
 	 * Specifies storage for a two-dimensional multisample array texture.
@@ -69,13 +73,13 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTexStorage3DMultisample;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		nglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage2DMultisampleEXT ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage2DMultisampleEXT TextureStorage2DMultisampleEXT} */
+	public static native void nglTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	/**
 	 * DSA version of {@link #glTexStorage2DMultisample TexStorage2DMultisample}.
@@ -90,13 +94,13 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisampleEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
+		nglTextureStorage2DMultisampleEXT(texture, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisampleEXT ] ---
+
+	/** Unsafe version of: {@link #glTextureStorage3DMultisampleEXT TextureStorage3DMultisampleEXT} */
+	public static native void nglTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	/**
 	 * DSA version of {@link #glTexStorage3DMultisample TexStorage3DMultisample}.
@@ -112,10 +116,7 @@ public class ARBTextureStorageMultisample {
 	 *                             depend on the internal format or size of the image
 	 */
 	public static void glTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisampleEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		nglTextureStorage3DMultisampleEXT(texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

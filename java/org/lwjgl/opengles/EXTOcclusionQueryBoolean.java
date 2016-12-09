@@ -39,6 +39,8 @@ public class EXTOcclusionQueryBoolean {
 		GL_QUERY_RESULT_EXT           = 0x8866,
 		GL_QUERY_RESULT_AVAILABLE_EXT = 0x8867;
 
+	static { GLES.initialize(); }
+
 	protected EXTOcclusionQueryBoolean() {
 		throw new UnsupportedOperationException();
 	}
@@ -52,12 +54,7 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glGenQueriesEXT ] ---
 
-	public static void nglGenQueriesEXT(int n, long ids) {
-		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglGenQueriesEXT(int n, long ids);
 
 	public static void glGenQueriesEXT(IntBuffer ids) {
 		nglGenQueriesEXT(ids.remaining(), memAddress(ids));
@@ -76,12 +73,7 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glDeleteQueriesEXT ] ---
 
-	public static void nglDeleteQueriesEXT(int n, long ids) {
-		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, ids);
-	}
+	public static native void nglDeleteQueriesEXT(int n, long ids);
 
 	public static void glDeleteQueriesEXT(IntBuffer ids) {
 		nglDeleteQueriesEXT(ids.remaining(), memAddress(ids));
@@ -99,39 +91,31 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glIsQueryEXT ] ---
 
+	public static native boolean nglIsQueryEXT(int id);
+
 	public static boolean glIsQueryEXT(int id) {
-		long __functionAddress = GLES.getCapabilities().glIsQueryEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, id);
+		return nglIsQueryEXT(id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
 
+	public static native void nglBeginQueryEXT(int target, int id);
+
 	public static void glBeginQueryEXT(int target, int id) {
-		long __functionAddress = GLES.getCapabilities().glBeginQueryEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, id);
+		nglBeginQueryEXT(target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
 
+	public static native void nglEndQueryEXT(int target);
+
 	public static void glEndQueryEXT(int target) {
-		long __functionAddress = GLES.getCapabilities().glEndQueryEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target);
+		nglEndQueryEXT(target);
 	}
 
 	// --- [ glGetQueryivEXT ] ---
 
-	public static void nglGetQueryivEXT(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetQueryivEXT(int target, int pname, long params);
 
 	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -152,12 +136,7 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ glGetQueryObjectuivEXT ] ---
 
-	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjectuivEXT(int id, int pname, long params);
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -178,7 +157,7 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Array version of: {@link #glGenQueriesEXT GenQueriesEXT} */
 	public static void glGenQueriesEXT(int[] ids) {
-		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
+		long __functionAddress = GLES.getICD().glGenQueriesEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -186,7 +165,7 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Array version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	public static void glDeleteQueriesEXT(int[] ids) {
-		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
+		long __functionAddress = GLES.getICD().glDeleteQueriesEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
@@ -194,7 +173,7 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Array version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void glGetQueryivEXT(int target, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
+		long __functionAddress = GLES.getICD().glGetQueryivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -204,7 +183,7 @@ public class EXTOcclusionQueryBoolean {
 
 	/** Array version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void glGetQueryObjectuivEXT(int id, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
+		long __functionAddress = GLES.getICD().glGetQueryObjectuivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/conservative_raster.txt">NV_conservative_raster</a> extension.
@@ -34,6 +33,8 @@ public class NVConservativeRaster {
 		GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV   = 0x9348,
 		GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
 
+	static { GLES.initialize(); }
+
 	protected NVConservativeRaster() {
 		throw new UnsupportedOperationException();
 	}
@@ -46,11 +47,10 @@ public class NVConservativeRaster {
 
 	// --- [ glSubpixelPrecisionBiasNV ] ---
 
+	public static native void nglSubpixelPrecisionBiasNV(int xbits, int ybits);
+
 	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
-		long __functionAddress = GLES.getCapabilities().glSubpixelPrecisionBiasNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, xbits, ybits);
+		nglSubpixelPrecisionBiasNV(xbits, ybits);
 	}
 
 }

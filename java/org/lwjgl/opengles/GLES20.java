@@ -323,6 +323,8 @@ public class GLES20 {
 		GL_MAX_RENDERBUFFER_SIZE                        = 0x84E8,
 		GL_INVALID_FRAMEBUFFER_OPERATION                = 0x506;
 
+	static { GLES.initialize(); }
+
 	protected GLES20() {
 		throw new UnsupportedOperationException();
 	}
@@ -357,24 +359,23 @@ public class GLES20 {
 
 	// --- [ glActiveTexture ] ---
 
+	public static native void nglActiveTexture(int texture);
+
 	public static void glActiveTexture(int texture) {
-		long __functionAddress = GLES.getCapabilities().glActiveTexture;
-		callV(__functionAddress, texture);
+		nglActiveTexture(texture);
 	}
 
 	// --- [ glAttachShader ] ---
 
+	public static native void nglAttachShader(int program, int shader);
+
 	public static void glAttachShader(int program, int shader) {
-		long __functionAddress = GLES.getCapabilities().glAttachShader;
-		callV(__functionAddress, program, shader);
+		nglAttachShader(program, shader);
 	}
 
 	// --- [ glBindAttribLocation ] ---
 
-	public static void nglBindAttribLocation(int program, int index, long name) {
-		long __functionAddress = GLES.getCapabilities().glBindAttribLocation;
-		callPV(__functionAddress, program, index, name);
-	}
+	public static native void nglBindAttribLocation(int program, int index, long name);
 
 	public static void glBindAttribLocation(int program, int index, ByteBuffer name) {
 		if ( CHECKS )
@@ -394,73 +395,79 @@ public class GLES20 {
 
 	// --- [ glBindBuffer ] ---
 
+	public static native void nglBindBuffer(int target, int buffer);
+
 	public static void glBindBuffer(int target, int buffer) {
-		long __functionAddress = GLES.getCapabilities().glBindBuffer;
-		callV(__functionAddress, target, buffer);
+		nglBindBuffer(target, buffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
 
+	public static native void nglBindFramebuffer(int target, int framebuffer);
+
 	public static void glBindFramebuffer(int target, int framebuffer) {
-		long __functionAddress = GLES.getCapabilities().glBindFramebuffer;
-		callV(__functionAddress, target, framebuffer);
+		nglBindFramebuffer(target, framebuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
 
+	public static native void nglBindRenderbuffer(int target, int renderbuffer);
+
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		long __functionAddress = GLES.getCapabilities().glBindRenderbuffer;
-		callV(__functionAddress, target, renderbuffer);
+		nglBindRenderbuffer(target, renderbuffer);
 	}
 
 	// --- [ glBindTexture ] ---
 
+	public static native void nglBindTexture(int target, int texture);
+
 	public static void glBindTexture(int target, int texture) {
-		long __functionAddress = GLES.getCapabilities().glBindTexture;
-		callV(__functionAddress, target, texture);
+		nglBindTexture(target, texture);
 	}
 
 	// --- [ glBlendColor ] ---
 
+	public static native void nglBlendColor(float red, float green, float blue, float alpha);
+
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = GLES.getCapabilities().glBlendColor;
-		callV(__functionAddress, red, green, blue, alpha);
+		nglBlendColor(red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
 
+	public static native void nglBlendEquation(int mode);
+
 	public static void glBlendEquation(int mode) {
-		long __functionAddress = GLES.getCapabilities().glBlendEquation;
-		callV(__functionAddress, mode);
+		nglBlendEquation(mode);
 	}
 
 	// --- [ glBlendEquationSeparate ] ---
 
+	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha);
+
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
-		long __functionAddress = GLES.getCapabilities().glBlendEquationSeparate;
-		callV(__functionAddress, modeRGB, modeAlpha);
+		nglBlendEquationSeparate(modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunc ] ---
 
+	public static native void nglBlendFunc(int sfactor, int dfactor);
+
 	public static void glBlendFunc(int sfactor, int dfactor) {
-		long __functionAddress = GLES.getCapabilities().glBlendFunc;
-		callV(__functionAddress, sfactor, dfactor);
+		nglBlendFunc(sfactor, dfactor);
 	}
 
 	// --- [ glBlendFuncSeparate ] ---
 
+	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
+
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		long __functionAddress = GLES.getCapabilities().glBlendFuncSeparate;
-		callV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 	// --- [ glBufferData ] ---
 
-	public static void nglBufferData(int target, long size, long data, int usage) {
-		long __functionAddress = GLES.getCapabilities().glBufferData;
-		callPPV(__functionAddress, target, size, data, usage);
-	}
+	public static native void nglBufferData(int target, long size, long data, int usage);
 
 	public static void glBufferData(int target, long size, int usage) {
 		nglBufferData(target, size, NULL, usage);
@@ -484,10 +491,7 @@ public class GLES20 {
 
 	// --- [ glBufferSubData ] ---
 
-	public static void nglBufferSubData(int target, long offset, long size, long data) {
-		long __functionAddress = GLES.getCapabilities().glBufferSubData;
-		callPPPV(__functionAddress, target, offset, size, data);
-	}
+	public static native void nglBufferSubData(int target, long offset, long size, long data);
 
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
 		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
@@ -507,59 +511,63 @@ public class GLES20 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
+	public static native int nglCheckFramebufferStatus(int target);
+
 	public static int glCheckFramebufferStatus(int target) {
-		long __functionAddress = GLES.getCapabilities().glCheckFramebufferStatus;
-		return callI(__functionAddress, target);
+		return nglCheckFramebufferStatus(target);
 	}
 
 	// --- [ glClear ] ---
 
+	public static native void nglClear(int mask);
+
 	public static void glClear(int mask) {
-		long __functionAddress = GLES.getCapabilities().glClear;
-		callV(__functionAddress, mask);
+		nglClear(mask);
 	}
 
 	// --- [ glClearColor ] ---
 
+	public static native void nglClearColor(float red, float green, float blue, float alpha);
+
 	public static void glClearColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = GLES.getCapabilities().glClearColor;
-		callV(__functionAddress, red, green, blue, alpha);
+		nglClearColor(red, green, blue, alpha);
 	}
 
 	// --- [ glClearDepthf ] ---
 
+	public static native void nglClearDepthf(float d);
+
 	public static void glClearDepthf(float d) {
-		long __functionAddress = GLES.getCapabilities().glClearDepthf;
-		callV(__functionAddress, d);
+		nglClearDepthf(d);
 	}
 
 	// --- [ glClearStencil ] ---
 
+	public static native void nglClearStencil(int s);
+
 	public static void glClearStencil(int s) {
-		long __functionAddress = GLES.getCapabilities().glClearStencil;
-		callV(__functionAddress, s);
+		nglClearStencil(s);
 	}
 
 	// --- [ glColorMask ] ---
 
+	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha);
+
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
-		long __functionAddress = GLES.getCapabilities().glColorMask;
-		callV(__functionAddress, red, green, blue, alpha);
+		nglColorMask(red, green, blue, alpha);
 	}
 
 	// --- [ glCompileShader ] ---
 
+	public static native void nglCompileShader(int shader);
+
 	public static void glCompileShader(int shader) {
-		long __functionAddress = GLES.getCapabilities().glCompileShader;
-		callV(__functionAddress, shader);
+		nglCompileShader(shader);
 	}
 
 	// --- [ glCompressedTexImage2D ] ---
 
-	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = GLES.getCapabilities().glCompressedTexImage2D;
-		callPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data);
 
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
@@ -571,10 +579,7 @@ public class GLES20 {
 
 	// --- [ glCompressedTexSubImage2D ] ---
 
-	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = GLES.getCapabilities().glCompressedTexSubImage2D;
-		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
@@ -586,45 +591,47 @@ public class GLES20 {
 
 	// --- [ glCopyTexImage2D ] ---
 
+	public static native void nglCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border);
+
 	public static void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border) {
-		long __functionAddress = GLES.getCapabilities().glCopyTexImage2D;
-		callV(__functionAddress, target, level, internalformat, x, y, width, height, border);
+		nglCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTexSubImage2D ] ---
 
+	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
+
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glCopyTexSubImage2D;
-		callV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
+		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glCreateProgram ] ---
 
+	public static native int nglCreateProgram();
+
 	public static int glCreateProgram() {
-		long __functionAddress = GLES.getCapabilities().glCreateProgram;
-		return callI(__functionAddress);
+		return nglCreateProgram();
 	}
 
 	// --- [ glCreateShader ] ---
 
+	public static native int nglCreateShader(int type);
+
 	public static int glCreateShader(int type) {
-		long __functionAddress = GLES.getCapabilities().glCreateShader;
-		return callI(__functionAddress, type);
+		return nglCreateShader(type);
 	}
 
 	// --- [ glCullFace ] ---
 
+	public static native void nglCullFace(int mode);
+
 	public static void glCullFace(int mode) {
-		long __functionAddress = GLES.getCapabilities().glCullFace;
-		callV(__functionAddress, mode);
+		nglCullFace(mode);
 	}
 
 	// --- [ glDeleteBuffers ] ---
 
-	public static void nglDeleteBuffers(int n, long buffers) {
-		long __functionAddress = GLES.getCapabilities().glDeleteBuffers;
-		callPV(__functionAddress, n, buffers);
-	}
+	public static native void nglDeleteBuffers(int n, long buffers);
 
 	public static void glDeleteBuffers(IntBuffer buffers) {
 		nglDeleteBuffers(buffers.remaining(), memAddress(buffers));
@@ -642,10 +649,7 @@ public class GLES20 {
 
 	// --- [ glDeleteFramebuffers ] ---
 
-	public static void nglDeleteFramebuffers(int n, long framebuffers) {
-		long __functionAddress = GLES.getCapabilities().glDeleteFramebuffers;
-		callPV(__functionAddress, n, framebuffers);
-	}
+	public static native void nglDeleteFramebuffers(int n, long framebuffers);
 
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
 		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
@@ -663,17 +667,15 @@ public class GLES20 {
 
 	// --- [ glDeleteProgram ] ---
 
+	public static native void nglDeleteProgram(int program);
+
 	public static void glDeleteProgram(int program) {
-		long __functionAddress = GLES.getCapabilities().glDeleteProgram;
-		callV(__functionAddress, program);
+		nglDeleteProgram(program);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
 
-	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = GLES.getCapabilities().glDeleteRenderbuffers;
-		callPV(__functionAddress, n, renderbuffers);
-	}
+	public static native void nglDeleteRenderbuffers(int n, long renderbuffers);
 
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
 		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
@@ -691,17 +693,15 @@ public class GLES20 {
 
 	// --- [ glDeleteShader ] ---
 
+	public static native void nglDeleteShader(int shader);
+
 	public static void glDeleteShader(int shader) {
-		long __functionAddress = GLES.getCapabilities().glDeleteShader;
-		callV(__functionAddress, shader);
+		nglDeleteShader(shader);
 	}
 
 	// --- [ glDeleteTextures ] ---
 
-	public static void nglDeleteTextures(int n, long textures) {
-		long __functionAddress = GLES.getCapabilities().glDeleteTextures;
-		callPV(__functionAddress, n, textures);
-	}
+	public static native void nglDeleteTextures(int n, long textures);
 
 	public static void glDeleteTextures(IntBuffer textures) {
 		nglDeleteTextures(textures.remaining(), memAddress(textures));
@@ -719,59 +719,63 @@ public class GLES20 {
 
 	// --- [ glDepthFunc ] ---
 
+	public static native void nglDepthFunc(int func);
+
 	public static void glDepthFunc(int func) {
-		long __functionAddress = GLES.getCapabilities().glDepthFunc;
-		callV(__functionAddress, func);
+		nglDepthFunc(func);
 	}
 
 	// --- [ glDepthMask ] ---
 
+	public static native void nglDepthMask(boolean flag);
+
 	public static void glDepthMask(boolean flag) {
-		long __functionAddress = GLES.getCapabilities().glDepthMask;
-		callV(__functionAddress, flag);
+		nglDepthMask(flag);
 	}
 
 	// --- [ glDepthRangef ] ---
 
+	public static native void nglDepthRangef(float n, float f);
+
 	public static void glDepthRangef(float n, float f) {
-		long __functionAddress = GLES.getCapabilities().glDepthRangef;
-		callV(__functionAddress, n, f);
+		nglDepthRangef(n, f);
 	}
 
 	// --- [ glDetachShader ] ---
 
+	public static native void nglDetachShader(int program, int shader);
+
 	public static void glDetachShader(int program, int shader) {
-		long __functionAddress = GLES.getCapabilities().glDetachShader;
-		callV(__functionAddress, program, shader);
+		nglDetachShader(program, shader);
 	}
 
 	// --- [ glDisable ] ---
 
+	public static native void nglDisable(int cap);
+
 	public static void glDisable(int cap) {
-		long __functionAddress = GLES.getCapabilities().glDisable;
-		callV(__functionAddress, cap);
+		nglDisable(cap);
 	}
 
 	// --- [ glDisableVertexAttribArray ] ---
 
+	public static native void nglDisableVertexAttribArray(int index);
+
 	public static void glDisableVertexAttribArray(int index) {
-		long __functionAddress = GLES.getCapabilities().glDisableVertexAttribArray;
-		callV(__functionAddress, index);
+		nglDisableVertexAttribArray(index);
 	}
 
 	// --- [ glDrawArrays ] ---
 
+	public static native void nglDrawArrays(int mode, int first, int count);
+
 	public static void glDrawArrays(int mode, int first, int count) {
-		long __functionAddress = GLES.getCapabilities().glDrawArrays;
-		callV(__functionAddress, mode, first, count);
+		nglDrawArrays(mode, first, count);
 	}
 
 	// --- [ glDrawElements ] ---
 
-	public static void nglDrawElements(int mode, int count, int type, long indices) {
-		long __functionAddress = GLES.getCapabilities().glDrawElements;
-		callPV(__functionAddress, mode, count, type, indices);
-	}
+	public static native void nglDrawElements(int mode, int count, int type, long indices);
 
 	public static void glDrawElements(int mode, int count, int type, long indices) {
 		nglDrawElements(mode, count, type, indices);
@@ -795,59 +799,63 @@ public class GLES20 {
 
 	// --- [ glEnable ] ---
 
+	public static native void nglEnable(int cap);
+
 	public static void glEnable(int cap) {
-		long __functionAddress = GLES.getCapabilities().glEnable;
-		callV(__functionAddress, cap);
+		nglEnable(cap);
 	}
 
 	// --- [ glEnableVertexAttribArray ] ---
 
+	public static native void nglEnableVertexAttribArray(int index);
+
 	public static void glEnableVertexAttribArray(int index) {
-		long __functionAddress = GLES.getCapabilities().glEnableVertexAttribArray;
-		callV(__functionAddress, index);
+		nglEnableVertexAttribArray(index);
 	}
 
 	// --- [ glFinish ] ---
 
+	public static native void nglFinish();
+
 	public static void glFinish() {
-		long __functionAddress = GLES.getCapabilities().glFinish;
-		callV(__functionAddress);
+		nglFinish();
 	}
 
 	// --- [ glFlush ] ---
 
+	public static native void nglFlush();
+
 	public static void glFlush() {
-		long __functionAddress = GLES.getCapabilities().glFlush;
-		callV(__functionAddress);
+		nglFlush();
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
 
+	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
+
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferRenderbuffer;
-		callV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
+		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
 
+	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
+
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2D;
-		callV(__functionAddress, target, attachment, textarget, texture, level);
+		nglFramebufferTexture2D(target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFrontFace ] ---
 
+	public static native void nglFrontFace(int mode);
+
 	public static void glFrontFace(int mode) {
-		long __functionAddress = GLES.getCapabilities().glFrontFace;
-		callV(__functionAddress, mode);
+		nglFrontFace(mode);
 	}
 
 	// --- [ glGenBuffers ] ---
 
-	public static void nglGenBuffers(int n, long buffers) {
-		long __functionAddress = GLES.getCapabilities().glGenBuffers;
-		callPV(__functionAddress, n, buffers);
-	}
+	public static native void nglGenBuffers(int n, long buffers);
 
 	public static void glGenBuffers(IntBuffer buffers) {
 		nglGenBuffers(buffers.remaining(), memAddress(buffers));
@@ -866,17 +874,15 @@ public class GLES20 {
 
 	// --- [ glGenerateMipmap ] ---
 
+	public static native void nglGenerateMipmap(int target);
+
 	public static void glGenerateMipmap(int target) {
-		long __functionAddress = GLES.getCapabilities().glGenerateMipmap;
-		callV(__functionAddress, target);
+		nglGenerateMipmap(target);
 	}
 
 	// --- [ glGenFramebuffers ] ---
 
-	public static void nglGenFramebuffers(int n, long framebuffers) {
-		long __functionAddress = GLES.getCapabilities().glGenFramebuffers;
-		callPV(__functionAddress, n, framebuffers);
-	}
+	public static native void nglGenFramebuffers(int n, long framebuffers);
 
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
 		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
@@ -895,10 +901,7 @@ public class GLES20 {
 
 	// --- [ glGenRenderbuffers ] ---
 
-	public static void nglGenRenderbuffers(int n, long renderbuffers) {
-		long __functionAddress = GLES.getCapabilities().glGenRenderbuffers;
-		callPV(__functionAddress, n, renderbuffers);
-	}
+	public static native void nglGenRenderbuffers(int n, long renderbuffers);
 
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
 		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
@@ -917,10 +920,7 @@ public class GLES20 {
 
 	// --- [ glGenTextures ] ---
 
-	public static void nglGenTextures(int n, long textures) {
-		long __functionAddress = GLES.getCapabilities().glGenTextures;
-		callPV(__functionAddress, n, textures);
-	}
+	public static native void nglGenTextures(int n, long textures);
 
 	public static void glGenTextures(IntBuffer textures) {
 		nglGenTextures(textures.remaining(), memAddress(textures));
@@ -939,10 +939,7 @@ public class GLES20 {
 
 	// --- [ glGetActiveAttrib ] ---
 
-	public static void nglGetActiveAttrib(int program, int index, int bufSize, long length, long size, long type, long name) {
-		long __functionAddress = GLES.getCapabilities().glGetActiveAttrib;
-		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
-	}
+	public static native void nglGetActiveAttrib(int program, int index, int bufSize, long length, long size, long type, long name);
 
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
@@ -988,10 +985,7 @@ public class GLES20 {
 
 	// --- [ glGetActiveUniform ] ---
 
-	public static void nglGetActiveUniform(int program, int index, int bufSize, long length, long size, long type, long name) {
-		long __functionAddress = GLES.getCapabilities().glGetActiveUniform;
-		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
-	}
+	public static native void nglGetActiveUniform(int program, int index, int bufSize, long length, long size, long type, long name);
 
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
@@ -1037,10 +1031,7 @@ public class GLES20 {
 
 	// --- [ glGetAttachedShaders ] ---
 
-	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
-		long __functionAddress = GLES.getCapabilities().glGetAttachedShaders;
-		callPPV(__functionAddress, program, maxCount, count, shaders);
-	}
+	public static native void nglGetAttachedShaders(int program, int maxCount, long count, long shaders);
 
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
 		if ( CHECKS )
@@ -1050,10 +1041,7 @@ public class GLES20 {
 
 	// --- [ glGetAttribLocation ] ---
 
-	public static int nglGetAttribLocation(int program, long name) {
-		long __functionAddress = GLES.getCapabilities().glGetAttribLocation;
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetAttribLocation(int program, long name);
 
 	public static int glGetAttribLocation(int program, ByteBuffer name) {
 		if ( CHECKS )
@@ -1073,10 +1061,7 @@ public class GLES20 {
 
 	// --- [ glGetBooleanv ] ---
 
-	public static void nglGetBooleanv(int pname, long data) {
-		long __functionAddress = GLES.getCapabilities().glGetBooleanv;
-		callPV(__functionAddress, pname, data);
-	}
+	public static native void nglGetBooleanv(int pname, long data);
 
 	public static void glGetBooleanv(int pname, ByteBuffer data) {
 		if ( CHECKS )
@@ -1097,10 +1082,7 @@ public class GLES20 {
 
 	// --- [ glGetBufferParameteriv ] ---
 
-	public static void nglGetBufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetBufferParameteriv;
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetBufferParameteriv(int target, int pname, long params);
 
 	public static void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1121,17 +1103,15 @@ public class GLES20 {
 
 	// --- [ glGetError ] ---
 
+	public static native int nglGetError();
+
 	public static int glGetError() {
-		long __functionAddress = GLES.getCapabilities().glGetError;
-		return callI(__functionAddress);
+		return nglGetError();
 	}
 
 	// --- [ glGetFloatv ] ---
 
-	public static void nglGetFloatv(int pname, long data) {
-		long __functionAddress = GLES.getCapabilities().glGetFloatv;
-		callPV(__functionAddress, pname, data);
-	}
+	public static native void nglGetFloatv(int pname, long data);
 
 	public static void glGetFloatv(int pname, FloatBuffer data) {
 		if ( CHECKS )
@@ -1152,10 +1132,7 @@ public class GLES20 {
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
-	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetFramebufferAttachmentParameteriv;
-		callPV(__functionAddress, target, attachment, pname, params);
-	}
+	public static native void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params);
 
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1176,10 +1153,7 @@ public class GLES20 {
 
 	// --- [ glGetIntegerv ] ---
 
-	public static void nglGetIntegerv(int pname, long data) {
-		long __functionAddress = GLES.getCapabilities().glGetIntegerv;
-		callPV(__functionAddress, pname, data);
-	}
+	public static native void nglGetIntegerv(int pname, long data);
 
 	public static void glGetIntegerv(int pname, IntBuffer data) {
 		if ( CHECKS )
@@ -1200,10 +1174,7 @@ public class GLES20 {
 
 	// --- [ glGetProgramiv ] ---
 
-	public static void nglGetProgramiv(int program, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramiv;
-		callPV(__functionAddress, program, pname, params);
-	}
+	public static native void nglGetProgramiv(int program, int pname, long params);
 
 	public static void glGetProgramiv(int program, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1224,10 +1195,7 @@ public class GLES20 {
 
 	// --- [ glGetProgramInfoLog ] ---
 
-	public static void nglGetProgramInfoLog(int program, int bufSize, long length, long infoLog) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramInfoLog;
-		callPPV(__functionAddress, program, bufSize, length, infoLog);
-	}
+	public static native void nglGetProgramInfoLog(int program, int bufSize, long length, long infoLog);
 
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
@@ -1264,10 +1232,7 @@ public class GLES20 {
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
-	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetRenderbufferParameteriv;
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetRenderbufferParameteriv(int target, int pname, long params);
 
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1288,10 +1253,7 @@ public class GLES20 {
 
 	// --- [ glGetShaderiv ] ---
 
-	public static void nglGetShaderiv(int shader, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderiv;
-		callPV(__functionAddress, shader, pname, params);
-	}
+	public static native void nglGetShaderiv(int shader, int pname, long params);
 
 	public static void glGetShaderiv(int shader, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1312,10 +1274,7 @@ public class GLES20 {
 
 	// --- [ glGetShaderInfoLog ] ---
 
-	public static void nglGetShaderInfoLog(int shader, int bufSize, long length, long infoLog) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderInfoLog;
-		callPPV(__functionAddress, shader, bufSize, length, infoLog);
-	}
+	public static native void nglGetShaderInfoLog(int shader, int bufSize, long length, long infoLog);
 
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
@@ -1352,10 +1311,7 @@ public class GLES20 {
 
 	// --- [ glGetShaderPrecisionFormat ] ---
 
-	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderPrecisionFormat;
-		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
-	}
+	public static native void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision);
 
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
 		if ( CHECKS ) {
@@ -1367,10 +1323,7 @@ public class GLES20 {
 
 	// --- [ glGetShaderSource ] ---
 
-	public static void nglGetShaderSource(int shader, int bufSize, long length, long source) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderSource;
-		callPPV(__functionAddress, shader, bufSize, length, source);
-	}
+	public static native void nglGetShaderSource(int shader, int bufSize, long length, long source);
 
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
@@ -1407,10 +1360,7 @@ public class GLES20 {
 
 	// --- [ glGetString ] ---
 
-	public static long nglGetString(int name) {
-		long __functionAddress = GLES.getCapabilities().glGetString;
-		return callP(__functionAddress, name);
-	}
+	public static native long nglGetString(int name);
 
 	public static String glGetString(int name) {
 		long __result = nglGetString(name);
@@ -1419,10 +1369,7 @@ public class GLES20 {
 
 	// --- [ glGetTexParameterfv ] ---
 
-	public static void nglGetTexParameterfv(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetTexParameterfv;
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetTexParameterfv(int target, int pname, long params);
 
 	public static void glGetTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1443,10 +1390,7 @@ public class GLES20 {
 
 	// --- [ glGetTexParameteriv ] ---
 
-	public static void nglGetTexParameteriv(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetTexParameteriv;
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetTexParameteriv(int target, int pname, long params);
 
 	public static void glGetTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1467,10 +1411,7 @@ public class GLES20 {
 
 	// --- [ glGetUniformfv ] ---
 
-	public static void nglGetUniformfv(int program, int location, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetUniformfv;
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformfv(int program, int location, long params);
 
 	public static void glGetUniformfv(int program, int location, FloatBuffer params) {
 		if ( CHECKS )
@@ -1491,10 +1432,7 @@ public class GLES20 {
 
 	// --- [ glGetUniformiv ] ---
 
-	public static void nglGetUniformiv(int program, int location, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetUniformiv;
-		callPV(__functionAddress, program, location, params);
-	}
+	public static native void nglGetUniformiv(int program, int location, long params);
 
 	public static void glGetUniformiv(int program, int location, IntBuffer params) {
 		if ( CHECKS )
@@ -1515,10 +1453,7 @@ public class GLES20 {
 
 	// --- [ glGetUniformLocation ] ---
 
-	public static int nglGetUniformLocation(int program, long name) {
-		long __functionAddress = GLES.getCapabilities().glGetUniformLocation;
-		return callPI(__functionAddress, program, name);
-	}
+	public static native int nglGetUniformLocation(int program, long name);
 
 	public static int glGetUniformLocation(int program, ByteBuffer name) {
 		if ( CHECKS )
@@ -1538,10 +1473,7 @@ public class GLES20 {
 
 	// --- [ glGetVertexAttribfv ] ---
 
-	public static void nglGetVertexAttribfv(int index, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetVertexAttribfv;
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribfv(int index, int pname, long params);
 
 	public static void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1551,10 +1483,7 @@ public class GLES20 {
 
 	// --- [ glGetVertexAttribiv ] ---
 
-	public static void nglGetVertexAttribiv(int index, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetVertexAttribiv;
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribiv(int index, int pname, long params);
 
 	public static void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1564,10 +1493,7 @@ public class GLES20 {
 
 	// --- [ glGetVertexAttribPointerv ] ---
 
-	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
-		long __functionAddress = GLES.getCapabilities().glGetVertexAttribPointerv;
-		callPV(__functionAddress, index, pname, pointer);
-	}
+	public static native void nglGetVertexAttribPointerv(int index, int pname, long pointer);
 
 	public static void glGetVertexAttribPointerv(int index, int pname, PointerBuffer pointer) {
 		if ( CHECKS )
@@ -1588,94 +1514,103 @@ public class GLES20 {
 
 	// --- [ glHint ] ---
 
+	public static native void nglHint(int target, int mode);
+
 	public static void glHint(int target, int mode) {
-		long __functionAddress = GLES.getCapabilities().glHint;
-		callV(__functionAddress, target, mode);
+		nglHint(target, mode);
 	}
 
 	// --- [ glIsBuffer ] ---
 
+	public static native boolean nglIsBuffer(int buffer);
+
 	public static boolean glIsBuffer(int buffer) {
-		long __functionAddress = GLES.getCapabilities().glIsBuffer;
-		return callZ(__functionAddress, buffer);
+		return nglIsBuffer(buffer);
 	}
 
 	// --- [ glIsEnabled ] ---
 
+	public static native boolean nglIsEnabled(int cap);
+
 	public static boolean glIsEnabled(int cap) {
-		long __functionAddress = GLES.getCapabilities().glIsEnabled;
-		return callZ(__functionAddress, cap);
+		return nglIsEnabled(cap);
 	}
 
 	// --- [ glIsFramebuffer ] ---
 
+	public static native boolean nglIsFramebuffer(int framebuffer);
+
 	public static boolean glIsFramebuffer(int framebuffer) {
-		long __functionAddress = GLES.getCapabilities().glIsFramebuffer;
-		return callZ(__functionAddress, framebuffer);
+		return nglIsFramebuffer(framebuffer);
 	}
 
 	// --- [ glIsProgram ] ---
 
+	public static native boolean nglIsProgram(int program);
+
 	public static boolean glIsProgram(int program) {
-		long __functionAddress = GLES.getCapabilities().glIsProgram;
-		return callZ(__functionAddress, program);
+		return nglIsProgram(program);
 	}
 
 	// --- [ glIsRenderbuffer ] ---
 
+	public static native boolean nglIsRenderbuffer(int renderbuffer);
+
 	public static boolean glIsRenderbuffer(int renderbuffer) {
-		long __functionAddress = GLES.getCapabilities().glIsRenderbuffer;
-		return callZ(__functionAddress, renderbuffer);
+		return nglIsRenderbuffer(renderbuffer);
 	}
 
 	// --- [ glIsShader ] ---
 
+	public static native boolean nglIsShader(int shader);
+
 	public static boolean glIsShader(int shader) {
-		long __functionAddress = GLES.getCapabilities().glIsShader;
-		return callZ(__functionAddress, shader);
+		return nglIsShader(shader);
 	}
 
 	// --- [ glIsTexture ] ---
 
+	public static native boolean nglIsTexture(int texture);
+
 	public static boolean glIsTexture(int texture) {
-		long __functionAddress = GLES.getCapabilities().glIsTexture;
-		return callZ(__functionAddress, texture);
+		return nglIsTexture(texture);
 	}
 
 	// --- [ glLineWidth ] ---
 
+	public static native void nglLineWidth(float width);
+
 	public static void glLineWidth(float width) {
-		long __functionAddress = GLES.getCapabilities().glLineWidth;
-		callV(__functionAddress, width);
+		nglLineWidth(width);
 	}
 
 	// --- [ glLinkProgram ] ---
 
+	public static native void nglLinkProgram(int program);
+
 	public static void glLinkProgram(int program) {
-		long __functionAddress = GLES.getCapabilities().glLinkProgram;
-		callV(__functionAddress, program);
+		nglLinkProgram(program);
 	}
 
 	// --- [ glPixelStorei ] ---
 
+	public static native void nglPixelStorei(int pname, int param);
+
 	public static void glPixelStorei(int pname, int param) {
-		long __functionAddress = GLES.getCapabilities().glPixelStorei;
-		callV(__functionAddress, pname, param);
+		nglPixelStorei(pname, param);
 	}
 
 	// --- [ glPolygonOffset ] ---
 
+	public static native void nglPolygonOffset(float factor, float units);
+
 	public static void glPolygonOffset(float factor, float units) {
-		long __functionAddress = GLES.getCapabilities().glPolygonOffset;
-		callV(__functionAddress, factor, units);
+		nglPolygonOffset(factor, units);
 	}
 
 	// --- [ glReadPixels ] ---
 
-	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadPixels;
-		callPV(__functionAddress, x, y, width, height, format, type, pixels);
-	}
+	public static native void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels);
 
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
@@ -1699,38 +1634,39 @@ public class GLES20 {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
+	public static native void nglReleaseShaderCompiler();
+
 	public static void glReleaseShaderCompiler() {
-		long __functionAddress = GLES.getCapabilities().glReleaseShaderCompiler;
-		callV(__functionAddress);
+		nglReleaseShaderCompiler();
 	}
 
 	// --- [ glRenderbufferStorage ] ---
 
+	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height);
+
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glRenderbufferStorage;
-		callV(__functionAddress, target, internalformat, width, height);
+		nglRenderbufferStorage(target, internalformat, width, height);
 	}
 
 	// --- [ glSampleCoverage ] ---
 
+	public static native void nglSampleCoverage(float value, boolean invert);
+
 	public static void glSampleCoverage(float value, boolean invert) {
-		long __functionAddress = GLES.getCapabilities().glSampleCoverage;
-		callV(__functionAddress, value, invert);
+		nglSampleCoverage(value, invert);
 	}
 
 	// --- [ glScissor ] ---
 
+	public static native void nglScissor(int x, int y, int width, int height);
+
 	public static void glScissor(int x, int y, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glScissor;
-		callV(__functionAddress, x, y, width, height);
+		nglScissor(x, y, width, height);
 	}
 
 	// --- [ glShaderBinary ] ---
 
-	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
-		long __functionAddress = GLES.getCapabilities().glShaderBinary;
-		callPPV(__functionAddress, count, shaders, binaryformat, binary, length);
-	}
+	public static native void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length);
 
 	public static void glShaderBinary(IntBuffer shaders, int binaryformat, ByteBuffer binary) {
 		nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
@@ -1738,10 +1674,7 @@ public class GLES20 {
 
 	// --- [ glShaderSource ] ---
 
-	public static void nglShaderSource(int shader, int count, long string, long length) {
-		long __functionAddress = GLES.getCapabilities().glShaderSource;
-		callPPV(__functionAddress, shader, count, string, length);
-	}
+	public static native void nglShaderSource(int shader, int count, long string, long length);
 
 	public static void glShaderSource(int shader, PointerBuffer string, IntBuffer length) {
 		if ( CHECKS )
@@ -1773,52 +1706,55 @@ public class GLES20 {
 
 	// --- [ glStencilFunc ] ---
 
+	public static native void nglStencilFunc(int func, int ref, int mask);
+
 	public static void glStencilFunc(int func, int ref, int mask) {
-		long __functionAddress = GLES.getCapabilities().glStencilFunc;
-		callV(__functionAddress, func, ref, mask);
+		nglStencilFunc(func, ref, mask);
 	}
 
 	// --- [ glStencilFuncSeparate ] ---
 
+	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask);
+
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
-		long __functionAddress = GLES.getCapabilities().glStencilFuncSeparate;
-		callV(__functionAddress, face, func, ref, mask);
+		nglStencilFuncSeparate(face, func, ref, mask);
 	}
 
 	// --- [ glStencilMask ] ---
 
+	public static native void nglStencilMask(int mask);
+
 	public static void glStencilMask(int mask) {
-		long __functionAddress = GLES.getCapabilities().glStencilMask;
-		callV(__functionAddress, mask);
+		nglStencilMask(mask);
 	}
 
 	// --- [ glStencilMaskSeparate ] ---
 
+	public static native void nglStencilMaskSeparate(int face, int mask);
+
 	public static void glStencilMaskSeparate(int face, int mask) {
-		long __functionAddress = GLES.getCapabilities().glStencilMaskSeparate;
-		callV(__functionAddress, face, mask);
+		nglStencilMaskSeparate(face, mask);
 	}
 
 	// --- [ glStencilOp ] ---
 
+	public static native void nglStencilOp(int fail, int zfail, int zpass);
+
 	public static void glStencilOp(int fail, int zfail, int zpass) {
-		long __functionAddress = GLES.getCapabilities().glStencilOp;
-		callV(__functionAddress, fail, zfail, zpass);
+		nglStencilOp(fail, zfail, zpass);
 	}
 
 	// --- [ glStencilOpSeparate ] ---
 
+	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
+
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
-		long __functionAddress = GLES.getCapabilities().glStencilOpSeparate;
-		callV(__functionAddress, face, sfail, dpfail, dppass);
+		nglStencilOpSeparate(face, sfail, dpfail, dppass);
 	}
 
 	// --- [ glTexImage2D ] ---
 
-	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexImage2D;
-		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
-	}
+	public static native void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels);
 
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
@@ -1842,17 +1778,15 @@ public class GLES20 {
 
 	// --- [ glTexParameterf ] ---
 
+	public static native void nglTexParameterf(int target, int pname, float param);
+
 	public static void glTexParameterf(int target, int pname, float param) {
-		long __functionAddress = GLES.getCapabilities().glTexParameterf;
-		callV(__functionAddress, target, pname, param);
+		nglTexParameterf(target, pname, param);
 	}
 
 	// --- [ glTexParameterfv ] ---
 
-	public static void nglTexParameterfv(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glTexParameterfv;
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglTexParameterfv(int target, int pname, long params);
 
 	public static void glTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
@@ -1862,17 +1796,15 @@ public class GLES20 {
 
 	// --- [ glTexParameteri ] ---
 
+	public static native void nglTexParameteri(int target, int pname, int param);
+
 	public static void glTexParameteri(int target, int pname, int param) {
-		long __functionAddress = GLES.getCapabilities().glTexParameteri;
-		callV(__functionAddress, target, pname, param);
+		nglTexParameteri(target, pname, param);
 	}
 
 	// --- [ glTexParameteriv ] ---
 
-	public static void nglTexParameteriv(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glTexParameteriv;
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglTexParameteriv(int target, int pname, long params);
 
 	public static void glTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
@@ -1882,10 +1814,7 @@ public class GLES20 {
 
 	// --- [ glTexSubImage2D ] ---
 
-	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
-		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
-	}
+	public static native void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels);
 
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
@@ -1909,17 +1838,15 @@ public class GLES20 {
 
 	// --- [ glUniform1f ] ---
 
+	public static native void nglUniform1f(int location, float v0);
+
 	public static void glUniform1f(int location, float v0) {
-		long __functionAddress = GLES.getCapabilities().glUniform1f;
-		callV(__functionAddress, location, v0);
+		nglUniform1f(location, v0);
 	}
 
 	// --- [ glUniform1fv ] ---
 
-	public static void nglUniform1fv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform1fv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1fv(int location, int count, long value);
 
 	public static void glUniform1fv(int location, FloatBuffer value) {
 		nglUniform1fv(location, value.remaining(), memAddress(value));
@@ -1927,17 +1854,15 @@ public class GLES20 {
 
 	// --- [ glUniform1i ] ---
 
+	public static native void nglUniform1i(int location, int v0);
+
 	public static void glUniform1i(int location, int v0) {
-		long __functionAddress = GLES.getCapabilities().glUniform1i;
-		callV(__functionAddress, location, v0);
+		nglUniform1i(location, v0);
 	}
 
 	// --- [ glUniform1iv ] ---
 
-	public static void nglUniform1iv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform1iv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform1iv(int location, int count, long value);
 
 	public static void glUniform1iv(int location, IntBuffer value) {
 		nglUniform1iv(location, value.remaining(), memAddress(value));
@@ -1945,17 +1870,15 @@ public class GLES20 {
 
 	// --- [ glUniform2f ] ---
 
+	public static native void nglUniform2f(int location, float v0, float v1);
+
 	public static void glUniform2f(int location, float v0, float v1) {
-		long __functionAddress = GLES.getCapabilities().glUniform2f;
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2f(location, v0, v1);
 	}
 
 	// --- [ glUniform2fv ] ---
 
-	public static void nglUniform2fv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform2fv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2fv(int location, int count, long value);
 
 	public static void glUniform2fv(int location, FloatBuffer value) {
 		nglUniform2fv(location, value.remaining() >> 1, memAddress(value));
@@ -1963,17 +1886,15 @@ public class GLES20 {
 
 	// --- [ glUniform2i ] ---
 
+	public static native void nglUniform2i(int location, int v0, int v1);
+
 	public static void glUniform2i(int location, int v0, int v1) {
-		long __functionAddress = GLES.getCapabilities().glUniform2i;
-		callV(__functionAddress, location, v0, v1);
+		nglUniform2i(location, v0, v1);
 	}
 
 	// --- [ glUniform2iv ] ---
 
-	public static void nglUniform2iv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform2iv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform2iv(int location, int count, long value);
 
 	public static void glUniform2iv(int location, IntBuffer value) {
 		nglUniform2iv(location, value.remaining() >> 1, memAddress(value));
@@ -1981,17 +1902,15 @@ public class GLES20 {
 
 	// --- [ glUniform3f ] ---
 
+	public static native void nglUniform3f(int location, float v0, float v1, float v2);
+
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
-		long __functionAddress = GLES.getCapabilities().glUniform3f;
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3f(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform3fv ] ---
 
-	public static void nglUniform3fv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform3fv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3fv(int location, int count, long value);
 
 	public static void glUniform3fv(int location, FloatBuffer value) {
 		nglUniform3fv(location, value.remaining() / 3, memAddress(value));
@@ -1999,17 +1918,15 @@ public class GLES20 {
 
 	// --- [ glUniform3i ] ---
 
+	public static native void nglUniform3i(int location, int v0, int v1, int v2);
+
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
-		long __functionAddress = GLES.getCapabilities().glUniform3i;
-		callV(__functionAddress, location, v0, v1, v2);
+		nglUniform3i(location, v0, v1, v2);
 	}
 
 	// --- [ glUniform3iv ] ---
 
-	public static void nglUniform3iv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform3iv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform3iv(int location, int count, long value);
 
 	public static void glUniform3iv(int location, IntBuffer value) {
 		nglUniform3iv(location, value.remaining() / 3, memAddress(value));
@@ -2017,17 +1934,15 @@ public class GLES20 {
 
 	// --- [ glUniform4f ] ---
 
+	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3);
+
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
-		long __functionAddress = GLES.getCapabilities().glUniform4f;
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4f(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform4fv ] ---
 
-	public static void nglUniform4fv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform4fv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4fv(int location, int count, long value);
 
 	public static void glUniform4fv(int location, FloatBuffer value) {
 		nglUniform4fv(location, value.remaining() >> 2, memAddress(value));
@@ -2035,17 +1950,15 @@ public class GLES20 {
 
 	// --- [ glUniform4i ] ---
 
+	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3);
+
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = GLES.getCapabilities().glUniform4i;
-		callV(__functionAddress, location, v0, v1, v2, v3);
+		nglUniform4i(location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform4iv ] ---
 
-	public static void nglUniform4iv(int location, int count, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniform4iv;
-		callPV(__functionAddress, location, count, value);
-	}
+	public static native void nglUniform4iv(int location, int count, long value);
 
 	public static void glUniform4iv(int location, IntBuffer value) {
 		nglUniform4iv(location, value.remaining() >> 2, memAddress(value));
@@ -2053,10 +1966,7 @@ public class GLES20 {
 
 	// --- [ glUniformMatrix2fv ] ---
 
-	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniformMatrix2fv;
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2fv(int location, int count, boolean transpose, long value);
 
 	public static void glUniformMatrix2fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2fv(location, value.remaining() >> 2, transpose, memAddress(value));
@@ -2064,10 +1974,7 @@ public class GLES20 {
 
 	// --- [ glUniformMatrix3fv ] ---
 
-	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniformMatrix3fv;
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3fv(int location, int count, boolean transpose, long value);
 
 	public static void glUniformMatrix3fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3fv(location, value.remaining() / 9, transpose, memAddress(value));
@@ -2075,10 +1982,7 @@ public class GLES20 {
 
 	// --- [ glUniformMatrix4fv ] ---
 
-	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GLES.getCapabilities().glUniformMatrix4fv;
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4fv(int location, int count, boolean transpose, long value);
 
 	public static void glUniformMatrix4fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4fv(location, value.remaining() >> 4, transpose, memAddress(value));
@@ -2086,31 +1990,31 @@ public class GLES20 {
 
 	// --- [ glUseProgram ] ---
 
+	public static native void nglUseProgram(int program);
+
 	public static void glUseProgram(int program) {
-		long __functionAddress = GLES.getCapabilities().glUseProgram;
-		callV(__functionAddress, program);
+		nglUseProgram(program);
 	}
 
 	// --- [ glValidateProgram ] ---
 
+	public static native void nglValidateProgram(int program);
+
 	public static void glValidateProgram(int program) {
-		long __functionAddress = GLES.getCapabilities().glValidateProgram;
-		callV(__functionAddress, program);
+		nglValidateProgram(program);
 	}
 
 	// --- [ glVertexAttrib1f ] ---
 
+	public static native void nglVertexAttrib1f(int index, float x);
+
 	public static void glVertexAttrib1f(int index, float x) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib1f;
-		callV(__functionAddress, index, x);
+		nglVertexAttrib1f(index, x);
 	}
 
 	// --- [ glVertexAttrib1fv ] ---
 
-	public static void nglVertexAttrib1fv(int index, long v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib1fv;
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib1fv(int index, long v);
 
 	public static void glVertexAttrib1fv(int index, FloatBuffer v) {
 		if ( CHECKS )
@@ -2120,17 +2024,15 @@ public class GLES20 {
 
 	// --- [ glVertexAttrib2f ] ---
 
+	public static native void nglVertexAttrib2f(int index, float x, float y);
+
 	public static void glVertexAttrib2f(int index, float x, float y) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib2f;
-		callV(__functionAddress, index, x, y);
+		nglVertexAttrib2f(index, x, y);
 	}
 
 	// --- [ glVertexAttrib2fv ] ---
 
-	public static void nglVertexAttrib2fv(int index, long v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib2fv;
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib2fv(int index, long v);
 
 	public static void glVertexAttrib2fv(int index, FloatBuffer v) {
 		if ( CHECKS )
@@ -2140,17 +2042,15 @@ public class GLES20 {
 
 	// --- [ glVertexAttrib3f ] ---
 
+	public static native void nglVertexAttrib3f(int index, float x, float y, float z);
+
 	public static void glVertexAttrib3f(int index, float x, float y, float z) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib3f;
-		callV(__functionAddress, index, x, y, z);
+		nglVertexAttrib3f(index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib3fv ] ---
 
-	public static void nglVertexAttrib3fv(int index, long v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib3fv;
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib3fv(int index, long v);
 
 	public static void glVertexAttrib3fv(int index, FloatBuffer v) {
 		if ( CHECKS )
@@ -2160,17 +2060,15 @@ public class GLES20 {
 
 	// --- [ glVertexAttrib4f ] ---
 
+	public static native void nglVertexAttrib4f(int index, float x, float y, float z, float w);
+
 	public static void glVertexAttrib4f(int index, float x, float y, float z, float w) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib4f;
-		callV(__functionAddress, index, x, y, z, w);
+		nglVertexAttrib4f(index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4fv ] ---
 
-	public static void nglVertexAttrib4fv(int index, long v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib4fv;
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttrib4fv(int index, long v);
 
 	public static void glVertexAttrib4fv(int index, FloatBuffer v) {
 		if ( CHECKS )
@@ -2180,10 +2078,7 @@ public class GLES20 {
 
 	// --- [ glVertexAttribPointer ] ---
 
-	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
+	public static native void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer);
 
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
@@ -2207,98 +2102,99 @@ public class GLES20 {
 
 	// --- [ glViewport ] ---
 
+	public static native void nglViewport(int x, int y, int width, int height);
+
 	public static void glViewport(int x, int y, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glViewport;
-		callV(__functionAddress, x, y, width, height);
+		nglViewport(x, y, width, height);
 	}
 
 	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, short[] data, int usage) {
-		long __functionAddress = GLES.getCapabilities().glBufferData;
+		long __functionAddress = GLES.getICD().glBufferData;
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
 	}
 
 	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, int[] data, int usage) {
-		long __functionAddress = GLES.getCapabilities().glBufferData;
+		long __functionAddress = GLES.getICD().glBufferData;
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
 	}
 
 	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, float[] data, int usage) {
-		long __functionAddress = GLES.getCapabilities().glBufferData;
+		long __functionAddress = GLES.getICD().glBufferData;
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
 	}
 
 	/** Array version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, short[] data) {
-		long __functionAddress = GLES.getCapabilities().glBufferSubData;
+		long __functionAddress = GLES.getICD().glBufferSubData;
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
 	}
 
 	/** Array version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, int[] data) {
-		long __functionAddress = GLES.getCapabilities().glBufferSubData;
+		long __functionAddress = GLES.getICD().glBufferSubData;
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
 	/** Array version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, float[] data) {
-		long __functionAddress = GLES.getCapabilities().glBufferSubData;
+		long __functionAddress = GLES.getICD().glBufferSubData;
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
 	/** Array version of: {@link #glDeleteBuffers DeleteBuffers} */
 	public static void glDeleteBuffers(int[] buffers) {
-		long __functionAddress = GLES.getCapabilities().glDeleteBuffers;
+		long __functionAddress = GLES.getICD().glDeleteBuffers;
 		callPV(__functionAddress, buffers.length, buffers);
 	}
 
 	/** Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int[] framebuffers) {
-		long __functionAddress = GLES.getCapabilities().glDeleteFramebuffers;
+		long __functionAddress = GLES.getICD().glDeleteFramebuffers;
 		callPV(__functionAddress, framebuffers.length, framebuffers);
 	}
 
 	/** Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int[] renderbuffers) {
-		long __functionAddress = GLES.getCapabilities().glDeleteRenderbuffers;
+		long __functionAddress = GLES.getICD().glDeleteRenderbuffers;
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
 	}
 
 	/** Array version of: {@link #glDeleteTextures DeleteTextures} */
 	public static void glDeleteTextures(int[] textures) {
-		long __functionAddress = GLES.getCapabilities().glDeleteTextures;
+		long __functionAddress = GLES.getICD().glDeleteTextures;
 		callPV(__functionAddress, textures.length, textures);
 	}
 
 	/** Array version of: {@link #glGenBuffers GenBuffers} */
 	public static void glGenBuffers(int[] buffers) {
-		long __functionAddress = GLES.getCapabilities().glGenBuffers;
+		long __functionAddress = GLES.getICD().glGenBuffers;
 		callPV(__functionAddress, buffers.length, buffers);
 	}
 
 	/** Array version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static void glGenFramebuffers(int[] framebuffers) {
-		long __functionAddress = GLES.getCapabilities().glGenFramebuffers;
+		long __functionAddress = GLES.getICD().glGenFramebuffers;
 		callPV(__functionAddress, framebuffers.length, framebuffers);
 	}
 
 	/** Array version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void glGenRenderbuffers(int[] renderbuffers) {
-		long __functionAddress = GLES.getCapabilities().glGenRenderbuffers;
+		long __functionAddress = GLES.getICD().glGenRenderbuffers;
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
 	}
 
 	/** Array version of: {@link #glGenTextures GenTextures} */
 	public static void glGenTextures(int[] textures) {
-		long __functionAddress = GLES.getCapabilities().glGenTextures;
+		long __functionAddress = GLES.getICD().glGenTextures;
 		callPV(__functionAddress, textures.length, textures);
 	}
 
 	/** Array version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static void glGetActiveAttrib(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GLES.getCapabilities().glGetActiveAttrib;
+		long __functionAddress = GLES.getICD().glGetActiveAttrib;
 		if ( CHECKS ) {
 			checkSafe(length, 1);
 			check(size, 1);
@@ -2309,7 +2205,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetActiveUniform GetActiveUniform} */
 	public static void glGetActiveUniform(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-		long __functionAddress = GLES.getCapabilities().glGetActiveUniform;
+		long __functionAddress = GLES.getICD().glGetActiveUniform;
 		if ( CHECKS ) {
 			checkSafe(length, 1);
 			check(size, 1);
@@ -2320,7 +2216,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetAttachedShaders GetAttachedShaders} */
 	public static void glGetAttachedShaders(int program, int[] count, int[] shaders) {
-		long __functionAddress = GLES.getCapabilities().glGetAttachedShaders;
+		long __functionAddress = GLES.getICD().glGetAttachedShaders;
 		if ( CHECKS )
 			checkSafe(count, 1);
 		callPPV(__functionAddress, program, shaders.length, count, shaders);
@@ -2328,7 +2224,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	public static void glGetBufferParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetBufferParameteriv;
+		long __functionAddress = GLES.getICD().glGetBufferParameteriv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
@@ -2336,7 +2232,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetFloatv GetFloatv} */
 	public static void glGetFloatv(int pname, float[] data) {
-		long __functionAddress = GLES.getCapabilities().glGetFloatv;
+		long __functionAddress = GLES.getICD().glGetFloatv;
 		if ( CHECKS )
 			check(data, 1);
 		callPV(__functionAddress, pname, data);
@@ -2344,7 +2240,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetFramebufferAttachmentParameteriv;
+		long __functionAddress = GLES.getICD().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, attachment, pname, params);
@@ -2352,7 +2248,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetIntegerv GetIntegerv} */
 	public static void glGetIntegerv(int pname, int[] data) {
-		long __functionAddress = GLES.getCapabilities().glGetIntegerv;
+		long __functionAddress = GLES.getICD().glGetIntegerv;
 		if ( CHECKS )
 			check(data, 1);
 		callPV(__functionAddress, pname, data);
@@ -2360,7 +2256,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetProgramiv GetProgramiv} */
 	public static void glGetProgramiv(int program, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramiv;
+		long __functionAddress = GLES.getICD().glGetProgramiv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, program, pname, params);
@@ -2368,7 +2264,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	public static void glGetProgramInfoLog(int program, int[] length, ByteBuffer infoLog) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramInfoLog;
+		long __functionAddress = GLES.getICD().glGetProgramInfoLog;
 		if ( CHECKS )
 			checkSafe(length, 1);
 		callPPV(__functionAddress, program, infoLog.remaining(), length, memAddress(infoLog));
@@ -2376,7 +2272,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void glGetRenderbufferParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetRenderbufferParameteriv;
+		long __functionAddress = GLES.getICD().glGetRenderbufferParameteriv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
@@ -2384,7 +2280,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetShaderiv GetShaderiv} */
 	public static void glGetShaderiv(int shader, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderiv;
+		long __functionAddress = GLES.getICD().glGetShaderiv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, shader, pname, params);
@@ -2392,7 +2288,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	public static void glGetShaderInfoLog(int shader, int[] length, ByteBuffer infoLog) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderInfoLog;
+		long __functionAddress = GLES.getICD().glGetShaderInfoLog;
 		if ( CHECKS )
 			checkSafe(length, 1);
 		callPPV(__functionAddress, shader, infoLog.remaining(), length, memAddress(infoLog));
@@ -2400,7 +2296,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderPrecisionFormat;
+		long __functionAddress = GLES.getICD().glGetShaderPrecisionFormat;
 		if ( CHECKS ) {
 			check(range, 2);
 			check(precision, 2);
@@ -2410,7 +2306,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetShaderSource GetShaderSource} */
 	public static void glGetShaderSource(int shader, int[] length, ByteBuffer source) {
-		long __functionAddress = GLES.getCapabilities().glGetShaderSource;
+		long __functionAddress = GLES.getICD().glGetShaderSource;
 		if ( CHECKS )
 			checkSafe(length, 1);
 		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
@@ -2418,7 +2314,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetTexParameterfv GetTexParameterfv} */
 	public static void glGetTexParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetTexParameterfv;
+		long __functionAddress = GLES.getICD().glGetTexParameterfv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
@@ -2426,7 +2322,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetTexParameteriv GetTexParameteriv} */
 	public static void glGetTexParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetTexParameteriv;
+		long __functionAddress = GLES.getICD().glGetTexParameteriv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
@@ -2434,7 +2330,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetUniformfv GetUniformfv} */
 	public static void glGetUniformfv(int program, int location, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetUniformfv;
+		long __functionAddress = GLES.getICD().glGetUniformfv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, program, location, params);
@@ -2442,7 +2338,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetUniformiv GetUniformiv} */
 	public static void glGetUniformiv(int program, int location, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetUniformiv;
+		long __functionAddress = GLES.getICD().glGetUniformiv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, program, location, params);
@@ -2450,7 +2346,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	public static void glGetVertexAttribfv(int index, int pname, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetVertexAttribfv;
+		long __functionAddress = GLES.getICD().glGetVertexAttribfv;
 		if ( CHECKS )
 			check(params, 4);
 		callPV(__functionAddress, index, pname, params);
@@ -2458,7 +2354,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static void glGetVertexAttribiv(int index, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glGetVertexAttribiv;
+		long __functionAddress = GLES.getICD().glGetVertexAttribiv;
 		if ( CHECKS )
 			check(params, 4);
 		callPV(__functionAddress, index, pname, params);
@@ -2466,31 +2362,31 @@ public class GLES20 {
 
 	/** Array version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadPixels;
+		long __functionAddress = GLES.getICD().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadPixels;
+		long __functionAddress = GLES.getICD().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glReadPixels;
+		long __functionAddress = GLES.getICD().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glShaderBinary ShaderBinary} */
 	public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {
-		long __functionAddress = GLES.getCapabilities().glShaderBinary;
+		long __functionAddress = GLES.getICD().glShaderBinary;
 		callPPV(__functionAddress, shaders.length, shaders, binaryformat, memAddress(binary), binary.remaining());
 	}
 
 	/** Array version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, PointerBuffer string, int[] length) {
-		long __functionAddress = GLES.getCapabilities().glShaderSource;
+		long __functionAddress = GLES.getICD().glShaderSource;
 		if ( CHECKS )
 			checkSafe(length, string.remaining());
 		callPPV(__functionAddress, shader, string.remaining(), memAddress(string), length);
@@ -2498,25 +2394,25 @@ public class GLES20 {
 
 	/** Array version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexImage2D;
+		long __functionAddress = GLES.getICD().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexImage2D;
+		long __functionAddress = GLES.getICD().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexImage2D;
+		long __functionAddress = GLES.getICD().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glTexParameterfv TexParameterfv} */
 	public static void glTexParameterfv(int target, int pname, float[] params) {
-		long __functionAddress = GLES.getCapabilities().glTexParameterfv;
+		long __functionAddress = GLES.getICD().glTexParameterfv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
@@ -2524,7 +2420,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glTexParameteriv TexParameteriv} */
 	public static void glTexParameteriv(int target, int pname, int[] params) {
-		long __functionAddress = GLES.getCapabilities().glTexParameteriv;
+		long __functionAddress = GLES.getICD().glTexParameteriv;
 		if ( CHECKS )
 			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
@@ -2532,91 +2428,91 @@ public class GLES20 {
 
 	/** Array version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
+		long __functionAddress = GLES.getICD().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
+		long __functionAddress = GLES.getICD().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
+		long __functionAddress = GLES.getICD().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** Array version of: {@link #glUniform1fv Uniform1fv} */
 	public static void glUniform1fv(int location, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform1fv;
+		long __functionAddress = GLES.getICD().glUniform1fv;
 		callPV(__functionAddress, location, value.length, value);
 	}
 
 	/** Array version of: {@link #glUniform1iv Uniform1iv} */
 	public static void glUniform1iv(int location, int[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform1iv;
+		long __functionAddress = GLES.getICD().glUniform1iv;
 		callPV(__functionAddress, location, value.length, value);
 	}
 
 	/** Array version of: {@link #glUniform2fv Uniform2fv} */
 	public static void glUniform2fv(int location, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform2fv;
+		long __functionAddress = GLES.getICD().glUniform2fv;
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
 	/** Array version of: {@link #glUniform2iv Uniform2iv} */
 	public static void glUniform2iv(int location, int[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform2iv;
+		long __functionAddress = GLES.getICD().glUniform2iv;
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
 	/** Array version of: {@link #glUniform3fv Uniform3fv} */
 	public static void glUniform3fv(int location, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform3fv;
+		long __functionAddress = GLES.getICD().glUniform3fv;
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
 	/** Array version of: {@link #glUniform3iv Uniform3iv} */
 	public static void glUniform3iv(int location, int[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform3iv;
+		long __functionAddress = GLES.getICD().glUniform3iv;
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
 	/** Array version of: {@link #glUniform4fv Uniform4fv} */
 	public static void glUniform4fv(int location, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform4fv;
+		long __functionAddress = GLES.getICD().glUniform4fv;
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
 	/** Array version of: {@link #glUniform4iv Uniform4iv} */
 	public static void glUniform4iv(int location, int[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniform4iv;
+		long __functionAddress = GLES.getICD().glUniform4iv;
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
 	/** Array version of: {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	public static void glUniformMatrix2fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniformMatrix2fv;
+		long __functionAddress = GLES.getICD().glUniformMatrix2fv;
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
 	}
 
 	/** Array version of: {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	public static void glUniformMatrix3fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniformMatrix3fv;
+		long __functionAddress = GLES.getICD().glUniformMatrix3fv;
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
 	}
 
 	/** Array version of: {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	public static void glUniformMatrix4fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GLES.getCapabilities().glUniformMatrix4fv;
+		long __functionAddress = GLES.getICD().glUniformMatrix4fv;
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
 	}
 
 	/** Array version of: {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	public static void glVertexAttrib1fv(int index, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib1fv;
+		long __functionAddress = GLES.getICD().glVertexAttrib1fv;
 		if ( CHECKS )
 			check(v, 1);
 		callPV(__functionAddress, index, v);
@@ -2624,7 +2520,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	public static void glVertexAttrib2fv(int index, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib2fv;
+		long __functionAddress = GLES.getICD().glVertexAttrib2fv;
 		if ( CHECKS )
 			check(v, 2);
 		callPV(__functionAddress, index, v);
@@ -2632,7 +2528,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	public static void glVertexAttrib3fv(int index, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib3fv;
+		long __functionAddress = GLES.getICD().glVertexAttrib3fv;
 		if ( CHECKS )
 			check(v, 3);
 		callPV(__functionAddress, index, v);
@@ -2640,7 +2536,7 @@ public class GLES20 {
 
 	/** Array version of: {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	public static void glVertexAttrib4fv(int index, float[] v) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttrib4fv;
+		long __functionAddress = GLES.getICD().glVertexAttrib4fv;
 		if ( CHECKS )
 			check(v, 4);
 		callPV(__functionAddress, index, v);
@@ -2648,19 +2544,19 @@ public class GLES20 {
 
 	/** Array version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
+		long __functionAddress = GLES.getICD().glVertexAttribPointer;
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/** Array version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
+		long __functionAddress = GLES.getICD().glVertexAttribPointer;
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/** Array version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
-		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
+		long __functionAddress = GLES.getICD().glVertexAttribPointer;
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 

@@ -1,0 +1,68 @@
+/*
+ * Copyright LWJGL. All rights reserved.
+ * License terms: https://www.lwjgl.org/license
+ * MACHINE GENERATED FILE, DO NOT EDIT
+ */
+#include "common_tools.h"
+#include "opengles.h"
+
+typedef void (APIENTRY *glEnableiEXTPROC) (jint, jint);
+typedef void (APIENTRY *glDisableiEXTPROC) (jint, jint);
+typedef void (APIENTRY *glBlendEquationiEXTPROC) (jint, jint);
+typedef void (APIENTRY *glBlendEquationSeparateiEXTPROC) (jint, jint, jint);
+typedef void (APIENTRY *glBlendFunciEXTPROC) (jint, jint, jint);
+typedef void (APIENTRY *glBlendFuncSeparateiEXTPROC) (jint, jint, jint, jint, jint);
+typedef void (APIENTRY *glColorMaskiEXTPROC) (jint, jboolean, jboolean, jboolean, jboolean);
+typedef jboolean (APIENTRY *glIsEnablediEXTPROC) (jint, jint);
+
+EXTERN_C_ENTER
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglEnableiEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
+	glEnableiEXTPROC glEnableiEXT = (glEnableiEXTPROC)tlsGetFunction(189);
+	UNUSED_PARAM(clazz)
+	glEnableiEXT(target, index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglDisableiEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
+	glDisableiEXTPROC glDisableiEXT = (glDisableiEXTPROC)tlsGetFunction(148);
+	UNUSED_PARAM(clazz)
+	glDisableiEXT(target, index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglBlendEquationiEXT(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
+	glBlendEquationiEXTPROC glBlendEquationiEXT = (glBlendEquationiEXTPROC)tlsGetFunction(39);
+	UNUSED_PARAM(clazz)
+	glBlendEquationiEXT(buf, mode);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglBlendEquationSeparateiEXT(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
+	glBlendEquationSeparateiEXTPROC glBlendEquationSeparateiEXT = (glBlendEquationSeparateiEXTPROC)tlsGetFunction(36);
+	UNUSED_PARAM(clazz)
+	glBlendEquationSeparateiEXT(buf, modeRGB, modeAlpha);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglBlendFunciEXT(JNIEnv *__env, jclass clazz, jint buf, jint src, jint dst) {
+	glBlendFunciEXTPROC glBlendFunciEXT = (glBlendFunciEXTPROC)tlsGetFunction(47);
+	UNUSED_PARAM(clazz)
+	glBlendFunciEXT(buf, src, dst);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglBlendFuncSeparateiEXT(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
+	glBlendFuncSeparateiEXTPROC glBlendFuncSeparateiEXT = (glBlendFuncSeparateiEXTPROC)tlsGetFunction(44);
+	UNUSED_PARAM(clazz)
+	glBlendFuncSeparateiEXT(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglColorMaskiEXT(JNIEnv *__env, jclass clazz, jint index, jboolean r, jboolean g, jboolean b, jboolean a) {
+	glColorMaskiEXTPROC glColorMaskiEXT = (glColorMaskiEXTPROC)tlsGetFunction(72);
+	UNUSED_PARAM(clazz)
+	glColorMaskiEXT(index, r, g, b, a);
+}
+
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTDrawBuffersIndexed_nglIsEnablediEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
+	glIsEnablediEXTPROC glIsEnablediEXT = (glIsEnablediEXTPROC)tlsGetFunction(404);
+	UNUSED_PARAM(clazz)
+	return (jboolean)glIsEnablediEXT(target, index);
+}
+
+EXTERN_C_EXIT

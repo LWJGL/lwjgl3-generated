@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_view.txt">EXT_texture_view</a> extension.
@@ -43,6 +42,8 @@ public class EXTTextureView {
 		GL_TEXTURE_VIEW_NUM_LAYERS_EXT = 0x82DE,
 		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
+	static { GLES.initialize(); }
+
 	protected EXTTextureView() {
 		throw new UnsupportedOperationException();
 	}
@@ -55,11 +56,10 @@ public class EXTTextureView {
 
 	// --- [ glTextureViewEXT ] ---
 
+	public static native void nglTextureViewEXT(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
+
 	public static void glTextureViewEXT(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		long __functionAddress = GLES.getCapabilities().glTextureViewEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
+		nglTextureViewEXT(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
 }

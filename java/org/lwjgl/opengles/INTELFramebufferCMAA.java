@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/INTEL/INTEL_framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
@@ -25,6 +24,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class INTELFramebufferCMAA {
 
+	static { GLES.initialize(); }
+
 	protected INTELFramebufferCMAA() {
 		throw new UnsupportedOperationException();
 	}
@@ -37,15 +38,15 @@ public class INTELFramebufferCMAA {
 
 	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
 
+	/** Unsafe version of: {@link #glApplyFramebufferAttachmentCMAAINTEL ApplyFramebufferAttachmentCMAAINTEL} */
+	public static native void nglApplyFramebufferAttachmentCMAAINTEL();
+
 	/**
 	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GLES30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
 	 * Conservative Morphological Anti-Aliasing algorithm.
 	 */
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {
-		long __functionAddress = GLES.getCapabilities().glApplyFramebufferAttachmentCMAAINTEL;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglApplyFramebufferAttachmentCMAAINTEL();
 	}
 
 }

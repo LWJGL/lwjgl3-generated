@@ -39,6 +39,8 @@ public class OESGetProgramBinary {
 		GL_NUM_PROGRAM_BINARY_FORMATS_OES = 0x87FE,
 		GL_PROGRAM_BINARY_FORMATS_OES     = 0x87FF;
 
+	static { GLES.initialize(); }
+
 	protected OESGetProgramBinary() {
 		throw new UnsupportedOperationException();
 	}
@@ -51,12 +53,7 @@ public class OESGetProgramBinary {
 
 	// --- [ glGetProgramBinaryOES ] ---
 
-	public static void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
-	}
+	public static native void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary);
 
 	public static void glGetProgramBinaryOES(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
@@ -68,12 +65,7 @@ public class OESGetProgramBinary {
 
 	// --- [ glProgramBinaryOES ] ---
 
-	public static void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length) {
-		long __functionAddress = GLES.getCapabilities().glProgramBinaryOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, binaryFormat, binary, length);
-	}
+	public static native void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length);
 
 	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary) {
 		nglProgramBinaryOES(program, binaryFormat, memAddress(binary), binary.remaining());
@@ -81,7 +73,7 @@ public class OESGetProgramBinary {
 
 	/** Array version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static void glGetProgramBinaryOES(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
-		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
+		long __functionAddress = GLES.getICD().glGetProgramBinaryOES;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(length, 1);

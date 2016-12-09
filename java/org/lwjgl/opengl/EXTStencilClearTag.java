@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/stencil_clear_tag.txt">EXT_stencil_clear_tag</a> extension.
@@ -51,6 +50,8 @@ public class EXTStencilClearTag {
 		GL_STENCIL_TAG_BITS_EXT        = 0x88F2,
 		GL_STENCIL_CLEAR_TAG_VALUE_EXT = 0x88F3;
 
+	static { GL.initialize(); }
+
 	protected EXTStencilClearTag() {
 		throw new UnsupportedOperationException();
 	}
@@ -63,11 +64,10 @@ public class EXTStencilClearTag {
 
 	// --- [ glStencilClearTagEXT ] ---
 
+	public static native void nglStencilClearTagEXT(int stencilTagBits, int stencilClearTag);
+
 	public static void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag) {
-		long __functionAddress = GL.getCapabilities().glStencilClearTagEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, stencilTagBits, stencilClearTag);
+		nglStencilClearTagEXT(stencilTagBits, stencilClearTag);
 	}
 
 }

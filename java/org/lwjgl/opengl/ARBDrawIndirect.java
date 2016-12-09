@@ -39,6 +39,8 @@ public class ARBDrawIndirect {
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
 	public static final int GL_DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
 
+	static { GL.initialize(); }
+
 	protected ARBDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
@@ -52,12 +54,7 @@ public class ARBDrawIndirect {
 	// --- [ glDrawArraysIndirect ] ---
 
 	/** Unsafe version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
-	public static void nglDrawArraysIndirect(int mode, long indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, indirect);
-	}
+	public static native void nglDrawArraysIndirect(int mode, long indirect);
 
 	/**
 	 * Renders primitives from array data, taking parameters from memory.
@@ -141,12 +138,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glDrawElementsIndirect ] ---
 
 	/** Unsafe version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
-	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, type, indirect);
-	}
+	public static native void nglDrawElementsIndirect(int mode, int type, long indirect);
 
 	/**
 	 * Renders indexed primitives from array data, taking parameters from memory.
@@ -271,7 +263,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Array version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, int[] indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
+		long __functionAddress = GL.getICD().glDrawArraysIndirect;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (4 * 4) >> 2);
@@ -281,7 +273,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	/** Array version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, int[] indirect) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
+		long __functionAddress = GL.getICD().glDrawElementsIndirect;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (5 * 4) >> 2);

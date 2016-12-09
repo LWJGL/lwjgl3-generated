@@ -8,7 +8,6 @@ package org.lwjgl.opengles;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -18,6 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * the vertex program to compute per-instance values, typically an object's transform.</p>
  */
 public class EXTDrawInstanced {
+
+	static { GLES.initialize(); }
 
 	protected EXTDrawInstanced() {
 		throw new UnsupportedOperationException();
@@ -31,21 +32,15 @@ public class EXTDrawInstanced {
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
+	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
+
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, start, count, primcount);
+		nglDrawArraysInstancedEXT(mode, start, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedEXT ] ---
 
-	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount);
 
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount);

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a> extension.
@@ -16,6 +15,8 @@ import static org.lwjgl.system.JNI.*;
  * <p>Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public class ARBTextureBarrier {
+
+	static { GL.initialize(); }
 
 	protected ARBTextureBarrier() {
 		throw new UnsupportedOperationException();
@@ -29,12 +30,12 @@ public class ARBTextureBarrier {
 
 	// --- [ glTextureBarrier ] ---
 
+	/** Unsafe version of: {@link #glTextureBarrier TextureBarrier} */
+	public static native void nglTextureBarrier();
+
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
 	public static void glTextureBarrier() {
-		long __functionAddress = GL.getCapabilities().glTextureBarrier;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglTextureBarrier();
 	}
 
 }

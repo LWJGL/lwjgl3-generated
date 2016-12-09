@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/viewport_swizzle.txt">NV_viewport_swizzle</a> extension.
@@ -40,6 +39,8 @@ public class NVViewportSwizzle {
 		GL_VIEWPORT_SWIZZLE_Z_NV = 0x935A,
 		GL_VIEWPORT_SWIZZLE_W_NV = 0x935B;
 
+	static { GL.initialize(); }
+
 	protected NVViewportSwizzle() {
 		throw new UnsupportedOperationException();
 	}
@@ -52,6 +53,9 @@ public class NVViewportSwizzle {
 
 	// --- [ glViewportSwizzleNV ] ---
 
+	/** Unsafe version of: {@link #glViewportSwizzleNV ViewportSwizzleNV} */
+	public static native void nglViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
+
 	/**
 	 * Sets the swizzle state for the specified viewport.
 	 *
@@ -62,10 +66,7 @@ public class NVViewportSwizzle {
 	 * @param swizzlew the w swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
 	 */
 	public static void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew) {
-		long __functionAddress = GL.getCapabilities().glViewportSwizzleNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, swizzlex, swizzley, swizzlez, swizzlew);
+		nglViewportSwizzleNV(index, swizzlex, swizzley, swizzlez, swizzlew);
 	}
 
 }

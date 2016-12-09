@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_texture_barrier.txt">NV_texture_barrier</a> extension.
@@ -14,6 +13,8 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension relaxes the restrictions on rendering to a currently bound texture and provides a mechanism to avoid read-after-write hazards.</p>
  */
 public class NVTextureBarrier {
+
+	static { GLES.initialize(); }
 
 	protected NVTextureBarrier() {
 		throw new UnsupportedOperationException();
@@ -27,12 +28,12 @@ public class NVTextureBarrier {
 
 	// --- [ glTextureBarrierNV ] ---
 
+	/** Unsafe version of: {@link #glTextureBarrierNV TextureBarrierNV} */
+	public static native void nglTextureBarrierNV();
+
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
 	public static void glTextureBarrierNV() {
-		long __functionAddress = GLES.getCapabilities().glTextureBarrierNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglTextureBarrierNV();
 	}
 
 }

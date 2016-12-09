@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_alpha_test.txt">QCOM_alpha_test</a> extension.
@@ -27,6 +26,8 @@ public class QCOMAlphaTest {
 		GL_ALPHA_TEST_FUNC_QCOM = 0xBC1,
 		GL_ALPHA_TEST_REF_QCOM  = 0xBC2;
 
+	static { GLES.initialize(); }
+
 	protected QCOMAlphaTest() {
 		throw new UnsupportedOperationException();
 	}
@@ -39,11 +40,10 @@ public class QCOMAlphaTest {
 
 	// --- [ glAlphaFuncQCOM ] ---
 
+	public static native void nglAlphaFuncQCOM(int func, float ref);
+
 	public static void glAlphaFuncQCOM(int func, float ref) {
-		long __functionAddress = GLES.getCapabilities().glAlphaFuncQCOM;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, func, ref);
+		nglAlphaFuncQCOM(func, ref);
 	}
 
 }

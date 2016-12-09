@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -28,6 +27,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBBaseInstance {
 
+	static { GL.initialize(); }
+
 	protected ARBBaseInstance() {
 		throw new UnsupportedOperationException();
 	}
@@ -40,6 +41,9 @@ public class ARBBaseInstance {
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
+	/** Unsafe version of: {@link #glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance} */
+	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
+
 	/**
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
@@ -50,10 +54,7 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedBaseInstance;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, primcount, baseinstance);
+		nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
@@ -64,12 +65,7 @@ public class ARBBaseInstance {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseInstance;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
-	}
+	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance);
 
 	/**
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
@@ -142,12 +138,7 @@ public class ARBBaseInstance {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstance;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
-	}
+	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance);
 
 	/**
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.

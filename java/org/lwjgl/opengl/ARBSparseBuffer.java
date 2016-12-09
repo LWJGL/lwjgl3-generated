@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sparse_buffer.txt">ARB_sparse_buffer</a> extension.
@@ -25,6 +24,8 @@ public class ARBSparseBuffer {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int GL_SPARSE_BUFFER_PAGE_SIZE_ARB = 0x82F8;
 
+	static { GL.initialize(); }
+
 	protected ARBSparseBuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -37,6 +38,9 @@ public class ARBSparseBuffer {
 
 	// --- [ glBufferPageCommitmentARB ] ---
 
+	/** Unsafe version of: {@link #glBufferPageCommitmentARB BufferPageCommitmentARB} */
+	public static native void nglBufferPageCommitmentARB(int target, long offset, long size, boolean commit);
+
 	/**
 	 * Commit and de-commits regions of sparse buffer storage.
 	 *
@@ -48,13 +52,13 @@ public class ARBSparseBuffer {
 	 *               redundantly committing pages does not alter their content.
 	 */
 	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
-		long __functionAddress = GL.getCapabilities().glBufferPageCommitmentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, offset, size, commit);
+		nglBufferPageCommitmentARB(target, offset, size, commit);
 	}
 
 	// --- [ glNamedBufferPageCommitmentEXT ] ---
+
+	/** Unsafe version of: {@link #glNamedBufferPageCommitmentEXT NamedBufferPageCommitmentEXT} */
+	public static native void nglNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit);
 
 	/**
 	 * Direct-state-access version of {@link #glBufferPageCommitmentARB BufferPageCommitmentARB}.
@@ -65,13 +69,13 @@ public class ARBSparseBuffer {
 	 * @param commit the commit state
 	 */
 	public static void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferPageCommitmentEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, offset, size, commit);
+		nglNamedBufferPageCommitmentEXT(buffer, offset, size, commit);
 	}
 
 	// --- [ glNamedBufferPageCommitmentARB ] ---
+
+	/** Unsafe version of: {@link #glNamedBufferPageCommitmentARB NamedBufferPageCommitmentARB} */
+	public static native void nglNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit);
 
 	/**
 	 * Direct-state-access version of {@link #glBufferPageCommitmentARB BufferPageCommitmentARB}.
@@ -82,10 +86,7 @@ public class ARBSparseBuffer {
 	 * @param commit the commit state
 	 */
 	public static void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit) {
-		long __functionAddress = GL.getCapabilities().glNamedBufferPageCommitmentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, buffer, offset, size, commit);
+		nglNamedBufferPageCommitmentARB(buffer, offset, size, commit);
 	}
 
 }

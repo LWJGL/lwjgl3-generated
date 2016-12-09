@@ -64,6 +64,8 @@ public class NVDrawBuffers {
 		GL_COLOR_ATTACHMENT14_NV = 0x8CEE,
 		GL_COLOR_ATTACHMENT15_NV = 0x8CEF;
 
+	static { GLES.initialize(); }
+
 	protected NVDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
@@ -76,12 +78,7 @@ public class NVDrawBuffers {
 
 	// --- [ glDrawBuffersNV ] ---
 
-	public static void nglDrawBuffersNV(int n, long bufs) {
-		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, bufs);
-	}
+	public static native void nglDrawBuffersNV(int n, long bufs);
 
 	public static void glDrawBuffersNV(IntBuffer bufs) {
 		nglDrawBuffersNV(bufs.remaining(), memAddress(bufs));
@@ -99,7 +96,7 @@ public class NVDrawBuffers {
 
 	/** Array version of: {@link #glDrawBuffersNV DrawBuffersNV} */
 	public static void glDrawBuffersNV(int[] bufs) {
-		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
+		long __functionAddress = GLES.getICD().glDrawBuffersNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);

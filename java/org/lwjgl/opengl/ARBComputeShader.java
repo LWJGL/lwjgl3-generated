@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a> extension.
@@ -73,6 +72,8 @@ public class ARBComputeShader {
 	/** Accepted by the {@code stages} parameter of UseProgramStages. */
 	public static final int GL_COMPUTE_SHADER_BIT = 0x20;
 
+	static { GL.initialize(); }
+
 	protected ARBComputeShader() {
 		throw new UnsupportedOperationException();
 	}
@@ -85,6 +86,9 @@ public class ARBComputeShader {
 
 	// --- [ glDispatchCompute ] ---
 
+	/** Unsafe version of: {@link #glDispatchCompute DispatchCompute} */
+	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
+
 	/**
 	 * Launches one or more compute work groups.
 	 *
@@ -93,13 +97,13 @@ public class ARBComputeShader {
 	 * @param num_groups_z the number of work groups to be launched in the Z dimension
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
-		long __functionAddress = GL.getCapabilities().glDispatchCompute;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
+		nglDispatchCompute(num_groups_x, num_groups_y, num_groups_z);
 	}
 
 	// --- [ glDispatchComputeIndirect ] ---
+
+	/** Unsafe version of: {@link #glDispatchComputeIndirect DispatchComputeIndirect} */
+	public static native void nglDispatchComputeIndirect(long indirect);
 
 	/**
 	 * Launches one or more compute work groups using parameters stored in a buffer.
@@ -117,14 +121,11 @@ public class ARBComputeShader {
 	 * <pre><code>cmd = (const DispatchIndirectCommand *)indirect;
 glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre>
 	 *
-	 * @param indirect the offset into the buffer object currently bound to the {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER} buffer target at which the dispatch parameters are
+	 * @param indirect the offset into the buffer object currently bound to the {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER} buffer target at which the dispatch parameters are
 	 *                 stored.
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
-		long __functionAddress = GL.getCapabilities().glDispatchComputeIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, indirect);
+		nglDispatchComputeIndirect(indirect);
 	}
 
 }

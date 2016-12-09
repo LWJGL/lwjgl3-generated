@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/sparse_texture.txt">AMD_sparse_texture</a> extension.
@@ -46,6 +45,8 @@ public class AMDSparseTexture {
 	/** Accepted by the {@code pname} parameter of TexParameter{if}{v} and GetTexParameter{if}v. */
 	public static final int GL_MIN_LOD_WARNING_AMD = 0x919C;
 
+	static { GL.initialize(); }
+
 	protected AMDSparseTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -58,20 +59,18 @@ public class AMDSparseTexture {
 
 	// --- [ glTexStorageSparseAMD ] ---
 
+	public static native void nglTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags);
+
 	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
-		long __functionAddress = GL.getCapabilities().glTexStorageSparseAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalFormat, width, height, depth, layers, flags);
+		nglTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags);
 	}
 
 	// --- [ glTextureStorageSparseAMD ] ---
 
+	public static native void nglTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags);
+
 	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
-		long __functionAddress = GL.getCapabilities().glTextureStorageSparseAMD;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, internalFormat, width, height, depth, layers, flags);
+		nglTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags);
 	}
 
 }

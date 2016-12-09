@@ -21,6 +21,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTMultiDrawArrays {
 
+	static { GLES.initialize(); }
+
 	protected EXTMultiDrawArrays() {
 		throw new UnsupportedOperationException();
 	}
@@ -33,12 +35,7 @@ public class EXTMultiDrawArrays {
 
 	// --- [ glMultiDrawArraysEXT ] ---
 
-	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, first, count, primcount);
-	}
+	public static native void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount);
 
 	public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
 		if ( CHECKS )
@@ -48,12 +45,7 @@ public class EXTMultiDrawArrays {
 
 	// --- [ glMultiDrawElementsEXT ] ---
 
-	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
-		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount);
 
 	public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		if ( CHECKS )
@@ -63,7 +55,7 @@ public class EXTMultiDrawArrays {
 
 	/** Array version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
 	public static void glMultiDrawArraysEXT(int mode, int[] first, int[] count) {
-		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
+		long __functionAddress = GLES.getICD().glMultiDrawArraysEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(count, first.length);
@@ -73,7 +65,7 @@ public class EXTMultiDrawArrays {
 
 	/** Array version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
 	public static void glMultiDrawElementsEXT(int mode, int[] count, int type, PointerBuffer indices) {
-		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
+		long __functionAddress = GLES.getICD().glMultiDrawElementsEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indices, count.length);

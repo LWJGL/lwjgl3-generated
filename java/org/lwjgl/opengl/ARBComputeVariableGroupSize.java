@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/compute_variable_group_size.txt">ARB_compute_variable_group_size</a> extension.
@@ -34,6 +33,8 @@ public class ARBComputeVariableGroupSize {
 		GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB = 0x9345,
 		GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB    = 0x91BF;
 
+	static { GL.initialize(); }
+
 	protected ARBComputeVariableGroupSize() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,6 +46,9 @@ public class ARBComputeVariableGroupSize {
 	}
 
 	// --- [ glDispatchComputeGroupSizeARB ] ---
+
+	/** Unsafe version of: {@link #glDispatchComputeGroupSizeARB DispatchComputeGroupSizeARB} */
+	public static native void nglDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z);
 
 	/**
 	 * Launches one or more compute work groups, with arbitrary dimensions.
@@ -68,10 +72,7 @@ public class ARBComputeVariableGroupSize {
 	 * @param group_size_z the group size in the Z dimension
 	 */
 	public static void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z) {
-		long __functionAddress = GL.getCapabilities().glDispatchComputeGroupSizeARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
+		nglDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
 	}
 
 }

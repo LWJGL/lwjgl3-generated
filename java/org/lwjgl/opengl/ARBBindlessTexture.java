@@ -48,6 +48,8 @@ public class ARBBindlessTexture {
 	/** Accepted by the {@code type} parameter of VertexAttribLPointer. */
 	public static final int GL_UNSIGNED_INT64_ARB = 0x140F;
 
+	static { GL.initialize(); }
+
 	protected ARBBindlessTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -63,6 +65,9 @@ public class ARBBindlessTexture {
 
 	// --- [ glGetTextureHandleARB ] ---
 
+	/** Unsafe version of: {@link #glGetTextureHandleARB GetTextureHandleARB} */
+	public static native long nglGetTextureHandleARB(int texture);
+
 	/**
 	 * Creates a texture handle using the current state of the texture named {@code texture}, including any embedded sampler state. See
 	 * {@link #glGetTextureSamplerHandleARB GetTextureSamplerHandleARB} for details.
@@ -70,13 +75,13 @@ public class ARBBindlessTexture {
 	 * @param texture the texture object
 	 */
 	public static long glGetTextureHandleARB(int texture) {
-		long __functionAddress = GL.getCapabilities().glGetTextureHandleARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress, texture);
+		return nglGetTextureHandleARB(texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleARB ] ---
+
+	/** Unsafe version of: {@link #glGetTextureSamplerHandleARB GetTextureSamplerHandleARB} */
+	public static native long nglGetTextureSamplerHandleARB(int texture, int sampler);
 
 	/**
 	 * Creates a texture handle using the current non-sampler state from the texture named {@code texture} and the sampler state from the sampler object
@@ -110,13 +115,13 @@ public class ARBBindlessTexture {
 	 * @param sampler the sampler object
 	 */
 	public static long glGetTextureSamplerHandleARB(int texture, int sampler) {
-		long __functionAddress = GL.getCapabilities().glGetTextureSamplerHandleARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress, texture, sampler);
+		return nglGetTextureSamplerHandleARB(texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentARB ] ---
+
+	/** Unsafe version of: {@link #glMakeTextureHandleResidentARB MakeTextureHandleResidentARB} */
+	public static native void nglMakeTextureHandleResidentARB(long handle);
 
 	/**
 	 * Make a texture handle resident, so that it is accessible to shaders for texture mapping operations.
@@ -129,13 +134,13 @@ public class ARBBindlessTexture {
 	 * @param handle the texture handle
 	 */
 	public static void glMakeTextureHandleResidentARB(long handle) {
-		long __functionAddress = GL.getCapabilities().glMakeTextureHandleResidentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle);
+		nglMakeTextureHandleResidentARB(handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentARB ] ---
+
+	/** Unsafe version of: {@link #glMakeTextureHandleNonResidentARB MakeTextureHandleNonResidentARB} */
+	public static native void nglMakeTextureHandleNonResidentARB(long handle);
 
 	/**
 	 * Makes a texture handle inaccessible to shaders.
@@ -146,13 +151,13 @@ public class ARBBindlessTexture {
 	 * @param handle the texture handle
 	 */
 	public static void glMakeTextureHandleNonResidentARB(long handle) {
-		long __functionAddress = GL.getCapabilities().glMakeTextureHandleNonResidentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle);
+		nglMakeTextureHandleNonResidentARB(handle);
 	}
 
 	// --- [ glGetImageHandleARB ] ---
+
+	/** Unsafe version of: {@link #glGetImageHandleARB GetImageHandleARB} */
+	public static native long nglGetImageHandleARB(int texture, int level, boolean layered, int layer, int format);
 
 	/**
 	 * Creates and returns an image handle for level {@code level} of the texture named {@code texture}. If {@code layered} is {@link GL11#GL_TRUE TRUE}, a handle is created
@@ -197,13 +202,13 @@ public class ARBBindlessTexture {
 	 * @param format  the texture format
 	 */
 	public static long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format) {
-		long __functionAddress = GL.getCapabilities().glGetImageHandleARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress, texture, level, layered, layer, format);
+		return nglGetImageHandleARB(texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentARB ] ---
+
+	/** Unsafe version of: {@link #glMakeImageHandleResidentARB MakeImageHandleResidentARB} */
+	public static native void nglMakeImageHandleResidentARB(long handle, int access);
 
 	/**
 	 * Makes an image handle resident, so that it is accessible to shaders for image loads, stores, and atomic operations.
@@ -221,13 +226,13 @@ public class ARBBindlessTexture {
 	 * @param access the access type. One of:<br><table><tr><td>{@link GL15#GL_READ_ONLY READ_ONLY}</td><td>{@link GL15#GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link GL15#GL_READ_WRITE READ_WRITE}</td></tr></table>
 	 */
 	public static void glMakeImageHandleResidentARB(long handle, int access) {
-		long __functionAddress = GL.getCapabilities().glMakeImageHandleResidentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle, access);
+		nglMakeImageHandleResidentARB(handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentARB ] ---
+
+	/** Unsafe version of: {@link #glMakeImageHandleNonResidentARB MakeImageHandleNonResidentARB} */
+	public static native void nglMakeImageHandleNonResidentARB(long handle);
 
 	/**
 	 * Makes an image handle inaccessible to shaders.
@@ -235,13 +240,13 @@ public class ARBBindlessTexture {
 	 * @param handle the image handle
 	 */
 	public static void glMakeImageHandleNonResidentARB(long handle) {
-		long __functionAddress = GL.getCapabilities().glMakeImageHandleNonResidentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, handle);
+		nglMakeImageHandleNonResidentARB(handle);
 	}
 
 	// --- [ glUniformHandleui64ARB ] ---
+
+	/** Unsafe version of: {@link #glUniformHandleui64ARB UniformHandleui64ARB} */
+	public static native void nglUniformHandleui64ARB(int location, long value);
 
 	/**
 	 * Loads a 64-bit unsigned integer handle into a uniform location corresponding to sampler or image variable types.
@@ -250,10 +255,7 @@ public class ARBBindlessTexture {
 	 * @param value    the handle value
 	 */
 	public static void glUniformHandleui64ARB(int location, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformHandleui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, location, value);
+		nglUniformHandleui64ARB(location, value);
 	}
 
 	// --- [ glUniformHandleui64vARB ] ---
@@ -263,12 +265,7 @@ public class ARBBindlessTexture {
 	 *
 	 * @param count the number of handles to load
 	 */
-	public static void nglUniformHandleui64vARB(int location, int count, long values) {
-		long __functionAddress = GL.getCapabilities().glUniformHandleui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, values);
-	}
+	public static native void nglUniformHandleui64vARB(int location, int count, long values);
 
 	/**
 	 * Loads {@code count} 64-bit unsigned integer handles into a uniform location corresponding to sampler or image variable types.
@@ -282,6 +279,9 @@ public class ARBBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64ARB ] ---
 
+	/** Unsafe version of: {@link #glProgramUniformHandleui64ARB ProgramUniformHandleui64ARB} */
+	public static native void nglProgramUniformHandleui64ARB(int program, int location, long value);
+
 	/**
 	 * DSA version of {@link #glUniformHandleui64ARB UniformHandleui64ARB}.
 	 *
@@ -290,10 +290,7 @@ public class ARBBindlessTexture {
 	 * @param value    the handle value
 	 */
 	public static void glProgramUniformHandleui64ARB(int program, int location, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, program, location, value);
+		nglProgramUniformHandleui64ARB(program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vARB ] ---
@@ -303,12 +300,7 @@ public class ARBBindlessTexture {
 	 *
 	 * @param count the number of handles to load
 	 */
-	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, count, values);
-	}
+	public static native void nglProgramUniformHandleui64vARB(int program, int location, int count, long values);
 
 	/**
 	 * DSA version of {@link #glUniformHandleui64vARB UniformHandleui64vARB}.
@@ -323,19 +315,22 @@ public class ARBBindlessTexture {
 
 	// --- [ glIsTextureHandleResidentARB ] ---
 
+	/** Unsafe version of: {@link #glIsTextureHandleResidentARB IsTextureHandleResidentARB} */
+	public static native boolean nglIsTextureHandleResidentARB(long handle);
+
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified texture handle is resident in the current context.
 	 *
 	 * @param handle the texture handle
 	 */
 	public static boolean glIsTextureHandleResidentARB(long handle) {
-		long __functionAddress = GL.getCapabilities().glIsTextureHandleResidentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJZ(__functionAddress, handle);
+		return nglIsTextureHandleResidentARB(handle);
 	}
 
 	// --- [ glIsImageHandleResidentARB ] ---
+
+	/** Unsafe version of: {@link #glIsImageHandleResidentARB IsImageHandleResidentARB} */
+	public static native boolean nglIsImageHandleResidentARB(long handle);
 
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified image handle is resident in the current context.
@@ -343,13 +338,13 @@ public class ARBBindlessTexture {
 	 * @param handle the image handle
 	 */
 	public static boolean glIsImageHandleResidentARB(long handle) {
-		long __functionAddress = GL.getCapabilities().glIsImageHandleResidentARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJZ(__functionAddress, handle);
+		return nglIsImageHandleResidentARB(handle);
 	}
 
 	// --- [ glVertexAttribL1ui64ARB ] ---
+
+	/** Unsafe version of: {@link #glVertexAttribL1ui64ARB VertexAttribL1ui64ARB} */
+	public static native void nglVertexAttribL1ui64ARB(int index, long x);
 
 	/**
 	 * Specifies the 64-bit unsigned integer handle value of a generic vertex attribute.
@@ -358,21 +353,13 @@ public class ARBBindlessTexture {
 	 * @param x     the handle value
 	 */
 	public static void glVertexAttribL1ui64ARB(int index, long x) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64ARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callJV(__functionAddress, index, x);
+		nglVertexAttribL1ui64ARB(index, x);
 	}
 
 	// --- [ glVertexAttribL1ui64vARB ] ---
 
 	/** Unsafe version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
-	public static void nglVertexAttribL1ui64vARB(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglVertexAttribL1ui64vARB(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glVertexAttribL1ui64ARB VertexAttribL1ui64ARB}.
@@ -389,12 +376,7 @@ public class ARBBindlessTexture {
 	// --- [ glGetVertexAttribLui64vARB ] ---
 
 	/** Unsafe version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
-	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, pname, params);
-	}
+	public static native void nglGetVertexAttribLui64vARB(int index, int pname, long params);
 
 	/**
 	 * Returns the 64-bit unsigned integer handle value of a generic vertex attribute parameter.
@@ -428,7 +410,7 @@ public class ARBBindlessTexture {
 
 	/** Array version of: {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
 	public static void glUniformHandleui64vARB(int location, long[] values) {
-		long __functionAddress = GL.getCapabilities().glUniformHandleui64vARB;
+		long __functionAddress = GL.getICD().glUniformHandleui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, values.length, values);
@@ -436,7 +418,7 @@ public class ARBBindlessTexture {
 
 	/** Array version of: {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
 	public static void glProgramUniformHandleui64vARB(int program, int location, long[] values) {
-		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vARB;
+		long __functionAddress = GL.getICD().glProgramUniformHandleui64vARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, program, location, values.length, values);
@@ -444,7 +426,7 @@ public class ARBBindlessTexture {
 
 	/** Array version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
 	public static void glVertexAttribL1ui64vARB(int index, long[] v) {
-		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vARB;
+		long __functionAddress = GL.getICD().glVertexAttribL1ui64vARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 1);
@@ -454,7 +436,7 @@ public class ARBBindlessTexture {
 
 	/** Array version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	public static void glGetVertexAttribLui64vARB(int index, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vARB;
+		long __functionAddress = GL.getICD().glGetVertexAttribLui64vARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

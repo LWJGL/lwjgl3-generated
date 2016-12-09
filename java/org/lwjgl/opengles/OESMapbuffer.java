@@ -12,7 +12,6 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -35,6 +34,8 @@ public class OESMapbuffer {
 	/** Accepted by the {@code pname} parameter of GetBufferPointervOES. */
 	public static final int GL_BUFFER_MAP_POINTER_OES = 0x88BD;
 
+	static { GLES.initialize(); }
+
 	protected OESMapbuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -47,12 +48,7 @@ public class OESMapbuffer {
 
 	// --- [ glMapBufferOES ] ---
 
-	public static long nglMapBufferOES(int target, int access) {
-		long __functionAddress = GLES.getCapabilities().glMapBufferOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, target, access);
-	}
+	public static native long nglMapBufferOES(int target, int access);
 
 	public static ByteBuffer glMapBufferOES(int target, int access) {
 		long __result = nglMapBufferOES(target, access);
@@ -72,21 +68,15 @@ public class OESMapbuffer {
 
 	// --- [ glUnmapBufferOES ] ---
 
+	public static native boolean nglUnmapBufferOES(int target);
+
 	public static boolean glUnmapBufferOES(int target) {
-		long __functionAddress = GLES.getCapabilities().glUnmapBufferOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, target);
+		return nglUnmapBufferOES(target);
 	}
 
 	// --- [ glGetBufferPointervOES ] ---
 
-	public static void nglGetBufferPointervOES(int target, int pname, long params) {
-		long __functionAddress = GLES.getCapabilities().glGetBufferPointervOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, pname, params);
-	}
+	public static native void nglGetBufferPointervOES(int target, int pname, long params);
 
 	public static void glGetBufferPointervOES(int target, int pname, PointerBuffer params) {
 		if ( CHECKS )

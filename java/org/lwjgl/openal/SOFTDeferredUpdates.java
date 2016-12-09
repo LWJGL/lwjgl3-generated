@@ -43,7 +43,7 @@ public class SOFTDeferredUpdates {
 	 * apply at once at a later time.</p>
 	 */
 	public static void alDeferUpdatesSOFT() {
-		long __functionAddress = AL.getCapabilities().alDeferUpdatesSOFT;
+		long __functionAddress = AL.getICD().alDeferUpdatesSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokeV(__functionAddress);
@@ -57,7 +57,7 @@ public class SOFTDeferredUpdates {
 	 * <p>Once called, all pending deferred updates will be processed. Any following state changes will also apply as normal.</p>
 	 */
 	public static void alProcessUpdatesSOFT() {
-		long __functionAddress = AL.getCapabilities().alProcessUpdatesSOFT;
+		long __functionAddress = AL.getICD().alProcessUpdatesSOFT;
 		if ( CHECKS )
 			check(__functionAddress);
 		invokeV(__functionAddress);

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/depth_bounds_test.txt">EXT_depth_bounds_test</a> extension.
@@ -45,6 +44,8 @@ public class EXTDepthBoundsTest {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_DEPTH_BOUNDS_EXT = 0x8891;
 
+	static { GL.initialize(); }
+
 	protected EXTDepthBoundsTest() {
 		throw new UnsupportedOperationException();
 	}
@@ -57,11 +58,10 @@ public class EXTDepthBoundsTest {
 
 	// --- [ glDepthBoundsEXT ] ---
 
+	public static native void nglDepthBoundsEXT(double zmin, double zmax);
+
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
-		long __functionAddress = GL.getCapabilities().glDepthBoundsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, zmin, zmax);
+		nglDepthBoundsEXT(zmin, zmax);
 	}
 
 }

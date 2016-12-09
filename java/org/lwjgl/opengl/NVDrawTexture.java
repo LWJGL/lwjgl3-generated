@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/draw_texture.txt">NV_draw_texture</a> extension.
@@ -22,6 +21,8 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVDrawTexture {
 
+	static { GL.initialize(); }
+
 	protected NVDrawTexture() {
 		throw new UnsupportedOperationException();
 	}
@@ -34,11 +35,10 @@ public class NVDrawTexture {
 
 	// --- [ glDrawTextureNV ] ---
 
+	public static native void nglDrawTextureNV(int texture, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+
 	public static void glDrawTextureNV(int texture, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1) {
-		long __functionAddress = GL.getCapabilities().glDrawTextureNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
+		nglDrawTextureNV(texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 	}
 
 }

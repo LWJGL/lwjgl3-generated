@@ -55,6 +55,8 @@ public class ARBTransformFeedback3 {
 		GL_MAX_TRANSFORM_FEEDBACK_BUFFERS = 0x8E70,
 		GL_MAX_VERTEX_STREAMS             = 0x8E71;
 
+	static { GL.initialize(); }
+
 	protected ARBTransformFeedback3() {
 		throw new UnsupportedOperationException();
 	}
@@ -67,6 +69,9 @@ public class ARBTransformFeedback3 {
 
 	// --- [ glDrawTransformFeedbackStream ] ---
 
+	/** Unsafe version of: {@link #glDrawTransformFeedbackStream DrawTransformFeedbackStream} */
+	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream);
+
 	/**
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -75,13 +80,13 @@ public class ARBTransformFeedback3 {
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
-		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStream;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, id, stream);
+		nglDrawTransformFeedbackStream(mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
+
+	/** Unsafe version of: {@link #glBeginQueryIndexed BeginQueryIndexed} */
+	public static native void nglBeginQueryIndexed(int target, int index, int id);
 
 	/**
 	 * Begins a query object on an indexed target
@@ -91,13 +96,13 @@ public class ARBTransformFeedback3 {
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
-		long __functionAddress = GL.getCapabilities().glBeginQueryIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index, id);
+		nglBeginQueryIndexed(target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
+
+	/** Unsafe version of: {@link #glEndQueryIndexed EndQueryIndexed} */
+	public static native void nglEndQueryIndexed(int target, int index);
 
 	/**
 	 * Ends a query object on an indexed target
@@ -106,21 +111,13 @@ public class ARBTransformFeedback3 {
 	 * @param index  the index of the query target upon which to end the query
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
-		long __functionAddress = GL.getCapabilities().glEndQueryIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, index);
+		nglEndQueryIndexed(target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
 
 	/** Unsafe version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
-	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, pname, params);
-	}
+	public static native void nglGetQueryIndexediv(int target, int index, int pname, long params);
 
 	/**
 	 * Returns parameters of an indexed query object target.
@@ -156,7 +153,7 @@ public class ARBTransformFeedback3 {
 
 	/** Array version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void glGetQueryIndexediv(int target, int index, int pname, int[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
+		long __functionAddress = GL.getICD().glGetQueryIndexediv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

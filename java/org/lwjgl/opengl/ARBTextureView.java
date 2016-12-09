@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_view.txt">ARB_texture_view</a> extension.
@@ -43,6 +42,8 @@ public class ARBTextureView {
 		GL_TEXTURE_VIEW_NUM_LAYERS  = 0x82DE,
 		GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
+	static { GL.initialize(); }
+
 	protected ARBTextureView() {
 		throw new UnsupportedOperationException();
 	}
@@ -54,6 +55,9 @@ public class ARBTextureView {
 	}
 
 	// --- [ glTextureView ] ---
+
+	/** Unsafe version of: {@link #glTextureView TextureView} */
+	public static native void nglTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
 
 	/**
 	 * Initializes a texture as a data alias of another texture's data store.
@@ -68,10 +72,7 @@ public class ARBTextureView {
 	 * @param numlayers      the number of layers to include in the view
 	 */
 	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		long __functionAddress = GL.getCapabilities().glTextureView;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
+		nglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
 }

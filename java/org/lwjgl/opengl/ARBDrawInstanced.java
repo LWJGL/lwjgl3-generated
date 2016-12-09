@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -31,6 +30,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBDrawInstanced {
 
+	static { GL.initialize(); }
+
 	protected ARBDrawInstanced() {
 		throw new UnsupportedOperationException();
 	}
@@ -43,6 +44,9 @@ public class ARBDrawInstanced {
 
 	// --- [ glDrawArraysInstancedARB ] ---
 
+	/** Unsafe version of: {@link #glDrawArraysInstancedARB DrawArraysInstancedARB} */
+	public static native void nglDrawArraysInstancedARB(int mode, int first, int count, int primcount);
+
 	/**
 	 * Draw multiple instances of a range of elements.
 	 *
@@ -52,10 +56,7 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, mode, first, count, primcount);
+		nglDrawArraysInstancedARB(mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedARB ] ---
@@ -66,12 +67,7 @@ public class ARBDrawInstanced {
 	 * @param count the number of elements to be rendered
 	 * @param type  the type of the values in {@code indices}. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
-	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
-		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, count, type, indices, primcount);
-	}
+	public static native void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount);
 
 	/**
 	 * Draws multiple instances of a set of elements.

@@ -51,6 +51,8 @@ public class NVSampleLocations {
 		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342,
 		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
 
+	static { GL.initialize(); }
+
 	protected NVSampleLocations() {
 		throw new UnsupportedOperationException();
 	}
@@ -68,12 +70,7 @@ public class NVSampleLocations {
 	 *
 	 * @param count the number of sample locations to modify
 	 */
-	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, start, count, v);
-	}
+	public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v);
 
 	/**
 	 * Updates the programmable sample locations
@@ -93,12 +90,7 @@ public class NVSampleLocations {
 	 *
 	 * @param count the number of sample locations to modify
 	 */
-	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, start, count, v);
-	}
+	public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v);
 
 	/**
 	 * Updates the programmable sample locations
@@ -113,21 +105,21 @@ public class NVSampleLocations {
 
 	// --- [ glResolveDepthValuesNV ] ---
 
+	/** Unsafe version of: {@link #glResolveDepthValuesNV ResolveDepthValuesNV} */
+	public static native void nglResolveDepthValuesNV();
+
 	/**
 	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
 	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
 	 * generated. If the current framebuffer has no depth buffer, ResolveDepthValuesNV will have no effect.
 	 */
 	public static void glResolveDepthValuesNV() {
-		long __functionAddress = GL.getCapabilities().glResolveDepthValuesNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglResolveDepthValuesNV();
 	}
 
 	/** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
-		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvNV;
+		long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, start, v.length >> 1, v);
@@ -135,7 +127,7 @@ public class NVSampleLocations {
 
 	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
-		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
+		long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, start, v.length >> 1, v);

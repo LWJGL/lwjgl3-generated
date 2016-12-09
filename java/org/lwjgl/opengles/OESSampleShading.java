@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_sample_shading.txt">OES_sample_shading</a> extension.
@@ -35,6 +34,8 @@ public class OESSampleShading {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, and GetFloatv. */
 	public static final int GL_MIN_SAMPLE_SHADING_VALUE_OES = 0x8C37;
 
+	static { GLES.initialize(); }
+
 	protected OESSampleShading() {
 		throw new UnsupportedOperationException();
 	}
@@ -47,11 +48,10 @@ public class OESSampleShading {
 
 	// --- [ glMinSampleShadingOES ] ---
 
+	public static native void nglMinSampleShadingOES(float value);
+
 	public static void glMinSampleShadingOES(float value) {
-		long __functionAddress = GLES.getCapabilities().glMinSampleShadingOES;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, value);
+		nglMinSampleShadingOES(value);
 	}
 
 }

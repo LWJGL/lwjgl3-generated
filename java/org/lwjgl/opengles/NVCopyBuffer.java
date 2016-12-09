@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_copy_buffer.txt">NV_copy_buffer</a> extension.
@@ -24,6 +23,8 @@ public class NVCopyBuffer {
 		GL_COPY_READ_BUFFER_NV  = 0x8F36,
 		GL_COPY_WRITE_BUFFER_NV = 0x8F37;
 
+	static { GLES.initialize(); }
+
 	protected NVCopyBuffer() {
 		throw new UnsupportedOperationException();
 	}
@@ -36,11 +37,10 @@ public class NVCopyBuffer {
 
 	// --- [ glCopyBufferSubDataNV ] ---
 
+	public static native void nglCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+
 	public static void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GLES.getCapabilities().glCopyBufferSubDataNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		nglCopyBufferSubDataNV(readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 }

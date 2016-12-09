@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/conditional_render.txt">NV_conditional_render</a> extension.
@@ -35,6 +34,8 @@ public class NVConditionalRender {
 		GL_QUERY_BY_REGION_WAIT_NV    = 0x8E15,
 		GL_QUERY_BY_REGION_NO_WAIT_NV = 0x8E16;
 
+	static { GL.initialize(); }
+
 	protected NVConditionalRender() {
 		throw new UnsupportedOperationException();
 	}
@@ -47,20 +48,18 @@ public class NVConditionalRender {
 
 	// --- [ glBeginConditionalRenderNV ] ---
 
+	public static native void nglBeginConditionalRenderNV(int id, int mode);
+
 	public static void glBeginConditionalRenderNV(int id, int mode) {
-		long __functionAddress = GL.getCapabilities().glBeginConditionalRenderNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, id, mode);
+		nglBeginConditionalRenderNV(id, mode);
 	}
 
 	// --- [ glEndConditionalRenderNV ] ---
 
+	public static native void nglEndConditionalRenderNV();
+
 	public static void glEndConditionalRenderNV() {
-		long __functionAddress = GL.getCapabilities().glEndConditionalRenderNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
+		nglEndConditionalRenderNV();
 	}
 
 }

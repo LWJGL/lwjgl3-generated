@@ -8,7 +8,6 @@ package org.lwjgl.opengl;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -60,6 +59,8 @@ public class ARBTextureCompression {
 		GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB = 0x86A2,
 		GL_COMPRESSED_TEXTURE_FORMATS_ARB     = 0x86A3;
 
+	static { GL.initialize(); }
+
 	protected ARBTextureCompression() {
 		throw new UnsupportedOperationException();
 	}
@@ -78,12 +79,7 @@ public class ARBTextureCompression {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexImage3DARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data);
 
 	/**
 	 * Specifies a three-dimensional texture image in a compressed format.
@@ -124,12 +120,7 @@ public class ARBTextureCompression {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexImage2DARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data);
 
 	/**
 	 * Specifies a two-dimensional texture image in a compressed format.
@@ -168,12 +159,7 @@ public class ARBTextureCompression {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexImage1DARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
-	}
+	public static native void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data);
 
 	/**
 	 * Specifies a one-dimensional texture image in a compressed format.
@@ -210,12 +196,7 @@ public class ARBTextureCompression {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage3DARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
 	/**
 	 * Respecifies only a cubic subregion of an existing 3D texel array, with incoming data stored in a specific compressed image format.
@@ -261,12 +242,7 @@ public class ARBTextureCompression {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage2DARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	/**
 	 * Respecifies only a rectangular subregion of an existing 2D texel array, with incoming data stored in a specific compressed image format.
@@ -308,12 +284,7 @@ public class ARBTextureCompression {
 	 *
 	 * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
 	 */
-	public static void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		long __functionAddress = GL.getCapabilities().glCompressedTexSubImage1DARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
-	}
+	public static native void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data);
 
 	/**
 	 * Respecifies only a subregion of an existing 1D texel array, with incoming data stored in a specific compressed image format.
@@ -347,12 +318,7 @@ public class ARBTextureCompression {
 	// --- [ glGetCompressedTexImageARB ] ---
 
 	/** Unsafe version of: {@link #glGetCompressedTexImageARB GetCompressedTexImageARB} */
-	public static void nglGetCompressedTexImageARB(int target, int level, long pixels) {
-		long __functionAddress = GL.getCapabilities().glGetCompressedTexImageARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, level, pixels);
-	}
+	public static native void nglGetCompressedTexImageARB(int target, int level, long pixels);
 
 	/**
 	 * Returns a compressed texture image.

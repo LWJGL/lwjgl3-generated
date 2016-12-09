@@ -38,6 +38,8 @@ public class EXTSecondaryColor {
 	/** Accepted by the {@code array} parameter of EnableClientState and DisableClientState. */
 	public static final int GL_SECONDARY_COLOR_ARRAY_EXT = 0x845E;
 
+	static { GL.initialize(); }
+
 	protected EXTSecondaryColor() {
 		throw new UnsupportedOperationException();
 	}
@@ -53,6 +55,9 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3bEXT ] ---
 
+	/** Unsafe version of: {@link #glSecondaryColor3bEXT SecondaryColor3bEXT} */
+	public static native void nglSecondaryColor3bEXT(byte red, byte green, byte blue);
+
 	/**
 	 * Sets the R, G, and B components of the current secondary color.
 	 *
@@ -61,13 +66,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3bEXT(byte red, byte green, byte blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3bEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3bEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3sEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3sEXT SecondaryColor3sEXT} */
+	public static native void nglSecondaryColor3sEXT(short red, short green, short blue);
 
 	/**
 	 * Short version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -77,13 +82,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3sEXT(short red, short green, short blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3sEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3sEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3iEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3iEXT SecondaryColor3iEXT} */
+	public static native void nglSecondaryColor3iEXT(int red, int green, int blue);
 
 	/**
 	 * Integer version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -93,13 +98,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3iEXT(int red, int green, int blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3iEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3iEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3fEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3fEXT SecondaryColor3fEXT} */
+	public static native void nglSecondaryColor3fEXT(float red, float green, float blue);
 
 	/**
 	 * Float version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -109,13 +114,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3fEXT(float red, float green, float blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3fEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3fEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3dEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3dEXT SecondaryColor3dEXT} */
+	public static native void nglSecondaryColor3dEXT(double red, double green, double blue);
 
 	/**
 	 * Double version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -125,13 +130,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3dEXT(double red, double green, double blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3dEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3dEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ubEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3ubEXT SecondaryColor3ubEXT} */
+	public static native void nglSecondaryColor3ubEXT(byte red, byte green, byte blue);
 
 	/**
 	 * Unsigned version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -141,13 +146,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ubEXT(byte red, byte green, byte blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3ubEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3usEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3usEXT SecondaryColor3usEXT} */
+	public static native void nglSecondaryColor3usEXT(short red, short green, short blue);
 
 	/**
 	 * Unsigned short version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -157,13 +162,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3usEXT(short red, short green, short blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3usEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3usEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3uiEXT ] ---
+
+	/** Unsafe version of: {@link #glSecondaryColor3uiEXT SecondaryColor3uiEXT} */
+	public static native void nglSecondaryColor3uiEXT(int red, int green, int blue);
 
 	/**
 	 * Unsigned int version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -173,21 +178,13 @@ public class EXTSecondaryColor {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3uiEXT(int red, int green, int blue) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, red, green, blue);
+		nglSecondaryColor3uiEXT(red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3bvEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
-	public static void nglSecondaryColor3bvEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3bvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3bvEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}.
@@ -203,12 +200,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3svEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
-	public static void nglSecondaryColor3svEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3svEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3svEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3sEXT SecondaryColor3sEXT}.
@@ -224,12 +216,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3ivEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
-	public static void nglSecondaryColor3ivEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3ivEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3iEXT SecondaryColor3iEXT}.
@@ -245,12 +232,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3fvEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
-	public static void nglSecondaryColor3fvEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3fvEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3fEXT SecondaryColor3fEXT}.
@@ -266,12 +248,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3dvEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
-	public static void nglSecondaryColor3dvEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3dvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3dvEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3dEXT SecondaryColor3dEXT}.
@@ -287,12 +264,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3ubvEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
-	public static void nglSecondaryColor3ubvEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3ubvEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3ubEXT SecondaryColor3ubEXT}.
@@ -308,12 +280,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3usvEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
-	public static void nglSecondaryColor3usvEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3usvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3usvEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3usEXT SecondaryColor3usEXT}.
@@ -329,12 +296,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColor3uivEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
-	public static void nglSecondaryColor3uivEXT(long v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v);
-	}
+	public static native void nglSecondaryColor3uivEXT(long v);
 
 	/**
 	 * Pointer version of {@link #glSecondaryColor3uiEXT SecondaryColor3uiEXT}.
@@ -350,12 +312,7 @@ public class EXTSecondaryColor {
 	// --- [ glSecondaryColorPointerEXT ] ---
 
 	/** Unsafe version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-	public static void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
+	public static native void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer);
 
 	/**
 	 * Specifies the location and organization of a secondary color array.
@@ -419,7 +376,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
 	public static void glSecondaryColor3svEXT(short[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3svEXT;
+		long __functionAddress = GL.getICD().glSecondaryColor3svEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -429,7 +386,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
 	public static void glSecondaryColor3ivEXT(int[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3ivEXT;
+		long __functionAddress = GL.getICD().glSecondaryColor3ivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -439,7 +396,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
 	public static void glSecondaryColor3fvEXT(float[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3fvEXT;
+		long __functionAddress = GL.getICD().glSecondaryColor3fvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -449,7 +406,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
 	public static void glSecondaryColor3dvEXT(double[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3dvEXT;
+		long __functionAddress = GL.getICD().glSecondaryColor3dvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -459,7 +416,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
 	public static void glSecondaryColor3usvEXT(short[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3usvEXT;
+		long __functionAddress = GL.getICD().glSecondaryColor3usvEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -469,7 +426,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
 	public static void glSecondaryColor3uivEXT(int[] v) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColor3uivEXT;
+		long __functionAddress = GL.getICD().glSecondaryColor3uivEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 3);
@@ -479,7 +436,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
+		long __functionAddress = GL.getICD().glSecondaryColorPointerEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
@@ -487,7 +444,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
+		long __functionAddress = GL.getICD().glSecondaryColorPointerEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
@@ -495,7 +452,7 @@ public class EXTSecondaryColor {
 
 	/** Array version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
+		long __functionAddress = GL.getICD().glSecondaryColorPointerEXT;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);

@@ -45,6 +45,8 @@ public class ARBViewportArray {
 	/** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX or VIEWPORT_INDEX_PROVOKING_VERTEX. */
 	public static final int GL_UNDEFINED_VERTEX = 0x8260;
 
+	static { GL.initialize(); }
+
 	protected ARBViewportArray() {
 		throw new UnsupportedOperationException();
 	}
@@ -63,12 +65,7 @@ public class ARBViewportArray {
 	 *
 	 * @param count the number of viewports to set
 	 */
-	public static void nglViewportArrayv(int first, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glViewportArrayv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglViewportArrayv(int first, int count, long v);
 
 	/**
 	 * Sets multiple viewports.
@@ -82,6 +79,9 @@ public class ARBViewportArray {
 
 	// --- [ glViewportIndexedf ] ---
 
+	/** Unsafe version of: {@link #glViewportIndexedf ViewportIndexedf} */
+	public static native void nglViewportIndexedf(int index, float x, float y, float w, float h);
+
 	/**
 	 * Sets a specified viewport.
 	 *
@@ -92,21 +92,13 @@ public class ARBViewportArray {
 	 * @param h     the viewport height
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
-		long __functionAddress = GL.getCapabilities().glViewportIndexedf;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, x, y, w, h);
+		nglViewportIndexedf(index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfv ] ---
 
 	/** Unsafe version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
-	public static void nglViewportIndexedfv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglViewportIndexedfv(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glViewportIndexedf ViewportIndexedf}.
@@ -127,12 +119,7 @@ public class ARBViewportArray {
 	 *
 	 * @param count the number of scissor boxes to modify
 	 */
-	public static void nglScissorArrayv(int first, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glScissorArrayv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglScissorArrayv(int first, int count, long v);
 
 	/**
 	 * Defines the scissor box for multiple viewports.
@@ -146,6 +133,9 @@ public class ARBViewportArray {
 
 	// --- [ glScissorIndexed ] ---
 
+	/** Unsafe version of: {@link #glScissorIndexed ScissorIndexed} */
+	public static native void nglScissorIndexed(int index, int left, int bottom, int width, int height);
+
 	/**
 	 * Defines the scissor box for a specific viewport.
 	 *
@@ -156,21 +146,13 @@ public class ARBViewportArray {
 	 * @param height the scissor box height
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
-		long __functionAddress = GL.getCapabilities().glScissorIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, left, bottom, width, height);
+		nglScissorIndexed(index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedv ] ---
 
 	/** Unsafe version of: {@link #glScissorIndexedv ScissorIndexedv} */
-	public static void nglScissorIndexedv(int index, long v) {
-		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, v);
-	}
+	public static native void nglScissorIndexedv(int index, long v);
 
 	/**
 	 * Pointer version of {@link #glScissorIndexed ScissorIndexed}.
@@ -191,12 +173,7 @@ public class ARBViewportArray {
 	 *
 	 * @param count the number of viewports whose depth range to update
 	 */
-	public static void nglDepthRangeArrayv(int first, int count, long v) {
-		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, v);
-	}
+	public static native void nglDepthRangeArrayv(int first, int count, long v);
 
 	/**
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified set of viewports.
@@ -210,6 +187,9 @@ public class ARBViewportArray {
 
 	// --- [ glDepthRangeIndexed ] ---
 
+	/** Unsafe version of: {@link #glDepthRangeIndexed DepthRangeIndexed} */
+	public static native void nglDepthRangeIndexed(int index, double zNear, double zFar);
+
 	/**
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified viewport.
 	 *
@@ -218,21 +198,13 @@ public class ARBViewportArray {
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
-		long __functionAddress = GL.getCapabilities().glDepthRangeIndexed;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, index, zNear, zFar);
+		nglDepthRangeIndexed(index, zNear, zFar);
 	}
 
 	// --- [ glGetFloati_v ] ---
 
 	/** Unsafe version of: {@link #glGetFloati_v GetFloati_v} */
-	public static void nglGetFloati_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetFloati_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetFloati_v(int target, int index, long data);
 
 	/**
 	 * Queries the float value of an indexed state variable.
@@ -267,12 +239,7 @@ public class ARBViewportArray {
 	// --- [ glGetDoublei_v ] ---
 
 	/** Unsafe version of: {@link #glGetDoublei_v GetDoublei_v} */
-	public static void nglGetDoublei_v(int target, int index, long data) {
-		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, data);
-	}
+	public static native void nglGetDoublei_v(int target, int index, long data);
 
 	/**
 	 * Queries the double value of an indexed state variable.
@@ -306,7 +273,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glViewportArrayv ViewportArrayv} */
 	public static void glViewportArrayv(int first, float[] v) {
-		long __functionAddress = GL.getCapabilities().glViewportArrayv;
+		long __functionAddress = GL.getICD().glViewportArrayv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
@@ -314,7 +281,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
 	public static void glViewportIndexedfv(int index, float[] v) {
-		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
+		long __functionAddress = GL.getICD().glViewportIndexedfv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -324,7 +291,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glScissorArrayv ScissorArrayv} */
 	public static void glScissorArrayv(int first, int[] v) {
-		long __functionAddress = GL.getCapabilities().glScissorArrayv;
+		long __functionAddress = GL.getICD().glScissorArrayv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
@@ -332,7 +299,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glScissorIndexedv ScissorIndexedv} */
 	public static void glScissorIndexedv(int index, int[] v) {
-		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
+		long __functionAddress = GL.getICD().glScissorIndexedv;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(v, 4);
@@ -342,7 +309,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glDepthRangeArrayv DepthRangeArrayv} */
 	public static void glDepthRangeArrayv(int first, double[] v) {
-		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
+		long __functionAddress = GL.getICD().glDepthRangeArrayv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 1, v);
@@ -350,7 +317,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glGetFloati_v GetFloati_v} */
 	public static void glGetFloati_v(int target, int index, float[] data) {
-		long __functionAddress = GL.getCapabilities().glGetFloati_v;
+		long __functionAddress = GL.getICD().glGetFloati_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);
@@ -360,7 +327,7 @@ public class ARBViewportArray {
 
 	/** Array version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static void glGetDoublei_v(int target, int index, double[] data) {
-		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
+		long __functionAddress = GL.getICD().glGetDoublei_v;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(data, 1);

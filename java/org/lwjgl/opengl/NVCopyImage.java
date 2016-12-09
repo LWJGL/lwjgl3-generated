@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/copy_image.txt">NV_copy_image</a> extension.
@@ -16,6 +15,8 @@ import static org.lwjgl.system.JNI.*;
  * different sharelists or even on different physical devices.</p>
  */
 public class NVCopyImage {
+
+	static { GL.initialize(); }
 
 	protected NVCopyImage() {
 		throw new UnsupportedOperationException();
@@ -28,6 +29,9 @@ public class NVCopyImage {
 	}
 
 	// --- [ glCopyImageSubDataNV ] ---
+
+	/** Unsafe version of: {@link #glCopyImageSubDataNV CopyImageSubDataNV} */
+	public static native void nglCopyImageSubDataNV(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
 
 	/**
 	 * Copies a region of texel data between two image objects. An image object may be either a texture or a renderbuffer.
@@ -49,10 +53,7 @@ public class NVCopyImage {
 	 * @param depth     
 	 */
 	public static void glCopyImageSubDataNV(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilities().glCopyImageSubDataNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+		nglCopyImageSubDataNV(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 
 }

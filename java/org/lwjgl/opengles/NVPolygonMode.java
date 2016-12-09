@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_polygon_mode.txt">NV_polygon_mode</a> extension.
@@ -33,6 +32,8 @@ public class NVPolygonMode {
 		GL_LINE_NV  = 0x1B01,
 		GL_FILL_NV  = 0x1B02;
 
+	static { GLES.initialize(); }
+
 	protected NVPolygonMode() {
 		throw new UnsupportedOperationException();
 	}
@@ -45,11 +46,10 @@ public class NVPolygonMode {
 
 	// --- [ glPolygonModeNV ] ---
 
+	public static native void nglPolygonModeNV(int face, int mode);
+
 	public static void glPolygonModeNV(int face, int mode) {
-		long __functionAddress = GLES.getCapabilities().glPolygonModeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, face, mode);
+		nglPolygonModeNV(face, mode);
 	}
 
 }

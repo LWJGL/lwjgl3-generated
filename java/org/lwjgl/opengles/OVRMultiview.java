@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OVR/multiview.txt">OVR_multiview</a> extension.
@@ -41,6 +40,8 @@ public class OVRMultiview {
 	/** Returned by CheckFramebufferStatus. */
 	public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
+	static { GLES.initialize(); }
+
 	protected OVRMultiview() {
 		throw new UnsupportedOperationException();
 	}
@@ -53,11 +54,10 @@ public class OVRMultiview {
 
 	// --- [ glFramebufferTextureMultiviewOVR ] ---
 
+	public static native void nglFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
+
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
-		long __functionAddress = GLES.getCapabilities().glFramebufferTextureMultiviewOVR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
+		nglFramebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex, numViews);
 	}
 
 }

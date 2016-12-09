@@ -63,6 +63,8 @@ public class GL21 {
 		GL_COMPRESSED_SLUMINANCE       = 0x8C4A,
 		GL_COMPRESSED_SLUMINANCE_ALPHA = 0x8C4B;
 
+	static { GL.initialize(); }
+
 	protected GL21() {
 		throw new UnsupportedOperationException();
 	}
@@ -81,12 +83,7 @@ public class GL21 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
@@ -108,12 +105,7 @@ public class GL21 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
@@ -135,12 +127,7 @@ public class GL21 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
@@ -162,12 +149,7 @@ public class GL21 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
@@ -189,12 +171,7 @@ public class GL21 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
@@ -216,12 +193,7 @@ public class GL21 {
 	 *
 	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
-	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, count, transpose, value);
-	}
+	public static native void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
@@ -242,7 +214,7 @@ public class GL21 {
 	 * Array version of: {@link #glUniformMatrix2x3fv UniformMatrix2x3fv}
 	 */
 	public static void glUniformMatrix2x3fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
+		long __functionAddress = GL.getICD().glUniformMatrix2x3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
@@ -254,7 +226,7 @@ public class GL21 {
 	 * Array version of: {@link #glUniformMatrix3x2fv UniformMatrix3x2fv}
 	 */
 	public static void glUniformMatrix3x2fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
+		long __functionAddress = GL.getICD().glUniformMatrix3x2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
@@ -266,7 +238,7 @@ public class GL21 {
 	 * Array version of: {@link #glUniformMatrix2x4fv UniformMatrix2x4fv}
 	 */
 	public static void glUniformMatrix2x4fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
+		long __functionAddress = GL.getICD().glUniformMatrix2x4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
@@ -278,7 +250,7 @@ public class GL21 {
 	 * Array version of: {@link #glUniformMatrix4x2fv UniformMatrix4x2fv}
 	 */
 	public static void glUniformMatrix4x2fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
+		long __functionAddress = GL.getICD().glUniformMatrix4x2fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
@@ -290,7 +262,7 @@ public class GL21 {
 	 * Array version of: {@link #glUniformMatrix3x4fv UniformMatrix3x4fv}
 	 */
 	public static void glUniformMatrix3x4fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
+		long __functionAddress = GL.getICD().glUniformMatrix3x4fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
@@ -302,7 +274,7 @@ public class GL21 {
 	 * Array version of: {@link #glUniformMatrix4x3fv UniformMatrix4x3fv}
 	 */
 	public static void glUniformMatrix4x3fv(int location, boolean transpose, float[] value) {
-		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;
+		long __functionAddress = GL.getICD().glUniformMatrix4x3fv;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);

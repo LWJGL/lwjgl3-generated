@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object.txt">ARB_texture_buffer_object</a> extension.
@@ -47,6 +46,8 @@ public class ARBTextureBufferObject {
 		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB = 0x8C2D,
 		GL_TEXTURE_BUFFER_FORMAT_ARB             = 0x8C2E;
 
+	static { GL.initialize(); }
+
 	protected ARBTextureBufferObject() {
 		throw new UnsupportedOperationException();
 	}
@@ -58,6 +59,9 @@ public class ARBTextureBufferObject {
 	}
 
 	// --- [ glTexBufferARB ] ---
+
+	/** Unsafe version of: {@link #glTexBufferARB TexBufferARB} */
+	public static native void nglTexBufferARB(int target, int internalformat, int buffer);
 
 	/**
 	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
@@ -87,10 +91,7 @@ public class ARBTextureBufferObject {
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTexBufferARB(int target, int internalformat, int buffer) {
-		long __functionAddress = GL.getCapabilities().glTexBufferARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, internalformat, buffer);
+		nglTexBufferARB(target, internalformat, buffer);
 	}
 
 }

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">ARB_color_buffer_float</a> extension.
@@ -44,6 +43,8 @@ public class ARBColorBufferFloat {
 	/** Accepted by the {@code clamp} parameter of ClampColorARB. */
 	public static final int GL_FIXED_ONLY_ARB = 0x891D;
 
+	static { GL.initialize(); }
+
 	protected ARBColorBufferFloat() {
 		throw new UnsupportedOperationException();
 	}
@@ -56,6 +57,9 @@ public class ARBColorBufferFloat {
 
 	// --- [ glClampColorARB ] ---
 
+	/** Unsafe version of: {@link #glClampColorARB ClampColorARB} */
+	public static native void nglClampColorARB(int target, int clamp);
+
 	/**
 	 * Controls color clamping.
 	 *
@@ -63,10 +67,7 @@ public class ARBColorBufferFloat {
 	 * @param clamp  the new clamping state. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td><td>{@link #GL_FIXED_ONLY_ARB FIXED_ONLY_ARB}</td></tr></table>
 	 */
 	public static void glClampColorARB(int target, int clamp) {
-		long __functionAddress = GL.getCapabilities().glClampColorARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, clamp);
+		nglClampColorARB(target, clamp);
 	}
 
 }

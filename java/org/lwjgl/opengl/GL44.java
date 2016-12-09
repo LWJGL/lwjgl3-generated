@@ -95,6 +95,8 @@ public class GL44 {
 	 */
 	public static final int GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
 
+	static { GL.initialize(); }
+
 	protected GL44() {
 		throw new UnsupportedOperationException();
 	}
@@ -113,12 +115,7 @@ public class GL44 {
 	 *
 	 * @param size the size of the data store in basic machine units
 	 */
-	public static void nglBufferStorage(int target, long size, long data, int flags) {
-		long __functionAddress = GL.getCapabilities().glBufferStorage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, size, data, flags);
-	}
+	public static native void nglBufferStorage(int target, long size, long data, int flags);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferStorage.xhtml">OpenGL SDK Reference</a></p>
@@ -458,12 +455,7 @@ public class GL44 {
 	// --- [ glClearTexSubImage ] ---
 
 	/** Unsafe version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
-	}
+	public static native void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearTexSubImage.xhtml">OpenGL SDK Reference</a></p>
@@ -638,12 +630,7 @@ public class GL44 {
 	// --- [ glClearTexImage ] ---
 
 	/** Unsafe version of: {@link #glClearTexImage ClearTexImage} */
-	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
-		long __functionAddress = GL.getCapabilities().glClearTexImage;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, texture, level, format, type, data);
-	}
+	public static native void nglClearTexImage(int texture, int level, int format, int type, long data);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearTexImage.xhtml">OpenGL SDK Reference</a></p>
@@ -747,12 +734,7 @@ public class GL44 {
 	 *
 	 * @param count the number of bindings
 	 */
-	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, first, count, buffers);
-	}
+	public static native void nglBindBuffersBase(int target, int first, int count, long buffers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBuffersBase.xhtml">OpenGL SDK Reference</a></p>
@@ -786,12 +768,7 @@ public class GL44 {
 	 *
 	 * @param count the number of bindings
 	 */
-	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
-	}
+	public static native void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBuffersRange.xhtml">OpenGL SDK Reference</a></p>
@@ -837,12 +814,7 @@ public class GL44 {
 	 *
 	 * @param count the number of texture objects
 	 */
-	public static void nglBindTextures(int first, int count, long textures) {
-		long __functionAddress = GL.getCapabilities().glBindTextures;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, textures);
-	}
+	public static native void nglBindTextures(int first, int count, long textures);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTextures.xhtml">OpenGL SDK Reference</a></p>
@@ -895,12 +867,7 @@ public class GL44 {
 	 *
 	 * @param count the number of sampler objects
 	 */
-	public static void nglBindSamplers(int first, int count, long samplers) {
-		long __functionAddress = GL.getCapabilities().glBindSamplers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, samplers);
-	}
+	public static native void nglBindSamplers(int first, int count, long samplers);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindSamplers.xhtml">OpenGL SDK Reference</a></p>
@@ -937,12 +904,7 @@ public class GL44 {
 	 *
 	 * @param count the number of image units
 	 */
-	public static void nglBindImageTextures(int first, int count, long textures) {
-		long __functionAddress = GL.getCapabilities().glBindImageTextures;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, first, count, textures);
-	}
+	public static native void nglBindImageTextures(int first, int count, long textures);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindImageTextures.xhtml">OpenGL SDK Reference</a></p>
@@ -990,12 +952,7 @@ public class GL44 {
 	 *
 	 * @param count the number of vertex buffer binding points
 	 */
-	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
-		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, first, count, buffers, offsets, strides);
-	}
+	public static native void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexBuffers.xhtml">OpenGL SDK Reference</a></p>
@@ -1042,7 +999,7 @@ public class GL44 {
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
 	public static void glBufferStorage(int target, short[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		long __functionAddress = GL.getICD().glBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
@@ -1054,7 +1011,7 @@ public class GL44 {
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
 	public static void glBufferStorage(int target, int[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		long __functionAddress = GL.getICD().glBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
@@ -1066,7 +1023,7 @@ public class GL44 {
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
 	public static void glBufferStorage(int target, float[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		long __functionAddress = GL.getICD().glBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
@@ -1078,7 +1035,7 @@ public class GL44 {
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
 	public static void glBufferStorage(int target, double[] data, int flags) {
-		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		long __functionAddress = GL.getICD().glBufferStorage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 3), data, flags);
@@ -1090,7 +1047,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexSubImage ClearTexSubImage}
 	 */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
+		long __functionAddress = GL.getICD().glClearTexSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
@@ -1102,7 +1059,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexSubImage ClearTexSubImage}
 	 */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
+		long __functionAddress = GL.getICD().glClearTexSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
@@ -1114,7 +1071,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexSubImage ClearTexSubImage}
 	 */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
+		long __functionAddress = GL.getICD().glClearTexSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
@@ -1126,7 +1083,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexSubImage ClearTexSubImage}
 	 */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
+		long __functionAddress = GL.getICD().glClearTexSubImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
@@ -1138,7 +1095,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexImage ClearTexImage}
 	 */
 	public static void glClearTexImage(int texture, int level, int format, int type, short[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexImage;
+		long __functionAddress = GL.getICD().glClearTexImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
@@ -1150,7 +1107,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexImage ClearTexImage}
 	 */
 	public static void glClearTexImage(int texture, int level, int format, int type, int[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexImage;
+		long __functionAddress = GL.getICD().glClearTexImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
@@ -1162,7 +1119,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexImage ClearTexImage}
 	 */
 	public static void glClearTexImage(int texture, int level, int format, int type, float[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexImage;
+		long __functionAddress = GL.getICD().glClearTexImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
@@ -1174,7 +1131,7 @@ public class GL44 {
 	 * Array version of: {@link #glClearTexImage ClearTexImage}
 	 */
 	public static void glClearTexImage(int texture, int level, int format, int type, double[] data) {
-		long __functionAddress = GL.getCapabilities().glClearTexImage;
+		long __functionAddress = GL.getICD().glClearTexImage;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
@@ -1186,7 +1143,7 @@ public class GL44 {
 	 * Array version of: {@link #glBindBuffersBase BindBuffersBase}
 	 */
 	public static void glBindBuffersBase(int target, int first, int[] buffers) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
+		long __functionAddress = GL.getICD().glBindBuffersBase;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, target, first, lengthSafe(buffers), buffers);
@@ -1198,7 +1155,7 @@ public class GL44 {
 	 * Array version of: {@link #glBindBuffersRange BindBuffersRange}
 	 */
 	public static void glBindBuffersRange(int target, int first, int[] buffers, PointerBuffer offsets, PointerBuffer sizes) {
-		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
+		long __functionAddress = GL.getICD().glBindBuffersRange;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(offsets, lengthSafe(buffers));
@@ -1213,7 +1170,7 @@ public class GL44 {
 	 * Array version of: {@link #glBindTextures BindTextures}
 	 */
 	public static void glBindTextures(int first, int[] textures) {
-		long __functionAddress = GL.getCapabilities().glBindTextures;
+		long __functionAddress = GL.getICD().glBindTextures;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(textures), textures);
@@ -1225,7 +1182,7 @@ public class GL44 {
 	 * Array version of: {@link #glBindSamplers BindSamplers}
 	 */
 	public static void glBindSamplers(int first, int[] samplers) {
-		long __functionAddress = GL.getCapabilities().glBindSamplers;
+		long __functionAddress = GL.getICD().glBindSamplers;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(samplers), samplers);
@@ -1237,7 +1194,7 @@ public class GL44 {
 	 * Array version of: {@link #glBindImageTextures BindImageTextures}
 	 */
 	public static void glBindImageTextures(int first, int[] textures) {
-		long __functionAddress = GL.getCapabilities().glBindImageTextures;
+		long __functionAddress = GL.getICD().glBindImageTextures;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(textures), textures);
@@ -1249,7 +1206,7 @@ public class GL44 {
 	 * Array version of: {@link #glBindVertexBuffers BindVertexBuffers}
 	 */
 	public static void glBindVertexBuffers(int first, int[] buffers, PointerBuffer offsets, int[] strides) {
-		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
+		long __functionAddress = GL.getICD().glBindVertexBuffers;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			checkSafe(offsets, lengthSafe(buffers));

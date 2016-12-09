@@ -36,6 +36,8 @@ public class EXTTimerQuery {
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
 	public static final int GL_TIME_ELAPSED_EXT = 0x88BF;
 
+	static { GL.initialize(); }
+
 	protected EXTTimerQuery() {
 		throw new UnsupportedOperationException();
 	}
@@ -48,12 +50,7 @@ public class EXTTimerQuery {
 
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
-	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjecti64vEXT(int id, int pname, long params);
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
@@ -74,12 +71,7 @@ public class EXTTimerQuery {
 
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
-	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64vEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, id, pname, params);
-	}
+	public static native void nglGetQueryObjectui64vEXT(int id, int pname, long params);
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
@@ -100,7 +92,7 @@ public class EXTTimerQuery {
 
 	/** Array version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void glGetQueryObjecti64vEXT(int id, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64vEXT;
+		long __functionAddress = GL.getICD().glGetQueryObjecti64vEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);
@@ -110,7 +102,7 @@ public class EXTTimerQuery {
 
 	/** Array version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void glGetQueryObjectui64vEXT(int id, int pname, long[] params) {
-		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64vEXT;
+		long __functionAddress = GL.getICD().glGetQueryObjectui64vEXT;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(params, 1);

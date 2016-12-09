@@ -6,7 +6,6 @@
 package org.lwjgl.opengles;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_storage.txt">EXT_texture_storage</a> extension.
@@ -57,6 +56,8 @@ public class EXTTextureStorage {
 		GL_RG16F_EXT              = 0x822F,
 		GL_RGB_RAW_422_APPLE      = 0x8A51;
 
+	static { GLES.initialize(); }
+
 	protected EXTTextureStorage() {
 		throw new UnsupportedOperationException();
 	}
@@ -70,56 +71,50 @@ public class EXTTextureStorage {
 
 	// --- [ glTexStorage1DEXT ] ---
 
+	public static native void nglTexStorage1DEXT(int target, int levels, int internalformat, int width);
+
 	public static void glTexStorage1DEXT(int target, int levels, int internalformat, int width) {
-		long __functionAddress = GLES.getCapabilities().glTexStorage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width);
+		nglTexStorage1DEXT(target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2DEXT ] ---
 
+	public static native void nglTexStorage2DEXT(int target, int levels, int internalformat, int width, int height);
+
 	public static void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glTexStorage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width, height);
+		nglTexStorage2DEXT(target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3DEXT ] ---
 
+	public static native void nglTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth);
+
 	public static void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = GLES.getCapabilities().glTexStorage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, target, levels, internalformat, width, height, depth);
+		nglTexStorage3DEXT(target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
 
+	public static native void nglTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width);
+
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
-		long __functionAddress = GLES.getCapabilities().glTextureStorage1DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, levels, internalformat, width);
+		nglTextureStorage1DEXT(texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
 
+	public static native void nglTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height);
+
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
-		long __functionAddress = GLES.getCapabilities().glTextureStorage2DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, levels, internalformat, width, height);
+		nglTextureStorage2DEXT(texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
 
+	public static native void nglTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth);
+
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
-		long __functionAddress = GLES.getCapabilities().glTextureStorage3DEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
+		nglTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

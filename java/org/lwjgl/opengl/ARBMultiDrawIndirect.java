@@ -26,6 +26,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBMultiDrawIndirect {
 
+	static { GL.initialize(); }
+
 	protected ARBMultiDrawIndirect() {
 		throw new UnsupportedOperationException();
 	}
@@ -39,12 +41,7 @@ public class ARBMultiDrawIndirect {
 	// --- [ glMultiDrawArraysIndirect ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
-	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, indirect, primcount, stride);
-	}
+	public static native void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride);
 
 	/**
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
@@ -149,12 +146,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glMultiDrawElementsIndirect ] ---
 
 	/** Unsafe version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
-	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, mode, type, indirect, primcount, stride);
-	}
+	public static native void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride);
 
 	/**
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
@@ -264,7 +256,7 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** Array version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void glMultiDrawArraysIndirect(int mode, int[] indirect, int primcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
+		long __functionAddress = GL.getICD().glMultiDrawArraysIndirect;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
@@ -274,7 +266,7 @@ for ( i = 0; i < primcount; i++ ) {
 
 	/** Array version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void glMultiDrawElementsIndirect(int mode, int type, int[] indirect, int primcount, int stride) {
-		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
+		long __functionAddress = GL.getICD().glMultiDrawElementsIndirect;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);

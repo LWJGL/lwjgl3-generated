@@ -41,6 +41,8 @@ public class ARBDrawBuffers {
 		GL_DRAW_BUFFER14_ARB    = 0x8833,
 		GL_DRAW_BUFFER15_ARB    = 0x8834;
 
+	static { GL.initialize(); }
+
 	protected ARBDrawBuffers() {
 		throw new UnsupportedOperationException();
 	}
@@ -58,12 +60,7 @@ public class ARBDrawBuffers {
 	 *
 	 * @param n the number of buffers in {@code bufs}
 	 */
-	public static void nglDrawBuffersARB(int n, long bufs) {
-		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, n, bufs);
-	}
+	public static native void nglDrawBuffersARB(int n, long bufs);
 
 	/**
 	 * Defines the draw buffers to which all output colors are written.
@@ -76,7 +73,7 @@ public class ARBDrawBuffers {
 
 	/** Array version of: {@link #glDrawBuffersARB DrawBuffersARB} */
 	public static void glDrawBuffersARB(int[] bufs) {
-		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
+		long __functionAddress = GL.getICD().glDrawBuffersARB;
 		if ( CHECKS )
 			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);
