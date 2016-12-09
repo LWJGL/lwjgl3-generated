@@ -185,6 +185,45 @@ public class NkStyleProgress extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code draw_end} field. */
 	public NkStyleProgress draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleProgress set(
+		NkStyleItem normal,
+		NkStyleItem hover,
+		NkStyleItem active,
+		NkColor border_color,
+		NkStyleItem cursor_normal,
+		NkStyleItem cursor_hover,
+		NkStyleItem cursor_active,
+		NkColor cursor_border_color,
+		float rounding,
+		float border,
+		float cursor_border,
+		float cursor_rounding,
+		NkVec2 padding,
+		NkHandle userdata,
+		NkDrawBeginCallbackI draw_begin,
+		NkDrawEndCallbackI draw_end
+	) {
+		normal(normal);
+		hover(hover);
+		active(active);
+		border_color(border_color);
+		cursor_normal(cursor_normal);
+		cursor_hover(cursor_hover);
+		cursor_active(cursor_active);
+		cursor_border_color(cursor_border_color);
+		rounding(rounding);
+		border(border);
+		cursor_border(cursor_border);
+		cursor_rounding(cursor_rounding);
+		padding(padding);
+		userdata(userdata);
+		draw_begin(draw_begin);
+		draw_end(draw_end);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleProgress) set}. */
 	public NkStyleProgress nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

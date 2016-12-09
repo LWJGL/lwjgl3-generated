@@ -107,6 +107,23 @@ public class NkUserFont extends Struct implements NativeResource {
 	/** Copies the specified {@link NkHandle} to the {@code texture} field. */
 	public NkUserFont texture(NkHandle value) { ntexture(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkUserFont set(
+		NkHandle userdata,
+		float height,
+		NkTextWidthCallbackI width,
+		NkQueryFontGlyphCallbackI query,
+		NkHandle texture
+	) {
+		userdata(userdata);
+		height(height);
+		width(width);
+		query(query);
+		texture(texture);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkUserFont) set}. */
 	public NkUserFont nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

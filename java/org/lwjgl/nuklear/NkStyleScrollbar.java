@@ -225,6 +225,55 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code draw_end} field. */
 	public NkStyleScrollbar draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleScrollbar set(
+		NkStyleItem normal,
+		NkStyleItem hover,
+		NkStyleItem active,
+		NkColor border_color,
+		NkStyleItem cursor_normal,
+		NkStyleItem cursor_hover,
+		NkStyleItem cursor_active,
+		NkColor cursor_border_color,
+		float border,
+		float rounding,
+		float border_cursor,
+		float rounding_cursor,
+		NkVec2 padding,
+		int show_buttons,
+		NkStyleButton inc_button,
+		NkStyleButton dec_button,
+		int inc_symbol,
+		int dec_symbol,
+		NkHandle userdata,
+		NkDrawBeginCallbackI draw_begin,
+		NkDrawEndCallbackI draw_end
+	) {
+		normal(normal);
+		hover(hover);
+		active(active);
+		border_color(border_color);
+		cursor_normal(cursor_normal);
+		cursor_hover(cursor_hover);
+		cursor_active(cursor_active);
+		cursor_border_color(cursor_border_color);
+		border(border);
+		rounding(rounding);
+		border_cursor(border_cursor);
+		rounding_cursor(rounding_cursor);
+		padding(padding);
+		show_buttons(show_buttons);
+		inc_button(inc_button);
+		dec_button(dec_button);
+		inc_symbol(inc_symbol);
+		dec_symbol(dec_symbol);
+		userdata(userdata);
+		draw_begin(draw_begin);
+		draw_end(draw_end);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleScrollbar) set}. */
 	public NkStyleScrollbar nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

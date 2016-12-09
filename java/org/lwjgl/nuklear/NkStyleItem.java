@@ -80,6 +80,17 @@ public class NkStyleItem extends Struct implements NativeResource {
 	/** Copies the specified {@link NkStyleItemData} to the {@code data} field. */
 	public NkStyleItem data(NkStyleItemData value) { ndata(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleItem set(
+		int type,
+		NkStyleItemData data
+	) {
+		type(type);
+		data(data);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleItem) set}. */
 	public NkStyleItem nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

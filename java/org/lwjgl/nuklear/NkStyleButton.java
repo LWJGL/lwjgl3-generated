@@ -193,6 +193,47 @@ public class NkStyleButton extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code draw_end} field. */
 	public NkStyleButton draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleButton set(
+		NkStyleItem normal,
+		NkStyleItem hover,
+		NkStyleItem active,
+		NkColor border_color,
+		NkColor text_background,
+		NkColor text_normal,
+		NkColor text_hover,
+		NkColor text_active,
+		int text_alignment,
+		float border,
+		float rounding,
+		NkVec2 padding,
+		NkVec2 image_padding,
+		NkVec2 touch_padding,
+		NkHandle userdata,
+		NkDrawBeginCallbackI draw_begin,
+		NkDrawEndCallbackI draw_end
+	) {
+		normal(normal);
+		hover(hover);
+		active(active);
+		border_color(border_color);
+		text_background(text_background);
+		text_normal(text_normal);
+		text_hover(text_hover);
+		text_active(text_active);
+		text_alignment(text_alignment);
+		border(border);
+		rounding(rounding);
+		padding(padding);
+		image_padding(image_padding);
+		touch_padding(touch_padding);
+		userdata(userdata);
+		draw_begin(draw_begin);
+		draw_end(draw_end);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleButton) set}. */
 	public NkStyleButton nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

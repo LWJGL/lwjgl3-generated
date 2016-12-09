@@ -257,6 +257,63 @@ public class NkStyleSlider extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code draw_end} field. */
 	public NkStyleSlider draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleSlider set(
+		NkStyleItem normal,
+		NkStyleItem hover,
+		NkStyleItem active,
+		NkColor border_color,
+		NkColor bar_normal,
+		NkColor bar_hover,
+		NkColor bar_active,
+		NkColor bar_filled,
+		NkStyleItem cursor_normal,
+		NkStyleItem cursor_hover,
+		NkStyleItem cursor_active,
+		float border,
+		float rounding,
+		float bar_height,
+		NkVec2 padding,
+		NkVec2 spacing,
+		NkVec2 cursor_size,
+		int show_buttons,
+		NkStyleButton inc_button,
+		NkStyleButton dec_button,
+		int inc_symbol,
+		int dec_symbol,
+		NkHandle userdata,
+		NkDrawBeginCallbackI draw_begin,
+		NkDrawEndCallbackI draw_end
+	) {
+		normal(normal);
+		hover(hover);
+		active(active);
+		border_color(border_color);
+		bar_normal(bar_normal);
+		bar_hover(bar_hover);
+		bar_active(bar_active);
+		bar_filled(bar_filled);
+		cursor_normal(cursor_normal);
+		cursor_hover(cursor_hover);
+		cursor_active(cursor_active);
+		border(border);
+		rounding(rounding);
+		bar_height(bar_height);
+		padding(padding);
+		spacing(spacing);
+		cursor_size(cursor_size);
+		show_buttons(show_buttons);
+		inc_button(inc_button);
+		dec_button(dec_button);
+		inc_symbol(inc_symbol);
+		dec_symbol(dec_symbol);
+		userdata(userdata);
+		draw_begin(draw_begin);
+		draw_end(draw_end);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleSlider) set}. */
 	public NkStyleSlider nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

@@ -225,6 +225,55 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code draw_end} field. */
 	public NkStyleSelectable draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleSelectable set(
+		NkStyleItem normal,
+		NkStyleItem hover,
+		NkStyleItem pressed,
+		NkStyleItem normal_active,
+		NkStyleItem hover_active,
+		NkStyleItem pressed_active,
+		NkColor text_normal,
+		NkColor text_hover,
+		NkColor text_pressed,
+		NkColor text_normal_active,
+		NkColor text_hover_active,
+		NkColor text_pressed_active,
+		NkColor text_background,
+		int text_alignment,
+		float rounding,
+		NkVec2 padding,
+		NkVec2 touch_padding,
+		NkVec2 image_padding,
+		NkHandle userdata,
+		NkDrawBeginCallbackI draw_begin,
+		NkDrawEndCallbackI draw_end
+	) {
+		normal(normal);
+		hover(hover);
+		pressed(pressed);
+		normal_active(normal_active);
+		hover_active(hover_active);
+		pressed_active(pressed_active);
+		text_normal(text_normal);
+		text_hover(text_hover);
+		text_pressed(text_pressed);
+		text_normal_active(text_normal_active);
+		text_hover_active(text_hover_active);
+		text_pressed_active(text_pressed_active);
+		text_background(text_background);
+		text_alignment(text_alignment);
+		rounding(rounding);
+		padding(padding);
+		touch_padding(touch_padding);
+		image_padding(image_padding);
+		userdata(userdata);
+		draw_begin(draw_begin);
+		draw_end(draw_end);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleSelectable) set}. */
 	public NkStyleSelectable nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

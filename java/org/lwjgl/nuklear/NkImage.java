@@ -94,6 +94,21 @@ public class NkImage extends Struct implements NativeResource {
 	/** Sets the specified value at the specified index of the {@code region} field. */
 	public NkImage region(int index, short value) { nregion(address(), index, value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkImage set(
+		NkHandle handle,
+		short w,
+		short h,
+		ShortBuffer region
+	) {
+		handle(handle);
+		w(w);
+		h(h);
+		region(region);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkImage) set}. */
 	public NkImage nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

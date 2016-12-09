@@ -81,6 +81,19 @@ public class NkAllocator extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code mfree} field. */
 	public NkAllocator mfree(NkPluginFreeI value) { nmfree(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkAllocator set(
+		NkHandle userdata,
+		NkPluginAllocI alloc,
+		NkPluginFreeI mfree
+	) {
+		userdata(userdata);
+		alloc(alloc);
+		mfree(mfree);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkAllocator) set}. */
 	public NkAllocator nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

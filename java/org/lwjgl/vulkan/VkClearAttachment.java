@@ -118,6 +118,19 @@ public class VkClearAttachment extends Struct implements NativeResource {
 	/** Copies the specified {@link VkClearValue} to the {@code clearValue} field. */
 	public VkClearAttachment clearValue(VkClearValue value) { nclearValue(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public VkClearAttachment set(
+		int aspectMask,
+		int colorAttachment,
+		VkClearValue clearValue
+	) {
+		aspectMask(aspectMask);
+		colorAttachment(colorAttachment);
+		clearValue(clearValue);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(VkClearAttachment) set}. */
 	public VkClearAttachment nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

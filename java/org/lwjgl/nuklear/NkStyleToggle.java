@@ -201,6 +201,49 @@ public class NkStyleToggle extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code draw_end} field. */
 	public NkStyleToggle draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkStyleToggle set(
+		NkStyleItem normal,
+		NkStyleItem hover,
+		NkStyleItem active,
+		NkColor border_color,
+		NkStyleItem cursor_normal,
+		NkStyleItem cursor_hover,
+		NkColor text_normal,
+		NkColor text_hover,
+		NkColor text_active,
+		NkColor text_background,
+		int text_alignment,
+		NkVec2 padding,
+		NkVec2 touch_padding,
+		float spacing,
+		float border,
+		NkHandle userdata,
+		NkDrawBeginCallbackI draw_begin,
+		NkDrawEndCallbackI draw_end
+	) {
+		normal(normal);
+		hover(hover);
+		active(active);
+		border_color(border_color);
+		cursor_normal(cursor_normal);
+		cursor_hover(cursor_hover);
+		text_normal(text_normal);
+		text_hover(text_hover);
+		text_active(text_active);
+		text_background(text_background);
+		text_alignment(text_alignment);
+		padding(padding);
+		touch_padding(touch_padding);
+		spacing(spacing);
+		border(border);
+		userdata(userdata);
+		draw_begin(draw_begin);
+		draw_end(draw_end);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkStyleToggle) set}. */
 	public NkStyleToggle nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

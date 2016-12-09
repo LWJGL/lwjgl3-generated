@@ -81,6 +81,19 @@ public class NkClipboard extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code copy} field. */
 	public NkClipboard copy(NkPluginCopyI value) { ncopy(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkClipboard set(
+		NkHandle userdata,
+		NkPluginPasteI paste,
+		NkPluginCopyI copy
+	) {
+		userdata(userdata);
+		paste(paste);
+		copy(copy);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkClipboard) set}. */
 	public NkClipboard nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

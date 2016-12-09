@@ -80,6 +80,17 @@ public class NkDrawNullTexture extends Struct implements NativeResource {
 	/** Copies the specified {@link NkVec2} to the {@code uv} field. */
 	public NkDrawNullTexture uv(NkVec2 value) { nuv(address(), value); return this; }
 
+	/** Initializes this struct with the specified values. */
+	public NkDrawNullTexture set(
+		NkHandle texture,
+		NkVec2 uv
+	) {
+		texture(texture);
+		uv(uv);
+
+		return this;
+	}
+
 	/** Unsafe version of {@link #set(NkDrawNullTexture) set}. */
 	public NkDrawNullTexture nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
