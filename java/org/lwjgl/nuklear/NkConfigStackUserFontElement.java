@@ -16,8 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_config_stack_user_font_element {
-    struct nk_user_font ** pValues;
-    struct nk_user_font * old_value;
+    {@link NkUserFont struct nk_user_font} ** pValues;
+    {@link NkUserFont struct nk_user_font} * old_value;
 }</code></pre>
  */
 class NkConfigStackUserFontElement extends Struct {

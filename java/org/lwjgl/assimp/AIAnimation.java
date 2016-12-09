@@ -38,9 +38,9 @@ import static org.lwjgl.system.MemoryStack.*;
     double mDuration;
     double mTicksPerSecond;
     unsigned int mNumChannels;
-    struct aiNodeAnim ** mChannels;
+    {@link AINodeAnim struct aiNodeAnim} ** mChannels;
     unsigned int mNumMeshChannels;
-    struct aiMeshAnim ** mMeshChannels;
+    {@link AIMeshAnim struct aiMeshAnim} ** mMeshChannels;
 }</code></pre>
  */
 public class AIAnimation extends Struct implements NativeResource {

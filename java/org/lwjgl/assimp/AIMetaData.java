@@ -27,8 +27,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct aiMetadata {
     unsigned int mNumProperties;
-    struct aiString * mKeys;
-    struct aiMetadataEntry * mValues;
+    {@link AIString struct aiString} * mKeys;
+    {@link AIMetaDataEntry struct aiMetadataEntry} * mValues;
 }</code></pre>
  */
 public class AIMetaData extends Struct implements NativeResource {

@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct WNDCLASSEX {
     UINT cbSize;
     UINT style;
-    WNDPROC lpfnWndProc;
+    {@link WindowProcI WNDPROC} lpfnWndProc;
     int cbClsExtra;
     int cbWndExtra;
     HINSTANCE hInstance;

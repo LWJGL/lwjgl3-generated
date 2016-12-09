@@ -48,7 +48,7 @@ import org.lwjgl.system.windows.*;
  * <pre><code>struct VkExportMemoryWin32HandleInfoNV {
     VkStructureType sType;
     const void * pNext;
-    const SECURITY_ATTRIBUTES * pAttributes;
+    const {@link SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES} * pAttributes;
     DWORD dwAccess;
 }</code></pre>
  */

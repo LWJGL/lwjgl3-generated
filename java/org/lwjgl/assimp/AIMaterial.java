@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct aiMaterial {
-    AIMaterialProperty ** mProperties;
+    {@link AIMaterialProperty AIMaterialProperty} ** mProperties;
     unsigned int mNumProperties;
     unsigned int mStorageAllocated;
 }</code></pre>

@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code>struct nk_text_edit {
     {@link NkClipboard struct nk_clipboard} clip;
     {@link NkStr struct nk_str} string;
-    nk_plugin_filter filter;
+    {@link NkPluginFilterI nk_plugin_filter} filter;
     {@link NkVec2 struct nk_vec2} scrollbar;
     int cursor;
     int select_start;

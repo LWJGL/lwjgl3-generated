@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int end;
     int count;
     int total_height;
-    struct nk_context * ctx;
+    {@link NkContext struct nk_context} * ctx;
     nk_ushort * scroll_pointer;
     nk_ushort scroll_value;
 }</code></pre>

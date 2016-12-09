@@ -83,7 +83,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkObjectTableNVX objectTable;
     VkIndirectCommandsLayoutNVX indirectCommandsLayout;
     uint32_t indirectCommandsTokenCount;
-    const VkIndirectCommandsTokenNVX * pIndirectCommandsTokens;
+    const {@link VkIndirectCommandsTokenNVX VkIndirectCommandsTokenNVX} * pIndirectCommandsTokens;
     uint32_t maxSequencesCount;
     VkCommandBuffer targetCommandBuffer;
     VkBuffer sequencesCountBuffer;

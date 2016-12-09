@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct aiBone {
     {@link AIString struct aiString} mName;
     unsigned int mNumWeights;
-    struct aiVertexWeight * mWeights;
+    {@link AIVertexWeight struct aiVertexWeight} * mWeights;
     {@link AIMatrix4x4 struct aiMatrix4x4} mOffsetMatrix;
 }</code></pre>
  */

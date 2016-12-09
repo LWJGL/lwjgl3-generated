@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int arc_segment_count;
     unsigned int curve_segment_count;
     {@link NkDrawNullTexture struct nk_draw_null_texture} null_texture;
-    struct nk_draw_vertex_layout_element * vertex_layout;
+    {@link NkDrawVertexLayoutElement struct nk_draw_vertex_layout_element} * vertex_layout;
     nk_size vertex_size;
     nk_size vertex_alignment;
 }</code></pre>

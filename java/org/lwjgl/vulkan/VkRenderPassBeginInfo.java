@@ -69,7 +69,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkFramebuffer framebuffer;
     {@link VkRect2D VkRect2D} renderArea;
     uint32_t clearValueCount;
-    const VkClearValue * pClearValues;
+    const {@link VkClearValue VkClearValue} * pClearValues;
 }</code></pre>
  */
 public class VkRenderPassBeginInfo extends Struct implements NativeResource {

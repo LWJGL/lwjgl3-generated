@@ -37,12 +37,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct aiNode {
     {@link AIString struct aiString} mName;
     {@link AIMatrix4x4 struct aiMatrix4x4} mTransformation;
-    struct aiNode * mParent;
+    {@link AINode struct aiNode} * mParent;
     unsigned int mNumChildren;
-    struct aiNode ** mChildren;
+    {@link AINode struct aiNode} ** mChildren;
     unsigned int mNumMeshes;
     unsigned int * mMeshes;
-    struct aiMetadata * mMetadata;
+    {@link AIMetaData struct aiMetadata} * mMetadata;
 }</code></pre>
  */
 public class AINode extends Struct implements NativeResource {

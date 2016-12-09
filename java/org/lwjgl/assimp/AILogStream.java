@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct aiLogStream {
-    aiLogStreamCallback callback;
+    {@link AILogStreamCallbackI aiLogStreamCallback} callback;
     void * user;
 }</code></pre>
  */

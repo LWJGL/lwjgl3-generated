@@ -37,13 +37,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct chunk_hooks_t {
-    chunk_alloc_t alloc;
-    chunk_dalloc_t dalloc;
-    chunk_commit_t commit;
-    chunk_decommit_t decommit;
-    chunk_purge_t purge;
-    chunk_split_t split;
-    chunk_merge_t merge;
+    {@link ChunkAllocI chunk_alloc_t} alloc;
+    {@link ChunkDallocI chunk_dalloc_t} dalloc;
+    {@link ChunkCommitI chunk_commit_t} commit;
+    {@link ChunkDecommitI chunk_decommit_t} decommit;
+    {@link ChunkPurgeI chunk_purge_t} purge;
+    {@link ChunkSplitI chunk_split_t} split;
+    {@link ChunkMergeI chunk_merge_t} merge;
 }</code></pre>
  */
 public class ChunkHooks extends Struct implements NativeResource {

@@ -99,7 +99,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkPipelineBindPoint pipelineBindPoint;
     VkIndirectCommandsLayoutUsageFlagsNVX flags;
     uint32_t tokenCount;
-    const VkIndirectCommandsLayoutTokenNVX * pTokens;
+    const {@link VkIndirectCommandsLayoutTokenNVX VkIndirectCommandsLayoutTokenNVX} * pTokens;
 }</code></pre>
  */
 public class VkIndirectCommandsLayoutCreateInfoNVX extends Struct implements NativeResource {

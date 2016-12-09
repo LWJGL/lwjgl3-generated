@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_callback_interface_t {
-    const bgfx_callback_vtbl_t * vtbl;
+    const {@link BGFXCallbackVtbl bgfx_callback_vtbl_t} * vtbl;
 }</code></pre>
  */
 public class BGFXCallbackInterface extends Struct implements NativeResource {

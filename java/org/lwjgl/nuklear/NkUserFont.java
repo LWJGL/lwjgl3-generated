@@ -29,8 +29,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct nk_user_font {
     {@link NkHandle nk_handle} userdata;
     float height;
-    nk_text_width_f width;
-    nk_query_font_glyph_f query;
+    {@link NkTextWidthCallbackI nk_text_width_f} width;
+    {@link NkQueryFontGlyphCallbackI nk_query_font_glyph_f} query;
     {@link NkHandle nk_handle} texture;
 }</code></pre>
  */

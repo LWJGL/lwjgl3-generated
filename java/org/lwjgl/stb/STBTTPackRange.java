@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int first_unicode_codepoint_in_range;
     int * array_of_unicode_codepoints;
     int num_chars;
-    stbtt_packedchar * chardata_for_range;
+    {@link STBTTPackedchar stbtt_packedchar} * chardata_for_range;
     unsigned char h_oversample;
     unsigned char v_oversample;
 }</code></pre>

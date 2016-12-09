@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_command_buffer {
-    struct nk_buffer * base;
+    {@link NkBuffer struct nk_buffer} * base;
     {@link NkRect struct nk_rect} clip;
     int use_clipping;
     {@link NkHandle nk_handle} userdata;

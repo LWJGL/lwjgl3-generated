@@ -34,15 +34,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_callback_vtbl_t {
-    fatal fatal;
-    trace_vargs trace_vargs;
-    cache_read_size cache_read_size;
-    cache_read cache_read;
-    cache_write cache_write;
-    screen_shot screen_shot;
-    capture_begin capture_begin;
-    capture_end capture_end;
-    capture_frame capture_frame;
+    {@link BGFXFatalCallbackI fatal} fatal;
+    {@link BGFXTraceVarArgsCallbackI trace_vargs} trace_vargs;
+    {@link BGFXCacheReadSizeCallbackI cache_read_size} cache_read_size;
+    {@link BGFXCacheReadCallbackI cache_read} cache_read;
+    {@link BGFXCacheWriteCallbackI cache_write} cache_write;
+    {@link BGFXScreenShotCallbackI screen_shot} screen_shot;
+    {@link BGFXCaptureBeginCallbackI capture_begin} capture_begin;
+    {@link BGFXCaptureEndCallbackI capture_end} capture_end;
+    {@link BGFXCaptureFrameCallbackI capture_frame} capture_frame;
 }</code></pre>
  */
 public class BGFXCallbackVtbl extends Struct implements NativeResource {

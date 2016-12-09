@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_allocator_vtbl_t {
-    realloc realloc;
+    {@link BGFXReallocCallbackI realloc} realloc;
 }</code></pre>
  */
 public class BGFXAllocatorVtbl extends Struct implements NativeResource {

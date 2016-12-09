@@ -18,8 +18,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct nk_clipboard {
     {@link NkHandle nk_handle} userdata;
-    nk_plugin_paste paste;
-    nk_plugin_copy copy;
+    {@link NkPluginPasteI nk_plugin_paste} paste;
+    {@link NkPluginCopyI nk_plugin_copy} copy;
 }</code></pre>
  */
 public class NkClipboard extends Struct implements NativeResource {

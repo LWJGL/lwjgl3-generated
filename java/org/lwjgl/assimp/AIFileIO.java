@@ -29,8 +29,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct aiFileIO {
-    aiFileOpenProc OpenProc;
-    aiFileCloseProc CloseProc;
+    {@link AIFileOpenProcI aiFileOpenProc} OpenProc;
+    {@link AIFileCloseProcI aiFileCloseProc} CloseProc;
     aiUserData UserData;
 }</code></pre>
  */

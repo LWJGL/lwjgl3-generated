@@ -64,7 +64,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 logicOpEnable;
     VkLogicOp logicOp;
     uint32_t attachmentCount;
-    const VkPipelineColorBlendAttachmentState * pAttachments;
+    const {@link VkPipelineColorBlendAttachmentState VkPipelineColorBlendAttachmentState} * pAttachments;
     float blendConstants[4];
 }</code></pre>
  */

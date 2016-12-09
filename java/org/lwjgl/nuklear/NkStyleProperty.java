@@ -33,8 +33,8 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleButton struct nk_style_button} inc_button;
     {@link NkStyleButton struct nk_style_button} dec_button;
     {@link NkHandle nk_handle} userdata;
-    nk_draw_begin draw_begin;
-    nk_draw_end draw_end;
+    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
 }</code></pre>
  */
 public class NkStyleProperty extends Struct implements NativeResource {

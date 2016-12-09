@@ -29,10 +29,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct JAWT_DrawingSurfaceInfo {
     void * platformInfo;
-    JAWT_DrawingSurface * ds;
+    {@link JAWTDrawingSurface JAWT_DrawingSurface} * ds;
     {@link JAWTRectangle JAWT_Rectangle} bounds;
     jint clipSize;
-    JAWT_Rectangle * clip;
+    {@link JAWTRectangle JAWT_Rectangle} * clip;
 }</code></pre>
  */
 public class JAWTDrawingSurfaceInfo extends Struct {

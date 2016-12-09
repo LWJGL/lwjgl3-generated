@@ -51,7 +51,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     unsigned int mWidth;
     unsigned int mHeight;
     char achFormatHint[4];
-    struct aiTexel * pcData;
+    {@link AITexel struct aiTexel} * pcData;
 }</code></pre>
  */
 public class AITexture extends Struct {

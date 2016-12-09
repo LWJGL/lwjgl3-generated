@@ -63,7 +63,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkStructureType sType;
     const void * pNext;
     VkCommandBufferUsageFlags flags;
-    const VkCommandBufferInheritanceInfo * pInheritanceInfo;
+    const {@link VkCommandBufferInheritanceInfo VkCommandBufferInheritanceInfo} * pInheritanceInfo;
 }</code></pre>
  */
 public class VkCommandBufferBeginInfo extends Struct implements NativeResource {

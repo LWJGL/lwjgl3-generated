@@ -56,11 +56,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct aiNodeAnim {
     {@link AIString struct aiString} mNodeName;
     unsigned int mNumPositionKeys;
-    struct aiVectorKey * mPositionKeys;
+    {@link AIVectorKey struct aiVectorKey} * mPositionKeys;
     unsigned int mNumRotationKeys;
-    struct aiQuatKey * mRotationKeys;
+    {@link AIQuatKey struct aiQuatKey} * mRotationKeys;
     unsigned int mNumScalingKeys;
-    struct aiVectorKey * mScalingKeys;
+    {@link AIVectorKey struct aiVectorKey} * mScalingKeys;
     aiAnimBehaviour mPreState;
     aiAnimBehaviour mPostState;
 }</code></pre>

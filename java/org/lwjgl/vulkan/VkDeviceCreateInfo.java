@@ -62,12 +62,12 @@ import static org.lwjgl.system.MemoryStack.*;
     const void * pNext;
     VkDeviceCreateFlags flags;
     uint32_t queueCreateInfoCount;
-    const VkDeviceQueueCreateInfo * pQueueCreateInfos;
+    const {@link VkDeviceQueueCreateInfo VkDeviceQueueCreateInfo} * pQueueCreateInfos;
     uint32_t enabledLayerCount;
     const char * const * ppEnabledLayerNames;
     uint32_t enabledExtensionCount;
     const char * const * ppEnabledExtensionNames;
-    const VkPhysicalDeviceFeatures * pEnabledFeatures;
+    const {@link VkPhysicalDeviceFeatures VkPhysicalDeviceFeatures} * pEnabledFeatures;
 }</code></pre>
  */
 public class VkDeviceCreateInfo extends Struct implements NativeResource {

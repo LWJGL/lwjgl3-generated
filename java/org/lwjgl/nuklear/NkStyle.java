@@ -20,10 +20,10 @@ import static org.lwjgl.nuklear.Nuklear.NK_CURSOR_COUNT;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_style {
-    struct nk_user_font * font;
-    struct nk_cursor * cursors[NK_CURSOR_COUNT];
-    struct nk_cursor * cursor_active;
-    struct nk_cursor * cursor_last;
+    {@link NkUserFont struct nk_user_font} * font;
+    {@link NkCursor struct nk_cursor} * cursors[NK_CURSOR_COUNT];
+    {@link NkCursor struct nk_cursor} * cursor_active;
+    {@link NkCursor struct nk_cursor} * cursor_last;
     int cursor_visible;
     {@link NkStyleText struct nk_style_text} text;
     {@link NkStyleButton struct nk_style_button} button;

@@ -59,9 +59,9 @@ import static org.lwjgl.system.MemoryStack.*;
     const void * pNext;
     VkPipelineViewportStateCreateFlags flags;
     uint32_t viewportCount;
-    const VkViewport * pViewports;
+    const {@link VkViewport VkViewport} * pViewports;
     uint32_t scissorCount;
-    const VkRect2D * pScissors;
+    const {@link VkRect2D VkRect2D} * pScissors;
 }</code></pre>
  */
 public class VkPipelineViewportStateCreateInfo extends Struct implements NativeResource {

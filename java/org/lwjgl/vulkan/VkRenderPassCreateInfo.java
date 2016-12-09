@@ -66,11 +66,11 @@ import static org.lwjgl.system.MemoryStack.*;
     const void * pNext;
     VkRenderPassCreateFlags flags;
     uint32_t attachmentCount;
-    const VkAttachmentDescription * pAttachments;
+    const {@link VkAttachmentDescription VkAttachmentDescription} * pAttachments;
     uint32_t subpassCount;
-    const VkSubpassDescription * pSubpasses;
+    const {@link VkSubpassDescription VkSubpassDescription} * pSubpasses;
     uint32_t dependencyCount;
-    const VkSubpassDependency * pDependencies;
+    const {@link VkSubpassDependency VkSubpassDependency} * pDependencies;
 }</code></pre>
  */
 public class VkRenderPassCreateInfo extends Struct implements NativeResource {

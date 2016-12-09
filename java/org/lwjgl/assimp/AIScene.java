@@ -55,19 +55,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct aiScene {
     unsigned int mFlags;
-    struct aiNode * mRootNode;
+    {@link AINode struct aiNode} * mRootNode;
     unsigned int mNumMeshes;
-    struct aiMesh ** mMeshes;
+    {@link AIMesh struct aiMesh} ** mMeshes;
     unsigned int mNumMaterials;
-    struct aiMaterial ** mMaterials;
+    {@link AIMaterial struct aiMaterial} ** mMaterials;
     unsigned int mNumAnimations;
-    struct aiAnimation ** mAnimations;
+    {@link AIAnimation struct aiAnimation} ** mAnimations;
     unsigned int mNumTextures;
-    struct aiTexture ** mTextures;
+    {@link AITexture struct aiTexture} ** mTextures;
     unsigned int mNumLights;
-    struct aiLight ** mLights;
+    {@link AILight struct aiLight} ** mLights;
     unsigned int mNumCameras;
-    struct aiCamera ** mCameras;
+    {@link AICamera struct aiCamera} ** mCameras;
     char * mPrivate;
 }</code></pre>
  */

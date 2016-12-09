@@ -85,8 +85,8 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t dstArrayElement;
     uint32_t descriptorCount;
     VkDescriptorType descriptorType;
-    const VkDescriptorImageInfo * pImageInfo;
-    const VkDescriptorBufferInfo * pBufferInfo;
+    const {@link VkDescriptorImageInfo VkDescriptorImageInfo} * pImageInfo;
+    const {@link VkDescriptorBufferInfo VkDescriptorBufferInfo} * pBufferInfo;
     const VkBufferView * pTexelBufferView;
 }</code></pre>
  */

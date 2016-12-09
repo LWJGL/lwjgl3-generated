@@ -42,12 +42,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct aiAnimMesh {
-    struct aiVector3D * mVertices;
-    struct aiVector3D * mNormals;
-    struct aiVector3D * mTangents;
-    struct aiVector3D * mBitangents;
-    struct aiColor4D * mColors[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS];
-    struct aiVector3D * mTextureCoords[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS];
+    {@link AIVector3D struct aiVector3D} * mVertices;
+    {@link AIVector3D struct aiVector3D} * mNormals;
+    {@link AIVector3D struct aiVector3D} * mTangents;
+    {@link AIVector3D struct aiVector3D} * mBitangents;
+    {@link AIColor4D struct aiColor4D} * mColors[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS];
+    {@link AIVector3D struct aiVector3D} * mTextureCoords[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS];
     unsigned int mNumVertices;
 }</code></pre>
  */

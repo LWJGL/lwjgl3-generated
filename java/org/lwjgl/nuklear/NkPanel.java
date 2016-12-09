@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
     enum nk_panel_type type;
     nk_flags flags;
     {@link NkRect struct nk_rect} bounds;
-    struct nk_scroll * offset;
+    {@link NkScroll struct nk_scroll} * offset;
     float at_x;
     float at_y;
     float max_x;
@@ -33,8 +33,8 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkRowLayout struct nk_row_layout} row;
     {@link NkChart struct nk_chart} chart;
     {@link NkPopupBuffer struct nk_popup_buffer} popup_buffer;
-    struct nk_command_buffer * buffer;
-    struct nk_panel * parent;
+    {@link NkCommandBuffer struct nk_command_buffer} * buffer;
+    {@link NkPanel struct nk_panel} * parent;
 }</code></pre>
  */
 public class NkPanel extends Struct implements NativeResource {

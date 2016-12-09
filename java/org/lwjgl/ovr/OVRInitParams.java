@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct ovrInitParams {
     uint32_t Flags;
     uint32_t RequestedMinorVersion;
-    ovrLogCallback LogCallback;
+    {@link OVRLogCallbackI ovrLogCallback} LogCallback;
     uintptr_t UserData;
     uint32_t ConnectionTimeoutMS;
     char[4];

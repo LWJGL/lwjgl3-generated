@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     {@link NkRect struct nk_rect} bounds;
     {@link NkScroll struct nk_scroll} scrollbar;
     {@link NkCommandBuffer struct nk_command_buffer} buffer;
-    struct nk_panel * layout;
+    {@link NkPanel struct nk_panel} * layout;
     float scrollbar_hiding_timer;
     {@link NkPropertyState struct nk_property_state} property;
     {@link NkPopupState struct nk_popup_state} popup;
@@ -31,9 +31,9 @@ import static org.lwjgl.system.MemoryUtil.*;
     nk_table * tables;
     unsigned short table_count;
     unsigned short table_size;
-    struct nk_window * next;
-    struct nk_window * prev;
-    struct nk_window * parent;
+    {@link NkWindow struct nk_window} * next;
+    {@link NkWindow struct nk_window} * prev;
+    {@link NkWindow struct nk_window} * parent;
 }</code></pre>
  */
 public class NkWindow extends Struct {

@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_popup_state {
-    struct nk_window * win;
+    {@link NkWindow struct nk_window} * win;
     enum nk_panel_type type;
     nk_hash name;
     int active;

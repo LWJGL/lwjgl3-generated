@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_config_stack_style_item_element {
-    struct nk_style_item * pValues;
+    {@link NkStyleItem struct nk_style_item} * pValues;
     {@link NkStyleItem struct nk_style_item} old_value;
 }</code></pre>
  */

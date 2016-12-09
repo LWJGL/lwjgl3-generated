@@ -32,8 +32,8 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkVec2 struct nk_vec2} image_padding;
     {@link NkVec2 struct nk_vec2} touch_padding;
     {@link NkHandle nk_handle} userdata;
-    nk_draw_begin draw_begin;
-    nk_draw_end draw_end;
+    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
 }</code></pre>
  */
 public class NkStyleButton extends Struct implements NativeResource {

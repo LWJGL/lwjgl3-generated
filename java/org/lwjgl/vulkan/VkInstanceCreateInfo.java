@@ -51,7 +51,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkStructureType sType;
     const void * pNext;
     VkInstanceCreateFlags flags;
-    const VkApplicationInfo * pApplicationInfo;
+    const {@link VkApplicationInfo VkApplicationInfo} * pApplicationInfo;
     uint32_t enabledLayerCount;
     const char * const * ppEnabledLayerNames;
     uint32_t enabledExtensionCount;

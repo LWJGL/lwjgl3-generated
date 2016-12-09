@@ -66,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkStructureType sType;
     const void * pNext;
     VkDebugReportFlagsEXT flags;
-    PFN_vkDebugReportCallbackEXT pfnCallback;
+    {@link VkDebugReportCallbackEXTI PFN_vkDebugReportCallbackEXT} pfnCallback;
     void * pUserData;
 }</code></pre>
  */
