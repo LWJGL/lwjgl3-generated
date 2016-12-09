@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -226,7 +225,7 @@ public class NkHandle extends Struct implements NativeResource {
 	public static int nid(long struct) { return memGetInt(struct + NkHandle.ID); }
 
 	/** Unsafe version of {@link #ptr(long) ptr}. */
-	public static void nptr(long struct, long value) { memPutAddress(struct + NkHandle.PTR, check(value)); }
+	public static void nptr(long struct, long value) { memPutAddress(struct + NkHandle.PTR, value); }
 	/** Unsafe version of {@link #id(int) id}. */
 	public static void nid(long struct, int value) { memPutInt(struct + NkHandle.ID, value); }
 
