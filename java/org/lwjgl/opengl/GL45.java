@@ -11,6 +11,7 @@ import org.lwjgl.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
@@ -1049,7 +1050,7 @@ public class GL45 {
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
 		int length = glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/**
@@ -1062,7 +1063,7 @@ public class GL45 {
 	 */
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glMapNamedBufferRange ] ---
@@ -1097,7 +1098,7 @@ public class GL45 {
 	 */
 	public static ByteBuffer glMapNamedBufferRange(int buffer, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferRange(buffer, offset, length, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapNamedBuffer ] ---

@@ -11,6 +11,7 @@ import org.lwjgl.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
@@ -567,7 +568,7 @@ public class ARBVertexBufferObject {
 	public static ByteBuffer glMapBufferARB(int target, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferARB(target, access);
 		int length = glGetBufferParameteriARB(target, GL_BUFFER_SIZE_ARB);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/**
@@ -586,7 +587,7 @@ public class ARBVertexBufferObject {
 	 */
 	public static ByteBuffer glMapBufferARB(int target, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapBufferARB(target, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapBufferARB ] ---

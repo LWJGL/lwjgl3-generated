@@ -11,6 +11,7 @@ import org.lwjgl.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
@@ -1973,12 +1974,12 @@ public class EXTDirectStateAccess {
 	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferEXT(buffer, access);
 		int length = glGetNamedBufferParameteriEXT(buffer, GL15.GL_BUFFER_SIZE);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferEXT(buffer, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapNamedBufferEXT ] ---
@@ -2948,7 +2949,7 @@ public class EXTDirectStateAccess {
 
 	public static ByteBuffer glMapNamedBufferRangeEXT(int buffer, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferRangeEXT(buffer, offset, length, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glFlushMappedNamedBufferRangeEXT ] ---

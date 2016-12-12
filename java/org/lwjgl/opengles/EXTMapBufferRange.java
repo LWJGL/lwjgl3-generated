@@ -7,6 +7,7 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -62,7 +63,7 @@ public class EXTMapBufferRange {
 
 	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRangeEXT(target, offset, length, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glFlushMappedBufferRangeEXT ] ---

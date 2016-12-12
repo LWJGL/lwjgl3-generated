@@ -11,6 +11,7 @@ import org.lwjgl.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
@@ -2113,7 +2114,7 @@ public class CL10 {
 			checkSafe(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return old_buffer == null ? memByteBuffer(__result, (int)size) : memSetupBuffer(old_buffer, __result, (int)size);
+		return apiGetMappedBuffer(old_buffer, __result, (int)size);
 	}
 
 	// --- [ clCreateImage2D ] ---
@@ -3833,7 +3834,7 @@ public class CL10 {
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/**
@@ -3931,7 +3932,7 @@ public class CL10 {
 			checkSafe(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ clGetImageInfo ] ---
@@ -8584,7 +8585,7 @@ public class CL10 {
 			checkSafe(errcode_ret, 1);
 		}
 		long __result = callPPJPPPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
-		return old_buffer == null ? memByteBuffer(__result, (int)size) : memSetupBuffer(old_buffer, __result, (int)size);
+		return apiGetMappedBuffer(old_buffer, __result, (int)size);
 	}
 
 	/** Array version of: {@link #clCreateImage2D CreateImage2D} */
@@ -8796,7 +8797,7 @@ public class CL10 {
 		}
 		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/** Array version of: {@link #clEnqueueMapImage EnqueueMapImage} */
@@ -8813,7 +8814,7 @@ public class CL10 {
 			checkSafe(errcode_ret, 1);
 		}
 		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	/** Array version of: {@link #clGetImageInfo GetImageInfo} */

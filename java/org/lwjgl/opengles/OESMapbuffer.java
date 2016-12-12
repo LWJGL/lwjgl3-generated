@@ -11,6 +11,7 @@ import org.lwjgl.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -58,12 +59,12 @@ public class OESMapbuffer {
 	public static ByteBuffer glMapBufferOES(int target, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferOES(target, access);
 		int length = GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	public static ByteBuffer glMapBufferOES(int target, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapBufferOES(target, access);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapBufferOES ] ---

@@ -7,6 +7,7 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -130,7 +131,7 @@ public class INTELMapTexture {
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/**
@@ -151,7 +152,7 @@ public class INTELMapTexture {
 			check(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
@@ -176,7 +177,7 @@ public class INTELMapTexture {
 		}
 		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
 		int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
-		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
@@ -188,7 +189,7 @@ public class INTELMapTexture {
 			check(layout, 1);
 		}
 		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
-		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
 	private static int getStride(IntBuffer stride) {
