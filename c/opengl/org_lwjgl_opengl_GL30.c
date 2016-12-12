@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef const intptr_t (APIENTRY *glGetStringiPROC) (jint, jint);
+typedef intptr_t (APIENTRY *glGetStringiPROC) (jint, jint);
 typedef void (APIENTRY *glClearBufferivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glClearBufferuivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glClearBufferfvPROC) (jint, jint, intptr_t);

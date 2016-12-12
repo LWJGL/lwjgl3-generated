@@ -117,7 +117,7 @@ typedef void (APIENTRY *glGetPixelMapusvPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGetPixelMapuivPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGetPointervPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGetPolygonStipplePROC) (intptr_t);
-typedef const intptr_t (APIENTRY *glGetStringPROC) (jint);
+typedef intptr_t (APIENTRY *glGetStringPROC) (jint);
 typedef void (APIENTRY *glGetTexEnvivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetTexEnvfvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetTexGenivPROC) (jint, jint, intptr_t);
