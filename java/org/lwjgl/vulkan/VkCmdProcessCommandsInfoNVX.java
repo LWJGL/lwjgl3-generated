@@ -174,12 +174,8 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 	public long indirectCommandsLayout() { return nindirectCommandsLayout(address()); }
 	/** Returns the value of the {@code indirectCommandsTokenCount} field. */
 	public int indirectCommandsTokenCount() { return nindirectCommandsTokenCount(address()); }
-	/**
-	 * Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens(int capacity) { return npIndirectCommandsTokens(address(), capacity); }
+	/** Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field. */
+	public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens() { return npIndirectCommandsTokens(address()); }
 	/** Returns the value of the {@code maxSequencesCount} field. */
 	public int maxSequencesCount() { return nmaxSequencesCount(address()); }
 	/** Returns the value of the {@code targetCommandBuffer} field. */
@@ -201,8 +197,6 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 	public VkCmdProcessCommandsInfoNVX objectTable(long value) { nobjectTable(address(), value); return this; }
 	/** Sets the specified value to the {@code indirectCommandsLayout} field. */
 	public VkCmdProcessCommandsInfoNVX indirectCommandsLayout(long value) { nindirectCommandsLayout(address(), value); return this; }
-	/** Sets the specified value to the {@code indirectCommandsTokenCount} field. */
-	public VkCmdProcessCommandsInfoNVX indirectCommandsTokenCount(int value) { nindirectCommandsTokenCount(address(), value); return this; }
 	/** Sets the address of the specified {@link VkIndirectCommandsTokenNVX.Buffer} to the {@code pIndirectCommandsTokens} field. */
 	public VkCmdProcessCommandsInfoNVX pIndirectCommandsTokens(VkIndirectCommandsTokenNVX.Buffer value) { npIndirectCommandsTokens(address(), value); return this; }
 	/** Sets the specified value to the {@code maxSequencesCount} field. */
@@ -224,7 +218,6 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 		long pNext,
 		long objectTable,
 		long indirectCommandsLayout,
-		int indirectCommandsTokenCount,
 		VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens,
 		int maxSequencesCount,
 		VkCommandBuffer targetCommandBuffer,
@@ -237,7 +230,6 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 		pNext(pNext);
 		objectTable(objectTable);
 		indirectCommandsLayout(indirectCommandsLayout);
-		indirectCommandsTokenCount(indirectCommandsTokenCount);
 		pIndirectCommandsTokens(pIndirectCommandsTokens);
 		maxSequencesCount(maxSequencesCount);
 		targetCommandBuffer(targetCommandBuffer);
@@ -406,7 +398,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 	/** Unsafe version of {@link #indirectCommandsTokenCount}. */
 	public static int nindirectCommandsTokenCount(long struct) { return memGetInt(struct + VkCmdProcessCommandsInfoNVX.INDIRECTCOMMANDSTOKENCOUNT); }
 	/** Unsafe version of {@link #pIndirectCommandsTokens}. */
-	public static VkIndirectCommandsTokenNVX.Buffer npIndirectCommandsTokens(long struct, int capacity) { return VkIndirectCommandsTokenNVX.create(memGetAddress(struct + VkCmdProcessCommandsInfoNVX.PINDIRECTCOMMANDSTOKENS), capacity); }
+	public static VkIndirectCommandsTokenNVX.Buffer npIndirectCommandsTokens(long struct) { return VkIndirectCommandsTokenNVX.create(memGetAddress(struct + VkCmdProcessCommandsInfoNVX.PINDIRECTCOMMANDSTOKENS), nindirectCommandsTokenCount(struct)); }
 	/** Unsafe version of {@link #maxSequencesCount}. */
 	public static int nmaxSequencesCount(long struct) { return memGetInt(struct + VkCmdProcessCommandsInfoNVX.MAXSEQUENCESCOUNT); }
 	/** Unsafe version of {@link #targetCommandBuffer}. */
@@ -428,10 +420,10 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 	public static void nobjectTable(long struct, long value) { memPutLong(struct + VkCmdProcessCommandsInfoNVX.OBJECTTABLE, value); }
 	/** Unsafe version of {@link #indirectCommandsLayout(long) indirectCommandsLayout}. */
 	public static void nindirectCommandsLayout(long struct, long value) { memPutLong(struct + VkCmdProcessCommandsInfoNVX.INDIRECTCOMMANDSLAYOUT, value); }
-	/** Unsafe version of {@link #indirectCommandsTokenCount(int) indirectCommandsTokenCount}. */
+	/** Sets the specified value to the {@code indirectCommandsTokenCount} field of the specified {@code struct}. */
 	public static void nindirectCommandsTokenCount(long struct, int value) { memPutInt(struct + VkCmdProcessCommandsInfoNVX.INDIRECTCOMMANDSTOKENCOUNT, value); }
 	/** Unsafe version of {@link #pIndirectCommandsTokens(VkIndirectCommandsTokenNVX.Buffer) pIndirectCommandsTokens}. */
-	public static void npIndirectCommandsTokens(long struct, VkIndirectCommandsTokenNVX.Buffer value) { memPutAddress(struct + VkCmdProcessCommandsInfoNVX.PINDIRECTCOMMANDSTOKENS, value.address()); }
+	public static void npIndirectCommandsTokens(long struct, VkIndirectCommandsTokenNVX.Buffer value) { memPutAddress(struct + VkCmdProcessCommandsInfoNVX.PINDIRECTCOMMANDSTOKENS, value.address()); nindirectCommandsTokenCount(struct, value.remaining()); }
 	/** Unsafe version of {@link #maxSequencesCount(int) maxSequencesCount}. */
 	public static void nmaxSequencesCount(long struct, int value) { memPutInt(struct + VkCmdProcessCommandsInfoNVX.MAXSEQUENCESCOUNT, value); }
 	/** Unsafe version of {@link #targetCommandBuffer(VkCommandBuffer) targetCommandBuffer}. */
@@ -517,12 +509,8 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 		public long indirectCommandsLayout() { return VkCmdProcessCommandsInfoNVX.nindirectCommandsLayout(address()); }
 		/** Returns the value of the {@code indirectCommandsTokenCount} field. */
 		public int indirectCommandsTokenCount() { return VkCmdProcessCommandsInfoNVX.nindirectCommandsTokenCount(address()); }
-		/**
-		 * Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens(int capacity) { return VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address(), capacity); }
+		/** Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field. */
+		public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens() { return VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address()); }
 		/** Returns the value of the {@code maxSequencesCount} field. */
 		public int maxSequencesCount() { return VkCmdProcessCommandsInfoNVX.nmaxSequencesCount(address()); }
 		/** Returns the value of the {@code targetCommandBuffer} field. */
@@ -544,8 +532,6 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 		public VkCmdProcessCommandsInfoNVX.Buffer objectTable(long value) { VkCmdProcessCommandsInfoNVX.nobjectTable(address(), value); return this; }
 		/** Sets the specified value to the {@code indirectCommandsLayout} field. */
 		public VkCmdProcessCommandsInfoNVX.Buffer indirectCommandsLayout(long value) { VkCmdProcessCommandsInfoNVX.nindirectCommandsLayout(address(), value); return this; }
-		/** Sets the specified value to the {@code indirectCommandsTokenCount} field. */
-		public VkCmdProcessCommandsInfoNVX.Buffer indirectCommandsTokenCount(int value) { VkCmdProcessCommandsInfoNVX.nindirectCommandsTokenCount(address(), value); return this; }
 		/** Sets the address of the specified {@link VkIndirectCommandsTokenNVX.Buffer} to the {@code pIndirectCommandsTokens} field. */
 		public VkCmdProcessCommandsInfoNVX.Buffer pIndirectCommandsTokens(VkIndirectCommandsTokenNVX.Buffer value) { VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address(), value); return this; }
 		/** Sets the specified value to the {@code maxSequencesCount} field. */

@@ -82,6 +82,20 @@ public class NVXDeviceGeneratedCommands {
 	public static final int VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX = 0x20000;
 
 	/**
+	 * Extends {@code VkAccessFlagBits}.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_ACCESS_COMMAND_PROCESS_READ_BIT_NVX ACCESS_COMMAND_PROCESS_READ_BIT_NVX}</li>
+	 * <li>{@link #VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX}</li>
+	 * </ul>
+	 */
+	public static final int
+		VK_ACCESS_COMMAND_PROCESS_READ_BIT_NVX  = 0x20000,
+		VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX = 0x40000;
+
+	/**
 	 * VkIndirectCommandsLayoutUsageFlagBitsNVX - Bitmask specifying allowed usage of a indirect commands layout
 	 * 
 	 * <h5>Description</h5>
