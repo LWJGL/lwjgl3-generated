@@ -1999,7 +1999,11 @@ public class NanoVG {
 
 	// --- [ nvgText ] ---
 
-	/** Unsafe version of: {@link #nvgText Text} */
+	/**
+	 * Unsafe version of: {@link #nvgText Text}
+	 *
+	 * @param end a pointer to the end of the sub-string to draw, or {@code NULL}
+	 */
 	public static native float nnvgText(long ctx, float x, float y, long string, long end);
 
 	/**
@@ -2009,14 +2013,11 @@ public class NanoVG {
 	 * @param x      the text X axis coordinate
 	 * @param y      the text Y axis coordinate
 	 * @param string the text string to draw
-	 * @param end    a pointer to the end of the sub-string to draw, or {@code NULL}
 	 */
-	public static float nvgText(long ctx, float x, float y, ByteBuffer string, long end) {
-		if ( CHECKS ) {
+	public static float nvgText(long ctx, float x, float y, ByteBuffer string) {
+		if ( CHECKS )
 			check(ctx);
-			checkNT1(string);
-		}
-		return nnvgText(ctx, x, y, memAddress(string), end);
+		return nnvgText(ctx, x, y, memAddress(string), memAddress(string) + string.remaining());
 	}
 
 	/**
@@ -2026,15 +2027,14 @@ public class NanoVG {
 	 * @param x      the text X axis coordinate
 	 * @param y      the text Y axis coordinate
 	 * @param string the text string to draw
-	 * @param end    a pointer to the end of the sub-string to draw, or {@code NULL}
 	 */
-	public static float nvgText(long ctx, float x, float y, CharSequence string, long end) {
+	public static float nvgText(long ctx, float x, float y, CharSequence string) {
 		if ( CHECKS )
 			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			return nnvgText(ctx, x, y, memAddress(stringEncoded), end);
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			return nnvgText(ctx, x, y, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2042,7 +2042,11 @@ public class NanoVG {
 
 	// --- [ nvgTextBox ] ---
 
-	/** Unsafe version of: {@link #nvgTextBox TextBox} */
+	/**
+	 * Unsafe version of: {@link #nvgTextBox TextBox}
+	 *
+	 * @param end a pointer to the end of the sub-string to draw, or {@code NULL}
+	 */
 	public static native void nnvgTextBox(long ctx, float x, float y, float breakRowWidth, long string, long end);
 
 	/**
@@ -2057,14 +2061,11 @@ public class NanoVG {
 	 * @param y             the text box Y axis coordinate
 	 * @param breakRowWidth the maximum row width
 	 * @param string        the text string to draw
-	 * @param end           a pointer to the end of the sub-string to draw, or {@code NULL}
 	 */
-	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end) {
-		if ( CHECKS ) {
+	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, ByteBuffer string) {
+		if ( CHECKS )
 			check(ctx);
-			checkNT1(string);
-		}
-		nnvgTextBox(ctx, x, y, breakRowWidth, memAddress(string), end);
+		nnvgTextBox(ctx, x, y, breakRowWidth, memAddress(string), memAddress(string) + string.remaining());
 	}
 
 	/**
@@ -2079,15 +2080,14 @@ public class NanoVG {
 	 * @param y             the text box Y axis coordinate
 	 * @param breakRowWidth the maximum row width
 	 * @param string        the text string to draw
-	 * @param end           a pointer to the end of the sub-string to draw, or {@code NULL}
 	 */
-	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end) {
+	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, CharSequence string) {
 		if ( CHECKS )
 			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			nnvgTextBox(ctx, x, y, breakRowWidth, memAddress(stringEncoded), end);
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			nnvgTextBox(ctx, x, y, breakRowWidth, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2095,7 +2095,11 @@ public class NanoVG {
 
 	// --- [ nvgTextBounds ] ---
 
-	/** Unsafe version of: {@link #nvgTextBounds TextBounds} */
+	/**
+	 * Unsafe version of: {@link #nvgTextBounds TextBounds}
+	 *
+	 * @param end a pointer to the end of the sub-string to measure, or {@code NULL}
+	 */
 	public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, long bounds);
 
 	/**
@@ -2110,18 +2114,16 @@ public class NanoVG {
 	 * @param x      the text X axis coordinate
 	 * @param y      the text Y axis coordinate
 	 * @param string the text string to measure
-	 * @param end    a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param bounds returns the bounding box of the text
 	 *
 	 * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
 	 */
-	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, long end, FloatBuffer bounds) {
+	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			check(ctx);
-			checkNT1(string);
 			checkSafe(bounds, 4);
 		}
-		return nnvgTextBounds(ctx, x, y, memAddress(string), end, memAddressSafe(bounds));
+		return nnvgTextBounds(ctx, x, y, memAddress(string), memAddress(string) + string.remaining(), memAddressSafe(bounds));
 	}
 
 	/**
@@ -2136,20 +2138,19 @@ public class NanoVG {
 	 * @param x      the text X axis coordinate
 	 * @param y      the text Y axis coordinate
 	 * @param string the text string to measure
-	 * @param end    a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param bounds returns the bounding box of the text
 	 *
 	 * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
 	 */
-	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, FloatBuffer bounds) {
+	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			check(ctx);
 			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			return nnvgTextBounds(ctx, x, y, memAddress(stringEncoded), end, memAddressSafe(bounds));
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			return nnvgTextBounds(ctx, x, y, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining(), memAddressSafe(bounds));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2157,7 +2158,11 @@ public class NanoVG {
 
 	// --- [ nvgTextBoxBounds ] ---
 
-	/** Unsafe version of: {@link #nvgTextBoxBounds TextBoxBounds} */
+	/**
+	 * Unsafe version of: {@link #nvgTextBoxBounds TextBoxBounds}
+	 *
+	 * @param end a pointer to the end of the sub-string to measure, or {@code NULL}
+	 */
 	public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, long bounds);
 
 	/**
@@ -2173,16 +2178,14 @@ public class NanoVG {
 	 * @param y             the text box Y axis coordinate
 	 * @param breakRowWidth the maximum row width
 	 * @param string        the text string to measure
-	 * @param end           a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param bounds        returns the bounding box of the text box
 	 */
-	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end, FloatBuffer bounds) {
+	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			check(ctx);
-			checkNT1(string);
 			checkSafe(bounds, 4);
 		}
-		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, memAddressSafe(bounds));
+		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), memAddress(string) + string.remaining(), memAddressSafe(bounds));
 	}
 
 	/**
@@ -2198,18 +2201,17 @@ public class NanoVG {
 	 * @param y             the text box Y axis coordinate
 	 * @param breakRowWidth the maximum row width
 	 * @param string        the text string to measure
-	 * @param end           a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param bounds        returns the bounding box of the text box
 	 */
-	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, FloatBuffer bounds) {
+	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			check(ctx);
 			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(stringEncoded), end, memAddressSafe(bounds));
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining(), memAddressSafe(bounds));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2220,6 +2222,7 @@ public class NanoVG {
 	/**
 	 * Unsafe version of: {@link #nvgTextGlyphPositions TextGlyphPositions}
 	 *
+	 * @param end          a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param maxPositions the maximum number of glyph positions to return
 	 */
 	public static native int nnvgTextGlyphPositions(long ctx, float x, float y, long string, long end, long positions, int maxPositions);
@@ -2233,15 +2236,12 @@ public class NanoVG {
 	 * @param x         the text X axis coordinate
 	 * @param y         the text Y axis coordinate
 	 * @param string    the text string to measure
-	 * @param end       a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param positions returns the glyph x positions
 	 */
-	public static int nvgTextGlyphPositions(long ctx, float x, float y, ByteBuffer string, long end, NVGGlyphPosition.Buffer positions) {
-		if ( CHECKS ) {
+	public static int nvgTextGlyphPositions(long ctx, float x, float y, ByteBuffer string, NVGGlyphPosition.Buffer positions) {
+		if ( CHECKS )
 			check(ctx);
-			checkNT1(string);
-		}
-		return nnvgTextGlyphPositions(ctx, x, y, memAddress(string), end, positions.address(), positions.remaining());
+		return nnvgTextGlyphPositions(ctx, x, y, memAddress(string), memAddress(string) + string.remaining(), positions.address(), positions.remaining());
 	}
 
 	/**
@@ -2253,16 +2253,15 @@ public class NanoVG {
 	 * @param x         the text X axis coordinate
 	 * @param y         the text Y axis coordinate
 	 * @param string    the text string to measure
-	 * @param end       a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param positions returns the glyph x positions
 	 */
-	public static int nvgTextGlyphPositions(long ctx, float x, float y, CharSequence string, long end, NVGGlyphPosition.Buffer positions) {
+	public static int nvgTextGlyphPositions(long ctx, float x, float y, CharSequence string, NVGGlyphPosition.Buffer positions) {
 		if ( CHECKS )
 			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			return nnvgTextGlyphPositions(ctx, x, y, memAddress(stringEncoded), end, positions.address(), positions.remaining());
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			return nnvgTextGlyphPositions(ctx, x, y, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining(), positions.address(), positions.remaining());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2298,6 +2297,7 @@ public class NanoVG {
 	/**
 	 * Unsafe version of: {@link #nvgTextBreakLines TextBreakLines}
 	 *
+	 * @param end     a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param maxRows the maximum number of text rows to return
 	 */
 	public static native int nnvgTextBreakLines(long ctx, long string, long end, float breakRowWidth, long rows, int maxRows);
@@ -2310,16 +2310,13 @@ public class NanoVG {
 	 *
 	 * @param ctx           the NanoVG context
 	 * @param string        the text string to measure
-	 * @param end           a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param breakRowWidth the maximum row width
 	 * @param rows          returns the text rows
 	 */
-	public static int nvgTextBreakLines(long ctx, ByteBuffer string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
-		if ( CHECKS ) {
+	public static int nvgTextBreakLines(long ctx, ByteBuffer string, float breakRowWidth, NVGTextRow.Buffer rows) {
+		if ( CHECKS )
 			check(ctx);
-			checkNT1(string);
-		}
-		return nnvgTextBreakLines(ctx, memAddress(string), end, breakRowWidth, rows.address(), rows.remaining());
+		return nnvgTextBreakLines(ctx, memAddress(string), memAddress(string) + string.remaining(), breakRowWidth, rows.address(), rows.remaining());
 	}
 
 	/**
@@ -2330,17 +2327,16 @@ public class NanoVG {
 	 *
 	 * @param ctx           the NanoVG context
 	 * @param string        the text string to measure
-	 * @param end           a pointer to the end of the sub-string to measure, or {@code NULL}
 	 * @param breakRowWidth the maximum row width
 	 * @param rows          returns the text rows
 	 */
-	public static int nvgTextBreakLines(long ctx, CharSequence string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
+	public static int nvgTextBreakLines(long ctx, CharSequence string, float breakRowWidth, NVGTextRow.Buffer rows) {
 		if ( CHECKS )
 			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			return nnvgTextBreakLines(ctx, memAddress(stringEncoded), end, breakRowWidth, rows.address(), rows.remaining());
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			return nnvgTextBreakLines(ctx, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining(), breakRowWidth, rows.address(), rows.remaining());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2484,25 +2480,24 @@ public class NanoVG {
 	public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, float[] bounds);
 
 	/** Array version of: {@link #nvgTextBounds TextBounds} */
-	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, long end, float[] bounds) {
+	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, float[] bounds) {
 		if ( CHECKS ) {
 			check(ctx);
-			checkNT1(string);
 			checkSafe(bounds, 4);
 		}
-		return nnvgTextBounds(ctx, x, y, memAddress(string), end, bounds);
+		return nnvgTextBounds(ctx, x, y, memAddress(string), memAddress(string) + string.remaining(), bounds);
 	}
 
 	/** Array version of: {@link #nvgTextBounds TextBounds} */
-	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, float[] bounds) {
+	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, float[] bounds) {
 		if ( CHECKS ) {
 			check(ctx);
 			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			return nnvgTextBounds(ctx, x, y, memAddress(stringEncoded), end, bounds);
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			return nnvgTextBounds(ctx, x, y, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining(), bounds);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2512,25 +2507,24 @@ public class NanoVG {
 	public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, float[] bounds);
 
 	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
-	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end, float[] bounds) {
+	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, float[] bounds) {
 		if ( CHECKS ) {
 			check(ctx);
-			checkNT1(string);
 			checkSafe(bounds, 4);
 		}
-		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, bounds);
+		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), memAddress(string) + string.remaining(), bounds);
 	}
 
 	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
-	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, float[] bounds) {
+	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, float[] bounds) {
 		if ( CHECKS ) {
 			check(ctx);
 			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(stringEncoded), end, bounds);
+			ByteBuffer stringEncoded = stack.UTF8(string, false);
+			nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(stringEncoded), memAddress(stringEncoded) + stringEncoded.remaining(), bounds);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
