@@ -50,8 +50,7 @@ public class EXTDebugMarker {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer markerEncoded = stack.UTF8(marker, false);
-			int markerEncodedLen = markerEncoded.capacity();
-			nglInsertEventMarkerEXT(markerEncodedLen, memAddress(markerEncoded));
+			nglInsertEventMarkerEXT(markerEncoded.remaining(), memAddress(markerEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -69,8 +68,7 @@ public class EXTDebugMarker {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer markerEncoded = stack.UTF8(marker, false);
-			int markerEncodedLen = markerEncoded.capacity();
-			nglPushGroupMarkerEXT(markerEncodedLen, memAddress(markerEncoded));
+			nglPushGroupMarkerEXT(markerEncoded.remaining(), memAddress(markerEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

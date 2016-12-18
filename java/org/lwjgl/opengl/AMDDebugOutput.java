@@ -223,8 +223,7 @@ public class AMDDebugOutput {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer bufEncoded = stack.UTF8(buf, false);
-			int bufEncodedLen = bufEncoded.capacity();
-			nglDebugMessageInsertAMD(category, severity, id, bufEncodedLen, memAddress(bufEncoded));
+			nglDebugMessageInsertAMD(category, severity, id, bufEncoded.remaining(), memAddress(bufEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

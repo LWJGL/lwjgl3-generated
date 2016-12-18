@@ -266,8 +266,7 @@ public class ARBDebugOutput {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer bufEncoded = stack.UTF8(buf, false);
-			int bufEncodedLen = bufEncoded.capacity();
-			nglDebugMessageInsertARB(source, type, id, severity, bufEncodedLen, memAddress(bufEncoded));
+			nglDebugMessageInsertARB(source, type, id, severity, bufEncoded.remaining(), memAddress(bufEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

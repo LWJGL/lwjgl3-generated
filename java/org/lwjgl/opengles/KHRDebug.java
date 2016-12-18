@@ -315,8 +315,7 @@ public class KHRDebug {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer messageEncoded = stack.UTF8(message, false);
-			int messageEncodedLen = messageEncoded.capacity();
-			nglDebugMessageInsertKHR(source, type, id, severity, messageEncodedLen, memAddress(messageEncoded));
+			nglDebugMessageInsertKHR(source, type, id, severity, messageEncoded.remaining(), memAddress(messageEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -486,8 +485,7 @@ public class KHRDebug {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer messageEncoded = stack.UTF8(message, false);
-			int messageEncodedLen = messageEncoded.capacity();
-			nglPushDebugGroupKHR(source, id, messageEncodedLen, memAddress(messageEncoded));
+			nglPushDebugGroupKHR(source, id, messageEncoded.remaining(), memAddress(messageEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -543,8 +541,7 @@ public class KHRDebug {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			int labelEncodedLen = labelEncoded.capacity();
-			nglObjectLabelKHR(identifier, name, labelEncodedLen, memAddress(labelEncoded));
+			nglObjectLabelKHR(identifier, name, labelEncoded.remaining(), memAddress(labelEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -644,8 +641,7 @@ public class KHRDebug {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			int labelEncodedLen = labelEncoded.capacity();
-			nglObjectPtrLabelKHR(ptr, labelEncodedLen, memAddress(labelEncoded));
+			nglObjectPtrLabelKHR(ptr, labelEncoded.remaining(), memAddress(labelEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

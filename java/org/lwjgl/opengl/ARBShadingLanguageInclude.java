@@ -131,10 +131,8 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
 			ByteBuffer stringEncoded = stack.UTF8(string, false);
-			int stringEncodedLen = stringEncoded.capacity();
-			nglNamedStringARB(type, nameEncodedLen, memAddress(nameEncoded), stringEncodedLen, memAddress(stringEncoded));
+			nglNamedStringARB(type, nameEncoded.remaining(), memAddress(nameEncoded), stringEncoded.remaining(), memAddress(stringEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -167,8 +165,7 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
-			nglDeleteNamedStringARB(nameEncodedLen, memAddress(nameEncoded));
+			nglDeleteNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -225,8 +222,7 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
-			return nglIsNamedStringARB(nameEncodedLen, memAddress(nameEncoded));
+			return nglIsNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -270,8 +266,7 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
-			nglGetNamedStringARB(nameEncodedLen, memAddress(nameEncoded), string.remaining(), memAddressSafe(stringlen), memAddress(string));
+			nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), string.remaining(), memAddressSafe(stringlen), memAddress(string));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -287,10 +282,9 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
 			IntBuffer stringlen = stack.ints(0);
 			ByteBuffer string = stack.malloc(bufSize);
-			nglGetNamedStringARB(nameEncodedLen, memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
+			nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
 			return memUTF8(string, stringlen.get(0));
 		} finally {
 			stack.setPointer(stackPointer);
@@ -307,10 +301,9 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
 			IntBuffer stringlen = stack.ints(0);
 			ByteBuffer string = stack.malloc(bufSize);
-			nglGetNamedStringARB(nameEncodedLen, memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
+			nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
 			return memUTF8(string, stringlen.get(0));
 		} finally {
 			stack.setPointer(stackPointer);
@@ -352,8 +345,7 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
-			nglGetNamedStringivARB(nameEncodedLen, memAddress(nameEncoded), pname, memAddress(params));
+			nglGetNamedStringivARB(nameEncoded.remaining(), memAddress(nameEncoded), pname, memAddress(params));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -369,9 +361,8 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
 			IntBuffer params = stack.callocInt(1);
-			nglGetNamedStringivARB(nameEncodedLen, memAddress(nameEncoded), pname, memAddress(params));
+			nglGetNamedStringivARB(nameEncoded.remaining(), memAddress(nameEncoded), pname, memAddress(params));
 			return params.get(0);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -408,8 +399,7 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
-			callPPPV(__functionAddress, nameEncodedLen, memAddress(nameEncoded), string.remaining(), stringlen, memAddress(string));
+			callPPPV(__functionAddress, nameEncoded.remaining(), memAddress(nameEncoded), string.remaining(), stringlen, memAddress(string));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -435,8 +425,7 @@ public class ARBShadingLanguageInclude {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			int nameEncodedLen = nameEncoded.capacity();
-			callPPV(__functionAddress, nameEncodedLen, memAddress(nameEncoded), pname, params);
+			callPPV(__functionAddress, nameEncoded.remaining(), memAddress(nameEncoded), pname, params);
 		} finally {
 			stack.setPointer(stackPointer);
 		}

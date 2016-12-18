@@ -2367,8 +2367,7 @@ public class Nuklear {
 		try {
 			ByteBuffer titleEncoded = stack.UTF8(title);
 			ByteBuffer hashEncoded = stack.UTF8(hash, false);
-			int hashEncodedLen = hashEncoded.capacity();
-			return nnk_tree_image_push_hashed(ctx.address(), type, img.address(), memAddress(titleEncoded), initial_state, memAddress(hashEncoded), hashEncodedLen, seed) != 0;
+			return nnk_tree_image_push_hashed(ctx.address(), type, img.address(), memAddress(titleEncoded), initial_state, memAddress(hashEncoded), hashEncoded.remaining(), seed) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2513,8 +2512,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			nnk_text(ctx.address(), memAddress(strEncoded), strEncodedLen, alignment);
+			nnk_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), alignment);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2549,8 +2547,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			nnk_text_colored(ctx.address(), memAddress(strEncoded), strEncodedLen, alignment, color.address());
+			nnk_text_colored(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), alignment, color.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2581,8 +2578,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			nnk_text_wrap(ctx.address(), memAddress(strEncoded), strEncodedLen);
+			nnk_text_wrap(ctx.address(), memAddress(strEncoded), strEncoded.remaining());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2615,8 +2611,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			nnk_text_wrap_colored(ctx.address(), memAddress(strEncoded), strEncodedLen, color.address());
+			nnk_text_wrap_colored(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), color.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2846,8 +2841,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer titleEncoded = stack.UTF8(title, false);
-			int titleEncodedLen = titleEncoded.capacity();
-			return nnk_button_text(ctx.address(), memAddress(titleEncoded), titleEncodedLen) != 0;
+			return nnk_button_text(ctx.address(), memAddress(titleEncoded), titleEncoded.remaining()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2997,8 +2991,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_button_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_button_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3070,8 +3063,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_button_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_button_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3403,8 +3395,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_check_text(ctx.address(), memAddress(strEncoded), strEncodedLen, active ? 1 : 0) != 0;
+			return nnk_check_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), active ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3476,8 +3467,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_check_flags_text(ctx.address(), memAddress(strEncoded), strEncodedLen, flags, value);
+			return nnk_check_flags_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), flags, value);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3553,8 +3543,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_checkbox_text(ctx.address(), memAddress(strEncoded), strEncodedLen, memAddress(active)) != 0;
+			return nnk_checkbox_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), memAddress(active)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3634,8 +3623,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_checkbox_flags_text(ctx.address(), memAddress(strEncoded), strEncodedLen, memAddress(flags), value) != 0;
+			return nnk_checkbox_flags_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), memAddress(flags), value) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3711,8 +3699,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_radio_text(ctx.address(), memAddress(strEncoded), strEncodedLen, memAddress(active)) != 0;
+			return nnk_radio_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), memAddress(active)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3780,8 +3767,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_option_text(ctx.address(), memAddress(strEncoded), strEncodedLen, active ? 1 : 0) != 0;
+			return nnk_option_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), active ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3861,8 +3847,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_selectable_text(ctx.address(), memAddress(strEncoded), strEncodedLen, align, memAddress(value)) != 0;
+			return nnk_selectable_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), align, memAddress(value)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3946,8 +3931,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_selectable_image_text(ctx.address(), img.address(), memAddress(strEncoded), strEncodedLen, align, memAddress(value)) != 0;
+			return nnk_selectable_image_text(ctx.address(), img.address(), memAddress(strEncoded), strEncoded.remaining(), align, memAddress(value)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4019,8 +4003,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_select_text(ctx.address(), memAddress(strEncoded), strEncodedLen, align, value ? 1 : 0) != 0;
+			return nnk_select_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), align, value ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4096,8 +4079,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_select_image_text(ctx.address(), img.address(), memAddress(strEncoded), strEncodedLen, align, value ? 1 : 0) != 0;
+			return nnk_select_image_text(ctx.address(), img.address(), memAddress(strEncoded), strEncoded.remaining(), align, value ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5150,8 +5132,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected, false);
-			int selectedEncodedLen = selectedEncoded.capacity();
-			return nnk_combo_begin_text(ctx.address(), memAddress(selectedEncoded), selectedEncodedLen, size.address()) != 0;
+			return nnk_combo_begin_text(ctx.address(), memAddress(selectedEncoded), selectedEncoded.remaining(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5290,8 +5271,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected, false);
-			int selectedEncodedLen = selectedEncoded.capacity();
-			return nnk_combo_begin_symbol_text(ctx.address(), memAddress(selectedEncoded), selectedEncodedLen, symbol, size.address()) != 0;
+			return nnk_combo_begin_symbol_text(ctx.address(), memAddress(selectedEncoded), selectedEncoded.remaining(), symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5379,8 +5359,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected, false);
-			int selectedEncodedLen = selectedEncoded.capacity();
-			return nnk_combo_begin_image_text(ctx.address(), memAddress(selectedEncoded), selectedEncodedLen, img.address(), size.address()) != 0;
+			return nnk_combo_begin_image_text(ctx.address(), memAddress(selectedEncoded), selectedEncoded.remaining(), img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5448,8 +5427,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_combo_item_text(ctx.address(), memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_combo_item_text(ctx.address(), memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5521,8 +5499,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_combo_item_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_combo_item_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5594,8 +5571,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_combo_item_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_combo_item_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5673,8 +5649,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_contextual_item_text(ctx.address(), memAddress(textEncoded), textEncodedLen, align) != 0;
+			return nnk_contextual_item_text(ctx.address(), memAddress(textEncoded), textEncoded.remaining(), align) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5781,8 +5756,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_contextual_item_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_contextual_item_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5854,8 +5828,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_contextual_item_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_contextual_item_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6008,8 +5981,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_begin_text(ctx.address(), memAddress(textEncoded), textEncodedLen, align, size.address()) != 0;
+			return nnk_menu_begin_text(ctx.address(), memAddress(textEncoded), textEncoded.remaining(), align, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6120,8 +6092,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_begin_image_text(ctx.address(), memAddress(textEncoded), textEncodedLen, align, img.address(), size.address()) != 0;
+			return nnk_menu_begin_image_text(ctx.address(), memAddress(textEncoded), textEncoded.remaining(), align, img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6234,8 +6205,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_begin_symbol_text(ctx.address(), memAddress(textEncoded), textEncodedLen, align, symbol, size.address()) != 0;
+			return nnk_menu_begin_symbol_text(ctx.address(), memAddress(textEncoded), textEncoded.remaining(), align, symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6307,8 +6277,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_item_text(ctx.address(), memAddress(textEncoded), textEncodedLen, align) != 0;
+			return nnk_menu_item_text(ctx.address(), memAddress(textEncoded), textEncoded.remaining(), align) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6415,8 +6384,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_item_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_menu_item_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6451,8 +6419,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_item_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncodedLen, alignment) != 0;
+			return nnk_menu_item_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncoded.remaining(), alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -8105,9 +8072,8 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer txtEncoded = stack.UTF8(txt, false);
-			int txtEncodedLen = txtEncoded.capacity();
 			ByteBuffer patternEncoded = stack.UTF8(pattern);
-			return nnk_strmatch_fuzzy_text(memAddress(txtEncoded), txtEncodedLen, memAddress(patternEncoded), memAddress(out_score));
+			return nnk_strmatch_fuzzy_text(memAddress(txtEncoded), txtEncoded.remaining(), memAddress(patternEncoded), memAddress(out_score));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -8641,8 +8607,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			nnk_textedit_text(box.address(), memAddress(textEncoded), textEncodedLen);
+			nnk_textedit_text(box.address(), memAddress(textEncoded), textEncoded.remaining());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -8692,8 +8657,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer ctextEncoded = stack.UTF8(ctext, false);
-			int ctextEncodedLen = ctextEncoded.capacity();
-			return nnk_textedit_paste(box.address(), memAddress(ctextEncoded), ctextEncodedLen) != 0;
+			return nnk_textedit_paste(box.address(), memAddress(ctextEncoded), ctextEncoded.remaining()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -8855,8 +8819,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string, false);
-			int stringEncodedLen = stringEncoded.capacity();
-			nnk_draw_text(b.address(), rect.address(), memAddress(stringEncoded), stringEncodedLen, font.address(), bg.address(), fg.address());
+			nnk_draw_text(b.address(), rect.address(), memAddress(stringEncoded), stringEncoded.remaining(), font.address(), bg.address(), fg.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -9399,8 +9362,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
-			int textEncodedLen = textEncoded.capacity();
-			nnk_draw_list_add_text(list.address(), font.address(), rect.address(), memAddress(textEncoded), textEncodedLen, font_height, color.address());
+			nnk_draw_list_add_text(list.address(), font.address(), rect.address(), memAddress(textEncoded), textEncoded.remaining(), font_height, color.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -9541,8 +9503,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_checkbox_text(ctx.address(), memAddress(strEncoded), strEncodedLen, active) != 0;
+			return nnk_checkbox_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), active) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -9590,8 +9551,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_checkbox_flags_text(ctx.address(), memAddress(strEncoded), strEncodedLen, flags, value) != 0;
+			return nnk_checkbox_flags_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), flags, value) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -9639,8 +9599,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_radio_text(ctx.address(), memAddress(strEncoded), strEncodedLen, active) != 0;
+			return nnk_radio_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), active) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -9688,8 +9647,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_selectable_text(ctx.address(), memAddress(strEncoded), strEncodedLen, align, value) != 0;
+			return nnk_selectable_text(ctx.address(), memAddress(strEncoded), strEncoded.remaining(), align, value) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -9737,8 +9695,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
-			int strEncodedLen = strEncoded.capacity();
-			return nnk_selectable_image_text(ctx.address(), img.address(), memAddress(strEncoded), strEncodedLen, align, value) != 0;
+			return nnk_selectable_image_text(ctx.address(), img.address(), memAddress(strEncoded), strEncoded.remaining(), align, value) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -10286,9 +10243,8 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer txtEncoded = stack.UTF8(txt, false);
-			int txtEncodedLen = txtEncoded.capacity();
 			ByteBuffer patternEncoded = stack.UTF8(pattern);
-			return nnk_strmatch_fuzzy_text(memAddress(txtEncoded), txtEncodedLen, memAddress(patternEncoded), out_score);
+			return nnk_strmatch_fuzzy_text(memAddress(txtEncoded), txtEncoded.remaining(), memAddress(patternEncoded), out_score);
 		} finally {
 			stack.setPointer(stackPointer);
 		}

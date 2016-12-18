@@ -843,8 +843,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer messageEncoded = stack.UTF8(message, false);
-			int messageEncodedLen = messageEncoded.capacity();
-			nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, memAddress(messageEncoded));
+			nglDebugMessageInsert(source, type, id, severity, messageEncoded.remaining(), memAddress(messageEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1000,8 +999,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer messageEncoded = stack.UTF8(message, false);
-			int messageEncodedLen = messageEncoded.capacity();
-			nglPushDebugGroup(source, id, messageEncodedLen, memAddress(messageEncoded));
+			nglPushDebugGroup(source, id, messageEncoded.remaining(), memAddress(messageEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1062,8 +1060,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			int labelEncodedLen = labelEncoded.capacity();
-			nglObjectLabel(identifier, name, labelEncodedLen, memAddress(labelEncoded));
+			nglObjectLabel(identifier, name, labelEncoded.remaining(), memAddress(labelEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1173,8 +1170,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			int labelEncodedLen = labelEncoded.capacity();
-			nglObjectPtrLabel(ptr, labelEncodedLen, memAddress(labelEncoded));
+			nglObjectPtrLabel(ptr, labelEncoded.remaining(), memAddress(labelEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
