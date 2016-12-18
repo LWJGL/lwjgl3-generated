@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code bufferOffset} <b>must</b> be a multiple of the calling command&#8217;s {@code VkImage} parameter&#8217;s format&#8217;s element size</li>
+ * <li>If the the calling command&#8217;s {@code VkImage} parameter&#8217;s format is not a depth/stencil format, then {@code bufferOffset} <b>must</b> be a multiple of the format&#8217;s element size</li>
  * <li>{@code bufferOffset} <b>must</b> be a multiple of 4</li>
  * <li>{@code bufferRowLength} <b>must</b> be 0, or greater than or equal to the {@code width} member of {@code imageExtent}</li>
  * <li>{@code bufferImageHeight} <b>must</b> be 0, or greater than or equal to the {@code height} member of {@code imageExtent}</li>

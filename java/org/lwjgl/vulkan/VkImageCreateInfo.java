@@ -19,8 +19,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>Valid limits for the image {@code extent}, {@code mipLevels}, {@code arrayLayers} and {@code samples} members are queried with the {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} command.</p>
- * 
  * <p>Images created with {@code tiling} equal to {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} have further restrictions on their limits and capabilities compared to images created with {@code tiling} equal to {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}. Creation of images with tiling {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} <b>may</b> not be supported unless other parameters meet all of the constraints:</p>
  * 
  * <ul>
@@ -32,11 +30,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code usage} only includes {@link VK10#VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} and/or {@link VK10#VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT}</li>
  * </ul>
  * 
- * <p>Implementations <b>may</b> support additional limits and capabilities beyond those listed above. To determine the specific capabilities of an implementation, query the valid {@code usage} bits by calling {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} and the valid limits for {@code mipLevels} and {@code arrayLayers} by calling {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}.</p>
+ * <p>Implementations <b>may</b> support additional limits and capabilities beyond those listed above.</p>
+ * 
+ * <p>To query an implementation's specific capabilities for a given combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags}, call {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}. The return value indicates whether that combination of image settings is supported. On success, the {@link VkImageFormatProperties} output parameter indicates the set of valid {@code samples} bits and the limits for {@code extent}, {@code mipLevels}, and {@code arrayLayers}.</p>
+ * 
+ * <p>To determine the set of valid {@code usage} bits for a given format, call {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>The combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} <b>must</b> be supported, as indicated by a VK_SUCCESS return value from {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} invoked with the same values passed to the corresponding parameters.</li>
  * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code pQueueFamilyIndices} <b>must</b> be a pointer to an array of {@code queueFamilyIndexCount} {@code uint32_t} values</li>
  * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code queueFamilyIndexCount} <b>must</b> be greater than 1</li>
  * <li>{@code format} <b>must</b> not be {@link VK10#VK_FORMAT_UNDEFINED FORMAT_UNDEFINED}</li>

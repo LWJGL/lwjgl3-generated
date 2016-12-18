@@ -59,6 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code subresourceRange} <b>must</b> be a valid image subresource range for {@code image} (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">the “Image Views” section</a>)</li>
  * <li>If {@code image} was created with the {@link VK10#VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} flag, {@code format} <b>must</b> be compatible with the {@code format} used to create {@code image}, as defined in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatibility-classes">Format Compatibility Classes</a></li>
  * <li>If {@code image} was not created with the {@link VK10#VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} flag, {@code format} <b>must</b> be identical to the {@code format} used to create {@code image}</li>
+ * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
  * <li>{@code subResourceRange} and {@code viewType} <b>must</b> be compatible with the image, as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views-compatibility">compatibility table</a></li>
  * </ul>
  * 
