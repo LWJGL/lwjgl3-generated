@@ -624,6 +624,20 @@ Description
 	public final boolean cl_intel_simultaneous_sharing;
 	/** When true, {@link INTELSubgroups} is supported. */
 	public final boolean cl_intel_subgroups;
+	/**
+	 * The goal of this extension is to allow programmers to improve the performance of applications operating on 16-bit data types by extending the subgroup
+	 * functions described in the {@link INTELSubgroups intel_subgroups} extension to support 16-bit integer data types (shorts and ushorts). Specifically, the extension:
+	 * 
+	 * <ul>
+	 * <li>Extends the subgroup broadcast function to allow 16-bit integer values to be broadcast from one work item to all other work items in the subgroup.</li>
+	 * <li>Extends the subgroup scan and reduction functions to operate on 16-bit integer data types.</li>
+	 * <li>Extends the Intel subgroup shuffle functions to allow arbitrarily exchanging 16-bit integer values among work items in the subgroup.</li>
+	 * <li>Extends the Intel subgroup block read and write functions to allow reading and writing 16-bit integer data from images and buffers.</li>
+	 * </ul>
+	 * 
+	 * <p>Requires {@link CL12 OpenCL 1.2} and {@link INTELSubgroups intel_subgroups}</p>
+	 */
+	public final boolean cl_intel_subgroups_short;
 	/** When true, {@link INTELThreadLocalExec} is supported. */
 	public final boolean cl_intel_thread_local_exec;
 	/** When true, {@link INTELVAAPIMediaSharing} is supported. */
@@ -1329,6 +1343,7 @@ Description
 		cl_intel_required_subgroup_size = ext.contains("cl_intel_required_subgroup_size");
 		cl_intel_simultaneous_sharing = ext.contains("cl_intel_simultaneous_sharing");
 		cl_intel_subgroups = ext.contains("cl_intel_subgroups") && CL.checkExtension("cl_intel_subgroups", INTELSubgroups.isAvailable(this));
+		cl_intel_subgroups_short = ext.contains("cl_intel_subgroups_short");
 		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");
 		cl_intel_va_api_media_sharing = ext.contains("cl_intel_va_api_media_sharing") && CL.checkExtension("cl_intel_va_api_media_sharing", INTELVAAPIMediaSharing.isAvailable(this));
 		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");

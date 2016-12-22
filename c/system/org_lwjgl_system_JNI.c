@@ -1438,6 +1438,25 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_system_JNI_callPPI__JJII_3I(jlong 
 	UNUSED_PARAM(length3)
 	return Java_org_lwjgl_system_JNI_callPPI__JJIIJ(NULL, NULL, __functionAddress, param0, param1, param2, (intptr_t)param3);
 }
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_JNI_callPPPPI__JJII_3J_3I_3I(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong param0, jint param1, jint param2, jlongArray param3, jintArray param4, jintArray param5) {
+	UNUSED_PARAMS(__env, clazz)
+	void *paramArray3 = param3 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param3, 0);
+	void *paramArray4 = param4 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param4, 0);
+	void *paramArray5 = param5 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param5, 0);
+	jint __result = Java_org_lwjgl_system_JNI_callPPPPI__JJIIJJJ(NULL, NULL, __functionAddress, param0, param1, param2, (intptr_t)paramArray3, (intptr_t)paramArray4, (intptr_t)paramArray5);
+	if ( param5 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, param5, paramArray5, 0);
+	if ( param4 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, param4, paramArray4, 0);
+	if ( param3 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, param3, paramArray3, 0);
+	return __result;
+}
+#ifdef LWJGL_WINDOWS
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_system_JNI_callPPPPI__JJII_3J_3I_3I(jlong __functionAddress, jlong param0, jint param1, jint param2, jint length3, jlong* param3, jint length4, jint* param4, jint length5, jint* param5) {
+	UNUSED_PARAM(length3)
+	UNUSED_PARAM(length4)
+	UNUSED_PARAM(length5)
+	return Java_org_lwjgl_system_JNI_callPPPPI__JJIIJJJ(NULL, NULL, __functionAddress, param0, param1, param2, (intptr_t)param3, (intptr_t)param4, (intptr_t)param5);
+}
+#endif
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_JNI_callPPPPI__JJIJIIJ_3I(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong param0, jint param1, jlong param2, jint param3, jint param4, jlong param5, jintArray param6) {
 	UNUSED_PARAMS(__env, clazz)
 	void *paramArray6 = param6 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param6, 0);

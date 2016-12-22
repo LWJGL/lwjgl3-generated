@@ -33,6 +33,7 @@ public class EGLCapabilities {
 		eglCreatePlatformPixmapSurfaceEXT,
 		eglCreatePlatformWindowSurface,
 		eglCreatePlatformWindowSurfaceEXT,
+		eglCreateStreamAttribKHR,
 		eglCreateStreamFromFileDescriptorKHR,
 		eglCreateStreamKHR,
 		eglCreateStreamProducerSurfaceKHR,
@@ -89,6 +90,8 @@ public class EGLCapabilities {
 		eglQueryDevicesEXT,
 		eglQueryDisplayAttribEXT,
 		eglQueryDisplayAttribNV,
+		eglQueryDmaBufFormatsEXT,
+		eglQueryDmaBufModifiersEXT,
 		eglQueryNativeDisplayNV,
 		eglQueryNativePixmapNV,
 		eglQueryNativeWindowNV,
@@ -96,6 +99,7 @@ public class EGLCapabilities {
 		eglQueryOutputLayerStringEXT,
 		eglQueryOutputPortAttribEXT,
 		eglQueryOutputPortStringEXT,
+		eglQueryStreamAttribKHR,
 		eglQueryStreamKHR,
 		eglQueryStreamMetadataNV,
 		eglQueryStreamTimeKHR,
@@ -106,16 +110,20 @@ public class EGLCapabilities {
 		eglQuerySurfacePointerANGLE,
 		eglReleaseTexImage,
 		eglReleaseThread,
+		eglResetStreamNV,
 		eglSetBlobCacheFuncsANDROID,
 		eglSetDamageRegionKHR,
+		eglSetStreamAttribKHR,
 		eglSetStreamMetadataNV,
 		eglSignalSyncKHR,
 		eglSignalSyncNV,
 		eglStreamAttribKHR,
+		eglStreamConsumerAcquireAttribKHR,
 		eglStreamConsumerAcquireKHR,
 		eglStreamConsumerGLTextureExternalAttribsNV,
 		eglStreamConsumerGLTextureExternalKHR,
 		eglStreamConsumerOutputEXT,
+		eglStreamConsumerReleaseAttribKHR,
 		eglStreamConsumerReleaseKHR,
 		eglSurfaceAttrib,
 		eglSwapBuffers,
@@ -211,8 +219,16 @@ public class EGLCapabilities {
 	public final boolean EGL_EXT_device_openwf;
 	/** When true, {@link EXTDeviceQuery} is supported. */
 	public final boolean EGL_EXT_device_query;
+	/** When true, {@link EXTGLColorspaceBT2020Linear} is supported. */
+	public final boolean EGL_EXT_gl_colorspace_bt2020_linear;
+	/** When true, {@link EXTGLColorspaceBT2020PQ} is supported. */
+	public final boolean EGL_EXT_gl_colorspace_bt2020_pq;
+	/** When true, {@link EXTGLColorspaceSCRGBLinear} is supported. */
+	public final boolean EGL_EXT_gl_colorspace_scrgb_linear;
 	/** When true, {@link EXTImageDMABufImport} is supported. */
 	public final boolean EGL_EXT_image_dma_buf_import;
+	/** When true, {@link EXTImageDMABufImportModifiers} is supported. */
+	public final boolean EGL_EXT_image_dma_buf_import_modifiers;
 	/** When true, {@link EXTMultiviewWindow} is supported. */
 	public final boolean EGL_EXT_multiview_window;
 	/** When true, {@link EXTOutputBase} is supported. */
@@ -221,6 +237,8 @@ public class EGLCapabilities {
 	public final boolean EGL_EXT_output_drm;
 	/** When true, {@link EXTOutputOpenWF} is supported. */
 	public final boolean EGL_EXT_output_openwf;
+	/** When true, {@link EXTPixelFormatFloat} is supported. */
+	public final boolean EGL_EXT_pixel_format_float;
 	/** When true, {@link EXTPlatformBase} is supported. */
 	public final boolean EGL_EXT_platform_base;
 	/** When true, {@link EXTPlatformDevice} is supported. */
@@ -235,6 +253,8 @@ public class EGLCapabilities {
 	public final boolean EGL_EXT_protected_surface;
 	/** When true, {@link EXTStreamConsumerEGLOutput} is supported. */
 	public final boolean EGL_EXT_stream_consumer_egloutput;
+	/** When true, {@link EXTSurfaceSMPTE2086Metadata} is supported. */
+	public final boolean EGL_EXT_surface_SMPTE2086_metadata;
 	/** When true, {@link EXTSwapBuffersWithDamage} is supported. */
 	public final boolean EGL_EXT_swap_buffers_with_damage;
 	/** When true, {@link EXTYUVSurface} is supported. */
@@ -345,6 +365,8 @@ public class EGLCapabilities {
 	public final boolean EGL_KHR_reusable_sync;
 	/** When true, {@link KHRStream} is supported. */
 	public final boolean EGL_KHR_stream;
+	/** When true, {@link KHRStreamAttrib} is supported. */
+	public final boolean EGL_KHR_stream_attrib;
 	/** When true, {@link KHRStreamConsumerGLTexture} is supported. */
 	public final boolean EGL_KHR_stream_consumer_gltexture;
 	/** When true, {@link KHRStreamCrossProcessFD} is supported. */
@@ -423,8 +445,34 @@ public class EGLCapabilities {
 	public final boolean EGL_NV_robustness_video_memory_purge;
 	/** When true, {@link NVStreamConsumerGLTextureYUV} is supported. */
 	public final boolean EGL_NV_stream_consumer_gltexture_yuv;
+	/** See {@link NVStreamRemote NV_stream_remote}. */
+	public final boolean EGL_NV_stream_cross_display;
+	/** See {@link NVStreamRemote NV_stream_remote}. */
+	public final boolean EGL_NV_stream_cross_object;
+	/** See {@link NVStreamRemote NV_stream_remote}. */
+	public final boolean EGL_NV_stream_cross_partition;
+	/** See {@link NVStreamRemote NV_stream_remote}. */
+	public final boolean EGL_NV_stream_cross_process;
+	/** See {@link NVStreamRemote NV_stream_remote}. */
+	public final boolean EGL_NV_stream_cross_system;
+	/** When true, {@link NVStreamFIFONext} is supported. */
+	public final boolean EGL_NV_stream_fifo_next;
+	/** When true, {@link NVStreamFIFOSynchronous} is supported. */
+	public final boolean EGL_NV_stream_fifo_synchronous;
+	/** When true, {@link NVStreamFrameLimits} is supported. */
+	public final boolean EGL_NV_stream_frame_limits;
 	/** When true, {@link NVStreamMetadata} is supported. */
 	public final boolean EGL_NV_stream_metadata;
+	/** When true, {@link NVStreamRemote} is supported. */
+	public final boolean EGL_NV_stream_remote;
+	/** When true, {@link NVStreamReset} is supported. */
+	public final boolean EGL_NV_stream_reset;
+	/** When true, {@link NVStreamSocket} is supported. */
+	public final boolean EGL_NV_stream_socket;
+	/** When true, {@link NVStreamSocketINet} is supported. */
+	public final boolean EGL_NV_stream_socket_inet;
+	/** When true, {@link NVStreamSocketUnix} is supported. */
+	public final boolean EGL_NV_stream_socket_unix;
 	/** When true, {@link NVStreamSync} is supported. */
 	public final boolean EGL_NV_stream_sync;
 	/** When true, {@link NVSync} is supported. */
@@ -459,6 +507,7 @@ public class EGLCapabilities {
 			provider.getFunctionAddress("eglCreatePlatformPixmapSurfaceEXT"),
 			provider.getFunctionAddress("eglCreatePlatformWindowSurface"),
 			provider.getFunctionAddress("eglCreatePlatformWindowSurfaceEXT"),
+			provider.getFunctionAddress("eglCreateStreamAttribKHR"),
 			provider.getFunctionAddress("eglCreateStreamFromFileDescriptorKHR"),
 			provider.getFunctionAddress("eglCreateStreamKHR"),
 			provider.getFunctionAddress("eglCreateStreamProducerSurfaceKHR"),
@@ -515,6 +564,8 @@ public class EGLCapabilities {
 			provider.getFunctionAddress("eglQueryDevicesEXT"),
 			provider.getFunctionAddress("eglQueryDisplayAttribEXT"),
 			provider.getFunctionAddress("eglQueryDisplayAttribNV"),
+			provider.getFunctionAddress("eglQueryDmaBufFormatsEXT"),
+			provider.getFunctionAddress("eglQueryDmaBufModifiersEXT"),
 			provider.getFunctionAddress("eglQueryNativeDisplayNV"),
 			provider.getFunctionAddress("eglQueryNativePixmapNV"),
 			provider.getFunctionAddress("eglQueryNativeWindowNV"),
@@ -522,6 +573,7 @@ public class EGLCapabilities {
 			provider.getFunctionAddress("eglQueryOutputLayerStringEXT"),
 			provider.getFunctionAddress("eglQueryOutputPortAttribEXT"),
 			provider.getFunctionAddress("eglQueryOutputPortStringEXT"),
+			provider.getFunctionAddress("eglQueryStreamAttribKHR"),
 			provider.getFunctionAddress("eglQueryStreamKHR"),
 			provider.getFunctionAddress("eglQueryStreamMetadataNV"),
 			provider.getFunctionAddress("eglQueryStreamTimeKHR"),
@@ -532,16 +584,20 @@ public class EGLCapabilities {
 			provider.getFunctionAddress("eglQuerySurfacePointerANGLE"),
 			provider.getFunctionAddress("eglReleaseTexImage"),
 			provider.getFunctionAddress("eglReleaseThread"),
+			provider.getFunctionAddress("eglResetStreamNV"),
 			provider.getFunctionAddress("eglSetBlobCacheFuncsANDROID"),
 			provider.getFunctionAddress("eglSetDamageRegionKHR"),
+			provider.getFunctionAddress("eglSetStreamAttribKHR"),
 			provider.getFunctionAddress("eglSetStreamMetadataNV"),
 			provider.getFunctionAddress("eglSignalSyncKHR"),
 			provider.getFunctionAddress("eglSignalSyncNV"),
 			provider.getFunctionAddress("eglStreamAttribKHR"),
+			provider.getFunctionAddress("eglStreamConsumerAcquireAttribKHR"),
 			provider.getFunctionAddress("eglStreamConsumerAcquireKHR"),
 			provider.getFunctionAddress("eglStreamConsumerGLTextureExternalAttribsNV"),
 			provider.getFunctionAddress("eglStreamConsumerGLTextureExternalKHR"),
 			provider.getFunctionAddress("eglStreamConsumerOutputEXT"),
+			provider.getFunctionAddress("eglStreamConsumerReleaseAttribKHR"),
 			provider.getFunctionAddress("eglStreamConsumerReleaseKHR"),
 			provider.getFunctionAddress("eglSurfaceAttrib"),
 			provider.getFunctionAddress("eglSwapBuffers"),
@@ -582,6 +638,7 @@ public class EGLCapabilities {
 			caps.eglCreatePlatformPixmapSurfaceEXT,
 			caps.eglCreatePlatformWindowSurface,
 			caps.eglCreatePlatformWindowSurfaceEXT,
+			caps.eglCreateStreamAttribKHR,
 			caps.eglCreateStreamFromFileDescriptorKHR,
 			caps.eglCreateStreamKHR,
 			caps.eglCreateStreamProducerSurfaceKHR,
@@ -638,6 +695,8 @@ public class EGLCapabilities {
 			caps.eglQueryDevicesEXT,
 			caps.eglQueryDisplayAttribEXT,
 			caps.eglQueryDisplayAttribNV,
+			caps.eglQueryDmaBufFormatsEXT,
+			caps.eglQueryDmaBufModifiersEXT,
 			caps.eglQueryNativeDisplayNV,
 			caps.eglQueryNativePixmapNV,
 			caps.eglQueryNativeWindowNV,
@@ -645,6 +704,7 @@ public class EGLCapabilities {
 			caps.eglQueryOutputLayerStringEXT,
 			caps.eglQueryOutputPortAttribEXT,
 			caps.eglQueryOutputPortStringEXT,
+			caps.eglQueryStreamAttribKHR,
 			caps.eglQueryStreamKHR,
 			caps.eglQueryStreamMetadataNV,
 			caps.eglQueryStreamTimeKHR,
@@ -655,16 +715,20 @@ public class EGLCapabilities {
 			caps.eglQuerySurfacePointerANGLE,
 			caps.eglReleaseTexImage,
 			caps.eglReleaseThread,
+			caps.eglResetStreamNV,
 			caps.eglSetBlobCacheFuncsANDROID,
 			caps.eglSetDamageRegionKHR,
+			caps.eglSetStreamAttribKHR,
 			caps.eglSetStreamMetadataNV,
 			caps.eglSignalSyncKHR,
 			caps.eglSignalSyncNV,
 			caps.eglStreamAttribKHR,
+			caps.eglStreamConsumerAcquireAttribKHR,
 			caps.eglStreamConsumerAcquireKHR,
 			caps.eglStreamConsumerGLTextureExternalAttribsNV,
 			caps.eglStreamConsumerGLTextureExternalKHR,
 			caps.eglStreamConsumerOutputEXT,
+			caps.eglStreamConsumerReleaseAttribKHR,
 			caps.eglStreamConsumerReleaseKHR,
 			caps.eglSurfaceAttrib,
 			caps.eglSwapBuffers,
@@ -704,103 +768,111 @@ public class EGLCapabilities {
 		eglCreatePlatformPixmapSurfaceEXT = functions[18];
 		eglCreatePlatformWindowSurface = functions[19];
 		eglCreatePlatformWindowSurfaceEXT = functions[20];
-		eglCreateStreamFromFileDescriptorKHR = functions[21];
-		eglCreateStreamKHR = functions[22];
-		eglCreateStreamProducerSurfaceKHR = functions[23];
-		eglCreateStreamSyncNV = functions[24];
-		eglCreateSync = functions[25];
-		eglCreateSync64KHR = functions[26];
-		eglCreateSyncKHR = functions[27];
-		eglCreateWindowSurface = functions[28];
-		eglDebugMessageControlKHR = functions[29];
-		eglDestroyContext = functions[30];
-		eglDestroyImage = functions[31];
-		eglDestroyImageKHR = functions[32];
-		eglDestroyStreamKHR = functions[33];
-		eglDestroySurface = functions[34];
-		eglDestroySync = functions[35];
-		eglDestroySyncKHR = functions[36];
-		eglDestroySyncNV = functions[37];
-		eglDupNativeFenceFDANDROID = functions[38];
-		eglExportDMABUFImageMESA = functions[39];
-		eglExportDMABUFImageQueryMESA = functions[40];
-		eglExportDRMImageMESA = functions[41];
-		eglFenceNV = functions[42];
-		eglGetConfigAttrib = functions[43];
-		eglGetConfigs = functions[44];
-		eglGetCurrentContext = functions[45];
-		eglGetCurrentDisplay = functions[46];
-		eglGetCurrentSurface = functions[47];
-		eglGetDisplay = functions[48];
-		eglGetError = functions[49];
-		eglGetOutputLayersEXT = functions[50];
-		eglGetOutputPortsEXT = functions[51];
-		eglGetPlatformDisplay = functions[52];
-		eglGetPlatformDisplayEXT = functions[53];
-		eglGetProcAddress = functions[54];
-		eglGetStreamFileDescriptorKHR = functions[55];
-		eglGetSyncAttrib = functions[56];
-		eglGetSyncAttribKHR = functions[57];
-		eglGetSyncAttribNV = functions[58];
-		eglGetSystemTimeFrequencyNV = functions[59];
-		eglGetSystemTimeNV = functions[60];
-		eglInitialize = functions[61];
-		eglLabelObjectKHR = functions[62];
-		eglLockSurfaceKHR = functions[63];
-		eglMakeCurrent = functions[64];
-		eglOutputLayerAttribEXT = functions[65];
-		eglOutputPortAttribEXT = functions[66];
-		eglPostSubBufferNV = functions[67];
-		eglPresentationTimeANDROID = functions[68];
-		eglQueryAPI = functions[69];
-		eglQueryContext = functions[70];
-		eglQueryDebugKHR = functions[71];
-		eglQueryDeviceAttribEXT = functions[72];
-		eglQueryDeviceStringEXT = functions[73];
-		eglQueryDevicesEXT = functions[74];
-		eglQueryDisplayAttribEXT = functions[75];
-		eglQueryDisplayAttribNV = functions[76];
-		eglQueryNativeDisplayNV = functions[77];
-		eglQueryNativePixmapNV = functions[78];
-		eglQueryNativeWindowNV = functions[79];
-		eglQueryOutputLayerAttribEXT = functions[80];
-		eglQueryOutputLayerStringEXT = functions[81];
-		eglQueryOutputPortAttribEXT = functions[82];
-		eglQueryOutputPortStringEXT = functions[83];
-		eglQueryStreamKHR = functions[84];
-		eglQueryStreamMetadataNV = functions[85];
-		eglQueryStreamTimeKHR = functions[86];
-		eglQueryStreamu64KHR = functions[87];
-		eglQueryString = functions[88];
-		eglQuerySurface = functions[89];
-		eglQuerySurface64KHR = functions[90];
-		eglQuerySurfacePointerANGLE = functions[91];
-		eglReleaseTexImage = functions[92];
-		eglReleaseThread = functions[93];
-		eglSetBlobCacheFuncsANDROID = functions[94];
-		eglSetDamageRegionKHR = functions[95];
-		eglSetStreamMetadataNV = functions[96];
-		eglSignalSyncKHR = functions[97];
-		eglSignalSyncNV = functions[98];
-		eglStreamAttribKHR = functions[99];
-		eglStreamConsumerAcquireKHR = functions[100];
-		eglStreamConsumerGLTextureExternalAttribsNV = functions[101];
-		eglStreamConsumerGLTextureExternalKHR = functions[102];
-		eglStreamConsumerOutputEXT = functions[103];
-		eglStreamConsumerReleaseKHR = functions[104];
-		eglSurfaceAttrib = functions[105];
-		eglSwapBuffers = functions[106];
-		eglSwapBuffersRegion2NOK = functions[107];
-		eglSwapBuffersWithDamageEXT = functions[108];
-		eglSwapBuffersWithDamageKHR = functions[109];
-		eglSwapInterval = functions[110];
-		eglTerminate = functions[111];
-		eglUnlockSurfaceKHR = functions[112];
-		eglWaitClient = functions[113];
-		eglWaitGL = functions[114];
-		eglWaitNative = functions[115];
-		eglWaitSync = functions[116];
-		eglWaitSyncKHR = functions[117];
+		eglCreateStreamAttribKHR = functions[21];
+		eglCreateStreamFromFileDescriptorKHR = functions[22];
+		eglCreateStreamKHR = functions[23];
+		eglCreateStreamProducerSurfaceKHR = functions[24];
+		eglCreateStreamSyncNV = functions[25];
+		eglCreateSync = functions[26];
+		eglCreateSync64KHR = functions[27];
+		eglCreateSyncKHR = functions[28];
+		eglCreateWindowSurface = functions[29];
+		eglDebugMessageControlKHR = functions[30];
+		eglDestroyContext = functions[31];
+		eglDestroyImage = functions[32];
+		eglDestroyImageKHR = functions[33];
+		eglDestroyStreamKHR = functions[34];
+		eglDestroySurface = functions[35];
+		eglDestroySync = functions[36];
+		eglDestroySyncKHR = functions[37];
+		eglDestroySyncNV = functions[38];
+		eglDupNativeFenceFDANDROID = functions[39];
+		eglExportDMABUFImageMESA = functions[40];
+		eglExportDMABUFImageQueryMESA = functions[41];
+		eglExportDRMImageMESA = functions[42];
+		eglFenceNV = functions[43];
+		eglGetConfigAttrib = functions[44];
+		eglGetConfigs = functions[45];
+		eglGetCurrentContext = functions[46];
+		eglGetCurrentDisplay = functions[47];
+		eglGetCurrentSurface = functions[48];
+		eglGetDisplay = functions[49];
+		eglGetError = functions[50];
+		eglGetOutputLayersEXT = functions[51];
+		eglGetOutputPortsEXT = functions[52];
+		eglGetPlatformDisplay = functions[53];
+		eglGetPlatformDisplayEXT = functions[54];
+		eglGetProcAddress = functions[55];
+		eglGetStreamFileDescriptorKHR = functions[56];
+		eglGetSyncAttrib = functions[57];
+		eglGetSyncAttribKHR = functions[58];
+		eglGetSyncAttribNV = functions[59];
+		eglGetSystemTimeFrequencyNV = functions[60];
+		eglGetSystemTimeNV = functions[61];
+		eglInitialize = functions[62];
+		eglLabelObjectKHR = functions[63];
+		eglLockSurfaceKHR = functions[64];
+		eglMakeCurrent = functions[65];
+		eglOutputLayerAttribEXT = functions[66];
+		eglOutputPortAttribEXT = functions[67];
+		eglPostSubBufferNV = functions[68];
+		eglPresentationTimeANDROID = functions[69];
+		eglQueryAPI = functions[70];
+		eglQueryContext = functions[71];
+		eglQueryDebugKHR = functions[72];
+		eglQueryDeviceAttribEXT = functions[73];
+		eglQueryDeviceStringEXT = functions[74];
+		eglQueryDevicesEXT = functions[75];
+		eglQueryDisplayAttribEXT = functions[76];
+		eglQueryDisplayAttribNV = functions[77];
+		eglQueryDmaBufFormatsEXT = functions[78];
+		eglQueryDmaBufModifiersEXT = functions[79];
+		eglQueryNativeDisplayNV = functions[80];
+		eglQueryNativePixmapNV = functions[81];
+		eglQueryNativeWindowNV = functions[82];
+		eglQueryOutputLayerAttribEXT = functions[83];
+		eglQueryOutputLayerStringEXT = functions[84];
+		eglQueryOutputPortAttribEXT = functions[85];
+		eglQueryOutputPortStringEXT = functions[86];
+		eglQueryStreamAttribKHR = functions[87];
+		eglQueryStreamKHR = functions[88];
+		eglQueryStreamMetadataNV = functions[89];
+		eglQueryStreamTimeKHR = functions[90];
+		eglQueryStreamu64KHR = functions[91];
+		eglQueryString = functions[92];
+		eglQuerySurface = functions[93];
+		eglQuerySurface64KHR = functions[94];
+		eglQuerySurfacePointerANGLE = functions[95];
+		eglReleaseTexImage = functions[96];
+		eglReleaseThread = functions[97];
+		eglResetStreamNV = functions[98];
+		eglSetBlobCacheFuncsANDROID = functions[99];
+		eglSetDamageRegionKHR = functions[100];
+		eglSetStreamAttribKHR = functions[101];
+		eglSetStreamMetadataNV = functions[102];
+		eglSignalSyncKHR = functions[103];
+		eglSignalSyncNV = functions[104];
+		eglStreamAttribKHR = functions[105];
+		eglStreamConsumerAcquireAttribKHR = functions[106];
+		eglStreamConsumerAcquireKHR = functions[107];
+		eglStreamConsumerGLTextureExternalAttribsNV = functions[108];
+		eglStreamConsumerGLTextureExternalKHR = functions[109];
+		eglStreamConsumerOutputEXT = functions[110];
+		eglStreamConsumerReleaseAttribKHR = functions[111];
+		eglStreamConsumerReleaseKHR = functions[112];
+		eglSurfaceAttrib = functions[113];
+		eglSwapBuffers = functions[114];
+		eglSwapBuffersRegion2NOK = functions[115];
+		eglSwapBuffersWithDamageEXT = functions[116];
+		eglSwapBuffersWithDamageKHR = functions[117];
+		eglSwapInterval = functions[118];
+		eglTerminate = functions[119];
+		eglUnlockSurfaceKHR = functions[120];
+		eglWaitClient = functions[121];
+		eglWaitGL = functions[122];
+		eglWaitNative = functions[123];
+		eglWaitSync = functions[124];
+		eglWaitSyncKHR = functions[125];
 
 		EGL10 = ext.contains("EGL10") && EGL.checkExtension("EGL10", org.lwjgl.egl.EGL10.isAvailable(this));
 		EGL11 = ext.contains("EGL11") && EGL.checkExtension("EGL11", org.lwjgl.egl.EGL11.isAvailable(this));
@@ -830,11 +902,16 @@ public class EGLCapabilities {
 		EGL_EXT_device_enumeration = ext.contains("EGL_EXT_device_enumeration") && EGL.checkExtension("EGL_EXT_device_enumeration", EXTDeviceEnumeration.isAvailable(this));
 		EGL_EXT_device_openwf = ext.contains("EGL_EXT_device_openwf");
 		EGL_EXT_device_query = ext.contains("EGL_EXT_device_query") && EGL.checkExtension("EGL_EXT_device_query", EXTDeviceQuery.isAvailable(this));
+		EGL_EXT_gl_colorspace_bt2020_linear = ext.contains("EGL_EXT_gl_colorspace_bt2020_linear");
+		EGL_EXT_gl_colorspace_bt2020_pq = ext.contains("EGL_EXT_gl_colorspace_bt2020_pq");
+		EGL_EXT_gl_colorspace_scrgb_linear = ext.contains("EGL_EXT_gl_colorspace_scrgb_linear");
 		EGL_EXT_image_dma_buf_import = ext.contains("EGL_EXT_image_dma_buf_import");
+		EGL_EXT_image_dma_buf_import_modifiers = ext.contains("EGL_EXT_image_dma_buf_import_modifiers") && EGL.checkExtension("EGL_EXT_image_dma_buf_import_modifiers", EXTImageDMABufImportModifiers.isAvailable(this));
 		EGL_EXT_multiview_window = ext.contains("EGL_EXT_multiview_window");
 		EGL_EXT_output_base = ext.contains("EGL_EXT_output_base") && EGL.checkExtension("EGL_EXT_output_base", EXTOutputBase.isAvailable(this));
 		EGL_EXT_output_drm = ext.contains("EGL_EXT_output_drm");
 		EGL_EXT_output_openwf = ext.contains("EGL_EXT_output_openwf");
+		EGL_EXT_pixel_format_float = ext.contains("EGL_EXT_pixel_format_float");
 		EGL_EXT_platform_base = ext.contains("EGL_EXT_platform_base") && EGL.checkExtension("EGL_EXT_platform_base", EXTPlatformBase.isAvailable(this));
 		EGL_EXT_platform_device = ext.contains("EGL_EXT_platform_device");
 		EGL_EXT_platform_wayland = ext.contains("EGL_EXT_platform_wayland");
@@ -842,6 +919,7 @@ public class EGLCapabilities {
 		EGL_EXT_protected_content = ext.contains("EGL_EXT_protected_content");
 		EGL_EXT_protected_surface = ext.contains("EGL_EXT_protected_surface");
 		EGL_EXT_stream_consumer_egloutput = ext.contains("EGL_EXT_stream_consumer_egloutput") && EGL.checkExtension("EGL_EXT_stream_consumer_egloutput", EXTStreamConsumerEGLOutput.isAvailable(this));
+		EGL_EXT_surface_SMPTE2086_metadata = ext.contains("EGL_EXT_surface_SMPTE2086_metadata");
 		EGL_EXT_swap_buffers_with_damage = ext.contains("EGL_EXT_swap_buffers_with_damage") && EGL.checkExtension("EGL_EXT_swap_buffers_with_damage", EXTSwapBuffersWithDamage.isAvailable(this));
 		EGL_EXT_yuv_surface = ext.contains("EGL_EXT_yuv_surface");
 		EGL_HI_clientpixmap = ext.contains("EGL_HI_clientpixmap") && EGL.checkExtension("EGL_HI_clientpixmap", HIClientpixmap.isAvailable(this));
@@ -875,6 +953,7 @@ public class EGLCapabilities {
 		EGL_KHR_platform_x11 = ext.contains("EGL_KHR_platform_x11");
 		EGL_KHR_reusable_sync = ext.contains("EGL_KHR_reusable_sync") && EGL.checkExtension("EGL_KHR_reusable_sync", KHRReusableSync.isAvailable(this));
 		EGL_KHR_stream = ext.contains("EGL_KHR_stream") && EGL.checkExtension("EGL_KHR_stream", KHRStream.isAvailable(this));
+		EGL_KHR_stream_attrib = ext.contains("EGL_KHR_stream_attrib") && EGL.checkExtension("EGL_KHR_stream_attrib", KHRStreamAttrib.isAvailable(this));
 		EGL_KHR_stream_consumer_gltexture = ext.contains("EGL_KHR_stream_consumer_gltexture") && EGL.checkExtension("EGL_KHR_stream_consumer_gltexture", KHRStreamConsumerGLTexture.isAvailable(this));
 		EGL_KHR_stream_cross_process_fd = ext.contains("EGL_KHR_stream_cross_process_fd") && EGL.checkExtension("EGL_KHR_stream_cross_process_fd", KHRStreamCrossProcessFD.isAvailable(this));
 		EGL_KHR_stream_fifo = ext.contains("EGL_KHR_stream_fifo") && EGL.checkExtension("EGL_KHR_stream_fifo", KHRStreamFIFO.isAvailable(this));
@@ -900,7 +979,20 @@ public class EGLCapabilities {
 		EGL_NV_post_sub_buffer = ext.contains("EGL_NV_post_sub_buffer") && EGL.checkExtension("EGL_NV_post_sub_buffer", NVPostSubBuffer.isAvailable(this));
 		EGL_NV_robustness_video_memory_purge = ext.contains("EGL_NV_robustness_video_memory_purge");
 		EGL_NV_stream_consumer_gltexture_yuv = ext.contains("EGL_NV_stream_consumer_gltexture_yuv") && EGL.checkExtension("EGL_NV_stream_consumer_gltexture_yuv", NVStreamConsumerGLTextureYUV.isAvailable(this));
+		EGL_NV_stream_cross_display = ext.contains("EGL_NV_stream_cross_display");
+		EGL_NV_stream_cross_object = ext.contains("EGL_NV_stream_cross_object");
+		EGL_NV_stream_cross_partition = ext.contains("EGL_NV_stream_cross_partition");
+		EGL_NV_stream_cross_process = ext.contains("EGL_NV_stream_cross_process");
+		EGL_NV_stream_cross_system = ext.contains("EGL_NV_stream_cross_system");
+		EGL_NV_stream_fifo_next = ext.contains("EGL_NV_stream_fifo_next");
+		EGL_NV_stream_fifo_synchronous = ext.contains("EGL_NV_stream_fifo_synchronous");
+		EGL_NV_stream_frame_limits = ext.contains("EGL_NV_stream_frame_limits");
 		EGL_NV_stream_metadata = ext.contains("EGL_NV_stream_metadata") && EGL.checkExtension("EGL_NV_stream_metadata", NVStreamMetadata.isAvailable(this));
+		EGL_NV_stream_remote = ext.contains("EGL_NV_stream_remote");
+		EGL_NV_stream_reset = ext.contains("EGL_NV_stream_reset") && EGL.checkExtension("EGL_NV_stream_reset", NVStreamReset.isAvailable(this));
+		EGL_NV_stream_socket = ext.contains("EGL_NV_stream_socket");
+		EGL_NV_stream_socket_inet = ext.contains("EGL_NV_stream_socket_inet");
+		EGL_NV_stream_socket_unix = ext.contains("EGL_NV_stream_socket_unix");
 		EGL_NV_stream_sync = ext.contains("EGL_NV_stream_sync") && EGL.checkExtension("EGL_NV_stream_sync", NVStreamSync.isAvailable(this));
 		EGL_NV_sync = ext.contains("EGL_NV_sync") && EGL.checkExtension("EGL_NV_sync", NVSync.isAvailable(this));
 		EGL_NV_system_time = ext.contains("EGL_NV_system_time") && EGL.checkExtension("EGL_NV_system_time", NVSystemTime.isAvailable(this));

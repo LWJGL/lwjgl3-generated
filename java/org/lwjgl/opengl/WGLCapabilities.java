@@ -120,6 +120,8 @@ public final class WGLCapabilities {
 	public final boolean WGL_ARB_robustness_share_group_isolation;
 	/** When true, {@link WGLATIPixelFormatFloat} is supported. */
 	public final boolean WGL_ATI_pixel_format_float;
+	/** When true, {@link WGLEXTColorspace} is supported. */
+	public final boolean WGL_EXT_colorspace;
 	/** When true, {@link WGLEXTCreateContextES2Profile} is supported. */
 	public final boolean WGL_EXT_create_context_es2_profile;
 	/** When true, {@link WGLEXTCreateContextESProfile} is supported. */
@@ -244,6 +246,7 @@ public final class WGLCapabilities {
 		WGL_ARB_robustness_application_isolation = ext.contains("WGL_ARB_robustness_application_isolation");
 		WGL_ARB_robustness_share_group_isolation = ext.contains("WGL_ARB_robustness_share_group_isolation");
 		WGL_ATI_pixel_format_float = ext.contains("WGL_ATI_pixel_format_float");
+		WGL_EXT_colorspace = ext.contains("WGL_EXT_colorspace");
 		WGL_EXT_create_context_es2_profile = ext.contains("WGL_EXT_create_context_es2_profile");
 		WGL_EXT_create_context_es_profile = ext.contains("WGL_EXT_create_context_es_profile");
 		WGL_EXT_depth_float = ext.contains("WGL_EXT_depth_float");
