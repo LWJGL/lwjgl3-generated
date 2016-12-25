@@ -1275,8 +1275,8 @@ public class LMDB {
 	 *              <li>{@link #MDB_DUPFIXED DUPFIXED}
 	 *              
 	 *              <p>This flag may only be used in combination with {@link #MDB_DUPSORT DUPSORT}. This option tells the library that the data items for this database are all the same
-	 *              size, which allows further optimizations in storage and retrieval. When all data items are the same size, the {@link #MDB_GET_MULTIPLE GET_MULTIPLE} and {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}
-	 *              cursor operations may be used to retrieve multiple items at once.</p></li>
+	 *              size, which allows further optimizations in storage and retrieval. When all data items are the same size, the {@link #MDB_GET_MULTIPLE GET_MULTIPLE}, {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE} and
+	 *              {@link #MDB_PREV_MULTIPLE PREV_MULTIPLE} cursor operations may be used to retrieve multiple items at once.</p></li>
 	 *              <li>{@link #MDB_INTEGERDUP INTEGERDUP}
 	 *              
 	 *              <p>This option specifies that duplicate data items are binary integers, similar to {@link #MDB_INTEGERKEY INTEGERKEY} keys.</p></li>
@@ -1340,8 +1340,8 @@ public class LMDB {
 	 *              <li>{@link #MDB_DUPFIXED DUPFIXED}
 	 *              
 	 *              <p>This flag may only be used in combination with {@link #MDB_DUPSORT DUPSORT}. This option tells the library that the data items for this database are all the same
-	 *              size, which allows further optimizations in storage and retrieval. When all data items are the same size, the {@link #MDB_GET_MULTIPLE GET_MULTIPLE} and {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}
-	 *              cursor operations may be used to retrieve multiple items at once.</p></li>
+	 *              size, which allows further optimizations in storage and retrieval. When all data items are the same size, the {@link #MDB_GET_MULTIPLE GET_MULTIPLE}, {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE} and
+	 *              {@link #MDB_PREV_MULTIPLE PREV_MULTIPLE} cursor operations may be used to retrieve multiple items at once.</p></li>
 	 *              <li>{@link #MDB_INTEGERDUP INTEGERDUP}
 	 *              
 	 *              <p>This option specifies that duplicate data items are binary integers, similar to {@link #MDB_INTEGERKEY INTEGERKEY} keys.</p></li>
