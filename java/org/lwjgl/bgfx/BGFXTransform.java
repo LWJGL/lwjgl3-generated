@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code data} &ndash; pointer to first matrix</li>
+ * <li>{@code data} &ndash; pointer to first 4x4 matrix</li>
  * <li>{@code num} &ndash; number of matrices</li>
  * </ul>
  * 

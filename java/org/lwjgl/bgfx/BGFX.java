@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
 	/** API version */
-	public static final int BGFX_API_VERSION = 33;
+	public static final int BGFX_API_VERSION = 34;
 
 	/** Invalid handle */
 	public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -900,10 +900,9 @@ public class BGFX {
 			create_dynamic_vertex_buffer_mem             = apiGetFunctionAddress(BGFX, "bgfx_create_dynamic_vertex_buffer_mem"),
 			update_dynamic_vertex_buffer                 = apiGetFunctionAddress(BGFX, "bgfx_update_dynamic_vertex_buffer"),
 			destroy_dynamic_vertex_buffer                = apiGetFunctionAddress(BGFX, "bgfx_destroy_dynamic_vertex_buffer"),
-			check_avail_transient_index_buffer           = apiGetFunctionAddress(BGFX, "bgfx_check_avail_transient_index_buffer"),
-			check_avail_transient_vertex_buffer          = apiGetFunctionAddress(BGFX, "bgfx_check_avail_transient_vertex_buffer"),
-			check_avail_instance_data_buffer             = apiGetFunctionAddress(BGFX, "bgfx_check_avail_instance_data_buffer"),
-			check_avail_transient_buffers                = apiGetFunctionAddress(BGFX, "bgfx_check_avail_transient_buffers"),
+			get_avail_transient_index_buffer             = apiGetFunctionAddress(BGFX, "bgfx_get_avail_transient_index_buffer"),
+			get_avail_transient_vertex_buffer            = apiGetFunctionAddress(BGFX, "bgfx_get_avail_transient_vertex_buffer"),
+			get_avail_instance_data_buffer               = apiGetFunctionAddress(BGFX, "bgfx_get_avail_instance_data_buffer"),
 			alloc_transient_index_buffer                 = apiGetFunctionAddress(BGFX, "bgfx_alloc_transient_index_buffer"),
 			alloc_transient_vertex_buffer                = apiGetFunctionAddress(BGFX, "bgfx_alloc_transient_vertex_buffer"),
 			alloc_transient_buffers                      = apiGetFunctionAddress(BGFX, "bgfx_alloc_transient_buffers"),
@@ -2208,71 +2207,52 @@ public class BGFX {
 		invokeV(__functionAddress, _handle);
 	}
 
-	// --- [ bgfx_check_avail_transient_index_buffer ] ---
+	// --- [ bgfx_get_avail_transient_index_buffer ] ---
 
 	/**
-	 * Returns true if internal transient index buffer has enough space.
+	 * Returns number of available indices.
 	 *
-	 * @param _num number of indices
+	 * @param _num number of required indices
 	 */
-	public static boolean bgfx_check_avail_transient_index_buffer(int _num) {
-		long __functionAddress = Functions.check_avail_transient_index_buffer;
-		return invokeZ(__functionAddress, _num);
+	public static int bgfx_get_avail_transient_index_buffer(int _num) {
+		long __functionAddress = Functions.get_avail_transient_index_buffer;
+		return invokeI(__functionAddress, _num);
 	}
 
-	// --- [ bgfx_check_avail_transient_vertex_buffer ] ---
+	// --- [ bgfx_get_avail_transient_vertex_buffer ] ---
 
-	/** Unsafe version of: {@link #bgfx_check_avail_transient_vertex_buffer check_avail_transient_vertex_buffer} */
-	public static boolean nbgfx_check_avail_transient_vertex_buffer(int _num, long _decl) {
-		long __functionAddress = Functions.check_avail_transient_vertex_buffer;
-		return invokePZ(__functionAddress, _num, _decl);
+	/** Unsafe version of: {@link #bgfx_get_avail_transient_vertex_buffer get_avail_transient_vertex_buffer} */
+	public static int nbgfx_get_avail_transient_vertex_buffer(int _num, long _decl) {
+		long __functionAddress = Functions.get_avail_transient_vertex_buffer;
+		return invokePI(__functionAddress, _num, _decl);
 	}
 
 	/**
-	 * Returns true if internal transient vertex buffer has enough space.
+	 * Returns number of available vertices.
 	 *
-	 * @param _num  number of vertices
+	 * @param _num  number of required vertices
 	 * @param _decl vertex declaration
 	 */
-	public static boolean bgfx_check_avail_transient_vertex_buffer(int _num, BGFXVertexDecl _decl) {
-		return nbgfx_check_avail_transient_vertex_buffer(_num, _decl.address());
+	public static int bgfx_get_avail_transient_vertex_buffer(int _num, BGFXVertexDecl _decl) {
+		return nbgfx_get_avail_transient_vertex_buffer(_num, _decl.address());
 	}
 
-	// --- [ bgfx_check_avail_instance_data_buffer ] ---
+	// --- [ bgfx_get_avail_instance_data_buffer ] ---
 
-	/** Unsafe version of: {@link #bgfx_check_avail_instance_data_buffer check_avail_instance_data_buffer} */
-	public static boolean nbgfx_check_avail_instance_data_buffer(int _num, short _stride) {
-		long __functionAddress = Functions.check_avail_instance_data_buffer;
-		return invokeZ(__functionAddress, _num, _stride);
+	/** Unsafe version of: {@link #bgfx_get_avail_instance_data_buffer get_avail_instance_data_buffer} */
+	public static int nbgfx_get_avail_instance_data_buffer(int _num, short _stride) {
+		long __functionAddress = Functions.get_avail_instance_data_buffer;
+		return invokeI(__functionAddress, _num, _stride);
 	}
 
 	/**
-	 * Returns true if internal instance data buffer has enough space.
+	 * Returns number of available instance buffer slots.
 	 *
-	 * @param _num    number of instances
+	 * @param _num    number of required instances
 	 * @param _stride stride per instance
 	 */
-	public static boolean bgfx_check_avail_instance_data_buffer(int _num, int _stride) {
-		return nbgfx_check_avail_instance_data_buffer(_num, (short)_stride);
-	}
-
-	// --- [ bgfx_check_avail_transient_buffers ] ---
-
-	/** Unsafe version of: {@link #bgfx_check_avail_transient_buffers check_avail_transient_buffers} */
-	public static boolean nbgfx_check_avail_transient_buffers(int _numVertices, long _decl, int _numIndices) {
-		long __functionAddress = Functions.check_avail_transient_buffers;
-		return invokePZ(__functionAddress, _numVertices, _decl, _numIndices);
-	}
-
-	/**
-	 * Returns true if both internal transient index and vertex buffer have enough space.
-	 *
-	 * @param _numVertices number of vertices
-	 * @param _decl        vertex declaration
-	 * @param _numIndices  number of indices
-	 */
-	public static boolean bgfx_check_avail_transient_buffers(int _numVertices, BGFXVertexDecl _decl, int _numIndices) {
-		return nbgfx_check_avail_transient_buffers(_numVertices, _decl.address(), _numIndices);
+	public static int bgfx_get_avail_instance_data_buffer(int _num, int _stride) {
+		return nbgfx_get_avail_instance_data_buffer(_num, (short)_stride);
 	}
 
 	// --- [ bgfx_alloc_transient_index_buffer ] ---
@@ -2493,7 +2473,7 @@ public class BGFX {
 	/**
 	 * Validate texture parameters.
 	 *
-	 * @param _depth     depth
+	 * @param _depth     depth dimension of volume texture
 	 * @param _cubeMap   indicates that texture contains cubemap
 	 * @param _numLayers number of layers in texture array
 	 * @param _format    texture format. One of:<br><table><tr><td>{@link #BGFX_TEXTURE_FORMAT_BC1 TEXTURE_FORMAT_BC1}</td><td>{@link #BGFX_TEXTURE_FORMAT_BC2 TEXTURE_FORMAT_BC2}</td><td>{@link #BGFX_TEXTURE_FORMAT_BC3 TEXTURE_FORMAT_BC3}</td><td>{@link #BGFX_TEXTURE_FORMAT_BC4 TEXTURE_FORMAT_BC4}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_BC5 TEXTURE_FORMAT_BC5}</td><td>{@link #BGFX_TEXTURE_FORMAT_BC6H TEXTURE_FORMAT_BC6H}</td><td>{@link #BGFX_TEXTURE_FORMAT_BC7 TEXTURE_FORMAT_BC7}</td><td>{@link #BGFX_TEXTURE_FORMAT_ETC1 TEXTURE_FORMAT_ETC1}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_ETC2 TEXTURE_FORMAT_ETC2}</td><td>{@link #BGFX_TEXTURE_FORMAT_ETC2A TEXTURE_FORMAT_ETC2A}</td><td>{@link #BGFX_TEXTURE_FORMAT_ETC2A1 TEXTURE_FORMAT_ETC2A1}</td><td>{@link #BGFX_TEXTURE_FORMAT_PTC12 TEXTURE_FORMAT_PTC12}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_PTC14 TEXTURE_FORMAT_PTC14}</td><td>{@link #BGFX_TEXTURE_FORMAT_PTC12A TEXTURE_FORMAT_PTC12A}</td><td>{@link #BGFX_TEXTURE_FORMAT_PTC14A TEXTURE_FORMAT_PTC14A}</td><td>{@link #BGFX_TEXTURE_FORMAT_PTC22 TEXTURE_FORMAT_PTC22}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_PTC24 TEXTURE_FORMAT_PTC24}</td><td>{@link #BGFX_TEXTURE_FORMAT_UNKNOWN TEXTURE_FORMAT_UNKNOWN}</td><td>{@link #BGFX_TEXTURE_FORMAT_R1 TEXTURE_FORMAT_R1}</td><td>{@link #BGFX_TEXTURE_FORMAT_A8 TEXTURE_FORMAT_A8}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_R8 TEXTURE_FORMAT_R8}</td><td>{@link #BGFX_TEXTURE_FORMAT_R8I TEXTURE_FORMAT_R8I}</td><td>{@link #BGFX_TEXTURE_FORMAT_R8U TEXTURE_FORMAT_R8U}</td><td>{@link #BGFX_TEXTURE_FORMAT_R8S TEXTURE_FORMAT_R8S}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_R16 TEXTURE_FORMAT_R16}</td><td>{@link #BGFX_TEXTURE_FORMAT_R16I TEXTURE_FORMAT_R16I}</td><td>{@link #BGFX_TEXTURE_FORMAT_R16U TEXTURE_FORMAT_R16U}</td><td>{@link #BGFX_TEXTURE_FORMAT_R16F TEXTURE_FORMAT_R16F}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_R16S TEXTURE_FORMAT_R16S}</td><td>{@link #BGFX_TEXTURE_FORMAT_R32I TEXTURE_FORMAT_R32I}</td><td>{@link #BGFX_TEXTURE_FORMAT_R32U TEXTURE_FORMAT_R32U}</td><td>{@link #BGFX_TEXTURE_FORMAT_R32F TEXTURE_FORMAT_R32F}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RG8 TEXTURE_FORMAT_RG8}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG8I TEXTURE_FORMAT_RG8I}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG8U TEXTURE_FORMAT_RG8U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG8S TEXTURE_FORMAT_RG8S}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RG16 TEXTURE_FORMAT_RG16}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG16I TEXTURE_FORMAT_RG16I}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG16U TEXTURE_FORMAT_RG16U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG16F TEXTURE_FORMAT_RG16F}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RG16S TEXTURE_FORMAT_RG16S}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG32I TEXTURE_FORMAT_RG32I}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG32U TEXTURE_FORMAT_RG32U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RG32F TEXTURE_FORMAT_RG32F}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RGB8 TEXTURE_FORMAT_RGB8}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGB8I TEXTURE_FORMAT_RGB8I}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGB8U TEXTURE_FORMAT_RGB8U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGB8S TEXTURE_FORMAT_RGB8S}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RGB9E5F TEXTURE_FORMAT_RGB9E5F}</td><td>{@link #BGFX_TEXTURE_FORMAT_BGRA8 TEXTURE_FORMAT_BGRA8}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA8 TEXTURE_FORMAT_RGBA8}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA8I TEXTURE_FORMAT_RGBA8I}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RGBA8U TEXTURE_FORMAT_RGBA8U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA8S TEXTURE_FORMAT_RGBA8S}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA16 TEXTURE_FORMAT_RGBA16}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA16I TEXTURE_FORMAT_RGBA16I}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RGBA16U TEXTURE_FORMAT_RGBA16U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA16F TEXTURE_FORMAT_RGBA16F}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA16S TEXTURE_FORMAT_RGBA16S}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA32I TEXTURE_FORMAT_RGBA32I}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RGBA32U TEXTURE_FORMAT_RGBA32U}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA32F TEXTURE_FORMAT_RGBA32F}</td><td>{@link #BGFX_TEXTURE_FORMAT_R5G6B5 TEXTURE_FORMAT_R5G6B5}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGBA4 TEXTURE_FORMAT_RGBA4}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_RGB5A1 TEXTURE_FORMAT_RGB5A1}</td><td>{@link #BGFX_TEXTURE_FORMAT_RGB10A2 TEXTURE_FORMAT_RGB10A2}</td><td>{@link #BGFX_TEXTURE_FORMAT_R11G11B10F TEXTURE_FORMAT_R11G11B10F}</td><td>{@link #BGFX_TEXTURE_FORMAT_UNKNOWN_DEPTH TEXTURE_FORMAT_UNKNOWN_DEPTH}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_D16 TEXTURE_FORMAT_D16}</td><td>{@link #BGFX_TEXTURE_FORMAT_D24 TEXTURE_FORMAT_D24}</td><td>{@link #BGFX_TEXTURE_FORMAT_D24S8 TEXTURE_FORMAT_D24S8}</td><td>{@link #BGFX_TEXTURE_FORMAT_D32 TEXTURE_FORMAT_D32}</td></tr><tr><td>{@link #BGFX_TEXTURE_FORMAT_D16F TEXTURE_FORMAT_D16F}</td><td>{@link #BGFX_TEXTURE_FORMAT_D24F TEXTURE_FORMAT_D24F}</td><td>{@link #BGFX_TEXTURE_FORMAT_D32F TEXTURE_FORMAT_D32F}</td><td>{@link #BGFX_TEXTURE_FORMAT_D0S8 TEXTURE_FORMAT_D0S8}</td></tr></table>
@@ -2517,7 +2497,7 @@ public class BGFX {
 	 * @param _info      resulting texture info structure
 	 * @param _width     width
 	 * @param _height    height
-	 * @param _depth     depth
+	 * @param _depth     depth dimension of volume texture
 	 * @param _cubeMap   indicates that texture contains cubemap
 	 * @param _hasMips   indicates that texture contains full mip-map chain
 	 * @param _numLayers number of layers in texture array
@@ -2982,6 +2962,10 @@ public class BGFX {
 	/**
 	 * Creates shader uniform parameter.
 	 * 
+	 * <p>Uniform names are unique. It's valid to call {@code bgfx_create_uniform} multiple times with the same uniform name. The library will always return the
+	 * same handle, but the handle reference count will be incremented. This means that the same number of {@link #bgfx_destroy_uniform destroy_uniform} must be called to properly
+	 * destroy the uniform.</p>
+	 * 
 	 * <p>Predefined uniforms (declared in `bgfx_shader.sh`):</p>
 	 * 
 	 * <ul>
@@ -3013,6 +2997,10 @@ public class BGFX {
 
 	/**
 	 * Creates shader uniform parameter.
+	 * 
+	 * <p>Uniform names are unique. It's valid to call {@code bgfx_create_uniform} multiple times with the same uniform name. The library will always return the
+	 * same handle, but the handle reference count will be incremented. This means that the same number of {@link #bgfx_destroy_uniform destroy_uniform} must be called to properly
+	 * destroy the uniform.</p>
 	 * 
 	 * <p>Predefined uniforms (declared in `bgfx_shader.sh`):</p>
 	 * 

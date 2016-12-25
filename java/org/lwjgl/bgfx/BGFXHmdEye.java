@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code fov} &ndash; field of view (up, down, left, right)</li>
  * <li>{@code viewOffset} &ndash; eye view matrix translation adjustment</li>
  * <li>{@code projection} &ndash; eye projection matrix</li>
+ * <li>{@code pixelsPerTanAngle} &ndash; number of pixels that fit in tan(angle) = 1.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

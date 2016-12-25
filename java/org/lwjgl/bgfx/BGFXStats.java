@@ -25,6 +25,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code gpuTimerFreq} &ndash; GPU timer frequency</li>
  * <li>{@code waitRender} &ndash; time spent waiting for render backend thread to finish issuing draw commands to underlying graphics API</li>
  * <li>{@code waitSubmit} &ndash; time spent waiting for submit thread to advance to next frame</li>
+ * <li>{@code numDraw} &ndash; number of draw calls submitted</li>
+ * <li>{@code numCompute} &ndash; number of compute calls submitted</li>
+ * <li>{@code maxGpuLatency} &ndash; GPU driver latency</li>
+ * <li>{@code width} &ndash; backbuffer width in pixels</li>
+ * <li>{@code height} &ndash; backbuffer height in pixels</li>
+ * <li>{@code textWidth} &ndash; debug text width in characters</li>
+ * <li>{@code textHeight} &ndash; debug text height in characters</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -38,6 +45,9 @@ import static org.lwjgl.system.MemoryUtil.*;
     uint64_t gpuTimerFreq;
     int64_t waitRender;
     int64_t waitSubmit;
+    uint32_t numDraw;
+    uint32_t numCompute;
+    uint32_t maxGpuLatency;
     uint16_t width;
     uint16_t height;
     uint16_t textWidth;
@@ -61,6 +71,9 @@ public class BGFXStats extends Struct {
 		GPUTIMERFREQ,
 		WAITRENDER,
 		WAITSUBMIT,
+		NUMDRAW,
+		NUMCOMPUTE,
+		MAXGPULATENCY,
 		WIDTH,
 		HEIGHT,
 		TEXTWIDTH,
@@ -76,6 +89,9 @@ public class BGFXStats extends Struct {
 			__member(8),
 			__member(8),
 			__member(8),
+			__member(4),
+			__member(4),
+			__member(4),
 			__member(2),
 			__member(2),
 			__member(2),
@@ -93,10 +109,13 @@ public class BGFXStats extends Struct {
 		GPUTIMERFREQ = layout.offsetof(5);
 		WAITRENDER = layout.offsetof(6);
 		WAITSUBMIT = layout.offsetof(7);
-		WIDTH = layout.offsetof(8);
-		HEIGHT = layout.offsetof(9);
-		TEXTWIDTH = layout.offsetof(10);
-		TEXTHEIGHT = layout.offsetof(11);
+		NUMDRAW = layout.offsetof(8);
+		NUMCOMPUTE = layout.offsetof(9);
+		MAXGPULATENCY = layout.offsetof(10);
+		WIDTH = layout.offsetof(11);
+		HEIGHT = layout.offsetof(12);
+		TEXTWIDTH = layout.offsetof(13);
+		TEXTHEIGHT = layout.offsetof(14);
 	}
 
 	BGFXStats(long address, ByteBuffer container) {
@@ -132,6 +151,12 @@ public class BGFXStats extends Struct {
 	public long waitRender() { return nwaitRender(address()); }
 	/** Returns the value of the {@code waitSubmit} field. */
 	public long waitSubmit() { return nwaitSubmit(address()); }
+	/** Returns the value of the {@code numDraw} field. */
+	public int numDraw() { return nnumDraw(address()); }
+	/** Returns the value of the {@code numCompute} field. */
+	public int numCompute() { return nnumCompute(address()); }
+	/** Returns the value of the {@code maxGpuLatency} field. */
+	public int maxGpuLatency() { return nmaxGpuLatency(address()); }
 	/** Returns the value of the {@code width} field. */
 	public short width() { return nwidth(address()); }
 	/** Returns the value of the {@code height} field. */
@@ -176,6 +201,12 @@ public class BGFXStats extends Struct {
 	public static long nwaitRender(long struct) { return memGetLong(struct + BGFXStats.WAITRENDER); }
 	/** Unsafe version of {@link #waitSubmit}. */
 	public static long nwaitSubmit(long struct) { return memGetLong(struct + BGFXStats.WAITSUBMIT); }
+	/** Unsafe version of {@link #numDraw}. */
+	public static int nnumDraw(long struct) { return memGetInt(struct + BGFXStats.NUMDRAW); }
+	/** Unsafe version of {@link #numCompute}. */
+	public static int nnumCompute(long struct) { return memGetInt(struct + BGFXStats.NUMCOMPUTE); }
+	/** Unsafe version of {@link #maxGpuLatency}. */
+	public static int nmaxGpuLatency(long struct) { return memGetInt(struct + BGFXStats.MAXGPULATENCY); }
 	/** Unsafe version of {@link #width}. */
 	public static short nwidth(long struct) { return memGetShort(struct + BGFXStats.WIDTH); }
 	/** Unsafe version of {@link #height}. */
@@ -243,6 +274,12 @@ public class BGFXStats extends Struct {
 		public long waitRender() { return BGFXStats.nwaitRender(address()); }
 		/** Returns the value of the {@code waitSubmit} field. */
 		public long waitSubmit() { return BGFXStats.nwaitSubmit(address()); }
+		/** Returns the value of the {@code numDraw} field. */
+		public int numDraw() { return BGFXStats.nnumDraw(address()); }
+		/** Returns the value of the {@code numCompute} field. */
+		public int numCompute() { return BGFXStats.nnumCompute(address()); }
+		/** Returns the value of the {@code maxGpuLatency} field. */
+		public int maxGpuLatency() { return BGFXStats.nmaxGpuLatency(address()); }
 		/** Returns the value of the {@code width} field. */
 		public short width() { return BGFXStats.nwidth(address()); }
 		/** Returns the value of the {@code height} field. */
