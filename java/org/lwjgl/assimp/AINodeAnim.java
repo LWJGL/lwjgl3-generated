@@ -349,15 +349,15 @@ public class AINodeAnim extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code mNumPositionKeys} field of the specified {@code struct}. */
 	public static void nmNumPositionKeys(long struct, int value) { memPutInt(struct + AINodeAnim.MNUMPOSITIONKEYS, value); }
 	/** Unsafe version of {@link #mPositionKeys(AIVectorKey.Buffer) mPositionKeys}. */
-	public static void nmPositionKeys(long struct, AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MPOSITIONKEYS, value.address()); nmNumPositionKeys(struct, value.remaining()); }
+	public static void nmPositionKeys(long struct, AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MPOSITIONKEYS, addressSafe(value)); nmNumPositionKeys(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumRotationKeys} field of the specified {@code struct}. */
 	public static void nmNumRotationKeys(long struct, int value) { memPutInt(struct + AINodeAnim.MNUMROTATIONKEYS, value); }
 	/** Unsafe version of {@link #mRotationKeys(AIQuatKey.Buffer) mRotationKeys}. */
-	public static void nmRotationKeys(long struct, AIQuatKey.Buffer value) { memPutAddress(struct + AINodeAnim.MROTATIONKEYS, value.address()); nmNumRotationKeys(struct, value.remaining()); }
+	public static void nmRotationKeys(long struct, AIQuatKey.Buffer value) { memPutAddress(struct + AINodeAnim.MROTATIONKEYS, addressSafe(value)); nmNumRotationKeys(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumScalingKeys} field of the specified {@code struct}. */
 	public static void nmNumScalingKeys(long struct, int value) { memPutInt(struct + AINodeAnim.MNUMSCALINGKEYS, value); }
 	/** Unsafe version of {@link #mScalingKeys(AIVectorKey.Buffer) mScalingKeys}. */
-	public static void nmScalingKeys(long struct, AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MSCALINGKEYS, value.address()); nmNumScalingKeys(struct, value.remaining()); }
+	public static void nmScalingKeys(long struct, AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MSCALINGKEYS, addressSafe(value)); nmNumScalingKeys(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #mPreState(int) mPreState}. */
 	public static void nmPreState(long struct, int value) { memPutInt(struct + AINodeAnim.MPRESTATE, value); }
 	/** Unsafe version of {@link #mPostState(int) mPostState}. */
@@ -369,9 +369,12 @@ public class AINodeAnim extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		check(memGetAddress(struct + AINodeAnim.MPOSITIONKEYS));
-		check(memGetAddress(struct + AINodeAnim.MROTATIONKEYS));
-		check(memGetAddress(struct + AINodeAnim.MSCALINGKEYS));
+		if ( nmNumPositionKeys(struct) != 0 )
+			check(memGetAddress(struct + AINodeAnim.MPOSITIONKEYS));
+		if ( nmNumRotationKeys(struct) != 0 )
+			check(memGetAddress(struct + AINodeAnim.MROTATIONKEYS));
+		if ( nmNumScalingKeys(struct) != 0 )
+			check(memGetAddress(struct + AINodeAnim.MSCALINGKEYS));
 	}
 
 	/**

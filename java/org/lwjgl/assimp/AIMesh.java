@@ -251,16 +251,12 @@ public class AIMesh extends Struct implements NativeResource {
 	public AIMesh mNumUVComponents(int index, int value) { nmNumUVComponents(address(), index, value); return this; }
 	/** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
 	public AIMesh mFaces(AIFace.Buffer value) { nmFaces(address(), value); return this; }
-	/** Sets the specified value to the {@code mNumBones} field. */
-	public AIMesh mNumBones(int value) { nmNumBones(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
 	public AIMesh mBones(PointerBuffer value) { nmBones(address(), value); return this; }
 	/** Sets the specified value to the {@code mMaterialIndex} field. */
 	public AIMesh mMaterialIndex(int value) { nmMaterialIndex(address(), value); return this; }
 	/** Copies the specified {@link AIString} to the {@code mName} field. */
 	public AIMesh mName(AIString value) { nmName(address(), value); return this; }
-	/** Sets the specified value to the {@code mNumAnimMeshes} field. */
-	public AIMesh mNumAnimMeshes(int value) { nmNumAnimMeshes(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
 	public AIMesh mAnimMeshes(PointerBuffer value) { nmAnimMeshes(address(), value); return this; }
 
@@ -276,11 +272,9 @@ public class AIMesh extends Struct implements NativeResource {
 		PointerBuffer mTextureCoords,
 		IntBuffer mNumUVComponents,
 		AIFace.Buffer mFaces,
-		int mNumBones,
 		PointerBuffer mBones,
 		int mMaterialIndex,
 		AIString mName,
-		int mNumAnimMeshes,
 		PointerBuffer mAnimMeshes
 	) {
 		mPrimitiveTypes(mPrimitiveTypes);
@@ -293,11 +287,9 @@ public class AIMesh extends Struct implements NativeResource {
 		mTextureCoords(mTextureCoords);
 		mNumUVComponents(mNumUVComponents);
 		mFaces(mFaces);
-		mNumBones(mNumBones);
 		mBones(mBones);
 		mMaterialIndex(mMaterialIndex);
 		mName(mName);
-		mNumAnimMeshes(mNumAnimMeshes);
 		mAnimMeshes(mAnimMeshes);
 
 		return this;
@@ -569,6 +561,10 @@ public class AIMesh extends Struct implements NativeResource {
 		long mFaces = memGetAddress(struct + AIMesh.MFACES);
 		check(mFaces);
 		AIFace.validate(mFaces, mNumFaces);
+		if ( nmNumBones(struct) != 0 )
+			check(memGetAddress(struct + AIMesh.MBONES));
+		if ( nmNumAnimMeshes(struct) != 0 )
+			check(memGetAddress(struct + AIMesh.MANIMMESHES));
 	}
 
 	/**
@@ -691,16 +687,12 @@ public class AIMesh extends Struct implements NativeResource {
 		public AIMesh.Buffer mNumUVComponents(int index, int value) { AIMesh.nmNumUVComponents(address(), index, value); return this; }
 		/** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
 		public AIMesh.Buffer mFaces(AIFace.Buffer value) { AIMesh.nmFaces(address(), value); return this; }
-		/** Sets the specified value to the {@code mNumBones} field. */
-		public AIMesh.Buffer mNumBones(int value) { AIMesh.nmNumBones(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
 		public AIMesh.Buffer mBones(PointerBuffer value) { AIMesh.nmBones(address(), value); return this; }
 		/** Sets the specified value to the {@code mMaterialIndex} field. */
 		public AIMesh.Buffer mMaterialIndex(int value) { AIMesh.nmMaterialIndex(address(), value); return this; }
 		/** Copies the specified {@link AIString} to the {@code mName} field. */
 		public AIMesh.Buffer mName(AIString value) { AIMesh.nmName(address(), value); return this; }
-		/** Sets the specified value to the {@code mNumAnimMeshes} field. */
-		public AIMesh.Buffer mNumAnimMeshes(int value) { AIMesh.nmNumAnimMeshes(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
 		public AIMesh.Buffer mAnimMeshes(PointerBuffer value) { AIMesh.nmAnimMeshes(address(), value); return this; }
 

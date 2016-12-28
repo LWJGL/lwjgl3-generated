@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -128,12 +129,8 @@ public class AINode extends Struct implements NativeResource {
 	public AINode mTransformation(AIMatrix4x4 value) { nmTransformation(address(), value); return this; }
 	/** Sets the address of the specified {@link AINode} to the {@code mParent} field. */
 	public AINode mParent(AINode value) { nmParent(address(), value); return this; }
-	/** Sets the specified value to the {@code mNumChildren} field. */
-	public AINode mNumChildren(int value) { nmNumChildren(address(), value); return this; }
 	/** Sets the address of the specified {@link PointerBuffer} to the {@code mChildren} field. */
 	public AINode mChildren(PointerBuffer value) { nmChildren(address(), value); return this; }
-	/** Sets the specified value to the {@code mNumMeshes} field. */
-	public AINode mNumMeshes(int value) { nmNumMeshes(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code mMeshes} field. */
 	public AINode mMeshes(IntBuffer value) { nmMeshes(address(), value); return this; }
 	/** Sets the address of the specified {@link AIMetaData} to the {@code mMetadata} field. */
@@ -144,18 +141,14 @@ public class AINode extends Struct implements NativeResource {
 		AIString mName,
 		AIMatrix4x4 mTransformation,
 		AINode mParent,
-		int mNumChildren,
 		PointerBuffer mChildren,
-		int mNumMeshes,
 		IntBuffer mMeshes,
 		AIMetaData mMetadata
 	) {
 		mName(mName);
 		mTransformation(mTransformation);
 		mParent(mParent);
-		mNumChildren(mNumChildren);
 		mChildren(mChildren);
-		mNumMeshes(mNumMeshes);
 		mMeshes(mMeshes);
 		mMetadata(mMetadata);
 
@@ -348,6 +341,10 @@ public class AINode extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
+		if ( nmNumChildren(struct) != 0 )
+			check(memGetAddress(struct + AINode.MCHILDREN));
+		if ( nmNumMeshes(struct) != 0 )
+			check(memGetAddress(struct + AINode.MMESHES));
 		long mMetadata = memGetAddress(struct + AINode.MMETADATA);
 		if ( mMetadata != NULL )
 			AIMetaData.validate(mMetadata);
@@ -429,12 +426,8 @@ public class AINode extends Struct implements NativeResource {
 		public AINode.Buffer mTransformation(AIMatrix4x4 value) { AINode.nmTransformation(address(), value); return this; }
 		/** Sets the address of the specified {@link AINode} to the {@code mParent} field. */
 		public AINode.Buffer mParent(AINode value) { AINode.nmParent(address(), value); return this; }
-		/** Sets the specified value to the {@code mNumChildren} field. */
-		public AINode.Buffer mNumChildren(int value) { AINode.nmNumChildren(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code mChildren} field. */
 		public AINode.Buffer mChildren(PointerBuffer value) { AINode.nmChildren(address(), value); return this; }
-		/** Sets the specified value to the {@code mNumMeshes} field. */
-		public AINode.Buffer mNumMeshes(int value) { AINode.nmNumMeshes(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code mMeshes} field. */
 		public AINode.Buffer mMeshes(IntBuffer value) { AINode.nmMeshes(address(), value); return this; }
 		/** Sets the address of the specified {@link AIMetaData} to the {@code mMetadata} field. */

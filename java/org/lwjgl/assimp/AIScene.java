@@ -400,31 +400,31 @@ public class AIScene extends Struct implements NativeResource {
 	/** Unsafe version of {@link #mFlags(int) mFlags}. */
 	public static void nmFlags(long struct, int value) { memPutInt(struct + AIScene.MFLAGS, value); }
 	/** Unsafe version of {@link #mRootNode(AINode) mRootNode}. */
-	public static void nmRootNode(long struct, AINode value) { memPutAddress(struct + AIScene.MROOTNODE, value.address()); }
+	public static void nmRootNode(long struct, AINode value) { memPutAddress(struct + AIScene.MROOTNODE, addressSafe(value)); }
 	/** Sets the specified value to the {@code mNumMeshes} field of the specified {@code struct}. */
 	public static void nmNumMeshes(long struct, int value) { memPutInt(struct + AIScene.MNUMMESHES, value); }
 	/** Unsafe version of {@link #mMeshes(PointerBuffer) mMeshes}. */
-	public static void nmMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MMESHES, memAddress(value)); nmNumMeshes(struct, value.remaining()); }
+	public static void nmMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MMESHES, memAddressSafe(value)); nmNumMeshes(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumMaterials} field of the specified {@code struct}. */
 	public static void nmNumMaterials(long struct, int value) { memPutInt(struct + AIScene.MNUMMATERIALS, value); }
 	/** Unsafe version of {@link #mMaterials(PointerBuffer) mMaterials}. */
-	public static void nmMaterials(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MMATERIALS, memAddress(value)); nmNumMaterials(struct, value.remaining()); }
+	public static void nmMaterials(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MMATERIALS, memAddressSafe(value)); nmNumMaterials(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumAnimations} field of the specified {@code struct}. */
 	public static void nmNumAnimations(long struct, int value) { memPutInt(struct + AIScene.MNUMANIMATIONS, value); }
 	/** Unsafe version of {@link #mAnimations(PointerBuffer) mAnimations}. */
-	public static void nmAnimations(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MANIMATIONS, memAddress(value)); nmNumAnimations(struct, value.remaining()); }
+	public static void nmAnimations(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MANIMATIONS, memAddressSafe(value)); nmNumAnimations(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumTextures} field of the specified {@code struct}. */
 	public static void nmNumTextures(long struct, int value) { memPutInt(struct + AIScene.MNUMTEXTURES, value); }
 	/** Unsafe version of {@link #mTextures(PointerBuffer) mTextures}. */
-	public static void nmTextures(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MTEXTURES, memAddress(value)); nmNumTextures(struct, value.remaining()); }
+	public static void nmTextures(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MTEXTURES, memAddressSafe(value)); nmNumTextures(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumLights} field of the specified {@code struct}. */
 	public static void nmNumLights(long struct, int value) { memPutInt(struct + AIScene.MNUMLIGHTS, value); }
 	/** Unsafe version of {@link #mLights(PointerBuffer) mLights}. */
-	public static void nmLights(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MLIGHTS, memAddress(value)); nmNumLights(struct, value.remaining()); }
+	public static void nmLights(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MLIGHTS, memAddressSafe(value)); nmNumLights(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumCameras} field of the specified {@code struct}. */
 	public static void nmNumCameras(long struct, int value) { memPutInt(struct + AIScene.MNUMCAMERAS, value); }
 	/** Unsafe version of {@link #mCameras(PointerBuffer) mCameras}. */
-	public static void nmCameras(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MCAMERAS, memAddress(value)); nmNumCameras(struct, value.remaining()); }
+	public static void nmCameras(long struct, PointerBuffer value) { memPutAddress(struct + AIScene.MCAMERAS, memAddressSafe(value)); nmNumCameras(struct, value == null ? 0 : value.remaining()); }
 	public static void nmPrivate(long struct, ByteBuffer value) { memPutAddress(struct + AIScene.MPRIVATE, memAddress(value)); }
 
 	/**
@@ -433,13 +433,18 @@ public class AIScene extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		check(memGetAddress(struct + AIScene.MROOTNODE));
-		check(memGetAddress(struct + AIScene.MMESHES));
-		check(memGetAddress(struct + AIScene.MMATERIALS));
-		check(memGetAddress(struct + AIScene.MANIMATIONS));
-		check(memGetAddress(struct + AIScene.MTEXTURES));
-		check(memGetAddress(struct + AIScene.MLIGHTS));
-		check(memGetAddress(struct + AIScene.MCAMERAS));
+		if ( nmNumMeshes(struct) != 0 )
+			check(memGetAddress(struct + AIScene.MMESHES));
+		if ( nmNumMaterials(struct) != 0 )
+			check(memGetAddress(struct + AIScene.MMATERIALS));
+		if ( nmNumAnimations(struct) != 0 )
+			check(memGetAddress(struct + AIScene.MANIMATIONS));
+		if ( nmNumTextures(struct) != 0 )
+			check(memGetAddress(struct + AIScene.MTEXTURES));
+		if ( nmNumLights(struct) != 0 )
+			check(memGetAddress(struct + AIScene.MLIGHTS));
+		if ( nmNumCameras(struct) != 0 )
+			check(memGetAddress(struct + AIScene.MCAMERAS));
 	}
 
 	/**
