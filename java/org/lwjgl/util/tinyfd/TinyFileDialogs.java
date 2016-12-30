@@ -108,8 +108,8 @@ public class TinyFileDialogs {
 	/**
 	 * Displays a message dialog.
 	 *
-	 * @param aTitle         the dialog title
-	 * @param aMessage       the message. It may contain \n and \t characters.
+	 * @param aTitle         the dialog title or {@code NULL}
+	 * @param aMessage       the message or {@code NULL}. It may contain \n and \t characters.
 	 * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td></tr></table>
 	 * @param aIconType      the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td><td>"question"</td></tr></table>
 	 * @param aDefaultButton 0 for cancel/no, 1 for ok/yes
@@ -118,19 +118,19 @@ public class TinyFileDialogs {
 	 */
 	public static boolean tinyfd_messageBox(ByteBuffer aTitle, ByteBuffer aMessage, ByteBuffer aDialogType, ByteBuffer aIconType, boolean aDefaultButton) {
 		if ( CHECKS ) {
-			checkNT1(aTitle);
-			checkNT1(aMessage);
+			checkNT1Safe(aTitle);
+			checkNT1Safe(aMessage);
 			checkNT1(aDialogType);
 			checkNT1(aIconType);
 		}
-		return ntinyfd_messageBox(memAddress(aTitle), memAddress(aMessage), memAddress(aDialogType), memAddress(aIconType), aDefaultButton ? 1 : 0) != 0;
+		return ntinyfd_messageBox(memAddressSafe(aTitle), memAddressSafe(aMessage), memAddress(aDialogType), memAddress(aIconType), aDefaultButton ? 1 : 0) != 0;
 	}
 
 	/**
 	 * Displays a message dialog.
 	 *
-	 * @param aTitle         the dialog title
-	 * @param aMessage       the message. It may contain \n and \t characters.
+	 * @param aTitle         the dialog title or {@code NULL}
+	 * @param aMessage       the message or {@code NULL}. It may contain \n and \t characters.
 	 * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td></tr></table>
 	 * @param aIconType      the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td><td>"question"</td></tr></table>
 	 * @param aDefaultButton 0 for cancel/no, 1 for ok/yes
@@ -144,7 +144,7 @@ public class TinyFileDialogs {
 			ByteBuffer aMessageEncoded = stack.UTF8(aMessage);
 			ByteBuffer aDialogTypeEncoded = stack.ASCII(aDialogType);
 			ByteBuffer aIconTypeEncoded = stack.ASCII(aIconType);
-			return ntinyfd_messageBox(memAddress(aTitleEncoded), memAddress(aMessageEncoded), memAddress(aDialogTypeEncoded), memAddress(aIconTypeEncoded), aDefaultButton ? 1 : 0) != 0;
+			return ntinyfd_messageBox(memAddressSafe(aTitleEncoded), memAddressSafe(aMessageEncoded), memAddress(aDialogTypeEncoded), memAddress(aIconTypeEncoded), aDefaultButton ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -158,27 +158,27 @@ public class TinyFileDialogs {
 	/**
 	 * Displays an input dialog.
 	 *
-	 * @param aTitle        the dialog title
-	 * @param aMessage      the message. May NOT contain \n and \t characters on Windows.
+	 * @param aTitle        the dialog title or {@code NULL}
+	 * @param aMessage      the message or {@code NULL}. May NOT contain \n and \t characters on Windows.
 	 * @param aDefaultInput if {@code NULL} it's a password box
 	 *
 	 * @return the input value or {@code NULL} on cancel
 	 */
 	public static String tinyfd_inputBox(ByteBuffer aTitle, ByteBuffer aMessage, ByteBuffer aDefaultInput) {
 		if ( CHECKS ) {
-			checkNT1(aTitle);
-			checkNT1(aMessage);
+			checkNT1Safe(aTitle);
+			checkNT1Safe(aMessage);
 			checkNT1Safe(aDefaultInput);
 		}
-		long __result = ntinyfd_inputBox(memAddress(aTitle), memAddress(aMessage), memAddressSafe(aDefaultInput));
+		long __result = ntinyfd_inputBox(memAddressSafe(aTitle), memAddressSafe(aMessage), memAddressSafe(aDefaultInput));
 		return memUTF8(__result);
 	}
 
 	/**
 	 * Displays an input dialog.
 	 *
-	 * @param aTitle        the dialog title
-	 * @param aMessage      the message. May NOT contain \n and \t characters on Windows.
+	 * @param aTitle        the dialog title or {@code NULL}
+	 * @param aMessage      the message or {@code NULL}. May NOT contain \n and \t characters on Windows.
 	 * @param aDefaultInput if {@code NULL} it's a password box
 	 *
 	 * @return the input value or {@code NULL} on cancel
@@ -189,7 +189,7 @@ public class TinyFileDialogs {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aMessageEncoded = stack.UTF8(aMessage);
 			ByteBuffer aDefaultInputEncoded = stack.UTF8(aDefaultInput);
-			long __result = ntinyfd_inputBox(memAddress(aTitleEncoded), memAddress(aMessageEncoded), memAddressSafe(aDefaultInputEncoded));
+			long __result = ntinyfd_inputBox(memAddressSafe(aTitleEncoded), memAddressSafe(aMessageEncoded), memAddressSafe(aDefaultInputEncoded));
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -208,8 +208,8 @@ public class TinyFileDialogs {
 	/**
 	 * Displays a file save dialog.
 	 *
-	 * @param aTitle                   the dialog title
-	 * @param aDefaultPathAndFile      the default path and/or file
+	 * @param aTitle                   the dialog title or {@code NULL}
+	 * @param aDefaultPathAndFile      the default path and/or file or {@code NULL}
 	 * @param aFilterPatterns          an array of file type patterns ({@code NULL} or {"*.jpg","*.png"}
 	 * @param aSingleFilterDescription {@code NULL} or "image files"
 	 *
@@ -217,19 +217,19 @@ public class TinyFileDialogs {
 	 */
 	public static String tinyfd_saveFileDialog(ByteBuffer aTitle, ByteBuffer aDefaultPathAndFile, PointerBuffer aFilterPatterns, ByteBuffer aSingleFilterDescription) {
 		if ( CHECKS ) {
-			checkNT1(aTitle);
-			checkNT1(aDefaultPathAndFile);
+			checkNT1Safe(aTitle);
+			checkNT1Safe(aDefaultPathAndFile);
 			checkNT1Safe(aSingleFilterDescription);
 		}
-		long __result = ntinyfd_saveFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription));
+		long __result = ntinyfd_saveFileDialog(memAddressSafe(aTitle), memAddressSafe(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription));
 		return memUTF8(__result);
 	}
 
 	/**
 	 * Displays a file save dialog.
 	 *
-	 * @param aTitle                   the dialog title
-	 * @param aDefaultPathAndFile      the default path and/or file
+	 * @param aTitle                   the dialog title or {@code NULL}
+	 * @param aDefaultPathAndFile      the default path and/or file or {@code NULL}
 	 * @param aFilterPatterns          an array of file type patterns ({@code NULL} or {"*.jpg","*.png"}
 	 * @param aSingleFilterDescription {@code NULL} or "image files"
 	 *
@@ -241,7 +241,7 @@ public class TinyFileDialogs {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8(aDefaultPathAndFile);
 			ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8(aSingleFilterDescription);
-			long __result = ntinyfd_saveFileDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded));
+			long __result = ntinyfd_saveFileDialog(memAddressSafe(aTitleEncoded), memAddressSafe(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded));
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -260,8 +260,8 @@ public class TinyFileDialogs {
 	/**
 	 * Displays a file open dialog.
 	 *
-	 * @param aTitle                   the dialog title
-	 * @param aDefaultPathAndFile      the default path and/or file
+	 * @param aTitle                   the dialog title or {@code NULL}
+	 * @param aDefaultPathAndFile      the default path and/or file or {@code NULL}
 	 * @param aFilterPatterns          an array of file type patterns ({@code NULL} or {"*.jpg","*.png"}
 	 * @param aSingleFilterDescription {@code NULL} or "image files"
 	 * @param aAllowMultipleSelects    if true, multiple selections are allowed
@@ -270,19 +270,19 @@ public class TinyFileDialogs {
 	 */
 	public static String tinyfd_openFileDialog(ByteBuffer aTitle, ByteBuffer aDefaultPathAndFile, PointerBuffer aFilterPatterns, ByteBuffer aSingleFilterDescription, boolean aAllowMultipleSelects) {
 		if ( CHECKS ) {
-			checkNT1(aTitle);
-			checkNT1(aDefaultPathAndFile);
+			checkNT1Safe(aTitle);
+			checkNT1Safe(aDefaultPathAndFile);
 			checkNT1Safe(aSingleFilterDescription);
 		}
-		long __result = ntinyfd_openFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription), aAllowMultipleSelects ? 1 : 0);
+		long __result = ntinyfd_openFileDialog(memAddressSafe(aTitle), memAddressSafe(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription), aAllowMultipleSelects ? 1 : 0);
 		return memUTF8(__result);
 	}
 
 	/**
 	 * Displays a file open dialog.
 	 *
-	 * @param aTitle                   the dialog title
-	 * @param aDefaultPathAndFile      the default path and/or file
+	 * @param aTitle                   the dialog title or {@code NULL}
+	 * @param aDefaultPathAndFile      the default path and/or file or {@code NULL}
 	 * @param aFilterPatterns          an array of file type patterns ({@code NULL} or {"*.jpg","*.png"}
 	 * @param aSingleFilterDescription {@code NULL} or "image files"
 	 * @param aAllowMultipleSelects    if true, multiple selections are allowed
@@ -295,7 +295,7 @@ public class TinyFileDialogs {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8(aDefaultPathAndFile);
 			ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8(aSingleFilterDescription);
-			long __result = ntinyfd_openFileDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded), aAllowMultipleSelects ? 1 : 0);
+			long __result = ntinyfd_openFileDialog(memAddressSafe(aTitleEncoded), memAddressSafe(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded), aAllowMultipleSelects ? 1 : 0);
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -310,30 +310,30 @@ public class TinyFileDialogs {
 	/**
 	 * Displays a folder selection dialog.
 	 *
-	 * @param aTitle       the dialog title
-	 * @param aDefaultPath the default path
+	 * @param aTitle       the dialog title or {@code NULL}
+	 * @param aDefaultPath the default path or {@code NULL}
 	 */
 	public static String tinyfd_selectFolderDialog(ByteBuffer aTitle, ByteBuffer aDefaultPath) {
 		if ( CHECKS ) {
-			checkNT1(aTitle);
+			checkNT1Safe(aTitle);
 			checkNT1(aDefaultPath);
 		}
-		long __result = ntinyfd_selectFolderDialog(memAddress(aTitle), memAddress(aDefaultPath));
+		long __result = ntinyfd_selectFolderDialog(memAddressSafe(aTitle), memAddress(aDefaultPath));
 		return memUTF8(__result);
 	}
 
 	/**
 	 * Displays a folder selection dialog.
 	 *
-	 * @param aTitle       the dialog title
-	 * @param aDefaultPath the default path
+	 * @param aTitle       the dialog title or {@code NULL}
+	 * @param aDefaultPath the default path or {@code NULL}
 	 */
 	public static String tinyfd_selectFolderDialog(CharSequence aTitle, CharSequence aDefaultPath) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aDefaultPathEncoded = stack.UTF8(aDefaultPath);
-			long __result = ntinyfd_selectFolderDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathEncoded));
+			long __result = ntinyfd_selectFolderDialog(memAddressSafe(aTitleEncoded), memAddress(aDefaultPathEncoded));
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -348,7 +348,7 @@ public class TinyFileDialogs {
 	/**
 	 * Displays a color chooser dialog.
 	 *
-	 * @param aTitle         the dialog title
+	 * @param aTitle         the dialog title or {@code NULL}
 	 * @param aDefaultHexRGB {@code NULL} or "#FF0000"
 	 * @param aDefaultRGB    { 0 , 255 , 255 }. Used only if {@code aDefaultHexRGB} is {@code NULL}.
 	 * @param aoResultRGB    returns the selected color. {@code aDefaultRGB} and {@code aoResultRGB} can be the same array.
@@ -357,19 +357,19 @@ public class TinyFileDialogs {
 	 */
 	public static String tinyfd_colorChooser(ByteBuffer aTitle, ByteBuffer aDefaultHexRGB, ByteBuffer aDefaultRGB, ByteBuffer aoResultRGB) {
 		if ( CHECKS ) {
-			checkNT1(aTitle);
+			checkNT1Safe(aTitle);
 			checkNT1Safe(aDefaultHexRGB);
 			checkSafe(aDefaultRGB, 3);
 			check(aoResultRGB, 3);
 		}
-		long __result = ntinyfd_colorChooser(memAddress(aTitle), memAddressSafe(aDefaultHexRGB), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
+		long __result = ntinyfd_colorChooser(memAddressSafe(aTitle), memAddressSafe(aDefaultHexRGB), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
 		return memUTF8(__result);
 	}
 
 	/**
 	 * Displays a color chooser dialog.
 	 *
-	 * @param aTitle         the dialog title
+	 * @param aTitle         the dialog title or {@code NULL}
 	 * @param aDefaultHexRGB {@code NULL} or "#FF0000"
 	 * @param aDefaultRGB    { 0 , 255 , 255 }. Used only if {@code aDefaultHexRGB} is {@code NULL}.
 	 * @param aoResultRGB    returns the selected color. {@code aDefaultRGB} and {@code aoResultRGB} can be the same array.
@@ -385,7 +385,7 @@ public class TinyFileDialogs {
 		try {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aDefaultHexRGBEncoded = stack.ASCII(aDefaultHexRGB);
-			long __result = ntinyfd_colorChooser(memAddress(aTitleEncoded), memAddressSafe(aDefaultHexRGBEncoded), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
+			long __result = ntinyfd_colorChooser(memAddressSafe(aTitleEncoded), memAddressSafe(aDefaultHexRGBEncoded), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);
