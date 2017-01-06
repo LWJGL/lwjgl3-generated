@@ -8,18 +8,20 @@
 #include <stdint.h>
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4711))
-	static void* aligned_alloc(size_t alignment, size_t size) {
+	static void* __aligned_alloc(size_t alignment, size_t size) {
         return _aligned_malloc(size, alignment);
     }
-	#define aligned_free _aligned_free
+	#define __aligned_free _aligned_free
 #else
-	#ifndef __USE_ISOC11
-	static void* aligned_alloc(size_t alignment, size_t size) {
-		void *p;
-		return posix_memalign(&p, alignment, size) ? NULL : p;
-	}
+	#if defined(__USE_ISOC11) && !defined(LWJGL_LINUX)
+		#define __aligned_alloc aligned_alloc
+	#else
+		static void* __aligned_alloc(size_t alignment, size_t size) {
+			void *p;
+			return posix_memalign(&p, alignment, size) ? NULL : p;
+		}
 	#endif
-	#define aligned_free free
+	#define __aligned_free free
 #endif
 
 // -----------
@@ -73,12 +75,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_free(JNIEnv *__env
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_aligned_1alloc(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)&aligned_alloc;
+return (jlong)(intptr_t)&__aligned_alloc;
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_aligned_1free(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)&aligned_free;
+return (jlong)(intptr_t)&__aligned_free;
 }
 
 JNIEXPORT jbyte JNICALL Java_org_lwjgl_system_MemoryAccessJNI_ngetByte(JNIEnv *__env, jclass clazz, jlong ptrAddress) {

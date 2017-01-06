@@ -6,16 +6,18 @@
 #include "common_tools.h"
 #include <stdlib.h>
 #ifdef LWJGL_WINDOWS
-	#define aligned_alloc(alignment, size) _aligned_malloc(size, alignment)
-	#define aligned_free _aligned_free
+	#define __aligned_alloc(alignment, size) _aligned_malloc(size, alignment)
+	#define __aligned_free _aligned_free
 #else
-	#ifndef __USE_ISOC11
-	inline void* aligned_alloc(size_t alignment, size_t size) {
-		void *p;
-		return posix_memalign(&p, alignment, size) ? NULL : p;
-	}
+	#if defined(__USE_ISOC11) && !defined(LWJGL_LINUX)
+		#define __aligned_alloc aligned_alloc
+	#else
+		inline void* __aligned_alloc(size_t alignment, size_t size) {
+			void *p;
+			return posix_memalign(&p, alignment, size) ? NULL : p;
+		}
 	#endif
-	#define aligned_free free
+	#define __aligned_free free
 #endif
 
 EXTERN_C_ENTER
@@ -44,13 +46,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_LibCStdlib_nfree(JNIEnv *__env
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdlib_naligned_1alloc(JNIEnv *__env, jclass clazz, jlong alignment, jlong size) {
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)aligned_alloc((size_t)alignment, (size_t)size);
+	return (jlong)(intptr_t)__aligned_alloc((size_t)alignment, (size_t)size);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_LibCStdlib_naligned_1free(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
 	void *ptr = (void *)(intptr_t)ptrAddress;
 	UNUSED_PARAMS(__env, clazz)
-	aligned_free(ptr);
+	__aligned_free(ptr);
 }
 
 EXTERN_C_EXIT

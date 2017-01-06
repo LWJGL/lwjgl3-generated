@@ -25,42 +25,42 @@ class MemoryAccessJNI {
 
 	private static native long malloc();
 
-	/** Returns the address of the stdlib malloc function. */
+	/** Returns the address of the stdlib {@code malloc} function. */
 	static final long malloc = malloc();
 
 	// --- [ calloc ] ---
 
 	private static native long calloc();
 
-	/** Returns the address of the stdlib calloc function. */
+	/** Returns the address of the stdlib {@code calloc} function. */
 	static final long calloc = calloc();
 
 	// --- [ realloc ] ---
 
 	private static native long realloc();
 
-	/** Returns the address of the stdlib realloc function. */
+	/** Returns the address of the stdlib {@code realloc} function. */
 	static final long realloc = realloc();
 
 	// --- [ free ] ---
 
 	private static native long free();
 
-	/** Returns the address of the stdlib free function. */
+	/** Returns the address of the stdlib {@code free} function. */
 	static final long free = free();
 
 	// --- [ aligned_alloc ] ---
 
 	private static native long aligned_alloc();
 
-	/** Returns the address of the stdlib aligned_alloc function. */
+	/** Returns the address of the stdlib {@code aligned_alloc} function. */
 	static final long aligned_alloc = aligned_alloc();
 
 	// --- [ aligned_free ] ---
 
 	private static native long aligned_free();
 
-	/** Returns the address of the stdlib aligned_free function. */
+	/** Returns the address of the stdlib {@code aligned_free} function. */
 	static final long aligned_free = aligned_free();
 
 	// --- [ getByte ] ---
