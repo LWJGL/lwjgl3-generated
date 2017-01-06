@@ -107,6 +107,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRangesRend
 	return (jint)stbtt_PackFontRangesRenderIntoRects(spc, info, ranges, num_ranges, rects);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetNumberOfFonts(JNIEnv *__env, jclass clazz, jlong dataAddress) {
+	const unsigned char *data = (const unsigned char *)(intptr_t)dataAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)stbtt_GetNumberOfFonts(data);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontOffsetForIndex(JNIEnv *__env, jclass clazz, jlong dataAddress, jint index) {
 	const unsigned char *data = (const unsigned char *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)

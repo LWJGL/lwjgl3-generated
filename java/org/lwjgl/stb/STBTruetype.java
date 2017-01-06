@@ -226,7 +226,8 @@ public class STBTruetype {
 	public static final byte
 		STBTT_vmove  = 1,
 		STBTT_vline  = 2,
-		STBTT_vcurve = 3;
+		STBTT_vcurve = 3,
+		STBTT_vcubic = 4;
 
 	/** Style flags, use in {@link #stbtt_FindMatchingFont FindMatchingFont}. */
 	public static final int
@@ -621,6 +622,23 @@ public class STBTruetype {
 		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), ranges.remaining(), rects.address()) != 0;
 	}
 
+	// --- [ stbtt_GetNumberOfFonts ] ---
+
+	/** Unsafe version of: {@link #stbtt_GetNumberOfFonts GetNumberOfFonts} */
+	public static native int nstbtt_GetNumberOfFonts(long data);
+
+	/**
+	 * Determines the number of fonts in a font file.
+	 * 
+	 * <p>TrueType collection (.ttc) files may contain multiple fonts, while TrueType font (.ttf) files only contain one font. The number of fonts can be used
+	 * for indexing with {@link #stbtt_GetFontOffsetForIndex GetFontOffsetForIndex} where the index is between zero and one less than the total fonts. If an error occurs, -1 is returned.</p>
+	 *
+	 * @param data the font data
+	 */
+	public static int stbtt_GetNumberOfFonts(ByteBuffer data) {
+		return nstbtt_GetNumberOfFonts(memAddress(data));
+	}
+
 	// --- [ stbtt_GetFontOffsetForIndex ] ---
 
 	/** Unsafe version of: {@link #stbtt_GetFontOffsetForIndex GetFontOffsetForIndex} */
@@ -629,7 +647,7 @@ public class STBTruetype {
 	/**
 	 * Each .ttf/.ttc file may have more than one font. Each font has a sequential index number starting from 0. Call this function to get the font offset for
 	 * a given index; it returns -1 if the index is out of range. A regular .ttf file will only define one font and it always be at offset 0, so it will
-	 * return '0' for index 0, and -1 for all other indices. You can just skip this step if you know it's that kind of font.
+	 * return '0' for index 0, and -1 for all other indices.
 	 *
 	 * @param data  the font data
 	 * @param index the font index

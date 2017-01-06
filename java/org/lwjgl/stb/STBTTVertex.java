@@ -23,6 +23,8 @@ import static org.lwjgl.system.MemoryStack.*;
     stbtt_vertex_type y;
     stbtt_vertex_type cx;
     stbtt_vertex_type cy;
+    stbtt_vertex_type cx1;
+    stbtt_vertex_type cy1;
     unsigned char type;
 }</code></pre>
  */
@@ -39,10 +41,14 @@ public class STBTTVertex extends Struct implements NativeResource {
 		Y,
 		CX,
 		CY,
+		CX1,
+		CY1,
 		TYPE;
 
 	static {
 		Layout layout = __struct(
+			__member(2),
+			__member(2),
 			__member(2),
 			__member(2),
 			__member(2),
@@ -57,7 +63,9 @@ public class STBTTVertex extends Struct implements NativeResource {
 		Y = layout.offsetof(1);
 		CX = layout.offsetof(2);
 		CY = layout.offsetof(3);
-		TYPE = layout.offsetof(4);
+		CX1 = layout.offsetof(4);
+		CY1 = layout.offsetof(5);
+		TYPE = layout.offsetof(6);
 	}
 
 	STBTTVertex(long address, ByteBuffer container) {
@@ -85,6 +93,10 @@ public class STBTTVertex extends Struct implements NativeResource {
 	public short cx() { return ncx(address()); }
 	/** Returns the value of the {@code cy} field. */
 	public short cy() { return ncy(address()); }
+	/** Returns the value of the {@code cx1} field. */
+	public short cx1() { return ncx1(address()); }
+	/** Returns the value of the {@code cy1} field. */
+	public short cy1() { return ncy1(address()); }
 	/** Returns the value of the {@code type} field. */
 	public byte type() { return ntype(address()); }
 
@@ -225,6 +237,10 @@ public class STBTTVertex extends Struct implements NativeResource {
 	public static short ncx(long struct) { return memGetShort(struct + STBTTVertex.CX); }
 	/** Unsafe version of {@link #cy}. */
 	public static short ncy(long struct) { return memGetShort(struct + STBTTVertex.CY); }
+	/** Unsafe version of {@link #cx1}. */
+	public static short ncx1(long struct) { return memGetShort(struct + STBTTVertex.CX1); }
+	/** Unsafe version of {@link #cy1}. */
+	public static short ncy1(long struct) { return memGetShort(struct + STBTTVertex.CY1); }
 	/** Unsafe version of {@link #type}. */
 	public static byte ntype(long struct) { return memGetByte(struct + STBTTVertex.TYPE); }
 
@@ -278,6 +294,10 @@ public class STBTTVertex extends Struct implements NativeResource {
 		public short cx() { return STBTTVertex.ncx(address()); }
 		/** Returns the value of the {@code cy} field. */
 		public short cy() { return STBTTVertex.ncy(address()); }
+		/** Returns the value of the {@code cx1} field. */
+		public short cx1() { return STBTTVertex.ncx1(address()); }
+		/** Returns the value of the {@code cy1} field. */
+		public short cy1() { return STBTTVertex.ncy1(address()); }
 		/** Returns the value of the {@code type} field. */
 		public byte type() { return STBTTVertex.ntype(address()); }
 
