@@ -18,14 +18,14 @@ import static org.lwjgl.system.MemoryUtil.*;
     {@link YGStyle YGStyle} style;
     {@link YGLayout YGLayout} layout;
     uint32_t lineIndex;
-    bool hasNewLayout;
     YGNodeRef parent;
     YGNodeListRef children;
-    bool isDirty;
     {@link YGNode YGNode} * nextChild;
     {@link YGMeasureFuncI YGMeasureFunc} measure;
     {@link YGPrintFuncI YGPrintFunc} print;
     void * context;
+    bool isDirty;
+    bool hasNewLayout;
 }</code></pre>
  */
 public class YGNode extends Struct {
@@ -40,28 +40,28 @@ public class YGNode extends Struct {
 		STYLE,
 		LAYOUT,
 		LINEINDEX,
-		HASNEWLAYOUT,
 		PARENT,
 		CHILDREN,
-		ISDIRTY,
 		NEXTCHILD,
 		MEASURE,
 		PRINT,
-		CONTEXT;
+		CONTEXT,
+		ISDIRTY,
+		HASNEWLAYOUT;
 
 	static {
 		Layout layout = __struct(
 			__member(YGStyle.SIZEOF, YGStyle.ALIGNOF),
 			__member(YGLayout.SIZEOF, YGLayout.ALIGNOF),
 			__member(4),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(1),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(1),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE)
+			__member(1)
 		);
 
 		SIZEOF = layout.getSize();
@@ -70,14 +70,14 @@ public class YGNode extends Struct {
 		STYLE = layout.offsetof(0);
 		LAYOUT = layout.offsetof(1);
 		LINEINDEX = layout.offsetof(2);
-		HASNEWLAYOUT = layout.offsetof(3);
-		PARENT = layout.offsetof(4);
-		CHILDREN = layout.offsetof(5);
-		ISDIRTY = layout.offsetof(6);
-		NEXTCHILD = layout.offsetof(7);
-		MEASURE = layout.offsetof(8);
-		PRINT = layout.offsetof(9);
-		CONTEXT = layout.offsetof(10);
+		PARENT = layout.offsetof(3);
+		CHILDREN = layout.offsetof(4);
+		NEXTCHILD = layout.offsetof(5);
+		MEASURE = layout.offsetof(6);
+		PRINT = layout.offsetof(7);
+		CONTEXT = layout.offsetof(8);
+		ISDIRTY = layout.offsetof(9);
+		HASNEWLAYOUT = layout.offsetof(10);
 	}
 
 	YGNode(long address, ByteBuffer container) {
@@ -103,14 +103,10 @@ public class YGNode extends Struct {
 	public YGLayout layout() { return nlayout(address()); }
 	/** Returns the value of the {@code lineIndex} field. */
 	public int lineIndex() { return nlineIndex(address()); }
-	/** Returns the value of the {@code hasNewLayout} field. */
-	public boolean hasNewLayout() { return nhasNewLayout(address()); }
 	/** Returns the value of the {@code parent} field. */
 	public long parent() { return nparent(address()); }
 	/** Returns the value of the {@code children} field. */
 	public long children() { return nchildren(address()); }
-	/** Returns the value of the {@code isDirty} field. */
-	public boolean isDirty() { return nisDirty(address()); }
 	/** Returns a {@link YGNode} view of the struct pointed to by the {@code nextChild} field. */
 	public YGNode nextChild() { return nnextChild(address()); }
 	/** Returns the value of the {@code measure} field. */
@@ -119,6 +115,10 @@ public class YGNode extends Struct {
 	public YGPrintFunc print() { return nprint(address()); }
 	/** Returns the value of the {@code context} field. */
 	public long context() { return ncontext(address()); }
+	/** Returns the value of the {@code isDirty} field. */
+	public boolean isDirty() { return nisDirty(address()); }
+	/** Returns the value of the {@code hasNewLayout} field. */
+	public boolean hasNewLayout() { return nhasNewLayout(address()); }
 
 	// -----------------------------------
 
@@ -145,14 +145,10 @@ public class YGNode extends Struct {
 	public static YGLayout nlayout(long struct) { return YGLayout.create(struct + YGNode.LAYOUT); }
 	/** Unsafe version of {@link #lineIndex}. */
 	public static int nlineIndex(long struct) { return memGetInt(struct + YGNode.LINEINDEX); }
-	/** Unsafe version of {@link #hasNewLayout}. */
-	public static boolean nhasNewLayout(long struct) { return memGetByte(struct + YGNode.HASNEWLAYOUT) != 0; }
 	/** Unsafe version of {@link #parent}. */
 	public static long nparent(long struct) { return memGetAddress(struct + YGNode.PARENT); }
 	/** Unsafe version of {@link #children}. */
 	public static long nchildren(long struct) { return memGetAddress(struct + YGNode.CHILDREN); }
-	/** Unsafe version of {@link #isDirty}. */
-	public static boolean nisDirty(long struct) { return memGetByte(struct + YGNode.ISDIRTY) != 0; }
 	/** Unsafe version of {@link #nextChild}. */
 	public static YGNode nnextChild(long struct) { return YGNode.create(memGetAddress(struct + YGNode.NEXTCHILD)); }
 	/** Unsafe version of {@link #measure}. */
@@ -161,6 +157,10 @@ public class YGNode extends Struct {
 	public static YGPrintFunc nprint(long struct) { return YGPrintFunc.create(memGetAddress(struct + YGNode.PRINT)); }
 	/** Unsafe version of {@link #context}. */
 	public static long ncontext(long struct) { return memGetAddress(struct + YGNode.CONTEXT); }
+	/** Unsafe version of {@link #isDirty}. */
+	public static boolean nisDirty(long struct) { return memGetByte(struct + YGNode.ISDIRTY) != 0; }
+	/** Unsafe version of {@link #hasNewLayout}. */
+	public static boolean nhasNewLayout(long struct) { return memGetByte(struct + YGNode.HASNEWLAYOUT) != 0; }
 
 	// -----------------------------------
 
@@ -210,14 +210,10 @@ public class YGNode extends Struct {
 		public YGLayout layout() { return YGNode.nlayout(address()); }
 		/** Returns the value of the {@code lineIndex} field. */
 		public int lineIndex() { return YGNode.nlineIndex(address()); }
-		/** Returns the value of the {@code hasNewLayout} field. */
-		public boolean hasNewLayout() { return YGNode.nhasNewLayout(address()); }
 		/** Returns the value of the {@code parent} field. */
 		public long parent() { return YGNode.nparent(address()); }
 		/** Returns the value of the {@code children} field. */
 		public long children() { return YGNode.nchildren(address()); }
-		/** Returns the value of the {@code isDirty} field. */
-		public boolean isDirty() { return YGNode.nisDirty(address()); }
 		/** Returns a {@link YGNode} view of the struct pointed to by the {@code nextChild} field. */
 		public YGNode nextChild() { return YGNode.nnextChild(address()); }
 		/** Returns the value of the {@code measure} field. */
@@ -226,6 +222,10 @@ public class YGNode extends Struct {
 		public YGPrintFunc print() { return YGNode.nprint(address()); }
 		/** Returns the value of the {@code context} field. */
 		public long context() { return YGNode.ncontext(address()); }
+		/** Returns the value of the {@code isDirty} field. */
+		public boolean isDirty() { return YGNode.nisDirty(address()); }
+		/** Returns the value of the {@code hasNewLayout} field. */
+		public boolean hasNewLayout() { return YGNode.nhasNewLayout(address()); }
 
 	}
 

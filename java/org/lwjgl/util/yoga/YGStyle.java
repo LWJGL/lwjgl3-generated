@@ -28,14 +28,14 @@ import static org.lwjgl.system.MemoryUtil.*;
     float flex;
     float flexGrow;
     float flexShrink;
-    float flexBasis;
-    float margin[9];
-    float positions[9];
-    float padding[9];
-    float border[9];
-    float dimensions[2];
-    float minDimensions[2];
-    float maxDimensions[2];
+    {@link YGValue YGValue} flexBasis;
+    {@link YGValue YGValue} margin[9];
+    {@link YGValue YGValue} positions[9];
+    {@link YGValue YGValue} padding[9];
+    {@link YGValue YGValue} border[9];
+    {@link YGValue YGValue} dimensions[2];
+    {@link YGValue YGValue} minDimensions[2];
+    {@link YGValue YGValue} maxDimensions[2];
     float aspectRatio;
 }</code></pre>
  */
@@ -84,14 +84,14 @@ public class YGStyle extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(4),
-			__array(4, 9),
-			__array(4, 9),
-			__array(4, 9),
-			__array(4, 9),
-			__array(4, 2),
-			__array(4, 2),
-			__array(4, 2),
+			__member(YGValue.SIZEOF, YGValue.ALIGNOF),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 9),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 9),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 9),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 9),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 2),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 2),
+			__array(YGValue.SIZEOF, YGValue.ALIGNOF, 2),
 			__member(4)
 		);
 
@@ -162,36 +162,36 @@ public class YGStyle extends Struct {
 	public float flexGrow() { return nflexGrow(address()); }
 	/** Returns the value of the {@code flexShrink} field. */
 	public float flexShrink() { return nflexShrink(address()); }
-	/** Returns the value of the {@code flexBasis} field. */
-	public float flexBasis() { return nflexBasis(address()); }
-	/** Returns a {@link FloatBuffer} view of the {@code margin} field. */
-	public FloatBuffer margin() { return nmargin(address()); }
-	/** Returns the value at the specified index of the {@code margin} field. */
-	public float margin(int index) { return nmargin(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code positions} field. */
-	public FloatBuffer positions() { return npositions(address()); }
-	/** Returns the value at the specified index of the {@code positions} field. */
-	public float positions(int index) { return npositions(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code padding} field. */
-	public FloatBuffer padding() { return npadding(address()); }
-	/** Returns the value at the specified index of the {@code padding} field. */
-	public float padding(int index) { return npadding(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code border} field. */
-	public FloatBuffer border() { return nborder(address()); }
-	/** Returns the value at the specified index of the {@code border} field. */
-	public float border(int index) { return nborder(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code dimensions} field. */
-	public FloatBuffer dimensions() { return ndimensions(address()); }
-	/** Returns the value at the specified index of the {@code dimensions} field. */
-	public float dimensions(int index) { return ndimensions(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code minDimensions} field. */
-	public FloatBuffer minDimensions() { return nminDimensions(address()); }
-	/** Returns the value at the specified index of the {@code minDimensions} field. */
-	public float minDimensions(int index) { return nminDimensions(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code maxDimensions} field. */
-	public FloatBuffer maxDimensions() { return nmaxDimensions(address()); }
-	/** Returns the value at the specified index of the {@code maxDimensions} field. */
-	public float maxDimensions(int index) { return nmaxDimensions(address(), index); }
+	/** Returns a {@link YGValue} view of the {@code flexBasis} field. */
+	public YGValue flexBasis() { return nflexBasis(address()); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code margin} field. */
+	public YGValue.Buffer margin() { return nmargin(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code margin} field. */
+	public YGValue margin(int index) { return nmargin(address(), index); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code positions} field. */
+	public YGValue.Buffer positions() { return npositions(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code positions} field. */
+	public YGValue positions(int index) { return npositions(address(), index); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code padding} field. */
+	public YGValue.Buffer padding() { return npadding(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code padding} field. */
+	public YGValue padding(int index) { return npadding(address(), index); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code border} field. */
+	public YGValue.Buffer border() { return nborder(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code border} field. */
+	public YGValue border(int index) { return nborder(address(), index); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code dimensions} field. */
+	public YGValue.Buffer dimensions() { return ndimensions(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code dimensions} field. */
+	public YGValue dimensions(int index) { return ndimensions(address(), index); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code minDimensions} field. */
+	public YGValue.Buffer minDimensions() { return nminDimensions(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code minDimensions} field. */
+	public YGValue minDimensions(int index) { return nminDimensions(address(), index); }
+	/** Returns a {@link YGValue}.Buffer view of the {@code maxDimensions} field. */
+	public YGValue.Buffer maxDimensions() { return nmaxDimensions(address()); }
+	/** Returns a {@link YGValue} view of the struct at the specified index of the {@code maxDimensions} field. */
+	public YGValue maxDimensions(int index) { return nmaxDimensions(address(), index); }
 	/** Returns the value of the {@code aspectRatio} field. */
 	public float aspectRatio() { return naspectRatio(address()); }
 
@@ -239,55 +239,55 @@ public class YGStyle extends Struct {
 	/** Unsafe version of {@link #flexShrink}. */
 	public static float nflexShrink(long struct) { return memGetFloat(struct + YGStyle.FLEXSHRINK); }
 	/** Unsafe version of {@link #flexBasis}. */
-	public static float nflexBasis(long struct) { return memGetFloat(struct + YGStyle.FLEXBASIS); }
+	public static YGValue nflexBasis(long struct) { return YGValue.create(struct + YGStyle.FLEXBASIS); }
 	/** Unsafe version of {@link #margin}. */
-	public static FloatBuffer nmargin(long struct) { return memFloatBuffer(struct + YGStyle.MARGIN, 9); }
+	public static YGValue.Buffer nmargin(long struct) { return YGValue.create(struct + YGStyle.MARGIN, 9); }
 	/** Unsafe version of {@link #margin(int) margin}. */
-	public static float nmargin(long struct, int index) {
+	public static YGValue nmargin(long struct, int index) {
 		if ( CHECKS ) check(index, 9);
-		return memGetFloat(struct + YGStyle.MARGIN + index * 4);
+		return YGValue.create(struct + YGStyle.MARGIN + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #positions}. */
-	public static FloatBuffer npositions(long struct) { return memFloatBuffer(struct + YGStyle.POSITIONS, 9); }
+	public static YGValue.Buffer npositions(long struct) { return YGValue.create(struct + YGStyle.POSITIONS, 9); }
 	/** Unsafe version of {@link #positions(int) positions}. */
-	public static float npositions(long struct, int index) {
+	public static YGValue npositions(long struct, int index) {
 		if ( CHECKS ) check(index, 9);
-		return memGetFloat(struct + YGStyle.POSITIONS + index * 4);
+		return YGValue.create(struct + YGStyle.POSITIONS + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #padding}. */
-	public static FloatBuffer npadding(long struct) { return memFloatBuffer(struct + YGStyle.PADDING, 9); }
+	public static YGValue.Buffer npadding(long struct) { return YGValue.create(struct + YGStyle.PADDING, 9); }
 	/** Unsafe version of {@link #padding(int) padding}. */
-	public static float npadding(long struct, int index) {
+	public static YGValue npadding(long struct, int index) {
 		if ( CHECKS ) check(index, 9);
-		return memGetFloat(struct + YGStyle.PADDING + index * 4);
+		return YGValue.create(struct + YGStyle.PADDING + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #border}. */
-	public static FloatBuffer nborder(long struct) { return memFloatBuffer(struct + YGStyle.BORDER, 9); }
+	public static YGValue.Buffer nborder(long struct) { return YGValue.create(struct + YGStyle.BORDER, 9); }
 	/** Unsafe version of {@link #border(int) border}. */
-	public static float nborder(long struct, int index) {
+	public static YGValue nborder(long struct, int index) {
 		if ( CHECKS ) check(index, 9);
-		return memGetFloat(struct + YGStyle.BORDER + index * 4);
+		return YGValue.create(struct + YGStyle.BORDER + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #dimensions}. */
-	public static FloatBuffer ndimensions(long struct) { return memFloatBuffer(struct + YGStyle.DIMENSIONS, 2); }
+	public static YGValue.Buffer ndimensions(long struct) { return YGValue.create(struct + YGStyle.DIMENSIONS, 2); }
 	/** Unsafe version of {@link #dimensions(int) dimensions}. */
-	public static float ndimensions(long struct, int index) {
+	public static YGValue ndimensions(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
-		return memGetFloat(struct + YGStyle.DIMENSIONS + index * 4);
+		return YGValue.create(struct + YGStyle.DIMENSIONS + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #minDimensions}. */
-	public static FloatBuffer nminDimensions(long struct) { return memFloatBuffer(struct + YGStyle.MINDIMENSIONS, 2); }
+	public static YGValue.Buffer nminDimensions(long struct) { return YGValue.create(struct + YGStyle.MINDIMENSIONS, 2); }
 	/** Unsafe version of {@link #minDimensions(int) minDimensions}. */
-	public static float nminDimensions(long struct, int index) {
+	public static YGValue nminDimensions(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
-		return memGetFloat(struct + YGStyle.MINDIMENSIONS + index * 4);
+		return YGValue.create(struct + YGStyle.MINDIMENSIONS + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #maxDimensions}. */
-	public static FloatBuffer nmaxDimensions(long struct) { return memFloatBuffer(struct + YGStyle.MAXDIMENSIONS, 2); }
+	public static YGValue.Buffer nmaxDimensions(long struct) { return YGValue.create(struct + YGStyle.MAXDIMENSIONS, 2); }
 	/** Unsafe version of {@link #maxDimensions(int) maxDimensions}. */
-	public static float nmaxDimensions(long struct, int index) {
+	public static YGValue nmaxDimensions(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
-		return memGetFloat(struct + YGStyle.MAXDIMENSIONS + index * 4);
+		return YGValue.create(struct + YGStyle.MAXDIMENSIONS + index * YGValue.SIZEOF);
 	}
 	/** Unsafe version of {@link #aspectRatio}. */
 	public static float naspectRatio(long struct) { return memGetFloat(struct + YGStyle.ASPECTRATIO); }
@@ -358,36 +358,36 @@ public class YGStyle extends Struct {
 		public float flexGrow() { return YGStyle.nflexGrow(address()); }
 		/** Returns the value of the {@code flexShrink} field. */
 		public float flexShrink() { return YGStyle.nflexShrink(address()); }
-		/** Returns the value of the {@code flexBasis} field. */
-		public float flexBasis() { return YGStyle.nflexBasis(address()); }
-		/** Returns a {@link FloatBuffer} view of the {@code margin} field. */
-		public FloatBuffer margin() { return YGStyle.nmargin(address()); }
-		/** Returns the value at the specified index of the {@code margin} field. */
-		public float margin(int index) { return YGStyle.nmargin(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code positions} field. */
-		public FloatBuffer positions() { return YGStyle.npositions(address()); }
-		/** Returns the value at the specified index of the {@code positions} field. */
-		public float positions(int index) { return YGStyle.npositions(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code padding} field. */
-		public FloatBuffer padding() { return YGStyle.npadding(address()); }
-		/** Returns the value at the specified index of the {@code padding} field. */
-		public float padding(int index) { return YGStyle.npadding(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code border} field. */
-		public FloatBuffer border() { return YGStyle.nborder(address()); }
-		/** Returns the value at the specified index of the {@code border} field. */
-		public float border(int index) { return YGStyle.nborder(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code dimensions} field. */
-		public FloatBuffer dimensions() { return YGStyle.ndimensions(address()); }
-		/** Returns the value at the specified index of the {@code dimensions} field. */
-		public float dimensions(int index) { return YGStyle.ndimensions(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code minDimensions} field. */
-		public FloatBuffer minDimensions() { return YGStyle.nminDimensions(address()); }
-		/** Returns the value at the specified index of the {@code minDimensions} field. */
-		public float minDimensions(int index) { return YGStyle.nminDimensions(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code maxDimensions} field. */
-		public FloatBuffer maxDimensions() { return YGStyle.nmaxDimensions(address()); }
-		/** Returns the value at the specified index of the {@code maxDimensions} field. */
-		public float maxDimensions(int index) { return YGStyle.nmaxDimensions(address(), index); }
+		/** Returns a {@link YGValue} view of the {@code flexBasis} field. */
+		public YGValue flexBasis() { return YGStyle.nflexBasis(address()); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code margin} field. */
+		public YGValue.Buffer margin() { return YGStyle.nmargin(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code margin} field. */
+		public YGValue margin(int index) { return YGStyle.nmargin(address(), index); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code positions} field. */
+		public YGValue.Buffer positions() { return YGStyle.npositions(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code positions} field. */
+		public YGValue positions(int index) { return YGStyle.npositions(address(), index); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code padding} field. */
+		public YGValue.Buffer padding() { return YGStyle.npadding(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code padding} field. */
+		public YGValue padding(int index) { return YGStyle.npadding(address(), index); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code border} field. */
+		public YGValue.Buffer border() { return YGStyle.nborder(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code border} field. */
+		public YGValue border(int index) { return YGStyle.nborder(address(), index); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code dimensions} field. */
+		public YGValue.Buffer dimensions() { return YGStyle.ndimensions(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code dimensions} field. */
+		public YGValue dimensions(int index) { return YGStyle.ndimensions(address(), index); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code minDimensions} field. */
+		public YGValue.Buffer minDimensions() { return YGStyle.nminDimensions(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code minDimensions} field. */
+		public YGValue minDimensions(int index) { return YGStyle.nminDimensions(address(), index); }
+		/** Returns a {@link YGValue}.Buffer view of the {@code maxDimensions} field. */
+		public YGValue.Buffer maxDimensions() { return YGStyle.nmaxDimensions(address()); }
+		/** Returns a {@link YGValue} view of the struct at the specified index of the {@code maxDimensions} field. */
+		public YGValue maxDimensions(int index) { return YGStyle.nmaxDimensions(address(), index); }
 		/** Returns the value of the {@code aspectRatio} field. */
 		public float aspectRatio() { return YGStyle.naspectRatio(address()); }
 

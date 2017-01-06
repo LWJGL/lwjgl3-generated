@@ -288,6 +288,22 @@ public class Yoga {
 		YGAlignFlexEnd   = 3,
 		YGAlignStretch   = 4;
 
+	/**
+	 * YGUnit
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #YGUnitUndefined UnitUndefined}</li>
+	 * <li>{@link #YGUnitPixel UnitPixel}</li>
+	 * <li>{@link #YGUnitPercent UnitPercent}</li>
+	 * </ul>
+	 */
+	public static final int
+		YGUnitUndefined = 0,
+		YGUnitPixel     = 1,
+		YGUnitPercent   = 2;
+
 	static { Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_yoga")); }
 
 	protected Yoga() {
@@ -435,9 +451,9 @@ public class Yoga {
 		nYGNodePrint(node, options);
 	}
 
-	// --- [ YGValueIsUndefined ] ---
+	// --- [ YGFloatIsUndefined ] ---
 
-	public static native boolean YGValueIsUndefined(float value);
+	public static native boolean YGFloatIsUndefined(float value);
 
 	// --- [ YGNodeCanUseCachedMeasurement ] ---
 
@@ -777,14 +793,25 @@ public class Yoga {
 		nYGNodeStyleSetFlexBasis(node, flexBasis);
 	}
 
-	// --- [ YGNodeStyleGetFlexBasis ] ---
+	// --- [ YGNodeStyleSetFlexBasisPercent ] ---
 
-	public static native float nYGNodeStyleGetFlexBasis(long node);
+	public static native void nYGNodeStyleSetFlexBasisPercent(long node, float flexBasis);
 
-	public static float YGNodeStyleGetFlexBasis(long node) {
+	public static void YGNodeStyleSetFlexBasisPercent(long node, float flexBasis) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetFlexBasis(node);
+		nYGNodeStyleSetFlexBasisPercent(node, flexBasis);
+	}
+
+	// --- [ YGNodeStyleGetFlexBasis ] ---
+
+	public static native void nYGNodeStyleGetFlexBasis(long node, long __result);
+
+	public static YGValue YGNodeStyleGetFlexBasis(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetFlexBasis(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetPosition ] ---
@@ -797,14 +824,25 @@ public class Yoga {
 		nYGNodeStyleSetPosition(node, edge, position);
 	}
 
-	// --- [ YGNodeStyleGetPosition ] ---
+	// --- [ YGNodeStyleSetPositionPercent ] ---
 
-	public static native float nYGNodeStyleGetPosition(long node, int edge);
+	public static native void nYGNodeStyleSetPositionPercent(long node, int edge, float position);
 
-	public static float YGNodeStyleGetPosition(long node, int edge) {
+	public static void YGNodeStyleSetPositionPercent(long node, int edge, float position) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetPosition(node, edge);
+		nYGNodeStyleSetPositionPercent(node, edge, position);
+	}
+
+	// --- [ YGNodeStyleGetPosition ] ---
+
+	public static native void nYGNodeStyleGetPosition(long node, int edge, long __result);
+
+	public static YGValue YGNodeStyleGetPosition(long node, int edge, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetPosition(node, edge, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetMargin ] ---
@@ -817,14 +855,25 @@ public class Yoga {
 		nYGNodeStyleSetMargin(node, edge, margin);
 	}
 
-	// --- [ YGNodeStyleGetMargin ] ---
+	// --- [ YGNodeStyleSetMarginPercent ] ---
 
-	public static native float nYGNodeStyleGetMargin(long node, int edge);
+	public static native void nYGNodeStyleSetMarginPercent(long node, int edge, float margin);
 
-	public static float YGNodeStyleGetMargin(long node, int edge) {
+	public static void YGNodeStyleSetMarginPercent(long node, int edge, float margin) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetMargin(node, edge);
+		nYGNodeStyleSetMarginPercent(node, edge, margin);
+	}
+
+	// --- [ YGNodeStyleGetMargin ] ---
+
+	public static native void nYGNodeStyleGetMargin(long node, int edge, long __result);
+
+	public static YGValue YGNodeStyleGetMargin(long node, int edge, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetMargin(node, edge, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetPadding ] ---
@@ -837,14 +886,25 @@ public class Yoga {
 		nYGNodeStyleSetPadding(node, edge, padding);
 	}
 
-	// --- [ YGNodeStyleGetPadding ] ---
+	// --- [ YGNodeStyleSetPaddingPercent ] ---
 
-	public static native float nYGNodeStyleGetPadding(long node, int edge);
+	public static native void nYGNodeStyleSetPaddingPercent(long node, int edge, float padding);
 
-	public static float YGNodeStyleGetPadding(long node, int edge) {
+	public static void YGNodeStyleSetPaddingPercent(long node, int edge, float padding) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetPadding(node, edge);
+		nYGNodeStyleSetPaddingPercent(node, edge, padding);
+	}
+
+	// --- [ YGNodeStyleGetPadding ] ---
+
+	public static native void nYGNodeStyleGetPadding(long node, int edge, long __result);
+
+	public static YGValue YGNodeStyleGetPadding(long node, int edge, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetPadding(node, edge, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetBorder ] ---
@@ -877,14 +937,25 @@ public class Yoga {
 		nYGNodeStyleSetWidth(node, width);
 	}
 
-	// --- [ YGNodeStyleGetWidth ] ---
+	// --- [ YGNodeStyleSetWidthPercent ] ---
 
-	public static native float nYGNodeStyleGetWidth(long node);
+	public static native void nYGNodeStyleSetWidthPercent(long node, float width);
 
-	public static float YGNodeStyleGetWidth(long node) {
+	public static void YGNodeStyleSetWidthPercent(long node, float width) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetWidth(node);
+		nYGNodeStyleSetWidthPercent(node, width);
+	}
+
+	// --- [ YGNodeStyleGetWidth ] ---
+
+	public static native void nYGNodeStyleGetWidth(long node, long __result);
+
+	public static YGValue YGNodeStyleGetWidth(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetWidth(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetHeight ] ---
@@ -897,14 +968,25 @@ public class Yoga {
 		nYGNodeStyleSetHeight(node, height);
 	}
 
-	// --- [ YGNodeStyleGetHeight ] ---
+	// --- [ YGNodeStyleSetHeightPercent ] ---
 
-	public static native float nYGNodeStyleGetHeight(long node);
+	public static native void nYGNodeStyleSetHeightPercent(long node, float height);
 
-	public static float YGNodeStyleGetHeight(long node) {
+	public static void YGNodeStyleSetHeightPercent(long node, float height) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetHeight(node);
+		nYGNodeStyleSetHeightPercent(node, height);
+	}
+
+	// --- [ YGNodeStyleGetHeight ] ---
+
+	public static native void nYGNodeStyleGetHeight(long node, long __result);
+
+	public static YGValue YGNodeStyleGetHeight(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetHeight(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetMinWidth ] ---
@@ -917,14 +999,25 @@ public class Yoga {
 		nYGNodeStyleSetMinWidth(node, minWidth);
 	}
 
-	// --- [ YGNodeStyleGetMinWidth ] ---
+	// --- [ YGNodeStyleSetMinWidthPercent ] ---
 
-	public static native float nYGNodeStyleGetMinWidth(long node);
+	public static native void nYGNodeStyleSetMinWidthPercent(long node, float minWidth);
 
-	public static float YGNodeStyleGetMinWidth(long node) {
+	public static void YGNodeStyleSetMinWidthPercent(long node, float minWidth) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetMinWidth(node);
+		nYGNodeStyleSetMinWidthPercent(node, minWidth);
+	}
+
+	// --- [ YGNodeStyleGetMinWidth ] ---
+
+	public static native void nYGNodeStyleGetMinWidth(long node, long __result);
+
+	public static YGValue YGNodeStyleGetMinWidth(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetMinWidth(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetMinHeight ] ---
@@ -937,14 +1030,25 @@ public class Yoga {
 		nYGNodeStyleSetMinHeight(node, minHeight);
 	}
 
-	// --- [ YGNodeStyleGetMinHeight ] ---
+	// --- [ YGNodeStyleSetMinHeightPercent ] ---
 
-	public static native float nYGNodeStyleGetMinHeight(long node);
+	public static native void nYGNodeStyleSetMinHeightPercent(long node, float minHeight);
 
-	public static float YGNodeStyleGetMinHeight(long node) {
+	public static void YGNodeStyleSetMinHeightPercent(long node, float minHeight) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetMinHeight(node);
+		nYGNodeStyleSetMinHeightPercent(node, minHeight);
+	}
+
+	// --- [ YGNodeStyleGetMinHeight ] ---
+
+	public static native void nYGNodeStyleGetMinHeight(long node, long __result);
+
+	public static YGValue YGNodeStyleGetMinHeight(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetMinHeight(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetMaxWidth ] ---
@@ -957,14 +1061,25 @@ public class Yoga {
 		nYGNodeStyleSetMaxWidth(node, maxWidth);
 	}
 
-	// --- [ YGNodeStyleGetMaxWidth ] ---
+	// --- [ YGNodeStyleSetMaxWidthPercent ] ---
 
-	public static native float nYGNodeStyleGetMaxWidth(long node);
+	public static native void nYGNodeStyleSetMaxWidthPercent(long node, float maxWidth);
 
-	public static float YGNodeStyleGetMaxWidth(long node) {
+	public static void YGNodeStyleSetMaxWidthPercent(long node, float maxWidth) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetMaxWidth(node);
+		nYGNodeStyleSetMaxWidthPercent(node, maxWidth);
+	}
+
+	// --- [ YGNodeStyleGetMaxWidth ] ---
+
+	public static native void nYGNodeStyleGetMaxWidth(long node, long __result);
+
+	public static YGValue YGNodeStyleGetMaxWidth(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetMaxWidth(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetMaxHeight ] ---
@@ -977,14 +1092,25 @@ public class Yoga {
 		nYGNodeStyleSetMaxHeight(node, maxHeight);
 	}
 
-	// --- [ YGNodeStyleGetMaxHeight ] ---
+	// --- [ YGNodeStyleSetMaxHeightPercent ] ---
 
-	public static native float nYGNodeStyleGetMaxHeight(long node);
+	public static native void nYGNodeStyleSetMaxHeightPercent(long node, float maxHeight);
 
-	public static float YGNodeStyleGetMaxHeight(long node) {
+	public static void YGNodeStyleSetMaxHeightPercent(long node, float maxHeight) {
 		if ( CHECKS )
 			check(node);
-		return nYGNodeStyleGetMaxHeight(node);
+		nYGNodeStyleSetMaxHeightPercent(node, maxHeight);
+	}
+
+	// --- [ YGNodeStyleGetMaxHeight ] ---
+
+	public static native void nYGNodeStyleGetMaxHeight(long node, long __result);
+
+	public static YGValue YGNodeStyleGetMaxHeight(long node, YGValue __result) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleGetMaxHeight(node, __result.address());
+		return __result;
 	}
 
 	// --- [ YGNodeStyleSetAspectRatio ] ---
@@ -1110,6 +1236,26 @@ public class Yoga {
 		if ( CHECKS )
 			check(node);
 		return nYGNodeLayoutGetDirection(node);
+	}
+
+	// --- [ YGNodeLayoutGetPadding ] ---
+
+	/** Unsafe version of: {@link #YGNodeLayoutGetPadding NodeLayoutGetPadding} */
+	public static native float nYGNodeLayoutGetPadding(long node, int edge);
+
+	/**
+	 * Get the computed padding for this node after performing layout.
+	 * 
+	 * <p>If padding was set using pixel values then the returned value will be the same as {@link #YGNodeStyleGetPadding NodeStyleGetPadding}. However if padding was set using a percentage
+	 * value then the returned value is the computed value used during layout.</p>
+	 *
+	 * @param node 
+	 * @param edge 
+	 */
+	public static float YGNodeLayoutGetPadding(long node, int edge) {
+		if ( CHECKS )
+			check(node);
+		return nYGNodeLayoutGetPadding(node, edge);
 	}
 
 	// --- [ YGSetLogger ] ---
