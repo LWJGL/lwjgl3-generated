@@ -530,6 +530,9 @@ public class GLFW {
 	/** Specifies whether to use full resolution framebuffers on Retina displays. This is ignored on other platforms. */
 	public static final int GLFW_COCOA_RETINA_FRAMEBUFFER = 0x23001;
 
+	/** Specifies whether to activate frame autosaving on macOS. This is ignored on other platforms. */
+	public static final int GLFW_COCOA_FRAME_AUTOSAVE = 0x23002;
+
 	/** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
 	public static final int
 		GLFW_NO_API        = 0,
@@ -1295,9 +1298,11 @@ public class GLFW {
 	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
 	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
-	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
-	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
-	 * uses information from the application's bundle. For more information on bundles, see the
+	 * <li>The OS only supports forward-compatible core profile contexts for OpenGL versions 3.2 and later. Before creating an OpenGL context of version 3.2
+	 * or later you must set the {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT} and {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE} hints accordingly. OpenGL 3.0 and 3.1 contexts are not supported at all on
+	 * macOS.</li>
+	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For
+	 * more information on bundles, see the
 	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
 	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
@@ -1308,7 +1313,7 @@ public class GLFW {
 	 * more information, see
 	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
 	 * Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
-	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
+	 * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
 	 * to query the final size, position or other attributes directly after window creation.</li>
@@ -1375,9 +1380,11 @@ public class GLFW {
 	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
 	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
-	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
-	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
-	 * uses information from the application's bundle. For more information on bundles, see the
+	 * <li>The OS only supports forward-compatible core profile contexts for OpenGL versions 3.2 and later. Before creating an OpenGL context of version 3.2
+	 * or later you must set the {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT} and {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE} hints accordingly. OpenGL 3.0 and 3.1 contexts are not supported at all on
+	 * macOS.</li>
+	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For
+	 * more information on bundles, see the
 	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
 	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
@@ -1388,7 +1395,7 @@ public class GLFW {
 	 * more information, see
 	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
 	 * Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
-	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
+	 * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
 	 * to query the final size, position or other attributes directly after window creation.</li>
