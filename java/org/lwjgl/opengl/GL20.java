@@ -994,17 +994,7 @@ public class GL20 {
 	 * @param shader the shader object whose information log is to be queried
 	 */
 	public static String glGetShaderInfoLog(int shader) {
-		int maxLength = glGetShaderi(shader, GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(maxLength);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetShaderInfoLog(shader, maxLength, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetShaderInfoLog(shader, glGetShaderi(shader, GL_INFO_LOG_LENGTH));
 	}
 
 	// --- [ glGetProgramInfoLog ] ---
@@ -1060,17 +1050,7 @@ public class GL20 {
 	 * @param program the program object whose information log is to be queried
 	 */
 	public static String glGetProgramInfoLog(int program) {
-		int maxLength = glGetProgrami(program, GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(maxLength);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetProgramInfoLog(program, maxLength, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramInfoLog(program, glGetProgrami(program, GL_INFO_LOG_LENGTH));
 	}
 
 	// --- [ glGetAttachedShaders ] ---
@@ -1202,20 +1182,7 @@ public class GL20 {
 	 * @param type    the data type of the uniform variable
 	 */
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
-		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(maxLength);
-			nglGetActiveUniform(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveUniform(program, index, glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH), size, type);
 	}
 
 	// --- [ glGetUniformfv ] ---
@@ -1349,17 +1316,7 @@ public class GL20 {
 	 * @param shader the shader object to be queried
 	 */
 	public static String glGetShaderSource(int shader) {
-		int maxLength = glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer source = memAlloc(maxLength);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetShaderSource(shader, maxLength, memAddress(length), memAddress(source));
-			return memUTF8(source, length.get(0));
-		} finally {
-			memFree(source);
-			stack.setPointer(stackPointer);
-		}
+		return glGetShaderSource(shader, glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH));
 	}
 
 	// --- [ glVertexAttrib1f ] ---
@@ -2276,20 +2233,7 @@ public class GL20 {
 	 * @param type    the data type of the attribute variable
 	 */
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
-		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(maxLength);
-			nglGetActiveAttrib(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveAttrib(program, index, glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH), size, type);
 	}
 
 	// --- [ glGetAttribLocation ] ---

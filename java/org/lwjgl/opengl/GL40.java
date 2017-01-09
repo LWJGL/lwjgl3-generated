@@ -1094,16 +1094,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param index      the index of the shader subroutine uniform
 	 */
 	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index) {
-		int bufsize = glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufsize);
-			nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveSubroutineUniformName(program, shadertype, index, glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH));
 	}
 
 	// --- [ glGetActiveSubroutineName ] ---
@@ -1164,16 +1155,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param index      the index of the shader subroutine uniform
 	 */
 	public static String glGetActiveSubroutineName(int program, int shadertype, int index) {
-		int bufsize = glGetProgramStagei(program, shadertype, GL_ACTIVE_SUBROUTINE_MAX_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufsize);
-			nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddress(length), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveSubroutineName(program, shadertype, index, glGetProgramStagei(program, shadertype, GL_ACTIVE_SUBROUTINE_MAX_LENGTH));
 	}
 
 	// --- [ glUniformSubroutinesuiv ] ---

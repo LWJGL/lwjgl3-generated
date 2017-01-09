@@ -66,17 +66,7 @@ public class ANGLETranslatedShaderSource {
 	}
 
 	public static String glGetTranslatedShaderSourceANGLE(int shader) {
-		int bufsize = GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer source = memAlloc(bufsize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetTranslatedShaderSourceANGLE(shader, bufsize, memAddress(length), memAddress(source));
-			return memUTF8(source, length.get(0));
-		} finally {
-			memFree(source);
-			stack.setPointer(stackPointer);
-		}
+		return glGetTranslatedShaderSourceANGLE(shader, GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE));
 	}
 
 	/** Array version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */

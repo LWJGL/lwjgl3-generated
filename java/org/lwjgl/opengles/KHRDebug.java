@@ -596,16 +596,7 @@ public class KHRDebug {
 	 * @param name       the name of the object whose label to retrieve
 	 */
 	public static String glGetObjectLabelKHR(int identifier, int name) {
-		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectLabelKHR(identifier, name, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetObjectLabelKHR(identifier, name, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR));
 	}
 
 	// --- [ glObjectPtrLabelKHR ] ---
@@ -697,18 +688,7 @@ public class KHRDebug {
 	 * @param ptr the name of the sync object whose label to retrieve
 	 */
 	public static String glGetObjectPtrLabelKHR(long ptr) {
-		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR);
-		if ( CHECKS )
-			check(ptr);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectPtrLabelKHR(ptr, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetObjectPtrLabelKHR(ptr, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR));
 	}
 
 	/** Array version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */

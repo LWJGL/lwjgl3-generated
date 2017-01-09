@@ -201,17 +201,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static String glGetProgramPipelineInfoLogEXT(int pipeline) {
-		int bufSize = glGetProgramPipelineiEXT(pipeline, GLES20.GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(bufSize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramPipelineInfoLogEXT(pipeline, glGetProgramPipelineiEXT(pipeline, GLES20.GL_INFO_LOG_LENGTH));
 	}
 
 	// --- [ glGetProgramPipelineivEXT ] ---

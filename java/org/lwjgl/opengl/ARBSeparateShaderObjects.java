@@ -1449,17 +1449,7 @@ if (shader) {
 	 * @param pipeline the name of a program pipeline object from which to retrieve the info log
 	 */
 	public static String glGetProgramPipelineInfoLog(int pipeline) {
-		int bufSize = glGetProgramPipelinei(pipeline, GL20.GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(bufSize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetProgramPipelineInfoLog(pipeline, bufSize, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramPipelineInfoLog(pipeline, glGetProgramPipelinei(pipeline, GL20.GL_INFO_LOG_LENGTH));
 	}
 
 	/** Array version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines} */

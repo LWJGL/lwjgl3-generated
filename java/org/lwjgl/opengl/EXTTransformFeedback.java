@@ -198,22 +198,9 @@ public class EXTTransformFeedback {
 	}
 
 	public static String glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer size, IntBuffer type) {
-		int bufSize = GL.getCapabilities().OpenGL20
+		return glGetTransformFeedbackVaryingEXT(program, index, GL.getCapabilities().OpenGL20
 			? GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
-			: ARBShaderObjects.glGetObjectParameteriARB(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetTransformFeedbackVaryingEXT(program, index, bufSize, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+			: ARBShaderObjects.glGetObjectParameteriARB(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT), size, type);
 	}
 
 	// --- [ glGetIntegerIndexedvEXT ] ---

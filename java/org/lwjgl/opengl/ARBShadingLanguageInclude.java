@@ -297,17 +297,7 @@ public class ARBShadingLanguageInclude {
 	 * @param name the name associated with the string
 	 */
 	public static String glGetNamedStringARB(CharSequence name) {
-		int bufSize = glGetNamedStringiARB(name, GL_NAMED_STRING_LENGTH_ARB);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			IntBuffer stringlen = stack.ints(0);
-			ByteBuffer string = stack.malloc(bufSize);
-			nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
-			return memUTF8(string, stringlen.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetNamedStringARB(name, glGetNamedStringiARB(name, GL_NAMED_STRING_LENGTH_ARB));
 	}
 
 	// --- [ glGetNamedStringivARB ] ---

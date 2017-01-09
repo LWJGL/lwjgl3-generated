@@ -915,20 +915,7 @@ public class ARBVertexShader {
 	 * @param type       the data type of the attribute variable
 	 */
 	public static String glGetActiveAttribARB(int programObj, int index, IntBuffer size, IntBuffer type) {
-		int maxLength = ARBShaderObjects.glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(maxLength);
-			nglGetActiveAttribARB(programObj, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveAttribARB(programObj, index, ARBShaderObjects.glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB), size, type);
 	}
 
 	// --- [ glGetAttribLocationARB ] ---

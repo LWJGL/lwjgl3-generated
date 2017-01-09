@@ -873,16 +873,7 @@ public class GLES32 {
 	 * @param name       the name of the object whose label to retrieve
 	 */
 	public static String glGetObjectLabel(int identifier, int name) {
-		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectLabel(identifier, name, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetObjectLabel(identifier, name, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH));
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -974,18 +965,7 @@ public class GLES32 {
 	 * @param ptr the name of the sync object whose label to retrieve
 	 */
 	public static String glGetObjectPtrLabel(long ptr) {
-		int bufSize = GLES20.glGetInteger(GL_MAX_LABEL_LENGTH);
-		if ( CHECKS )
-			check(ptr);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectPtrLabel(ptr, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetObjectPtrLabel(ptr, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH));
 	}
 
 	// --- [ glEnablei ] ---

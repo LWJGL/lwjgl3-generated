@@ -847,17 +847,7 @@ public class ARBShaderObjects {
 	 * @param obj the shader object to query
 	 */
 	public static String glGetInfoLogARB(int obj) {
-		int maxLength = glGetObjectParameteriARB(obj, GL_OBJECT_INFO_LOG_LENGTH_ARB);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(maxLength);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetInfoLogARB(obj, maxLength, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetInfoLogARB(obj, glGetObjectParameteriARB(obj, GL_OBJECT_INFO_LOG_LENGTH_ARB));
 	}
 
 	// --- [ glGetAttachedObjectsARB ] ---
@@ -1063,20 +1053,7 @@ public class ARBShaderObjects {
 	 * @param type       a buffer in which to return the uniform type
 	 */
 	public static String glGetActiveUniformARB(int programObj, int index, IntBuffer size, IntBuffer type) {
-		int maxLength = glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(maxLength);
-			nglGetActiveUniformARB(programObj, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memUTF8(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveUniformARB(programObj, index, glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB), size, type);
 	}
 
 	// --- [ glGetUniformfvARB ] ---
@@ -1209,17 +1186,7 @@ public class ARBShaderObjects {
 	 * @param obj the shader object to query
 	 */
 	public static String glGetShaderSourceARB(int obj) {
-		int maxLength = glGetObjectParameteriARB(obj, GL_OBJECT_SHADER_SOURCE_LENGTH_ARB);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer source = memAlloc(maxLength);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetShaderSourceARB(obj, maxLength, memAddress(length), memAddress(source));
-			return memUTF8(source, length.get(0));
-		} finally {
-			memFree(source);
-			stack.setPointer(stackPointer);
-		}
+		return glGetShaderSourceARB(obj, glGetObjectParameteriARB(obj, GL_OBJECT_SHADER_SOURCE_LENGTH_ARB));
 	}
 
 	/** Array version of: {@link #glShaderSourceARB ShaderSourceARB} */

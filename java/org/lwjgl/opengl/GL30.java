@@ -2503,20 +2503,7 @@ public class GL30 {
 	 * @param type    a variable that will receive the type of the varying
 	 */
 	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
-		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetTransformFeedbackVarying(program, index, bufSize, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetTransformFeedbackVarying(program, index, GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH), size, type);
 	}
 
 	// --- [ glBindVertexArray ] ---

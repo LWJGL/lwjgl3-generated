@@ -309,16 +309,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformIndex the index of the active uniform whose name to query
 	 */
 	public static String glGetActiveUniformName(int program, int uniformIndex) {
-		int bufSize = glGetActiveUniformsi(program, uniformIndex, GL_UNIFORM_NAME_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer uniformName = stack.malloc(bufSize);
-			nglGetActiveUniformName(program, uniformIndex, bufSize, memAddress(length), memAddress(uniformName));
-			return memASCII(uniformName, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveUniformName(program, uniformIndex, glGetActiveUniformsi(program, uniformIndex, GL_UNIFORM_NAME_LENGTH));
 	}
 
 	// --- [ glGetUniformBlockIndex ] ---
@@ -440,16 +431,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformBlockIndex the index of the uniform block within {@code program}
 	 */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
-		int bufSize = glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer uniformBlockName = stack.malloc(bufSize);
-			nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddress(length), memAddress(uniformBlockName));
-			return memASCII(uniformBlockName, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveUniformBlockName(program, uniformBlockIndex, glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH));
 	}
 
 	// --- [ glBindBufferRange ] ---

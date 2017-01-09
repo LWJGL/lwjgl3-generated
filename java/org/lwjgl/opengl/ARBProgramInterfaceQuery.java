@@ -236,16 +236,7 @@ public class ARBProgramInterfaceQuery {
 	 * @param index            the index of the resource within {@code programInterface} of {@code program}
 	 */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
-		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramResourceName(program, programInterface, index, glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH));
 	}
 
 	// --- [ glGetProgramResourceiv ] ---

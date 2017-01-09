@@ -370,16 +370,7 @@ public class GLES31 {
 	}
 
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
-		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramResourceName(program, programInterface, index, glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH));
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
@@ -830,17 +821,7 @@ public class GLES31 {
 	}
 
 	public static String glGetProgramPipelineInfoLog(int pipeline) {
-		int bufSize = glGetProgramPipelinei(pipeline, GLES20.GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(bufSize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetProgramPipelineInfoLog(pipeline, bufSize, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramPipelineInfoLog(pipeline, glGetProgramPipelinei(pipeline, GLES20.GL_INFO_LOG_LENGTH));
 	}
 
 	// --- [ glBindImageTexture ] ---

@@ -967,20 +967,7 @@ public class GLES20 {
 	}
 
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
-		int bufSize = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetActiveAttrib(program, index, bufSize, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveAttrib(program, index, glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH), size, type);
 	}
 
 	// --- [ glGetActiveUniform ] ---
@@ -1013,20 +1000,7 @@ public class GLES20 {
 	}
 
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
-		int bufSize = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
-		if ( CHECKS ) {
-			check(size, 1);
-			check(type, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetActiveUniform(program, index, bufSize, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetActiveUniform(program, index, glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH), size, type);
 	}
 
 	// --- [ glGetAttachedShaders ] ---
@@ -1217,17 +1191,7 @@ public class GLES20 {
 	}
 
 	public static String glGetProgramInfoLog(int program) {
-		int bufSize = glGetProgrami(program, GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(bufSize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetProgramInfoLog(program, bufSize, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramInfoLog(program, glGetProgrami(program, GL_INFO_LOG_LENGTH));
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
@@ -1296,17 +1260,7 @@ public class GLES20 {
 	}
 
 	public static String glGetShaderInfoLog(int shader) {
-		int bufSize = glGetShaderi(shader, GL_INFO_LOG_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer infoLog = memAlloc(bufSize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetShaderInfoLog(shader, bufSize, memAddress(length), memAddress(infoLog));
-			return memUTF8(infoLog, length.get(0));
-		} finally {
-			memFree(infoLog);
-			stack.setPointer(stackPointer);
-		}
+		return glGetShaderInfoLog(shader, glGetShaderi(shader, GL_INFO_LOG_LENGTH));
 	}
 
 	// --- [ glGetShaderPrecisionFormat ] ---
@@ -1345,17 +1299,7 @@ public class GLES20 {
 	}
 
 	public static String glGetShaderSource(int shader) {
-		int bufSize = glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer source = memAlloc(bufSize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetShaderSource(shader, bufSize, memAddress(length), memAddress(source));
-			return memUTF8(source, length.get(0));
-		} finally {
-			memFree(source);
-			stack.setPointer(stackPointer);
-		}
+		return glGetShaderSource(shader, glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH));
 	}
 
 	// --- [ glGetString ] ---

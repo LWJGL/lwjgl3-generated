@@ -1121,16 +1121,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param name       the name of the object whose label to retrieve
 	 */
 	public static String glGetObjectLabel(int identifier, int name) {
-		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectLabel(identifier, name, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetObjectLabel(identifier, name, GL11.glGetInteger(GL_MAX_LABEL_LENGTH));
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -1232,18 +1223,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param ptr the name of the sync object whose label to retrieve
 	 */
 	public static String glGetObjectPtrLabel(long ptr) {
-		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
-		if ( CHECKS )
-			check(ptr);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectPtrLabel(ptr, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetObjectPtrLabel(ptr, GL11.glGetInteger(GL_MAX_LABEL_LENGTH));
 	}
 
 	// --- [ glFramebufferParameteri ] ---
@@ -1870,16 +1850,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param index            the index of the resource within {@code programInterface} of {@code program}
 	 */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
-		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer name = stack.malloc(bufSize);
-			nglGetProgramResourceName(program, programInterface, index, bufSize, memAddress(length), memAddress(name));
-			return memASCII(name, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
+		return glGetProgramResourceName(program, programInterface, index, glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH));
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
