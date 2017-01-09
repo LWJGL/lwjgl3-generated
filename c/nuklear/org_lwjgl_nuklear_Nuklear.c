@@ -1727,7 +1727,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb(JNIEnv *__env, jc
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb(r, g, b);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1iv__J(JNIEnv *__env, jclass clazz, jlong rgbAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1iv__JJ(JNIEnv *__env, jclass clazz, jlong rgbAddress, jlong __result) {
 	const int *rgb = (const int *)(intptr_t)rgbAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_iv(rgb);
@@ -1744,7 +1744,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1f(JNIEnv *__env,
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_f(r, g, b);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1fv__J(JNIEnv *__env, jclass clazz, jlong rgbAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1fv__JJ(JNIEnv *__env, jclass clazz, jlong rgbAddress, jlong __result) {
 	const float *rgb = (const float *)(intptr_t)rgbAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_fv(rgb);
@@ -1766,7 +1766,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1u32(JNIEnv *__e
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_u32(in);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1iv__J(JNIEnv *__env, jclass clazz, jlong rgbaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1iv__JJ(JNIEnv *__env, jclass clazz, jlong rgbaAddress, jlong __result) {
 	const int *rgba = (const int *)(intptr_t)rgbaAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_iv(rgba);
@@ -1783,7 +1783,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1f(JNIEnv *__env
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_f(r, g, b, a);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1fv__J(JNIEnv *__env, jclass clazz, jlong rgbaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1fv__JJ(JNIEnv *__env, jclass clazz, jlong rgbaAddress, jlong __result) {
 	const float *rgba = (const float *)(intptr_t)rgbaAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_fv(rgba);
@@ -1800,7 +1800,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv(JNIEnv *__env, jc
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv(h, s, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1iv__J(JNIEnv *__env, jclass clazz, jlong hsvAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1iv__JJ(JNIEnv *__env, jclass clazz, jlong hsvAddress, jlong __result) {
 	const int *hsv = (const int *)(intptr_t)hsvAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_iv(hsv);
@@ -1817,7 +1817,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1f(JNIEnv *__env,
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_f(h, s, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1fv__J(JNIEnv *__env, jclass clazz, jlong hsvAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1fv__JJ(JNIEnv *__env, jclass clazz, jlong hsvAddress, jlong __result) {
 	const float *hsv = (const float *)(intptr_t)hsvAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_fv(hsv);
@@ -1828,7 +1828,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva(JNIEnv *__env, j
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva(h, s, v, a);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1iv__J(JNIEnv *__env, jclass clazz, jlong hsvaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1iv__JJ(JNIEnv *__env, jclass clazz, jlong hsvaAddress, jlong __result) {
 	const int *hsva = (const int *)(intptr_t)hsvaAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_iv(hsva);
@@ -1845,7 +1845,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1f(JNIEnv *__env
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_f(h, s, v, a);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1fv__J(JNIEnv *__env, jclass clazz, jlong hsvaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1fv__JJ(JNIEnv *__env, jclass clazz, jlong hsvaAddress, jlong __result) {
 	const float *hsva = (const float *)(intptr_t)hsvaAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_fv(hsva);
@@ -2081,13 +2081,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2i(JNIEnv *__env, 
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2i(x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2v__J(JNIEnv *__env, jclass clazz, jlong xyAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2v__JJ(JNIEnv *__env, jclass clazz, jlong xyAddress, jlong __result) {
 	const float *xy = (const float *)(intptr_t)xyAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2v(xy);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2iv__J(JNIEnv *__env, jclass clazz, jlong xyAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2iv__JJ(JNIEnv *__env, jclass clazz, jlong xyAddress, jlong __result) {
 	const int *xy = (const int *)(intptr_t)xyAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2iv(xy);
@@ -2115,13 +2115,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1recta(JNIEnv *__env, 
 	*((struct nk_rect*)(intptr_t)__result) = nk_recta(*pos, *size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectv__J(JNIEnv *__env, jclass clazz, jlong xywhAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectv__JJ(JNIEnv *__env, jclass clazz, jlong xywhAddress, jlong __result) {
 	const float *xywh = (const float *)(intptr_t)xywhAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_rect*)(intptr_t)__result) = nk_rectv(xywh);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectiv__J(JNIEnv *__env, jclass clazz, jlong xywhAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectiv__JJ(JNIEnv *__env, jclass clazz, jlong xywhAddress, jlong __result) {
 	const int *xywh = (const int *)(intptr_t)xywhAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_rect*)(intptr_t)__result) = nk_rectiv(xywh);
@@ -3572,90 +3572,90 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1style_1push_1
 	return (jint)nk_style_push_flags(ctx, (nk_flags *)address, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1iv___3I(JNIEnv *__env, jclass clazz, jintArray rgbAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1iv___3IJ(JNIEnv *__env, jclass clazz, jintArray rgbAddress, jlong __result) {
 	jint *rgb = (*__env)->GetPrimitiveArrayCritical(__env, rgbAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_iv((const int *)rgb);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, rgbAddress, rgb, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1iv___3I(jint rgb__length, jint* rgb, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1iv___3IJ(jint rgb__length, jint* rgb, jlong __result) {
 	UNUSED_PARAM(rgb__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_iv((const int *)rgb);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1fv___3F(JNIEnv *__env, jclass clazz, jfloatArray rgbAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1fv___3FJ(JNIEnv *__env, jclass clazz, jfloatArray rgbAddress, jlong __result) {
 	jfloat *rgb = (*__env)->GetPrimitiveArrayCritical(__env, rgbAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_fv((const float *)rgb);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, rgbAddress, rgb, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1fv___3F(jint rgb__length, jfloat* rgb, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgb_1fv___3FJ(jint rgb__length, jfloat* rgb, jlong __result) {
 	UNUSED_PARAM(rgb__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgb_fv((const float *)rgb);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1iv___3I(JNIEnv *__env, jclass clazz, jintArray rgbaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1iv___3IJ(JNIEnv *__env, jclass clazz, jintArray rgbaAddress, jlong __result) {
 	jint *rgba = (*__env)->GetPrimitiveArrayCritical(__env, rgbaAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_iv((const int *)rgba);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, rgbaAddress, rgba, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1iv___3I(jint rgba__length, jint* rgba, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1iv___3IJ(jint rgba__length, jint* rgba, jlong __result) {
 	UNUSED_PARAM(rgba__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_iv((const int *)rgba);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1fv___3F(JNIEnv *__env, jclass clazz, jfloatArray rgbaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1fv___3FJ(JNIEnv *__env, jclass clazz, jfloatArray rgbaAddress, jlong __result) {
 	jfloat *rgba = (*__env)->GetPrimitiveArrayCritical(__env, rgbaAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_fv((const float *)rgba);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, rgbaAddress, rgba, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1fv___3F(jint rgba__length, jfloat* rgba, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rgba_1fv___3FJ(jint rgba__length, jfloat* rgba, jlong __result) {
 	UNUSED_PARAM(rgba__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_rgba_fv((const float *)rgba);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1iv___3I(JNIEnv *__env, jclass clazz, jintArray hsvAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1iv___3IJ(JNIEnv *__env, jclass clazz, jintArray hsvAddress, jlong __result) {
 	jint *hsv = (*__env)->GetPrimitiveArrayCritical(__env, hsvAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_iv((const int *)hsv);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, hsvAddress, hsv, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1iv___3I(jint hsv__length, jint* hsv, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1iv___3IJ(jint hsv__length, jint* hsv, jlong __result) {
 	UNUSED_PARAM(hsv__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_iv((const int *)hsv);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1fv___3F(JNIEnv *__env, jclass clazz, jfloatArray hsvAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1fv___3FJ(JNIEnv *__env, jclass clazz, jfloatArray hsvAddress, jlong __result) {
 	jfloat *hsv = (*__env)->GetPrimitiveArrayCritical(__env, hsvAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_fv((const float *)hsv);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, hsvAddress, hsv, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1fv___3F(jint hsv__length, jfloat* hsv, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsv_1fv___3FJ(jint hsv__length, jfloat* hsv, jlong __result) {
 	UNUSED_PARAM(hsv__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsv_fv((const float *)hsv);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1iv___3I(JNIEnv *__env, jclass clazz, jintArray hsvaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1iv___3IJ(JNIEnv *__env, jclass clazz, jintArray hsvaAddress, jlong __result) {
 	jint *hsva = (*__env)->GetPrimitiveArrayCritical(__env, hsvaAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_iv((const int *)hsva);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, hsvaAddress, hsva, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1iv___3I(jint hsva__length, jint* hsva, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1iv___3IJ(jint hsva__length, jint* hsva, jlong __result) {
 	UNUSED_PARAM(hsva__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_iv((const int *)hsva);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1fv___3F(JNIEnv *__env, jclass clazz, jfloatArray hsvaAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1fv___3FJ(JNIEnv *__env, jclass clazz, jfloatArray hsvaAddress, jlong __result) {
 	jfloat *hsva = (*__env)->GetPrimitiveArrayCritical(__env, hsvaAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_fv((const float *)hsva);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, hsvaAddress, hsva, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1fv___3F(jint hsva__length, jfloat* hsva, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1hsva_1fv___3FJ(jint hsva__length, jfloat* hsva, jlong __result) {
 	UNUSED_PARAM(hsva__length)
 	*((struct nk_color*)(intptr_t)__result) = nk_hsva_fv((const float *)hsva);
 }
@@ -3864,46 +3864,46 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1color_1hsva_1
 	nk_color_hsva_fv((float *)hsva_out, *color);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2v___3F(JNIEnv *__env, jclass clazz, jfloatArray xyAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2v___3FJ(JNIEnv *__env, jclass clazz, jfloatArray xyAddress, jlong __result) {
 	jfloat *xy = (*__env)->GetPrimitiveArrayCritical(__env, xyAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2v((const float *)xy);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xyAddress, xy, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1vec2v___3F(jint xy__length, jfloat* xy, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1vec2v___3FJ(jint xy__length, jfloat* xy, jlong __result) {
 	UNUSED_PARAM(xy__length)
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2v((const float *)xy);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2iv___3I(JNIEnv *__env, jclass clazz, jintArray xyAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1vec2iv___3IJ(JNIEnv *__env, jclass clazz, jintArray xyAddress, jlong __result) {
 	jint *xy = (*__env)->GetPrimitiveArrayCritical(__env, xyAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2iv((const int *)xy);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xyAddress, xy, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1vec2iv___3I(jint xy__length, jint* xy, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1vec2iv___3IJ(jint xy__length, jint* xy, jlong __result) {
 	UNUSED_PARAM(xy__length)
 	*((struct nk_vec2*)(intptr_t)__result) = nk_vec2iv((const int *)xy);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectv___3F(JNIEnv *__env, jclass clazz, jfloatArray xywhAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectv___3FJ(JNIEnv *__env, jclass clazz, jfloatArray xywhAddress, jlong __result) {
 	jfloat *xywh = (*__env)->GetPrimitiveArrayCritical(__env, xywhAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_rect*)(intptr_t)__result) = nk_rectv((const float *)xywh);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xywhAddress, xywh, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rectv___3F(jint xywh__length, jfloat* xywh, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rectv___3FJ(jint xywh__length, jfloat* xywh, jlong __result) {
 	UNUSED_PARAM(xywh__length)
 	*((struct nk_rect*)(intptr_t)__result) = nk_rectv((const float *)xywh);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectiv___3I(JNIEnv *__env, jclass clazz, jintArray xywhAddress, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1rectiv___3IJ(JNIEnv *__env, jclass clazz, jintArray xywhAddress, jlong __result) {
 	jint *xywh = (*__env)->GetPrimitiveArrayCritical(__env, xywhAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	*((struct nk_rect*)(intptr_t)__result) = nk_rectiv((const int *)xywh);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xywhAddress, xywh, 0);
 }
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rectiv___3I(jint xywh__length, jint* xywh, jlong __result) {
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1rectiv___3IJ(jint xywh__length, jint* xywh, jlong __result) {
 	UNUSED_PARAM(xywh__length)
 	*((struct nk_rect*)(intptr_t)__result) = nk_rectiv((const int *)xywh);
 }
