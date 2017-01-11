@@ -24,7 +24,6 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
  * 
  * <ul>
  * <li>{@code TimeInSeconds} &ndash; system type when the controller state was last updated</li>
- * <li>{@code ConnectedControllerTypes} &ndash; described by {@code ovrControllerType}. Indicates which ControllerTypes are present.</li>
  * <li>{@code Buttons} &ndash; values for buttons described by {@code ovrButton}</li>
  * <li>{@code Touches} &ndash; touch values for buttons and sensors as described by {@code ovrTouch}.</li>
  * <li>{@code IndexTrigger} &ndash; left and right finger trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f.</li>
@@ -40,7 +39,6 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
  * 
  * <pre><code>struct ovrInputState {
     double TimeInSeconds;
-    unsigned int ConnectedControllerTypes;
     unsigned int Buttons;
     unsigned int Touches;
     float IndexTrigger[ovrHand_Count];
@@ -49,7 +47,7 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
     ovrControllerType ControllerType;
     float IndexTriggerNoDeadzone[ovrHand_Count];
     float HandTriggerNoDeadzone[ovrHand_Count];
-    float ThumbstickNoDeadzone[ovrHand_Count];
+    {@link OVRVector2f ovrVector2f} ThumbstickNoDeadzone[ovrHand_Count];
 }</code></pre>
  */
 public class OVRInputState extends Struct implements NativeResource {
@@ -62,7 +60,6 @@ public class OVRInputState extends Struct implements NativeResource {
 	/** The struct member offsets. */
 	public static final int
 		TIMEINSECONDS,
-		CONNECTEDCONTROLLERTYPES,
 		BUTTONS,
 		TOUCHES,
 		INDEXTRIGGER,
@@ -78,30 +75,28 @@ public class OVRInputState extends Struct implements NativeResource {
 			__member(8),
 			__member(4),
 			__member(4),
-			__member(4),
 			__array(4, ovrHand_Count),
 			__array(4, ovrHand_Count),
 			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, ovrHand_Count),
 			__member(4),
 			__array(4, ovrHand_Count),
 			__array(4, ovrHand_Count),
-			__array(4, ovrHand_Count)
+			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, ovrHand_Count)
 		);
 
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
 		TIMEINSECONDS = layout.offsetof(0);
-		CONNECTEDCONTROLLERTYPES = layout.offsetof(1);
-		BUTTONS = layout.offsetof(2);
-		TOUCHES = layout.offsetof(3);
-		INDEXTRIGGER = layout.offsetof(4);
-		HANDTRIGGER = layout.offsetof(5);
-		THUMBSTICK = layout.offsetof(6);
-		CONTROLLERTYPE = layout.offsetof(7);
-		INDEXTRIGGERNODEADZONE = layout.offsetof(8);
-		HANDTRIGGERNODEADZONE = layout.offsetof(9);
-		THUMBSTICKNODEADZONE = layout.offsetof(10);
+		BUTTONS = layout.offsetof(1);
+		TOUCHES = layout.offsetof(2);
+		INDEXTRIGGER = layout.offsetof(3);
+		HANDTRIGGER = layout.offsetof(4);
+		THUMBSTICK = layout.offsetof(5);
+		CONTROLLERTYPE = layout.offsetof(6);
+		INDEXTRIGGERNODEADZONE = layout.offsetof(7);
+		HANDTRIGGERNODEADZONE = layout.offsetof(8);
+		THUMBSTICKNODEADZONE = layout.offsetof(9);
 	}
 
 	OVRInputState(long address, ByteBuffer container) {
@@ -123,8 +118,6 @@ public class OVRInputState extends Struct implements NativeResource {
 
 	/** Returns the value of the {@code TimeInSeconds} field. */
 	public double TimeInSeconds() { return nTimeInSeconds(address()); }
-	/** Returns the value of the {@code ConnectedControllerTypes} field. */
-	public int ConnectedControllerTypes() { return nConnectedControllerTypes(address()); }
 	/** Returns the value of the {@code Buttons} field. */
 	public int Buttons() { return nButtons(address()); }
 	/** Returns the value of the {@code Touches} field. */
@@ -151,10 +144,10 @@ public class OVRInputState extends Struct implements NativeResource {
 	public FloatBuffer HandTriggerNoDeadzone() { return nHandTriggerNoDeadzone(address()); }
 	/** Returns the value at the specified index of the {@code HandTriggerNoDeadzone} field. */
 	public float HandTriggerNoDeadzone(int index) { return nHandTriggerNoDeadzone(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code ThumbstickNoDeadzone} field. */
-	public FloatBuffer ThumbstickNoDeadzone() { return nThumbstickNoDeadzone(address()); }
-	/** Returns the value at the specified index of the {@code ThumbstickNoDeadzone} field. */
-	public float ThumbstickNoDeadzone(int index) { return nThumbstickNoDeadzone(address(), index); }
+	/** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickNoDeadzone} field. */
+	public OVRVector2f.Buffer ThumbstickNoDeadzone() { return nThumbstickNoDeadzone(address()); }
+	/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickNoDeadzone} field. */
+	public OVRVector2f ThumbstickNoDeadzone(int index) { return nThumbstickNoDeadzone(address(), index); }
 
 	// -----------------------------------
 
@@ -287,8 +280,6 @@ public class OVRInputState extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #TimeInSeconds}. */
 	public static double nTimeInSeconds(long struct) { return memGetDouble(struct + OVRInputState.TIMEINSECONDS); }
-	/** Unsafe version of {@link #ConnectedControllerTypes}. */
-	public static int nConnectedControllerTypes(long struct) { return memGetInt(struct + OVRInputState.CONNECTEDCONTROLLERTYPES); }
 	/** Unsafe version of {@link #Buttons}. */
 	public static int nButtons(long struct) { return memGetInt(struct + OVRInputState.BUTTONS); }
 	/** Unsafe version of {@link #Touches}. */
@@ -331,11 +322,11 @@ public class OVRInputState extends Struct implements NativeResource {
 		return memGetFloat(struct + OVRInputState.HANDTRIGGERNODEADZONE + index * 4);
 	}
 	/** Unsafe version of {@link #ThumbstickNoDeadzone}. */
-	public static FloatBuffer nThumbstickNoDeadzone(long struct) { return memFloatBuffer(struct + OVRInputState.THUMBSTICKNODEADZONE, ovrHand_Count); }
+	public static OVRVector2f.Buffer nThumbstickNoDeadzone(long struct) { return OVRVector2f.create(struct + OVRInputState.THUMBSTICKNODEADZONE, ovrHand_Count); }
 	/** Unsafe version of {@link #ThumbstickNoDeadzone(int) ThumbstickNoDeadzone}. */
-	public static float nThumbstickNoDeadzone(long struct, int index) {
+	public static OVRVector2f nThumbstickNoDeadzone(long struct, int index) {
 		if ( CHECKS ) check(index, ovrHand_Count);
-		return memGetFloat(struct + OVRInputState.THUMBSTICKNODEADZONE + index * 4);
+		return OVRVector2f.create(struct + OVRInputState.THUMBSTICKNODEADZONE + index * OVRVector2f.SIZEOF);
 	}
 
 	// -----------------------------------
@@ -382,8 +373,6 @@ public class OVRInputState extends Struct implements NativeResource {
 
 		/** Returns the value of the {@code TimeInSeconds} field. */
 		public double TimeInSeconds() { return OVRInputState.nTimeInSeconds(address()); }
-		/** Returns the value of the {@code ConnectedControllerTypes} field. */
-		public int ConnectedControllerTypes() { return OVRInputState.nConnectedControllerTypes(address()); }
 		/** Returns the value of the {@code Buttons} field. */
 		public int Buttons() { return OVRInputState.nButtons(address()); }
 		/** Returns the value of the {@code Touches} field. */
@@ -410,10 +399,10 @@ public class OVRInputState extends Struct implements NativeResource {
 		public FloatBuffer HandTriggerNoDeadzone() { return OVRInputState.nHandTriggerNoDeadzone(address()); }
 		/** Returns the value at the specified index of the {@code HandTriggerNoDeadzone} field. */
 		public float HandTriggerNoDeadzone(int index) { return OVRInputState.nHandTriggerNoDeadzone(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code ThumbstickNoDeadzone} field. */
-		public FloatBuffer ThumbstickNoDeadzone() { return OVRInputState.nThumbstickNoDeadzone(address()); }
-		/** Returns the value at the specified index of the {@code ThumbstickNoDeadzone} field. */
-		public float ThumbstickNoDeadzone(int index) { return OVRInputState.nThumbstickNoDeadzone(address(), index); }
+		/** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickNoDeadzone} field. */
+		public OVRVector2f.Buffer ThumbstickNoDeadzone() { return OVRInputState.nThumbstickNoDeadzone(address()); }
+		/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickNoDeadzone} field. */
+		public OVRVector2f ThumbstickNoDeadzone(int index) { return OVRInputState.nThumbstickNoDeadzone(address(), index); }
 
 	}
 

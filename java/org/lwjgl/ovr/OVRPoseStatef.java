@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     {@link OVRVector3f ovrVector3f} LinearVelocity;
     {@link OVRVector3f ovrVector3f} AngularAcceleration;
     {@link OVRVector3f ovrVector3f} LinearAcceleration;
+    char[4];
     double TimeInSeconds;
 }</code></pre>
  */
@@ -62,6 +63,7 @@ public class OVRPoseStatef extends Struct {
 			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
 			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
 			__member(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF),
+			__padding(4, true),
 			__member(8)
 		);
 
@@ -73,7 +75,7 @@ public class OVRPoseStatef extends Struct {
 		LINEARVELOCITY = layout.offsetof(2);
 		ANGULARACCELERATION = layout.offsetof(3);
 		LINEARACCELERATION = layout.offsetof(4);
-		TIMEINSECONDS = layout.offsetof(5);
+		TIMEINSECONDS = layout.offsetof(6);
 	}
 
 	OVRPoseStatef(long address, ByteBuffer container) {
