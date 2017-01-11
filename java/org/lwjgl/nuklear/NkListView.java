@@ -22,8 +22,8 @@ import static org.lwjgl.system.MemoryStack.*;
     int count;
     int total_height;
     {@link NkContext struct nk_context} * ctx;
-    nk_ushort * scroll_pointer;
-    nk_ushort scroll_value;
+    nk_uint * scroll_pointer;
+    nk_uint scroll_value;
 }</code></pre>
  */
 public class NkListView extends Struct implements NativeResource {
@@ -51,7 +51,7 @@ public class NkListView extends Struct implements NativeResource {
 			__member(4),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
-			__member(2)
+			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
@@ -227,8 +227,8 @@ public class NkListView extends Struct implements NativeResource {
 	public static int ncount(long struct) { return memGetInt(struct + NkListView.COUNT); }
 	public static int ntotal_height(long struct) { return memGetInt(struct + NkListView.TOTAL_HEIGHT); }
 	public static NkContext nctx(long struct) { return NkContext.create(memGetAddress(struct + NkListView.CTX)); }
-	public static ShortBuffer nscroll_pointer(long struct, int capacity) { return memShortBuffer(memGetAddress(struct + NkListView.SCROLL_POINTER), capacity); }
-	public static short nscroll_value(long struct) { return memGetShort(struct + NkListView.SCROLL_VALUE); }
+	public static IntBuffer nscroll_pointer(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + NkListView.SCROLL_POINTER), capacity); }
+	public static int nscroll_value(long struct) { return memGetInt(struct + NkListView.SCROLL_VALUE); }
 
 	// -----------------------------------
 

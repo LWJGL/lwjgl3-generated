@@ -20,7 +20,8 @@ import static org.lwjgl.system.MemoryStack.*;
     enum nk_panel_type type;
     nk_flags flags;
     {@link NkRect struct nk_rect} bounds;
-    {@link NkScroll struct nk_scroll} * offset;
+    nk_uint * offset_x;
+    nk_uint * offset_y;
     float at_x;
     float at_y;
     float max_x;
@@ -49,7 +50,8 @@ public class NkPanel extends Struct implements NativeResource {
 		TYPE,
 		FLAGS,
 		BOUNDS,
-		OFFSET,
+		OFFSET_X,
+		OFFSET_Y,
 		AT_X,
 		AT_Y,
 		MAX_X,
@@ -70,6 +72,7 @@ public class NkPanel extends Struct implements NativeResource {
 			__member(4),
 			__member(4),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
+			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(4),
 			__member(4),
@@ -93,21 +96,22 @@ public class NkPanel extends Struct implements NativeResource {
 		TYPE = layout.offsetof(0);
 		FLAGS = layout.offsetof(1);
 		BOUNDS = layout.offsetof(2);
-		OFFSET = layout.offsetof(3);
-		AT_X = layout.offsetof(4);
-		AT_Y = layout.offsetof(5);
-		MAX_X = layout.offsetof(6);
-		FOOTER_HEIGHT = layout.offsetof(7);
-		HEADER_HEIGHT = layout.offsetof(8);
-		BORDER = layout.offsetof(9);
-		HAS_SCROLLING = layout.offsetof(10);
-		CLIP = layout.offsetof(11);
-		MENU = layout.offsetof(12);
-		ROW = layout.offsetof(13);
-		CHART = layout.offsetof(14);
-		POPUP_BUFFER = layout.offsetof(15);
-		BUFFER = layout.offsetof(16);
-		PARENT = layout.offsetof(17);
+		OFFSET_X = layout.offsetof(3);
+		OFFSET_Y = layout.offsetof(4);
+		AT_X = layout.offsetof(5);
+		AT_Y = layout.offsetof(6);
+		MAX_X = layout.offsetof(7);
+		FOOTER_HEIGHT = layout.offsetof(8);
+		HEADER_HEIGHT = layout.offsetof(9);
+		BORDER = layout.offsetof(10);
+		HAS_SCROLLING = layout.offsetof(11);
+		CLIP = layout.offsetof(12);
+		MENU = layout.offsetof(13);
+		ROW = layout.offsetof(14);
+		CHART = layout.offsetof(15);
+		POPUP_BUFFER = layout.offsetof(16);
+		BUFFER = layout.offsetof(17);
+		PARENT = layout.offsetof(18);
 	}
 
 	NkPanel(long address, ByteBuffer container) {
@@ -133,8 +137,18 @@ public class NkPanel extends Struct implements NativeResource {
 	public int flags() { return nflags(address()); }
 	/** Returns a {@link NkRect} view of the {@code bounds} field. */
 	public NkRect bounds() { return nbounds(address()); }
-	/** Returns a {@link NkScroll} view of the struct pointed to by the {@code offset} field. */
-	public NkScroll offset() { return noffset(address()); }
+	/**
+	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_x} field.
+	 *
+	 * @param capacity the number of elements in the returned buffer
+	 */
+	public IntBuffer offset_x(int capacity) { return noffset_x(address(), capacity); }
+	/**
+	 * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_y} field.
+	 *
+	 * @param capacity the number of elements in the returned buffer
+	 */
+	public IntBuffer offset_y(int capacity) { return noffset_y(address(), capacity); }
 	/** Returns the value of the {@code at_x} field. */
 	public float at_x() { return nat_x(address()); }
 	/** Returns the value of the {@code at_y} field. */
@@ -299,8 +313,10 @@ public class NkPanel extends Struct implements NativeResource {
 	public static int nflags(long struct) { return memGetInt(struct + NkPanel.FLAGS); }
 	/** Unsafe version of {@link #bounds}. */
 	public static NkRect nbounds(long struct) { return NkRect.create(struct + NkPanel.BOUNDS); }
-	/** Unsafe version of {@link #offset}. */
-	public static NkScroll noffset(long struct) { return NkScroll.create(memGetAddress(struct + NkPanel.OFFSET)); }
+	/** Unsafe version of {@link #offset_x(int) offset_x}. */
+	public static IntBuffer noffset_x(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + NkPanel.OFFSET_X), capacity); }
+	/** Unsafe version of {@link #offset_y(int) offset_y}. */
+	public static IntBuffer noffset_y(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + NkPanel.OFFSET_Y), capacity); }
 	/** Unsafe version of {@link #at_x}. */
 	public static float nat_x(long struct) { return memGetFloat(struct + NkPanel.AT_X); }
 	/** Unsafe version of {@link #at_y}. */
@@ -378,8 +394,18 @@ public class NkPanel extends Struct implements NativeResource {
 		public int flags() { return NkPanel.nflags(address()); }
 		/** Returns a {@link NkRect} view of the {@code bounds} field. */
 		public NkRect bounds() { return NkPanel.nbounds(address()); }
-		/** Returns a {@link NkScroll} view of the struct pointed to by the {@code offset} field. */
-		public NkScroll offset() { return NkPanel.noffset(address()); }
+		/**
+		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_x} field.
+		 *
+		 * @param capacity the number of elements in the returned buffer
+		 */
+		public IntBuffer offset_x(int capacity) { return NkPanel.noffset_x(address(), capacity); }
+		/**
+		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_y} field.
+		 *
+		 * @param capacity the number of elements in the returned buffer
+		 */
+		public IntBuffer offset_y(int capacity) { return NkPanel.noffset_y(address(), capacity); }
 		/** Returns the value of the {@code at_x} field. */
 		public float at_x() { return NkPanel.nat_x(address()); }
 		/** Returns the value of the {@code at_y} field. */

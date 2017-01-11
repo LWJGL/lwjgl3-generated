@@ -315,6 +315,36 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row__JIFIJ(JN
 	nk_layout_row(ctx, fmt, height, cols, ratio);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1template_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat height) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_layout_row_template_begin(ctx, height);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1template_1push_1dynamic(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_layout_row_template_push_dynamic(ctx);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1template_1push_1variable(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat min_width) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_layout_row_template_push_variable(ctx, min_width);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1template_1push_1static(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat width) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_layout_row_template_push_static(ctx, width);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1template_1end(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_layout_row_template_end(ctx);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1space_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint fmt, jfloat height, jint widget_count) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -381,10 +411,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1begin(JNIEnv *
 	return (jint)nk_group_begin(ctx, title, flags);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1end(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1offset_1begin__JJJJI(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong x_offsetAddress, jlong y_offsetAddress, jlong titleAddress, jint flags) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	nk_uint *x_offset = (nk_uint *)(intptr_t)x_offsetAddress;
+	nk_uint *y_offset = (nk_uint *)(intptr_t)y_offsetAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nk_group_end(ctx);
+	return (jint)nk_group_scrolled_offset_begin(ctx, x_offset, y_offset, title, flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong scrollAddress, jlong titleAddress, jint flags) {
@@ -399,6 +432,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1end(
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
 	nk_group_scrolled_end(ctx);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1end(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_group_end(ctx);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1list_1view_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong viewAddress, jlong titleAddress, jint flags, jint row_height, jint row_count) {
@@ -3135,6 +3174,26 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row__
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	UNUSED_PARAM(ratio__length)
 	nk_layout_row(ctx, fmt, height, cols, (const float *)ratio);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1offset_1begin__J_3I_3IJI(JNIEnv *__env, jclass clazz, jlong ctxAddress, jintArray x_offsetAddress, jintArray y_offsetAddress, jlong titleAddress, jint flags) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	jint __result;
+	jint *x_offset = (*__env)->GetPrimitiveArrayCritical(__env, x_offsetAddress, 0);
+	jint *y_offset = (*__env)->GetPrimitiveArrayCritical(__env, y_offsetAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)nk_group_scrolled_offset_begin(ctx, (nk_uint *)x_offset, (nk_uint *)y_offset, title, flags);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, y_offsetAddress, y_offset, 0);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, x_offsetAddress, x_offset, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1offset_1begin__J_3I_3IJI(jlong ctxAddress, jint x_offset__length, jint* x_offset, jint y_offset__length, jint* y_offset, jlong titleAddress, jint flags) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAM(x_offset__length)
+	UNUSED_PARAM(y_offset__length)
+	return (jint)nk_group_scrolled_offset_begin(ctx, (nk_uint *)x_offset, (nk_uint *)y_offset, title, flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1push__JIJ_3I(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jlong titleAddress, jintArray stateAddress) {

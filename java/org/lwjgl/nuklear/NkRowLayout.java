@@ -9,13 +9,14 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_row_layout {
-    int type;
+    enum nk_panel_row_layout_type type;
     int index;
     float height;
     int columns;
@@ -26,6 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     float filled;
     {@link NkRect struct nk_rect} item;
     int tree_depth;
+    float templates[16];
 }</code></pre>
  */
 public class NkRowLayout extends Struct {
@@ -47,7 +49,8 @@ public class NkRowLayout extends Struct {
 		ITEM_OFFSET,
 		FILLED,
 		ITEM,
-		TREE_DEPTH;
+		TREE_DEPTH,
+		TEMPLATES;
 
 	static {
 		Layout layout = __struct(
@@ -61,7 +64,8 @@ public class NkRowLayout extends Struct {
 			__member(4),
 			__member(4),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
-			__member(4)
+			__member(4),
+			__array(4, 16)
 		);
 
 		SIZEOF = layout.getSize();
@@ -78,6 +82,7 @@ public class NkRowLayout extends Struct {
 		FILLED = layout.offsetof(8);
 		ITEM = layout.offsetof(9);
 		TREE_DEPTH = layout.offsetof(10);
+		TEMPLATES = layout.offsetof(11);
 	}
 
 	NkRowLayout(long address, ByteBuffer container) {
@@ -123,6 +128,10 @@ public class NkRowLayout extends Struct {
 	public NkRect item() { return nitem(address()); }
 	/** Returns the value of the {@code tree_depth} field. */
 	public int tree_depth() { return ntree_depth(address()); }
+	/** Returns a {@link FloatBuffer} view of the {@code templates} field. */
+	public FloatBuffer templates() { return ntemplates(address()); }
+	/** Returns the value at the specified index of the {@code templates} field. */
+	public float templates(int index) { return ntemplates(address(), index); }
 
 	// -----------------------------------
 
@@ -165,6 +174,13 @@ public class NkRowLayout extends Struct {
 	public static NkRect nitem(long struct) { return NkRect.create(struct + NkRowLayout.ITEM); }
 	/** Unsafe version of {@link #tree_depth}. */
 	public static int ntree_depth(long struct) { return memGetInt(struct + NkRowLayout.TREE_DEPTH); }
+	/** Unsafe version of {@link #templates}. */
+	public static FloatBuffer ntemplates(long struct) { return memFloatBuffer(struct + NkRowLayout.TEMPLATES, 16); }
+	/** Unsafe version of {@link #templates(int) templates}. */
+	public static float ntemplates(long struct, int index) {
+		if ( CHECKS ) check(index, 16);
+		return memGetFloat(struct + NkRowLayout.TEMPLATES + index * 4);
+	}
 
 	// -----------------------------------
 
@@ -234,6 +250,10 @@ public class NkRowLayout extends Struct {
 		public NkRect item() { return NkRowLayout.nitem(address()); }
 		/** Returns the value of the {@code tree_depth} field. */
 		public int tree_depth() { return NkRowLayout.ntree_depth(address()); }
+		/** Returns a {@link FloatBuffer} view of the {@code templates} field. */
+		public FloatBuffer templates() { return NkRowLayout.ntemplates(address()); }
+		/** Returns the value at the specified index of the {@code templates} field. */
+		public float templates(int index) { return NkRowLayout.ntemplates(address(), index); }
 
 	}
 

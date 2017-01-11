@@ -504,6 +504,7 @@ public class Nuklear {
 	 * <li>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</li>
 	 * <li>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</li>
 	 * <li>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</li>
+	 * <li>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</li>
 	 * <li>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</li>
 	 * <li>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</li>
 	 * <li>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</li>
@@ -537,13 +538,14 @@ public class Nuklear {
 		NK_KEY_TEXT_END          = 20,
 		NK_KEY_TEXT_UNDO         = 21,
 		NK_KEY_TEXT_REDO         = 22,
-		NK_KEY_TEXT_WORD_LEFT    = 23,
-		NK_KEY_TEXT_WORD_RIGHT   = 24,
-		NK_KEY_SCROLL_START      = 25,
-		NK_KEY_SCROLL_END        = 26,
-		NK_KEY_SCROLL_DOWN       = 27,
-		NK_KEY_SCROLL_UP         = 28,
-		NK_KEY_MAX               = 29;
+		NK_KEY_TEXT_SELECT_ALL   = 23,
+		NK_KEY_TEXT_WORD_LEFT    = 24,
+		NK_KEY_TEXT_WORD_RIGHT   = 25,
+		NK_KEY_SCROLL_START      = 26,
+		NK_KEY_SCROLL_END        = 27,
+		NK_KEY_SCROLL_DOWN       = 28,
+		NK_KEY_SCROLL_UP         = 29,
+		NK_KEY_MAX               = 30;
 
 	/**
 	 * nk_buttons
@@ -1120,6 +1122,36 @@ public class Nuklear {
 		NK_PANEL_SET_NONBLOCK = NK_PANEL_CONTEXTUAL|NK_PANEL_COMBO|NK_PANEL_MENU|NK_PANEL_TOOLTIP,
 		NK_PANEL_SET_POPUP    = NK_PANEL_SET_NONBLOCK|NK_PANEL_POPUP,
 		NK_PANEL_SET_SUB      = NK_PANEL_SET_POPUP|NK_PANEL_GROUP;
+
+	/**
+	 * nk_panel_row_layout_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_LAYOUT_DYNAMIC_FIXED LAYOUT_DYNAMIC_FIXED}</li>
+	 * <li>{@link #NK_LAYOUT_DYNAMIC_ROW LAYOUT_DYNAMIC_ROW}</li>
+	 * <li>{@link #NK_LAYOUT_DYNAMIC_FREE LAYOUT_DYNAMIC_FREE}</li>
+	 * <li>{@link #NK_LAYOUT_DYNAMIC LAYOUT_DYNAMIC}</li>
+	 * <li>{@link #NK_LAYOUT_STATIC_FIXED LAYOUT_STATIC_FIXED}</li>
+	 * <li>{@link #NK_LAYOUT_STATIC_ROW LAYOUT_STATIC_ROW}</li>
+	 * <li>{@link #NK_LAYOUT_STATIC_FREE LAYOUT_STATIC_FREE}</li>
+	 * <li>{@link #NK_LAYOUT_STATIC LAYOUT_STATIC}</li>
+	 * <li>{@link #NK_LAYOUT_TEMPLATE LAYOUT_TEMPLATE}</li>
+	 * <li>{@link #NK_LAYOUT_COUNT LAYOUT_COUNT}</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_LAYOUT_DYNAMIC_FIXED = 0,
+		NK_LAYOUT_DYNAMIC_ROW   = 1,
+		NK_LAYOUT_DYNAMIC_FREE  = 2,
+		NK_LAYOUT_DYNAMIC       = 3,
+		NK_LAYOUT_STATIC_FIXED  = 4,
+		NK_LAYOUT_STATIC_ROW    = 5,
+		NK_LAYOUT_STATIC_FREE   = 6,
+		NK_LAYOUT_STATIC        = 7,
+		NK_LAYOUT_TEMPLATE      = 8,
+		NK_LAYOUT_COUNT         = 9;
 
 	/**
 	 * nk_window_flags
@@ -1999,6 +2031,73 @@ public class Nuklear {
 		nnk_layout_row(ctx.address(), fmt, height, ratio.remaining(), memAddress(ratio));
 	}
 
+	// --- [ nk_layout_row_template_begin ] ---
+
+	/** Unsafe version of: {@link #nk_layout_row_template_begin layout_row_template_begin} */
+	public static native void nnk_layout_row_template_begin(long ctx, float height);
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param height 
+	 */
+	public static void nk_layout_row_template_begin(NkContext ctx, float height) {
+		nnk_layout_row_template_begin(ctx.address(), height);
+	}
+
+	// --- [ nk_layout_row_template_push_dynamic ] ---
+
+	/** Unsafe version of: {@link #nk_layout_row_template_push_dynamic layout_row_template_push_dynamic} */
+	public static native void nnk_layout_row_template_push_dynamic(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static void nk_layout_row_template_push_dynamic(NkContext ctx) {
+		nnk_layout_row_template_push_dynamic(ctx.address());
+	}
+
+	// --- [ nk_layout_row_template_push_variable ] ---
+
+	/** Unsafe version of: {@link #nk_layout_row_template_push_variable layout_row_template_push_variable} */
+	public static native void nnk_layout_row_template_push_variable(long ctx, float min_width);
+
+	/**
+	 * 
+	 *
+	 * @param ctx       the nuklear context
+	 * @param min_width 
+	 */
+	public static void nk_layout_row_template_push_variable(NkContext ctx, float min_width) {
+		nnk_layout_row_template_push_variable(ctx.address(), min_width);
+	}
+
+	// --- [ nk_layout_row_template_push_static ] ---
+
+	/** Unsafe version of: {@link #nk_layout_row_template_push_static layout_row_template_push_static} */
+	public static native void nnk_layout_row_template_push_static(long ctx, float width);
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param width 
+	 */
+	public static void nk_layout_row_template_push_static(NkContext ctx, float width) {
+		nnk_layout_row_template_push_static(ctx.address(), width);
+	}
+
+	// --- [ nk_layout_row_template_end ] ---
+
+	public static native void nnk_layout_row_template_end(long ctx);
+
+	public static void nk_layout_row_template_end(NkContext ctx) {
+		nnk_layout_row_template_end(ctx.address());
+	}
+
 	// --- [ nk_layout_space_begin ] ---
 
 	/** Unsafe version of: {@link #nk_layout_space_begin layout_space_begin} */
@@ -2174,18 +2273,50 @@ public class Nuklear {
 		}
 	}
 
-	// --- [ nk_group_end ] ---
+	// --- [ nk_group_scrolled_offset_begin ] ---
 
-	/** Unsafe version of: {@link #nk_group_end group_end} */
-	public static native void nnk_group_end(long ctx);
+	/** Unsafe version of: {@link #nk_group_scrolled_offset_begin group_scrolled_offset_begin} */
+	public static native int nnk_group_scrolled_offset_begin(long ctx, long x_offset, long y_offset, long title, int flags);
 
 	/**
 	 * 
 	 *
-	 * @param ctx the nuklear context
+	 * @param ctx      the nuklear context
+	 * @param x_offset 
+	 * @param y_offset 
+	 * @param title    
+	 * @param flags    
 	 */
-	public static void nk_group_end(NkContext ctx) {
-		nnk_group_end(ctx.address());
+	public static boolean nk_group_scrolled_offset_begin(NkContext ctx, IntBuffer x_offset, IntBuffer y_offset, ByteBuffer title, int flags) {
+		if ( CHECKS ) {
+			check(x_offset, 1);
+			check(y_offset, 1);
+			checkNT1(title);
+		}
+		return nnk_group_scrolled_offset_begin(ctx.address(), memAddress(x_offset), memAddress(y_offset), memAddress(title), flags) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param x_offset 
+	 * @param y_offset 
+	 * @param title    
+	 * @param flags    
+	 */
+	public static boolean nk_group_scrolled_offset_begin(NkContext ctx, IntBuffer x_offset, IntBuffer y_offset, CharSequence title, int flags) {
+		if ( CHECKS ) {
+			check(x_offset, 1);
+			check(y_offset, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_group_scrolled_offset_begin(ctx.address(), memAddress(x_offset), memAddress(y_offset), memAddress(titleEncoded), flags) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_group_scrolled_begin ] ---
@@ -2237,6 +2368,20 @@ public class Nuklear {
 	 */
 	public static void nk_group_scrolled_end(NkContext ctx) {
 		nnk_group_scrolled_end(ctx.address());
+	}
+
+	// --- [ nk_group_end ] ---
+
+	/** Unsafe version of: {@link #nk_group_end group_end} */
+	public static native void nnk_group_end(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static void nk_group_end(NkContext ctx) {
+		nnk_group_end(ctx.address());
 	}
 
 	// --- [ nk_list_view_begin ] ---
@@ -6549,7 +6694,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx  the nuklear context
-	 * @param key  one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
+	 * @param key  one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
 	 * @param down 
 	 */
 	public static void nk_input_key(NkContext ctx, int key, boolean down) {
@@ -9031,7 +9176,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param i   
-	 * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
+	 * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
 	 */
 	public static boolean nk_input_is_key_pressed(NkInput i, int key) {
 		return nnk_input_is_key_pressed(i.address(), key) != 0;
@@ -9046,7 +9191,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param i   
-	 * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
+	 * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
 	 */
 	public static boolean nk_input_is_key_released(NkInput i, int key) {
 		return nnk_input_is_key_released(i.address(), key) != 0;
@@ -9061,7 +9206,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param i   
-	 * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
+	 * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
 	 */
 	public static boolean nk_input_is_key_down(NkInput i, int key) {
 		return nnk_input_is_key_down(i.address(), key) != 0;
@@ -9409,6 +9554,34 @@ public class Nuklear {
 	/** Array version of: {@link #nk_layout_row layout_row} */
 	public static void nk_layout_row(NkContext ctx, int fmt, float height, float[] ratio) {
 		nnk_layout_row(ctx.address(), fmt, height, ratio.length, ratio);
+	}
+
+	/** Array version of: {@link #nnk_group_scrolled_offset_begin} */
+	public static native int nnk_group_scrolled_offset_begin(long ctx, int[] x_offset, int[] y_offset, long title, int flags);
+
+	/** Array version of: {@link #nk_group_scrolled_offset_begin group_scrolled_offset_begin} */
+	public static boolean nk_group_scrolled_offset_begin(NkContext ctx, int[] x_offset, int[] y_offset, ByteBuffer title, int flags) {
+		if ( CHECKS ) {
+			check(x_offset, 1);
+			check(y_offset, 1);
+			checkNT1(title);
+		}
+		return nnk_group_scrolled_offset_begin(ctx.address(), x_offset, y_offset, memAddress(title), flags) != 0;
+	}
+
+	/** Array version of: {@link #nk_group_scrolled_offset_begin group_scrolled_offset_begin} */
+	public static boolean nk_group_scrolled_offset_begin(NkContext ctx, int[] x_offset, int[] y_offset, CharSequence title, int flags) {
+		if ( CHECKS ) {
+			check(x_offset, 1);
+			check(y_offset, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_group_scrolled_offset_begin(ctx.address(), x_offset, y_offset, memAddress(titleEncoded), flags) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Array version of: {@link #nnk_tree_state_push} */

@@ -17,8 +17,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_scroll {
-    unsigned short x;
-    unsigned short y;
+    nk_uint x;
+    nk_uint y;
 }</code></pre>
  */
 public class NkScroll extends Struct implements NativeResource {
@@ -35,8 +35,8 @@ public class NkScroll extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__member(2),
-			__member(2)
+			__member(4),
+			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
@@ -64,9 +64,9 @@ public class NkScroll extends Struct implements NativeResource {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns the value of the {@code x} field. */
-	public short x() { return nx(address()); }
+	public int x() { return nx(address()); }
 	/** Returns the value of the {@code y} field. */
-	public short y() { return ny(address()); }
+	public int y() { return ny(address()); }
 
 	// -----------------------------------
 
@@ -198,9 +198,9 @@ public class NkScroll extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #x}. */
-	public static short nx(long struct) { return memGetShort(struct + NkScroll.X); }
+	public static int nx(long struct) { return memGetInt(struct + NkScroll.X); }
 	/** Unsafe version of {@link #y}. */
-	public static short ny(long struct) { return memGetShort(struct + NkScroll.Y); }
+	public static int ny(long struct) { return memGetInt(struct + NkScroll.Y); }
 
 	// -----------------------------------
 
@@ -245,9 +245,9 @@ public class NkScroll extends Struct implements NativeResource {
 		}
 
 		/** Returns the value of the {@code x} field. */
-		public short x() { return NkScroll.nx(address()); }
+		public int x() { return NkScroll.nx(address()); }
 		/** Returns the value of the {@code y} field. */
-		public short y() { return NkScroll.ny(address()); }
+		public int y() { return NkScroll.ny(address()); }
 
 	}
 

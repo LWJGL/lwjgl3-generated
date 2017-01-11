@@ -19,9 +19,9 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
 /**
  * Describes a layer that specifies a monoscopic or stereoscopic view.
  * 
- * <p>This uses a direct 3x4 matrix to map from view space to the UV coordinates. It is essentially the same thing as {@link OVRLayerEyeFov} but using a much lower
- * level. This is mainly to provide compatibility with specific apps. Unless the application really requires this flexibility, it is usually better to use
- * {@code ovrLayerEyeFov}.</p>
+ * <p>This uses a direct 3x4 matrix to map from view space to the UV coordinates. It is essentially the same thing as {@link OVRLayerEyeFov} but using a much
+ * lower level. This is mainly to provide compatibility with specific apps. Unless the application really requires this flexibility, it is usually
+ * better to use {@code ovrLayerEyeFov}.</p>
  * 
  * <p>Three options exist with respect to mono/stereo texture usage:</p>
  * 
@@ -38,20 +38,20 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * <ul>
  * <li>{@code Header} &ndash; must be {@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</li>
  * <li>{@code ColorTexture} &ndash; {@code ovrTextureSwapChains} for the left and right eye respectively. The second one of which can be {@code NULL} for cases described above.</li>
- * <li>{@code Viewport} &ndash; Specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</li>
+ * <li>{@code Viewport} &ndash; specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</li>
  * <li>{@code RenderPose} &ndash; 
- * Specifies the position and orientation of each eye view, with the position specified in meters. {@code RenderPose} will typically be the value returned
- * from {@link OVRUtil#ovr_CalcEyePoses _CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</li>
+ * specifies the position and orientation of each eye view, with the position specified in meters. {@code RenderPose} will typically be the value
+ * returned from {@link OVRUtil#ovr_CalcEyePoses _CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</li>
  * <li>{@code Matrix} &ndash; 
- * Specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
+ * specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
  * 
  * <pre><code>P = (x,y,z,1)*Matrix
 TexU  = P.x/P.z
 TexV  = P.y/P.z</code></pre></li>
  * <li>{@code SensorSampleTime} &ndash; 
- * Specifies the timestamp when the source {@code ovrPosef} (used in calculating {@code RenderPose}) was sampled from the SDK. Typically retrieved by
- * calling {@link OVR#ovr_GetTimeInSeconds GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState GetTrackingState} The main purpose for this is to accurately track app tracking
- * latency.</li>
+ * specifies the timestamp when the source {@code ovrPosef} (used in calculating {@code RenderPose}) was sampled from the SDK. Typically retrieved by
+ * calling {@link OVR#ovr_GetTimeInSeconds GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState GetTrackingState} The main purpose for this is to accurately track app
+ * tracking latency.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
