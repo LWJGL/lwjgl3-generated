@@ -455,7 +455,7 @@ public class TinyEXR {
 	// --- [ LoadEXRMultipartImageFromMemory ] ---
 
 	/** Unsafe version of: {@link #LoadEXRMultipartImageFromMemory} */
-	public static native int nLoadEXRMultipartImageFromMemory(long images, long headers, int num_parts, long memory, long err);
+	public static native int nLoadEXRMultipartImageFromMemory(long images, long headers, int num_parts, long memory, long size, long err);
 
 	/**
 	 * Loads multi-part OpenEXR image from a memory.
@@ -476,7 +476,7 @@ public class TinyEXR {
 			check(headers, images.remaining());
 			check(err, 1);
 		}
-		return nLoadEXRMultipartImageFromMemory(images.address(), memAddress(headers), images.remaining(), memAddress(memory), memAddress(err));
+		return nLoadEXRMultipartImageFromMemory(images.address(), memAddress(headers), images.remaining(), memAddress(memory), memory.remaining(), memAddress(err));
 	}
 
 	// --- [ SaveEXRImageToFile ] ---
@@ -601,49 +601,6 @@ public class TinyEXR {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
-	}
-
-	/** Array version of: {@link #nParseEXRMultipartHeaderFromFile} */
-	public static native int nParseEXRMultipartHeaderFromFile(long headers, int[] num_headers, long version, long filename, long err);
-
-	/** Array version of: {@link #ParseEXRMultipartHeaderFromFile} */
-	public static int ParseEXRMultipartHeaderFromFile(PointerBuffer headers, int[] num_headers, EXRVersion version, ByteBuffer filename, PointerBuffer err) {
-		if ( CHECKS ) {
-			check(headers, 1);
-			check(num_headers, 1);
-			checkNT1(filename);
-			check(err, 1);
-		}
-		return nParseEXRMultipartHeaderFromFile(memAddress(headers), num_headers, version.address(), memAddress(filename), memAddress(err));
-	}
-
-	/** Array version of: {@link #ParseEXRMultipartHeaderFromFile} */
-	public static int ParseEXRMultipartHeaderFromFile(PointerBuffer headers, int[] num_headers, EXRVersion version, CharSequence filename, PointerBuffer err) {
-		if ( CHECKS ) {
-			check(headers, 1);
-			check(num_headers, 1);
-			check(err, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer filenameEncoded = stack.ASCII(filename);
-			return nParseEXRMultipartHeaderFromFile(memAddress(headers), num_headers, version.address(), memAddress(filenameEncoded), memAddress(err));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	/** Array version of: {@link #nParseEXRMultipartHeaderFromMemory} */
-	public static native int nParseEXRMultipartHeaderFromMemory(long headers, int[] num_headers, long version, long memory, long size, long err);
-
-	/** Array version of: {@link #ParseEXRMultipartHeaderFromMemory} */
-	public static int ParseEXRMultipartHeaderFromMemory(PointerBuffer headers, int[] num_headers, EXRVersion version, ByteBuffer memory, PointerBuffer err) {
-		if ( CHECKS ) {
-			check(headers, 1);
-			check(num_headers, 1);
-			check(err, 1);
-		}
-		return nParseEXRMultipartHeaderFromMemory(memAddress(headers), num_headers, version.address(), memAddress(memory), memory.remaining(), memAddress(err));
 	}
 
 }

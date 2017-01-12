@@ -116,13 +116,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nLoadEXRMultipartImag
 	return (jint)LoadEXRMultipartImageFromFile(images, headers, num_parts, filename, err);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nLoadEXRMultipartImageFromMemory(JNIEnv *__env, jclass clazz, jlong imagesAddress, jlong headersAddress, jint num_parts, jlong memoryAddress, jlong errAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nLoadEXRMultipartImageFromMemory(JNIEnv *__env, jclass clazz, jlong imagesAddress, jlong headersAddress, jint num_parts, jlong memoryAddress, jlong size, jlong errAddress) {
 	EXRImage *images = (EXRImage *)(intptr_t)imagesAddress;
 	const EXRHeader **headers = (const EXRHeader **)(intptr_t)headersAddress;
 	const unsigned char *memory = (const unsigned char *)(intptr_t)memoryAddress;
 	const char **err = (const char **)(intptr_t)errAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)LoadEXRMultipartImageFromMemory(images, headers, num_parts, memory, err);
+	return (jint)LoadEXRMultipartImageFromMemory(images, headers, num_parts, memory, (size_t)size, err);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nSaveEXRImageToFile(JNIEnv *__env, jclass clazz, jlong imageAddress, jlong exr_headerAddress, jlong filenameAddress, jlong errAddress) {
@@ -150,49 +150,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nLoadDeepEXR(JNIEnv *
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)LoadDeepEXR(out_image, filename, err);
 }
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nParseEXRMultipartHeaderFromFile__J_3IJJJ(JNIEnv *__env, jclass clazz, jlong headersAddress, jintArray num_headersAddress, jlong versionAddress, jlong filenameAddress, jlong errAddress) {
-	EXRHeader ***headers = (EXRHeader ***)(intptr_t)headersAddress;
-	const EXRVersion *version = (const EXRVersion *)(intptr_t)versionAddress;
-	const char *filename = (const char *)(intptr_t)filenameAddress;
-	const char **err = (const char **)(intptr_t)errAddress;
-	jint __result;
-	jint *num_headers = (*__env)->GetPrimitiveArrayCritical(__env, num_headersAddress, 0);
-	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)ParseEXRMultipartHeaderFromFile(headers, (int *)num_headers, version, filename, err);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, num_headersAddress, num_headers, 0);
-	return __result;
-}
-JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_tinyexr_TinyEXR_nParseEXRMultipartHeaderFromFile__J_3IJJJ(jlong headersAddress, jint num_headers__length, jint* num_headers, jlong versionAddress, jlong filenameAddress, jlong errAddress) {
-	EXRHeader ***headers = (EXRHeader ***)(intptr_t)headersAddress;
-	const EXRVersion *version = (const EXRVersion *)(intptr_t)versionAddress;
-	const char *filename = (const char *)(intptr_t)filenameAddress;
-	const char **err = (const char **)(intptr_t)errAddress;
-	UNUSED_PARAM(num_headers__length)
-	return (jint)ParseEXRMultipartHeaderFromFile(headers, (int *)num_headers, version, filename, err);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyexr_TinyEXR_nParseEXRMultipartHeaderFromMemory__J_3IJJJJ(JNIEnv *__env, jclass clazz, jlong headersAddress, jintArray num_headersAddress, jlong versionAddress, jlong memoryAddress, jlong size, jlong errAddress) {
-	EXRHeader ***headers = (EXRHeader ***)(intptr_t)headersAddress;
-	const EXRVersion *version = (const EXRVersion *)(intptr_t)versionAddress;
-	const unsigned char *memory = (const unsigned char *)(intptr_t)memoryAddress;
-	const char **err = (const char **)(intptr_t)errAddress;
-	jint __result;
-	jint *num_headers = (*__env)->GetPrimitiveArrayCritical(__env, num_headersAddress, 0);
-	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)ParseEXRMultipartHeaderFromMemory(headers, (int *)num_headers, version, memory, (size_t)size, err);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, num_headersAddress, num_headers, 0);
-	return __result;
-}
-#ifdef LWJGL_WINDOWS
-JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_tinyexr_TinyEXR_nParseEXRMultipartHeaderFromMemory__J_3IJJJJ(jlong headersAddress, jint num_headers__length, jint* num_headers, jlong versionAddress, jlong memoryAddress, jlong size, jlong errAddress) {
-	EXRHeader ***headers = (EXRHeader ***)(intptr_t)headersAddress;
-	const EXRVersion *version = (const EXRVersion *)(intptr_t)versionAddress;
-	const unsigned char *memory = (const unsigned char *)(intptr_t)memoryAddress;
-	const char **err = (const char **)(intptr_t)errAddress;
-	UNUSED_PARAM(num_headers__length)
-	return (jint)ParseEXRMultipartHeaderFromMemory(headers, (int *)num_headers, version, memory, (size_t)size, err);
-}
-#endif
 
 EXTERN_C_EXIT
