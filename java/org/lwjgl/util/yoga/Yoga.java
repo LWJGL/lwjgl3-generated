@@ -279,6 +279,7 @@ public class Yoga {
 	 * <li>{@link #YGAlignCenter AlignCenter}</li>
 	 * <li>{@link #YGAlignFlexEnd AlignFlexEnd}</li>
 	 * <li>{@link #YGAlignStretch AlignStretch}</li>
+	 * <li>{@link #YGAlignBaseline AlignBaseline}</li>
 	 * </ul>
 	 */
 	public static final int
@@ -286,7 +287,8 @@ public class Yoga {
 		YGAlignFlexStart = 1,
 		YGAlignCenter    = 2,
 		YGAlignFlexEnd   = 3,
-		YGAlignStretch   = 4;
+		YGAlignStretch   = 4,
+		YGAlignBaseline  = 5;
 
 	/**
 	 * YGUnit
@@ -511,6 +513,26 @@ public class Yoga {
 		if ( CHECKS )
 			check(node);
 		return YGMeasureFunc.create(nYGNodeGetMeasureFunc(node));
+	}
+
+	// --- [ YGNodeSetBaselineFunc ] ---
+
+	public static native void nYGNodeSetBaselineFunc(long node, long baselineFunc);
+
+	public static void YGNodeSetBaselineFunc(long node, YGBaselineFuncI baselineFunc) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeSetBaselineFunc(node, baselineFunc.address());
+	}
+
+	// --- [ YGNodeGetBaselineFunc ] ---
+
+	public static native long nYGNodeGetBaselineFunc(long node);
+
+	public static YGBaselineFunc YGNodeGetBaselineFunc(long node) {
+		if ( CHECKS )
+			check(node);
+		return YGBaselineFunc.create(nYGNodeGetBaselineFunc(node));
 	}
 
 	// --- [ YGNodeSetPrintFunc ] ---

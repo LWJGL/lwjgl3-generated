@@ -142,6 +142,19 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetMeasureFunc(JNIE
 	return (jlong)(intptr_t)YGNodeGetMeasureFunc(node);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeSetBaselineFunc(JNIEnv *__env, jclass clazz, jlong nodeAddress, jlong baselineFuncAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	YGBaselineFunc baselineFunc = (YGBaselineFunc)(intptr_t)baselineFuncAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGNodeSetBaselineFunc(node, baselineFunc);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetBaselineFunc(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGNodeGetBaselineFunc(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeSetPrintFunc(JNIEnv *__env, jclass clazz, jlong nodeAddress, jlong printFuncAddress) {
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	YGPrintFunc printFunc = (YGPrintFunc)(intptr_t)printFuncAddress;
