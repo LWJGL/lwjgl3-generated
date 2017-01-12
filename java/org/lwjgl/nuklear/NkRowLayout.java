@@ -13,6 +13,12 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code type} &ndash; one of:<br><table><tr><td>{@link Nuklear#NK_LAYOUT_DYNAMIC_FIXED LAYOUT_DYNAMIC_FIXED}</td><td>{@link Nuklear#NK_LAYOUT_DYNAMIC_ROW LAYOUT_DYNAMIC_ROW}</td><td>{@link Nuklear#NK_LAYOUT_DYNAMIC_FREE LAYOUT_DYNAMIC_FREE}</td><td>{@link Nuklear#NK_LAYOUT_DYNAMIC LAYOUT_DYNAMIC}</td></tr><tr><td>{@link Nuklear#NK_LAYOUT_STATIC_FIXED LAYOUT_STATIC_FIXED}</td><td>{@link Nuklear#NK_LAYOUT_STATIC_ROW LAYOUT_STATIC_ROW}</td><td>{@link Nuklear#NK_LAYOUT_STATIC_FREE LAYOUT_STATIC_FREE}</td><td>{@link Nuklear#NK_LAYOUT_STATIC LAYOUT_STATIC}</td></tr><tr><td>{@link Nuklear#NK_LAYOUT_TEMPLATE LAYOUT_TEMPLATE}</td><td>{@link Nuklear#NK_LAYOUT_COUNT LAYOUT_COUNT}</td></tr></table></li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_row_layout {

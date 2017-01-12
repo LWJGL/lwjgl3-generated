@@ -14,6 +14,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code align} &ndash; one of:<br><table><tr><td>{@link Nuklear#NK_HEADER_LEFT HEADER_LEFT}</td><td>{@link Nuklear#NK_HEADER_RIGHT HEADER_RIGHT}</td></tr></table></li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_style_window_header {
