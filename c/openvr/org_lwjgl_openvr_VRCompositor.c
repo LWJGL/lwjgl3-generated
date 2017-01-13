@@ -4,10 +4,20 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-DISABLE_WARNINGS()
-#include "openvr_capi.h"
-ENABLE_WARNINGS()
-#define APIENTRY OPENVR_FNTABLE_CALLTYPE
+
+#ifdef LWJGL_WINDOWS
+	#define APIENTRY __stdcall
+#else
+	#define APIENTRY
+#endif
+
+typedef struct HmdColor_t
+{
+	float r;
+	float g;
+	float b;
+	float a;
+} HmdColor_t;
 
 typedef HmdColor_t (APIENTRY *VRCompositor_GetCurrentFadeColorPROC) (jboolean);
 
