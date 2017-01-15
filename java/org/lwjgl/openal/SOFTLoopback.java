@@ -153,7 +153,7 @@ public class SOFTLoopback {
 	 * render samples, use this function.
 	 *
 	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
-	 * @param buffer  the buffer to write to
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
 	 * @param samples the number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, ByteBuffer buffer, int samples) {
@@ -165,7 +165,7 @@ public class SOFTLoopback {
 	 * render samples, use this function.
 	 *
 	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
-	 * @param buffer  the buffer to write to
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
 	 * @param samples the number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, ShortBuffer buffer, int samples) {
@@ -177,7 +177,7 @@ public class SOFTLoopback {
 	 * render samples, use this function.
 	 *
 	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
-	 * @param buffer  the buffer to write to
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
 	 * @param samples the number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, IntBuffer buffer, int samples) {
@@ -189,7 +189,7 @@ public class SOFTLoopback {
 	 * render samples, use this function.
 	 *
 	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
-	 * @param buffer  the buffer to write to
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
 	 * @param samples the number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, FloatBuffer buffer, int samples) {

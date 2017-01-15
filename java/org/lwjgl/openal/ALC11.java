@@ -45,11 +45,11 @@ public class ALC11 {
 	// --- [ alcCaptureOpenDevice ] ---
 
 	/** Unsafe version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
-	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
+	public static long nalcCaptureOpenDevice(long deviceName, int frequency, int format, int samples) {
 		long __functionAddress = ALC.getICD().alcCaptureOpenDevice;
 		if ( CHECKS )
 			check(__functionAddress);
-		return invokePP(__functionAddress, devicename, frequency, format, buffersize);
+		return invokePP(__functionAddress, deviceName, frequency, format, samples);
 	}
 
 	/**
@@ -58,15 +58,15 @@ public class ALC11 {
 	 * <p>The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If {@code NULL} is specified, the implementation
 	 * will provide an implementation specific default.</p>
 	 *
-	 * @param devicename the device or device configuration
+	 * @param deviceName the device or device configuration
 	 * @param frequency  the audio frequency
 	 * @param format     the audio format
-	 * @param buffersize the number of sample frame to buffer in the AL
+	 * @param samples    the number of sample frames to buffer in the AL
 	 */
-	public static long alcCaptureOpenDevice(ByteBuffer devicename, int frequency, int format, int buffersize) {
+	public static long alcCaptureOpenDevice(ByteBuffer deviceName, int frequency, int format, int samples) {
 		if ( CHECKS )
-			checkNT1Safe(devicename);
-		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize);
+			checkNT1Safe(deviceName);
+		return nalcCaptureOpenDevice(memAddressSafe(deviceName), frequency, format, samples);
 	}
 
 	/**
@@ -75,16 +75,16 @@ public class ALC11 {
 	 * <p>The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If {@code NULL} is specified, the implementation
 	 * will provide an implementation specific default.</p>
 	 *
-	 * @param devicename the device or device configuration
+	 * @param deviceName the device or device configuration
 	 * @param frequency  the audio frequency
 	 * @param format     the audio format
-	 * @param buffersize the number of sample frame to buffer in the AL
+	 * @param samples    the number of sample frames to buffer in the AL
 	 */
-	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
+	public static long alcCaptureOpenDevice(CharSequence deviceName, int frequency, int format, int samples) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer devicenameEncoded = stack.UTF8(devicename);
-			return nalcCaptureOpenDevice(memAddressSafe(devicenameEncoded), frequency, format, buffersize);
+			ByteBuffer deviceNameEncoded = stack.UTF8(deviceName);
+			return nalcCaptureOpenDevice(memAddressSafe(deviceNameEncoded), frequency, format, samples);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -147,11 +147,7 @@ public class ALC11 {
 
 	// --- [ alcCaptureSamples ] ---
 
-	/**
-	 * Unsafe version of: {@link #alcCaptureSamples CaptureSamples}
-	 *
-	 * @param samples the buffer size
-	 */
+	/** Unsafe version of: {@link #alcCaptureSamples CaptureSamples} */
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcCaptureSamples;
 		if ( CHECKS ) {
@@ -166,11 +162,81 @@ public class ALC11 {
 	 * 
 	 * <p>The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.</p>
 	 *
-	 * @param device the capture device
-	 * @param buffer the buffer that will receive the samples
+	 * @param device  the capture device
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
+	 * @param samples the number of sample frames to obtain
 	 */
-	public static void alcCaptureSamples(long device, ByteBuffer buffer) {
-		nalcCaptureSamples(device, memAddress(buffer), buffer.remaining());
+	public static void alcCaptureSamples(long device, ByteBuffer buffer, int samples) {
+		nalcCaptureSamples(device, memAddress(buffer), samples);
+	}
+
+	/**
+	 * Obtains captured audio samples from the AL.
+	 * 
+	 * <p>The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.</p>
+	 *
+	 * @param device  the capture device
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
+	 * @param samples the number of sample frames to obtain
+	 */
+	public static void alcCaptureSamples(long device, ShortBuffer buffer, int samples) {
+		nalcCaptureSamples(device, memAddress(buffer), samples);
+	}
+
+	/**
+	 * Obtains captured audio samples from the AL.
+	 * 
+	 * <p>The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.</p>
+	 *
+	 * @param device  the capture device
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
+	 * @param samples the number of sample frames to obtain
+	 */
+	public static void alcCaptureSamples(long device, IntBuffer buffer, int samples) {
+		nalcCaptureSamples(device, memAddress(buffer), samples);
+	}
+
+	/**
+	 * Obtains captured audio samples from the AL.
+	 * 
+	 * <p>The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.</p>
+	 *
+	 * @param device  the capture device
+	 * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
+	 * @param samples the number of sample frames to obtain
+	 */
+	public static void alcCaptureSamples(long device, FloatBuffer buffer, int samples) {
+		nalcCaptureSamples(device, memAddress(buffer), samples);
+	}
+
+	/** Array version of: {@link #alcCaptureSamples CaptureSamples} */
+	public static void alcCaptureSamples(long device, short[] buffer, int samples) {
+		long __functionAddress = ALC.getICD().alcCaptureSamples;
+		if ( CHECKS ) {
+			check(__functionAddress);
+			check(device);
+		}
+		invokePPV(__functionAddress, device, buffer, samples);
+	}
+
+	/** Array version of: {@link #alcCaptureSamples CaptureSamples} */
+	public static void alcCaptureSamples(long device, int[] buffer, int samples) {
+		long __functionAddress = ALC.getICD().alcCaptureSamples;
+		if ( CHECKS ) {
+			check(__functionAddress);
+			check(device);
+		}
+		invokePPV(__functionAddress, device, buffer, samples);
+	}
+
+	/** Array version of: {@link #alcCaptureSamples CaptureSamples} */
+	public static void alcCaptureSamples(long device, float[] buffer, int samples) {
+		long __functionAddress = ALC.getICD().alcCaptureSamples;
+		if ( CHECKS ) {
+			check(__functionAddress);
+			check(device);
+		}
+		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
 }
