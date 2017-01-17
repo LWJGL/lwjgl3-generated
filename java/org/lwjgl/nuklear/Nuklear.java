@@ -828,6 +828,7 @@ public class Nuklear {
 	 * <li>{@link #NK_WINDOW_TITLE WINDOW_TITLE} - Forces a header at the top at the window showing the title</li>
 	 * <li>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE} - Automatically hides the window scrollbar if no user interaction: also requires delta time in {@code nk_context} to be set each frame</li>
 	 * <li>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND} - Always keep window in the background</li>
+	 * <li>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT} - Puts window scaler in the left-bottom corner instead right-bottom</li>
 	 * </ul>
 	 */
 	public static final int
@@ -839,7 +840,8 @@ public class Nuklear {
 		NK_WINDOW_NO_SCROLLBAR     = 1 << 5,
 		NK_WINDOW_TITLE            = 1 << 6,
 		NK_WINDOW_SCROLL_AUTO_HIDE = 1 << 7,
-		NK_WINDOW_BACKGROUND       = 1 << 8;
+		NK_WINDOW_BACKGROUND       = 1 << 8,
+		NK_WINDOW_SCALE_LEFT       = 1 << 9;
 
 	/**
 	 * nk_allocation_type
@@ -4934,7 +4936,7 @@ public class Nuklear {
 	 * @param ctx   the nuklear context
 	 * @param type  one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title 
-	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
+	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td><td>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT}</td></tr></table>
 	 * @param rect  
 	 */
 	public static boolean nk_popup_begin(NkContext ctx, int type, ByteBuffer title, int flags, NkRect rect) {
@@ -4949,7 +4951,7 @@ public class Nuklear {
 	 * @param ctx   the nuklear context
 	 * @param type  one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title 
-	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
+	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td><td>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT}</td></tr></table>
 	 * @param rect  
 	 */
 	public static boolean nk_popup_begin(NkContext ctx, int type, CharSequence title, int flags, NkRect rect) {
