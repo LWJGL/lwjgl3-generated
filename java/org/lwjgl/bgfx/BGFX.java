@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
 	/** API version */
-	public static final int BGFX_API_VERSION = 34;
+	public static final int BGFX_API_VERSION = 35;
 
 	/** Invalid handle */
 	public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -1308,89 +1308,89 @@ public class BGFX {
 	// --- [ bgfx_image_swizzle_bgra8 ] ---
 
 	/** Unsafe version of: {@link #bgfx_image_swizzle_bgra8 image_swizzle_bgra8} */
-	public static void nbgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, long _src, long _dst) {
+	public static void nbgfx_image_swizzle_bgra8(long _dst, int _width, int _height, int _pitch, long _src) {
 		long __functionAddress = Functions.image_swizzle_bgra8;
-		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
+		invokePPV(__functionAddress, _dst, _width, _height, _pitch, _src);
 	}
 
 	/**
 	 * Swizzles RGBA8 image to BGRA8.
 	 *
+	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 * @param _width  width of input image (pixels)
 	 * @param _height height of input image (pixels)
 	 * @param _pitch  pitch of input image (bytes)
 	 * @param _src    source image
-	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
-	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, ByteBuffer _src, ByteBuffer _dst) {
+	public static void bgfx_image_swizzle_bgra8(ByteBuffer _dst, int _width, int _height, int _pitch, ByteBuffer _src) {
 		int bytes = _height * _pitch;
 		if ( CHECKS ) {
-			check(_src, bytes);
 			check(_dst, bytes);
+			check(_src, bytes);
 		}
-		nbgfx_image_swizzle_bgra8(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
+		nbgfx_image_swizzle_bgra8(memAddress(_dst), _width, _height, _pitch, memAddress(_src));
 	}
 
 	/**
 	 * Swizzles RGBA8 image to BGRA8.
 	 *
+	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 * @param _width  width of input image (pixels)
 	 * @param _height height of input image (pixels)
 	 * @param _pitch  pitch of input image (bytes)
 	 * @param _src    source image
-	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
-	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
+	public static void bgfx_image_swizzle_bgra8(IntBuffer _dst, int _width, int _height, int _pitch, IntBuffer _src) {
 		int bytes = _height * _pitch;
 		if ( CHECKS ) {
-			check(_src, bytes >> 2);
 			check(_dst, bytes >> 2);
+			check(_src, bytes >> 2);
 		}
-		nbgfx_image_swizzle_bgra8(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
+		nbgfx_image_swizzle_bgra8(memAddress(_dst), _width, _height, _pitch, memAddress(_src));
 	}
 
 	// --- [ bgfx_image_rgba8_downsample_2x2 ] ---
 
 	/** Unsafe version of: {@link #bgfx_image_rgba8_downsample_2x2 image_rgba8_downsample_2x2} */
-	public static void nbgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, long _src, long _dst) {
+	public static void nbgfx_image_rgba8_downsample_2x2(long _dst, int _width, int _height, int _pitch, long _src) {
 		long __functionAddress = Functions.image_rgba8_downsample_2x2;
-		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
+		invokePPV(__functionAddress, _dst, _width, _height, _pitch, _src);
 	}
 
 	/**
 	 * Downsamples RGBA8 image with 2x2 pixel average filter.
 	 *
+	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 * @param _width  width of input image (pixels)
 	 * @param _height height of input image (pixels)
 	 * @param _pitch  pitch of input image (bytes)
 	 * @param _src    source image
-	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
-	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, ByteBuffer _src, ByteBuffer _dst) {
+	public static void bgfx_image_rgba8_downsample_2x2(ByteBuffer _dst, int _width, int _height, int _pitch, ByteBuffer _src) {
 		int bytes = _height * _pitch;
 		if ( CHECKS ) {
-			check(_src, bytes);
 			check(_dst, bytes >> 2);
+			check(_src, bytes);
 		}
-		nbgfx_image_rgba8_downsample_2x2(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
+		nbgfx_image_rgba8_downsample_2x2(memAddress(_dst), _width, _height, _pitch, memAddress(_src));
 	}
 
 	/**
 	 * Downsamples RGBA8 image with 2x2 pixel average filter.
 	 *
+	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 * @param _width  width of input image (pixels)
 	 * @param _height height of input image (pixels)
 	 * @param _pitch  pitch of input image (bytes)
 	 * @param _src    source image
-	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
-	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
+	public static void bgfx_image_rgba8_downsample_2x2(IntBuffer _dst, int _width, int _height, int _pitch, IntBuffer _src) {
 		int bytes = _height * _pitch;
 		if ( CHECKS ) {
-			check(_src, bytes >> 2);
 			check(_dst, (bytes >> 2) >> 2);
+			check(_src, bytes >> 2);
 		}
-		nbgfx_image_rgba8_downsample_2x2(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
+		nbgfx_image_rgba8_downsample_2x2(memAddress(_dst), _width, _height, _pitch, memAddress(_src));
 	}
 
 	// --- [ bgfx_get_supported_renderers ] ---
@@ -4377,25 +4377,25 @@ public class BGFX {
 	}
 
 	/** Array version of: {@link #bgfx_image_swizzle_bgra8 image_swizzle_bgra8} */
-	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, int[] _src, int[] _dst) {
+	public static void bgfx_image_swizzle_bgra8(int[] _dst, int _width, int _height, int _pitch, int[] _src) {
 		long __functionAddress = Functions.image_swizzle_bgra8;
 		int bytes = _height * _pitch;
 		if ( CHECKS ) {
-			check(_src, bytes >> 2);
 			check(_dst, bytes >> 2);
+			check(_src, bytes >> 2);
 		}
-		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
+		invokePPV(__functionAddress, _dst, _width, _height, _pitch, _src);
 	}
 
 	/** Array version of: {@link #bgfx_image_rgba8_downsample_2x2 image_rgba8_downsample_2x2} */
-	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, int[] _src, int[] _dst) {
+	public static void bgfx_image_rgba8_downsample_2x2(int[] _dst, int _width, int _height, int _pitch, int[] _src) {
 		long __functionAddress = Functions.image_rgba8_downsample_2x2;
 		int bytes = _height * _pitch;
 		if ( CHECKS ) {
-			check(_src, bytes >> 2);
 			check(_dst, (bytes >> 2) >> 2);
+			check(_src, bytes >> 2);
 		}
-		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
+		invokePPV(__functionAddress, _dst, _width, _height, _pitch, _src);
 	}
 
 	/** Array version of: {@link #bgfx_get_supported_renderers get_supported_renderers} */
