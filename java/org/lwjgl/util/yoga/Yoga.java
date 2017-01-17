@@ -1260,6 +1260,26 @@ public class Yoga {
 		return nYGNodeLayoutGetDirection(node);
 	}
 
+	// --- [ YGNodeLayoutGetMargin ] ---
+
+	/** Unsafe version of: {@link #YGNodeLayoutGetMargin NodeLayoutGetMargin} */
+	public static native float nYGNodeLayoutGetMargin(long node, int edge);
+
+	/**
+	 * Get the computed margin for this node after performing layout.
+	 * 
+	 * <p>If margin was set using pixel values then the returned value will be the same as {@link #YGNodeStyleGetMargin NodeStyleGetMargin}. However if margin was set using a percentage
+	 * value then the returned value is the computed value used during layout.</p>
+	 *
+	 * @param node 
+	 * @param edge 
+	 */
+	public static float YGNodeLayoutGetMargin(long node, int edge) {
+		if ( CHECKS )
+			check(node);
+		return nYGNodeLayoutGetMargin(node, edge);
+	}
+
 	// --- [ YGNodeLayoutGetPadding ] ---
 
 	/** Unsafe version of: {@link #YGNodeLayoutGetPadding NodeLayoutGetPadding} */

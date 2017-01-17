@@ -18,6 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code>struct YGLayout {
     float positions[4];
     float dimensions[2];
+    float margin[6];
     float padding[6];
     YGDirection direction;
     uint32_t computedFlexBasisGeneration;
@@ -41,6 +42,7 @@ public class YGLayout extends Struct {
 	public static final int
 		POSITIONS,
 		DIMENSIONS,
+		MARGIN,
 		PADDING,
 		DIRECTION,
 		COMPUTEDFLEXBASISGENERATION,
@@ -56,6 +58,7 @@ public class YGLayout extends Struct {
 		Layout layout = __struct(
 			__array(4, 4),
 			__array(4, 2),
+			__array(4, 6),
 			__array(4, 6),
 			__member(4),
 			__member(4),
@@ -73,16 +76,17 @@ public class YGLayout extends Struct {
 
 		POSITIONS = layout.offsetof(0);
 		DIMENSIONS = layout.offsetof(1);
-		PADDING = layout.offsetof(2);
-		DIRECTION = layout.offsetof(3);
-		COMPUTEDFLEXBASISGENERATION = layout.offsetof(4);
-		COMPUTEDFLEXBASIS = layout.offsetof(5);
-		GENERATIONCOUNT = layout.offsetof(6);
-		LASTPARENTDIRECTION = layout.offsetof(7);
-		NEXTCACHEDMEASUREMENTSINDEX = layout.offsetof(8);
-		CACHEDMEASUREMENTS = layout.offsetof(9);
-		MEASUREDDIMENSIONS = layout.offsetof(10);
-		CACHEDLAYOUT = layout.offsetof(11);
+		MARGIN = layout.offsetof(2);
+		PADDING = layout.offsetof(3);
+		DIRECTION = layout.offsetof(4);
+		COMPUTEDFLEXBASISGENERATION = layout.offsetof(5);
+		COMPUTEDFLEXBASIS = layout.offsetof(6);
+		GENERATIONCOUNT = layout.offsetof(7);
+		LASTPARENTDIRECTION = layout.offsetof(8);
+		NEXTCACHEDMEASUREMENTSINDEX = layout.offsetof(9);
+		CACHEDMEASUREMENTS = layout.offsetof(10);
+		MEASUREDDIMENSIONS = layout.offsetof(11);
+		CACHEDLAYOUT = layout.offsetof(12);
 	}
 
 	YGLayout(long address, ByteBuffer container) {
@@ -110,6 +114,10 @@ public class YGLayout extends Struct {
 	public FloatBuffer dimensions() { return ndimensions(address()); }
 	/** Returns the value at the specified index of the {@code dimensions} field. */
 	public float dimensions(int index) { return ndimensions(address(), index); }
+	/** Returns a {@link FloatBuffer} view of the {@code margin} field. */
+	public FloatBuffer margin() { return nmargin(address()); }
+	/** Returns the value at the specified index of the {@code margin} field. */
+	public float margin(int index) { return nmargin(address(), index); }
 	/** Returns a {@link FloatBuffer} view of the {@code padding} field. */
 	public FloatBuffer padding() { return npadding(address()); }
 	/** Returns the value at the specified index of the {@code padding} field. */
@@ -169,6 +177,13 @@ public class YGLayout extends Struct {
 	public static float ndimensions(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
 		return memGetFloat(struct + YGLayout.DIMENSIONS + index * 4);
+	}
+	/** Unsafe version of {@link #margin}. */
+	public static FloatBuffer nmargin(long struct) { return memFloatBuffer(struct + YGLayout.MARGIN, 6); }
+	/** Unsafe version of {@link #margin(int) margin}. */
+	public static float nmargin(long struct, int index) {
+		if ( CHECKS ) check(index, 6);
+		return memGetFloat(struct + YGLayout.MARGIN + index * 4);
 	}
 	/** Unsafe version of {@link #padding}. */
 	public static FloatBuffer npadding(long struct) { return memFloatBuffer(struct + YGLayout.PADDING, 6); }
@@ -256,6 +271,10 @@ public class YGLayout extends Struct {
 		public FloatBuffer dimensions() { return YGLayout.ndimensions(address()); }
 		/** Returns the value at the specified index of the {@code dimensions} field. */
 		public float dimensions(int index) { return YGLayout.ndimensions(address(), index); }
+		/** Returns a {@link FloatBuffer} view of the {@code margin} field. */
+		public FloatBuffer margin() { return YGLayout.nmargin(address()); }
+		/** Returns the value at the specified index of the {@code margin} field. */
+		public float margin(int index) { return YGLayout.nmargin(address(), index); }
 		/** Returns a {@link FloatBuffer} view of the {@code padding} field. */
 		public FloatBuffer padding() { return YGLayout.npadding(address()); }
 		/** Returns the value at the specified index of the {@code padding} field. */
