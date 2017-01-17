@@ -255,6 +255,7 @@ public class NanoVG {
 	 * <li>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY} - Repeat image in Y direction.</li>
 	 * <li>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY} - Flips (inverses) image in Y direction when rendered.</li>
 	 * <li>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED} - Image data has premultiplied alpha.</li>
+	 * <li>{@link #NVG_IMAGE_NEAREST IMAGE_NEAREST} - Image interpolation is Nearest instead Linear.</li>
 	 * </ul>
 	 */
 	public static final int
@@ -262,7 +263,8 @@ public class NanoVG {
 		NVG_IMAGE_REPEATX          = 1<<1,
 		NVG_IMAGE_REPEATY          = 1<<2,
 		NVG_IMAGE_FLIPY            = 1<<3,
-		NVG_IMAGE_PREMULTIPLIED    = 1<<4;
+		NVG_IMAGE_PREMULTIPLIED    = 1<<4,
+		NVG_IMAGE_NEAREST          = 1<<5;
 
 	static { LibNanoVG.initialize(); }
 
@@ -1113,7 +1115,7 @@ public class NanoVG {
 	 *
 	 * @param ctx        the NanoVG context
 	 * @param filename   the image file name
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr><tr><td>{@link #NVG_IMAGE_NEAREST IMAGE_NEAREST}</td></tr></table>
 	 *
 	 * @return a handle to the image
 	 */
@@ -1130,7 +1132,7 @@ public class NanoVG {
 	 *
 	 * @param ctx        the NanoVG context
 	 * @param filename   the image file name
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr><tr><td>{@link #NVG_IMAGE_NEAREST IMAGE_NEAREST}</td></tr></table>
 	 *
 	 * @return a handle to the image
 	 */
@@ -1159,7 +1161,7 @@ public class NanoVG {
 	 * Creates image by loading it from the specified chunk of memory.
 	 *
 	 * @param ctx        the NanoVG context
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr><tr><td>{@link #NVG_IMAGE_NEAREST IMAGE_NEAREST}</td></tr></table>
 	 * @param data       the image data
 	 *
 	 * @return a handle to the image
@@ -1181,7 +1183,7 @@ public class NanoVG {
 	 * @param ctx        the NanoVG context
 	 * @param w          the image width
 	 * @param h          the image height
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
+	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr><tr><td>{@link #NVG_IMAGE_NEAREST IMAGE_NEAREST}</td></tr></table>
 	 * @param data       the image data
 	 *
 	 * @return a handle to the image
