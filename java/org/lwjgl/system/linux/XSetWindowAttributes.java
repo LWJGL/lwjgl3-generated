@@ -136,13 +136,13 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 	/** Returns the value of the {@code backing_pixel} field. */
 	public long backing_pixel() { return nbacking_pixel(address()); }
 	/** Returns the value of the {@code save_under} field. */
-	public int save_under() { return nsave_under(address()); }
+	public boolean save_under() { return nsave_under(address()) != 0; }
 	/** Returns the value of the {@code event_mask} field. */
 	public long event_mask() { return nevent_mask(address()); }
 	/** Returns the value of the {@code do_not_propagate_mask} field. */
 	public long do_not_propagate_mask() { return ndo_not_propagate_mask(address()); }
 	/** Returns the value of the {@code override_redirect} field. */
-	public int override_redirect() { return noverride_redirect(address()); }
+	public boolean override_redirect() { return noverride_redirect(address()) != 0; }
 	/** Returns the value of the {@code colormap} field. */
 	public long colormap() { return ncolormap(address()); }
 	/** Returns the value of the {@code cursor} field. */
@@ -167,13 +167,13 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code backing_pixel} field. */
 	public XSetWindowAttributes backing_pixel(long value) { nbacking_pixel(address(), value); return this; }
 	/** Sets the specified value to the {@code save_under} field. */
-	public XSetWindowAttributes save_under(int value) { nsave_under(address(), value); return this; }
+	public XSetWindowAttributes save_under(boolean value) { nsave_under(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code event_mask} field. */
 	public XSetWindowAttributes event_mask(long value) { nevent_mask(address(), value); return this; }
 	/** Sets the specified value to the {@code do_not_propagate_mask} field. */
 	public XSetWindowAttributes do_not_propagate_mask(long value) { ndo_not_propagate_mask(address(), value); return this; }
 	/** Sets the specified value to the {@code override_redirect} field. */
-	public XSetWindowAttributes override_redirect(int value) { noverride_redirect(address(), value); return this; }
+	public XSetWindowAttributes override_redirect(boolean value) { noverride_redirect(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code colormap} field. */
 	public XSetWindowAttributes colormap(long value) { ncolormap(address(), value); return this; }
 	/** Sets the specified value to the {@code cursor} field. */
@@ -190,10 +190,10 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 		int backing_store,
 		long backing_planes,
 		long backing_pixel,
-		int save_under,
+		boolean save_under,
 		long event_mask,
 		long do_not_propagate_mask,
-		int override_redirect,
+		boolean override_redirect,
 		long colormap,
 		long cursor
 	) {
@@ -411,13 +411,13 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 	public static void nbacking_planes(long struct, long value) { memPutAddress(struct + XSetWindowAttributes.BACKING_PLANES, value); }
 	/** Unsafe version of {@link #backing_pixel(long) backing_pixel}. */
 	public static void nbacking_pixel(long struct, long value) { memPutAddress(struct + XSetWindowAttributes.BACKING_PIXEL, value); }
-	/** Unsafe version of {@link #save_under(int) save_under}. */
+	/** Unsafe version of {@link #save_under(boolean) save_under}. */
 	public static void nsave_under(long struct, int value) { memPutInt(struct + XSetWindowAttributes.SAVE_UNDER, value); }
 	/** Unsafe version of {@link #event_mask(long) event_mask}. */
 	public static void nevent_mask(long struct, long value) { memPutAddress(struct + XSetWindowAttributes.EVENT_MASK, value); }
 	/** Unsafe version of {@link #do_not_propagate_mask(long) do_not_propagate_mask}. */
 	public static void ndo_not_propagate_mask(long struct, long value) { memPutAddress(struct + XSetWindowAttributes.DO_NOT_PROPAGATE_MASK, value); }
-	/** Unsafe version of {@link #override_redirect(int) override_redirect}. */
+	/** Unsafe version of {@link #override_redirect(boolean) override_redirect}. */
 	public static void noverride_redirect(long struct, int value) { memPutInt(struct + XSetWindowAttributes.OVERRIDE_REDIRECT, value); }
 	/** Unsafe version of {@link #colormap(long) colormap}. */
 	public static void ncolormap(long struct, long value) { memPutAddress(struct + XSetWindowAttributes.COLORMAP, value); }
@@ -485,13 +485,13 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 		/** Returns the value of the {@code backing_pixel} field. */
 		public long backing_pixel() { return XSetWindowAttributes.nbacking_pixel(address()); }
 		/** Returns the value of the {@code save_under} field. */
-		public int save_under() { return XSetWindowAttributes.nsave_under(address()); }
+		public boolean save_under() { return XSetWindowAttributes.nsave_under(address()) != 0; }
 		/** Returns the value of the {@code event_mask} field. */
 		public long event_mask() { return XSetWindowAttributes.nevent_mask(address()); }
 		/** Returns the value of the {@code do_not_propagate_mask} field. */
 		public long do_not_propagate_mask() { return XSetWindowAttributes.ndo_not_propagate_mask(address()); }
 		/** Returns the value of the {@code override_redirect} field. */
-		public int override_redirect() { return XSetWindowAttributes.noverride_redirect(address()); }
+		public boolean override_redirect() { return XSetWindowAttributes.noverride_redirect(address()) != 0; }
 		/** Returns the value of the {@code colormap} field. */
 		public long colormap() { return XSetWindowAttributes.ncolormap(address()); }
 		/** Returns the value of the {@code cursor} field. */
@@ -516,13 +516,13 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 		/** Sets the specified value to the {@code backing_pixel} field. */
 		public XSetWindowAttributes.Buffer backing_pixel(long value) { XSetWindowAttributes.nbacking_pixel(address(), value); return this; }
 		/** Sets the specified value to the {@code save_under} field. */
-		public XSetWindowAttributes.Buffer save_under(int value) { XSetWindowAttributes.nsave_under(address(), value); return this; }
+		public XSetWindowAttributes.Buffer save_under(boolean value) { XSetWindowAttributes.nsave_under(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code event_mask} field. */
 		public XSetWindowAttributes.Buffer event_mask(long value) { XSetWindowAttributes.nevent_mask(address(), value); return this; }
 		/** Sets the specified value to the {@code do_not_propagate_mask} field. */
 		public XSetWindowAttributes.Buffer do_not_propagate_mask(long value) { XSetWindowAttributes.ndo_not_propagate_mask(address(), value); return this; }
 		/** Sets the specified value to the {@code override_redirect} field. */
-		public XSetWindowAttributes.Buffer override_redirect(int value) { XSetWindowAttributes.noverride_redirect(address(), value); return this; }
+		public XSetWindowAttributes.Buffer override_redirect(boolean value) { XSetWindowAttributes.noverride_redirect(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code colormap} field. */
 		public XSetWindowAttributes.Buffer colormap(long value) { XSetWindowAttributes.ncolormap(address(), value); return this; }
 		/** Sets the specified value to the {@code cursor} field. */

@@ -183,10 +183,10 @@ public class DynCall {
 	 * @param vm    a {@code CallVM} instance
 	 * @param value the argument value
 	 */
-	public static void dcArgBool(long vm, int value) {
+	public static void dcArgBool(long vm, boolean value) {
 		if ( CHECKS )
 			check(vm);
-		ndcArgBool(vm, value);
+		ndcArgBool(vm, value ? 1 : 0);
 	}
 
 	// --- [ dcArgChar ] ---
@@ -382,12 +382,12 @@ public class DynCall {
 	 * @param vm      a {@code CallVM} instance
 	 * @param funcptr the function pointer
 	 */
-	public static int dcCallBool(long vm, long funcptr) {
+	public static boolean dcCallBool(long vm, long funcptr) {
 		if ( CHECKS ) {
 			check(vm);
 			check(funcptr);
 		}
-		return ndcCallBool(vm, funcptr);
+		return ndcCallBool(vm, funcptr) != 0;
 	}
 
 	// --- [ dcCallChar ] ---

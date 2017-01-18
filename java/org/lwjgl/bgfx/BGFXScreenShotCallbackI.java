@@ -28,7 +28,7 @@ public interface BGFXScreenShotCallbackI extends CallbackI.V {
 			dcbArgInt(args),
 			dcbArgPointer(args),
 			dcbArgInt(args),
-			dcbArgBool(args) != 0
+			dcbArgBool(args)
 		);
 	}
 

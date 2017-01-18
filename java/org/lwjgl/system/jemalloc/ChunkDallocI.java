@@ -23,7 +23,7 @@ public interface ChunkDallocI extends CallbackI.Z {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
-			dcbArgBool(args) != 0,
+			dcbArgBool(args),
 			dcbArgInt(args)
 		);
 	}

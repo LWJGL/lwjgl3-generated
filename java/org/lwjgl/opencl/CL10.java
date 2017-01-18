@@ -1376,10 +1376,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining(), memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining(), memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1439,10 +1439,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1502,10 +1502,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1565,10 +1565,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1628,10 +1628,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueWriteBuffer ] ---
@@ -1707,10 +1707,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining(), memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining(), memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1769,10 +1769,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1831,10 +1831,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1893,10 +1893,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -1955,10 +1955,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueCopyBuffer ] ---
@@ -2108,12 +2108,12 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, boolean blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
 			checkSafe(event, 1);
 			checkSafe(errcode_ret, 1);
 		}
-		long __result = nclEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
+		long __result = nclEnqueueMapBuffer(command_queue, buffer, blocking_map ? 1 : 0, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		return apiGetMappedBuffer(old_buffer, __result, (int)size);
 	}
 
@@ -2645,13 +2645,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadImage(command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -2733,13 +2733,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadImage(command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -2821,13 +2821,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadImage(command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -2909,13 +2909,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadImage(command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -2997,13 +2997,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadImage(command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueWriteImage ] ---
@@ -3101,13 +3101,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteImage(command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -3189,13 +3189,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteImage(command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -3277,13 +3277,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteImage(command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -3365,13 +3365,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteImage(command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/**
@@ -3453,13 +3453,13 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteImage(command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueCopyImage ] ---
@@ -3823,7 +3823,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, boolean blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
@@ -3832,7 +3832,7 @@ public class CL10 {
 			checkSafe(event, 1);
 			checkSafe(errcode_ret, 1);
 		}
-		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
+		long __result = nclEnqueueMapImage(command_queue, image, blocking_map ? 1 : 0, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
 		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
@@ -3922,7 +3922,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, long length, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, boolean blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, long length, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
 			check(origin, 3);
 			check(region, 3);
@@ -3931,7 +3931,7 @@ public class CL10 {
 			checkSafe(event, 1);
 			checkSafe(errcode_ret, 1);
 		}
-		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
+		long __result = nclEnqueueMapImage(command_queue, image, blocking_map ? 1 : 0, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
@@ -4273,10 +4273,10 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, IntBuffer errcode_ret) {
+	public static long clCreateSampler(long context, boolean normalized_coords, int addressing_mode, int filter_mode, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkSafe(errcode_ret, 1);
-		return nclCreateSampler(context, normalized_coords, addressing_mode, filter_mode, memAddressSafe(errcode_ret));
+		return nclCreateSampler(context, normalized_coords ? 1 : 0, addressing_mode, filter_mode, memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clRetainSampler ] ---
@@ -8488,95 +8488,95 @@ public class CL10 {
 	}
 
 	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
 			check(buffer);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
-	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, boolean blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapBuffer;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8584,7 +8584,7 @@ public class CL10 {
 			checkSafe(event, 1);
 			checkSafe(errcode_ret, 1);
 		}
-		long __result = callPPJPPPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
+		long __result = callPPJPPPPPP(__functionAddress, command_queue, buffer, blocking_map ? 1 : 0, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		return apiGetMappedBuffer(old_buffer, __result, (int)size);
 	}
 
@@ -8679,7 +8679,7 @@ public class CL10 {
 	}
 
 	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8688,11 +8688,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8701,11 +8701,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8714,11 +8714,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
-	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8727,11 +8727,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8740,11 +8740,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8753,11 +8753,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8766,11 +8766,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
-	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8779,11 +8779,11 @@ public class CL10 {
 			check(region, 3);
 			checkSafe(event, 1);
 		}
-		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clEnqueueMapImage EnqueueMapImage} */
-	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, boolean blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8795,13 +8795,13 @@ public class CL10 {
 			checkSafe(event, 1);
 			checkSafe(errcode_ret, 1);
 		}
-		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
+		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map ? 1 : 0, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
 		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
 	/** Array version of: {@link #clEnqueueMapImage EnqueueMapImage} */
-	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, long length, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, boolean blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, long length, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
 			check(command_queue);
@@ -8813,7 +8813,7 @@ public class CL10 {
 			checkSafe(event, 1);
 			checkSafe(errcode_ret, 1);
 		}
-		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
+		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map ? 1 : 0, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
@@ -8848,13 +8848,13 @@ public class CL10 {
 	}
 
 	/** Array version of: {@link #clCreateSampler CreateSampler} */
-	public static long clCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, int[] errcode_ret) {
+	public static long clCreateSampler(long context, boolean normalized_coords, int addressing_mode, int filter_mode, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateSampler;
 		if ( CHECKS ) {
 			check(context);
 			checkSafe(errcode_ret, 1);
 		}
-		return callPPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
+		return callPPP(__functionAddress, context, normalized_coords ? 1 : 0, addressing_mode, filter_mode, errcode_ret);
 	}
 
 	/** Array version of: {@link #clGetSamplerInfo GetSamplerInfo} */

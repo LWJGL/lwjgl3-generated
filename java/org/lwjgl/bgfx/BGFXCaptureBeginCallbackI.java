@@ -26,7 +26,7 @@ public interface BGFXCaptureBeginCallbackI extends CallbackI.V {
 			dcbArgInt(args),
 			dcbArgInt(args),
 			dcbArgInt(args),
-			dcbArgBool(args) != 0
+			dcbArgBool(args)
 		);
 	}
 

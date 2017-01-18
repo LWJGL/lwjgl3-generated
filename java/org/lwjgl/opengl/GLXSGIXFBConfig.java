@@ -168,7 +168,7 @@ public class GLXSGIXFBConfig {
 	 * @param share_list  the GLX context to share objects with
 	 * @param direct      direct rendering request
 	 */
-	public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct) {
+	public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, boolean direct) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextWithConfigSGIX;
 		if ( CHECKS ) {
 			check(__functionAddress);
@@ -176,7 +176,7 @@ public class GLXSGIXFBConfig {
 			check(config);
 			check(share_list);
 		}
-		return callPPPP(__functionAddress, display, config, render_type, share_list, direct);
+		return callPPPP(__functionAddress, display, config, render_type, share_list, direct ? 1 : 0);
 	}
 
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---

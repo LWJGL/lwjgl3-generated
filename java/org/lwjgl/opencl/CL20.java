@@ -491,12 +491,12 @@ public class CL20 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMMemcpy(long command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueSVMMemcpy(long command_queue, boolean blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(dst_ptr, src_ptr.remaining());
 			checkSafe(event, 1);
 		}
-		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, memAddress(dst_ptr), memAddress(src_ptr), src_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMemcpy(command_queue, blocking_copy ? 1 : 0, memAddress(dst_ptr), memAddress(src_ptr), src_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemFill ] ---
@@ -615,10 +615,10 @@ public class CL20 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueSVMMap(long command_queue, boolean blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, memAddress(svm_ptr), svm_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMap(command_queue, blocking_map ? 1 : 0, map_flags, memAddress(svm_ptr), svm_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMUnmap ] ---

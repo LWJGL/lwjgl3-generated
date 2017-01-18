@@ -103,7 +103,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 	/** Returns the value of the {@code serial} field. */
 	public long serial() { return nserial(address()); }
 	/** Returns the value of the {@code send_event} field. */
-	public int send_event() { return nsend_event(address()); }
+	public boolean send_event() { return nsend_event(address()) != 0; }
 	/** Returns the value of the {@code display} field. */
 	public long display() { return ndisplay(address()); }
 	/** Returns the value of the {@code extension} field. */
@@ -113,7 +113,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 	/** Returns the value of the {@code window} field. */
 	public long window() { return nwindow(address()); }
 	/** Returns the value of the {@code stereo_tree} field. */
-	public int stereo_tree() { return nstereo_tree(address()); }
+	public boolean stereo_tree() { return nstereo_tree(address()) != 0; }
 
 	// -----------------------------------
 
@@ -198,7 +198,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 		/** Returns the value of the {@code serial} field. */
 		public long serial() { return GLXStereoNotifyEventEXT.nserial(address()); }
 		/** Returns the value of the {@code send_event} field. */
-		public int send_event() { return GLXStereoNotifyEventEXT.nsend_event(address()); }
+		public boolean send_event() { return GLXStereoNotifyEventEXT.nsend_event(address()) != 0; }
 		/** Returns the value of the {@code display} field. */
 		public long display() { return GLXStereoNotifyEventEXT.ndisplay(address()); }
 		/** Returns the value of the {@code extension} field. */
@@ -208,7 +208,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 		/** Returns the value of the {@code window} field. */
 		public long window() { return GLXStereoNotifyEventEXT.nwindow(address()); }
 		/** Returns the value of the {@code stereo_tree} field. */
-		public int stereo_tree() { return GLXStereoNotifyEventEXT.nstereo_tree(address()); }
+		public boolean stereo_tree() { return GLXStereoNotifyEventEXT.nstereo_tree(address()) != 0; }
 
 	}
 

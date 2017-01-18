@@ -37,13 +37,13 @@ public class GLXSGIMakeCurrentRead {
 	 * @param read    the read drawable
 	 * @param ctx     the current context
 	 */
-	public static int glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
+	public static boolean glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeCurrentReadSGI;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(display);
 		}
-		return callPPPPI(__functionAddress, display, draw, read, ctx);
+		return callPPPPI(__functionAddress, display, draw, read, ctx) != 0;
 	}
 
 	// --- [ glXGetCurrentReadDrawableSGI ] ---

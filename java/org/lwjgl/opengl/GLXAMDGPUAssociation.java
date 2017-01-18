@@ -110,13 +110,13 @@ public class GLXAMDGPUAssociation {
 	 *
 	 * @param ctx the GLXContext
 	 */
-	public static int glXDeleteAssociatedContextAMD(long ctx) {
+	public static boolean glXDeleteAssociatedContextAMD(long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDeleteAssociatedContextAMD;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(ctx);
 		}
-		return callPI(__functionAddress, ctx);
+		return callPI(__functionAddress, ctx) != 0;
 	}
 
 	// --- [ glXGetContextGPUIDAMD ] ---
@@ -189,13 +189,13 @@ public class GLXAMDGPUAssociation {
 	 *
 	 * @param ctx the GLXContext
 	 */
-	public static int glXMakeAssociatedContextCurrentAMD(long ctx) {
+	public static boolean glXMakeAssociatedContextCurrentAMD(long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeAssociatedContextCurrentAMD;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(ctx);
 		}
-		return callPI(__functionAddress, ctx);
+		return callPI(__functionAddress, ctx) != 0;
 	}
 
 	/** Array version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */

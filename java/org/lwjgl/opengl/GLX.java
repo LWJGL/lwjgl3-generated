@@ -111,12 +111,12 @@ public class GLX {
 	 * @param error_base returns the value of the first error code
 	 * @param event_base returns the value of the first event code
 	 */
-	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
+	public static boolean glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
 		if ( CHECKS ) {
 			check(error_base, 1);
 			check(event_base, 1);
 		}
-		return nglXQueryExtension(display, memAddress(error_base), memAddress(event_base));
+		return nglXQueryExtension(display, memAddress(error_base), memAddress(event_base)) != 0;
 	}
 
 	// --- [ glXQueryVersion ] ---
@@ -136,12 +136,12 @@ public class GLX {
 	 * @param major   returns the major version
 	 * @param minor   returns the minor version
 	 */
-	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
+	public static boolean glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
 		if ( CHECKS ) {
 			check(major, 1);
 			check(minor, 1);
 		}
-		return nglXQueryVersion(display, memAddress(major), memAddress(minor));
+		return nglXQueryVersion(display, memAddress(major), memAddress(minor)) != 0;
 	}
 
 	// --- [ glXGetConfig ] ---
@@ -217,8 +217,8 @@ public class GLX {
 	 * @param share_list the GLXContext to share objects with
 	 * @param direct     whether direct rendering is requested
 	 */
-	public static long glXCreateContext(long display, XVisualInfo visual, long share_list, int direct) {
-		return nglXCreateContext(display, visual.address(), share_list, direct);
+	public static long glXCreateContext(long display, XVisualInfo visual, long share_list, boolean direct) {
+		return nglXCreateContext(display, visual.address(), share_list, direct ? 1 : 0);
 	}
 
 	// --- [ glXMakeCurrent ] ---
@@ -230,11 +230,11 @@ public class GLX {
 	 * @param draw    the draw GLXdrawable
 	 * @param ctx     the GLXContext to make current
 	 */
-	public static int glXMakeCurrent(long display, long draw, long ctx) {
+	public static boolean glXMakeCurrent(long display, long draw, long ctx) {
 		long __functionAddress = Functions.MakeCurrent;
 		if ( CHECKS )
 			check(display);
-		return callPPPI(__functionAddress, display, draw, ctx);
+		return callPPPI(__functionAddress, display, draw, ctx) != 0;
 	}
 
 	// --- [ glXCopyContext ] ---
@@ -265,13 +265,13 @@ public class GLX {
 	 * @param display the connection to the X server
 	 * @param ctx     the GLXContext to query
 	 */
-	public static int glXIsDirect(long display, long ctx) {
+	public static boolean glXIsDirect(long display, long ctx) {
 		long __functionAddress = Functions.IsDirect;
 		if ( CHECKS ) {
 			check(display);
 			check(ctx);
 		}
-		return callPPI(__functionAddress, display, ctx);
+		return callPPI(__functionAddress, display, ctx) != 0;
 	}
 
 	// --- [ glXDestroyContext ] ---
@@ -413,25 +413,25 @@ public class GLX {
 	}
 
 	/** Array version of: {@link #glXQueryExtension QueryExtension} */
-	public static int glXQueryExtension(long display, int[] error_base, int[] event_base) {
+	public static boolean glXQueryExtension(long display, int[] error_base, int[] event_base) {
 		long __functionAddress = Functions.QueryExtension;
 		if ( CHECKS ) {
 			check(display);
 			check(error_base, 1);
 			check(event_base, 1);
 		}
-		return callPPPI(__functionAddress, display, error_base, event_base);
+		return callPPPI(__functionAddress, display, error_base, event_base) != 0;
 	}
 
 	/** Array version of: {@link #glXQueryVersion QueryVersion} */
-	public static int glXQueryVersion(long display, int[] major, int[] minor) {
+	public static boolean glXQueryVersion(long display, int[] major, int[] minor) {
 		long __functionAddress = Functions.QueryVersion;
 		if ( CHECKS ) {
 			check(display);
 			check(major, 1);
 			check(minor, 1);
 		}
-		return callPPPI(__functionAddress, display, major, minor);
+		return callPPPI(__functionAddress, display, major, minor) != 0;
 	}
 
 	/** Array version of: {@link #glXGetConfig GetConfig} */

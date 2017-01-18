@@ -170,10 +170,10 @@ public class DynCallback {
 	 *
 	 * @param args the function arguments
 	 */
-	public static int dcbArgBool(long args) {
+	public static boolean dcbArgBool(long args) {
 		if ( CHECKS )
 			check(args);
-		return ndcbArgBool(args);
+		return ndcbArgBool(args) != 0;
 	}
 
 	// --- [ dcbArgChar ] ---

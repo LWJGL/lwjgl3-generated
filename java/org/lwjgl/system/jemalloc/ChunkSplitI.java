@@ -25,7 +25,7 @@ public interface ChunkSplitI extends CallbackI.Z {
 			dcbArgPointer(args),
 			dcbArgPointer(args),
 			dcbArgPointer(args),
-			dcbArgBool(args) != 0,
+			dcbArgBool(args),
 			dcbArgInt(args)
 		);
 	}

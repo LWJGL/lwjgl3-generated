@@ -69,21 +69,21 @@ public class GLXSGIXSwapBarrier {
 	 * @param screen  the screen
 	 * @param max     returns the maximum number of barriers
 	 */
-	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
+	public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
 		if ( CHECKS )
 			check(max, 1);
-		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
+		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max)) != 0;
 	}
 
 	/** Array version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
-	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
+	public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(display);
 			check(max, 1);
 		}
-		return callPPI(__functionAddress, display, screen, max);
+		return callPPI(__functionAddress, display, screen, max) != 0;
 	}
 
 }

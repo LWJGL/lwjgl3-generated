@@ -203,12 +203,12 @@ public class AMDBusAddressableMemory {
 	 *         or signal bus addresses will be returned as 0.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, boolean blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			check(bus_addresses, mem_objects.remaining());
 			checkSafe(event, 1);
 		}
-		return nclEnqueueMakeBuffersResidentAMD(command_queue, mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident, bus_addresses.address(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueMakeBuffersResidentAMD(command_queue, mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident ? 1 : 0, bus_addresses.address(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 }

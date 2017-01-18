@@ -55,14 +55,14 @@ public class GLXNVDelayBeforeSwap {
 	 * @param drawable the window drawable
 	 * @param seconds  the delay, in seconds
 	 */
-	public static int glXDelayBeforeSwapNV(long display, long drawable, float seconds) {
+	public static boolean glXDelayBeforeSwapNV(long display, long drawable, float seconds) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDelayBeforeSwapNV;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(display);
 			check(drawable);
 		}
-		return callPPI(__functionAddress, display, drawable, seconds);
+		return callPPI(__functionAddress, display, drawable, seconds) != 0;
 	}
 
 }

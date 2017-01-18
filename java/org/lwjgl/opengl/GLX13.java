@@ -366,14 +366,14 @@ public class GLX13 {
 	 * @param share_list  a GLXContext to share objects with
 	 * @param direct      whether direct rendering is requested
 	 */
-	public static long glXCreateNewContext(long display, long config, int render_type, long share_list, int direct) {
+	public static long glXCreateNewContext(long display, long config, int render_type, long share_list, boolean direct) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateNewContext;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(display);
 			check(config);
 		}
-		return callPPPP(__functionAddress, display, config, render_type, share_list, direct);
+		return callPPPP(__functionAddress, display, config, render_type, share_list, direct ? 1 : 0);
 	}
 
 	// --- [ glXMakeContextCurrent ] ---
@@ -386,13 +386,13 @@ public class GLX13 {
 	 * @param read    the read GLXDrawable
 	 * @param ctx     the GLXContext
 	 */
-	public static int glXMakeContextCurrent(long display, long draw, long read, long ctx) {
+	public static boolean glXMakeContextCurrent(long display, long draw, long read, long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeContextCurrent;
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(display);
 		}
-		return callPPPPI(__functionAddress, display, draw, read, ctx);
+		return callPPPPI(__functionAddress, display, draw, read, ctx) != 0;
 	}
 
 	// --- [ glXGetCurrentReadDrawable ] ---

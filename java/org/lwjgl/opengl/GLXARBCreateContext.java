@@ -85,14 +85,14 @@ public class GLXARBCreateContext {
 	 *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
 	 */
-	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
+	public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list);
-		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
+		return nglXCreateContextAttribsARB(display, config, share_context, direct ? 1 : 0, memAddressSafe(attrib_list));
 	}
 
 	/** Array version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
-	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, int[] attrib_list) {
+	public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
 		if ( CHECKS ) {
 			check(__functionAddress);
@@ -100,7 +100,7 @@ public class GLXARBCreateContext {
 			check(config);
 			checkNTSafe(attrib_list);
 		}
-		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
+		return callPPPPP(__functionAddress, display, config, share_context, direct ? 1 : 0, attrib_list);
 	}
 
 }
