@@ -355,6 +355,24 @@ public class GLX13 {
 		nglXQueryDrawable(display, draw, attribute, memAddress(value));
 	}
 
+	/**
+	 * Queries an attribute associated with a GLXDrawable.
+	 *
+	 * @param display   the connection to the X server
+	 * @param draw      the GLXDrawable being queried
+	 * @param attribute the attribute to query
+	 */
+	public static int glXQueryDrawable(long display, long draw, int attribute) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer value = stack.callocInt(1);
+			nglXQueryDrawable(display, draw, attribute, memAddress(value));
+			return value.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ glXCreateNewContext ] ---
 
 	/**
