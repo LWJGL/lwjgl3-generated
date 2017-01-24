@@ -87,6 +87,7 @@ public class VK10 {
 	 * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR} A surface has changed in such a way that it is no longer compatible with the swapchain, and further presentation requests using the swapchain will fail. Applications <b>must</b> query the new surface properties and recreate their swapchain if they wish to continue presenting to the surface.</li>
 	 * <li>{@link KHRDisplaySwapchain#VK_ERROR_INCOMPATIBLE_DISPLAY_KHR ERROR_INCOMPATIBLE_DISPLAY_KHR} The display used by a swapchain does not use the same presentable image layout, or is incompatible in a way that prevents sharing an image.</li>
 	 * <li>{@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} One or more shaders failed to compile or link. More details are reported back to the application via {@code VK_EXT_debug_report} if enabled.</li>
+	 * <li>{@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} There is no more memory in the descriptor set pool.</li>
 	 * </ul>
 	 * 
 	 * <p>If a command returns a run time error, it will leave any result pointers unmodified, unless other behavior is explicitly defined in the specification.</p>
@@ -124,7 +125,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDeviceCreateInfo}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkFenceCreateInfo}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageMemoryBarrier}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPresentInfoKHR}, {@link VkQueryPoolCreateInfo}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSubmitInfo}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
+	 * <p>{@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkFenceCreateInfo}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageFormatProperties2KHR}, {@link VkImageMemoryBarrier}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPresentInfoKHR}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -663,7 +664,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_FORMAT_UNDEFINED                  = 0,
@@ -911,7 +912,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkImageCreateInfo}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -935,7 +936,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkImageCreateInfo}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_IMAGE_TILING_OPTIMAL = 0,
@@ -986,6 +987,7 @@ public class VK10 {
 	 * <li>{@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} indicates that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or another portion of the same image). Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag</li>
 	 * <li>{@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image.</li>
 	 * <li>{@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}.</li>
+	 * <li>{@link KHRMaintenance1#VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR} indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D} or {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}.</li>
 	 * </ul>
 	 * 
 	 * <p>If any of the bits {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, or {@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} are set, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} <b>must</b> not also be set.</p>
@@ -1018,7 +1020,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkAttachmentDescription}, {@link VkImageCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@code VkSampleCountFlags}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkAttachmentDescription}, {@link VkImageCreateInfo}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineMultisampleStateCreateInfo}, {@code VkSampleCountFlags}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -2681,7 +2683,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p>
+	 * <p>{@link VkObjectTableIndexBufferEntryNVX}, {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -7902,6 +7904,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into {@code pCreateInfos} that corresponds to that element</li>
+	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, the base pipeline <b>must</b> have been created with the {@link #VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT} flag set</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -7982,6 +7985,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into {@code pCreateInfos} that corresponds to that element</li>
+	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, the base pipeline <b>must</b> have been created with the {@link #VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT} flag set</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -8663,6 +8667,10 @@ public class VK10 {
 	 * <p>When a descriptor set is allocated, the initial state is largely uninitialized and all descriptors are undefined. However, the descriptor set <b>can</b> be bound in a command buffer without causing errors or exceptions. All entries that are statically used by a pipeline in a drawing or dispatching command <b>must</b> have been populated before the descriptor set is bound for use by that command. Entries that are not statically used by a pipeline <b>can</b> have uninitialized descriptors or descriptors of resources that have been destroyed, and executing a draw or dispatch with such a descriptor set bound does not cause undefined behavior. This means applications need not populate unused entries with dummy descriptors.</p>
 	 * 
 	 * <p>If an allocation fails due to fragmentation, an indeterminate error is returned with an unspecified error code. Any returned error other than {@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL} does not imply its usual meaning: applications <b>should</b> assume that the allocation failed due to fragmentation, and create a new descriptor pool.</p>
+	 * 
+	 * <p>If the allocation fails due to no more space in the descriptor pool, and not because of system or device memory exhaustion, then {@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} <b>must</b> be returned.</p>
+	 * 
+	 * <p>{@link #vkAllocateDescriptorSets AllocateDescriptorSets} <b>can</b> be used to create multiple descriptor sets. If the creation of any of those descriptor sets fails, then the implementation <b>must</b> destroy all successfully created descriptor set objects from this command, set all entries of the {@code pDescriptorSets} array to {@link #VK_NULL_HANDLE NULL_HANDLE} and return the error.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -9429,6 +9437,10 @@ public class VK10 {
     const VkCommandBufferAllocateInfo*          pAllocateInfo,
     VkCommandBuffer*                            pCommandBuffers);</code></pre>
 	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@link #vkAllocateCommandBuffers AllocateCommandBuffers} <b>can</b> be used to create multiple command buffers. If the creation of any of those command buffers fails, the implementation <b>must</b> destroy all successfully created command buffer objects from this command, set all entries of the {@code pCommandBuffers} array to {@link #VK_NULL_HANDLE NULL_HANDLE} and return the error.</p>
+	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
@@ -9869,6 +9881,8 @@ public class VK10 {
 	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled</li>
 	 * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
+	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code firstViewport} <b>must</b> be 0</li>
+	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code viewportCount} <b>must</b> be 1</li>
 	 * <li>{@code pViewports} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
 	 * </ul>
 	 * 
@@ -9944,6 +9958,8 @@ public class VK10 {
 	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} dynamic state enabled</li>
 	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
+	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code firstScissor} <b>must</b> be 0</li>
+	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code scissorCount} <b>must</b> be 1</li>
 	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
 	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must</b> not cause a signed integer addition overflow</li>
 	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must</b> not cause a signed integer addition overflow</li>
@@ -11269,10 +11285,12 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory</li>
+	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
 	 * <li>{@code srcImageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+	 * <li>{@code dstImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
@@ -11538,6 +11556,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory</li>
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
+	 * <li>{@code dstImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>If {@code srcBuffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
@@ -11626,6 +11645,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory</li>
+	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
@@ -12148,7 +12168,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * </ul>
@@ -12164,7 +12184,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <table class="lwjgl">
 	 * <thead><tr><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td>Transfer</td></tr></tbody>
+	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
 	 * </table>
 	 *
 	 * @param commandBuffer the command buffer into which the command will be recorded.
@@ -12212,6 +12232,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code image} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
@@ -12285,6 +12306,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code image} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
@@ -12365,6 +12387,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code image} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
@@ -12434,6 +12457,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code image} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>

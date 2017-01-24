@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The framebuffer depth coordinate <code>z<sub>f</sub></code> <b>may</b> be represented using either a fixed-point or floating-point representation. However, a floating-point representation <b>must</b> be used if the depth/stencil attachment has a floating-point depth component. If an <code>m</code>-bit fixed-point representation is used, we assume that it represents each value latexmath:[<code>\frac{k}{2<sup>m - 1}</code>], where <code>k {elem} { 0, 1, ..., 2</sup>m^-1 }</code>, as <code>k</code> (e.g. 1.0 is represented in binary as a string of all ones).</p>
+ * <p>The framebuffer depth coordinate <code>z<sub>f</sub></code> <b>may</b> be represented using either a fixed-point or floating-point representation. However, a floating-point representation <b>must</b> be used if the depth/stencil attachment has a floating-point depth component. If an <code>m</code>-bit fixed-point representation is used, we assume that it represents each value k / (2<sup>m</sup> - 1), where <code>k {elem} { 0, 1, ..., 2<sup>m</sup>-1 }</code>, as <code>k</code> (e.g. 1.0 is represented in binary as a string of all ones).</p>
  * 
  * <p>The viewport parameters shown in the above equations are found from these values as</p>
  * 
@@ -31,6 +31,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <dd><code>p<sub>z</sub> = maxDepth - minDepth</code>.</dd>
  * </dl>
  * 
+ * <p>The application <b>can</b> specify a negative term for {@code height}, which has the effect of negating the y coordinate in clip space before performing the transform. When using a negative {@code height}, the application <b>should</b> also adjust the {@code y} value to point to the lower left corner of the viewport instead of the upper left corner. Using the negative {@code height} allows the application to avoid having to negate the y component of the {@code Position} output from the last vertex processing stage in shaders that also target other graphics APIs.</p>
+ * 
  * <p>The width and height of the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxViewportDimensions"> implementation-dependent maximum viewport dimensions</a> <b>must</b> be greater than or equal to the width and height of the largest image which <b>can</b> be created and attached to a framebuffer.</p>
  * 
  * <p>The floating-point viewport bounds are represented with an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-viewportSubPixelBits">implementation-dependent precision</a>.</p>
@@ -39,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code width} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[0]</li>
- * <li>{@code height} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1]</li>
+ * <li>{@code height} <b>must</b> be greater than or equal to -{@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1] and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1]</li>
  * <li>If the VK_AMD_negative_viewport_height extension is enabled, {@code height} <b>can</b> also be negative.</li>
  * <li>{@code x} and {@code y} <b>must</b> each be between {@code viewportBoundsRange}[0] and {@code viewportBoundsRange}[1], inclusive</li>
  * <li>{@code x} + {@code width} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>

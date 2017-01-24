@@ -11,7 +11,59 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** The {@code VK_KHR_swapchain} extension is the device-level companion to the {@code VK_KHR_surface} extension. It introduces {@code VkSwapchainKHR} objects, which provide the ability to present rendering results to a surface. */
+/**
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_KHR_swapchain</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Device extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>2</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-05-04</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>68</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>This extension requires VK_KHR_surface.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Patrick Doane, Blizzard</li>
+ * <li>Ian Elliott, LunarG</li>
+ * <li>Jesse Hall, Google</li>
+ * <li>Mathias Heyer, NVIDIA</li>
+ * <li>James Jones, NVIDIA</li>
+ * <li>David Mao, AMD</li>
+ * <li>Norbert Nopper, Freescale</li>
+ * <li>Alon Or-bach, Samsung</li>
+ * <li>Daniel Rakos, AMD</li>
+ * <li>Graham Sellers, AMD</li>
+ * <li>Jeff Vigil, Qualcomm</li>
+ * <li>Chia-I Wu, LunarG</li>
+ * <li>Jason Ekstrand, Intel</li>
+ * <li>Matthaeus G. Chajdas, AMD</li>
+ * <li>Ray Smith, ARM</li>
+ * </ul></dd>
+ * <dt><b>Contacts</b></dt>
+ * <dd><ul>
+ * <li>James Jones, NVIDIA</li>
+ * <li>Ian Elliott, LunarG</li>
+ * </ul></dd>
+ * </dl>
+ * 
+ * <p>The {@code VK_KHR_swapchain} extension is the device-level companion to the {@code VK_KHR_surface} extension. It introduces {@code VkSwapchainKHR} objects, which provide the ability to present rendering results to a surface.</p>
+ * 
+ * <h5>Examples</h5>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>The example code for the {@code VK_KHR_surface} and {@code VK_KHR_swapchain} extensions was removed from the appendix after revision 1.0.29. This WSI example code was ported to the cube demo that is shipped with the official Khronos SDK, and is being kept up-to-date in that location (see: https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers/blob/master/demos/cube.c).</p>
+ * </div>
+ */
 public class KHRSwapchain {
 
 	/** The extension specification version. */
@@ -295,6 +347,7 @@ public class KHRSwapchain {
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code swapchain} <b>must</b> not have been replaced by being passed as the {@link VkSwapchainCreateInfoKHR}{@code ::oldSwapchain} value to {@link #vkCreateSwapchainKHR CreateSwapchainKHR}</li>
 	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>

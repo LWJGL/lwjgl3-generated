@@ -29,12 +29,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkObjectEntryUsageFlagBitsNVX} values</li>
  * <li>{@code flags} <b>must</b> not be 0</li>
  * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+ * <li>{@code indexType} <b>must</b> be a valid {@code VkIndexType} value</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
  * <li>{@code buffer} &ndash; specifies the {@code VkBuffer} that can be bound as index buffer</li>
+ * <li>{@code indexType} &ndash; specifies the {@code VkIndexType} used with this index buffer</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -43,6 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkObjectEntryTypeNVX type;
     VkObjectEntryUsageFlagsNVX flags;
     VkBuffer buffer;
+    VkIndexType indexType;
 }</code></pre>
  */
 public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeResource {
@@ -56,13 +59,15 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 	public static final int
 		TYPE,
 		FLAGS,
-		BUFFER;
+		BUFFER,
+		INDEXTYPE;
 
 	static {
 		Layout layout = __struct(
 			__member(4),
 			__member(4),
-			__member(8)
+			__member(8),
+			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
@@ -71,6 +76,7 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 		TYPE = layout.offsetof(0);
 		FLAGS = layout.offsetof(1);
 		BUFFER = layout.offsetof(2);
+		INDEXTYPE = layout.offsetof(3);
 	}
 
 	VkObjectTableIndexBufferEntryNVX(long address, ByteBuffer container) {
@@ -96,6 +102,8 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code buffer} field. */
 	public long buffer() { return nbuffer(address()); }
+	/** Returns the value of the {@code indexType} field. */
+	public int indexType() { return nindexType(address()); }
 
 	/** Sets the specified value to the {@code type} field. */
 	public VkObjectTableIndexBufferEntryNVX type(int value) { ntype(address(), value); return this; }
@@ -103,16 +111,20 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 	public VkObjectTableIndexBufferEntryNVX flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code buffer} field. */
 	public VkObjectTableIndexBufferEntryNVX buffer(long value) { nbuffer(address(), value); return this; }
+	/** Sets the specified value to the {@code indexType} field. */
+	public VkObjectTableIndexBufferEntryNVX indexType(int value) { nindexType(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkObjectTableIndexBufferEntryNVX set(
 		int type,
 		int flags,
-		long buffer
+		long buffer,
+		int indexType
 	) {
 		type(type);
 		flags(flags);
 		buffer(buffer);
+		indexType(indexType);
 
 		return this;
 	}
@@ -269,6 +281,8 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 	public static int nflags(long struct) { return memGetInt(struct + VkObjectTableIndexBufferEntryNVX.FLAGS); }
 	/** Unsafe version of {@link #buffer}. */
 	public static long nbuffer(long struct) { return memGetLong(struct + VkObjectTableIndexBufferEntryNVX.BUFFER); }
+	/** Unsafe version of {@link #indexType}. */
+	public static int nindexType(long struct) { return memGetInt(struct + VkObjectTableIndexBufferEntryNVX.INDEXTYPE); }
 
 	/** Unsafe version of {@link #type(int) type}. */
 	public static void ntype(long struct, int value) { memPutInt(struct + VkObjectTableIndexBufferEntryNVX.TYPE, value); }
@@ -276,6 +290,8 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 	public static void nflags(long struct, int value) { memPutInt(struct + VkObjectTableIndexBufferEntryNVX.FLAGS, value); }
 	/** Unsafe version of {@link #buffer(long) buffer}. */
 	public static void nbuffer(long struct, long value) { memPutLong(struct + VkObjectTableIndexBufferEntryNVX.BUFFER, value); }
+	/** Unsafe version of {@link #indexType(int) indexType}. */
+	public static void nindexType(long struct, int value) { memPutInt(struct + VkObjectTableIndexBufferEntryNVX.INDEXTYPE, value); }
 
 	// -----------------------------------
 
@@ -325,6 +341,8 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 		public int flags() { return VkObjectTableIndexBufferEntryNVX.nflags(address()); }
 		/** Returns the value of the {@code buffer} field. */
 		public long buffer() { return VkObjectTableIndexBufferEntryNVX.nbuffer(address()); }
+		/** Returns the value of the {@code indexType} field. */
+		public int indexType() { return VkObjectTableIndexBufferEntryNVX.nindexType(address()); }
 
 		/** Sets the specified value to the {@code type} field. */
 		public VkObjectTableIndexBufferEntryNVX.Buffer type(int value) { VkObjectTableIndexBufferEntryNVX.ntype(address(), value); return this; }
@@ -332,6 +350,8 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 		public VkObjectTableIndexBufferEntryNVX.Buffer flags(int value) { VkObjectTableIndexBufferEntryNVX.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code buffer} field. */
 		public VkObjectTableIndexBufferEntryNVX.Buffer buffer(long value) { VkObjectTableIndexBufferEntryNVX.nbuffer(address(), value); return this; }
+		/** Sets the specified value to the {@code indexType} field. */
+		public VkObjectTableIndexBufferEntryNVX.Buffer indexType(int value) { VkObjectTableIndexBufferEntryNVX.nindexType(address(), value); return this; }
 
 	}
 

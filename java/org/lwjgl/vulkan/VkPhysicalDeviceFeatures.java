@@ -203,7 +203,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkDeviceCreateInfo}, {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}</p>
+ * <p>{@link VkDeviceCreateInfo}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}</p>
  * 
  * <h3>Layout</h3>
  * 

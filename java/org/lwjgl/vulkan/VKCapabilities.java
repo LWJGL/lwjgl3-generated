@@ -158,6 +158,11 @@ public class VKCapabilities {
 		vkCmdDrawIndirectCountAMD,
 		vkCmdDrawIndexedIndirectCountAMD;
 
+	// EXT_acquire_xlib_display
+	public final long
+		vkAcquireXlibDisplayEXT,
+		vkGetRandROutputDisplayEXT;
+
 	// EXT_debug_marker
 	public final long
 		vkDebugMarkerSetObjectTagEXT,
@@ -172,6 +177,21 @@ public class VKCapabilities {
 		vkDestroyDebugReportCallbackEXT,
 		vkDebugReportMessageEXT;
 
+	// EXT_direct_mode_display
+	public final long
+		vkReleaseDisplayEXT;
+
+	// EXT_display_control
+	public final long
+		vkDisplayPowerControlEXT,
+		vkRegisterDeviceEventEXT,
+		vkRegisterDisplayEventEXT,
+		vkGetSwapchainCounterEXT;
+
+	// EXT_display_surface_counter
+	public final long
+		vkGetPhysicalDeviceSurfaceCapabilities2EXT;
+
 	// KHR_display
 	public final long
 		vkGetPhysicalDeviceDisplayPropertiesKHR,
@@ -185,6 +205,20 @@ public class VKCapabilities {
 	// KHR_display_swapchain
 	public final long
 		vkCreateSharedSwapchainsKHR;
+
+	// KHR_get_physical_device_properties2
+	public final long
+		vkGetPhysicalDeviceFeatures2KHR,
+		vkGetPhysicalDeviceProperties2KHR,
+		vkGetPhysicalDeviceFormatProperties2KHR,
+		vkGetPhysicalDeviceImageFormatProperties2KHR,
+		vkGetPhysicalDeviceQueueFamilyProperties2KHR,
+		vkGetPhysicalDeviceMemoryProperties2KHR,
+		vkGetPhysicalDeviceSparseImageFormatProperties2KHR;
+
+	// KHR_maintenance1
+	public final long
+		vkTrimCommandPoolKHR;
 
 	// KHR_surface
 	public final long
@@ -253,10 +287,24 @@ public class VKCapabilities {
 	public final boolean VK_AMD_shader_explicit_vertex_parameter;
 	/** When true, {@link AMDShaderTrinaryMinmax} is supported. */
 	public final boolean VK_AMD_shader_trinary_minmax;
+	/** When true, {@link EXTAcquireXlibDisplay} is supported. */
+	public final boolean VK_EXT_acquire_xlib_display;
 	/** When true, {@link EXTDebugMarker} is supported. */
 	public final boolean VK_EXT_debug_marker;
 	/** When true, {@link EXTDebugReport} is supported. */
 	public final boolean VK_EXT_debug_report;
+	/** When true, {@link EXTDirectModeDisplay} is supported. */
+	public final boolean VK_EXT_direct_mode_display;
+	/** When true, {@link EXTDisplayControl} is supported. */
+	public final boolean VK_EXT_display_control;
+	/** When true, {@link EXTDisplaySurfaceCounter} is supported. */
+	public final boolean VK_EXT_display_surface_counter;
+	/** When true, {@link EXTShaderSubgroupBallot} is supported. */
+	public final boolean VK_EXT_shader_subgroup_ballot;
+	/** When true, {@link EXTShaderSubgroupVote} is supported. */
+	public final boolean VK_EXT_shader_subgroup_vote;
+	/** When true, {@link EXTSwapchainColorspace} is supported. */
+	public final boolean VK_EXT_swapchain_colorspace;
 	/** When true, {@link EXTValidationFlags} is supported. */
 	public final boolean VK_EXT_validation_flags;
 	/** When true, {@link IMGFilterCubic} is supported. */
@@ -267,8 +315,14 @@ public class VKCapabilities {
 	public final boolean VK_KHR_display;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
 	public final boolean VK_KHR_display_swapchain;
+	/** When true, {@link KHRGetPhysicalDeviceProperties2} is supported. */
+	public final boolean VK_KHR_get_physical_device_properties2;
+	/** When true, {@link KHRMaintenance1} is supported. */
+	public final boolean VK_KHR_maintenance1;
 	/** When true, {@link KHRSamplerMirrorClampToEdge} is supported. */
 	public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
+	/** When true, {@link KHRShaderDrawParameters} is supported. */
+	public final boolean VK_KHR_shader_draw_parameters;
 	/** When true, {@link KHRSurface} is supported. */
 	public final boolean VK_KHR_surface;
 	/** When true, {@link KHRSwapchain} is supported. */
@@ -451,6 +505,12 @@ public class VKCapabilities {
 		VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
 		VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
 		{
+			supported = ext.contains("VK_EXT_acquire_xlib_display");
+			vkAcquireXlibDisplayEXT = isSupported(provider, "vkAcquireXlibDisplayEXT", supported);
+			vkGetRandROutputDisplayEXT = isSupported(provider, "vkGetRandROutputDisplayEXT", supported);
+			VK_EXT_acquire_xlib_display = supported && VK.checkExtension("VK_EXT_acquire_xlib_display", EXTAcquireXlibDisplay.isAvailable(this));
+		}
+		{
 			supported = ext.contains("VK_EXT_debug_marker");
 			vkDebugMarkerSetObjectTagEXT = isSupported(provider, "vkDebugMarkerSetObjectTagEXT", supported);
 			vkDebugMarkerSetObjectNameEXT = isSupported(provider, "vkDebugMarkerSetObjectNameEXT", supported);
@@ -466,6 +526,27 @@ public class VKCapabilities {
 			vkDebugReportMessageEXT = isSupported(provider, "vkDebugReportMessageEXT", supported);
 			VK_EXT_debug_report = supported && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
 		}
+		{
+			supported = ext.contains("VK_EXT_direct_mode_display");
+			vkReleaseDisplayEXT = isSupported(provider, "vkReleaseDisplayEXT", supported);
+			VK_EXT_direct_mode_display = supported && VK.checkExtension("VK_EXT_direct_mode_display", EXTDirectModeDisplay.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_EXT_display_control");
+			vkDisplayPowerControlEXT = isSupported(provider, "vkDisplayPowerControlEXT", supported);
+			vkRegisterDeviceEventEXT = isSupported(provider, "vkRegisterDeviceEventEXT", supported);
+			vkRegisterDisplayEventEXT = isSupported(provider, "vkRegisterDisplayEventEXT", supported);
+			vkGetSwapchainCounterEXT = isSupported(provider, "vkGetSwapchainCounterEXT", supported);
+			VK_EXT_display_control = supported && VK.checkExtension("VK_EXT_display_control", EXTDisplayControl.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_EXT_display_surface_counter");
+			vkGetPhysicalDeviceSurfaceCapabilities2EXT = isSupported(provider, "vkGetPhysicalDeviceSurfaceCapabilities2EXT", supported);
+			VK_EXT_display_surface_counter = supported && VK.checkExtension("VK_EXT_display_surface_counter", EXTDisplaySurfaceCounter.isAvailable(this));
+		}
+		VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
+		VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
+		VK_EXT_swapchain_colorspace = ext.contains("VK_EXT_swapchain_colorspace");
 		VK_EXT_validation_flags = ext.contains("VK_EXT_validation_flags");
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
@@ -485,7 +566,24 @@ public class VKCapabilities {
 			vkCreateSharedSwapchainsKHR = isSupported(provider, "vkCreateSharedSwapchainsKHR", supported);
 			VK_KHR_display_swapchain = supported && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
 		}
+		{
+			supported = ext.contains("VK_KHR_get_physical_device_properties2");
+			vkGetPhysicalDeviceFeatures2KHR = isSupported(provider, "vkGetPhysicalDeviceFeatures2KHR", supported);
+			vkGetPhysicalDeviceProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceProperties2KHR", supported);
+			vkGetPhysicalDeviceFormatProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceFormatProperties2KHR", supported);
+			vkGetPhysicalDeviceImageFormatProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceImageFormatProperties2KHR", supported);
+			vkGetPhysicalDeviceQueueFamilyProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceQueueFamilyProperties2KHR", supported);
+			vkGetPhysicalDeviceMemoryProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceMemoryProperties2KHR", supported);
+			vkGetPhysicalDeviceSparseImageFormatProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceSparseImageFormatProperties2KHR", supported);
+			VK_KHR_get_physical_device_properties2 = supported && VK.checkExtension("VK_KHR_get_physical_device_properties2", KHRGetPhysicalDeviceProperties2.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHR_maintenance1");
+			vkTrimCommandPoolKHR = isSupported(provider, "vkTrimCommandPoolKHR", supported);
+			VK_KHR_maintenance1 = supported && VK.checkExtension("VK_KHR_maintenance1", KHRMaintenance1.isAvailable(this));
+		}
 		VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
+		VK_KHR_shader_draw_parameters = ext.contains("VK_KHR_shader_draw_parameters");
 		{
 			supported = ext.contains("VK_KHR_surface");
 			vkDestroySurfaceKHR = isSupported(provider, "vkDestroySurfaceKHR", supported);

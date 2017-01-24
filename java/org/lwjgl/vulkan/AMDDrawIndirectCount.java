@@ -8,7 +8,40 @@ package org.lwjgl.vulkan;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
-/** This extension allows an application to source the number of draw calls for indirect draw calls from a buffer. This enables applications to generate arbitrary amounts of draw commands and execute them without host intervention. */
+/**
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_AMD_draw_indirect_count</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Device extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>34</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-08-23</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>1</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Matthaeus G. Chajdas, AMD</li>
+ * <li>Derrick Owens, AMD</li>
+ * <li>Graham Sellers, AMD</li>
+ * <li>Daniel Rakos, AMD</li>
+ * <li>Dominik Witczak, AMD</li>
+ * </ul></dd>
+ * <dt><b>Contacts</b></dt>
+ * <dd><ul>
+ * <li>Matthaeus G. Chajdas, AMD (mailto:matthaeus.chajdas@amd.com[matthaeus.chajdas@amd.com])</li>
+ * </ul></dd>
+ * </dl>
+ * 
+ * <p>This extension allows an application to source the number of draw calls for indirect draw calls from a buffer. This enables applications to generate arbitrary amounts of draw commands and execute them without host intervention.</p>
+ */
 public class AMDDrawIndirectCount {
 
 	/** The extension specification version. */

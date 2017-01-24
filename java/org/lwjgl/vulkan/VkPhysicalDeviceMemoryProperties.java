@@ -76,7 +76,7 @@ if (memoryType == -1)
  * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkMemoryHeap}, {@link VkMemoryType}, {@link VK10#vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties}</p>
+ * <p>{@link VkMemoryHeap}, {@link VkMemoryType}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VK10#vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 

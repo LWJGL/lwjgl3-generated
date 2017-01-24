@@ -31,7 +31,7 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkPhysicalDeviceLimits}, {@link VkPhysicalDeviceSparseProperties}, {@link VK10#vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}</p>
+ * <p>{@link VkPhysicalDeviceLimits}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDeviceSparseProperties}, {@link VK10#vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 

@@ -11,7 +11,53 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to a Win32 {@code HWND}, as well as a query to determine support for rendering to the windows desktop. */
+/**
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_KHR_win32_surface</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Instance extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>10</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2015-11-28</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>5</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>This extension requires VK_KHR_surface.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Patrick Doane, Blizzard</li>
+ * <li>Jason Ekstrand, Intel</li>
+ * <li>Ian Elliott, LunarG</li>
+ * <li>Courtney Goeltzenleuchter, LunarG</li>
+ * <li>Jesse Hall, Google</li>
+ * <li>James Jones, NVIDIA</li>
+ * <li>Antoine Labour, Google</li>
+ * <li>Jon Leech, Khronos</li>
+ * <li>David Mao, AMD</li>
+ * <li>Norbert Nopper, Freescale</li>
+ * <li>Alon Or-bach, Samsung</li>
+ * <li>Daniel Rakos, AMD</li>
+ * <li>Graham Sellers, AMD</li>
+ * <li>Ray Smith, ARM</li>
+ * <li>Jeff Vigil, Qualcomm</li>
+ * <li>Chia-I Wu, LunarG</li>
+ * </ul></dd>
+ * <dt><b>Contacts</b></dt>
+ * <dd><ul>
+ * <li>Jesse Hall, Google</li>
+ * <li>Ian Elliott, LunarG</li>
+ * </ul></dd>
+ * </dl>
+ * 
+ * <p>The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to a Win32 {@code HWND}, as well as a query to determine support for rendering to the windows desktop.</p>
+ */
 public class KHRWin32Surface {
 
 	/** The extension specification version. */
