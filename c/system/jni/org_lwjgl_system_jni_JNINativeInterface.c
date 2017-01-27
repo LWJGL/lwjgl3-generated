@@ -18,6 +18,30 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nFindClass(
 	return (jlong)(intptr_t)(*__env)->FindClass(__env, name);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_FromReflectedMethod(JNIEnv *__env, jclass clazz, jobject method) {
+	UNUSED_PARAM(clazz)
+	return (jlong)(intptr_t)(*__env)->FromReflectedMethod(__env, method);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_FromReflectedField(JNIEnv *__env, jclass clazz, jobject field) {
+	UNUSED_PARAM(clazz)
+	return (jlong)(intptr_t)(*__env)->FromReflectedField(__env, field);
+}
+
+JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nToReflectedMethod(JNIEnv *__env, jclass clazz, jlong clsAddress, jlong methodIDAddress, jboolean isStatic) {
+	jclass cls = (jclass)(intptr_t)clsAddress;
+	jmethodID methodID = (jmethodID)(intptr_t)methodIDAddress;
+	UNUSED_PARAM(clazz)
+	return (*__env)->ToReflectedMethod(__env, cls, methodID, isStatic);
+}
+
+JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nToReflectedField(JNIEnv *__env, jclass clazz, jlong clsAddress, jlong fieldIDAddress, jboolean isStatic) {
+	jclass cls = (jclass)(intptr_t)clsAddress;
+	jfieldID fieldID = (jfieldID)(intptr_t)fieldIDAddress;
+	UNUSED_PARAM(clazz)
+	return (*__env)->ToReflectedField(__env, cls, fieldID, isStatic);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_NewGlobalRef(JNIEnv *__env, jclass clazz, jobject obj) {
 	UNUSED_PARAM(clazz)
 	return (jlong)(intptr_t)(*__env)->NewGlobalRef(__env, obj);
@@ -232,6 +256,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nUnregisterN
 	jclass targetClass = (jclass)(intptr_t)targetClassAddress;
 	UNUSED_PARAM(clazz)
 	return (*__env)->UnregisterNatives(__env, targetClass);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetJavaVM(JNIEnv *__env, jclass clazz, jlong vmAddress) {
+	JavaVM **vm = (JavaVM **)(intptr_t)vmAddress;
+	UNUSED_PARAM(clazz)
+	return (*__env)->GetJavaVM(__env, vm);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetStringRegion(JNIEnv *__env, jclass clazz, jstring str, jint start, jint len, jlong bufAddress) {

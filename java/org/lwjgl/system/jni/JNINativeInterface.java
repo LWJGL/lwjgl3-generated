@@ -7,11 +7,15 @@ package org.lwjgl.system.jni;
 
 import java.nio.*;
 
+import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
+
+import java.lang.reflect.*;
 
 /**
  * Bindings to the Java Native Interface (JNI).
@@ -172,6 +176,64 @@ public class JNINativeInterface {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	// --- [ FromReflectedMethod ] ---
+
+	/**
+	 * Converts a {@link Method} or {@link Constructor} object to a method ID.
+	 *
+	 * @param method 
+	 */
+	public static native long FromReflectedMethod(Method method);
+
+	// --- [ FromReflectedField ] ---
+
+	/**
+	 * Converts a {@link Field} to a field ID.
+	 *
+	 * @param field 
+	 */
+	public static native long FromReflectedField(Field field);
+
+	// --- [ ToReflectedMethod ] ---
+
+	/** Unsafe version of: {@link #ToReflectedMethod} */
+	public static native Method nToReflectedMethod(long cls, long methodID, boolean isStatic);
+
+	/**
+	 * Converts a method ID derived from {@code cls} to a {@link Method} or {@link Constructor} object.
+	 *
+	 * @param cls      
+	 * @param methodID 
+	 * @param isStatic must be set to {@link #JNI_TRUE TRUE} if the method ID refers to a static field, and # FALSE otherwise
+	 */
+	public static Method ToReflectedMethod(long cls, long methodID, boolean isStatic) {
+		if ( CHECKS ) {
+			check(cls);
+			check(methodID);
+		}
+		return nToReflectedMethod(cls, methodID, isStatic);
+	}
+
+	// --- [ ToReflectedField ] ---
+
+	/** Unsafe version of: {@link #ToReflectedField} */
+	public static native Method nToReflectedField(long cls, long fieldID, boolean isStatic);
+
+	/**
+	 * Converts a field ID derived from {@code cls} to a {@link Field} object.
+	 *
+	 * @param cls      
+	 * @param fieldID  
+	 * @param isStatic must be set to {@link #JNI_TRUE TRUE} if {@code fieldID} refers to a static field, and {@link #JNI_FALSE FALSE} otherwise
+	 */
+	public static Method ToReflectedField(long cls, long fieldID, boolean isStatic) {
+		if ( CHECKS ) {
+			check(cls);
+			check(fieldID);
+		}
+		return nToReflectedField(cls, fieldID, isStatic);
 	}
 
 	// --- [ NewGlobalRef ] ---
@@ -999,6 +1061,23 @@ public class JNINativeInterface {
 		if ( CHECKS )
 			check(targetClass);
 		return nUnregisterNatives(targetClass);
+	}
+
+	// --- [ GetJavaVM ] ---
+
+	/** Unsafe version of: {@link #GetJavaVM} */
+	public static native int nGetJavaVM(long vm);
+
+	/**
+	 * Returns the Java VM interface (used in the Invocation API) associated with the current thread. The result is placed at the location pointed to by the
+	 * second argument, {@code vm}.
+	 *
+	 * @param vm a pointer to where the result should be placed
+	 */
+	public static int GetJavaVM(PointerBuffer vm) {
+		if ( CHECKS )
+			check(vm, 1);
+		return nGetJavaVM(memAddress(vm));
 	}
 
 	// --- [ GetStringRegion ] ---
