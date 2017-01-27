@@ -570,6 +570,12 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetMargin(JN
 	return (jfloat)YGNodeLayoutGetMargin(node, edge);
 }
 
+JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetBorder(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jfloat)YGNodeLayoutGetBorder(node, edge);
+}
+
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetPadding(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge) {
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
