@@ -94,19 +94,11 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glActiveShaderProgramEXT ] ---
 
-	public static native void nglActiveShaderProgramEXT(int pipeline, int program);
-
-	public static void glActiveShaderProgramEXT(int pipeline, int program) {
-		nglActiveShaderProgramEXT(pipeline, program);
-	}
+	public static native void glActiveShaderProgramEXT(int pipeline, int program);
 
 	// --- [ glBindProgramPipelineEXT ] ---
 
-	public static native void nglBindProgramPipelineEXT(int pipeline);
-
-	public static void glBindProgramPipelineEXT(int pipeline) {
-		nglBindProgramPipelineEXT(pipeline);
-	}
+	public static native void glBindProgramPipelineEXT(int pipeline);
 
 	// --- [ glCreateShaderProgramvEXT ] ---
 
@@ -227,27 +219,15 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glIsProgramPipelineEXT ] ---
 
-	public static native boolean nglIsProgramPipelineEXT(int pipeline);
-
-	public static boolean glIsProgramPipelineEXT(int pipeline) {
-		return nglIsProgramPipelineEXT(pipeline);
-	}
+	public static native boolean glIsProgramPipelineEXT(int pipeline);
 
 	// --- [ glProgramParameteriEXT ] ---
 
-	public static native void nglProgramParameteriEXT(int program, int pname, int value);
-
-	public static void glProgramParameteriEXT(int program, int pname, int value) {
-		nglProgramParameteriEXT(program, pname, value);
-	}
+	public static native void glProgramParameteriEXT(int program, int pname, int value);
 
 	// --- [ glProgramUniform1fEXT ] ---
 
-	public static native void nglProgramUniform1fEXT(int program, int location, float v0);
-
-	public static void glProgramUniform1fEXT(int program, int location, float v0) {
-		nglProgramUniform1fEXT(program, location, v0);
-	}
+	public static native void glProgramUniform1fEXT(int program, int location, float v0);
 
 	// --- [ glProgramUniform1fvEXT ] ---
 
@@ -259,11 +239,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform1iEXT ] ---
 
-	public static native void nglProgramUniform1iEXT(int program, int location, int v0);
-
-	public static void glProgramUniform1iEXT(int program, int location, int v0) {
-		nglProgramUniform1iEXT(program, location, v0);
-	}
+	public static native void glProgramUniform1iEXT(int program, int location, int v0);
 
 	// --- [ glProgramUniform1ivEXT ] ---
 
@@ -275,11 +251,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform2fEXT ] ---
 
-	public static native void nglProgramUniform2fEXT(int program, int location, float v0, float v1);
-
-	public static void glProgramUniform2fEXT(int program, int location, float v0, float v1) {
-		nglProgramUniform2fEXT(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2fEXT(int program, int location, float v0, float v1);
 
 	// --- [ glProgramUniform2fvEXT ] ---
 
@@ -291,11 +263,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform2iEXT ] ---
 
-	public static native void nglProgramUniform2iEXT(int program, int location, int v0, int v1);
-
-	public static void glProgramUniform2iEXT(int program, int location, int v0, int v1) {
-		nglProgramUniform2iEXT(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2iEXT(int program, int location, int v0, int v1);
 
 	// --- [ glProgramUniform2ivEXT ] ---
 
@@ -307,11 +275,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform3fEXT ] ---
 
-	public static native void nglProgramUniform3fEXT(int program, int location, float v0, float v1, float v2);
-
-	public static void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2) {
-		nglProgramUniform3fEXT(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2);
 
 	// --- [ glProgramUniform3fvEXT ] ---
 
@@ -323,11 +287,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform3iEXT ] ---
 
-	public static native void nglProgramUniform3iEXT(int program, int location, int v0, int v1, int v2);
-
-	public static void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2) {
-		nglProgramUniform3iEXT(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2);
 
 	// --- [ glProgramUniform3ivEXT ] ---
 
@@ -339,11 +299,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform4fEXT ] ---
 
-	public static native void nglProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3);
-
-	public static void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3) {
-		nglProgramUniform4fEXT(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3);
 
 	// --- [ glProgramUniform4fvEXT ] ---
 
@@ -355,11 +311,7 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glProgramUniform4iEXT ] ---
 
-	public static native void nglProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3);
-
-	public static void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		nglProgramUniform4iEXT(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glProgramUniform4ivEXT ] ---
 
@@ -395,51 +347,27 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glUseProgramStagesEXT ] ---
 
-	public static native void nglUseProgramStagesEXT(int pipeline, int stages, int program);
-
-	public static void glUseProgramStagesEXT(int pipeline, int stages, int program) {
-		nglUseProgramStagesEXT(pipeline, stages, program);
-	}
+	public static native void glUseProgramStagesEXT(int pipeline, int stages, int program);
 
 	// --- [ glValidateProgramPipelineEXT ] ---
 
-	public static native void nglValidateProgramPipelineEXT(int pipeline);
-
-	public static void glValidateProgramPipelineEXT(int pipeline) {
-		nglValidateProgramPipelineEXT(pipeline);
-	}
+	public static native void glValidateProgramPipelineEXT(int pipeline);
 
 	// --- [ glProgramUniform1uiEXT ] ---
 
-	public static native void nglProgramUniform1uiEXT(int program, int location, int v0);
-
-	public static void glProgramUniform1uiEXT(int program, int location, int v0) {
-		nglProgramUniform1uiEXT(program, location, v0);
-	}
+	public static native void glProgramUniform1uiEXT(int program, int location, int v0);
 
 	// --- [ glProgramUniform2uiEXT ] ---
 
-	public static native void nglProgramUniform2uiEXT(int program, int location, int v0, int v1);
-
-	public static void glProgramUniform2uiEXT(int program, int location, int v0, int v1) {
-		nglProgramUniform2uiEXT(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2uiEXT(int program, int location, int v0, int v1);
 
 	// --- [ glProgramUniform3uiEXT ] ---
 
-	public static native void nglProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2);
-
-	public static void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2) {
-		nglProgramUniform3uiEXT(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2);
 
 	// --- [ glProgramUniform4uiEXT ] ---
 
-	public static native void nglProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3);
-
-	public static void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		nglProgramUniform4uiEXT(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glProgramUniform1uivEXT ] ---
 

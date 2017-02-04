@@ -69,9 +69,6 @@ public class ARBTransformFeedback3 {
 
 	// --- [ glDrawTransformFeedbackStream ] ---
 
-	/** Unsafe version of: {@link #glDrawTransformFeedbackStream DrawTransformFeedbackStream} */
-	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream);
-
 	/**
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -79,14 +76,9 @@ public class ARBTransformFeedback3 {
 	 * @param id     the name of a transform feedback object from which to retrieve a primitive count
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
-	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
-		nglDrawTransformFeedbackStream(mode, id, stream);
-	}
+	public static native void glDrawTransformFeedbackStream(int mode, int id, int stream);
 
 	// --- [ glBeginQueryIndexed ] ---
-
-	/** Unsafe version of: {@link #glBeginQueryIndexed BeginQueryIndexed} */
-	public static native void nglBeginQueryIndexed(int target, int index, int id);
 
 	/**
 	 * Begins a query object on an indexed target
@@ -95,14 +87,9 @@ public class ARBTransformFeedback3 {
 	 * @param index  the index of the query target upon which to begin the query
 	 * @param id     the name of a query object
 	 */
-	public static void glBeginQueryIndexed(int target, int index, int id) {
-		nglBeginQueryIndexed(target, index, id);
-	}
+	public static native void glBeginQueryIndexed(int target, int index, int id);
 
 	// --- [ glEndQueryIndexed ] ---
-
-	/** Unsafe version of: {@link #glEndQueryIndexed EndQueryIndexed} */
-	public static native void nglEndQueryIndexed(int target, int index);
 
 	/**
 	 * Ends a query object on an indexed target
@@ -110,9 +97,7 @@ public class ARBTransformFeedback3 {
 	 * @param target the target type of query object to be concluded. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 * @param index  the index of the query target upon which to end the query
 	 */
-	public static void glEndQueryIndexed(int target, int index) {
-		nglEndQueryIndexed(target, index);
-	}
+	public static native void glEndQueryIndexed(int target, int index);
 
 	// --- [ glGetQueryIndexediv ] ---
 

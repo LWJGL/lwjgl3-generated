@@ -49,18 +49,10 @@ public class NVPrimitiveRestart {
 
 	// --- [ glPrimitiveRestartNV ] ---
 
-	public static native void nglPrimitiveRestartNV();
-
-	public static void glPrimitiveRestartNV() {
-		nglPrimitiveRestartNV();
-	}
+	public static native void glPrimitiveRestartNV();
 
 	// --- [ glPrimitiveRestartIndexNV ] ---
 
-	public static native void nglPrimitiveRestartIndexNV(int index);
-
-	public static void glPrimitiveRestartIndexNV(int index) {
-		nglPrimitiveRestartIndexNV(index);
-	}
+	public static native void glPrimitiveRestartIndexNV(int index);
 
 }

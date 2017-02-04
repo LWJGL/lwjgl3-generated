@@ -165,19 +165,11 @@ public class AMDPerformanceMonitor {
 
 	// --- [ glBeginPerfMonitorAMD ] ---
 
-	public static native void nglBeginPerfMonitorAMD(int monitor);
-
-	public static void glBeginPerfMonitorAMD(int monitor) {
-		nglBeginPerfMonitorAMD(monitor);
-	}
+	public static native void glBeginPerfMonitorAMD(int monitor);
 
 	// --- [ glEndPerfMonitorAMD ] ---
 
-	public static native void nglEndPerfMonitorAMD(int monitor);
-
-	public static void glEndPerfMonitorAMD(int monitor) {
-		nglEndPerfMonitorAMD(monitor);
-	}
+	public static native void glEndPerfMonitorAMD(int monitor);
 
 	// --- [ glGetPerfMonitorCounterDataAMD ] ---
 

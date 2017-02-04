@@ -50,7 +50,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglColorTable__IIIIIJ(JN
 	glColorTable(target, internalformat, width, format, type, table);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglCopyColorTable(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint x, jint y, jint width) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glCopyColorTable(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint x, jint y, jint width) {
 	glCopyColorTablePROC glCopyColorTable = (glCopyColorTablePROC)tlsGetFunction(230);
 	UNUSED_PARAM(clazz)
 	glCopyColorTable(target, internalformat, x, y, width);
@@ -98,7 +98,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglColorSubTable(JNIEnv 
 	glColorSubTable(target, start, count, format, type, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglCopyColorSubTable(JNIEnv *__env, jclass clazz, jint target, jint start, jint x, jint y, jint width) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glCopyColorSubTable(JNIEnv *__env, jclass clazz, jint target, jint start, jint x, jint y, jint width) {
 	glCopyColorSubTablePROC glCopyColorSubTable = (glCopyColorSubTablePROC)tlsGetFunction(229);
 	UNUSED_PARAM(clazz)
 	glCopyColorSubTable(target, start, x, y, width);
@@ -118,13 +118,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglConvolutionFilter2D(J
 	glConvolutionFilter2D(target, internalformat, width, height, format, type, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglCopyConvolutionFilter1D(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint x, jint y, jint width) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glCopyConvolutionFilter1D(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint x, jint y, jint width) {
 	glCopyConvolutionFilter1DPROC glCopyConvolutionFilter1D = (glCopyConvolutionFilter1DPROC)tlsGetFunction(231);
 	UNUSED_PARAM(clazz)
 	glCopyConvolutionFilter1D(target, internalformat, x, y, width);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglCopyConvolutionFilter2D(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glCopyConvolutionFilter2D(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint x, jint y, jint width, jint height) {
 	glCopyConvolutionFilter2DPROC glCopyConvolutionFilter2D = (glCopyConvolutionFilter2DPROC)tlsGetFunction(232);
 	UNUSED_PARAM(clazz)
 	glCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
@@ -154,7 +154,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetSeparableFilter(JN
 	glGetSeparableFilter(target, format, type, row, column, span);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglConvolutionParameteri(JNIEnv *__env, jclass clazz, jint target, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glConvolutionParameteri(JNIEnv *__env, jclass clazz, jint target, jint pname, jint param) {
 	glConvolutionParameteriPROC glConvolutionParameteri = (glConvolutionParameteriPROC)tlsGetFunction(226);
 	UNUSED_PARAM(clazz)
 	glConvolutionParameteri(target, pname, param);
@@ -167,7 +167,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglConvolutionParameteri
 	glConvolutionParameteriv(target, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglConvolutionParameterf(JNIEnv *__env, jclass clazz, jint target, jint pname, jfloat param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glConvolutionParameterf(JNIEnv *__env, jclass clazz, jint target, jint pname, jfloat param) {
 	glConvolutionParameterfPROC glConvolutionParameterf = (glConvolutionParameterfPROC)tlsGetFunction(224);
 	UNUSED_PARAM(clazz)
 	glConvolutionParameterf(target, pname, param);
@@ -194,13 +194,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetConvolutionParamet
 	glGetConvolutionParameterfv(target, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglHistogram(JNIEnv *__env, jclass clazz, jint target, jint width, jint internalformat, jboolean sink) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glHistogram(JNIEnv *__env, jclass clazz, jint target, jint width, jint internalformat, jboolean sink) {
 	glHistogramPROC glHistogram = (glHistogramPROC)tlsGetFunction(827);
 	UNUSED_PARAM(clazz)
 	glHistogram(target, width, internalformat, sink);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglResetHistogram(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glResetHistogram(JNIEnv *__env, jclass clazz, jint target) {
 	glResetHistogramPROC glResetHistogram = (glResetHistogramPROC)tlsGetFunction(1452);
 	UNUSED_PARAM(clazz)
 	glResetHistogram(target);
@@ -227,13 +227,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetHistogramParameter
 	glGetHistogramParameterfv(target, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglMinmax(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jboolean sink) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glMinmax(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jboolean sink) {
 	glMinmaxPROC glMinmax = (glMinmaxPROC)tlsGetFunction(982);
 	UNUSED_PARAM(clazz)
 	glMinmax(target, internalformat, sink);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglResetMinmax(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glResetMinmax(JNIEnv *__env, jclass clazz, jint target) {
 	glResetMinmaxPROC glResetMinmax = (glResetMinmaxPROC)tlsGetFunction(1453);
 	UNUSED_PARAM(clazz)
 	glResetMinmax(target);
@@ -260,13 +260,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetMinmaxParameterfv_
 	glGetMinmaxParameterfv(target, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglBlendColor(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glBlendColor(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
 	glBlendColorPROC glBlendColor = (glBlendColorPROC)tlsGetFunction(65);
 	UNUSED_PARAM(clazz)
 	glBlendColor(red, green, blue, alpha);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglBlendEquation(JNIEnv *__env, jclass clazz, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glBlendEquation(JNIEnv *__env, jclass clazz, jint mode) {
 	glBlendEquationPROC glBlendEquation = (glBlendEquationPROC)tlsGetFunction(67);
 	UNUSED_PARAM(clazz)
 	glBlendEquation(mode);

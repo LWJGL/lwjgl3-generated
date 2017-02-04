@@ -10,7 +10,7 @@ typedef void (APIENTRY *glMaxShaderCompilerThreadsARBPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBParallelShaderCompile_nglMaxShaderCompilerThreadsARB(JNIEnv *__env, jclass clazz, jint count) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBParallelShaderCompile_glMaxShaderCompilerThreadsARB(JNIEnv *__env, jclass clazz, jint count) {
 	glMaxShaderCompilerThreadsARBPROC glMaxShaderCompilerThreadsARB = (glMaxShaderCompilerThreadsARBPROC)tlsGetFunction(976);
 	UNUSED_PARAM(clazz)
 	glMaxShaderCompilerThreadsARB(count);

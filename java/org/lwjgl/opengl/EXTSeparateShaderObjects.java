@@ -68,19 +68,11 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ glUseShaderProgramEXT ] ---
 
-	public static native void nglUseShaderProgramEXT(int type, int program);
-
-	public static void glUseShaderProgramEXT(int type, int program) {
-		nglUseShaderProgramEXT(type, program);
-	}
+	public static native void glUseShaderProgramEXT(int type, int program);
 
 	// --- [ glActiveProgramEXT ] ---
 
-	public static native void nglActiveProgramEXT(int program);
-
-	public static void glActiveProgramEXT(int program) {
-		nglActiveProgramEXT(program);
-	}
+	public static native void glActiveProgramEXT(int program);
 
 	// --- [ glCreateShaderProgramEXT ] ---
 

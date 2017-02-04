@@ -96,11 +96,7 @@ public class INTELPerformanceQuery {
 
 	// --- [ glBeginPerfQueryINTEL ] ---
 
-	public static native void nglBeginPerfQueryINTEL(int queryHandle);
-
-	public static void glBeginPerfQueryINTEL(int queryHandle) {
-		nglBeginPerfQueryINTEL(queryHandle);
-	}
+	public static native void glBeginPerfQueryINTEL(int queryHandle);
 
 	// --- [ glCreatePerfQueryINTEL ] ---
 
@@ -125,19 +121,11 @@ public class INTELPerformanceQuery {
 
 	// --- [ glDeletePerfQueryINTEL ] ---
 
-	public static native void nglDeletePerfQueryINTEL(int queryHandle);
-
-	public static void glDeletePerfQueryINTEL(int queryHandle) {
-		nglDeletePerfQueryINTEL(queryHandle);
-	}
+	public static native void glDeletePerfQueryINTEL(int queryHandle);
 
 	// --- [ glEndPerfQueryINTEL ] ---
 
-	public static native void nglEndPerfQueryINTEL(int queryHandle);
-
-	public static void glEndPerfQueryINTEL(int queryHandle) {
-		nglEndPerfQueryINTEL(queryHandle);
-	}
+	public static native void glEndPerfQueryINTEL(int queryHandle);
 
 	// --- [ glGetFirstPerfQueryIdINTEL ] ---
 

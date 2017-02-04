@@ -76,10 +76,6 @@ public class EXTDebugMarker {
 
 	// --- [ glPopGroupMarkerEXT ] ---
 
-	public static native void nglPopGroupMarkerEXT();
-
-	public static void glPopGroupMarkerEXT() {
-		nglPopGroupMarkerEXT();
-	}
+	public static native void glPopGroupMarkerEXT();
 
 }

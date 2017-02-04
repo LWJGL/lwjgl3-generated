@@ -119,10 +119,6 @@ public class EXTGeometryShader {
 
 	// --- [ glFramebufferTextureEXT ] ---
 
-	public static native void nglFramebufferTextureEXT(int target, int attachment, int texture, int level);
-
-	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
-		nglFramebufferTextureEXT(target, attachment, texture, level);
-	}
+	public static native void glFramebufferTextureEXT(int target, int attachment, int texture, int level);
 
 }

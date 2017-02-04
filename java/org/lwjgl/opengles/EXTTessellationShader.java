@@ -141,10 +141,6 @@ public class EXTTessellationShader {
 
 	// --- [ glPatchParameteriEXT ] ---
 
-	public static native void nglPatchParameteriEXT(int pname, int value);
-
-	public static void glPatchParameteriEXT(int pname, int value) {
-		nglPatchParameteriEXT(pname, value);
-	}
+	public static native void glPatchParameteriEXT(int pname, int value);
 
 }

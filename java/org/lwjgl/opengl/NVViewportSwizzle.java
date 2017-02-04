@@ -53,9 +53,6 @@ public class NVViewportSwizzle {
 
 	// --- [ glViewportSwizzleNV ] ---
 
-	/** Unsafe version of: {@link #glViewportSwizzleNV ViewportSwizzleNV} */
-	public static native void nglViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
-
 	/**
 	 * Sets the swizzle state for the specified viewport.
 	 *
@@ -65,8 +62,6 @@ public class NVViewportSwizzle {
 	 * @param swizzlez the z swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
 	 * @param swizzlew the w swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
 	 */
-	public static void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew) {
-		nglViewportSwizzleNV(index, swizzlex, swizzley, swizzlez, swizzlew);
-	}
+	public static native void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
 
 }

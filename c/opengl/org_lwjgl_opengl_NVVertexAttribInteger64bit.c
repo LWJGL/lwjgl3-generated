@@ -28,25 +28,25 @@ typedef void (APIENTRY *glVertexAttribLFormatNVPROC) (jint, jint, jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL1i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL1i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x) {
 	glVertexAttribL1i64NVPROC glVertexAttribL1i64NV = (glVertexAttribL1i64NVPROC)tlsGetFunction(2016);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL1i64NV(index, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL2i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL2i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y) {
 	glVertexAttribL2i64NVPROC glVertexAttribL2i64NV = (glVertexAttribL2i64NVPROC)tlsGetFunction(2026);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL2i64NV(index, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL3i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL3i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z) {
 	glVertexAttribL3i64NVPROC glVertexAttribL3i64NV = (glVertexAttribL3i64NVPROC)tlsGetFunction(2034);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL3i64NV(index, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL4i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z, jlong w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL4i64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z, jlong w) {
 	glVertexAttribL4i64NVPROC glVertexAttribL4i64NV = (glVertexAttribL4i64NVPROC)tlsGetFunction(2042);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL4i64NV(index, x, y, z, w);
@@ -80,25 +80,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVerte
 	glVertexAttribL4i64vNV(index, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL1ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL1ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x) {
 	glVertexAttribL1ui64NVPROC glVertexAttribL1ui64NV = (glVertexAttribL1ui64NVPROC)tlsGetFunction(2019);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL1ui64NV(index, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL2ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL2ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y) {
 	glVertexAttribL2ui64NVPROC glVertexAttribL2ui64NV = (glVertexAttribL2ui64NVPROC)tlsGetFunction(2028);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL2ui64NV(index, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL3ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL3ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z) {
 	glVertexAttribL3ui64NVPROC glVertexAttribL3ui64NV = (glVertexAttribL3ui64NVPROC)tlsGetFunction(2036);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL3ui64NV(index, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribL4ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z, jlong w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribL4ui64NV(JNIEnv *__env, jclass clazz, jint index, jlong x, jlong y, jlong z, jlong w) {
 	glVertexAttribL4ui64NVPROC glVertexAttribL4ui64NV = (glVertexAttribL4ui64NVPROC)tlsGetFunction(2044);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL4ui64NV(index, x, y, z, w);
@@ -146,7 +146,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglGetVe
 	glGetVertexAttribLui64vNV(index, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_nglVertexAttribLFormatNV(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexAttribInteger64bit_glVertexAttribLFormatNV(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride) {
 	glVertexAttribLFormatNVPROC glVertexAttribLFormatNV = (glVertexAttribLFormatNVPROC)tlsGetFunction(2047);
 	UNUSED_PARAM(clazz)
 	glVertexAttribLFormatNV(index, size, type, stride);

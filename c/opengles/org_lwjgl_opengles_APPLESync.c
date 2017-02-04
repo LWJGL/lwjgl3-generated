@@ -16,7 +16,7 @@ typedef void (APIENTRY *glGetSyncivAPPLEPROC) (intptr_t, jint, jint, intptr_t, i
 
 EXTERN_C_ENTER
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_opengles_APPLESync_nglFenceSyncAPPLE(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opengles_APPLESync_glFenceSyncAPPLE(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
 	glFenceSyncAPPLEPROC glFenceSyncAPPLE = (glFenceSyncAPPLEPROC)tlsGetFunction(212);
 	UNUSED_PARAM(clazz)
 	return (jlong)glFenceSyncAPPLE(condition, flags);

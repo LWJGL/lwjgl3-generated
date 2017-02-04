@@ -124,19 +124,11 @@ public class EXTTextureInteger {
 
 	// --- [ glClearColorIiEXT ] ---
 
-	public static native void nglClearColorIiEXT(int r, int g, int b, int a);
-
-	public static void glClearColorIiEXT(int r, int g, int b, int a) {
-		nglClearColorIiEXT(r, g, b, a);
-	}
+	public static native void glClearColorIiEXT(int r, int g, int b, int a);
 
 	// --- [ glClearColorIuiEXT ] ---
 
-	public static native void nglClearColorIuiEXT(int r, int g, int b, int a);
-
-	public static void glClearColorIuiEXT(int r, int g, int b, int a) {
-		nglClearColorIuiEXT(r, g, b, a);
-	}
+	public static native void glClearColorIuiEXT(int r, int g, int b, int a);
 
 	// --- [ glTexParameterIivEXT ] ---
 

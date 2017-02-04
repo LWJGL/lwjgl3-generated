@@ -40,11 +40,7 @@ public class OESVertexArrayObject {
 
 	// --- [ glBindVertexArrayOES ] ---
 
-	public static native void nglBindVertexArrayOES(int array);
-
-	public static void glBindVertexArrayOES(int array) {
-		nglBindVertexArrayOES(array);
-	}
+	public static native void glBindVertexArrayOES(int array);
 
 	// --- [ glDeleteVertexArraysOES ] ---
 
@@ -87,11 +83,7 @@ public class OESVertexArrayObject {
 
 	// --- [ glIsVertexArrayOES ] ---
 
-	public static native boolean nglIsVertexArrayOES(int array);
-
-	public static boolean glIsVertexArrayOES(int array) {
-		return nglIsVertexArrayOES(array);
-	}
+	public static native boolean glIsVertexArrayOES(int array);
 
 	/** Array version of: {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	public static void glDeleteVertexArraysOES(int[] arrays) {

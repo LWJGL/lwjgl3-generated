@@ -96,18 +96,10 @@ public class AMDVertexShaderTessellator {
 
 	// --- [ glTessellationFactorAMD ] ---
 
-	public static native void nglTessellationFactorAMD(float factor);
-
-	public static void glTessellationFactorAMD(float factor) {
-		nglTessellationFactorAMD(factor);
-	}
+	public static native void glTessellationFactorAMD(float factor);
 
 	// --- [ glTessellationModeAMD ] ---
 
-	public static native void nglTessellationModeAMD(int mode);
-
-	public static void glTessellationModeAMD(int mode) {
-		nglTessellationModeAMD(mode);
-	}
+	public static native void glTessellationModeAMD(int mode);
 
 }

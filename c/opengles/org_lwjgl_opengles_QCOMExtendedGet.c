@@ -56,7 +56,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMExtendedGet_nglExtGetTexLevel
 	glExtGetTexLevelParameterivQCOM(texture, face, level, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMExtendedGet_nglExtTexObjectStateOverrideiQCOM(JNIEnv *__env, jclass clazz, jint target, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMExtendedGet_glExtTexObjectStateOverrideiQCOM(JNIEnv *__env, jclass clazz, jint target, jint pname, jint param) {
 	glExtTexObjectStateOverrideiQCOMPROC glExtTexObjectStateOverrideiQCOM = (glExtTexObjectStateOverrideiQCOMPROC)tlsGetFunction(210);
 	UNUSED_PARAM(clazz)
 	glExtTexObjectStateOverrideiQCOM(target, pname, param);

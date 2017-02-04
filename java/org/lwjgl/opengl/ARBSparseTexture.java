@@ -58,9 +58,6 @@ public class ARBSparseTexture {
 
 	// --- [ glTexPageCommitmentARB ] ---
 
-	/** Unsafe version of: {@link #glTexPageCommitmentARB TexPageCommitmentARB} */
-	public static native void nglTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
-
 	/**
 	 * Makes individual pages of a sparse texture resident or non resident.
 	 * 
@@ -135,14 +132,9 @@ public class ARBSparseTexture {
 	 * @param depth   the subregion depth
 	 * @param commit  the commit flag
 	 */
-	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
-	}
+	public static native void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 	// --- [ glTexturePageCommitmentEXT ] ---
-
-	/** Unsafe version of: {@link #glTexturePageCommitmentEXT TexturePageCommitmentEXT} */
-	public static native void nglTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 	/**
 	 * DSA version of {@link #glTexPageCommitmentARB TexPageCommitmentARB}.
@@ -157,8 +149,6 @@ public class ARBSparseTexture {
 	 * @param depth   the subregion depth
 	 * @param commit  the commit flag
 	 */
-	public static void glTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		nglTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
-	}
+	public static native void glTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 }

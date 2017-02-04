@@ -29,7 +29,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglTexSubImage3DNV
 	glTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglCopyTexSubImage3DNV(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_glCopyTexSubImage3DNV(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
 	glCopyTexSubImage3DNVPROC glCopyTexSubImage3DNV = (glCopyTexSubImage3DNVPROC)tlsGetFunction(93);
 	UNUSED_PARAM(clazz)
 	glCopyTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, x, y, width, height);
@@ -49,7 +49,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglCompressedTexSu
 	glCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglFramebufferTextureLayerNV(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_glFramebufferTextureLayerNV(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
 	glFramebufferTextureLayerNVPROC glFramebufferTextureLayerNV = (glFramebufferTextureLayerNVPROC)tlsGetFunction(232);
 	UNUSED_PARAM(clazz)
 	glFramebufferTextureLayerNV(target, attachment, texture, level, layer);

@@ -77,10 +77,6 @@ public class EXTFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleEXT ] ---
 
-	public static native void nglRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
 
 }

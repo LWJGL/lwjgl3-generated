@@ -37,10 +37,6 @@ public class NVCopyBuffer {
 
 	// --- [ glCopyBufferSubDataNV ] ---
 
-	public static native void nglCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
-
-	public static void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		nglCopyBufferSubDataNV(readTarget, writeTarget, readOffset, writeOffset, size);
-	}
+	public static native void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 }

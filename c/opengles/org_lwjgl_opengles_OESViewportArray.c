@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglViewportArray
 	glViewportArrayvOES(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglViewportIndexedfOES(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_glViewportIndexedfOES(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
 	glViewportIndexedfOESPROC glViewportIndexedfOES = (glViewportIndexedfOESPROC)tlsGetFunction(777);
 	UNUSED_PARAM(clazz)
 	glViewportIndexedfOES(index, x, y, w, h);
@@ -48,7 +48,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglScissorArrayv
 	glScissorArrayvOES(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglScissorIndexedOES(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_glScissorIndexedOES(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
 	glScissorIndexedOESPROC glScissorIndexedOES = (glScissorIndexedOESPROC)tlsGetFunction(620);
 	UNUSED_PARAM(clazz)
 	glScissorIndexedOES(index, left, bottom, width, height);
@@ -68,7 +68,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglDepthRangeArr
 	glDepthRangeArrayfvOES(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglDepthRangeIndexedfOES(JNIEnv *__env, jclass clazz, jint index, jfloat n, jfloat f) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_glDepthRangeIndexedfOES(JNIEnv *__env, jclass clazz, jint index, jfloat n, jfloat f) {
 	glDepthRangeIndexedfOESPROC glDepthRangeIndexedfOES = (glDepthRangeIndexedfOESPROC)tlsGetFunction(141);
 	UNUSED_PARAM(clazz)
 	glDepthRangeIndexedfOES(index, n, f);
@@ -81,19 +81,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglGetFloati_1vO
 	glGetFloati_vOES(target, index, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglEnableiOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_glEnableiOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glEnableiOESPROC glEnableiOES = (glEnableiOESPROC)tlsGetFunction(191);
 	UNUSED_PARAM(clazz)
 	glEnableiOES(target, index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglDisableiOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESViewportArray_glDisableiOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glDisableiOESPROC glDisableiOES = (glDisableiOESPROC)tlsGetFunction(150);
 	UNUSED_PARAM(clazz)
 	glDisableiOES(target, index);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_OESViewportArray_nglIsEnablediOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_OESViewportArray_glIsEnablediOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glIsEnablediOESPROC glIsEnablediOES = (glIsEnablediOESPROC)tlsGetFunction(406);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsEnablediOES(target, index);

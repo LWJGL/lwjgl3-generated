@@ -46,18 +46,10 @@ public class IMGFramebufferDownsample {
 
 	// --- [ glFramebufferTexture2DDownsampleIMG ] ---
 
-	public static native void nglFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale);
-
-	public static void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale) {
-		nglFramebufferTexture2DDownsampleIMG(target, attachment, textarget, texture, level, xscale, yscale);
-	}
+	public static native void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale);
 
 	// --- [ glFramebufferTextureLayerDownsampleIMG ] ---
 
-	public static native void nglFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale);
-
-	public static void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale) {
-		nglFramebufferTextureLayerDownsampleIMG(target, attachment, texture, level, layer, xscale, yscale);
-	}
+	public static native void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale);
 
 }

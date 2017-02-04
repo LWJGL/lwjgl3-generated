@@ -12,7 +12,7 @@ typedef void (APIENTRY *glDrawElementsInstancedBaseVertexBaseInstancePROC) (jint
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBaseInstance_nglDrawArraysInstancedBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount, jint baseinstance) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBaseInstance_glDrawArraysInstancedBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount, jint baseinstance) {
 	glDrawArraysInstancedBaseInstancePROC glDrawArraysInstancedBaseInstance = (glDrawArraysInstancedBaseInstancePROC)tlsGetFunction(348);
 	UNUSED_PARAM(clazz)
 	glDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);

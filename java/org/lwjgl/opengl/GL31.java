@@ -176,12 +176,7 @@ public class GL31 {
 
 	// --- [ glDrawArraysInstanced ] ---
 
-	/** Unsafe version of: {@link #glDrawArraysInstanced DrawArraysInstanced} */
-	public static native void nglDrawArraysInstanced(int mode, int first, int count, int primcount);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstanced.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Draw multiple instances of a range of elements.
 	 *
 	 * @param mode      the kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
@@ -189,9 +184,7 @@ public class GL31 {
 	 * @param count     the number of vertices to be rendered
 	 * @param primcount the number of instances of the specified range of vertices to be rendered
 	 */
-	public static void glDrawArraysInstanced(int mode, int first, int count, int primcount) {
-		nglDrawArraysInstanced(mode, first, count, primcount);
-	}
+	public static native void glDrawArraysInstanced(int mode, int first, int count, int primcount);
 
 	// --- [ glDrawElementsInstanced ] ---
 
@@ -273,12 +266,7 @@ public class GL31 {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** Unsafe version of: {@link #glCopyBufferSubData CopyBufferSubData} */
-	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
 	 * 
 	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if any of readoffset, writeoffset, or size are negative, if readoffset+size exceeds the size of the buffer object
@@ -297,34 +285,20 @@ public class GL31 {
 	 * @param writeOffset the destination buffer object offset, in bytes
 	 * @param size        the number of bytes to copy
 	 */
-	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
-	}
+	public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 	// --- [ glPrimitiveRestartIndex ] ---
 
-	/** Unsafe version of: {@link #glPrimitiveRestartIndex PrimitiveRestartIndex} */
-	public static native void nglPrimitiveRestartIndex(int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPrimitiveRestartIndex.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the primitive restart index.
 	 *
 	 * @param index the value to be interpreted as the primitive restart index
 	 */
-	public static void glPrimitiveRestartIndex(int index) {
-		nglPrimitiveRestartIndex(index);
-	}
+	public static native void glPrimitiveRestartIndex(int index);
 
 	// --- [ glTexBuffer ] ---
 
-	/** Unsafe version of: {@link #glTexBuffer TexBuffer} */
-	public static native void nglTexBuffer(int target, int internalformat, int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
 	 * in the attached buffer object. If {@code buffer} is zero, any buffer object attached to the buffer texture is detached, and no new buffer object is
 	 * attached. If {@code buffer} is non-zero, but is not the name of an existing buffer object, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
@@ -351,9 +325,7 @@ public class GL31 {
 	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
-	public static void glTexBuffer(int target, int internalformat, int buffer) {
-		nglTexBuffer(target, internalformat, buffer);
-	}
+	public static native void glTexBuffer(int target, int internalformat, int buffer);
 
 	// --- [ glGetUniformIndices ] ---
 
@@ -662,21 +634,14 @@ public class GL31 {
 
 	// --- [ glUniformBlockBinding ] ---
 
-	/** Unsafe version of: {@link #glUniformBlockBinding UniformBlockBinding} */
-	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformBlockBinding.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Assigns a binding point to an active uniform block.
 	 *
 	 * @param program             the name of a program object containing the active uniform block whose binding to assign
 	 * @param uniformBlockIndex   the index of the active uniform block within {@code program} whose binding to assign
 	 * @param uniformBlockBinding the binding point to which to bind the uniform block with index {@code uniformBlockIndex} within {@code program}
 	 */
-	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
-		nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
-	}
+	public static native void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>

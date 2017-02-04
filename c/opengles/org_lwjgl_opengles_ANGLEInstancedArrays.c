@@ -12,7 +12,7 @@ typedef void (APIENTRY *glVertexAttribDivisorANGLEPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_nglDrawArraysInstancedANGLE(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_glDrawArraysInstancedANGLE(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
 	glDrawArraysInstancedANGLEPROC glDrawArraysInstancedANGLE = (glDrawArraysInstancedANGLEPROC)tlsGetFunction(157);
 	UNUSED_PARAM(clazz)
 	glDrawArraysInstancedANGLE(mode, first, count, primcount);
@@ -25,7 +25,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_nglDrawEleme
 	glDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_nglVertexAttribDivisorANGLE(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_glVertexAttribDivisorANGLE(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
 	glVertexAttribDivisorANGLEPROC glVertexAttribDivisorANGLE = (glVertexAttribDivisorANGLEPROC)tlsGetFunction(761);
 	UNUSED_PARAM(clazz)
 	glVertexAttribDivisorANGLE(index, divisor);

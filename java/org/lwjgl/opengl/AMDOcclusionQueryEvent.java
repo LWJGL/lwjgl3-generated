@@ -46,9 +46,6 @@ public class AMDOcclusionQueryEvent {
 
 	// --- [ glQueryObjectParameteruiAMD ] ---
 
-	/** Unsafe version of: {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD} */
-	public static native void nglQueryObjectParameteruiAMD(int target, int id, int pname, int param);
-
 	/**
 	 * Changes the value of a query object parameter.
 	 *
@@ -57,8 +54,6 @@ public class AMDOcclusionQueryEvent {
 	 * @param pname  the parameter to modify. Must be:<br><table><tr><td>{@link #GL_OCCLUSION_QUERY_EVENT_MASK_AMD OCCLUSION_QUERY_EVENT_MASK_AMD}</td></tr></table>
 	 * @param param  the new value. One of:<br><table><tr><td>{@link #GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD QUERY_DEPTH_PASS_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD QUERY_DEPTH_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD QUERY_STENCIL_FAIL_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_ALL_EVENT_BITS_AMD QUERY_ALL_EVENT_BITS_AMD}</td></tr></table>
 	 */
-	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
-		nglQueryObjectParameteruiAMD(target, id, pname, param);
-	}
+	public static native void glQueryObjectParameteruiAMD(int target, int id, int pname, int param);
 
 }

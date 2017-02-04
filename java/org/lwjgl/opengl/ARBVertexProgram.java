@@ -188,23 +188,15 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib1sARB ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib1sARB VertexAttrib1sARB} */
-	public static native void nglVertexAttrib1sARB(int index, short x);
-
 	/**
 	 * Short version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param x     the {@code x} attribute component
 	 */
-	public static void glVertexAttrib1sARB(int index, short x) {
-		nglVertexAttrib1sARB(index, x);
-	}
+	public static native void glVertexAttrib1sARB(int index, short x);
 
 	// --- [ glVertexAttrib1fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib1fARB VertexAttrib1fARB} */
-	public static native void nglVertexAttrib1fARB(int index, float x);
 
 	/**
 	 * Specifies the {@code x} component of the current vertex attribute numbered {@code index}. Components {@code y} and {@code z} are set to 0 and {@code w} to 1.
@@ -212,14 +204,9 @@ public class ARBVertexProgram {
 	 * @param index the vertex attribute index
 	 * @param x     the {@code x} attribute component
 	 */
-	public static void glVertexAttrib1fARB(int index, float x) {
-		nglVertexAttrib1fARB(index, x);
-	}
+	public static native void glVertexAttrib1fARB(int index, float x);
 
 	// --- [ glVertexAttrib1dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib1dARB VertexAttrib1dARB} */
-	public static native void nglVertexAttrib1dARB(int index, double x);
 
 	/**
 	 * Double version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}
@@ -227,14 +214,9 @@ public class ARBVertexProgram {
 	 * @param index the vertex attribute index
 	 * @param x     the {@code x} attribute component
 	 */
-	public static void glVertexAttrib1dARB(int index, double x) {
-		nglVertexAttrib1dARB(index, x);
-	}
+	public static native void glVertexAttrib1dARB(int index, double x);
 
 	// --- [ glVertexAttrib2sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib2sARB VertexAttrib2sARB} */
-	public static native void nglVertexAttrib2sARB(int index, short x, short y);
 
 	/**
 	 * Short version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}
@@ -243,14 +225,9 @@ public class ARBVertexProgram {
 	 * @param x     the {@code x} attribute component
 	 * @param y     the {@code y} attribute component
 	 */
-	public static void glVertexAttrib2sARB(int index, short x, short y) {
-		nglVertexAttrib2sARB(index, x, y);
-	}
+	public static native void glVertexAttrib2sARB(int index, short x, short y);
 
 	// --- [ glVertexAttrib2fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib2fARB VertexAttrib2fARB} */
-	public static native void nglVertexAttrib2fARB(int index, float x, float y);
 
 	/**
 	 * Specifies the {@code x} and {@code y} components of the current vertex attribute numbered {@code index}. Component {@code z} is set to 0 and {@code w} to 1.
@@ -259,14 +236,9 @@ public class ARBVertexProgram {
 	 * @param x     the {@code x} attribute component
 	 * @param y     the {@code y} attribute component
 	 */
-	public static void glVertexAttrib2fARB(int index, float x, float y) {
-		nglVertexAttrib2fARB(index, x, y);
-	}
+	public static native void glVertexAttrib2fARB(int index, float x, float y);
 
 	// --- [ glVertexAttrib2dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib2dARB VertexAttrib2dARB} */
-	public static native void nglVertexAttrib2dARB(int index, double x, double y);
 
 	/**
 	 * Double version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}
@@ -275,14 +247,9 @@ public class ARBVertexProgram {
 	 * @param x     the {@code x} attribute component
 	 * @param y     the {@code y} attribute component
 	 */
-	public static void glVertexAttrib2dARB(int index, double x, double y) {
-		nglVertexAttrib2dARB(index, x, y);
-	}
+	public static native void glVertexAttrib2dARB(int index, double x, double y);
 
 	// --- [ glVertexAttrib3sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib3sARB VertexAttrib3sARB} */
-	public static native void nglVertexAttrib3sARB(int index, short x, short y, short z);
 
 	/**
 	 * Short version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}
@@ -292,14 +259,9 @@ public class ARBVertexProgram {
 	 * @param y     the {@code y} attribute component
 	 * @param z     the {@code z} attribute component
 	 */
-	public static void glVertexAttrib3sARB(int index, short x, short y, short z) {
-		nglVertexAttrib3sARB(index, x, y, z);
-	}
+	public static native void glVertexAttrib3sARB(int index, short x, short y, short z);
 
 	// --- [ glVertexAttrib3fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib3fARB VertexAttrib3fARB} */
-	public static native void nglVertexAttrib3fARB(int index, float x, float y, float z);
 
 	/**
 	 * Specifies the {@code x}, {@code y} and {@code z} components of the current vertex attribute numbered {@code index}. Component {@code w} is set to 1.
@@ -309,14 +271,9 @@ public class ARBVertexProgram {
 	 * @param y     the {@code y} attribute component
 	 * @param z     the {@code z} attribute component
 	 */
-	public static void glVertexAttrib3fARB(int index, float x, float y, float z) {
-		nglVertexAttrib3fARB(index, x, y, z);
-	}
+	public static native void glVertexAttrib3fARB(int index, float x, float y, float z);
 
 	// --- [ glVertexAttrib3dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib3dARB VertexAttrib3dARB} */
-	public static native void nglVertexAttrib3dARB(int index, double x, double y, double z);
 
 	/**
 	 * Double version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}
@@ -326,14 +283,9 @@ public class ARBVertexProgram {
 	 * @param y     the {@code y} attribute component
 	 * @param z     the {@code z} attribute component
 	 */
-	public static void glVertexAttrib3dARB(int index, double x, double y, double z) {
-		nglVertexAttrib3dARB(index, x, y, z);
-	}
+	public static native void glVertexAttrib3dARB(int index, double x, double y, double z);
 
 	// --- [ glVertexAttrib4sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4sARB VertexAttrib4sARB} */
-	public static native void nglVertexAttrib4sARB(int index, short x, short y, short z, short w);
 
 	/**
 	 * Short version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
@@ -344,14 +296,9 @@ public class ARBVertexProgram {
 	 * @param z     the {@code z} attribute component
 	 * @param w     the {@code w} attribute component
 	 */
-	public static void glVertexAttrib4sARB(int index, short x, short y, short z, short w) {
-		nglVertexAttrib4sARB(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4sARB(int index, short x, short y, short z, short w);
 
 	// --- [ glVertexAttrib4fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4fARB VertexAttrib4fARB} */
-	public static native void nglVertexAttrib4fARB(int index, float x, float y, float z, float w);
 
 	/**
 	 * Specifies the current vertex attribute numbered {@code index}.
@@ -362,14 +309,9 @@ public class ARBVertexProgram {
 	 * @param z     the {@code z} attribute component
 	 * @param w     the {@code w} attribute component
 	 */
-	public static void glVertexAttrib4fARB(int index, float x, float y, float z, float w) {
-		nglVertexAttrib4fARB(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4fARB(int index, float x, float y, float z, float w);
 
 	// --- [ glVertexAttrib4dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4dARB VertexAttrib4dARB} */
-	public static native void nglVertexAttrib4dARB(int index, double x, double y, double z, double w);
 
 	/**
 	 * Double version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
@@ -380,14 +322,9 @@ public class ARBVertexProgram {
 	 * @param z     the {@code z} attribute component
 	 * @param w     the {@code w} attribute component
 	 */
-	public static void glVertexAttrib4dARB(int index, double x, double y, double z, double w) {
-		nglVertexAttrib4dARB(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4dARB(int index, double x, double y, double z, double w);
 
 	// --- [ glVertexAttrib4NubARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4NubARB VertexAttrib4NubARB} */
-	public static native void nglVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w);
 
 	/**
 	 * Fixed-point unsigned byte version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
@@ -398,9 +335,7 @@ public class ARBVertexProgram {
 	 * @param z     the {@code z} attribute component
 	 * @param w     the {@code w} attribute component
 	 */
-	public static void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w) {
-		nglVertexAttrib4NubARB(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w);
 
 	// --- [ glVertexAttrib1svARB ] ---
 
@@ -870,31 +805,21 @@ public class ARBVertexProgram {
 
 	// --- [ glEnableVertexAttribArrayARB ] ---
 
-	/** Unsafe version of: {@link #glEnableVertexAttribArrayARB EnableVertexAttribArrayARB} */
-	public static native void nglEnableVertexAttribArrayARB(int index);
-
 	/**
 	 * Enables an individual generic vertex attribute array.
 	 *
 	 * @param index the vertex attribute index
 	 */
-	public static void glEnableVertexAttribArrayARB(int index) {
-		nglEnableVertexAttribArrayARB(index);
-	}
+	public static native void glEnableVertexAttribArrayARB(int index);
 
 	// --- [ glDisableVertexAttribArrayARB ] ---
-
-	/** Unsafe version of: {@link #glDisableVertexAttribArrayARB DisableVertexAttribArrayARB} */
-	public static native void nglDisableVertexAttribArrayARB(int index);
 
 	/**
 	 * Disables an individual generic vertex attribute array.
 	 *
 	 * @param index the vertex attribute index
 	 */
-	public static void glDisableVertexAttribArrayARB(int index) {
-		nglDisableVertexAttribArrayARB(index);
-	}
+	public static native void glDisableVertexAttribArrayARB(int index);
 
 	// --- [ glProgramStringARB ] ---
 
@@ -929,9 +854,6 @@ public class ARBVertexProgram {
 
 	// --- [ glBindProgramARB ] ---
 
-	/** Unsafe version of: {@link #glBindProgramARB BindProgramARB} */
-	public static native void nglBindProgramARB(int target, int program);
-
 	/**
 	 * Creates a named program object by binding an unused program object name to a valid program target. Also can be used to bind an existing program object
 	 * to a program target.
@@ -940,9 +862,7 @@ public class ARBVertexProgram {
 	 * @param program the program object to bind. If {@code program} is zero, the default program object for {@code target} is bound.  If {@code program} is the name of
 	 *                an existing program object whose associated program target is {@code target}, the named program object is bound.
 	 */
-	public static void glBindProgramARB(int target, int program) {
-		nglBindProgramARB(target, program);
-	}
+	public static native void glBindProgramARB(int target, int program);
 
 	// --- [ glDeleteProgramsARB ] ---
 
@@ -998,9 +918,6 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramEnvParameter4dARB ] ---
 
-	/** Unsafe version of: {@link #glProgramEnvParameter4dARB ProgramEnvParameter4dARB} */
-	public static native void nglProgramEnvParameter4dARB(int target, int index, double x, double y, double z, double w);
-
 	/**
 	 * Double version of {@link #glProgramEnvParameter4fARB ProgramEnvParameter4fARB}.
 	 *
@@ -1011,9 +928,7 @@ public class ARBVertexProgram {
 	 * @param z      the {@code z} parameter component
 	 * @param w      the {@code w} parameter component
 	 */
-	public static void glProgramEnvParameter4dARB(int target, int index, double x, double y, double z, double w) {
-		nglProgramEnvParameter4dARB(target, index, x, y, z, w);
-	}
+	public static native void glProgramEnvParameter4dARB(int target, int index, double x, double y, double z, double w);
 
 	// --- [ glProgramEnvParameter4dvARB ] ---
 
@@ -1035,9 +950,6 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramEnvParameter4fARB ] ---
 
-	/** Unsafe version of: {@link #glProgramEnvParameter4fARB ProgramEnvParameter4fARB} */
-	public static native void nglProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w);
-
 	/**
 	 * Updates the values of the program environment parameter numbered {@code index} for the specified program target {@code target}.
 	 *
@@ -1048,9 +960,7 @@ public class ARBVertexProgram {
 	 * @param z      the {@code z} parameter component
 	 * @param w      the {@code w} parameter component
 	 */
-	public static void glProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w) {
-		nglProgramEnvParameter4fARB(target, index, x, y, z, w);
-	}
+	public static native void glProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w);
 
 	// --- [ glProgramEnvParameter4fvARB ] ---
 
@@ -1072,9 +982,6 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramLocalParameter4dARB ] ---
 
-	/** Unsafe version of: {@link #glProgramLocalParameter4dARB ProgramLocalParameter4dARB} */
-	public static native void nglProgramLocalParameter4dARB(int target, int index, double x, double y, double z, double w);
-
 	/**
 	 * Double version of {@link #glProgramLocalParameter4fARB ProgramLocalParameter4fARB}.
 	 *
@@ -1085,9 +992,7 @@ public class ARBVertexProgram {
 	 * @param z      the {@code z} parameter component
 	 * @param w      the {@code w} parameter component
 	 */
-	public static void glProgramLocalParameter4dARB(int target, int index, double x, double y, double z, double w) {
-		nglProgramLocalParameter4dARB(target, index, x, y, z, w);
-	}
+	public static native void glProgramLocalParameter4dARB(int target, int index, double x, double y, double z, double w);
 
 	// --- [ glProgramLocalParameter4dvARB ] ---
 
@@ -1109,9 +1014,6 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramLocalParameter4fARB ] ---
 
-	/** Unsafe version of: {@link #glProgramLocalParameter4fARB ProgramLocalParameter4fARB} */
-	public static native void nglProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w);
-
 	/**
 	 * Updates the values of the program local parameter numbered {@code index} for the specified program target {@code target}.
 	 *
@@ -1122,9 +1024,7 @@ public class ARBVertexProgram {
 	 * @param z      the {@code z} parameter component
 	 * @param w      the {@code w} parameter component
 	 */
-	public static void glProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w) {
-		nglProgramLocalParameter4fARB(target, index, x, y, z, w);
-	}
+	public static native void glProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w);
 
 	// --- [ glProgramLocalParameter4fvARB ] ---
 
@@ -1386,9 +1286,6 @@ public class ARBVertexProgram {
 
 	// --- [ glIsProgramARB ] ---
 
-	/** Unsafe version of: {@link #glIsProgramARB IsProgramARB} */
-	public static native boolean nglIsProgramARB(int program);
-
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if {@code program} is the name of a program object. If {@code program} is zero or is a non-zero value that is not the name of a
 	 * program object, or if an error condition occurs, IsProgramARB returns {@link GL11#GL_FALSE FALSE}. A name returned by {@link #glGenProgramsARB GenProgramsARB}, but not yet bound, is not the
@@ -1396,9 +1293,7 @@ public class ARBVertexProgram {
 	 *
 	 * @param program the program name
 	 */
-	public static boolean glIsProgramARB(int program) {
-		return nglIsProgramARB(program);
-	}
+	public static native boolean glIsProgramARB(int program);
 
 	/** Array version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	public static void glVertexAttrib1svARB(int index, short[] v) {

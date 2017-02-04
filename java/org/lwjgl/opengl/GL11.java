@@ -763,62 +763,36 @@ public class GL11 {
 
 	// --- [ glEnable ] ---
 
-	/** Unsafe version of: {@link #glEnable Enable} */
-	public static native void nglEnable(int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnable.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Enables the specified OpenGL state.
 	 *
 	 * @param target the OpenGL state to enable
 	 */
-	public static void glEnable(int target) {
-		nglEnable(target);
-	}
+	public static native void glEnable(int target);
 
 	// --- [ glDisable ] ---
 
-	/** Unsafe version of: {@link #glDisable Disable} */
-	public static native void nglDisable(int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnable.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Disables the specified OpenGL state.
 	 *
 	 * @param target the OpenGL state to disable
 	 */
-	public static void glDisable(int target) {
-		nglDisable(target);
-	}
+	public static native void glDisable(int target);
 
 	// --- [ glAccum ] ---
 
-	/** Unsafe version of: {@link #glAccum Accum} */
-	public static native void nglAccum(int op, float value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAccum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Each portion of a pixel in the accumulation buffer consists of four values: one for each of R, G, B, and A. The accumulation buffer is controlled
 	 * exclusively through the use of this method (except for clearing it).
 	 *
 	 * @param op    a symbolic constant indicating an accumulation buffer operation
 	 * @param value a floating-point value to be used in that operation. One of:<br><table><tr><td>{@link #GL_ACCUM ACCUM}</td><td>{@link #GL_LOAD LOAD}</td><td>{@link #GL_RETURN RETURN}</td><td>{@link #GL_MULT MULT}</td><td>{@link #GL_ADD ADD}</td></tr></table>
 	 */
-	public static void glAccum(int op, float value) {
-		nglAccum(op, value);
-	}
+	public static native void glAccum(int op, float value);
 
 	// --- [ glAlphaFunc ] ---
 
-	/** Unsafe version of: {@link #glAlphaFunc AlphaFunc} */
-	public static native void nglAlphaFunc(int func, float ref);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAlphaFunc.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * The alpha test discards a fragment conditionally based on the outcome of a comparison between the incoming fragment’s alpha value and a constant value.
 	 * The comparison is enabled or disabled with the generic {@link #glEnable Enable} and {@link #glDisable Disable} commands using the symbolic constant {@link #GL_ALPHA_TEST ALPHA_TEST}.
 	 * When disabled, it is as if the comparison always passes. The test is controlled with this method.
@@ -826,9 +800,7 @@ public class GL11 {
 	 * @param func a symbolic constant indicating the alpha test function. One of:<br><table><tr><td>{@link #GL_NEVER NEVER}</td><td>{@link #GL_ALWAYS ALWAYS}</td><td>{@link #GL_LESS LESS}</td><td>{@link #GL_LEQUAL LEQUAL}</td><td>{@link #GL_EQUAL EQUAL}</td><td>{@link #GL_GEQUAL GEQUAL}</td><td>{@link #GL_GREATER GREATER}</td><td>{@link #GL_NOTEQUAL NOTEQUAL}</td></tr></table>
 	 * @param ref  a reference value clamped to the range [0, 1]. When performing the alpha test, the GL will convert the reference value to the same representation as the fragment's alpha value (floating-point or fixed-point).
 	 */
-	public static void glAlphaFunc(int func, float ref) {
-		nglAlphaFunc(func, ref);
-	}
+	public static native void glAlphaFunc(int func, float ref);
 
 	// --- [ glAreTexturesResident ] ---
 
@@ -878,44 +850,25 @@ public class GL11 {
 
 	// --- [ glArrayElement ] ---
 
-	/** Unsafe version of: {@link #glArrayElement ArrayElement} */
-	public static native void nglArrayElement(int i);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glArrayElement.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Transfers the ith element of every enabled, non-instanced array, and the first element of every enabled, instanced array to the GL.
 	 *
 	 * @param i the element to transfer
 	 */
-	public static void glArrayElement(int i) {
-		nglArrayElement(i);
-	}
+	public static native void glArrayElement(int i);
 
 	// --- [ glBegin ] ---
 
-	/** Unsafe version of: {@link #glBegin Begin} */
-	public static native void nglBegin(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glBegin.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Begins the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 *
 	 * @param mode the primitive type being defined. One of:<br><table><tr><td>{@link #GL_POINTS POINTS}</td><td>{@link #GL_LINE_STRIP LINE_STRIP}</td><td>{@link #GL_LINE_LOOP LINE_LOOP}</td><td>{@link #GL_LINES LINES}</td><td>{@link #GL_POLYGON POLYGON}</td><td>{@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link #GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link #GL_TRIANGLES TRIANGLES}</td><td>{@link #GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link #GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
 	 */
-	public static void glBegin(int mode) {
-		nglBegin(mode);
-	}
+	public static native void glBegin(int mode);
 
 	// --- [ glBindTexture ] ---
 
-	/** Unsafe version of: {@link #glBindTexture BindTexture} */
-	public static native void nglBindTexture(int target, int texture);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTexture.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds the a texture to a texture target.
 	 * 
 	 * <p>While a texture object is bound, GL operations on the target to which it is bound affect the bound object, and queries of the target to which it is
@@ -925,9 +878,7 @@ public class GL11 {
 	 * @param target  the texture target. One of:<br><table><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
 	 * @param texture the texture object to bind
 	 */
-	public static void glBindTexture(int target, int texture) {
-		nglBindTexture(target, texture);
-	}
+	public static native void glBindTexture(int target, int texture);
 
 	// --- [ glBitmap ] ---
 
@@ -974,36 +925,22 @@ public class GL11 {
 
 	// --- [ glBlendFunc ] ---
 
-	/** Unsafe version of: {@link #glBlendFunc BlendFunc} */
-	public static native void nglBlendFunc(int sfactor, int dfactor);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the weighting factors used by the blend equation, for both RGB and alpha functions and for all draw buffers.
 	 *
 	 * @param sfactor the source weighting factor. One of:<br><table><tr><td>{@link #GL_ZERO ZERO}</td><td>{@link #GL_ONE ONE}</td><td>{@link #GL_SRC_COLOR SRC_COLOR}</td><td>{@link #GL_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #GL_DST_COLOR DST_COLOR}</td></tr><tr><td>{@link #GL_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td><td>{@link #GL_SRC_ALPHA SRC_ALPHA}</td><td>{@link #GL_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #GL_DST_ALPHA DST_ALPHA}</td><td>{@link #GL_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td></tr><tr><td>{@link GL14#GL_CONSTANT_COLOR CONSTANT_COLOR}</td><td>{@link GL14#GL_ONE_MINUS_CONSTANT_COLOR ONE_MINUS_CONSTANT_COLOR}</td><td>{@link GL14#GL_CONSTANT_ALPHA CONSTANT_ALPHA}</td><td>{@link GL14#GL_ONE_MINUS_CONSTANT_ALPHA ONE_MINUS_CONSTANT_ALPHA}</td><td>{@link #GL_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr><tr><td>{@link GL33#GL_SRC1_COLOR SRC1_COLOR}</td><td>{@link GL33#GL_ONE_MINUS_SRC1_COLOR ONE_MINUS_SRC1_COLOR}</td><td>{@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}</td><td>{@link GL33#GL_ONE_MINUS_SRC1_ALPHA ONE_MINUS_SRC1_ALPHA}</td></tr></table>
 	 * @param dfactor the destination weighting factor
 	 */
-	public static void glBlendFunc(int sfactor, int dfactor) {
-		nglBlendFunc(sfactor, dfactor);
-	}
+	public static native void glBlendFunc(int sfactor, int dfactor);
 
 	// --- [ glCallList ] ---
 
-	/** Unsafe version of: {@link #glCallList CallList} */
-	public static native void nglCallList(int list);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glCallList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Executes a display list. Causes the commands saved in the display list to be executed, in order, just as if they were issued without using a display list.
 	 *
 	 * @param list the index of the display list to be called
 	 */
-	public static void glCallList(int list) {
-		nglCallList(list);
-	}
+	public static native void glCallList(int list);
 
 	// --- [ glCallLists ] ---
 
@@ -1062,29 +999,17 @@ public class GL11 {
 
 	// --- [ glClear ] ---
 
-	/** Unsafe version of: {@link #glClear Clear} */
-	public static native void nglClear(int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClear.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets portions of every pixel in a particular buffer to the same value. The value to which each buffer is cleared depends on the setting of the clear
 	 * value for that buffer.
 	 *
 	 * @param mask Zero or the bitwise OR of one or more values indicating which buffers are to be cleared. One or more of:<br><table><tr><td>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}</td><td>{@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}</td><td>{@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}</td><td>{@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}</td></tr></table>
 	 */
-	public static void glClear(int mask) {
-		nglClear(mask);
-	}
+	public static native void glClear(int mask);
 
 	// --- [ glClearAccum ] ---
 
-	/** Unsafe version of: {@link #glClearAccum ClearAccum} */
-	public static native void nglClearAccum(float red, float green, float blue, float alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClearAccum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the clear values for the accumulation buffer. These values are clamped to the range [-1,1] when they are specified.
 	 *
 	 * @param red   the value to which to clear the R values of the accumulation buffer
@@ -1092,18 +1017,11 @@ public class GL11 {
 	 * @param blue  the value to which to clear the B values of the accumulation buffer
 	 * @param alpha the value to which to clear the A values of the accumulation buffer
 	 */
-	public static void glClearAccum(float red, float green, float blue, float alpha) {
-		nglClearAccum(red, green, blue, alpha);
-	}
+	public static native void glClearAccum(float red, float green, float blue, float alpha);
 
 	// --- [ glClearColor ] ---
 
-	/** Unsafe version of: {@link #glClearColor ClearColor} */
-	public static native void nglClearColor(float red, float green, float blue, float alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearColor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the clear value for fixed-point and floating-point color buffers in RGBA mode. The specified components are stored as floating-point values.
 	 *
 	 * @param red   the value to which to clear the R channel of the color buffer
@@ -1111,60 +1029,37 @@ public class GL11 {
 	 * @param blue  the value to which to clear the B channel of the color buffer
 	 * @param alpha the value to which to clear the A channel of the color buffer
 	 */
-	public static void glClearColor(float red, float green, float blue, float alpha) {
-		nglClearColor(red, green, blue, alpha);
-	}
+	public static native void glClearColor(float red, float green, float blue, float alpha);
 
 	// --- [ glClearDepth ] ---
 
-	/** Unsafe version of: {@link #glClearDepth ClearDepth} */
-	public static native void nglClearDepth(double depth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearDepth.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the depth value used when clearing the depth buffer. When clearing a fixedpoint depth buffer, {@code depth} is clamped to the range [0,1] and
 	 * converted to fixed-point. No conversion is applied when clearing a floating-point depth buffer.
 	 *
 	 * @param depth the value to which to clear the depth buffer
 	 */
-	public static void glClearDepth(double depth) {
-		nglClearDepth(depth);
-	}
+	public static native void glClearDepth(double depth);
 
 	// --- [ glClearIndex ] ---
 
-	/** Unsafe version of: {@link #glClearIndex ClearIndex} */
-	public static native void nglClearIndex(float index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClearIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * sets the clear color index. index is converted to a fixed-point value with unspecified precision to the left of the binary point; the integer part of
 	 * this value is then masked with <code>2<sup>m</sup> &ndash; 1</code>, where {@code m} is the number of bits in a color index value stored in the
 	 * framebuffer.
 	 *
 	 * @param index the value to which to clear the color buffer in color index mode
 	 */
-	public static void glClearIndex(float index) {
-		nglClearIndex(index);
-	}
+	public static native void glClearIndex(float index);
 
 	// --- [ glClearStencil ] ---
 
-	/** Unsafe version of: {@link #glClearStencil ClearStencil} */
-	public static native void nglClearStencil(int s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearStencil.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the value to which to clear the stencil buffer. {@code s} is masked to the number of bitplanes in the stencil buffer.
 	 *
 	 * @param s the value to which to clear the stencil buffer
 	 */
-	public static void glClearStencil(int s) {
-		nglClearStencil(s);
-	}
+	public static native void glClearStencil(int s);
 
 	// --- [ glClipPlane ] ---
 
@@ -1191,147 +1086,91 @@ public class GL11 {
 
 	// --- [ glColor3b ] ---
 
-	/** Unsafe version of: {@link #glColor3b Color3b} */
-	public static native void nglColor3b(byte red, byte green, byte blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the R, G, and B components of the current color. The alpha component is set to 1.0.
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3b(byte red, byte green, byte blue) {
-		nglColor3b(red, green, blue);
-	}
+	public static native void glColor3b(byte red, byte green, byte blue);
 
 	// --- [ glColor3s ] ---
 
-	/** Unsafe version of: {@link #glColor3s Color3s} */
-	public static native void nglColor3s(short red, short green, short blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3s(short red, short green, short blue) {
-		nglColor3s(red, green, blue);
-	}
+	public static native void glColor3s(short red, short green, short blue);
 
 	// --- [ glColor3i ] ---
 
-	/** Unsafe version of: {@link #glColor3i Color3i} */
-	public static native void nglColor3i(int red, int green, int blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3i(int red, int green, int blue) {
-		nglColor3i(red, green, blue);
-	}
+	public static native void glColor3i(int red, int green, int blue);
 
 	// --- [ glColor3f ] ---
 
-	/** Unsafe version of: {@link #glColor3f Color3f} */
-	public static native void nglColor3f(float red, float green, float blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3f(float red, float green, float blue) {
-		nglColor3f(red, green, blue);
-	}
+	public static native void glColor3f(float red, float green, float blue);
 
 	// --- [ glColor3d ] ---
 
-	/** Unsafe version of: {@link #glColor3d Color3d} */
-	public static native void nglColor3d(double red, double green, double blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3d(double red, double green, double blue) {
-		nglColor3d(red, green, blue);
-	}
+	public static native void glColor3d(double red, double green, double blue);
 
 	// --- [ glColor3ub ] ---
 
-	/** Unsafe version of: {@link #glColor3ub Color3ub} */
-	public static native void nglColor3ub(byte red, byte green, byte blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3ub(byte red, byte green, byte blue) {
-		nglColor3ub(red, green, blue);
-	}
+	public static native void glColor3ub(byte red, byte green, byte blue);
 
 	// --- [ glColor3us ] ---
 
-	/** Unsafe version of: {@link #glColor3us Color3us} */
-	public static native void nglColor3us(short red, short green, short blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned short version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3us(short red, short green, short blue) {
-		nglColor3us(red, green, blue);
-	}
+	public static native void glColor3us(short red, short green, short blue);
 
 	// --- [ glColor3ui ] ---
 
-	/** Unsafe version of: {@link #glColor3ui Color3ui} */
-	public static native void nglColor3ui(int red, int green, int blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned int version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
-	public static void glColor3ui(int red, int green, int blue) {
-		nglColor3ui(red, green, blue);
-	}
+	public static native void glColor3ui(int red, int green, int blue);
 
 	// --- [ glColor3bv ] ---
 
@@ -1479,12 +1318,7 @@ public class GL11 {
 
 	// --- [ glColor4b ] ---
 
-	/** Unsafe version of: {@link #glColor4b Color4b} */
-	public static native void nglColor4b(byte red, byte green, byte blue, byte alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current color.
 	 *
 	 * @param red   the red component of the current color
@@ -1492,18 +1326,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4b(byte red, byte green, byte blue, byte alpha) {
-		nglColor4b(red, green, blue, alpha);
-	}
+	public static native void glColor4b(byte red, byte green, byte blue, byte alpha);
 
 	// --- [ glColor4s ] ---
 
-	/** Unsafe version of: {@link #glColor4s Color4s} */
-	public static native void nglColor4s(short red, short green, short blue, short alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1511,18 +1338,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4s(short red, short green, short blue, short alpha) {
-		nglColor4s(red, green, blue, alpha);
-	}
+	public static native void glColor4s(short red, short green, short blue, short alpha);
 
 	// --- [ glColor4i ] ---
 
-	/** Unsafe version of: {@link #glColor4i Color4i} */
-	public static native void nglColor4i(int red, int green, int blue, int alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1530,18 +1350,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4i(int red, int green, int blue, int alpha) {
-		nglColor4i(red, green, blue, alpha);
-	}
+	public static native void glColor4i(int red, int green, int blue, int alpha);
 
 	// --- [ glColor4f ] ---
 
-	/** Unsafe version of: {@link #glColor4f Color4f} */
-	public static native void nglColor4f(float red, float green, float blue, float alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1549,18 +1362,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4f(float red, float green, float blue, float alpha) {
-		nglColor4f(red, green, blue, alpha);
-	}
+	public static native void glColor4f(float red, float green, float blue, float alpha);
 
 	// --- [ glColor4d ] ---
 
-	/** Unsafe version of: {@link #glColor4d Color4d} */
-	public static native void nglColor4d(double red, double green, double blue, double alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1568,18 +1374,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4d(double red, double green, double blue, double alpha) {
-		nglColor4d(red, green, blue, alpha);
-	}
+	public static native void glColor4d(double red, double green, double blue, double alpha);
 
 	// --- [ glColor4ub ] ---
 
-	/** Unsafe version of: {@link #glColor4ub Color4ub} */
-	public static native void nglColor4ub(byte red, byte green, byte blue, byte alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1587,18 +1386,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4ub(byte red, byte green, byte blue, byte alpha) {
-		nglColor4ub(red, green, blue, alpha);
-	}
+	public static native void glColor4ub(byte red, byte green, byte blue, byte alpha);
 
 	// --- [ glColor4us ] ---
 
-	/** Unsafe version of: {@link #glColor4us Color4us} */
-	public static native void nglColor4us(short red, short green, short blue, short alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned short version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1606,18 +1398,11 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4us(short red, short green, short blue, short alpha) {
-		nglColor4us(red, green, blue, alpha);
-	}
+	public static native void glColor4us(short red, short green, short blue, short alpha);
 
 	// --- [ glColor4ui ] ---
 
-	/** Unsafe version of: {@link #glColor4ui Color4ui} */
-	public static native void nglColor4ui(int red, int green, int blue, int alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned int version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
@@ -1625,9 +1410,7 @@ public class GL11 {
 	 * @param blue  the blue component of the current color
 	 * @param alpha the alpha component of the current color
 	 */
-	public static void glColor4ui(int red, int green, int blue, int alpha) {
-		nglColor4ui(red, green, blue, alpha);
-	}
+	public static native void glColor4ui(int red, int green, int blue, int alpha);
 
 	// --- [ glColor4bv ] ---
 
@@ -1775,12 +1558,7 @@ public class GL11 {
 
 	// --- [ glColorMask ] ---
 
-	/** Unsafe version of: {@link #glColorMask ColorMask} */
-	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorMask.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Masks the writing of R, G, B and A values to all draw buffers. In the initial state, all color values are enabled for writing for all draw buffers.
 	 *
 	 * @param red   whether R values are written or not
@@ -1788,18 +1566,11 @@ public class GL11 {
 	 * @param blue  whether B values are written or not
 	 * @param alpha whether A values are written or not
 	 */
-	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
-		nglColorMask(red, green, blue, alpha);
-	}
+	public static native void glColorMask(boolean red, boolean green, boolean blue, boolean alpha);
 
 	// --- [ glColorMaterial ] ---
 
-	/** Unsafe version of: {@link #glColorMaterial ColorMaterial} */
-	public static native void nglColorMaterial(int face, int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * It is possible to attach one or more material properties to the current color, so that they continuously track its component values. This behavior is
 	 * enabled and disabled by calling {@link #glEnable Enable} or {@link #glDisable Disable} with the symbolic value {@link #GL_COLOR_MATERIAL COLOR_MATERIAL}. This function controls which
 	 * of these modes is selected.
@@ -1807,9 +1578,7 @@ public class GL11 {
 	 * @param face specifies which material face is affected by the current color. One of:<br><table><tr><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td><td>{@link #GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
 	 * @param mode specifies which material property or properties track the current color. One of:<br><table><tr><td>{@link #GL_EMISSION EMISSION}</td><td>{@link #GL_AMBIENT AMBIENT}</td><td>{@link #GL_DIFFUSE DIFFUSE}</td><td>{@link #GL_SPECULAR SPECULAR}</td><td>{@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}</td></tr></table>
 	 */
-	public static void glColorMaterial(int face, int mode) {
-		nglColorMaterial(face, mode);
-	}
+	public static native void glColorMaterial(int face, int mode);
 
 	// --- [ glColorPointer ] ---
 
@@ -1888,12 +1657,7 @@ public class GL11 {
 
 	// --- [ glCopyPixels ] ---
 
-	/** Unsafe version of: {@link #glCopyPixels CopyPixels} */
-	public static native void nglCopyPixels(int x, int y, int width, int height, int type);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyPixels.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Transfers a rectangle of pixel values from one region of the read framebuffer to another in the draw framebuffer
 	 *
 	 * @param x      the left framebuffer pixel coordinate
@@ -1902,119 +1666,70 @@ public class GL11 {
 	 * @param height the rectangle height
 	 * @param type   Indicates the type of values to be transfered. One of:<br><table><tr><td>{@link #GL_COLOR COLOR}</td><td>{@link #GL_STENCIL STENCIL}</td><td>{@link #GL_DEPTH DEPTH}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td></tr></table>
 	 */
-	public static void glCopyPixels(int x, int y, int width, int height, int type) {
-		nglCopyPixels(x, y, width, height, type);
-	}
+	public static native void glCopyPixels(int x, int y, int width, int height, int type);
 
 	// --- [ glCullFace ] ---
 
-	/** Unsafe version of: {@link #glCullFace CullFace} */
-	public static native void nglCullFace(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCullFace.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies which polygon faces are culled if {@link #GL_CULL_FACE CULL_FACE} is enabled. Front-facing polygons are rasterized if either culling is disabled or the
 	 * CullFace mode is {@link #GL_BACK BACK} while back-facing polygons are rasterized only if either culling is disabled or the CullFace mode is
 	 * {@link #GL_FRONT FRONT}. The initial setting of the CullFace mode is {@link #GL_BACK BACK}. Initially, culling is disabled.
 	 *
 	 * @param mode the CullFace mode. One of:<br><table><tr><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td><td>{@link #GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
 	 */
-	public static void glCullFace(int mode) {
-		nglCullFace(mode);
-	}
+	public static native void glCullFace(int mode);
 
 	// --- [ glDeleteLists ] ---
 
-	/** Unsafe version of: {@link #glDeleteLists DeleteLists} */
-	public static native void nglDeleteLists(int list, int range);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDeleteLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Deletes a contiguous group of display lists. All information about the display lists is lost, and the indices become unused. Indices to which no display
 	 * list corresponds are ignored. If {@code range} is zero, nothing happens.
 	 *
 	 * @param list  the index of the first display list to be deleted
 	 * @param range the number of display lists to be deleted
 	 */
-	public static void glDeleteLists(int list, int range) {
-		nglDeleteLists(list, range);
-	}
+	public static native void glDeleteLists(int list, int range);
 
 	// --- [ glDepthFunc ] ---
 
-	/** Unsafe version of: {@link #glDepthFunc DepthFunc} */
-	public static native void nglDepthFunc(int func);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthFunc.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the comparison that takes place during the depth buffer test (when {@link #GL_DEPTH_TEST DEPTH_TEST} is enabled).
 	 *
 	 * @param func the depth test comparison. One of:<br><table><tr><td>{@link #GL_NEVER NEVER}</td><td>{@link #GL_ALWAYS ALWAYS}</td><td>{@link #GL_LESS LESS}</td><td>{@link #GL_LEQUAL LEQUAL}</td><td>{@link #GL_EQUAL EQUAL}</td><td>{@link #GL_GREATER GREATER}</td><td>{@link #GL_GEQUAL GEQUAL}</td><td>{@link #GL_NOTEQUAL NOTEQUAL}</td></tr></table>
 	 */
-	public static void glDepthFunc(int func) {
-		nglDepthFunc(func);
-	}
+	public static native void glDepthFunc(int func);
 
 	// --- [ glDepthMask ] ---
 
-	/** Unsafe version of: {@link #glDepthMask DepthMask} */
-	public static native void nglDepthMask(boolean flag);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthMask.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Masks the writing of depth values to the depth buffer. In the initial state, the depth buffer is enabled for writing.
 	 *
 	 * @param flag whether depth values are written or not.
 	 */
-	public static void glDepthMask(boolean flag) {
-		nglDepthMask(flag);
-	}
+	public static native void glDepthMask(boolean flag);
 
 	// --- [ glDepthRange ] ---
 
-	/** Unsafe version of: {@link #glDepthRange DepthRange} */
-	public static native void nglDepthRange(double zNear, double zFar);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the depth range for all viewports to the same values.
 	 *
 	 * @param zNear the near depth range
 	 * @param zFar  the far depth range
 	 */
-	public static void glDepthRange(double zNear, double zFar) {
-		nglDepthRange(zNear, zFar);
-	}
+	public static native void glDepthRange(double zNear, double zFar);
 
 	// --- [ glDisableClientState ] ---
 
-	/** Unsafe version of: {@link #glDisableClientState DisableClientState} */
-	public static native void nglDisableClientState(int array);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDisableClientState.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Disables the specified fixed-function attribute array.
 	 *
 	 * @param array the attribute array to disable. One of:<br><table><tr><td>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}</td><td>{@link #GL_NORMAL_ARRAY NORMAL_ARRAY}</td><td>{@link #GL_COLOR_ARRAY COLOR_ARRAY}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}</td><td>{@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}</td></tr><tr><td>{@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}</td><td>{@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}</td></tr></table>
 	 */
-	public static void glDisableClientState(int array) {
-		nglDisableClientState(array);
-	}
+	public static native void glDisableClientState(int array);
 
 	// --- [ glDrawArrays ] ---
 
-	/** Unsafe version of: {@link #glDrawArrays DrawArrays} */
-	public static native void nglDrawArrays(int mode, int first, int count);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArrays.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices. Elements {@code first} through
 	 * <code>first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
 	 * 
@@ -2025,18 +1740,11 @@ public class GL11 {
 	 * @param first the first vertex to transfer to the GL
 	 * @param count the number of vertices after {@code first} to transfer to the GL
 	 */
-	public static void glDrawArrays(int mode, int first, int count) {
-		nglDrawArrays(mode, first, count);
-	}
+	public static native void glDrawArrays(int mode, int first, int count);
 
 	// --- [ glDrawBuffer ] ---
 
-	/** Unsafe version of: {@link #glDrawBuffer DrawBuffer} */
-	public static native void nglDrawBuffer(int buf);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines the color buffer to which fragment color zero is written.
 	 * 
 	 * <p>Acceptable values for {@code buf} depend on whether the GL is using the default framebuffer (i.e., {@link GL30#GL_DRAW_FRAMEBUFFER_BINDING DRAW_FRAMEBUFFER_BINDING} is zero), or
@@ -2044,9 +1752,7 @@ public class GL11 {
 	 *
 	 * @param buf the color buffer to draw to. One of:<br><table><tr><td>{@link #GL_NONE NONE}</td><td>{@link #GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link #GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link #GL_BACK_LEFT BACK_LEFT}</td><td>{@link #GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td><td>{@link #GL_LEFT LEFT}</td></tr><tr><td>{@link #GL_RIGHT RIGHT}</td><td>{@link #GL_FRONT_AND_BACK FRONT_AND_BACK}</td><td>{@link #GL_AUX0 AUX0}</td><td>{@link #GL_AUX1 AUX1}</td><td>{@link #GL_AUX2 AUX2}</td><td>{@link #GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
 	 */
-	public static void glDrawBuffer(int buf) {
-		nglDrawBuffer(buf);
-	}
+	public static native void glDrawBuffer(int buf);
 
 	// --- [ glDrawElements ] ---
 
@@ -2213,12 +1919,7 @@ public class GL11 {
 
 	// --- [ glEdgeFlag ] ---
 
-	/** Unsafe version of: {@link #glEdgeFlag EdgeFlag} */
-	public static native void nglEdgeFlag(boolean flag);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlag.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Each edge of each polygon primitive generated is flagged as either boundary or non-boundary. These classifications are used during polygon
 	 * rasterization; some modes affect the interpretation of polygon boundary edges. By default, all edges are boundary edges, but the flagging of polygons,
 	 * separate triangles, or separate quadrilaterals may be altered by calling this function.
@@ -2229,9 +1930,7 @@ public class GL11 {
 	 *
 	 * @param flag the edge flag bit
 	 */
-	public static void glEdgeFlag(boolean flag) {
-		nglEdgeFlag(flag);
-	}
+	public static native void glEdgeFlag(boolean flag);
 
 	// --- [ glEdgeFlagv ] ---
 
@@ -2282,49 +1981,26 @@ public class GL11 {
 
 	// --- [ glEnableClientState ] ---
 
-	/** Unsafe version of: {@link #glEnableClientState EnableClientState} */
-	public static native void nglEnableClientState(int array);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEnableClientState.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Enables the specified fixed-function attribute array.
 	 *
 	 * @param array the attribute array to enable. One of:<br><table><tr><td>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}</td><td>{@link #GL_NORMAL_ARRAY NORMAL_ARRAY}</td><td>{@link #GL_COLOR_ARRAY COLOR_ARRAY}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}</td><td>{@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}</td></tr><tr><td>{@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}</td><td>{@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}</td></tr></table>
 	 */
-	public static void glEnableClientState(int array) {
-		nglEnableClientState(array);
-	}
+	public static native void glEnableClientState(int array);
 
 	// --- [ glEnd ] ---
 
-	/** Unsafe version of: {@link #glEnd End} */
-	public static native void nglEnd();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEnd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Ends the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
-	 */
-	public static void glEnd() {
-		nglEnd();
-	}
+	/** Ends the definition of vertex attributes of a sequence of primitives to be transferred to the GL. */
+	public static native void glEnd();
 
 	// --- [ glEvalCoord1f ] ---
 
-	/** Unsafe version of: {@link #glEvalCoord1f EvalCoord1f} */
-	public static native void nglEvalCoord1f(float u);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Causes evaluation of the enabled one-dimensional evaluator maps.
 	 *
 	 * @param u the domain coordinate u
 	 */
-	public static void glEvalCoord1f(float u) {
-		nglEvalCoord1f(u);
-	}
+	public static native void glEvalCoord1f(float u);
 
 	// --- [ glEvalCoord1fv ] ---
 
@@ -2346,19 +2022,12 @@ public class GL11 {
 
 	// --- [ glEvalCoord1d ] ---
 
-	/** Unsafe version of: {@link #glEvalCoord1d EvalCoord1d} */
-	public static native void nglEvalCoord1d(double u);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
 	 * @param u the domain coordinate u
 	 */
-	public static void glEvalCoord1d(double u) {
-		nglEvalCoord1d(u);
-	}
+	public static native void glEvalCoord1d(double u);
 
 	// --- [ glEvalCoord1dv ] ---
 
@@ -2380,20 +2049,13 @@ public class GL11 {
 
 	// --- [ glEvalCoord2f ] ---
 
-	/** Unsafe version of: {@link #glEvalCoord2f EvalCoord2f} */
-	public static native void nglEvalCoord2f(float u, float v);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Causes evaluation of the enabled two-dimensional evaluator maps.
 	 *
 	 * @param u the domain coordinate u
 	 * @param v the domain coordinate v
 	 */
-	public static void glEvalCoord2f(float u, float v) {
-		nglEvalCoord2f(u, v);
-	}
+	public static native void glEvalCoord2f(float u, float v);
 
 	// --- [ glEvalCoord2fv ] ---
 
@@ -2415,20 +2077,13 @@ public class GL11 {
 
 	// --- [ glEvalCoord2d ] ---
 
-	/** Unsafe version of: {@link #glEvalCoord2d EvalCoord2d} */
-	public static native void nglEvalCoord2d(double u, double v);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
 	 * @param u the domain coordinate u
 	 * @param v the domain coordinate v
 	 */
-	public static void glEvalCoord2d(double u, double v) {
-		nglEvalCoord2d(u, v);
-	}
+	public static native void glEvalCoord2d(double u, double v);
 
 	// --- [ glEvalCoord2dv ] ---
 
@@ -2450,30 +2105,18 @@ public class GL11 {
 
 	// --- [ glEvalMesh1 ] ---
 
-	/** Unsafe version of: {@link #glEvalMesh1 EvalMesh1} */
-	public static native void nglEvalMesh1(int mode, int i1, int i2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalMesh1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Carries out an evaluation on a subset of the one-dimensional map grid.
 	 *
 	 * @param mode the mesh type. One of:<br><table><tr><td>{@link #GL_POINT POINT}</td><td>{@link #GL_LINE LINE}</td></tr></table>
 	 * @param i1   the start index
 	 * @param i2   the end index
 	 */
-	public static void glEvalMesh1(int mode, int i1, int i2) {
-		nglEvalMesh1(mode, i1, i2);
-	}
+	public static native void glEvalMesh1(int mode, int i1, int i2);
 
 	// --- [ glEvalMesh2 ] ---
 
-	/** Unsafe version of: {@link #glEvalMesh2 EvalMesh2} */
-	public static native void nglEvalMesh2(int mode, int i1, int i2, int j1, int j2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalMesh2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Carries out an evaluation on a rectangular subset of the two-dimensional map grid.
 	 *
 	 * @param mode the mesh type. One of:<br><table><tr><td>{@link #GL_FILL FILL}</td><td>{@link #GL_LINE LINE}</td><td>{@link #GL_POINT POINT}</td></tr></table>
@@ -2482,42 +2125,26 @@ public class GL11 {
 	 * @param j1   the v-dimension start index
 	 * @param j2   the v-dimension end index
 	 */
-	public static void glEvalMesh2(int mode, int i1, int i2, int j1, int j2) {
-		nglEvalMesh2(mode, i1, i2, j1, j2);
-	}
+	public static native void glEvalMesh2(int mode, int i1, int i2, int j1, int j2);
 
 	// --- [ glEvalPoint1 ] ---
 
-	/** Unsafe version of: {@link #glEvalPoint1 EvalPoint1} */
-	public static native void nglEvalPoint1(int i);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalPoint1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Carries out an evalutation of a single point on the one-dimensional map grid.
 	 *
 	 * @param i the grid index
 	 */
-	public static void glEvalPoint1(int i) {
-		nglEvalPoint1(i);
-	}
+	public static native void glEvalPoint1(int i);
 
 	// --- [ glEvalPoint2 ] ---
 
-	/** Unsafe version of: {@link #glEvalPoint2 EvalPoint2} */
-	public static native void nglEvalPoint2(int i, int j);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalPoint2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Carries out an evalutation of a single point on the two-dimensional map grid.
 	 *
 	 * @param i the u-dimension grid index
 	 * @param j the v-dimension grid index
 	 */
-	public static void glEvalPoint2(int i, int j) {
-		nglEvalPoint2(i, j);
-	}
+	public static native void glEvalPoint2(int i, int j);
 
 	// --- [ glFeedbackBuffer ] ---
 
@@ -2542,49 +2169,26 @@ public class GL11 {
 
 	// --- [ glFinish ] ---
 
-	/** Unsafe version of: {@link #glFinish Finish} */
-	public static native void nglFinish();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFinish.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Forces all previously issued GL commands to complete. {@code Finish} does not return until all effects from such commands on GL client and server
 	 * state and the framebuffer are fully realized.
 	 */
-	public static void glFinish() {
-		nglFinish();
-	}
+	public static native void glFinish();
 
 	// --- [ glFlush ] ---
 
-	/** Unsafe version of: {@link #glFlush Flush} */
-	public static native void nglFlush();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlush.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Causes all previously issued GL commands to complete in finite time (although such commands may still be executing when {@code Flush} returns).
-	 */
-	public static void glFlush() {
-		nglFlush();
-	}
+	/** Causes all previously issued GL commands to complete in finite time (although such commands may still be executing when {@code Flush} returns). */
+	public static native void glFlush();
 
 	// --- [ glFogi ] ---
 
-	/** Unsafe version of: {@link #glFogi Fogi} */
-	public static native void nglFogi(int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the integer value of a fog parameter.
 	 *
 	 * @param pname the fog parameter. One of:<br><table><tr><td>{@link #GL_FOG_MODE FOG_MODE}</td><td>{@link GL15#GL_FOG_COORD_SRC FOG_COORD_SRC}</td></tr></table>
 	 * @param param the fog parameter value. One of:<br><table><tr><td>{@link #GL_EXP EXP}</td><td>{@link #GL_EXP2 EXP2}</td><td>{@link #GL_LINEAR LINEAR}</td><td>{@link GL14#GL_FRAGMENT_DEPTH FRAGMENT_DEPTH}</td><td>{@link GL15#GL_FOG_COORD FOG_COORD}</td></tr></table>
 	 */
-	public static void glFogi(int pname, int param) {
-		nglFogi(pname, param);
-	}
+	public static native void glFogi(int pname, int param);
 
 	// --- [ glFogiv ] ---
 
@@ -2607,20 +2211,13 @@ public class GL11 {
 
 	// --- [ glFogf ] ---
 
-	/** Unsafe version of: {@link #glFogf Fogf} */
-	public static native void nglFogf(int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the float value of a fog parameter.
 	 *
 	 * @param pname the fog parameter. One of:<br><table><tr><td>{@link #GL_FOG_DENSITY FOG_DENSITY}</td><td>{@link #GL_FOG_START FOG_START}</td><td>{@link #GL_FOG_END FOG_END}</td></tr></table>
 	 * @param param the fog parameter value
 	 */
-	public static void glFogf(int pname, float param) {
-		nglFogf(pname, param);
-	}
+	public static native void glFogf(int pname, float param);
 
 	// --- [ glFogfv ] ---
 
@@ -2643,30 +2240,18 @@ public class GL11 {
 
 	// --- [ glFrontFace ] ---
 
-	/** Unsafe version of: {@link #glFrontFace FrontFace} */
-	public static native void nglFrontFace(int dir);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFrontFace.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * The first step of polygon rasterization is to determine if the polygon is back-facing or front-facing. This determination is made based on the sign of
 	 * the (clipped or unclipped) polygon's area computed in window coordinates. The interpretation of the sign of this value is controlled with this function.
 	 * In the initial state, the front face direction is set to {@link #GL_CCW CCW}.
 	 *
 	 * @param dir the front face direction. One of:<br><table><tr><td>{@link #GL_CCW CCW}</td><td>{@link #GL_CW CW}</td></tr></table>
 	 */
-	public static void glFrontFace(int dir) {
-		nglFrontFace(dir);
-	}
+	public static native void glFrontFace(int dir);
 
 	// --- [ glGenLists ] ---
 
-	/** Unsafe version of: {@link #glGenLists GenLists} */
-	public static native int nglGenLists(int s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGenLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Returns an integer n such that the indices {@code n,..., n + s - 1} are previously unused (i.e. there are {@code s} previously unused display list
 	 * indices starting at n). {@code GenLists} also has the effect of creating an empty display list for each of the indices {@code n,..., n + s - 1}, so
 	 * that these indices all become used. {@code GenLists} returns zero if there is no group of {@code s} contiguous previously unused display list indices,
@@ -2674,9 +2259,7 @@ public class GL11 {
 	 *
 	 * @param s the number of display lists to create
 	 */
-	public static int glGenLists(int s) {
-		return nglGenLists(s);
-	}
+	public static native int glGenLists(int s);
 
 	// --- [ glGenTextures ] ---
 
@@ -2965,20 +2548,13 @@ public class GL11 {
 
 	// --- [ glGetError ] ---
 
-	/** Unsafe version of: {@link #glGetError GetError} */
-	public static native int nglGetError();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetError.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Returns error information. Each detectable error is assigned a numeric code. When an error is detected, a flag is set and the code is recorded. Further
 	 * errors, if they occur, do not affect this recorded code. When {@code GetError} is called, the code is returned and the flag is cleared, so that a
 	 * further error will again record its code. If a call to {@code GetError} returns {@link #GL_NO_ERROR NO_ERROR}, then there has been no detectable error since
 	 * the last call to {@code GetError} (or since the GL was initialized).
 	 */
-	public static int glGetError() {
-		return nglGetError();
-	}
+	public static native int glGetError();
 
 	// --- [ glGetLightiv ] ---
 
@@ -3843,101 +3419,59 @@ public class GL11 {
 
 	// --- [ glHint ] ---
 
-	/** Unsafe version of: {@link #glHint Hint} */
-	public static native void nglHint(int target, int hint);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glHint.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Certain aspects of GL behavior, when there is room for variation, may be controlled with this function. The initial value for all hints is
 	 * {@link #GL_DONT_CARE DONT_CARE}.
 	 *
 	 * @param target the behavior to control. One of:<br><table><tr><td>{@link #GL_PERSPECTIVE_CORRECTION_HINT PERSPECTIVE_CORRECTION_HINT}</td><td>{@link #GL_POINT_SMOOTH_HINT POINT_SMOOTH_HINT}</td><td>{@link #GL_LINE_SMOOTH_HINT LINE_SMOOTH_HINT}</td><td>{@link #GL_POLYGON_SMOOTH_HINT POLYGON_SMOOTH_HINT}</td></tr><tr><td>{@link #GL_FOG_HINT FOG_HINT}</td><td>{@link GL14#GL_GENERATE_MIPMAP_HINT GENERATE_MIPMAP_HINT}</td><td>{@link GL13#GL_TEXTURE_COMPRESSION_HINT TEXTURE_COMPRESSION_HINT}</td><td>{@link GL20#GL_FRAGMENT_SHADER_DERIVATIVE_HINT FRAGMENT_SHADER_DERIVATIVE_HINT}</td></tr></table>
 	 * @param hint   the behavior hint. One of:<br><table><tr><td>{@link #GL_FASTEST FASTEST}</td><td>{@link #GL_NICEST NICEST}</td><td>{@link #GL_DONT_CARE DONT_CARE}</td></tr></table>
 	 */
-	public static void glHint(int target, int hint) {
-		nglHint(target, hint);
-	}
+	public static native void glHint(int target, int hint);
 
 	// --- [ glIndexi ] ---
 
-	/** Unsafe version of: {@link #glIndexi Indexi} */
-	public static native void nglIndexi(int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Updates the current (single-valued) color index.
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexi(int index) {
-		nglIndexi(index);
-	}
+	public static native void glIndexi(int index);
 
 	// --- [ glIndexub ] ---
 
-	/** Unsafe version of: {@link #glIndexub Indexub} */
-	public static native void nglIndexub(byte index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned byte version of {@link #glIndexi Indexi}.
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexub(byte index) {
-		nglIndexub(index);
-	}
+	public static native void glIndexub(byte index);
 
 	// --- [ glIndexs ] ---
 
-	/** Unsafe version of: {@link #glIndexs Indexs} */
-	public static native void nglIndexs(short index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexs.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glIndexi Indexi}.
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexs(short index) {
-		nglIndexs(index);
-	}
+	public static native void glIndexs(short index);
 
 	// --- [ glIndexf ] ---
 
-	/** Unsafe version of: {@link #glIndexf Indexf} */
-	public static native void nglIndexf(float index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glIndexi Indexi}.
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexf(float index) {
-		nglIndexf(index);
-	}
+	public static native void glIndexf(float index);
 
 	// --- [ glIndexd ] ---
 
-	/** Unsafe version of: {@link #glIndexd Indexd} */
-	public static native void nglIndexd(double index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glIndexi Indexi}.
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexd(double index) {
-		nglIndexd(index);
-	}
+	public static native void glIndexd(double index);
 
 	// --- [ glIndexiv ] ---
 
@@ -4031,21 +3565,14 @@ public class GL11 {
 
 	// --- [ glIndexMask ] ---
 
-	/** Unsafe version of: {@link #glIndexMask IndexMask} */
-	public static native void nglIndexMask(int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexMask.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * The least significant n bits of mask, where n is the number of bits in a color index buffer, specify a mask. Where a 1 appears in this mask, the
 	 * corresponding bit in the color index buffer (or buffers) is written; where a 0 appears, the bit is not written. This mask applies only in color index
 	 * mode.
 	 *
 	 * @param mask the color index mask value
 	 */
-	public static void glIndexMask(int mask) {
-		nglIndexMask(mask);
-	}
+	public static native void glIndexMask(int mask);
 
 	// --- [ glIndexPointer ] ---
 
@@ -4120,17 +3647,8 @@ public class GL11 {
 
 	// --- [ glInitNames ] ---
 
-	/** Unsafe version of: {@link #glInitNames InitNames} */
-	public static native void nglInitNames();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glInitNames.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Clears the selection name stack.
-	 */
-	public static void glInitNames() {
-		nglInitNames();
-	}
+	/** Clears the selection name stack. */
+	public static native void glInitNames();
 
 	// --- [ glInterleavedArrays ] ---
 
@@ -4217,85 +3735,50 @@ public class GL11 {
 
 	// --- [ glIsEnabled ] ---
 
-	/** Unsafe version of: {@link #glIsEnabled IsEnabled} */
-	public static native boolean nglIsEnabled(int cap);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabled.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable Enable}) or disabled.
 	 *
 	 * @param cap the enable state to query
 	 */
-	public static boolean glIsEnabled(int cap) {
-		return nglIsEnabled(cap);
-	}
+	public static native boolean glIsEnabled(int cap);
 
 	// --- [ glIsList ] ---
 
-	/** Unsafe version of: {@link #glIsList IsList} */
-	public static native boolean nglIsList(int list);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIsList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Returns true if the {@code list} is the index of some display list.
 	 *
 	 * @param list the list index to query
 	 */
-	public static boolean glIsList(int list) {
-		return nglIsList(list);
-	}
+	public static native boolean glIsList(int list);
 
 	// --- [ glIsTexture ] ---
 
-	/** Unsafe version of: {@link #glIsTexture IsTexture} */
-	public static native boolean nglIsTexture(int texture);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTexture.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Returns true if {@code texture} is the name of a texture object.
 	 *
 	 * @param texture the texture name to query
 	 */
-	public static boolean glIsTexture(int texture) {
-		return nglIsTexture(texture);
-	}
+	public static native boolean glIsTexture(int texture);
 
 	// --- [ glLightModeli ] ---
 
-	/** Unsafe version of: {@link #glLightModeli LightModeli} */
-	public static native void nglLightModeli(int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModeli.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Set the integer value of a lighting model parameter.
 	 *
 	 * @param pname the lighting model parameter to set. One of:<br><table><tr><td>{@link #GL_LIGHT_MODEL_AMBIENT LIGHT_MODEL_AMBIENT}</td><td>{@link #GL_LIGHT_MODEL_LOCAL_VIEWER LIGHT_MODEL_LOCAL_VIEWER}</td><td>{@link #GL_LIGHT_MODEL_TWO_SIDE LIGHT_MODEL_TWO_SIDE}</td></tr><tr><td>{@link GL12#GL_LIGHT_MODEL_COLOR_CONTROL LIGHT_MODEL_COLOR_CONTROL}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glLightModeli(int pname, int param) {
-		nglLightModeli(pname, param);
-	}
+	public static native void glLightModeli(int pname, int param);
 
 	// --- [ glLightModelf ] ---
 
-	/** Unsafe version of: {@link #glLightModelf LightModelf} */
-	public static native void nglLightModelf(int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModelf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glLightModeli LightModeli}.
 	 *
 	 * @param pname the lighting model parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glLightModelf(int pname, float param) {
-		nglLightModelf(pname, param);
-	}
+	public static native void glLightModelf(int pname, float param);
 
 	// --- [ glLightModeliv ] ---
 
@@ -4337,39 +3820,25 @@ public class GL11 {
 
 	// --- [ glLighti ] ---
 
-	/** Unsafe version of: {@link #glLighti Lighti} */
-	public static native void nglLighti(int light, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLighti.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the integer value of a light parameter.
 	 *
 	 * @param light the light for which to set the parameter. One of:<br><table><tr><td>{@link #GL_LIGHT0 LIGHT0}</td><td>GL_LIGHT[1-7]</td></tr></table>
 	 * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_AMBIENT AMBIENT}</td><td>{@link #GL_DIFFUSE DIFFUSE}</td><td>{@link #GL_SPECULAR SPECULAR}</td><td>{@link #GL_POSITION POSITION}</td><td>{@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}</td><td>{@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}</td></tr><tr><td>{@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}</td><td>{@link #GL_SPOT_DIRECTION SPOT_DIRECTION}</td><td>{@link #GL_SPOT_EXPONENT SPOT_EXPONENT}</td><td>{@link #GL_SPOT_CUTOFF SPOT_CUTOFF}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glLighti(int light, int pname, int param) {
-		nglLighti(light, pname, param);
-	}
+	public static native void glLighti(int light, int pname, int param);
 
 	// --- [ glLightf ] ---
 
-	/** Unsafe version of: {@link #glLightf Lightf} */
-	public static native void nglLightf(int light, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glLighti Lighti}.
 	 *
 	 * @param light the light for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glLightf(int light, int pname, float param) {
-		nglLightf(light, pname, param);
-	}
+	public static native void glLightf(int light, int pname, float param);
 
 	// --- [ glLightiv ] ---
 
@@ -4413,12 +3882,7 @@ public class GL11 {
 
 	// --- [ glLineStipple ] ---
 
-	/** Unsafe version of: {@link #glLineStipple LineStipple} */
-	public static native void nglLineStipple(int factor, short pattern);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLineStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Defines a line stipple. It determines those fragments that are to be drawn when the line is rasterized. Line stippling may be enabled or disabled using
 	 * {@link #glEnable Enable} or {@link #glDisable Disable} with the constant {@link #GL_LINE_STIPPLE LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
 	 *
@@ -4426,41 +3890,25 @@ public class GL11 {
 	 *                to the range [1, 256].
 	 * @param pattern an unsigned short integer whose 16 bits define the stipple pattern
 	 */
-	public static void glLineStipple(int factor, short pattern) {
-		nglLineStipple(factor, pattern);
-	}
+	public static native void glLineStipple(int factor, short pattern);
 
 	// --- [ glLineWidth ] ---
 
-	/** Unsafe version of: {@link #glLineWidth LineWidth} */
-	public static native void nglLineWidth(float width);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLineWidth.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the width of rasterized line segments. The default width is 1.0.
 	 *
 	 * @param width the line width
 	 */
-	public static void glLineWidth(float width) {
-		nglLineWidth(width);
-	}
+	public static native void glLineWidth(float width);
 
 	// --- [ glListBase ] ---
 
-	/** Unsafe version of: {@link #glListBase ListBase} */
-	public static native void nglListBase(int base);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glListBase.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the display list base.
 	 *
 	 * @param base the display list base offset
 	 */
-	public static void glListBase(int base) {
-		nglListBase(base);
-	}
+	public static native void glListBase(int base);
 
 	// --- [ glLoadMatrixf ] ---
 
@@ -4512,12 +3960,7 @@ public class GL11 {
 
 	// --- [ glLoadIdentity ] ---
 
-	/** Unsafe version of: {@link #glLoadIdentity LoadIdentity} */
-	public static native void nglLoadIdentity();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadIdentity.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current matrix to the identity matrix.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glLoadMatrixf LoadMatrixf} with the following matrix:</p>
@@ -4529,41 +3972,25 @@ public class GL11 {
 	 * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
 	 * </table>
 	 */
-	public static void glLoadIdentity() {
-		nglLoadIdentity();
-	}
+	public static native void glLoadIdentity();
 
 	// --- [ glLoadName ] ---
 
-	/** Unsafe version of: {@link #glLoadName LoadName} */
-	public static native void nglLoadName(int name);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Replaces the value on the top of the selection stack with {@code name}.
 	 *
 	 * @param name the name to load
 	 */
-	public static void glLoadName(int name) {
-		nglLoadName(name);
-	}
+	public static native void glLoadName(int name);
 
 	// --- [ glLogicOp ] ---
 
-	/** Unsafe version of: {@link #glLogicOp LogicOp} */
-	public static native void nglLogicOp(int op);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLogicOp.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the logical framebuffer operation.
 	 *
 	 * @param op the operation to set. One of:<br><table><tr><td>{@link #GL_CLEAR CLEAR}</td><td>{@link #GL_AND AND}</td><td>{@link #GL_AND_REVERSE AND_REVERSE}</td><td>{@link #GL_COPY COPY}</td><td>{@link #GL_AND_INVERTED AND_INVERTED}</td><td>{@link #GL_NOOP NOOP}</td><td>{@link #GL_XOR XOR}</td><td>{@link #GL_OR OR}</td><td>{@link #GL_NOR NOR}</td><td>{@link #GL_EQUIV EQUIV}</td><td>{@link #GL_INVERT INVERT}</td><td>{@link #GL_OR_REVERSE OR_REVERSE}</td><td>{@link #GL_COPY_INVERTED COPY_INVERTED}</td></tr><tr><td>{@link #GL_OR_INVERTED OR_INVERTED}</td><td>{@link #GL_NAND NAND}</td><td>{@link #GL_SET SET}</td></tr></table>
 	 */
-	public static void glLogicOp(int op) {
-		nglLogicOp(op);
-	}
+	public static native void glLogicOp(int op);
 
 	// --- [ glMap1f ] ---
 
@@ -4668,48 +4095,29 @@ public class GL11 {
 
 	// --- [ glMapGrid1f ] ---
 
-	/** Unsafe version of: {@link #glMapGrid1f MapGrid1f} */
-	public static native void nglMapGrid1f(int n, float u1, float u2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Defines a one-dimensional grid in the map evaluator domain.
 	 *
 	 * @param n  the number of partitions of the interval
 	 * @param u1 the first interval endpoint
 	 * @param u2 the second interval endpoint
 	 */
-	public static void glMapGrid1f(int n, float u1, float u2) {
-		nglMapGrid1f(n, u1, u2);
-	}
+	public static native void glMapGrid1f(int n, float u1, float u2);
 
 	// --- [ glMapGrid1d ] ---
 
-	/** Unsafe version of: {@link #glMapGrid1d MapGrid1d} */
-	public static native void nglMapGrid1d(int n, double u1, double u2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glMapGrid1f MapGrid1f}.
 	 *
 	 * @param n  the number of partitions of the interval
 	 * @param u1 the first interval endpoint
 	 * @param u2 the second interval endpoint
 	 */
-	public static void glMapGrid1d(int n, double u1, double u2) {
-		nglMapGrid1d(n, u1, u2);
-	}
+	public static native void glMapGrid1d(int n, double u1, double u2);
 
 	// --- [ glMapGrid2f ] ---
 
-	/** Unsafe version of: {@link #glMapGrid2f MapGrid2f} */
-	public static native void nglMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Defines a two-dimensional grid in the map evaluator domain.
 	 *
 	 * @param un the number of partitions of the interval in the u-dimension
@@ -4719,18 +4127,11 @@ public class GL11 {
 	 * @param v1 the first v-dimension interval endpoint
 	 * @param v2 the second v-dimension interval endpoint
 	 */
-	public static void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2) {
-		nglMapGrid2f(un, u1, u2, vn, v1, v2);
-	}
+	public static native void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2);
 
 	// --- [ glMapGrid2d ] ---
 
-	/** Unsafe version of: {@link #glMapGrid2d MapGrid2d} */
-	public static native void nglMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glMapGrid2f MapGrid2f}.
 	 *
 	 * @param un the number of partitions of the interval in the u-dimension
@@ -4740,45 +4141,29 @@ public class GL11 {
 	 * @param v1 the first v-dimension interval endpoint
 	 * @param v2 the second v-dimension interval endpoint
 	 */
-	public static void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2) {
-		nglMapGrid2d(un, u1, u2, vn, v1, v2);
-	}
+	public static native void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2);
 
 	// --- [ glMateriali ] ---
 
-	/** Unsafe version of: {@link #glMateriali Materiali} */
-	public static native void nglMateriali(int face, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMateriali.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the integer value of a material parameter.
 	 *
 	 * @param face  the material face for which to set the parameter. One of:<br><table><tr><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td><td>{@link #GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
 	 * @param pname the parameter to set. Must be:<br><table><tr><td>{@link #GL_SHININESS SHININESS}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glMateriali(int face, int pname, int param) {
-		nglMateriali(face, pname, param);
-	}
+	public static native void glMateriali(int face, int pname, int param);
 
 	// --- [ glMaterialf ] ---
 
-	/** Unsafe version of: {@link #glMaterialf Materialf} */
-	public static native void nglMaterialf(int face, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMaterialf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glMateriali Materiali}.
 	 *
 	 * @param face  the material face for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glMaterialf(int face, int pname, float param) {
-		nglMaterialf(face, pname, param);
-	}
+	public static native void glMaterialf(int face, int pname, float param);
 
 	// --- [ glMaterialiv ] ---
 
@@ -4822,19 +4207,12 @@ public class GL11 {
 
 	// --- [ glMatrixMode ] ---
 
-	/** Unsafe version of: {@link #glMatrixMode MatrixMode} */
-	public static native void nglMatrixMode(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMatrixMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Set the current matrix mode.
 	 *
 	 * @param mode the matrix mode. One of:<br><table><tr><td>{@link #GL_MODELVIEW MODELVIEW}</td><td>{@link #GL_PROJECTION PROJECTION}</td><td>{@link #GL_TEXTURE TEXTURE}</td><td>{@link #GL_COLOR COLOR}</td></tr></table>
 	 */
-	public static void glMatrixMode(int mode) {
-		nglMatrixMode(mode);
-	}
+	public static native void glMatrixMode(int mode);
 
 	// --- [ glMultMatrixf ] ---
 
@@ -4874,12 +4252,7 @@ public class GL11 {
 
 	// --- [ glFrustum ] ---
 
-	/** Unsafe version of: {@link #glFrustum Frustum} */
-	public static native void nglFrustum(double l, double r, double b, double t, double n, double f);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFrustum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
 	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
 	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
@@ -4901,131 +4274,80 @@ public class GL11 {
 	 * @param n the near frustum plane
 	 * @param f the far frustum plane
 	 */
-	public static void glFrustum(double l, double r, double b, double t, double n, double f) {
-		nglFrustum(l, r, b, t, n, f);
-	}
+	public static native void glFrustum(double l, double r, double b, double t, double n, double f);
 
 	// --- [ glNewList ] ---
 
-	/** Unsafe version of: {@link #glNewList NewList} */
-	public static native void nglNewList(int n, int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNewList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Begins the definition of a display list.
 	 *
 	 * @param n    a positive integer to which the display list that follows is assigned
 	 * @param mode a symbolic constant that controls the behavior of the GL during display list creation. One of:<br><table><tr><td>{@link #GL_COMPILE COMPILE}</td><td>{@link #GL_COMPILE_AND_EXECUTE COMPILE_AND_EXECUTE}</td></tr></table>
 	 */
-	public static void glNewList(int n, int mode) {
-		nglNewList(n, mode);
-	}
+	public static native void glNewList(int n, int mode);
 
 	// --- [ glEndList ] ---
 
-	/** Unsafe version of: {@link #glEndList EndList} */
-	public static native void nglEndList();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEndList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Ends the definition of GL commands to be placed in a display list. It is only when {@code EndList} occurs that the specified display list is actually
 	 * associated with the index indicated with {@link #glNewList NewList}.
 	 */
-	public static void glEndList() {
-		nglEndList();
-	}
+	public static native void glEndList();
 
 	// --- [ glNormal3f ] ---
 
-	/** Unsafe version of: {@link #glNormal3f Normal3f} */
-	public static native void nglNormal3f(float nx, float ny, float nz);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current normal.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
-	public static void glNormal3f(float nx, float ny, float nz) {
-		nglNormal3f(nx, ny, nz);
-	}
+	public static native void glNormal3f(float nx, float ny, float nz);
 
 	// --- [ glNormal3b ] ---
 
-	/** Unsafe version of: {@link #glNormal3b Normal3b} */
-	public static native void nglNormal3b(byte nx, byte ny, byte nz);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Byte version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
-	public static void glNormal3b(byte nx, byte ny, byte nz) {
-		nglNormal3b(nx, ny, nz);
-	}
+	public static native void glNormal3b(byte nx, byte ny, byte nz);
 
 	// --- [ glNormal3s ] ---
 
-	/** Unsafe version of: {@link #glNormal3s Normal3s} */
-	public static native void nglNormal3s(short nx, short ny, short nz);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
-	public static void glNormal3s(short nx, short ny, short nz) {
-		nglNormal3s(nx, ny, nz);
-	}
+	public static native void glNormal3s(short nx, short ny, short nz);
 
 	// --- [ glNormal3i ] ---
 
-	/** Unsafe version of: {@link #glNormal3i Normal3i} */
-	public static native void nglNormal3i(int nx, int ny, int nz);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
-	public static void glNormal3i(int nx, int ny, int nz) {
-		nglNormal3i(nx, ny, nz);
-	}
+	public static native void glNormal3i(int nx, int ny, int nz);
 
 	// --- [ glNormal3d ] ---
 
-	/** Unsafe version of: {@link #glNormal3d Normal3d} */
-	public static native void nglNormal3d(double nx, double ny, double nz);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
-	public static void glNormal3d(double nx, double ny, double nz) {
-		nglNormal3d(nx, ny, nz);
-	}
+	public static native void glNormal3d(double nx, double ny, double nz);
 
 	// --- [ glNormal3fv ] ---
 
@@ -5189,12 +4511,7 @@ public class GL11 {
 
 	// --- [ glOrtho ] ---
 
-	/** Unsafe version of: {@link #glOrtho Ortho} */
-	public static native void nglOrtho(double l, double r, double b, double t, double n, double f);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glOrtho.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
 	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
 	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
@@ -5216,27 +4533,18 @@ public class GL11 {
 	 * @param n the near frustum plane
 	 * @param f the far frustum plane
 	 */
-	public static void glOrtho(double l, double r, double b, double t, double n, double f) {
-		nglOrtho(l, r, b, t, n, f);
-	}
+	public static native void glOrtho(double l, double r, double b, double t, double n, double f);
 
 	// --- [ glPassThrough ] ---
 
-	/** Unsafe version of: {@link #glPassThrough PassThrough} */
-	public static native void nglPassThrough(float token);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPassThrough.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Inserts a marker when the GL is in feeback mode. {@code token} is returned as if it were a primitive; it is indicated with its own unique identifying
 	 * value. The ordering of any {@code PassThrough} commands with respect to primitive specification is maintained by feedback. {@code PassThrough} may
 	 * not occur between {@link #glBegin Begin} and {@link #glEnd End}.
 	 *
 	 * @param token the marker value to insert
 	 */
-	public static void glPassThrough(float token) {
-		nglPassThrough(token);
-	}
+	public static native void glPassThrough(float token);
 
 	// --- [ glPixelMapfv ] ---
 
@@ -5342,80 +4650,47 @@ public class GL11 {
 
 	// --- [ glPixelStorei ] ---
 
-	/** Unsafe version of: {@link #glPixelStorei PixelStorei} */
-	public static native void nglPixelStorei(int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPixelStorei.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the integer value of a pixel store parameter.
 	 *
 	 * @param pname the pixel store parameter to set. One of:<br><table><tr><td>{@link #GL_UNPACK_SWAP_BYTES UNPACK_SWAP_BYTES}</td><td>{@link #GL_UNPACK_LSB_FIRST UNPACK_LSB_FIRST}</td><td>{@link #GL_UNPACK_ROW_LENGTH UNPACK_ROW_LENGTH}</td></tr><tr><td>{@link #GL_UNPACK_SKIP_ROWS UNPACK_SKIP_ROWS}</td><td>{@link #GL_UNPACK_SKIP_PIXELS UNPACK_SKIP_PIXELS}</td><td>{@link #GL_UNPACK_ALIGNMENT UNPACK_ALIGNMENT}</td></tr><tr><td>{@link GL12#GL_UNPACK_IMAGE_HEIGHT UNPACK_IMAGE_HEIGHT}</td><td>{@link GL12#GL_UNPACK_SKIP_IMAGES UNPACK_SKIP_IMAGES}</td><td>{@link GL42#GL_UNPACK_COMPRESSED_BLOCK_WIDTH UNPACK_COMPRESSED_BLOCK_WIDTH}</td></tr><tr><td>{@link GL42#GL_UNPACK_COMPRESSED_BLOCK_HEIGHT UNPACK_COMPRESSED_BLOCK_HEIGHT}</td><td>{@link GL42#GL_UNPACK_COMPRESSED_BLOCK_DEPTH UNPACK_COMPRESSED_BLOCK_DEPTH}</td><td>{@link GL42#GL_UNPACK_COMPRESSED_BLOCK_SIZE UNPACK_COMPRESSED_BLOCK_SIZE}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glPixelStorei(int pname, int param) {
-		nglPixelStorei(pname, param);
-	}
+	public static native void glPixelStorei(int pname, int param);
 
 	// --- [ glPixelStoref ] ---
 
-	/** Unsafe version of: {@link #glPixelStoref PixelStoref} */
-	public static native void nglPixelStoref(int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPixelStoref.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Float version of {@link #glPixelStorei PixelStorei}.
 	 *
 	 * @param pname the pixel store parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glPixelStoref(int pname, int param) {
-		nglPixelStoref(pname, param);
-	}
+	public static native void glPixelStoref(int pname, int param);
 
 	// --- [ glPixelTransferi ] ---
 
-	/** Unsafe version of: {@link #glPixelTransferi PixelTransferi} */
-	public static native void nglPixelTransferi(int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelTransferi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the integer value of a pixel transfer parameter.
 	 *
 	 * @param pname the pixel transfer parameter to set. One of:<br><table><tr><td>{@link #GL_MAP_COLOR MAP_COLOR}</td><td>{@link #GL_MAP_STENCIL MAP_STENCIL}</td><td>{@link #GL_INDEX_SHIFT INDEX_SHIFT}</td><td>{@link #GL_INDEX_OFFSET INDEX_OFFSET}</td></tr><tr><td>{@link #GL_RED_SCALE RED_SCALE}</td><td>{@link #GL_GREEN_SCALE GREEN_SCALE}</td><td>{@link #GL_BLUE_SCALE BLUE_SCALE}</td><td>{@link #GL_ALPHA_SCALE ALPHA_SCALE}</td></tr><tr><td>{@link #GL_DEPTH_SCALE DEPTH_SCALE}</td><td>{@link #GL_RED_BIAS RED_BIAS}</td><td>{@link #GL_GREEN_BIAS GREEN_BIAS}</td><td>{@link #GL_BLUE_BIAS BLUE_BIAS}</td></tr><tr><td>{@link #GL_ALPHA_BIAS ALPHA_BIAS}</td><td>{@link #GL_DEPTH_BIAS DEPTH_BIAS}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_RED_SCALE POST_CONVOLUTION_RED_SCALE}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_RED_BIAS POST_CONVOLUTION_RED_BIAS}</td></tr><tr><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_RED_SCALE POST_COLOR_MATRIX_RED_SCALE}</td><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_RED_BIAS POST_COLOR_MATRIX_RED_BIAS}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_GREEN_SCALE POST_CONVOLUTION_GREEN_SCALE}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_GREEN_BIAS POST_CONVOLUTION_GREEN_BIAS}</td></tr><tr><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_GREEN_SCALE POST_COLOR_MATRIX_GREEN_SCALE}</td><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_GREEN_BIAS POST_COLOR_MATRIX_GREEN_BIAS}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_BLUE_SCALE POST_CONVOLUTION_BLUE_SCALE}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_BLUE_BIAS POST_CONVOLUTION_BLUE_BIAS}</td></tr><tr><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_BLUE_SCALE POST_COLOR_MATRIX_BLUE_SCALE}</td><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_BLUE_BIAS POST_COLOR_MATRIX_BLUE_BIAS}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_ALPHA_SCALE POST_CONVOLUTION_ALPHA_SCALE}</td><td>{@link ARBImaging#GL_POST_CONVOLUTION_ALPHA_BIAS POST_CONVOLUTION_ALPHA_BIAS}</td></tr><tr><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_ALPHA_SCALE POST_COLOR_MATRIX_ALPHA_SCALE}</td><td>{@link ARBImaging#GL_POST_COLOR_MATRIX_ALPHA_BIAS POST_COLOR_MATRIX_ALPHA_BIAS}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glPixelTransferi(int pname, int param) {
-		nglPixelTransferi(pname, param);
-	}
+	public static native void glPixelTransferi(int pname, int param);
 
 	// --- [ glPixelTransferf ] ---
 
-	/** Unsafe version of: {@link #glPixelTransferf PixelTransferf} */
-	public static native void nglPixelTransferf(int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelTransferf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glPixelTransferi PixelTransferi}.
 	 *
 	 * @param pname the pixel transfer parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glPixelTransferf(int pname, float param) {
-		nglPixelTransferf(pname, param);
-	}
+	public static native void glPixelTransferf(int pname, float param);
 
 	// --- [ glPixelZoom ] ---
 
-	/** Unsafe version of: {@link #glPixelZoom PixelZoom} */
-	public static native void nglPixelZoom(float xfactor, float yfactor);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelZoom.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Controls the conversion of a group of fragments.
 	 * 
 	 * <p>Let (x<sub>rp</sub>, y<sub>rp</sub>) be the current raster position. If a particular group is the n<sup>th</sup> in a row and belongs to the
@@ -5429,34 +4704,20 @@ public class GL11 {
 	 * @param xfactor the z<sub>x</sub> factor
 	 * @param yfactor the z<sub>y</sub> factor
 	 */
-	public static void glPixelZoom(float xfactor, float yfactor) {
-		nglPixelZoom(xfactor, yfactor);
-	}
+	public static native void glPixelZoom(float xfactor, float yfactor);
 
 	// --- [ glPointSize ] ---
 
-	/** Unsafe version of: {@link #glPointSize PointSize} */
-	public static native void nglPointSize(float size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointSize.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls the rasterization of points if no vertex, tessellation control, tessellation evaluation, or geometry shader is active. The default point size is 1.0.
 	 *
 	 * @param size the request size of a point
 	 */
-	public static void glPointSize(float size) {
-		nglPointSize(size);
-	}
+	public static native void glPointSize(float size);
 
 	// --- [ glPolygonMode ] ---
 
-	/** Unsafe version of: {@link #glPolygonMode PolygonMode} */
-	public static native void nglPolygonMode(int face, int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPolygonMode.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls the interpretation of polygons for rasterization.
 	 * 
 	 * <p>{@link #GL_FILL FILL} is the default mode of polygon rasterization. Note that these modes affect only the final rasterization of polygons: in particular, a
@@ -5466,18 +4727,11 @@ public class GL11 {
 	 * @param face the face for which to set the rasterizing method. One of:<br><table><tr><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td><td>{@link #GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
 	 * @param mode the rasterization mode. One of:<br><table><tr><td>{@link #GL_POINT POINT}</td><td>{@link #GL_LINE LINE}</td><td>{@link #GL_FILL FILL}</td></tr></table>
 	 */
-	public static void glPolygonMode(int face, int mode) {
-		nglPolygonMode(face, mode);
-	}
+	public static native void glPolygonMode(int face, int mode);
 
 	// --- [ glPolygonOffset ] ---
 
-	/** Unsafe version of: {@link #glPolygonOffset PolygonOffset} */
-	public static native void nglPolygonOffset(float factor, float units);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPolygonOffset.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * The depth values of all fragments generated by the rasterization of a polygon may be offset by a single value that is computed for that polygon. This
 	 * function determines that value.
 	 * 
@@ -5487,9 +4741,7 @@ public class GL11 {
 	 * @param factor the maximum depth slope factor
 	 * @param units  the constant scale
 	 */
-	public static void glPolygonOffset(float factor, float units) {
-		nglPolygonOffset(factor, units);
-	}
+	public static native void glPolygonOffset(float factor, float units);
 
 	// --- [ glPolygonStipple ] ---
 
@@ -5536,12 +4788,7 @@ public class GL11 {
 
 	// --- [ glPushAttrib ] ---
 
-	/** Unsafe version of: {@link #glPushAttrib PushAttrib} */
-	public static native void nglPushAttrib(int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Takes a bitwise OR of symbolic constants indicating which groups of state variables to push onto the server attribute stack. Each constant refers to a
 	 * group of state variables.
 	 * 
@@ -5553,18 +4800,11 @@ public class GL11 {
 	 *
 	 * @param mask the state variables to push. One or more of:<br><table><tr><td>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}</td><td>{@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}</td><td>{@link #GL_CURRENT_BIT CURRENT_BIT}</td><td>{@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}</td><td>{@link #GL_ENABLE_BIT ENABLE_BIT}</td><td>{@link #GL_EVAL_BIT EVAL_BIT}</td></tr><tr><td>{@link #GL_FOG_BIT FOG_BIT}</td><td>{@link #GL_HINT_BIT HINT_BIT}</td><td>{@link #GL_LIGHTING_BIT LIGHTING_BIT}</td><td>{@link #GL_LINE_BIT LINE_BIT}</td><td>{@link #GL_LIST_BIT LIST_BIT}</td><td>{@link GL13#GL_MULTISAMPLE_BIT MULTISAMPLE_BIT}</td></tr><tr><td>{@link #GL_PIXEL_MODE_BIT PIXEL_MODE_BIT}</td><td>{@link #GL_POINT_BIT POINT_BIT}</td><td>{@link #GL_POLYGON_BIT POLYGON_BIT}</td><td>{@link #GL_POLYGON_STIPPLE_BIT POLYGON_STIPPLE_BIT}</td><td>{@link #GL_SCISSOR_BIT SCISSOR_BIT}</td><td>{@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}</td></tr><tr><td>{@link #GL_TEXTURE_BIT TEXTURE_BIT}</td><td>{@link #GL_TRANSFORM_BIT TRANSFORM_BIT}</td><td>{@link #GL_VIEWPORT_BIT VIEWPORT_BIT}</td><td>{@link #GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}</td></tr></table>
 	 */
-	public static void glPushAttrib(int mask) {
-		nglPushAttrib(mask);
-	}
+	public static native void glPushAttrib(int mask);
 
 	// --- [ glPushClientAttrib ] ---
 
-	/** Unsafe version of: {@link #glPushClientAttrib PushClientAttrib} */
-	public static native void nglPushClientAttrib(int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushClientAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Takes a bitwise OR of symbolic constants indicating which groups of state variables to push onto the client attribute stack. Each constant refers to a
 	 * group of state variables.
 	 * 
@@ -5576,65 +4816,27 @@ public class GL11 {
 	 *
 	 * @param mask the state variables to push. One or more of:<br><table><tr><td>{@link #GL_CLIENT_VERTEX_ARRAY_BIT CLIENT_VERTEX_ARRAY_BIT}</td><td>{@link #GL_CLIENT_PIXEL_STORE_BIT CLIENT_PIXEL_STORE_BIT}</td><td>{@link #GL_CLIENT_ALL_ATTRIB_BITS CLIENT_ALL_ATTRIB_BITS}</td></tr></table>
 	 */
-	public static void glPushClientAttrib(int mask) {
-		nglPushClientAttrib(mask);
-	}
+	public static native void glPushClientAttrib(int mask);
 
 	// --- [ glPopAttrib ] ---
 
-	/** Unsafe version of: {@link #glPopAttrib PopAttrib} */
-	public static native void nglPopAttrib();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib PushAttrib}. Those not saved remain unchanged.
-	 */
-	public static void glPopAttrib() {
-		nglPopAttrib();
-	}
+	/** Resets the values of those state variables that were saved with the last {@link #glPushAttrib PushAttrib}. Those not saved remain unchanged. */
+	public static native void glPopAttrib();
 
 	// --- [ glPopClientAttrib ] ---
 
-	/** Unsafe version of: {@link #glPopClientAttrib PopClientAttrib} */
-	public static native void nglPopClientAttrib();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopClientAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib PushClientAttrib}. Those not saved remain unchanged.
-	 */
-	public static void glPopClientAttrib() {
-		nglPopClientAttrib();
-	}
+	/** Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib PushClientAttrib}. Those not saved remain unchanged. */
+	public static native void glPopClientAttrib();
 
 	// --- [ glPopMatrix ] ---
 
-	/** Unsafe version of: {@link #glPopMatrix PopMatrix} */
-	public static native void nglPopMatrix();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pops the top entry off the current matrix stack, replacing the current matrix with the matrix that was the second entry in the stack.
-	 */
-	public static void glPopMatrix() {
-		nglPopMatrix();
-	}
+	/** Pops the top entry off the current matrix stack, replacing the current matrix with the matrix that was the second entry in the stack. */
+	public static native void glPopMatrix();
 
 	// --- [ glPopName ] ---
 
-	/** Unsafe version of: {@link #glPopName PopName} */
-	public static native void nglPopName();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pops one name off the top of the selection name stack.
-	 */
-	public static void glPopName() {
-		nglPopName();
-	}
+	/** Pops one name off the top of the selection name stack. */
+	public static native void glPopName();
 
 	// --- [ glPrioritizeTextures ] ---
 
@@ -5662,42 +4864,21 @@ public class GL11 {
 
 	// --- [ glPushMatrix ] ---
 
-	/** Unsafe version of: {@link #glPushMatrix PushMatrix} */
-	public static native void nglPushMatrix();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pushes the current matrix stack down by one, duplicating the current matrix in both the top of the stack and the entry below it.
-	 */
-	public static void glPushMatrix() {
-		nglPushMatrix();
-	}
+	/** Pushes the current matrix stack down by one, duplicating the current matrix in both the top of the stack and the entry below it. */
+	public static native void glPushMatrix();
 
 	// --- [ glPushName ] ---
 
-	/** Unsafe version of: {@link #glPushName PushName} */
-	public static native void nglPushName(int name);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Causes {@code name} to be pushed onto the selection name stack.
 	 *
 	 * @param name the name to push
 	 */
-	public static void glPushName(int name) {
-		nglPushName(name);
-	}
+	public static native void glPushName(int name);
 
 	// --- [ glRasterPos2i ] ---
 
-	/** Unsafe version of: {@link #glRasterPos2i RasterPos2i} */
-	public static native void nglRasterPos2i(int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the two-dimensional current raster position. {@code z} is implicitly set to 0 and {@code w} implicitly set to 1.
 	 * 
 	 * <p>The coordinates are treated as if they were specified in a Vertex command. If a vertex shader is active, this vertex shader is executed using the x, y,
@@ -5709,60 +4890,37 @@ public class GL11 {
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
-	public static void glRasterPos2i(int x, int y) {
-		nglRasterPos2i(x, y);
-	}
+	public static native void glRasterPos2i(int x, int y);
 
 	// --- [ glRasterPos2s ] ---
 
-	/** Unsafe version of: {@link #glRasterPos2s RasterPos2s} */
-	public static native void nglRasterPos2s(short x, short y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
-	public static void glRasterPos2s(short x, short y) {
-		nglRasterPos2s(x, y);
-	}
+	public static native void glRasterPos2s(short x, short y);
 
 	// --- [ glRasterPos2f ] ---
 
-	/** Unsafe version of: {@link #glRasterPos2f RasterPos2f} */
-	public static native void nglRasterPos2f(float x, float y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
-	public static void glRasterPos2f(float x, float y) {
-		nglRasterPos2f(x, y);
-	}
+	public static native void glRasterPos2f(float x, float y);
 
 	// --- [ glRasterPos2d ] ---
 
-	/** Unsafe version of: {@link #glRasterPos2d RasterPos2d} */
-	public static native void nglRasterPos2d(double x, double y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
-	public static void glRasterPos2d(double x, double y) {
-		nglRasterPos2d(x, y);
-	}
+	public static native void glRasterPos2d(double x, double y);
 
 	// --- [ glRasterPos2iv ] ---
 
@@ -5838,75 +4996,47 @@ public class GL11 {
 
 	// --- [ glRasterPos3i ] ---
 
-	/** Unsafe version of: {@link #glRasterPos3i RasterPos3i} */
-	public static native void nglRasterPos3i(int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
-	public static void glRasterPos3i(int x, int y, int z) {
-		nglRasterPos3i(x, y, z);
-	}
+	public static native void glRasterPos3i(int x, int y, int z);
 
 	// --- [ glRasterPos3s ] ---
 
-	/** Unsafe version of: {@link #glRasterPos3s RasterPos3s} */
-	public static native void nglRasterPos3s(short x, short y, short z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
-	public static void glRasterPos3s(short x, short y, short z) {
-		nglRasterPos3s(x, y, z);
-	}
+	public static native void glRasterPos3s(short x, short y, short z);
 
 	// --- [ glRasterPos3f ] ---
 
-	/** Unsafe version of: {@link #glRasterPos3f RasterPos3f} */
-	public static native void nglRasterPos3f(float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
-	public static void glRasterPos3f(float x, float y, float z) {
-		nglRasterPos3f(x, y, z);
-	}
+	public static native void glRasterPos3f(float x, float y, float z);
 
 	// --- [ glRasterPos3d ] ---
 
-	/** Unsafe version of: {@link #glRasterPos3d RasterPos3d} */
-	public static native void nglRasterPos3d(double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
-	public static void glRasterPos3d(double x, double y, double z) {
-		nglRasterPos3d(x, y, z);
-	}
+	public static native void glRasterPos3d(double x, double y, double z);
 
 	// --- [ glRasterPos3iv ] ---
 
@@ -5982,12 +5112,7 @@ public class GL11 {
 
 	// --- [ glRasterPos4i ] ---
 
-	/** Unsafe version of: {@link #glRasterPos4i RasterPos4i} */
-	public static native void nglRasterPos4i(int x, int y, int z, int w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
 	 * @param x the {@code x} raster coordinate
@@ -5995,18 +5120,11 @@ public class GL11 {
 	 * @param z the {@code z} raster coordinate
 	 * @param w the {@code w} raster coordinate
 	 */
-	public static void glRasterPos4i(int x, int y, int z, int w) {
-		nglRasterPos4i(x, y, z, w);
-	}
+	public static native void glRasterPos4i(int x, int y, int z, int w);
 
 	// --- [ glRasterPos4s ] ---
 
-	/** Unsafe version of: {@link #glRasterPos4s RasterPos4s} */
-	public static native void nglRasterPos4s(short x, short y, short z, short w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glRasterPos4i RasterPos4i}.
 	 *
 	 * @param x the {@code x} raster coordinate
@@ -6014,18 +5132,11 @@ public class GL11 {
 	 * @param z the {@code z} raster coordinate
 	 * @param w the {@code w} raster coordinate
 	 */
-	public static void glRasterPos4s(short x, short y, short z, short w) {
-		nglRasterPos4s(x, y, z, w);
-	}
+	public static native void glRasterPos4s(short x, short y, short z, short w);
 
 	// --- [ glRasterPos4f ] ---
 
-	/** Unsafe version of: {@link #glRasterPos4f RasterPos4f} */
-	public static native void nglRasterPos4f(float x, float y, float z, float w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of RasterPos4i.
 	 *
 	 * @param x the {@code x} raster coordinate
@@ -6033,18 +5144,11 @@ public class GL11 {
 	 * @param z the {@code z} raster coordinate
 	 * @param w the {@code w} raster coordinate
 	 */
-	public static void glRasterPos4f(float x, float y, float z, float w) {
-		nglRasterPos4f(x, y, z, w);
-	}
+	public static native void glRasterPos4f(float x, float y, float z, float w);
 
 	// --- [ glRasterPos4d ] ---
 
-	/** Unsafe version of: {@link #glRasterPos4d RasterPos4d} */
-	public static native void nglRasterPos4d(double x, double y, double z, double w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glRasterPos4i RasterPos4i}.
 	 *
 	 * @param x the {@code x} raster coordinate
@@ -6052,9 +5156,7 @@ public class GL11 {
 	 * @param z the {@code z} raster coordinate
 	 * @param w the {@code w} raster coordinate
 	 */
-	public static void glRasterPos4d(double x, double y, double z, double w) {
-		nglRasterPos4d(x, y, z, w);
-	}
+	public static native void glRasterPos4d(double x, double y, double z, double w);
 
 	// --- [ glRasterPos4iv ] ---
 
@@ -6130,12 +5232,7 @@ public class GL11 {
 
 	// --- [ glReadBuffer ] ---
 
-	/** Unsafe version of: {@link #glReadBuffer ReadBuffer} */
-	public static native void nglReadBuffer(int src);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines the color buffer from which values are obtained.
 	 * 
 	 * <p>Acceptable values for {@code src} depend on whether the GL is using the default framebuffer (i.e., {@link GL30#GL_DRAW_FRAMEBUFFER_BINDING DRAW_FRAMEBUFFER_BINDING} is zero), or
@@ -6143,9 +5240,7 @@ public class GL11 {
 	 *
 	 * @param src the color buffer to read from. One of:<br><table><tr><td>{@link #GL_NONE NONE}</td><td>{@link #GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link #GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link #GL_BACK_LEFT BACK_LEFT}</td><td>{@link #GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td><td>{@link #GL_LEFT LEFT}</td></tr><tr><td>{@link #GL_RIGHT RIGHT}</td><td>{@link #GL_FRONT_AND_BACK FRONT_AND_BACK}</td><td>{@link #GL_AUX0 AUX0}</td><td>{@link #GL_AUX1 AUX1}</td><td>{@link #GL_AUX2 AUX2}</td><td>{@link #GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
 	 */
-	public static void glReadBuffer(int src) {
-		nglReadBuffer(src);
-	}
+	public static native void glReadBuffer(int src);
 
 	// --- [ glReadPixels ] ---
 
@@ -6259,12 +5354,7 @@ public class GL11 {
 
 	// --- [ glRecti ] ---
 
-	/** Unsafe version of: {@link #glRecti Recti} */
-	public static native void nglRecti(int x1, int y1, int x2, int y2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRecti.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Specifies a rectangle as two corner vertices. The effect of the Rect command
 	 * 
 	 * <p>{@code Rect(x1, y1, x2, y2);}</p>
@@ -6285,18 +5375,11 @@ public class GL11 {
 	 * @param x2 the x coordinate of the second corner vertex
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
-	public static void glRecti(int x1, int y1, int x2, int y2) {
-		nglRecti(x1, y1, x2, y2);
-	}
+	public static native void glRecti(int x1, int y1, int x2, int y2);
 
 	// --- [ glRects ] ---
 
-	/** Unsafe version of: {@link #glRects Rects} */
-	public static native void nglRects(short x1, short y1, short x2, short y2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRects.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glRecti Recti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
@@ -6304,18 +5387,11 @@ public class GL11 {
 	 * @param x2 the x coordinate of the second corner vertex
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
-	public static void glRects(short x1, short y1, short x2, short y2) {
-		nglRects(x1, y1, x2, y2);
-	}
+	public static native void glRects(short x1, short y1, short x2, short y2);
 
 	// --- [ glRectf ] ---
 
-	/** Unsafe version of: {@link #glRectf Rectf} */
-	public static native void nglRectf(float x1, float y1, float x2, float y2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRectf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glRecti Recti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
@@ -6323,18 +5399,11 @@ public class GL11 {
 	 * @param x2 the x coordinate of the second corner vertex
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
-	public static void glRectf(float x1, float y1, float x2, float y2) {
-		nglRectf(x1, y1, x2, y2);
-	}
+	public static native void glRectf(float x1, float y1, float x2, float y2);
 
 	// --- [ glRectd ] ---
 
-	/** Unsafe version of: {@link #glRectd Rectd} */
-	public static native void nglRectd(double x1, double y1, double x2, double y2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRectd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glRecti Recti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
@@ -6342,9 +5411,7 @@ public class GL11 {
 	 * @param x2 the x coordinate of the second corner vertex
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
-	public static void glRectd(double x1, double y1, double x2, double y2) {
-		nglRectd(x1, y1, x2, y2);
-	}
+	public static native void glRectd(double x1, double y1, double x2, double y2);
 
 	// --- [ glRectiv ] ---
 
@@ -6432,28 +5499,16 @@ public class GL11 {
 
 	// --- [ glRenderMode ] ---
 
-	/** Unsafe version of: {@link #glRenderMode RenderMode} */
-	public static native int nglRenderMode(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRenderMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current render mode. The default is {@link #GL_RENDER RENDER}.
 	 *
 	 * @param mode the render mode. One of:<br><table><tr><td>{@link #GL_RENDER RENDER}</td><td>{@link #GL_SELECT SELECT}</td><td>{@link #GL_FEEDBACK FEEDBACK}</td></tr></table>
 	 */
-	public static int glRenderMode(int mode) {
-		return nglRenderMode(mode);
-	}
+	public static native int glRenderMode(int mode);
 
 	// --- [ glRotatef ] ---
 
-	/** Unsafe version of: {@link #glRotatef Rotatef} */
-	public static native void nglRotatef(float angle, float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRotatef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Manipulates the current matrix with a rotation matrix.
 	 * 
 	 * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code>v = (x y z)<sup>T</sup></code>. The computed matrix
@@ -6482,18 +5537,11 @@ public class GL11 {
 	 * @param y     the y coordinate of the rotation vector
 	 * @param z     the z coordinate of the rotation vector
 	 */
-	public static void glRotatef(float angle, float x, float y, float z) {
-		nglRotatef(angle, x, y, z);
-	}
+	public static native void glRotatef(float angle, float x, float y, float z);
 
 	// --- [ glRotated ] ---
 
-	/** Unsafe version of: {@link #glRotated Rotated} */
-	public static native void nglRotated(double angle, double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRotated.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glRotatef Rotatef}.
 	 *
 	 * @param angle the angle of rotation in degrees
@@ -6501,18 +5549,11 @@ public class GL11 {
 	 * @param y     the y coordinate of the rotation vector
 	 * @param z     the z coordinate of the rotation vector
 	 */
-	public static void glRotated(double angle, double x, double y, double z) {
-		nglRotated(angle, x, y, z);
-	}
+	public static native void glRotated(double angle, double x, double y, double z);
 
 	// --- [ glScalef ] ---
 
-	/** Unsafe version of: {@link #glScalef Scalef} */
-	public static native void nglScalef(float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glScalef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
@@ -6528,36 +5569,22 @@ public class GL11 {
 	 * @param y the y-axis scaling factor
 	 * @param z the z-axis scaling factor
 	 */
-	public static void glScalef(float x, float y, float z) {
-		nglScalef(x, y, z);
-	}
+	public static native void glScalef(float x, float y, float z);
 
 	// --- [ glScaled ] ---
 
-	/** Unsafe version of: {@link #glScaled Scaled} */
-	public static native void nglScaled(double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glScaled.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glScalef Scalef}.
 	 *
 	 * @param x the x-axis scaling factor
 	 * @param y the y-axis scaling factor
 	 * @param z the z-axis scaling factor
 	 */
-	public static void glScaled(double x, double y, double z) {
-		nglScaled(x, y, z);
-	}
+	public static native void glScaled(double x, double y, double z);
 
 	// --- [ glScissor ] ---
 
-	/** Unsafe version of: {@link #glScissor Scissor} */
-	public static native void nglScissor(int x, int y, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
 	 * <code>left <= x<sub>w</sub> < left + width</code> and <code>bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
@@ -6568,9 +5595,7 @@ public class GL11 {
 	 * @param width  the scissor rectangle width
 	 * @param height the scissor rectangle height
 	 */
-	public static void glScissor(int x, int y, int width, int height) {
-		nglScissor(x, y, width, height);
-	}
+	public static native void glScissor(int x, int y, int width, int height);
 
 	// --- [ glSelectBuffer ] ---
 
@@ -6594,12 +5619,7 @@ public class GL11 {
 
 	// --- [ glShadeModel ] ---
 
-	/** Unsafe version of: {@link #glShadeModel ShadeModel} */
-	public static native void nglShadeModel(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glShadeModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current shade mode. The initial value of the shade mode is {@link #GL_SMOOTH SMOOTH}.
 	 * 
 	 * <p>If mode is {@link #GL_SMOOTH SMOOTH}, vertex colors are treated individually. If mode is {@link #GL_FLAT FLAT}, flatshading is enabled and colors are taken from the
@@ -6608,18 +5628,11 @@ public class GL11 {
 	 *
 	 * @param mode the shade mode. One of:<br><table><tr><td>{@link #GL_SMOOTH SMOOTH}</td><td>{@link #GL_FLAT FLAT}</td></tr></table>
 	 */
-	public static void glShadeModel(int mode) {
-		nglShadeModel(mode);
-	}
+	public static native void glShadeModel(int mode);
 
 	// --- [ glStencilFunc ] ---
 
-	/** Unsafe version of: {@link #glStencilFunc StencilFunc} */
-	public static native void nglStencilFunc(int func, int ref, int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilFunc.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls the stencil test.
 	 * 
 	 * <p>{@code ref} is an integer reference value that is used in the unsigned stencil comparison. Stencil comparison operations and queries of {@code ref}
@@ -6631,18 +5644,11 @@ public class GL11 {
 	 * @param ref  the reference value
 	 * @param mask the stencil comparison mask
 	 */
-	public static void glStencilFunc(int func, int ref, int mask) {
-		nglStencilFunc(func, ref, mask);
-	}
+	public static native void glStencilFunc(int func, int ref, int mask);
 
 	// --- [ glStencilMask ] ---
 
-	/** Unsafe version of: {@link #glStencilMask StencilMask} */
-	public static native void nglStencilMask(int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilMask.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Masks the writing of particular bits into the stencil plans.
 	 * 
 	 * <p>The least significant s bits of {@code mask}, where s is the number of bits in the stencil buffer, specify an integer mask. Where a 1 appears in this
@@ -6650,18 +5656,11 @@ public class GL11 {
 	 *
 	 * @param mask the stencil mask
 	 */
-	public static void glStencilMask(int mask) {
-		nglStencilMask(mask);
-	}
+	public static native void glStencilMask(int mask);
 
 	// --- [ glStencilOp ] ---
 
-	/** Unsafe version of: {@link #glStencilOp StencilOp} */
-	public static native void nglStencilOp(int sfail, int dpfail, int dppass);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilOp.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Indicates what happens to the stored stencil value if this or certain subsequent tests fail or pass.
 	 * 
 	 * <p>The supported actions are {@link #GL_KEEP KEEP}, {@link #GL_ZERO ZERO}, {@link #GL_REPLACE REPLACE}, {@link #GL_INCR INCR}, {@link #GL_DECR DECR}, {@link #GL_INVERT INVERT},
@@ -6676,73 +5675,43 @@ public class GL11 {
 	 * @param dpfail the action to take if the depth buffer test fails
 	 * @param dppass the action to take if the depth buffer test passes
 	 */
-	public static void glStencilOp(int sfail, int dpfail, int dppass) {
-		nglStencilOp(sfail, dpfail, dppass);
-	}
+	public static native void glStencilOp(int sfail, int dpfail, int dppass);
 
 	// --- [ glTexCoord1f ] ---
 
-	/** Unsafe version of: {@link #glTexCoord1f TexCoord1f} */
-	public static native void nglTexCoord1f(float s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current one-dimensional texture coordinate. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
-	public static void glTexCoord1f(float s) {
-		nglTexCoord1f(s);
-	}
+	public static native void glTexCoord1f(float s);
 
 	// --- [ glTexCoord1s ] ---
 
-	/** Unsafe version of: {@link #glTexCoord1s TexCoord1s} */
-	public static native void nglTexCoord1s(short s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
-	public static void glTexCoord1s(short s) {
-		nglTexCoord1s(s);
-	}
+	public static native void glTexCoord1s(short s);
 
 	// --- [ glTexCoord1i ] ---
 
-	/** Unsafe version of: {@link #glTexCoord1i TexCoord1i} */
-	public static native void nglTexCoord1i(int s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
-	public static void glTexCoord1i(int s) {
-		nglTexCoord1i(s);
-	}
+	public static native void glTexCoord1i(int s);
 
 	// --- [ glTexCoord1d ] ---
 
-	/** Unsafe version of: {@link #glTexCoord1d TexCoord1d} */
-	public static native void nglTexCoord1d(double s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
-	public static void glTexCoord1d(double s) {
-		nglTexCoord1d(s);
-	}
+	public static native void glTexCoord1d(double s);
 
 	// --- [ glTexCoord1fv ] ---
 
@@ -6818,71 +5787,43 @@ public class GL11 {
 
 	// --- [ glTexCoord2f ] ---
 
-	/** Unsafe version of: {@link #glTexCoord2f TexCoord2f} */
-	public static native void nglTexCoord2f(float s, float t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current two-dimensional texture coordinate. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
-	public static void glTexCoord2f(float s, float t) {
-		nglTexCoord2f(s, t);
-	}
+	public static native void glTexCoord2f(float s, float t);
 
 	// --- [ glTexCoord2s ] ---
 
-	/** Unsafe version of: {@link #glTexCoord2s TexCoord2s} */
-	public static native void nglTexCoord2s(short s, short t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
-	public static void glTexCoord2s(short s, short t) {
-		nglTexCoord2s(s, t);
-	}
+	public static native void glTexCoord2s(short s, short t);
 
 	// --- [ glTexCoord2i ] ---
 
-	/** Unsafe version of: {@link #glTexCoord2i TexCoord2i} */
-	public static native void nglTexCoord2i(int s, int t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
-	public static void glTexCoord2i(int s, int t) {
-		nglTexCoord2i(s, t);
-	}
+	public static native void glTexCoord2i(int s, int t);
 
 	// --- [ glTexCoord2d ] ---
 
-	/** Unsafe version of: {@link #glTexCoord2d TexCoord2d} */
-	public static native void nglTexCoord2d(double s, double t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
-	public static void glTexCoord2d(double s, double t) {
-		nglTexCoord2d(s, t);
-	}
+	public static native void glTexCoord2d(double s, double t);
 
 	// --- [ glTexCoord2fv ] ---
 
@@ -6958,75 +5899,47 @@ public class GL11 {
 
 	// --- [ glTexCoord3f ] ---
 
-	/** Unsafe version of: {@link #glTexCoord3f TexCoord3f} */
-	public static native void nglTexCoord3f(float s, float t, float r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current three-dimensional texture coordinate. {@code q} is implicitly set to 1.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
-	public static void glTexCoord3f(float s, float t, float r) {
-		nglTexCoord3f(s, t, r);
-	}
+	public static native void glTexCoord3f(float s, float t, float r);
 
 	// --- [ glTexCoord3s ] ---
 
-	/** Unsafe version of: {@link #glTexCoord3s TexCoord3s} */
-	public static native void nglTexCoord3s(short s, short t, short r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
-	public static void glTexCoord3s(short s, short t, short r) {
-		nglTexCoord3s(s, t, r);
-	}
+	public static native void glTexCoord3s(short s, short t, short r);
 
 	// --- [ glTexCoord3i ] ---
 
-	/** Unsafe version of: {@link #glTexCoord3i TexCoord3i} */
-	public static native void nglTexCoord3i(int s, int t, int r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
-	public static void glTexCoord3i(int s, int t, int r) {
-		nglTexCoord3i(s, t, r);
-	}
+	public static native void glTexCoord3i(int s, int t, int r);
 
 	// --- [ glTexCoord3d ] ---
 
-	/** Unsafe version of: {@link #glTexCoord3d TexCoord3d} */
-	public static native void nglTexCoord3d(double s, double t, double r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
-	public static void glTexCoord3d(double s, double t, double r) {
-		nglTexCoord3d(s, t, r);
-	}
+	public static native void glTexCoord3d(double s, double t, double r);
 
 	// --- [ glTexCoord3fv ] ---
 
@@ -7102,12 +6015,7 @@ public class GL11 {
 
 	// --- [ glTexCoord4f ] ---
 
-	/** Unsafe version of: {@link #glTexCoord4f TexCoord4f} */
-	public static native void nglTexCoord4f(float s, float t, float r, float q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current four-dimensional texture coordinate.
 	 *
 	 * @param s the s component of the current texture coordinates
@@ -7115,18 +6023,11 @@ public class GL11 {
 	 * @param r the r component of the current texture coordinates
 	 * @param q the q component of the current texture coordinates
 	 */
-	public static void glTexCoord4f(float s, float t, float r, float q) {
-		nglTexCoord4f(s, t, r, q);
-	}
+	public static native void glTexCoord4f(float s, float t, float r, float q);
 
 	// --- [ glTexCoord4s ] ---
 
-	/** Unsafe version of: {@link #glTexCoord4s TexCoord4s} */
-	public static native void nglTexCoord4s(short s, short t, short r, short q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
@@ -7134,18 +6035,11 @@ public class GL11 {
 	 * @param r the r component of the current texture coordinates
 	 * @param q the q component of the current texture coordinates
 	 */
-	public static void glTexCoord4s(short s, short t, short r, short q) {
-		nglTexCoord4s(s, t, r, q);
-	}
+	public static native void glTexCoord4s(short s, short t, short r, short q);
 
 	// --- [ glTexCoord4i ] ---
 
-	/** Unsafe version of: {@link #glTexCoord4i TexCoord4i} */
-	public static native void nglTexCoord4i(int s, int t, int r, int q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
@@ -7153,18 +6047,11 @@ public class GL11 {
 	 * @param r the r component of the current texture coordinates
 	 * @param q the q component of the current texture coordinates
 	 */
-	public static void glTexCoord4i(int s, int t, int r, int q) {
-		nglTexCoord4i(s, t, r, q);
-	}
+	public static native void glTexCoord4i(int s, int t, int r, int q);
 
 	// --- [ glTexCoord4d ] ---
 
-	/** Unsafe version of: {@link #glTexCoord4d TexCoord4d} */
-	public static native void nglTexCoord4d(double s, double t, double r, double q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
@@ -7172,9 +6059,7 @@ public class GL11 {
 	 * @param r the r component of the current texture coordinates
 	 * @param q the q component of the current texture coordinates
 	 */
-	public static void glTexCoord4d(double s, double t, double r, double q) {
-		nglTexCoord4d(s, t, r, q);
-	}
+	public static native void glTexCoord4d(double s, double t, double r, double q);
 
 	// --- [ glTexCoord4fv ] ---
 
@@ -7325,12 +6210,7 @@ public class GL11 {
 
 	// --- [ glTexEnvi ] ---
 
-	/** Unsafe version of: {@link #glTexEnvi TexEnvi} */
-	public static native void nglTexEnvi(int target, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnvi.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets parameters of the texture environment that specifies how texture values are interpreted when texturing a fragment, or sets per-texture-unit
 	 * filtering parameters.
 	 *
@@ -7338,9 +6218,7 @@ public class GL11 {
 	 * @param pname  the parameter to set. One of:<br><table><tr><td>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}</td><td>{@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}</td><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL13#GL_COMBINE_RGB COMBINE_RGB}</td><td>{@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}</td><td>{@link GL15#GL_SRC0_RGB SRC0_RGB}</td></tr><tr><td>{@link GL15#GL_SRC1_RGB SRC1_RGB}</td><td>{@link GL15#GL_SRC2_RGB SRC2_RGB}</td><td>{@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}</td><td>{@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}</td><td>{@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}</td><td>{@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}</td></tr><tr><td>{@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}</td><td>{@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}</td><td>{@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}</td><td>{@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}</td><td>{@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}</td><td>{@link GL13#GL_RGB_SCALE RGB_SCALE}</td></tr><tr><td>{@link #GL_ALPHA_SCALE ALPHA_SCALE}</td></tr></table>
 	 * @param param  the parameter value. Scalar value or one of:<br><table><tr><td>{@link #GL_REPLACE REPLACE}</td><td>{@link #GL_MODULATE MODULATE}</td><td>{@link #GL_DECAL DECAL}</td><td>{@link #GL_BLEND BLEND}</td><td>{@link #GL_ADD ADD}</td><td>{@link GL13#GL_COMBINE COMBINE}</td><td>{@link GL13#GL_ADD_SIGNED ADD_SIGNED}</td><td>{@link GL13#GL_INTERPOLATE INTERPOLATE}</td></tr><tr><td>{@link GL13#GL_SUBTRACT SUBTRACT}</td><td>{@link GL13#GL_DOT3_RGB DOT3_RGB}</td><td>{@link GL13#GL_DOT3_RGBA DOT3_RGBA}</td><td>{@link #GL_TEXTURE TEXTURE}</td><td>{@link GL13#GL_TEXTURE0 TEXTURE0}</td><td>GL13.GL_TEXTURE[1-31]</td><td>{@link GL13#GL_CONSTANT CONSTANT}</td><td>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}</td></tr><tr><td>{@link GL13#GL_PREVIOUS PREVIOUS}</td></tr></table>
 	 */
-	public static void glTexEnvi(int target, int pname, int param) {
-		nglTexEnvi(target, pname, param);
-	}
+	public static native void glTexEnvi(int target, int pname, int param);
 
 	// --- [ glTexEnviv ] ---
 
@@ -7364,21 +6242,14 @@ public class GL11 {
 
 	// --- [ glTexEnvf ] ---
 
-	/** Unsafe version of: {@link #glTexEnvf TexEnvf} */
-	public static native void nglTexEnvf(int target, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnvf.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Float version of {@link #glTexEnvi TexEnvi}.
 	 *
 	 * @param target the texture environment target
 	 * @param pname  the parameter to set
 	 * @param param  the parameter value
 	 */
-	public static void glTexEnvf(int target, int pname, float param) {
-		nglTexEnvf(target, pname, param);
-	}
+	public static native void glTexEnvf(int target, int pname, float param);
 
 	// --- [ glTexEnvfv ] ---
 
@@ -7402,12 +6273,7 @@ public class GL11 {
 
 	// --- [ glTexGeni ] ---
 
-	/** Unsafe version of: {@link #glTexGeni TexGeni} */
-	public static native void nglTexGeni(int coord, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGeni.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets an integer texture coordinate generation parameter.
 	 * 
 	 * <p>A texture coordinate generation function is enabled or disabled using {@link #glEnable Enable} and {@link #glDisable Disable} with an argument of
@@ -7422,9 +6288,7 @@ public class GL11 {
 	 * @param pname the parameter to set. Must be:<br><table><tr><td>{@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE}</td></tr></table>
 	 * @param param the parameter value. One of:<br><table><tr><td>{@link #GL_OBJECT_LINEAR OBJECT_LINEAR}</td><td>{@link #GL_EYE_LINEAR EYE_LINEAR}</td><td>{@link #GL_SPHERE_MAP SPHERE_MAP}</td><td>{@link GL13#GL_REFLECTION_MAP REFLECTION_MAP}</td><td>{@link GL13#GL_NORMAL_MAP NORMAL_MAP}</td></tr></table>
 	 */
-	public static void glTexGeni(int coord, int pname, int param) {
-		nglTexGeni(coord, pname, param);
-	}
+	public static native void glTexGeni(int coord, int pname, int param);
 
 	// --- [ glTexGeniv ] ---
 
@@ -7448,21 +6312,14 @@ public class GL11 {
 
 	// --- [ glTexGenf ] ---
 
-	/** Unsafe version of: {@link #glTexGenf TexGenf} */
-	public static native void nglTexGenf(int coord, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGenf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glTexGeni TexGeni}.
 	 *
 	 * @param coord the coordinate for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glTexGenf(int coord, int pname, float param) {
-		nglTexGenf(coord, pname, param);
-	}
+	public static native void glTexGenf(int coord, int pname, float param);
 
 	// --- [ glTexGenfv ] ---
 
@@ -7486,21 +6343,14 @@ public class GL11 {
 
 	// --- [ glTexGend ] ---
 
-	/** Unsafe version of: {@link #glTexGend TexGend} */
-	public static native void nglTexGend(int coord, int pname, double param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGend.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glTexGeni TexGeni}.
 	 *
 	 * @param coord the coordinate for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
-	public static void glTexGend(int coord, int pname, double param) {
-		nglTexGend(coord, pname, param);
-	}
+	public static native void glTexGend(int coord, int pname, double param);
 
 	// --- [ glTexGendv ] ---
 
@@ -7756,12 +6606,7 @@ public class GL11 {
 
 	// --- [ glCopyTexImage2D ] ---
 
-	/** Unsafe version of: {@link #glCopyTexImage2D CopyTexImage2D} */
-	public static native void nglCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexImage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D TexImage2D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory.
 	 * 
@@ -7787,18 +6632,11 @@ public class GL11 {
 	 * @param height         the texture height
 	 * @param border         the texture border width
 	 */
-	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
-		nglCopyTexImage2D(target, level, internalFormat, x, y, width, height, border);
-	}
+	public static native void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border);
 
 	// --- [ glCopyTexImage1D ] ---
 
-	/** Unsafe version of: {@link #glCopyTexImage1D CopyTexImage1D} */
-	public static native void nglCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexImage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D TexImage1D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D CopyTexImage2D}
 	 * with corresponding arguments and height of 1, except that the height of the image is always 1, regardless of the value of border. level, internalformat,
@@ -7813,18 +6651,11 @@ public class GL11 {
 	 * @param width          the texture width
 	 * @param border         the texture border width
 	 */
-	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
-		nglCopyTexImage1D(target, level, internalFormat, x, y, width, border);
-	}
+	public static native void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border);
 
 	// --- [ glCopyTexSubImage1D ] ---
 
-	/** Unsafe version of: {@link #glCopyTexSubImage1D CopyTexSubImage1D} */
-	public static native void nglCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width} or {@code border}
 	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D CopyTexImage1D} for more
 	 * details.
@@ -7836,18 +6667,11 @@ public class GL11 {
 	 * @param y       the lower framebuffer pixel coordinate
 	 * @param width   the texture subregion width
 	 */
-	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
-		nglCopyTexSubImage1D(target, level, xoffset, x, y, width);
-	}
+	public static native void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width);
 
 	// --- [ glCopyTexSubImage2D ] ---
 
-	/** Unsafe version of: {@link #glCopyTexSubImage2D CopyTexSubImage2D} */
-	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width}, {@code height},
 	 * or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
 	 * {@link #glCopyTexImage2D CopyTexImage2D} for more details.
@@ -7861,27 +6685,18 @@ public class GL11 {
 	 * @param width   the texture subregion width
 	 * @param height  the texture subregion height
 	 */
-	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
-	}
+	public static native void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 	// --- [ glTexParameteri ] ---
 
-	/** Unsafe version of: {@link #glTexParameteri TexParameteri} */
-	public static native void nglTexParameteri(int target, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the integer value of a texture parameter, which controls how the texel array is treated when specified or changed, and when applied to a fragment.
 	 *
 	 * @param target the texture target. One of:<br><table><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td></tr><tr><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
 	 * @param pname  the parameter to set. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}</td><td>{@link #GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link #GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link #GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link #GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}</td></tr><tr><td>{@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}</td></tr><tr><td>{@link #GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link #GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}</td></tr><tr><td>{@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}</td></tr></table>
 	 * @param param  the parameter value
 	 */
-	public static void glTexParameteri(int target, int pname, int param) {
-		nglTexParameteri(target, pname, param);
-	}
+	public static native void glTexParameteri(int target, int pname, int param);
 
 	// --- [ glTexParameteriv ] ---
 
@@ -7905,21 +6720,14 @@ public class GL11 {
 
 	// --- [ glTexParameterf ] ---
 
-	/** Unsafe version of: {@link #glTexParameterf TexParameterf} */
-	public static native void nglTexParameterf(int target, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterf.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Float version of {@link #glTexParameteri TexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
 	 * @param param  the parameter value
 	 */
-	public static void glTexParameterf(int target, int pname, float param) {
-		nglTexParameterf(target, pname, param);
-	}
+	public static native void glTexParameterf(int target, int pname, float param);
 
 	// --- [ glTexParameterfv ] ---
 
@@ -8175,12 +6983,7 @@ public class GL11 {
 
 	// --- [ glTranslatef ] ---
 
-	/** Unsafe version of: {@link #glTranslatef Translatef} */
-	public static native void nglTranslatef(float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTranslatef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
@@ -8196,96 +6999,59 @@ public class GL11 {
 	 * @param y the y-axis translation
 	 * @param z the z-axis translation
 	 */
-	public static void glTranslatef(float x, float y, float z) {
-		nglTranslatef(x, y, z);
-	}
+	public static native void glTranslatef(float x, float y, float z);
 
 	// --- [ glTranslated ] ---
 
-	/** Unsafe version of: {@link #glTranslated Translated} */
-	public static native void nglTranslated(double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTranslated.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glTranslatef Translatef}.
 	 *
 	 * @param x the x-axis translation
 	 * @param y the y-axis translation
 	 * @param z the z-axis translation
 	 */
-	public static void glTranslated(double x, double y, double z) {
-		nglTranslated(x, y, z);
-	}
+	public static native void glTranslated(double x, double y, double z);
 
 	// --- [ glVertex2f ] ---
 
-	/** Unsafe version of: {@link #glVertex2f Vertex2f} */
-	public static native void nglVertex2f(float x, float y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in two dimensions. The z coordinate is implicitly set
 	 * to zero and the w coordinate to one.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
-	public static void glVertex2f(float x, float y) {
-		nglVertex2f(x, y);
-	}
+	public static native void glVertex2f(float x, float y);
 
 	// --- [ glVertex2s ] ---
 
-	/** Unsafe version of: {@link #glVertex2s Vertex2s} */
-	public static native void nglVertex2s(short x, short y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
-	public static void glVertex2s(short x, short y) {
-		nglVertex2s(x, y);
-	}
+	public static native void glVertex2s(short x, short y);
 
 	// --- [ glVertex2i ] ---
 
-	/** Unsafe version of: {@link #glVertex2i Vertex2i} */
-	public static native void nglVertex2i(int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
-	public static void glVertex2i(int x, int y) {
-		nglVertex2i(x, y);
-	}
+	public static native void glVertex2i(int x, int y);
 
 	// --- [ glVertex2d ] ---
 
-	/** Unsafe version of: {@link #glVertex2d Vertex2d} */
-	public static native void nglVertex2d(double x, double y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
-	public static void glVertex2d(double x, double y) {
-		nglVertex2d(x, y);
-	}
+	public static native void glVertex2d(double x, double y);
 
 	// --- [ glVertex2fv ] ---
 
@@ -8361,12 +7127,7 @@ public class GL11 {
 
 	// --- [ glVertex3f ] ---
 
-	/** Unsafe version of: {@link #glVertex3f Vertex3f} */
-	public static native void nglVertex3f(float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in three dimensions. The w coordinate is implicitly set
 	 * to one.
 	 *
@@ -8374,63 +7135,40 @@ public class GL11 {
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
-	public static void glVertex3f(float x, float y, float z) {
-		nglVertex3f(x, y, z);
-	}
+	public static native void glVertex3f(float x, float y, float z);
 
 	// --- [ glVertex3s ] ---
 
-	/** Unsafe version of: {@link #glVertex3s Vertex3s} */
-	public static native void nglVertex3s(short x, short y, short z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
-	public static void glVertex3s(short x, short y, short z) {
-		nglVertex3s(x, y, z);
-	}
+	public static native void glVertex3s(short x, short y, short z);
 
 	// --- [ glVertex3i ] ---
 
-	/** Unsafe version of: {@link #glVertex3i Vertex3i} */
-	public static native void nglVertex3i(int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
-	public static void glVertex3i(int x, int y, int z) {
-		nglVertex3i(x, y, z);
-	}
+	public static native void glVertex3i(int x, int y, int z);
 
 	// --- [ glVertex3d ] ---
 
-	/** Unsafe version of: {@link #glVertex3d Vertex3d} */
-	public static native void nglVertex3d(double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
-	public static void glVertex3d(double x, double y, double z) {
-		nglVertex3d(x, y, z);
-	}
+	public static native void glVertex3d(double x, double y, double z);
 
 	// --- [ glVertex3fv ] ---
 
@@ -8506,12 +7244,7 @@ public class GL11 {
 
 	// --- [ glVertex4f ] ---
 
-	/** Unsafe version of: {@link #glVertex4f Vertex4f} */
-	public static native void nglVertex4f(float x, float y, float z, float w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in four dimensions.
 	 *
 	 * @param x the vertex x coordinate
@@ -8519,18 +7252,11 @@ public class GL11 {
 	 * @param z the vertex z coordinate
 	 * @param w the vertex w coordinate
 	 */
-	public static void glVertex4f(float x, float y, float z, float w) {
-		nglVertex4f(x, y, z, w);
-	}
+	public static native void glVertex4f(float x, float y, float z, float w);
 
 	// --- [ glVertex4s ] ---
 
-	/** Unsafe version of: {@link #glVertex4s Vertex4s} */
-	public static native void nglVertex4s(short x, short y, short z, short w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param x the vertex x coordinate
@@ -8538,18 +7264,11 @@ public class GL11 {
 	 * @param z the vertex z coordinate
 	 * @param w the vertex w coordinate
 	 */
-	public static void glVertex4s(short x, short y, short z, short w) {
-		nglVertex4s(x, y, z, w);
-	}
+	public static native void glVertex4s(short x, short y, short z, short w);
 
 	// --- [ glVertex4i ] ---
 
-	/** Unsafe version of: {@link #glVertex4i Vertex4i} */
-	public static native void nglVertex4i(int x, int y, int z, int w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param x the vertex x coordinate
@@ -8557,18 +7276,11 @@ public class GL11 {
 	 * @param z the vertex z coordinate
 	 * @param w the vertex w coordinate
 	 */
-	public static void glVertex4i(int x, int y, int z, int w) {
-		nglVertex4i(x, y, z, w);
-	}
+	public static native void glVertex4i(int x, int y, int z, int w);
 
 	// --- [ glVertex4d ] ---
 
-	/** Unsafe version of: {@link #glVertex4d Vertex4d} */
-	public static native void nglVertex4d(double x, double y, double z, double w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param x the vertex x coordinate
@@ -8576,9 +7288,7 @@ public class GL11 {
 	 * @param z the vertex z coordinate
 	 * @param w the vertex w coordinate
 	 */
-	public static void glVertex4d(double x, double y, double z, double w) {
-		nglVertex4d(x, y, z, w);
-	}
+	public static native void glVertex4d(double x, double y, double z, double w);
 
 	// --- [ glVertex4fv ] ---
 
@@ -8729,12 +7439,7 @@ public class GL11 {
 
 	// --- [ glViewport ] ---
 
-	/** Unsafe version of: {@link #glViewport Viewport} */
-	public static native void nglViewport(int x, int y, int w, int h);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewport.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the viewport transformation parameters for all viewports.
 	 * 
 	 * <p>The location of the viewport's bottom-left corner, given by {@code (x, y)}, are clamped to be within the implementation-dependent viewport bounds range.
@@ -8753,9 +7458,7 @@ public class GL11 {
 	 * @param w the viewport width
 	 * @param h the viewport height
 	 */
-	public static void glViewport(int x, int y, int w, int h) {
-		nglViewport(x, y, w, h);
-	}
+	public static native void glViewport(int x, int y, int w, int h);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAreTexturesResident.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>

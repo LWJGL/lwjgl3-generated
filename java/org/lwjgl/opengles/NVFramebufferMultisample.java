@@ -51,10 +51,6 @@ public class NVFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleNV ] ---
 
-	public static native void nglRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisampleNV(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height);
 
 }

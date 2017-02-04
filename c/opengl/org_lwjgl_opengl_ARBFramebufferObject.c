@@ -29,13 +29,13 @@ typedef void (APIENTRY *glGenerateMipmapPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglIsRenderbuffer(JNIEnv *__env, jclass clazz, jint renderbuffer) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glIsRenderbuffer(JNIEnv *__env, jclass clazz, jint renderbuffer) {
 	glIsRenderbufferPROC glIsRenderbuffer = (glIsRenderbufferPROC)tlsGetFunction(877);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsRenderbuffer(renderbuffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglBindRenderbuffer(JNIEnv *__env, jclass clazz, jint target, jint renderbuffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glBindRenderbuffer(JNIEnv *__env, jclass clazz, jint target, jint renderbuffer) {
 	glBindRenderbufferPROC glBindRenderbuffer = (glBindRenderbufferPROC)tlsGetFunction(50);
 	UNUSED_PARAM(clazz)
 	glBindRenderbuffer(target, renderbuffer);
@@ -55,13 +55,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglGenRenderbu
 	glGenRenderbuffers(n, renderbuffers);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglRenderbufferStorage(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glRenderbufferStorage(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint width, jint height) {
 	glRenderbufferStoragePROC glRenderbufferStorage = (glRenderbufferStoragePROC)tlsGetFunction(1447);
 	UNUSED_PARAM(clazz)
 	glRenderbufferStorage(target, internalformat, width, height);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglRenderbufferStorageMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glRenderbufferStorageMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height) {
 	glRenderbufferStorageMultisamplePROC glRenderbufferStorageMultisample = (glRenderbufferStorageMultisamplePROC)tlsGetFunction(1449);
 	UNUSED_PARAM(clazz)
 	glRenderbufferStorageMultisample(target, samples, internalformat, width, height);
@@ -74,13 +74,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglGetRenderbu
 	glGetRenderbufferParameteriv(target, pname, params);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglIsFramebuffer(JNIEnv *__env, jclass clazz, jint framebuffer) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glIsFramebuffer(JNIEnv *__env, jclass clazz, jint framebuffer) {
 	glIsFramebufferPROC glIsFramebuffer = (glIsFramebufferPROC)tlsGetFunction(862);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsFramebuffer(framebuffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglBindFramebuffer(JNIEnv *__env, jclass clazz, jint target, jint framebuffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glBindFramebuffer(JNIEnv *__env, jclass clazz, jint target, jint framebuffer) {
 	glBindFramebufferPROC glBindFramebuffer = (glBindFramebufferPROC)tlsGetFunction(42);
 	UNUSED_PARAM(clazz)
 	glBindFramebuffer(target, framebuffer);
@@ -100,37 +100,37 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglGenFramebuf
 	glGenFramebuffers(n, framebuffers);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglCheckFramebufferStatus(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glCheckFramebufferStatus(JNIEnv *__env, jclass clazz, jint target) {
 	glCheckFramebufferStatusPROC glCheckFramebufferStatus = (glCheckFramebufferStatusPROC)tlsGetFunction(100);
 	UNUSED_PARAM(clazz)
 	return (jint)glCheckFramebufferStatus(target);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglFramebufferTexture1D(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glFramebufferTexture1D(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level) {
 	glFramebufferTexture1DPROC glFramebufferTexture1D = (glFramebufferTexture1DPROC)tlsGetFunction(449);
 	UNUSED_PARAM(clazz)
 	glFramebufferTexture1D(target, attachment, textarget, texture, level);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglFramebufferTexture2D(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glFramebufferTexture2D(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level) {
 	glFramebufferTexture2DPROC glFramebufferTexture2D = (glFramebufferTexture2DPROC)tlsGetFunction(451);
 	UNUSED_PARAM(clazz)
 	glFramebufferTexture2D(target, attachment, textarget, texture, level);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglFramebufferTexture3D(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level, jint layer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glFramebufferTexture3D(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level, jint layer) {
 	glFramebufferTexture3DPROC glFramebufferTexture3D = (glFramebufferTexture3DPROC)tlsGetFunction(453);
 	UNUSED_PARAM(clazz)
 	glFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglFramebufferTextureLayer(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glFramebufferTextureLayer(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
 	glFramebufferTextureLayerPROC glFramebufferTextureLayer = (glFramebufferTextureLayerPROC)tlsGetFunction(459);
 	UNUSED_PARAM(clazz)
 	glFramebufferTextureLayer(target, attachment, texture, level, layer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglFramebufferRenderbuffer(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint renderbuffertarget, jint renderbuffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glFramebufferRenderbuffer(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint renderbuffertarget, jint renderbuffer) {
 	glFramebufferRenderbufferPROC glFramebufferRenderbuffer = (glFramebufferRenderbufferPROC)tlsGetFunction(444);
 	UNUSED_PARAM(clazz)
 	glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
@@ -143,13 +143,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglGetFramebuf
 	glGetFramebufferAttachmentParameteriv(target, attachment, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglBlitFramebuffer(JNIEnv *__env, jclass clazz, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glBlitFramebuffer(JNIEnv *__env, jclass clazz, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter) {
 	glBlitFramebufferPROC glBlitFramebuffer = (glBlitFramebufferPROC)tlsGetFunction(87);
 	UNUSED_PARAM(clazz)
 	glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_nglGenerateMipmap(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferObject_glGenerateMipmap(JNIEnv *__env, jclass clazz, jint target) {
 	glGenerateMipmapPROC glGenerateMipmap = (glGenerateMipmapPROC)tlsGetFunction(484);
 	UNUSED_PARAM(clazz)
 	glGenerateMipmap(target);

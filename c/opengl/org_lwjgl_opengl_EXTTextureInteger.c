@@ -15,13 +15,13 @@ typedef void (APIENTRY *glGetTexParameterIuivEXTPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_nglClearColorIiEXT(JNIEnv *__env, jclass clazz, jint r, jint g, jint b, jint a) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_glClearColorIiEXT(JNIEnv *__env, jclass clazz, jint r, jint g, jint b, jint a) {
 	glClearColorIiEXTPROC glClearColorIiEXT = (glClearColorIiEXTPROC)tlsGetFunction(115);
 	UNUSED_PARAM(clazz)
 	glClearColorIiEXT(r, g, b, a);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_nglClearColorIuiEXT(JNIEnv *__env, jclass clazz, jint r, jint g, jint b, jint a) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_glClearColorIuiEXT(JNIEnv *__env, jclass clazz, jint r, jint g, jint b, jint a) {
 	glClearColorIuiEXTPROC glClearColorIuiEXT = (glClearColorIuiEXTPROC)tlsGetFunction(116);
 	UNUSED_PARAM(clazz)
 	glClearColorIuiEXT(r, g, b, a);

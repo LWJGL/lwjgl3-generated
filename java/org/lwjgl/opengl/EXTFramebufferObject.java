@@ -158,19 +158,11 @@ public class EXTFramebufferObject {
 
 	// --- [ glIsRenderbufferEXT ] ---
 
-	public static native boolean nglIsRenderbufferEXT(int renderbuffer);
-
-	public static boolean glIsRenderbufferEXT(int renderbuffer) {
-		return nglIsRenderbufferEXT(renderbuffer);
-	}
+	public static native boolean glIsRenderbufferEXT(int renderbuffer);
 
 	// --- [ glBindRenderbufferEXT ] ---
 
-	public static native void nglBindRenderbufferEXT(int target, int renderbuffer);
-
-	public static void glBindRenderbufferEXT(int target, int renderbuffer) {
-		nglBindRenderbufferEXT(target, renderbuffer);
-	}
+	public static native void glBindRenderbufferEXT(int target, int renderbuffer);
 
 	// --- [ glDeleteRenderbuffersEXT ] ---
 
@@ -211,11 +203,7 @@ public class EXTFramebufferObject {
 
 	// --- [ glRenderbufferStorageEXT ] ---
 
-	public static native void nglRenderbufferStorageEXT(int target, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageEXT(int target, int internalformat, int width, int height) {
-		nglRenderbufferStorageEXT(target, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageEXT(int target, int internalformat, int width, int height);
 
 	// --- [ glGetRenderbufferParameterivEXT ] ---
 
@@ -240,19 +228,11 @@ public class EXTFramebufferObject {
 
 	// --- [ glIsFramebufferEXT ] ---
 
-	public static native boolean nglIsFramebufferEXT(int framebuffer);
-
-	public static boolean glIsFramebufferEXT(int framebuffer) {
-		return nglIsFramebufferEXT(framebuffer);
-	}
+	public static native boolean glIsFramebufferEXT(int framebuffer);
 
 	// --- [ glBindFramebufferEXT ] ---
 
-	public static native void nglBindFramebufferEXT(int target, int framebuffer);
-
-	public static void glBindFramebufferEXT(int target, int framebuffer) {
-		nglBindFramebufferEXT(target, framebuffer);
-	}
+	public static native void glBindFramebufferEXT(int target, int framebuffer);
 
 	// --- [ glDeleteFramebuffersEXT ] ---
 
@@ -293,43 +273,23 @@ public class EXTFramebufferObject {
 
 	// --- [ glCheckFramebufferStatusEXT ] ---
 
-	public static native int nglCheckFramebufferStatusEXT(int target);
-
-	public static int glCheckFramebufferStatusEXT(int target) {
-		return nglCheckFramebufferStatusEXT(target);
-	}
+	public static native int glCheckFramebufferStatusEXT(int target);
 
 	// --- [ glFramebufferTexture1DEXT ] ---
 
-	public static native void nglFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level);
-
-	public static void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture1DEXT(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFramebufferTexture2DEXT ] ---
 
-	public static native void nglFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level);
-
-	public static void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture2DEXT(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFramebufferTexture3DEXT ] ---
 
-	public static native void nglFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset);
-
-	public static void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset) {
-		nglFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset);
-	}
+	public static native void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset);
 
 	// --- [ glFramebufferRenderbufferEXT ] ---
 
-	public static native void nglFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer);
-
-	public static void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		nglFramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer);
-	}
+	public static native void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer);
 
 	// --- [ glGetFramebufferAttachmentParameterivEXT ] ---
 
@@ -354,11 +314,7 @@ public class EXTFramebufferObject {
 
 	// --- [ glGenerateMipmapEXT ] ---
 
-	public static native void nglGenerateMipmapEXT(int target);
-
-	public static void glGenerateMipmapEXT(int target) {
-		nglGenerateMipmapEXT(target);
-	}
+	public static native void glGenerateMipmapEXT(int target);
 
 	/** Array version of: {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
 	public static void glDeleteRenderbuffersEXT(int[] renderbuffers) {

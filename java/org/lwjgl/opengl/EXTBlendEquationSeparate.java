@@ -43,10 +43,6 @@ public class EXTBlendEquationSeparate {
 
 	// --- [ glBlendEquationSeparateEXT ] ---
 
-	public static native void nglBlendEquationSeparateEXT(int modeRGB, int modeAlpha);
-
-	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparateEXT(modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha);
 
 }

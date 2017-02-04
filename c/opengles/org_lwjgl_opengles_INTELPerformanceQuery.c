@@ -19,7 +19,7 @@ typedef void (APIENTRY *glGetPerfQueryInfoINTELPROC) (jint, jint, intptr_t, intp
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglBeginPerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_glBeginPerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
 	glBeginPerfQueryINTELPROC glBeginPerfQueryINTEL = (glBeginPerfQueryINTELPROC)tlsGetFunction(8);
 	UNUSED_PARAM(clazz)
 	glBeginPerfQueryINTEL(queryHandle);
@@ -32,13 +32,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglCreatePe
 	glCreatePerfQueryINTEL(queryId, queryHandle);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglDeletePerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_glDeletePerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
 	glDeletePerfQueryINTELPROC glDeletePerfQueryINTEL = (glDeletePerfQueryINTELPROC)tlsGetFunction(121);
 	UNUSED_PARAM(clazz)
 	glDeletePerfQueryINTEL(queryHandle);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglEndPerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_glEndPerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
 	glEndPerfQueryINTELPROC glEndPerfQueryINTEL = (glEndPerfQueryINTELPROC)tlsGetFunction(194);
 	UNUSED_PARAM(clazz)
 	glEndPerfQueryINTEL(queryHandle);

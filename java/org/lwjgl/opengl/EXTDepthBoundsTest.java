@@ -58,10 +58,6 @@ public class EXTDepthBoundsTest {
 
 	// --- [ glDepthBoundsEXT ] ---
 
-	public static native void nglDepthBoundsEXT(double zmin, double zmax);
-
-	public static void glDepthBoundsEXT(double zmin, double zmax) {
-		nglDepthBoundsEXT(zmin, zmax);
-	}
+	public static native void glDepthBoundsEXT(double zmin, double zmax);
 
 }

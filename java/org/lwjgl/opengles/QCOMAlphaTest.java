@@ -40,10 +40,6 @@ public class QCOMAlphaTest {
 
 	// --- [ glAlphaFuncQCOM ] ---
 
-	public static native void nglAlphaFuncQCOM(int func, float ref);
-
-	public static void glAlphaFuncQCOM(int func, float ref) {
-		nglAlphaFuncQCOM(func, ref);
-	}
+	public static native void glAlphaFuncQCOM(int func, float ref);
 
 }

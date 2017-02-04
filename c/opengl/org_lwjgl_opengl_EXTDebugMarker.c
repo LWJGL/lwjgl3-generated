@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDebugMarker_nglPushGroupMarkerEX
 	glPushGroupMarkerEXT(length, marker);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDebugMarker_nglPopGroupMarkerEXT(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDebugMarker_glPopGroupMarkerEXT(JNIEnv *__env, jclass clazz) {
 	glPopGroupMarkerEXTPROC glPopGroupMarkerEXT = (glPopGroupMarkerEXTPROC)tlsGetFunction(1234);
 	UNUSED_PARAM(clazz)
 	glPopGroupMarkerEXT();

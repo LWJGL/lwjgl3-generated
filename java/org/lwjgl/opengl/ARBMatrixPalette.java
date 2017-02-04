@@ -66,17 +66,12 @@ public class ARBMatrixPalette {
 
 	// --- [ glCurrentPaletteMatrixARB ] ---
 
-	/** Unsafe version of: {@link #glCurrentPaletteMatrixARB CurrentPaletteMatrixARB} */
-	public static native void nglCurrentPaletteMatrixARB(int index);
-
 	/**
 	 * Defines which of the palette's matrices is affected by subsequent matrix operations when the current matrix mode is {@link #GL_MATRIX_PALETTE_ARB MATRIX_PALETTE_ARB},
 	 *
 	 * @param index the current matrix index. Must be a value between 0 and {@link #GL_MAX_PALETTE_MATRICES_ARB MAX_PALETTE_MATRICES_ARB}.
 	 */
-	public static void glCurrentPaletteMatrixARB(int index) {
-		nglCurrentPaletteMatrixARB(index);
-	}
+	public static native void glCurrentPaletteMatrixARB(int index);
 
 	// --- [ glMatrixIndexuivARB ] ---
 

@@ -124,18 +124,13 @@ public class ARBTessellationShader {
 
 	// --- [ glPatchParameteri ] ---
 
-	/** Unsafe version of: {@link #glPatchParameteri PatchParameteri} */
-	public static native void nglPatchParameteri(int pname, int value);
-
 	/**
 	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
 	 * @param pname the name of the parameter to set. Must be:<br><table><tr><td>{@link GL40#GL_PATCH_VERTICES PATCH_VERTICES}</td></tr></table>
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
-	public static void glPatchParameteri(int pname, int value) {
-		nglPatchParameteri(pname, value);
-	}
+	public static native void glPatchParameteri(int pname, int value);
 
 	// --- [ glPatchParameterfv ] ---
 

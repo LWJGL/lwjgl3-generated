@@ -81,23 +81,15 @@ public class ARBMultitexture {
 
 	// --- [ glActiveTextureARB ] ---
 
-	/** Unsafe version of: {@link #glActiveTextureARB ActiveTextureARB} */
-	public static native void nglActiveTextureARB(int texture);
-
 	/**
 	 * Selects which texture unit subsequent texture state calls will affect. The number of texture units an implementation supports is implementation
 	 * dependent.
 	 *
 	 * @param texture which texture unit to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0_ARB TEXTURE0_ARB}</td><td>GL_TEXTURE[1-31]</td></tr></table>
 	 */
-	public static void glActiveTextureARB(int texture) {
-		nglActiveTextureARB(texture);
-	}
+	public static native void glActiveTextureARB(int texture);
 
 	// --- [ glClientActiveTextureARB ] ---
-
-	/** Unsafe version of: {@link #glClientActiveTextureARB ClientActiveTextureARB} */
-	public static native void nglClientActiveTextureARB(int texture);
 
 	/**
 	 * Selects the vertex array client state parameters to be modified by the TexCoordPointer command and the array affected by EnableClientState and
@@ -105,14 +97,9 @@ public class ARBMultitexture {
 	 *
 	 * @param texture which texture coordinate array to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0_ARB TEXTURE0_ARB}</td><td>GL_TEXTURE[1-31]</td></tr></table>
 	 */
-	public static void glClientActiveTextureARB(int texture) {
-		nglClientActiveTextureARB(texture);
-	}
+	public static native void glClientActiveTextureARB(int texture);
 
 	// --- [ glMultiTexCoord1fARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord1fARB MultiTexCoord1fARB} */
-	public static native void nglMultiTexCoord1fARB(int texture, float s);
 
 	/**
 	 * Sets the current one-dimensional texture coordinate for the specified texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
@@ -120,14 +107,9 @@ public class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1fARB(int texture, float s) {
-		nglMultiTexCoord1fARB(texture, s);
-	}
+	public static native void glMultiTexCoord1fARB(int texture, float s);
 
 	// --- [ glMultiTexCoord1sARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord1sARB MultiTexCoord1sARB} */
-	public static native void nglMultiTexCoord1sARB(int texture, short s);
 
 	/**
 	 * Short version of {@link #glMultiTexCoord1fARB MultiTexCoord1fARB}.
@@ -135,14 +117,9 @@ public class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1sARB(int texture, short s) {
-		nglMultiTexCoord1sARB(texture, s);
-	}
+	public static native void glMultiTexCoord1sARB(int texture, short s);
 
 	// --- [ glMultiTexCoord1iARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord1iARB MultiTexCoord1iARB} */
-	public static native void nglMultiTexCoord1iARB(int texture, int s);
 
 	/**
 	 * Integer version of {@link #glMultiTexCoord1fARB MultiTexCoord1fARB}.
@@ -150,14 +127,9 @@ public class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1iARB(int texture, int s) {
-		nglMultiTexCoord1iARB(texture, s);
-	}
+	public static native void glMultiTexCoord1iARB(int texture, int s);
 
 	// --- [ glMultiTexCoord1dARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord1dARB MultiTexCoord1dARB} */
-	public static native void nglMultiTexCoord1dARB(int texture, double s);
 
 	/**
 	 * Double version of {@link #glMultiTexCoord1fARB MultiTexCoord1fARB}.
@@ -165,9 +137,7 @@ public class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1dARB(int texture, double s) {
-		nglMultiTexCoord1dARB(texture, s);
-	}
+	public static native void glMultiTexCoord1dARB(int texture, double s);
 
 	// --- [ glMultiTexCoord1fvARB ] ---
 
@@ -239,9 +209,6 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2fARB ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord2fARB MultiTexCoord2fARB} */
-	public static native void nglMultiTexCoord2fARB(int texture, float s, float t);
-
 	/**
 	 * Sets the current two-dimensional texture coordinate for the specified texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
@@ -249,14 +216,9 @@ public class ARBMultitexture {
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2fARB(int texture, float s, float t) {
-		nglMultiTexCoord2fARB(texture, s, t);
-	}
+	public static native void glMultiTexCoord2fARB(int texture, float s, float t);
 
 	// --- [ glMultiTexCoord2sARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord2sARB MultiTexCoord2sARB} */
-	public static native void nglMultiTexCoord2sARB(int texture, short s, short t);
 
 	/**
 	 * Short version of {@link #glMultiTexCoord2fARB MultiTexCoord2fARB}.
@@ -265,14 +227,9 @@ public class ARBMultitexture {
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2sARB(int texture, short s, short t) {
-		nglMultiTexCoord2sARB(texture, s, t);
-	}
+	public static native void glMultiTexCoord2sARB(int texture, short s, short t);
 
 	// --- [ glMultiTexCoord2iARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord2iARB MultiTexCoord2iARB} */
-	public static native void nglMultiTexCoord2iARB(int texture, int s, int t);
 
 	/**
 	 * Integer version of {@link #glMultiTexCoord2fARB MultiTexCoord2fARB}.
@@ -281,14 +238,9 @@ public class ARBMultitexture {
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2iARB(int texture, int s, int t) {
-		nglMultiTexCoord2iARB(texture, s, t);
-	}
+	public static native void glMultiTexCoord2iARB(int texture, int s, int t);
 
 	// --- [ glMultiTexCoord2dARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord2dARB MultiTexCoord2dARB} */
-	public static native void nglMultiTexCoord2dARB(int texture, double s, double t);
 
 	/**
 	 * Double version of {@link #glMultiTexCoord2fARB MultiTexCoord2fARB}.
@@ -297,9 +249,7 @@ public class ARBMultitexture {
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2dARB(int texture, double s, double t) {
-		nglMultiTexCoord2dARB(texture, s, t);
-	}
+	public static native void glMultiTexCoord2dARB(int texture, double s, double t);
 
 	// --- [ glMultiTexCoord2fvARB ] ---
 
@@ -371,9 +321,6 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3fARB ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord3fARB MultiTexCoord3fARB} */
-	public static native void nglMultiTexCoord3fARB(int texture, float s, float t, float r);
-
 	/**
 	 * Sets the current three-dimensional texture coordinate for the specified texture coordinate set. {@code q} is implicitly set to 1.
 	 *
@@ -382,14 +329,9 @@ public class ARBMultitexture {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3fARB(int texture, float s, float t, float r) {
-		nglMultiTexCoord3fARB(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3fARB(int texture, float s, float t, float r);
 
 	// --- [ glMultiTexCoord3sARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord3sARB MultiTexCoord3sARB} */
-	public static native void nglMultiTexCoord3sARB(int texture, short s, short t, short r);
 
 	/**
 	 * Short version of {@link #glMultiTexCoord3fARB MultiTexCoord3fARB}.
@@ -399,14 +341,9 @@ public class ARBMultitexture {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3sARB(int texture, short s, short t, short r) {
-		nglMultiTexCoord3sARB(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3sARB(int texture, short s, short t, short r);
 
 	// --- [ glMultiTexCoord3iARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord3iARB MultiTexCoord3iARB} */
-	public static native void nglMultiTexCoord3iARB(int texture, int s, int t, int r);
 
 	/**
 	 * Integer version of {@link #glMultiTexCoord3fARB MultiTexCoord3fARB}.
@@ -416,14 +353,9 @@ public class ARBMultitexture {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3iARB(int texture, int s, int t, int r) {
-		nglMultiTexCoord3iARB(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3iARB(int texture, int s, int t, int r);
 
 	// --- [ glMultiTexCoord3dARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord3dARB MultiTexCoord3dARB} */
-	public static native void nglMultiTexCoord3dARB(int texture, double s, double t, double r);
 
 	/**
 	 * Double version of {@link #glMultiTexCoord3fARB MultiTexCoord3fARB}.
@@ -433,9 +365,7 @@ public class ARBMultitexture {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3dARB(int texture, double s, double t, double r) {
-		nglMultiTexCoord3dARB(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3dARB(int texture, double s, double t, double r);
 
 	// --- [ glMultiTexCoord3fvARB ] ---
 
@@ -507,9 +437,6 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4fARB ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord4fARB MultiTexCoord4fARB} */
-	public static native void nglMultiTexCoord4fARB(int texture, float s, float t, float r, float q);
-
 	/**
 	 * Sets the current four-dimensional texture coordinate for the specified texture coordinate set.
 	 *
@@ -519,14 +446,9 @@ public class ARBMultitexture {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4fARB(int texture, float s, float t, float r, float q) {
-		nglMultiTexCoord4fARB(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4fARB(int texture, float s, float t, float r, float q);
 
 	// --- [ glMultiTexCoord4sARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord4sARB MultiTexCoord4sARB} */
-	public static native void nglMultiTexCoord4sARB(int texture, short s, short t, short r, short q);
 
 	/**
 	 * Short version of {@link #glMultiTexCoord4fARB MultiTexCoord4fARB}.
@@ -537,14 +459,9 @@ public class ARBMultitexture {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4sARB(int texture, short s, short t, short r, short q) {
-		nglMultiTexCoord4sARB(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4sARB(int texture, short s, short t, short r, short q);
 
 	// --- [ glMultiTexCoord4iARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord4iARB MultiTexCoord4iARB} */
-	public static native void nglMultiTexCoord4iARB(int texture, int s, int t, int r, int q);
 
 	/**
 	 * Integer version of {@link #glMultiTexCoord4fARB MultiTexCoord4fARB}.
@@ -555,14 +472,9 @@ public class ARBMultitexture {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4iARB(int texture, int s, int t, int r, int q) {
-		nglMultiTexCoord4iARB(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4iARB(int texture, int s, int t, int r, int q);
 
 	// --- [ glMultiTexCoord4dARB ] ---
-
-	/** Unsafe version of: {@link #glMultiTexCoord4dARB MultiTexCoord4dARB} */
-	public static native void nglMultiTexCoord4dARB(int texture, double s, double t, double r, double q);
 
 	/**
 	 * Double version of {@link #glMultiTexCoord4fARB MultiTexCoord4fARB}.
@@ -573,9 +485,7 @@ public class ARBMultitexture {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4dARB(int texture, double s, double t, double r, double q) {
-		nglMultiTexCoord4dARB(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4dARB(int texture, double s, double t, double r, double q);
 
 	// --- [ glMultiTexCoord4fvARB ] ---
 

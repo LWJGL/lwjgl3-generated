@@ -105,17 +105,12 @@ public class NVSampleLocations {
 
 	// --- [ glResolveDepthValuesNV ] ---
 
-	/** Unsafe version of: {@link #glResolveDepthValuesNV ResolveDepthValuesNV} */
-	public static native void nglResolveDepthValuesNV();
-
 	/**
 	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
 	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
 	 * generated. If the current framebuffer has no depth buffer, ResolveDepthValuesNV will have no effect.
 	 */
-	public static void glResolveDepthValuesNV() {
-		nglResolveDepthValuesNV();
-	}
+	public static native void glResolveDepthValuesNV();
 
 	/** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {

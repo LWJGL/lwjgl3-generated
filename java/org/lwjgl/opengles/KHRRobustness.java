@@ -86,9 +86,6 @@ public class KHRRobustness {
 
 	// --- [ glGetGraphicsResetStatusKHR ] ---
 
-	/** Unsafe version of: {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} */
-	public static native int nglGetGraphicsResetStatusKHR();
-
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * 
@@ -124,9 +121,7 @@ public class KHRRobustness {
 	 * indicating completion to the application.</li>
 	 * </ul>
 	 */
-	public static int glGetGraphicsResetStatusKHR() {
-		return nglGetGraphicsResetStatusKHR();
-	}
+	public static native int glGetGraphicsResetStatusKHR();
 
 	// --- [ glReadnPixelsKHR ] ---
 

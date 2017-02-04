@@ -100,11 +100,7 @@ public class OESTexture3D {
 
 	// --- [ glCopyTexSubImage3DOES ] ---
 
-	public static native void nglCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-	public static void glCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glCompressedTexImage3DOES ] ---
 
@@ -132,11 +128,7 @@ public class OESTexture3D {
 
 	// --- [ glFramebufferTexture3DOES ] ---
 
-	public static native void nglFramebufferTexture3DOES(int target, int attachment, int textarget, int texture, int level, int zoffset);
-
-	public static void glFramebufferTexture3DOES(int target, int attachment, int textarget, int texture, int level, int zoffset) {
-		nglFramebufferTexture3DOES(target, attachment, textarget, texture, level, zoffset);
-	}
+	public static native void glFramebufferTexture3DOES(int target, int attachment, int textarget, int texture, int level, int zoffset);
 
 	/** Array version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {

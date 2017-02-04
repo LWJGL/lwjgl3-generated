@@ -111,9 +111,6 @@ public class ARBSeparateShaderObjects {
 
 	// --- [ glUseProgramStages ] ---
 
-	/** Unsafe version of: {@link #glUseProgramStages UseProgramStages} */
-	public static native void nglUseProgramStages(int pipeline, int stages, int program);
-
 	/**
 	 * Binds stages of a program object to a program pipeline.
 	 *
@@ -121,14 +118,9 @@ public class ARBSeparateShaderObjects {
 	 * @param stages   a set of program stages to bind to the program pipeline object
 	 * @param program  the program object containing the shader executables to use in {@code pipeline}
 	 */
-	public static void glUseProgramStages(int pipeline, int stages, int program) {
-		nglUseProgramStages(pipeline, stages, program);
-	}
+	public static native void glUseProgramStages(int pipeline, int stages, int program);
 
 	// --- [ glActiveShaderProgram ] ---
-
-	/** Unsafe version of: {@link #glActiveShaderProgram ActiveShaderProgram} */
-	public static native void nglActiveShaderProgram(int pipeline, int program);
 
 	/**
 	 * Sets the active program object for a program pipeline object.
@@ -136,9 +128,7 @@ public class ARBSeparateShaderObjects {
 	 * @param pipeline the program pipeline object to set the active program object for
 	 * @param program  the program object to set as the active program pipeline object {@code pipeline}
 	 */
-	public static void glActiveShaderProgram(int pipeline, int program) {
-		nglActiveShaderProgram(pipeline, program);
-	}
+	public static native void glActiveShaderProgram(int pipeline, int program);
 
 	// --- [ glCreateShaderProgramv ] ---
 
@@ -274,17 +264,12 @@ if (shader) {
 
 	// --- [ glBindProgramPipeline ] ---
 
-	/** Unsafe version of: {@link #glBindProgramPipeline BindProgramPipeline} */
-	public static native void nglBindProgramPipeline(int pipeline);
-
 	/**
 	 * Binds a program pipeline to the current context.
 	 *
 	 * @param pipeline the name of the pipeline object to bind to the context
 	 */
-	public static void glBindProgramPipeline(int pipeline) {
-		nglBindProgramPipeline(pipeline);
-	}
+	public static native void glBindProgramPipeline(int pipeline);
 
 	// --- [ glDeleteProgramPipelines ] ---
 
@@ -347,22 +332,14 @@ if (shader) {
 
 	// --- [ glIsProgramPipeline ] ---
 
-	/** Unsafe version of: {@link #glIsProgramPipeline IsProgramPipeline} */
-	public static native boolean nglIsProgramPipeline(int pipeline);
-
 	/**
 	 * Determines if a name corresponds to a program pipeline object.
 	 *
 	 * @param pipeline a value that may be the name of a program pipeline object
 	 */
-	public static boolean glIsProgramPipeline(int pipeline) {
-		return nglIsProgramPipeline(pipeline);
-	}
+	public static native boolean glIsProgramPipeline(int pipeline);
 
 	// --- [ glProgramParameteri ] ---
-
-	/** Unsafe version of: {@link #glProgramParameteri ProgramParameteri} */
-	public static native void nglProgramParameteri(int program, int pname, int value);
 
 	/**
 	 * Specifies the integer value of a program object parameter.
@@ -371,9 +348,7 @@ if (shader) {
 	 * @param pname   the name of the parameter to modify. One of:<br><table><tr><td>{@link GL41#GL_PROGRAM_BINARY_RETRIEVABLE_HINT PROGRAM_BINARY_RETRIEVABLE_HINT}</td><td>{@link GL41#GL_PROGRAM_SEPARABLE PROGRAM_SEPARABLE}</td></tr></table>
 	 * @param value   the new value of the parameter specified by {@code pname} for {@code program}
 	 */
-	public static void glProgramParameteri(int program, int pname, int value) {
-		nglProgramParameteri(program, pname, value);
-	}
+	public static native void glProgramParameteri(int program, int pname, int value);
 
 	// --- [ glGetProgramPipelineiv ] ---
 
@@ -412,9 +387,6 @@ if (shader) {
 
 	// --- [ glProgramUniform1i ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1i ProgramUniform1i} */
-	public static native void nglProgramUniform1i(int program, int location, int x);
-
 	/**
 	 * Specifies the value of an int uniform variable for a specified program object.
 	 *
@@ -422,14 +394,9 @@ if (shader) {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1i(int program, int location, int x) {
-		nglProgramUniform1i(program, location, x);
-	}
+	public static native void glProgramUniform1i(int program, int location, int x);
 
 	// --- [ glProgramUniform2i ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform2i ProgramUniform2i} */
-	public static native void nglProgramUniform2i(int program, int location, int x, int y);
 
 	/**
 	 * Specifies the value of an ivec2 uniform variable for a specified program object.
@@ -439,14 +406,9 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2i(int program, int location, int x, int y) {
-		nglProgramUniform2i(program, location, x, y);
-	}
+	public static native void glProgramUniform2i(int program, int location, int x, int y);
 
 	// --- [ glProgramUniform3i ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform3i ProgramUniform3i} */
-	public static native void nglProgramUniform3i(int program, int location, int x, int y, int z);
 
 	/**
 	 * Specifies the value of an ivec3 uniform variable for a specified program object.
@@ -457,14 +419,9 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3i(int program, int location, int x, int y, int z) {
-		nglProgramUniform3i(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3i(int program, int location, int x, int y, int z);
 
 	// --- [ glProgramUniform4i ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform4i ProgramUniform4i} */
-	public static native void nglProgramUniform4i(int program, int location, int x, int y, int z, int w);
 
 	/**
 	 * Specifies the value of an ivec4 uniform variable for a specified program object.
@@ -476,14 +433,9 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4i(int program, int location, int x, int y, int z, int w) {
-		nglProgramUniform4i(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4i(int program, int location, int x, int y, int z, int w);
 
 	// --- [ glProgramUniform1ui ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform1ui ProgramUniform1ui} */
-	public static native void nglProgramUniform1ui(int program, int location, int x);
 
 	/**
 	 * Specifies the value of a uint uniform variable for a specified program object.
@@ -492,14 +444,9 @@ if (shader) {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1ui(int program, int location, int x) {
-		nglProgramUniform1ui(program, location, x);
-	}
+	public static native void glProgramUniform1ui(int program, int location, int x);
 
 	// --- [ glProgramUniform2ui ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform2ui ProgramUniform2ui} */
-	public static native void nglProgramUniform2ui(int program, int location, int x, int y);
 
 	/**
 	 * Specifies the value of a uvec2 uniform variable for a specified program object.
@@ -509,14 +456,9 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2ui(int program, int location, int x, int y) {
-		nglProgramUniform2ui(program, location, x, y);
-	}
+	public static native void glProgramUniform2ui(int program, int location, int x, int y);
 
 	// --- [ glProgramUniform3ui ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform3ui ProgramUniform3ui} */
-	public static native void nglProgramUniform3ui(int program, int location, int x, int y, int z);
 
 	/**
 	 * Specifies the value of a uvec3 uniform variable for a specified program object.
@@ -527,14 +469,9 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3ui(int program, int location, int x, int y, int z) {
-		nglProgramUniform3ui(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3ui(int program, int location, int x, int y, int z);
 
 	// --- [ glProgramUniform4ui ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform4ui ProgramUniform4ui} */
-	public static native void nglProgramUniform4ui(int program, int location, int x, int y, int z, int w);
 
 	/**
 	 * Specifies the value of a uvec4 uniform variable for a specified program object.
@@ -546,14 +483,9 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4ui(int program, int location, int x, int y, int z, int w) {
-		nglProgramUniform4ui(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4ui(int program, int location, int x, int y, int z, int w);
 
 	// --- [ glProgramUniform1f ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform1f ProgramUniform1f} */
-	public static native void nglProgramUniform1f(int program, int location, float x);
 
 	/**
 	 * Specifies the value of a float uniform variable for a specified program object.
@@ -562,14 +494,9 @@ if (shader) {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1f(int program, int location, float x) {
-		nglProgramUniform1f(program, location, x);
-	}
+	public static native void glProgramUniform1f(int program, int location, float x);
 
 	// --- [ glProgramUniform2f ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform2f ProgramUniform2f} */
-	public static native void nglProgramUniform2f(int program, int location, float x, float y);
 
 	/**
 	 * Specifies the value of a vec2 uniform variable for a specified program object.
@@ -579,14 +506,9 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2f(int program, int location, float x, float y) {
-		nglProgramUniform2f(program, location, x, y);
-	}
+	public static native void glProgramUniform2f(int program, int location, float x, float y);
 
 	// --- [ glProgramUniform3f ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform3f ProgramUniform3f} */
-	public static native void nglProgramUniform3f(int program, int location, float x, float y, float z);
 
 	/**
 	 * Specifies the value of a vec3 uniform variable for a specified program object.
@@ -597,14 +519,9 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3f(int program, int location, float x, float y, float z) {
-		nglProgramUniform3f(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3f(int program, int location, float x, float y, float z);
 
 	// --- [ glProgramUniform4f ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform4f ProgramUniform4f} */
-	public static native void nglProgramUniform4f(int program, int location, float x, float y, float z, float w);
 
 	/**
 	 * Specifies the value of a vec4 uniform variable for a specified program object.
@@ -616,14 +533,9 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4f(int program, int location, float x, float y, float z, float w) {
-		nglProgramUniform4f(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4f(int program, int location, float x, float y, float z, float w);
 
 	// --- [ glProgramUniform1d ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform1d ProgramUniform1d} */
-	public static native void nglProgramUniform1d(int program, int location, double x);
 
 	/**
 	 * Specifies the value of a double uniform variable for a specified program object.
@@ -632,14 +544,9 @@ if (shader) {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1d(int program, int location, double x) {
-		nglProgramUniform1d(program, location, x);
-	}
+	public static native void glProgramUniform1d(int program, int location, double x);
 
 	// --- [ glProgramUniform2d ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform2d ProgramUniform2d} */
-	public static native void nglProgramUniform2d(int program, int location, double x, double y);
 
 	/**
 	 * Specifies the value of a dvec2 uniform variable for a specified program object.
@@ -649,14 +556,9 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2d(int program, int location, double x, double y) {
-		nglProgramUniform2d(program, location, x, y);
-	}
+	public static native void glProgramUniform2d(int program, int location, double x, double y);
 
 	// --- [ glProgramUniform3d ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform3d ProgramUniform3d} */
-	public static native void nglProgramUniform3d(int program, int location, double x, double y, double z);
 
 	/**
 	 * Specifies the value of a dvec3 uniform variable for a specified program object.
@@ -667,14 +569,9 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3d(int program, int location, double x, double y, double z) {
-		nglProgramUniform3d(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3d(int program, int location, double x, double y, double z);
 
 	// --- [ glProgramUniform4d ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform4d ProgramUniform4d} */
-	public static native void nglProgramUniform4d(int program, int location, double x, double y, double z, double w);
 
 	/**
 	 * Specifies the value of a dvec4 uniform variable for a specified program object.
@@ -686,9 +583,7 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4d(int program, int location, double x, double y, double z, double w) {
-		nglProgramUniform4d(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4d(int program, int location, double x, double y, double z, double w);
 
 	// --- [ glProgramUniform1iv ] ---
 
@@ -1390,17 +1285,12 @@ if (shader) {
 
 	// --- [ glValidateProgramPipeline ] ---
 
-	/** Unsafe version of: {@link #glValidateProgramPipeline ValidateProgramPipeline} */
-	public static native void nglValidateProgramPipeline(int pipeline);
-
 	/**
 	 * Validates a program pipeline object against current GL state.
 	 *
 	 * @param pipeline the name of a program pipeline object to validate
 	 */
-	public static void glValidateProgramPipeline(int pipeline) {
-		nglValidateProgramPipeline(pipeline);
-	}
+	public static native void glValidateProgramPipeline(int pipeline);
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
 

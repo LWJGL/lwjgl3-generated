@@ -80,9 +80,6 @@ public class ARBShaderStorageBufferObject {
 
 	// --- [ glShaderStorageBlockBinding ] ---
 
-	/** Unsafe version of: {@link #glShaderStorageBlockBinding ShaderStorageBlockBinding} */
-	public static native void nglShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
-
 	/**
 	 * Changes an active shader storage block binding.
 	 *
@@ -90,8 +87,6 @@ public class ARBShaderStorageBufferObject {
 	 * @param storageBlockIndex   the index storage block within the program
 	 * @param storageBlockBinding the index storage block binding to associate with the specified storage block
 	 */
-	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
-		nglShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
-	}
+	public static native void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
 
 }

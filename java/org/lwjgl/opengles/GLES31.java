@@ -223,19 +223,11 @@ public class GLES31 {
 
 	// --- [ glDispatchCompute ] ---
 
-	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
-
-	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
-		nglDispatchCompute(num_groups_x, num_groups_y, num_groups_z);
-	}
+	public static native void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
 
 	// --- [ glDispatchComputeIndirect ] ---
 
-	public static native void nglDispatchComputeIndirect(long indirect);
-
-	public static void glDispatchComputeIndirect(long indirect) {
-		nglDispatchComputeIndirect(indirect);
-	}
+	public static native void glDispatchComputeIndirect(long indirect);
 
 	// --- [ glDrawArraysIndirect ] ---
 
@@ -279,11 +271,7 @@ public class GLES31 {
 
 	// --- [ glFramebufferParameteri ] ---
 
-	public static native void nglFramebufferParameteri(int target, int pname, int param);
-
-	public static void glFramebufferParameteri(int target, int pname, int param) {
-		nglFramebufferParameteri(target, pname, param);
-	}
+	public static native void glFramebufferParameteri(int target, int pname, int param);
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
@@ -405,19 +393,11 @@ public class GLES31 {
 
 	// --- [ glUseProgramStages ] ---
 
-	public static native void nglUseProgramStages(int pipeline, int stages, int program);
-
-	public static void glUseProgramStages(int pipeline, int stages, int program) {
-		nglUseProgramStages(pipeline, stages, program);
-	}
+	public static native void glUseProgramStages(int pipeline, int stages, int program);
 
 	// --- [ glActiveShaderProgram ] ---
 
-	public static native void nglActiveShaderProgram(int pipeline, int program);
-
-	public static void glActiveShaderProgram(int pipeline, int program) {
-		nglActiveShaderProgram(pipeline, program);
-	}
+	public static native void glActiveShaderProgram(int pipeline, int program);
 
 	// --- [ glCreateShaderProgramv ] ---
 
@@ -453,11 +433,7 @@ public class GLES31 {
 
 	// --- [ glBindProgramPipeline ] ---
 
-	public static native void nglBindProgramPipeline(int pipeline);
-
-	public static void glBindProgramPipeline(int pipeline) {
-		nglBindProgramPipeline(pipeline);
-	}
+	public static native void glBindProgramPipeline(int pipeline);
 
 	// --- [ glDeleteProgramPipelines ] ---
 
@@ -498,11 +474,7 @@ public class GLES31 {
 
 	// --- [ glIsProgramPipeline ] ---
 
-	public static native boolean nglIsProgramPipeline(int pipeline);
-
-	public static boolean glIsProgramPipeline(int pipeline) {
-		return nglIsProgramPipeline(pipeline);
-	}
+	public static native boolean glIsProgramPipeline(int pipeline);
 
 	// --- [ glGetProgramPipelineiv ] ---
 
@@ -527,99 +499,51 @@ public class GLES31 {
 
 	// --- [ glProgramUniform1i ] ---
 
-	public static native void nglProgramUniform1i(int program, int location, int v0);
-
-	public static void glProgramUniform1i(int program, int location, int v0) {
-		nglProgramUniform1i(program, location, v0);
-	}
+	public static native void glProgramUniform1i(int program, int location, int v0);
 
 	// --- [ glProgramUniform2i ] ---
 
-	public static native void nglProgramUniform2i(int program, int location, int v0, int v1);
-
-	public static void glProgramUniform2i(int program, int location, int v0, int v1) {
-		nglProgramUniform2i(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2i(int program, int location, int v0, int v1);
 
 	// --- [ glProgramUniform3i ] ---
 
-	public static native void nglProgramUniform3i(int program, int location, int v0, int v1, int v2);
-
-	public static void glProgramUniform3i(int program, int location, int v0, int v1, int v2) {
-		nglProgramUniform3i(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3i(int program, int location, int v0, int v1, int v2);
 
 	// --- [ glProgramUniform4i ] ---
 
-	public static native void nglProgramUniform4i(int program, int location, int v0, int v1, int v2, int v3);
-
-	public static void glProgramUniform4i(int program, int location, int v0, int v1, int v2, int v3) {
-		nglProgramUniform4i(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4i(int program, int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glProgramUniform1ui ] ---
 
-	public static native void nglProgramUniform1ui(int program, int location, int v0);
-
-	public static void glProgramUniform1ui(int program, int location, int v0) {
-		nglProgramUniform1ui(program, location, v0);
-	}
+	public static native void glProgramUniform1ui(int program, int location, int v0);
 
 	// --- [ glProgramUniform2ui ] ---
 
-	public static native void nglProgramUniform2ui(int program, int location, int v0, int v1);
-
-	public static void glProgramUniform2ui(int program, int location, int v0, int v1) {
-		nglProgramUniform2ui(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2ui(int program, int location, int v0, int v1);
 
 	// --- [ glProgramUniform3ui ] ---
 
-	public static native void nglProgramUniform3ui(int program, int location, int v0, int v1, int v2);
-
-	public static void glProgramUniform3ui(int program, int location, int v0, int v1, int v2) {
-		nglProgramUniform3ui(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3ui(int program, int location, int v0, int v1, int v2);
 
 	// --- [ glProgramUniform4ui ] ---
 
-	public static native void nglProgramUniform4ui(int program, int location, int v0, int v1, int v2, int v3);
-
-	public static void glProgramUniform4ui(int program, int location, int v0, int v1, int v2, int v3) {
-		nglProgramUniform4ui(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4ui(int program, int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glProgramUniform1f ] ---
 
-	public static native void nglProgramUniform1f(int program, int location, float v0);
-
-	public static void glProgramUniform1f(int program, int location, float v0) {
-		nglProgramUniform1f(program, location, v0);
-	}
+	public static native void glProgramUniform1f(int program, int location, float v0);
 
 	// --- [ glProgramUniform2f ] ---
 
-	public static native void nglProgramUniform2f(int program, int location, float v0, float v1);
-
-	public static void glProgramUniform2f(int program, int location, float v0, float v1) {
-		nglProgramUniform2f(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2f(int program, int location, float v0, float v1);
 
 	// --- [ glProgramUniform3f ] ---
 
-	public static native void nglProgramUniform3f(int program, int location, float v0, float v1, float v2);
-
-	public static void glProgramUniform3f(int program, int location, float v0, float v1, float v2) {
-		nglProgramUniform3f(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3f(int program, int location, float v0, float v1, float v2);
 
 	// --- [ glProgramUniform4f ] ---
 
-	public static native void nglProgramUniform4f(int program, int location, float v0, float v1, float v2, float v3);
-
-	public static void glProgramUniform4f(int program, int location, float v0, float v1, float v2, float v3) {
-		nglProgramUniform4f(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4f(int program, int location, float v0, float v1, float v2, float v3);
 
 	// --- [ glProgramUniform1iv ] ---
 
@@ -791,11 +715,7 @@ public class GLES31 {
 
 	// --- [ glValidateProgramPipeline ] ---
 
-	public static native void nglValidateProgramPipeline(int pipeline);
-
-	public static void glValidateProgramPipeline(int pipeline) {
-		nglValidateProgramPipeline(pipeline);
-	}
+	public static native void glValidateProgramPipeline(int pipeline);
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
 
@@ -826,11 +746,7 @@ public class GLES31 {
 
 	// --- [ glBindImageTexture ] ---
 
-	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
-
-	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
-		nglBindImageTexture(unit, texture, level, layered, layer, access, format);
-	}
+	public static native void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
 
 	// --- [ glGetBooleani_v ] ---
 
@@ -855,27 +771,15 @@ public class GLES31 {
 
 	// --- [ glMemoryBarrier ] ---
 
-	public static native void nglMemoryBarrier(int barriers);
-
-	public static void glMemoryBarrier(int barriers) {
-		nglMemoryBarrier(barriers);
-	}
+	public static native void glMemoryBarrier(int barriers);
 
 	// --- [ glMemoryBarrierByRegion ] ---
 
-	public static native void nglMemoryBarrierByRegion(int barriers);
-
-	public static void glMemoryBarrierByRegion(int barriers) {
-		nglMemoryBarrierByRegion(barriers);
-	}
+	public static native void glMemoryBarrierByRegion(int barriers);
 
 	// --- [ glTexStorage2DMultisample ] ---
 
-	public static native void nglTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
-
-	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		nglTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
-	}
+	public static native void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	// --- [ glGetMultisamplefv ] ---
 
@@ -900,11 +804,7 @@ public class GLES31 {
 
 	// --- [ glSampleMaski ] ---
 
-	public static native void nglSampleMaski(int maskNumber, int mask);
-
-	public static void glSampleMaski(int maskNumber, int mask) {
-		nglSampleMaski(maskNumber, mask);
-	}
+	public static native void glSampleMaski(int maskNumber, int mask);
 
 	// --- [ glGetTexLevelParameteriv ] ---
 
@@ -950,43 +850,23 @@ public class GLES31 {
 
 	// --- [ glBindVertexBuffer ] ---
 
-	public static native void nglBindVertexBuffer(int bindingindex, int buffer, long offset, int stride);
-
-	public static void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride) {
-		nglBindVertexBuffer(bindingindex, buffer, offset, stride);
-	}
+	public static native void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride);
 
 	// --- [ glVertexAttribFormat ] ---
 
-	public static native void nglVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset);
-
-	public static void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset) {
-		nglVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
-	}
+	public static native void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset);
 
 	// --- [ glVertexAttribIFormat ] ---
 
-	public static native void nglVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset);
-
-	public static void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset) {
-		nglVertexAttribIFormat(attribindex, size, type, relativeoffset);
-	}
+	public static native void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset);
 
 	// --- [ glVertexAttribBinding ] ---
 
-	public static native void nglVertexAttribBinding(int attribindex, int bindingindex);
-
-	public static void glVertexAttribBinding(int attribindex, int bindingindex) {
-		nglVertexAttribBinding(attribindex, bindingindex);
-	}
+	public static native void glVertexAttribBinding(int attribindex, int bindingindex);
 
 	// --- [ glVertexBindingDivisor ] ---
 
-	public static native void nglVertexBindingDivisor(int bindingindex, int divisor);
-
-	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
-		nglVertexBindingDivisor(bindingindex, divisor);
-	}
+	public static native void glVertexBindingDivisor(int bindingindex, int divisor);
 
 	/** Array version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, int[] indirect) {

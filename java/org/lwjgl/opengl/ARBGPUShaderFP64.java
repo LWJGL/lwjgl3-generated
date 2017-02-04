@@ -86,23 +86,15 @@ public class ARBGPUShaderFP64 {
 
 	// --- [ glUniform1d ] ---
 
-	/** Unsafe version of: {@link #glUniform1d Uniform1d} */
-	public static native void nglUniform1d(int location, double x);
-
 	/**
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glUniform1d(int location, double x) {
-		nglUniform1d(location, x);
-	}
+	public static native void glUniform1d(int location, double x);
 
 	// --- [ glUniform2d ] ---
-
-	/** Unsafe version of: {@link #glUniform2d Uniform2d} */
-	public static native void nglUniform2d(int location, double x, double y);
 
 	/**
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
@@ -111,14 +103,9 @@ public class ARBGPUShaderFP64 {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glUniform2d(int location, double x, double y) {
-		nglUniform2d(location, x, y);
-	}
+	public static native void glUniform2d(int location, double x, double y);
 
 	// --- [ glUniform3d ] ---
-
-	/** Unsafe version of: {@link #glUniform3d Uniform3d} */
-	public static native void nglUniform3d(int location, double x, double y, double z);
 
 	/**
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
@@ -128,14 +115,9 @@ public class ARBGPUShaderFP64 {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glUniform3d(int location, double x, double y, double z) {
-		nglUniform3d(location, x, y, z);
-	}
+	public static native void glUniform3d(int location, double x, double y, double z);
 
 	// --- [ glUniform4d ] ---
-
-	/** Unsafe version of: {@link #glUniform4d Uniform4d} */
-	public static native void nglUniform4d(int location, double x, double y, double z, double w);
 
 	/**
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
@@ -146,9 +128,7 @@ public class ARBGPUShaderFP64 {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glUniform4d(int location, double x, double y, double z, double w) {
-		nglUniform4d(location, x, y, z, w);
-	}
+	public static native void glUniform4d(int location, double x, double y, double z, double w);
 
 	// --- [ glUniform1dv ] ---
 
@@ -443,9 +423,6 @@ public class ARBGPUShaderFP64 {
 
 	// --- [ glProgramUniform1dEXT ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1dEXT ProgramUniform1dEXT} */
-	public static native void nglProgramUniform1dEXT(int program, int location, double x);
-
 	/**
 	 * DSA version of {@link #glUniform1d Uniform1d}.
 	 *
@@ -453,14 +430,9 @@ public class ARBGPUShaderFP64 {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1dEXT(int program, int location, double x) {
-		nglProgramUniform1dEXT(program, location, x);
-	}
+	public static native void glProgramUniform1dEXT(int program, int location, double x);
 
 	// --- [ glProgramUniform2dEXT ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform2dEXT ProgramUniform2dEXT} */
-	public static native void nglProgramUniform2dEXT(int program, int location, double x, double y);
 
 	/**
 	 * DSA version of {@link #glUniform2d Uniform2d}.
@@ -470,14 +442,9 @@ public class ARBGPUShaderFP64 {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2dEXT(int program, int location, double x, double y) {
-		nglProgramUniform2dEXT(program, location, x, y);
-	}
+	public static native void glProgramUniform2dEXT(int program, int location, double x, double y);
 
 	// --- [ glProgramUniform3dEXT ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform3dEXT ProgramUniform3dEXT} */
-	public static native void nglProgramUniform3dEXT(int program, int location, double x, double y, double z);
 
 	/**
 	 * DSA version of {@link #glUniform3d Uniform3d}.
@@ -488,14 +455,9 @@ public class ARBGPUShaderFP64 {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3dEXT(int program, int location, double x, double y, double z) {
-		nglProgramUniform3dEXT(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3dEXT(int program, int location, double x, double y, double z);
 
 	// --- [ glProgramUniform4dEXT ] ---
-
-	/** Unsafe version of: {@link #glProgramUniform4dEXT ProgramUniform4dEXT} */
-	public static native void nglProgramUniform4dEXT(int program, int location, double x, double y, double z, double w);
 
 	/**
 	 * DSA version of {@link #glUniform4d Uniform4d}.
@@ -507,9 +469,7 @@ public class ARBGPUShaderFP64 {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4dEXT(int program, int location, double x, double y, double z, double w) {
-		nglProgramUniform4dEXT(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4dEXT(int program, int location, double x, double y, double z, double w);
 
 	// --- [ glProgramUniform1dvEXT ] ---
 

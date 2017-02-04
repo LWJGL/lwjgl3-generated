@@ -44,66 +44,34 @@ public class EXTDrawBuffersIndexed {
 
 	// --- [ glEnableiEXT ] ---
 
-	public static native void nglEnableiEXT(int target, int index);
-
-	public static void glEnableiEXT(int target, int index) {
-		nglEnableiEXT(target, index);
-	}
+	public static native void glEnableiEXT(int target, int index);
 
 	// --- [ glDisableiEXT ] ---
 
-	public static native void nglDisableiEXT(int target, int index);
-
-	public static void glDisableiEXT(int target, int index) {
-		nglDisableiEXT(target, index);
-	}
+	public static native void glDisableiEXT(int target, int index);
 
 	// --- [ glBlendEquationiEXT ] ---
 
-	public static native void nglBlendEquationiEXT(int buf, int mode);
-
-	public static void glBlendEquationiEXT(int buf, int mode) {
-		nglBlendEquationiEXT(buf, mode);
-	}
+	public static native void glBlendEquationiEXT(int buf, int mode);
 
 	// --- [ glBlendEquationSeparateiEXT ] ---
 
-	public static native void nglBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha);
-
-	public static void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparateiEXT(buf, modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunciEXT ] ---
 
-	public static native void nglBlendFunciEXT(int buf, int src, int dst);
-
-	public static void glBlendFunciEXT(int buf, int src, int dst) {
-		nglBlendFunciEXT(buf, src, dst);
-	}
+	public static native void glBlendFunciEXT(int buf, int src, int dst);
 
 	// --- [ glBlendFuncSeparateiEXT ] ---
 
-	public static native void nglBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-
-	public static void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		nglBlendFuncSeparateiEXT(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-	}
+	public static native void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	// --- [ glColorMaskiEXT ] ---
 
-	public static native void nglColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a);
-
-	public static void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a) {
-		nglColorMaskiEXT(index, r, g, b, a);
-	}
+	public static native void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a);
 
 	// --- [ glIsEnablediEXT ] ---
 
-	public static native boolean nglIsEnablediEXT(int target, int index);
-
-	public static boolean glIsEnablediEXT(int target, int index) {
-		return nglIsEnablediEXT(target, index);
-	}
+	public static native boolean glIsEnablediEXT(int target, int index);
 
 }

@@ -378,11 +378,7 @@ public class GLES30 {
 
 	// --- [ glReadBuffer ] ---
 
-	public static native void nglReadBuffer(int src);
-
-	public static void glReadBuffer(int src) {
-		nglReadBuffer(src);
-	}
+	public static native void glReadBuffer(int src);
 
 	// --- [ glDrawRangeElements ] ---
 
@@ -458,11 +454,7 @@ public class GLES30 {
 
 	// --- [ glCopyTexSubImage3D ] ---
 
-	public static native void nglCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-	public static void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glCompressedTexImage3D ] ---
 
@@ -527,27 +519,15 @@ public class GLES30 {
 
 	// --- [ glIsQuery ] ---
 
-	public static native boolean nglIsQuery(int id);
-
-	public static boolean glIsQuery(int id) {
-		return nglIsQuery(id);
-	}
+	public static native boolean glIsQuery(int id);
 
 	// --- [ glBeginQuery ] ---
 
-	public static native void nglBeginQuery(int target, int id);
-
-	public static void glBeginQuery(int target, int id) {
-		nglBeginQuery(target, id);
-	}
+	public static native void glBeginQuery(int target, int id);
 
 	// --- [ glEndQuery ] ---
 
-	public static native void nglEndQuery(int target);
-
-	public static void glEndQuery(int target) {
-		nglEndQuery(target);
-	}
+	public static native void glEndQuery(int target);
 
 	// --- [ glGetQueryiv ] ---
 
@@ -593,11 +573,7 @@ public class GLES30 {
 
 	// --- [ glUnmapBuffer ] ---
 
-	public static native boolean nglUnmapBuffer(int target);
-
-	public static boolean glUnmapBuffer(int target) {
-		return nglUnmapBuffer(target);
-	}
+	public static native boolean glUnmapBuffer(int target);
 
 	// --- [ glGetBufferPointerv ] ---
 
@@ -688,27 +664,15 @@ public class GLES30 {
 
 	// --- [ glBlitFramebuffer ] ---
 
-	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
-
-	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-	}
+	public static native void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 	// --- [ glRenderbufferStorageMultisample ] ---
 
-	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisample(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
 
 	// --- [ glFramebufferTextureLayer ] ---
 
-	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
-
-	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		nglFramebufferTextureLayer(target, attachment, texture, level, layer);
-	}
+	public static native void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
 
 	// --- [ glMapBufferRange ] ---
 
@@ -726,19 +690,11 @@ public class GLES30 {
 
 	// --- [ glFlushMappedBufferRange ] ---
 
-	public static native void nglFlushMappedBufferRange(int target, long offset, long length);
-
-	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		nglFlushMappedBufferRange(target, offset, length);
-	}
+	public static native void glFlushMappedBufferRange(int target, long offset, long length);
 
 	// --- [ glBindVertexArray ] ---
 
-	public static native void nglBindVertexArray(int array);
-
-	public static void glBindVertexArray(int array) {
-		nglBindVertexArray(array);
-	}
+	public static native void glBindVertexArray(int array);
 
 	// --- [ glDeleteVertexArrays ] ---
 
@@ -779,11 +735,7 @@ public class GLES30 {
 
 	// --- [ glIsVertexArray ] ---
 
-	public static native boolean nglIsVertexArray(int array);
-
-	public static boolean glIsVertexArray(int array) {
-		return nglIsVertexArray(array);
-	}
+	public static native boolean glIsVertexArray(int array);
 
 	// --- [ glGetIntegeri_v ] ---
 
@@ -808,35 +760,19 @@ public class GLES30 {
 
 	// --- [ glBeginTransformFeedback ] ---
 
-	public static native void nglBeginTransformFeedback(int primitiveMode);
-
-	public static void glBeginTransformFeedback(int primitiveMode) {
-		nglBeginTransformFeedback(primitiveMode);
-	}
+	public static native void glBeginTransformFeedback(int primitiveMode);
 
 	// --- [ glEndTransformFeedback ] ---
 
-	public static native void nglEndTransformFeedback();
-
-	public static void glEndTransformFeedback() {
-		nglEndTransformFeedback();
-	}
+	public static native void glEndTransformFeedback();
 
 	// --- [ glBindBufferRange ] ---
 
-	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size);
-
-	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		nglBindBufferRange(target, index, buffer, offset, size);
-	}
+	public static native void glBindBufferRange(int target, int index, int buffer, long offset, long size);
 
 	// --- [ glBindBufferBase ] ---
 
-	public static native void nglBindBufferBase(int target, int index, int buffer);
-
-	public static void glBindBufferBase(int target, int index, int buffer) {
-		nglBindBufferBase(target, index, buffer);
-	}
+	public static native void glBindBufferBase(int target, int index, int buffer);
 
 	// --- [ glTransformFeedbackVaryings ] ---
 
@@ -965,19 +901,11 @@ public class GLES30 {
 
 	// --- [ glVertexAttribI4i ] ---
 
-	public static native void nglVertexAttribI4i(int index, int x, int y, int z, int w);
-
-	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
-		nglVertexAttribI4i(index, x, y, z, w);
-	}
+	public static native void glVertexAttribI4i(int index, int x, int y, int z, int w);
 
 	// --- [ glVertexAttribI4ui ] ---
 
-	public static native void nglVertexAttribI4ui(int index, int x, int y, int z, int w);
-
-	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
-		nglVertexAttribI4ui(index, x, y, z, w);
-	}
+	public static native void glVertexAttribI4ui(int index, int x, int y, int z, int w);
 
 	// --- [ glVertexAttribI4iv ] ---
 
@@ -1042,35 +970,19 @@ public class GLES30 {
 
 	// --- [ glUniform1ui ] ---
 
-	public static native void nglUniform1ui(int location, int v0);
-
-	public static void glUniform1ui(int location, int v0) {
-		nglUniform1ui(location, v0);
-	}
+	public static native void glUniform1ui(int location, int v0);
 
 	// --- [ glUniform2ui ] ---
 
-	public static native void nglUniform2ui(int location, int v0, int v1);
-
-	public static void glUniform2ui(int location, int v0, int v1) {
-		nglUniform2ui(location, v0, v1);
-	}
+	public static native void glUniform2ui(int location, int v0, int v1);
 
 	// --- [ glUniform3ui ] ---
 
-	public static native void nglUniform3ui(int location, int v0, int v1, int v2);
-
-	public static void glUniform3ui(int location, int v0, int v1, int v2) {
-		nglUniform3ui(location, v0, v1, v2);
-	}
+	public static native void glUniform3ui(int location, int v0, int v1, int v2);
 
 	// --- [ glUniform4ui ] ---
 
-	public static native void nglUniform4ui(int location, int v0, int v1, int v2, int v3);
-
-	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
-		nglUniform4ui(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4ui(int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glUniform1uiv ] ---
 
@@ -1136,11 +1048,7 @@ public class GLES30 {
 
 	// --- [ glClearBufferfi ] ---
 
-	public static native void nglClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
-
-	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
-		nglClearBufferfi(buffer, drawbuffer, depth, stencil);
-	}
+	public static native void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
 
 	// --- [ glGetStringi ] ---
 
@@ -1153,11 +1061,7 @@ public class GLES30 {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
-
-	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
-	}
+	public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 	// --- [ glGetUniformIndices ] ---
 
@@ -1248,19 +1152,11 @@ public class GLES30 {
 
 	// --- [ glUniformBlockBinding ] ---
 
-	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
-
-	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
-		nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
-	}
+	public static native void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
 
 	// --- [ glDrawArraysInstanced ] ---
 
-	public static native void nglDrawArraysInstanced(int mode, int first, int count, int instancecount);
-
-	public static void glDrawArraysInstanced(int mode, int first, int count, int instancecount) {
-		nglDrawArraysInstanced(mode, first, count, instancecount);
-	}
+	public static native void glDrawArraysInstanced(int mode, int first, int count, int instancecount);
 
 	// --- [ glDrawElementsInstanced ] ---
 
@@ -1288,11 +1184,7 @@ public class GLES30 {
 
 	// --- [ glFenceSync ] ---
 
-	public static native long nglFenceSync(int condition, int flags);
-
-	public static long glFenceSync(int condition, int flags) {
-		return nglFenceSync(condition, flags);
-	}
+	public static native long glFenceSync(int condition, int flags);
 
 	// --- [ glIsSync ] ---
 
@@ -1463,27 +1355,15 @@ public class GLES30 {
 
 	// --- [ glIsSampler ] ---
 
-	public static native boolean nglIsSampler(int sampler);
-
-	public static boolean glIsSampler(int sampler) {
-		return nglIsSampler(sampler);
-	}
+	public static native boolean glIsSampler(int sampler);
 
 	// --- [ glBindSampler ] ---
 
-	public static native void nglBindSampler(int unit, int sampler);
-
-	public static void glBindSampler(int unit, int sampler) {
-		nglBindSampler(unit, sampler);
-	}
+	public static native void glBindSampler(int unit, int sampler);
 
 	// --- [ glSamplerParameteri ] ---
 
-	public static native void nglSamplerParameteri(int sampler, int pname, int param);
-
-	public static void glSamplerParameteri(int sampler, int pname, int param) {
-		nglSamplerParameteri(sampler, pname, param);
-	}
+	public static native void glSamplerParameteri(int sampler, int pname, int param);
 
 	// --- [ glSamplerParameteriv ] ---
 
@@ -1497,11 +1377,7 @@ public class GLES30 {
 
 	// --- [ glSamplerParameterf ] ---
 
-	public static native void nglSamplerParameterf(int sampler, int pname, float param);
-
-	public static void glSamplerParameterf(int sampler, int pname, float param) {
-		nglSamplerParameterf(sampler, pname, param);
-	}
+	public static native void glSamplerParameterf(int sampler, int pname, float param);
 
 	// --- [ glSamplerParameterfv ] ---
 
@@ -1557,19 +1433,11 @@ public class GLES30 {
 
 	// --- [ glVertexAttribDivisor ] ---
 
-	public static native void nglVertexAttribDivisor(int index, int divisor);
-
-	public static void glVertexAttribDivisor(int index, int divisor) {
-		nglVertexAttribDivisor(index, divisor);
-	}
+	public static native void glVertexAttribDivisor(int index, int divisor);
 
 	// --- [ glBindTransformFeedback ] ---
 
-	public static native void nglBindTransformFeedback(int target, int id);
-
-	public static void glBindTransformFeedback(int target, int id) {
-		nglBindTransformFeedback(target, id);
-	}
+	public static native void glBindTransformFeedback(int target, int id);
 
 	// --- [ glDeleteTransformFeedbacks ] ---
 
@@ -1610,27 +1478,15 @@ public class GLES30 {
 
 	// --- [ glIsTransformFeedback ] ---
 
-	public static native boolean nglIsTransformFeedback(int id);
-
-	public static boolean glIsTransformFeedback(int id) {
-		return nglIsTransformFeedback(id);
-	}
+	public static native boolean glIsTransformFeedback(int id);
 
 	// --- [ glPauseTransformFeedback ] ---
 
-	public static native void nglPauseTransformFeedback();
-
-	public static void glPauseTransformFeedback() {
-		nglPauseTransformFeedback();
-	}
+	public static native void glPauseTransformFeedback();
 
 	// --- [ glResumeTransformFeedback ] ---
 
-	public static native void nglResumeTransformFeedback();
-
-	public static void glResumeTransformFeedback() {
-		nglResumeTransformFeedback();
-	}
+	public static native void glResumeTransformFeedback();
 
 	// --- [ glGetProgramBinary ] ---
 
@@ -1654,11 +1510,7 @@ public class GLES30 {
 
 	// --- [ glProgramParameteri ] ---
 
-	public static native void nglProgramParameteri(int program, int pname, int value);
-
-	public static void glProgramParameteri(int program, int pname, int value) {
-		nglProgramParameteri(program, pname, value);
-	}
+	public static native void glProgramParameteri(int program, int pname, int value);
 
 	// --- [ glInvalidateFramebuffer ] ---
 
@@ -1698,19 +1550,11 @@ public class GLES30 {
 
 	// --- [ glTexStorage2D ] ---
 
-	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height);
-
-	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
-		nglTexStorage2D(target, levels, internalformat, width, height);
-	}
+	public static native void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
 	// --- [ glTexStorage3D ] ---
 
-	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
-
-	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
-		nglTexStorage3D(target, levels, internalformat, width, height, depth);
-	}
+	public static native void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
 	// --- [ glGetInternalformativ ] ---
 

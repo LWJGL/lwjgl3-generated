@@ -59,11 +59,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertex2hNV ] ---
 
-	public static native void nglVertex2hNV(short x, short y);
-
-	public static void glVertex2hNV(short x, short y) {
-		nglVertex2hNV(x, y);
-	}
+	public static native void glVertex2hNV(short x, short y);
 
 	// --- [ glVertex2hvNV ] ---
 
@@ -77,11 +73,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertex3hNV ] ---
 
-	public static native void nglVertex3hNV(short x, short y, short z);
-
-	public static void glVertex3hNV(short x, short y, short z) {
-		nglVertex3hNV(x, y, z);
-	}
+	public static native void glVertex3hNV(short x, short y, short z);
 
 	// --- [ glVertex3hvNV ] ---
 
@@ -95,11 +87,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertex4hNV ] ---
 
-	public static native void nglVertex4hNV(short x, short y, short z, short w);
-
-	public static void glVertex4hNV(short x, short y, short z, short w) {
-		nglVertex4hNV(x, y, z, w);
-	}
+	public static native void glVertex4hNV(short x, short y, short z, short w);
 
 	// --- [ glVertex4hvNV ] ---
 
@@ -113,11 +101,7 @@ public class NVHalfFloat {
 
 	// --- [ glNormal3hNV ] ---
 
-	public static native void nglNormal3hNV(short nx, short ny, short nz);
-
-	public static void glNormal3hNV(short nx, short ny, short nz) {
-		nglNormal3hNV(nx, ny, nz);
-	}
+	public static native void glNormal3hNV(short nx, short ny, short nz);
 
 	// --- [ glNormal3hvNV ] ---
 
@@ -131,11 +115,7 @@ public class NVHalfFloat {
 
 	// --- [ glColor3hNV ] ---
 
-	public static native void nglColor3hNV(short red, short green, short blue);
-
-	public static void glColor3hNV(short red, short green, short blue) {
-		nglColor3hNV(red, green, blue);
-	}
+	public static native void glColor3hNV(short red, short green, short blue);
 
 	// --- [ glColor3hvNV ] ---
 
@@ -149,11 +129,7 @@ public class NVHalfFloat {
 
 	// --- [ glColor4hNV ] ---
 
-	public static native void nglColor4hNV(short red, short green, short blue, short alpha);
-
-	public static void glColor4hNV(short red, short green, short blue, short alpha) {
-		nglColor4hNV(red, green, blue, alpha);
-	}
+	public static native void glColor4hNV(short red, short green, short blue, short alpha);
 
 	// --- [ glColor4hvNV ] ---
 
@@ -167,11 +143,7 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord1hNV ] ---
 
-	public static native void nglTexCoord1hNV(short s);
-
-	public static void glTexCoord1hNV(short s) {
-		nglTexCoord1hNV(s);
-	}
+	public static native void glTexCoord1hNV(short s);
 
 	// --- [ glTexCoord1hvNV ] ---
 
@@ -185,11 +157,7 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord2hNV ] ---
 
-	public static native void nglTexCoord2hNV(short s, short t);
-
-	public static void glTexCoord2hNV(short s, short t) {
-		nglTexCoord2hNV(s, t);
-	}
+	public static native void glTexCoord2hNV(short s, short t);
 
 	// --- [ glTexCoord2hvNV ] ---
 
@@ -203,11 +171,7 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord3hNV ] ---
 
-	public static native void nglTexCoord3hNV(short s, short t, short r);
-
-	public static void glTexCoord3hNV(short s, short t, short r) {
-		nglTexCoord3hNV(s, t, r);
-	}
+	public static native void glTexCoord3hNV(short s, short t, short r);
 
 	// --- [ glTexCoord3hvNV ] ---
 
@@ -221,11 +185,7 @@ public class NVHalfFloat {
 
 	// --- [ glTexCoord4hNV ] ---
 
-	public static native void nglTexCoord4hNV(short s, short t, short r, short q);
-
-	public static void glTexCoord4hNV(short s, short t, short r, short q) {
-		nglTexCoord4hNV(s, t, r, q);
-	}
+	public static native void glTexCoord4hNV(short s, short t, short r, short q);
 
 	// --- [ glTexCoord4hvNV ] ---
 
@@ -239,11 +199,7 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord1hNV ] ---
 
-	public static native void nglMultiTexCoord1hNV(int target, short s);
-
-	public static void glMultiTexCoord1hNV(int target, short s) {
-		nglMultiTexCoord1hNV(target, s);
-	}
+	public static native void glMultiTexCoord1hNV(int target, short s);
 
 	// --- [ glMultiTexCoord1hvNV ] ---
 
@@ -257,11 +213,7 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord2hNV ] ---
 
-	public static native void nglMultiTexCoord2hNV(int target, short s, short t);
-
-	public static void glMultiTexCoord2hNV(int target, short s, short t) {
-		nglMultiTexCoord2hNV(target, s, t);
-	}
+	public static native void glMultiTexCoord2hNV(int target, short s, short t);
 
 	// --- [ glMultiTexCoord2hvNV ] ---
 
@@ -275,11 +227,7 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord3hNV ] ---
 
-	public static native void nglMultiTexCoord3hNV(int target, short s, short t, short r);
-
-	public static void glMultiTexCoord3hNV(int target, short s, short t, short r) {
-		nglMultiTexCoord3hNV(target, s, t, r);
-	}
+	public static native void glMultiTexCoord3hNV(int target, short s, short t, short r);
 
 	// --- [ glMultiTexCoord3hvNV ] ---
 
@@ -293,11 +241,7 @@ public class NVHalfFloat {
 
 	// --- [ glMultiTexCoord4hNV ] ---
 
-	public static native void nglMultiTexCoord4hNV(int target, short s, short t, short r, short q);
-
-	public static void glMultiTexCoord4hNV(int target, short s, short t, short r, short q) {
-		nglMultiTexCoord4hNV(target, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4hNV(int target, short s, short t, short r, short q);
 
 	// --- [ glMultiTexCoord4hvNV ] ---
 
@@ -311,11 +255,7 @@ public class NVHalfFloat {
 
 	// --- [ glFogCoordhNV ] ---
 
-	public static native void nglFogCoordhNV(short fog);
-
-	public static void glFogCoordhNV(short fog) {
-		nglFogCoordhNV(fog);
-	}
+	public static native void glFogCoordhNV(short fog);
 
 	// --- [ glFogCoordhvNV ] ---
 
@@ -329,11 +269,7 @@ public class NVHalfFloat {
 
 	// --- [ glSecondaryColor3hNV ] ---
 
-	public static native void nglSecondaryColor3hNV(short red, short green, short blue);
-
-	public static void glSecondaryColor3hNV(short red, short green, short blue) {
-		nglSecondaryColor3hNV(red, green, blue);
-	}
+	public static native void glSecondaryColor3hNV(short red, short green, short blue);
 
 	// --- [ glSecondaryColor3hvNV ] ---
 
@@ -347,11 +283,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertexWeighthNV ] ---
 
-	public static native void nglVertexWeighthNV(short weight);
-
-	public static void glVertexWeighthNV(short weight) {
-		nglVertexWeighthNV(weight);
-	}
+	public static native void glVertexWeighthNV(short weight);
 
 	// --- [ glVertexWeighthvNV ] ---
 
@@ -365,11 +297,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib1hNV ] ---
 
-	public static native void nglVertexAttrib1hNV(int index, short x);
-
-	public static void glVertexAttrib1hNV(int index, short x) {
-		nglVertexAttrib1hNV(index, x);
-	}
+	public static native void glVertexAttrib1hNV(int index, short x);
 
 	// --- [ glVertexAttrib1hvNV ] ---
 
@@ -383,11 +311,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib2hNV ] ---
 
-	public static native void nglVertexAttrib2hNV(int index, short x, short y);
-
-	public static void glVertexAttrib2hNV(int index, short x, short y) {
-		nglVertexAttrib2hNV(index, x, y);
-	}
+	public static native void glVertexAttrib2hNV(int index, short x, short y);
 
 	// --- [ glVertexAttrib2hvNV ] ---
 
@@ -401,11 +325,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib3hNV ] ---
 
-	public static native void nglVertexAttrib3hNV(int index, short x, short y, short z);
-
-	public static void glVertexAttrib3hNV(int index, short x, short y, short z) {
-		nglVertexAttrib3hNV(index, x, y, z);
-	}
+	public static native void glVertexAttrib3hNV(int index, short x, short y, short z);
 
 	// --- [ glVertexAttrib3hvNV ] ---
 
@@ -419,11 +339,7 @@ public class NVHalfFloat {
 
 	// --- [ glVertexAttrib4hNV ] ---
 
-	public static native void nglVertexAttrib4hNV(int index, short x, short y, short z, short w);
-
-	public static void glVertexAttrib4hNV(int index, short x, short y, short z, short w) {
-		nglVertexAttrib4hNV(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4hNV(int index, short x, short y, short z, short w);
 
 	// --- [ glVertexAttrib4hvNV ] ---
 

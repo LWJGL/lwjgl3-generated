@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVSampleLocations_nglNamedFramebu
 	glNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVSampleLocations_nglResolveDepthValuesNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVSampleLocations_glResolveDepthValuesNV(JNIEnv *__env, jclass clazz) {
 	glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(601);
 	UNUSED_PARAM(clazz)
 	glResolveDepthValuesNV();

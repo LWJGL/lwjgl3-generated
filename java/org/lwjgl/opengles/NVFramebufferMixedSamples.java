@@ -79,11 +79,7 @@ public class NVFramebufferMixedSamples {
 
 	// --- [ glRasterSamplesEXT ] ---
 
-	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations);
-
-	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		nglRasterSamplesEXT(samples, fixedsamplelocations);
-	}
+	public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
 
 	// --- [ glCoverageModulationTableNV ] ---
 
@@ -103,11 +99,7 @@ public class NVFramebufferMixedSamples {
 
 	// --- [ glCoverageModulationNV ] ---
 
-	public static native void nglCoverageModulationNV(int components);
-
-	public static void glCoverageModulationNV(int components) {
-		nglCoverageModulationNV(components);
-	}
+	public static native void glCoverageModulationNV(int components);
 
 	/** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
 	public static void glCoverageModulationTableNV(float[] v) {

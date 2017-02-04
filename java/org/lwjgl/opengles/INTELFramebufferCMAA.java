@@ -38,15 +38,10 @@ public class INTELFramebufferCMAA {
 
 	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
 
-	/** Unsafe version of: {@link #glApplyFramebufferAttachmentCMAAINTEL ApplyFramebufferAttachmentCMAAINTEL} */
-	public static native void nglApplyFramebufferAttachmentCMAAINTEL();
-
 	/**
 	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GLES30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
 	 * Conservative Morphological Anti-Aliasing algorithm.
 	 */
-	public static void glApplyFramebufferAttachmentCMAAINTEL() {
-		nglApplyFramebufferAttachmentCMAAINTEL();
-	}
+	public static native void glApplyFramebufferAttachmentCMAAINTEL();
 
 }

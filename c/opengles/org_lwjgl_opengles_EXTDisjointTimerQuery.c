@@ -34,25 +34,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_nglDeleteQu
 	glDeleteQueriesEXT(n, ids);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_nglIsQueryEXT(JNIEnv *__env, jclass clazz, jint id) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_glIsQueryEXT(JNIEnv *__env, jclass clazz, jint id) {
 	glIsQueryEXTPROC glIsQueryEXT = (glIsQueryEXTPROC)tlsGetFunction(417);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsQueryEXT(id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_nglBeginQueryEXT(JNIEnv *__env, jclass clazz, jint target, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_glBeginQueryEXT(JNIEnv *__env, jclass clazz, jint target, jint id) {
 	glBeginQueryEXTPROC glBeginQueryEXT = (glBeginQueryEXTPROC)tlsGetFunction(10);
 	UNUSED_PARAM(clazz)
 	glBeginQueryEXT(target, id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_nglEndQueryEXT(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_glEndQueryEXT(JNIEnv *__env, jclass clazz, jint target) {
 	glEndQueryEXTPROC glEndQueryEXT = (glEndQueryEXTPROC)tlsGetFunction(196);
 	UNUSED_PARAM(clazz)
 	glEndQueryEXT(target);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_nglQueryCounterEXT(JNIEnv *__env, jclass clazz, jint id, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDisjointTimerQuery_glQueryCounterEXT(JNIEnv *__env, jclass clazz, jint id, jint target) {
 	glQueryCounterEXTPROC glQueryCounterEXT = (glQueryCounterEXTPROC)tlsGetFunction(584);
 	UNUSED_PARAM(clazz)
 	glQueryCounterEXT(id, target);

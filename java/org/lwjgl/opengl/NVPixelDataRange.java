@@ -87,10 +87,6 @@ public class NVPixelDataRange {
 
 	// --- [ glFlushPixelDataRangeNV ] ---
 
-	public static native void nglFlushPixelDataRangeNV(int target);
-
-	public static void glFlushPixelDataRangeNV(int target) {
-		nglFlushPixelDataRangeNV(target);
-	}
+	public static native void glFlushPixelDataRangeNV(int target);
 
 }

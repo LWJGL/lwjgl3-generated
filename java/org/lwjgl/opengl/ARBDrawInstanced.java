@@ -44,9 +44,6 @@ public class ARBDrawInstanced {
 
 	// --- [ glDrawArraysInstancedARB ] ---
 
-	/** Unsafe version of: {@link #glDrawArraysInstancedARB DrawArraysInstancedARB} */
-	public static native void nglDrawArraysInstancedARB(int mode, int first, int count, int primcount);
-
 	/**
 	 * Draw multiple instances of a range of elements.
 	 *
@@ -55,9 +52,7 @@ public class ARBDrawInstanced {
 	 * @param count     the number of indices to be rendered
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
-	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
-		nglDrawArraysInstancedARB(mode, first, count, primcount);
-	}
+	public static native void glDrawArraysInstancedARB(int mode, int first, int count, int primcount);
 
 	// --- [ glDrawElementsInstancedARB ] ---
 

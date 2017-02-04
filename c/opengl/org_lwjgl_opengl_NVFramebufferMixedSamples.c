@@ -13,7 +13,7 @@ typedef void (APIENTRY *glCoverageModulationNVPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_nglRasterSamplesEXT(JNIEnv *__env, jclass clazz, jint samples, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_glRasterSamplesEXT(JNIEnv *__env, jclass clazz, jint samples, jboolean fixedsamplelocations) {
 	glRasterSamplesEXTPROC glRasterSamplesEXT = (glRasterSamplesEXTPROC)tlsGetFunction(1431);
 	UNUSED_PARAM(clazz)
 	glRasterSamplesEXT(samples, fixedsamplelocations);
@@ -33,7 +33,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_nglGetCov
 	glGetCoverageModulationTableNV(bufsize, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_nglCoverageModulationNV(JNIEnv *__env, jclass clazz, jint components) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_glCoverageModulationNV(JNIEnv *__env, jclass clazz, jint components) {
 	glCoverageModulationNVPROC glCoverageModulationNV = (glCoverageModulationNVPROC)tlsGetFunction(260);
 	UNUSED_PARAM(clazz)
 	glCoverageModulationNV(components);

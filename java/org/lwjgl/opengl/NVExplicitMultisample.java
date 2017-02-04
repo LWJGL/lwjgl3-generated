@@ -80,19 +80,11 @@ public class NVExplicitMultisample {
 
 	// --- [ glSampleMaskIndexedNV ] ---
 
-	public static native void nglSampleMaskIndexedNV(int index, int mask);
-
-	public static void glSampleMaskIndexedNV(int index, int mask) {
-		nglSampleMaskIndexedNV(index, mask);
-	}
+	public static native void glSampleMaskIndexedNV(int index, int mask);
 
 	// --- [ glTexRenderbufferNV ] ---
 
-	public static native void nglTexRenderbufferNV(int target, int renderbuffer);
-
-	public static void glTexRenderbufferNV(int target, int renderbuffer) {
-		nglTexRenderbufferNV(target, renderbuffer);
-	}
+	public static native void glTexRenderbufferNV(int target, int renderbuffer);
 
 	/** Array version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
 	public static void glGetMultisamplefvNV(int pname, int index, float[] val) {

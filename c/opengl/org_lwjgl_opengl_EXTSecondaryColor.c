@@ -26,49 +26,49 @@ typedef void (APIENTRY *glSecondaryColorPointerEXTPROC) (jint, jint, jint, const
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3bEXT(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3bEXT(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
 	glSecondaryColor3bEXTPROC glSecondaryColor3bEXT = (glSecondaryColor3bEXTPROC)tlsGetFunction(1476);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3bEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3sEXT(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3sEXT(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
 	glSecondaryColor3sEXTPROC glSecondaryColor3sEXT = (glSecondaryColor3sEXTPROC)tlsGetFunction(1494);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3sEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3iEXT(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3iEXT(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
 	glSecondaryColor3iEXTPROC glSecondaryColor3iEXT = (glSecondaryColor3iEXTPROC)tlsGetFunction(1490);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3iEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3fEXT(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3fEXT(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue) {
 	glSecondaryColor3fEXTPROC glSecondaryColor3fEXT = (glSecondaryColor3fEXTPROC)tlsGetFunction(1484);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3fEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3dEXT(JNIEnv *__env, jclass clazz, jdouble red, jdouble green, jdouble blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3dEXT(JNIEnv *__env, jclass clazz, jdouble red, jdouble green, jdouble blue) {
 	glSecondaryColor3dEXTPROC glSecondaryColor3dEXT = (glSecondaryColor3dEXTPROC)tlsGetFunction(1480);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3dEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3ubEXT(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3ubEXT(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
 	glSecondaryColor3ubEXTPROC glSecondaryColor3ubEXT = (glSecondaryColor3ubEXTPROC)tlsGetFunction(1498);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3ubEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3usEXT(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3usEXT(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
 	glSecondaryColor3usEXTPROC glSecondaryColor3usEXT = (glSecondaryColor3usEXTPROC)tlsGetFunction(1506);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3usEXT(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3uiEXT(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3uiEXT(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
 	glSecondaryColor3uiEXTPROC glSecondaryColor3uiEXT = (glSecondaryColor3uiEXTPROC)tlsGetFunction(1502);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3uiEXT(red, green, blue);

@@ -53,13 +53,13 @@ typedef void (APIENTRY *glTexStorage3DMultisamplePROC) (jint, jint, jint, jint, 
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglBlendBarrier(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glBlendBarrier(JNIEnv *__env, jclass clazz) {
 	glBlendBarrierPROC glBlendBarrier = (glBlendBarrierPROC)tlsGetFunction(29);
 	UNUSED_PARAM(clazz)
 	glBlendBarrier();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglCopyImageSubData(JNIEnv *__env, jclass clazz, jint srcName, jint srcTarget, jint srcLevel, jint srcX, jint srcY, jint srcZ, jint dstName, jint dstTarget, jint dstLevel, jint dstX, jint dstY, jint dstZ, jint srcWidth, jint srcHeight, jint srcDepth) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glCopyImageSubData(JNIEnv *__env, jclass clazz, jint srcName, jint srcTarget, jint srcLevel, jint srcX, jint srcY, jint srcZ, jint dstName, jint dstTarget, jint dstLevel, jint dstX, jint dstY, jint dstZ, jint srcWidth, jint srcHeight, jint srcDepth) {
 	glCopyImageSubDataPROC glCopyImageSubData = (glCopyImageSubDataPROC)tlsGetFunction(86);
 	UNUSED_PARAM(clazz)
 	glCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
@@ -113,7 +113,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglPushDebugGroup(JNIEnv *
 	glPushDebugGroup(source, id, length, message);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglPopDebugGroup(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glPopDebugGroup(JNIEnv *__env, jclass clazz) {
 	glPopDebugGroupPROC glPopDebugGroup = (glPopDebugGroupPROC)tlsGetFunction(486);
 	UNUSED_PARAM(clazz)
 	glPopDebugGroup();
@@ -151,49 +151,49 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglGetObjectPtrLabel__JIJJ
 	glGetObjectPtrLabel(ptr, bufSize, length, label);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglEnablei(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glEnablei(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glEnableiPROC glEnablei = (glEnableiPROC)tlsGetFunction(188);
 	UNUSED_PARAM(clazz)
 	glEnablei(target, index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglDisablei(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glDisablei(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glDisableiPROC glDisablei = (glDisableiPROC)tlsGetFunction(147);
 	UNUSED_PARAM(clazz)
 	glDisablei(target, index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglBlendEquationi(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glBlendEquationi(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
 	glBlendEquationiPROC glBlendEquationi = (glBlendEquationiPROC)tlsGetFunction(38);
 	UNUSED_PARAM(clazz)
 	glBlendEquationi(buf, mode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglBlendEquationSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glBlendEquationSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
 	glBlendEquationSeparateiPROC glBlendEquationSeparatei = (glBlendEquationSeparateiPROC)tlsGetFunction(35);
 	UNUSED_PARAM(clazz)
 	glBlendEquationSeparatei(buf, modeRGB, modeAlpha);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglBlendFunci(JNIEnv *__env, jclass clazz, jint buf, jint src, jint dst) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glBlendFunci(JNIEnv *__env, jclass clazz, jint buf, jint src, jint dst) {
 	glBlendFunciPROC glBlendFunci = (glBlendFunciPROC)tlsGetFunction(46);
 	UNUSED_PARAM(clazz)
 	glBlendFunci(buf, src, dst);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglBlendFuncSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glBlendFuncSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
 	glBlendFuncSeparateiPROC glBlendFuncSeparatei = (glBlendFuncSeparateiPROC)tlsGetFunction(43);
 	UNUSED_PARAM(clazz)
 	glBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglColorMaski(JNIEnv *__env, jclass clazz, jint index, jboolean r, jboolean g, jboolean b, jboolean a) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glColorMaski(JNIEnv *__env, jclass clazz, jint index, jboolean r, jboolean g, jboolean b, jboolean a) {
 	glColorMaskiPROC glColorMaski = (glColorMaskiPROC)tlsGetFunction(71);
 	UNUSED_PARAM(clazz)
 	glColorMaski(index, r, g, b, a);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_GLES32_nglIsEnabledi(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_GLES32_glIsEnabledi(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glIsEnablediPROC glIsEnabledi = (glIsEnablediPROC)tlsGetFunction(403);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsEnabledi(target, index);
@@ -220,19 +220,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglDrawElementsInstancedBa
 	glDrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglFramebufferTexture(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glFramebufferTexture(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level) {
 	glFramebufferTexturePROC glFramebufferTexture = (glFramebufferTexturePROC)tlsGetFunction(223);
 	UNUSED_PARAM(clazz)
 	glFramebufferTexture(target, attachment, texture, level);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglPrimitiveBoundingBox(JNIEnv *__env, jclass clazz, jfloat minX, jfloat minY, jfloat minZ, jfloat minW, jfloat maxX, jfloat maxY, jfloat maxZ, jfloat maxW) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glPrimitiveBoundingBox(JNIEnv *__env, jclass clazz, jfloat minX, jfloat minY, jfloat minZ, jfloat minW, jfloat maxX, jfloat maxY, jfloat maxZ, jfloat maxW) {
 	glPrimitiveBoundingBoxPROC glPrimitiveBoundingBox = (glPrimitiveBoundingBoxPROC)tlsGetFunction(489);
 	UNUSED_PARAM(clazz)
 	glPrimitiveBoundingBox(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_GLES32_nglGetGraphicsResetStatus(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_GLES32_glGetGraphicsResetStatus(JNIEnv *__env, jclass clazz) {
 	glGetGraphicsResetStatusPROC glGetGraphicsResetStatus = (glGetGraphicsResetStatusPROC)tlsGetFunction(282);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetGraphicsResetStatus();
@@ -266,13 +266,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglGetnUniformuiv__IIIJ(JN
 	glGetnUniformuiv(program, location, bufSize, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglMinSampleShading(JNIEnv *__env, jclass clazz, jfloat value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glMinSampleShading(JNIEnv *__env, jclass clazz, jfloat value) {
 	glMinSampleShadingPROC glMinSampleShading = (glMinSampleShadingPROC)tlsGetFunction(446);
 	UNUSED_PARAM(clazz)
 	glMinSampleShading(value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
 	glPatchParameteriPROC glPatchParameteri = (glPatchParameteriPROC)tlsGetFunction(459);
 	UNUSED_PARAM(clazz)
 	glPatchParameteri(pname, value);
@@ -334,19 +334,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglGetSamplerParameterIuiv
 	glGetSamplerParameterIuiv(sampler, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglTexBuffer(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glTexBuffer(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
 	glTexBufferPROC glTexBuffer = (glTexBufferPROC)tlsGetFunction(644);
 	UNUSED_PARAM(clazz)
 	glTexBuffer(target, internalformat, buffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglTexBufferRange(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer, jlong offset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glTexBufferRange(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer, jlong offset, jlong size) {
 	glTexBufferRangePROC glTexBufferRange = (glTexBufferRangePROC)tlsGetFunction(647);
 	UNUSED_PARAM(clazz)
 	glTexBufferRange(target, internalformat, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_nglTexStorage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES32_glTexStorage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
 	glTexStorage3DMultisamplePROC glTexStorage3DMultisample = (glTexStorage3DMultisamplePROC)tlsGetFunction(671);
 	UNUSED_PARAM(clazz)
 	glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);

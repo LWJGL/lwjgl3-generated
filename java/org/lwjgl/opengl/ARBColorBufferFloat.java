@@ -57,17 +57,12 @@ public class ARBColorBufferFloat {
 
 	// --- [ glClampColorARB ] ---
 
-	/** Unsafe version of: {@link #glClampColorARB ClampColorARB} */
-	public static native void nglClampColorARB(int target, int clamp);
-
 	/**
 	 * Controls color clamping.
 	 *
 	 * @param target the color target. One of:<br><table><tr><td>{@link #GL_CLAMP_VERTEX_COLOR_ARB CLAMP_VERTEX_COLOR_ARB}</td><td>{@link #GL_CLAMP_FRAGMENT_COLOR_ARB CLAMP_FRAGMENT_COLOR_ARB}</td><td>{@link #GL_CLAMP_READ_COLOR_ARB CLAMP_READ_COLOR_ARB}</td></tr></table>
 	 * @param clamp  the new clamping state. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td><td>{@link #GL_FIXED_ONLY_ARB FIXED_ONLY_ARB}</td></tr></table>
 	 */
-	public static void glClampColorARB(int target, int clamp) {
-		nglClampColorARB(target, clamp);
-	}
+	public static native void glClampColorARB(int target, int clamp);
 
 }

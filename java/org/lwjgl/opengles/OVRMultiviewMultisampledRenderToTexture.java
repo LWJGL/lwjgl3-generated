@@ -29,9 +29,6 @@ public class OVRMultiviewMultisampledRenderToTexture {
 
 	// --- [ glFramebufferTextureMultisampleMultiviewOVR ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTextureMultisampleMultiviewOVR FramebufferTextureMultisampleMultiviewOVR} */
-	public static native void nglFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews);
-
 	/**
 	 * Operates similarly to {@link OVRMultiview#glFramebufferTextureMultiviewOVR FramebufferTextureMultiviewOVR}, except that it also enables multisampled rendering into the images of a
 	 * non-multisampled texture object similarly to {@link EXTMultisampledRenderToTexture#glFramebufferTexture2DMultisampleEXT FramebufferTexture2DMultisampleEXT}.
@@ -44,8 +41,6 @@ public class OVRMultiviewMultisampledRenderToTexture {
 	 * @param baseViewIndex 
 	 * @param numViews      
 	 */
-	public static void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews) {
-		nglFramebufferTextureMultisampleMultiviewOVR(target, attachment, texture, level, samples, baseViewIndex, numViews);
-	}
+	public static native void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews);
 
 }

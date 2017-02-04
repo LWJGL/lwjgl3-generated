@@ -44,23 +44,15 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos2iARB ] ---
 
-	/** Unsafe version of: {@link #glWindowPos2iARB WindowPos2iARB} */
-	public static native void nglWindowPos2iARB(int x, int y);
-
 	/**
 	 * Alternate way to set the current raster position. {@code z} is implictly set to 0.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2iARB(int x, int y) {
-		nglWindowPos2iARB(x, y);
-	}
+	public static native void glWindowPos2iARB(int x, int y);
 
 	// --- [ glWindowPos2sARB ] ---
-
-	/** Unsafe version of: {@link #glWindowPos2sARB WindowPos2sARB} */
-	public static native void nglWindowPos2sARB(short x, short y);
 
 	/**
 	 * Short version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -68,14 +60,9 @@ public class ARBWindowPos {
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2sARB(short x, short y) {
-		nglWindowPos2sARB(x, y);
-	}
+	public static native void glWindowPos2sARB(short x, short y);
 
 	// --- [ glWindowPos2fARB ] ---
-
-	/** Unsafe version of: {@link #glWindowPos2fARB WindowPos2fARB} */
-	public static native void nglWindowPos2fARB(float x, float y);
 
 	/**
 	 * Float version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -83,14 +70,9 @@ public class ARBWindowPos {
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2fARB(float x, float y) {
-		nglWindowPos2fARB(x, y);
-	}
+	public static native void glWindowPos2fARB(float x, float y);
 
 	// --- [ glWindowPos2dARB ] ---
-
-	/** Unsafe version of: {@link #glWindowPos2dARB WindowPos2dARB} */
-	public static native void nglWindowPos2dARB(double x, double y);
 
 	/**
 	 * Double version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -98,9 +80,7 @@ public class ARBWindowPos {
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2dARB(double x, double y) {
-		nglWindowPos2dARB(x, y);
-	}
+	public static native void glWindowPos2dARB(double x, double y);
 
 	// --- [ glWindowPos2ivARB ] ---
 
@@ -168,9 +148,6 @@ public class ARBWindowPos {
 
 	// --- [ glWindowPos3iARB ] ---
 
-	/** Unsafe version of: {@link #glWindowPos3iARB WindowPos3iARB} */
-	public static native void nglWindowPos3iARB(int x, int y, int z);
-
 	/**
 	 * Alternate way to set the current raster position.
 	 *
@@ -178,14 +155,9 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3iARB(int x, int y, int z) {
-		nglWindowPos3iARB(x, y, z);
-	}
+	public static native void glWindowPos3iARB(int x, int y, int z);
 
 	// --- [ glWindowPos3sARB ] ---
-
-	/** Unsafe version of: {@link #glWindowPos3sARB WindowPos3sARB} */
-	public static native void nglWindowPos3sARB(short x, short y, short z);
 
 	/**
 	 * Short version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -194,14 +166,9 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3sARB(short x, short y, short z) {
-		nglWindowPos3sARB(x, y, z);
-	}
+	public static native void glWindowPos3sARB(short x, short y, short z);
 
 	// --- [ glWindowPos3fARB ] ---
-
-	/** Unsafe version of: {@link #glWindowPos3fARB WindowPos3fARB} */
-	public static native void nglWindowPos3fARB(float x, float y, float z);
 
 	/**
 	 * Float version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -210,14 +177,9 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3fARB(float x, float y, float z) {
-		nglWindowPos3fARB(x, y, z);
-	}
+	public static native void glWindowPos3fARB(float x, float y, float z);
 
 	// --- [ glWindowPos3dARB ] ---
-
-	/** Unsafe version of: {@link #glWindowPos3dARB WindowPos3dARB} */
-	public static native void nglWindowPos3dARB(double x, double y, double z);
 
 	/**
 	 * Double version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -226,9 +188,7 @@ public class ARBWindowPos {
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3dARB(double x, double y, double z) {
-		nglWindowPos3dARB(x, y, z);
-	}
+	public static native void glWindowPos3dARB(double x, double y, double z);
 
 	// --- [ glWindowPos3ivARB ] ---
 

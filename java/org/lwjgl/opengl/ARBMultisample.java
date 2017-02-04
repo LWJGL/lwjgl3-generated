@@ -61,9 +61,6 @@ public class ARBMultisample {
 
 	// --- [ glSampleCoverageARB ] ---
 
-	/** Unsafe version of: {@link #glSampleCoverageARB SampleCoverageARB} */
-	public static native void nglSampleCoverageARB(float value, boolean invert);
-
 	/**
 	 * Specifies simultaneously the values of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB} and {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB}.
 	 * 
@@ -74,8 +71,6 @@ public class ARBMultisample {
 	 * @param value  the desired coverage value
 	 * @param invert if true, the temporary coverage is inverted. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td></tr></table>
 	 */
-	public static void glSampleCoverageARB(float value, boolean invert) {
-		nglSampleCoverageARB(value, invert);
-	}
+	public static native void glSampleCoverageARB(float value, boolean invert);
 
 }

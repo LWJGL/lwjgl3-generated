@@ -46,9 +46,6 @@ public class EXTX11SyncObject {
 
 	// --- [ glImportSyncEXT ] ---
 
-	/** Unsafe version of: {@link #glImportSyncEXT ImportSyncEXT} */
-	public static native long nglImportSyncEXT(int external_sync_type, long external_sync, int flags);
-
 	/**
 	 * Creates a GL sync object of the type {@code external_sync_type} based on the object referred to by {@code external_sync}.
 	 *
@@ -56,8 +53,6 @@ public class EXTX11SyncObject {
 	 * @param external_sync      the external sync object. Must be the XID of a valid X11 Synchronization Fence object
 	 * @param flags              Must be 0.
 	 */
-	public static long glImportSyncEXT(int external_sync_type, long external_sync, int flags) {
-		return nglImportSyncEXT(external_sync_type, external_sync, flags);
-	}
+	public static native long glImportSyncEXT(int external_sync_type, long external_sync, int flags);
 
 }

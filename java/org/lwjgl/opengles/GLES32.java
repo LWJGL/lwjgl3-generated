@@ -428,9 +428,6 @@ public class GLES32 {
 
 	// --- [ glBlendBarrier ] ---
 
-	/** Unsafe version of: {@link #glBlendBarrier BlendBarrier} */
-	public static native void nglBlendBarrier();
-
 	/**
 	 * Specifies a boundary between passes when using advanced blend equations.
 	 * 
@@ -439,17 +436,11 @@ public class GLES32 {
 	 * the same pass. Any command that causes the value of a sample to be modified using the framebuffer is considered to touch the sample, including clears,
 	 * blended or unblended primitives, and {@link GLES30#glBlitFramebuffer BlitFramebuffer} copies.</p>
 	 */
-	public static void glBlendBarrier() {
-		nglBlendBarrier();
-	}
+	public static native void glBlendBarrier();
 
 	// --- [ glCopyImageSubData ] ---
 
-	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
-
-	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		nglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-	}
+	public static native void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 	// --- [ glDebugMessageControl ] ---
 
@@ -770,9 +761,6 @@ public class GLES32 {
 
 	// --- [ glPopDebugGroup ] ---
 
-	/** Unsafe version of: {@link #glPopDebugGroup PopDebugGroup} */
-	public static native void nglPopDebugGroup();
-
 	/**
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command.
@@ -783,9 +771,7 @@ public class GLES32 {
 	 * <p>Attempting to pop the default debug group off the stack generates a {@link #GL_STACK_UNDERFLOW STACK_UNDERFLOW} error; pushing a debug group onto a stack containing
 	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH MAX_DEBUG_GROUP_STACK_DEPTH} minus one elements will generate a {@link #GL_STACK_OVERFLOW STACK_OVERFLOW} error.</p>
 	 */
-	public static void glPopDebugGroup() {
-		nglPopDebugGroup();
-	}
+	public static native void glPopDebugGroup();
 
 	// --- [ glObjectLabel ] ---
 
@@ -970,67 +956,35 @@ public class GLES32 {
 
 	// --- [ glEnablei ] ---
 
-	public static native void nglEnablei(int target, int index);
-
-	public static void glEnablei(int target, int index) {
-		nglEnablei(target, index);
-	}
+	public static native void glEnablei(int target, int index);
 
 	// --- [ glDisablei ] ---
 
-	public static native void nglDisablei(int target, int index);
-
-	public static void glDisablei(int target, int index) {
-		nglDisablei(target, index);
-	}
+	public static native void glDisablei(int target, int index);
 
 	// --- [ glBlendEquationi ] ---
 
-	public static native void nglBlendEquationi(int buf, int mode);
-
-	public static void glBlendEquationi(int buf, int mode) {
-		nglBlendEquationi(buf, mode);
-	}
+	public static native void glBlendEquationi(int buf, int mode);
 
 	// --- [ glBlendEquationSeparatei ] ---
 
-	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha);
-
-	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunci ] ---
 
-	public static native void nglBlendFunci(int buf, int src, int dst);
-
-	public static void glBlendFunci(int buf, int src, int dst) {
-		nglBlendFunci(buf, src, dst);
-	}
+	public static native void glBlendFunci(int buf, int src, int dst);
 
 	// --- [ glBlendFuncSeparatei ] ---
 
-	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-
-	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		nglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-	}
+	public static native void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	// --- [ glColorMaski ] ---
 
-	public static native void nglColorMaski(int index, boolean r, boolean g, boolean b, boolean a);
-
-	public static void glColorMaski(int index, boolean r, boolean g, boolean b, boolean a) {
-		nglColorMaski(index, r, g, b, a);
-	}
+	public static native void glColorMaski(int index, boolean r, boolean g, boolean b, boolean a);
 
 	// --- [ glIsEnabledi ] ---
 
-	public static native boolean nglIsEnabledi(int target, int index);
-
-	public static boolean glIsEnabledi(int target, int index) {
-		return nglIsEnabledi(target, index);
-	}
+	public static native boolean glIsEnabledi(int target, int index);
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
@@ -1106,16 +1060,9 @@ public class GLES32 {
 
 	// --- [ glFramebufferTexture ] ---
 
-	public static native void nglFramebufferTexture(int target, int attachment, int texture, int level);
-
-	public static void glFramebufferTexture(int target, int attachment, int texture, int level) {
-		nglFramebufferTexture(target, attachment, texture, level);
-	}
+	public static native void glFramebufferTexture(int target, int attachment, int texture, int level);
 
 	// --- [ glPrimitiveBoundingBox ] ---
-
-	/** Unsafe version of: {@link #glPrimitiveBoundingBox PrimitiveBoundingBox} */
-	public static native void nglPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 	/**
 	 * Specifies the primitive bounding box.
@@ -1133,14 +1080,9 @@ public class GLES32 {
 	 * @param maxZ the maximum z clip space coordinate
 	 * @param maxW the maximum w clip space coordinate
 	 */
-	public static void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		nglPrimitiveBoundingBox(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
-	}
+	public static native void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 	// --- [ glGetGraphicsResetStatus ] ---
-
-	/** Unsafe version of: {@link #glGetGraphicsResetStatus GetGraphicsResetStatus} */
-	public static native int nglGetGraphicsResetStatus();
 
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
@@ -1177,9 +1119,7 @@ public class GLES32 {
 	 * indicating completion to the application.</li>
 	 * </ul>
 	 */
-	public static int glGetGraphicsResetStatus() {
-		return nglGetGraphicsResetStatus();
-	}
+	public static native int glGetGraphicsResetStatus();
 
 	// --- [ glReadnPixels ] ---
 
@@ -1379,19 +1319,11 @@ public class GLES32 {
 
 	// --- [ glMinSampleShading ] ---
 
-	public static native void nglMinSampleShading(float value);
-
-	public static void glMinSampleShading(float value) {
-		nglMinSampleShading(value);
-	}
+	public static native void glMinSampleShading(float value);
 
 	// --- [ glPatchParameteri ] ---
 
-	public static native void nglPatchParameteri(int pname, int value);
-
-	public static void glPatchParameteri(int pname, int value) {
-		nglPatchParameteri(pname, value);
-	}
+	public static native void glPatchParameteri(int pname, int value);
 
 	// --- [ glTexParameterIiv ] ---
 
@@ -1559,27 +1491,15 @@ public class GLES32 {
 
 	// --- [ glTexBuffer ] ---
 
-	public static native void nglTexBuffer(int target, int internalformat, int buffer);
-
-	public static void glTexBuffer(int target, int internalformat, int buffer) {
-		nglTexBuffer(target, internalformat, buffer);
-	}
+	public static native void glTexBuffer(int target, int internalformat, int buffer);
 
 	// --- [ glTexBufferRange ] ---
 
-	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
-
-	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
-		nglTexBufferRange(target, internalformat, buffer, offset, size);
-	}
+	public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
 
 	// --- [ glTexStorage3DMultisample ] ---
 
-	public static native void nglTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
-
-	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		nglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-	}
+	public static native void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	/** Array version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, int[] ids, boolean enabled) {

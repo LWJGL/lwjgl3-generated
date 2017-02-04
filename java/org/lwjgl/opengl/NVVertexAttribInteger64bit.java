@@ -50,35 +50,19 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL1i64NV ] ---
 
-	public static native void nglVertexAttribL1i64NV(int index, long x);
-
-	public static void glVertexAttribL1i64NV(int index, long x) {
-		nglVertexAttribL1i64NV(index, x);
-	}
+	public static native void glVertexAttribL1i64NV(int index, long x);
 
 	// --- [ glVertexAttribL2i64NV ] ---
 
-	public static native void nglVertexAttribL2i64NV(int index, long x, long y);
-
-	public static void glVertexAttribL2i64NV(int index, long x, long y) {
-		nglVertexAttribL2i64NV(index, x, y);
-	}
+	public static native void glVertexAttribL2i64NV(int index, long x, long y);
 
 	// --- [ glVertexAttribL3i64NV ] ---
 
-	public static native void nglVertexAttribL3i64NV(int index, long x, long y, long z);
-
-	public static void glVertexAttribL3i64NV(int index, long x, long y, long z) {
-		nglVertexAttribL3i64NV(index, x, y, z);
-	}
+	public static native void glVertexAttribL3i64NV(int index, long x, long y, long z);
 
 	// --- [ glVertexAttribL4i64NV ] ---
 
-	public static native void nglVertexAttribL4i64NV(int index, long x, long y, long z, long w);
-
-	public static void glVertexAttribL4i64NV(int index, long x, long y, long z, long w) {
-		nglVertexAttribL4i64NV(index, x, y, z, w);
-	}
+	public static native void glVertexAttribL4i64NV(int index, long x, long y, long z, long w);
 
 	// --- [ glVertexAttribL1i64vNV ] ---
 
@@ -122,35 +106,19 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribL1ui64NV ] ---
 
-	public static native void nglVertexAttribL1ui64NV(int index, long x);
-
-	public static void glVertexAttribL1ui64NV(int index, long x) {
-		nglVertexAttribL1ui64NV(index, x);
-	}
+	public static native void glVertexAttribL1ui64NV(int index, long x);
 
 	// --- [ glVertexAttribL2ui64NV ] ---
 
-	public static native void nglVertexAttribL2ui64NV(int index, long x, long y);
-
-	public static void glVertexAttribL2ui64NV(int index, long x, long y) {
-		nglVertexAttribL2ui64NV(index, x, y);
-	}
+	public static native void glVertexAttribL2ui64NV(int index, long x, long y);
 
 	// --- [ glVertexAttribL3ui64NV ] ---
 
-	public static native void nglVertexAttribL3ui64NV(int index, long x, long y, long z);
-
-	public static void glVertexAttribL3ui64NV(int index, long x, long y, long z) {
-		nglVertexAttribL3ui64NV(index, x, y, z);
-	}
+	public static native void glVertexAttribL3ui64NV(int index, long x, long y, long z);
 
 	// --- [ glVertexAttribL4ui64NV ] ---
 
-	public static native void nglVertexAttribL4ui64NV(int index, long x, long y, long z, long w);
-
-	public static void glVertexAttribL4ui64NV(int index, long x, long y, long z, long w) {
-		nglVertexAttribL4ui64NV(index, x, y, z, w);
-	}
+	public static native void glVertexAttribL4ui64NV(int index, long x, long y, long z, long w);
 
 	// --- [ glVertexAttribL1ui64vNV ] ---
 
@@ -236,11 +204,7 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ glVertexAttribLFormatNV ] ---
 
-	public static native void nglVertexAttribLFormatNV(int index, int size, int type, int stride);
-
-	public static void glVertexAttribLFormatNV(int index, int size, int type, int stride) {
-		nglVertexAttribLFormatNV(index, size, type, stride);
-	}
+	public static native void glVertexAttribLFormatNV(int index, int size, int type, int stride);
 
 	/** Array version of: {@link #glVertexAttribL1i64vNV VertexAttribL1i64vNV} */
 	public static void glVertexAttribL1i64vNV(int index, long[] v) {

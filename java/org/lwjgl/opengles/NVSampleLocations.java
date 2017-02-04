@@ -81,11 +81,7 @@ public class NVSampleLocations {
 
 	// --- [ glResolveDepthValuesNV ] ---
 
-	public static native void nglResolveDepthValuesNV();
-
-	public static void glResolveDepthValuesNV() {
-		nglResolveDepthValuesNV();
-	}
+	public static native void glResolveDepthValuesNV();
 
 	/** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {

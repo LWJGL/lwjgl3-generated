@@ -13,7 +13,7 @@ typedef jboolean (APIENTRY *glIsVertexArrayOESPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_nglBindVertexArrayOES(JNIEnv *__env, jclass clazz, jint array) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_glBindVertexArrayOES(JNIEnv *__env, jclass clazz, jint array) {
 	glBindVertexArrayOESPROC glBindVertexArrayOES = (glBindVertexArrayOESPROC)tlsGetFunction(27);
 	UNUSED_PARAM(clazz)
 	glBindVertexArrayOES(array);
@@ -33,7 +33,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_nglGenVertex
 	glGenVertexArraysOES(n, arrays);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_nglIsVertexArrayOES(JNIEnv *__env, jclass clazz, jint array) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_glIsVertexArrayOES(JNIEnv *__env, jclass clazz, jint array) {
 	glIsVertexArrayOESPROC glIsVertexArrayOES = (glIsVertexArrayOESPROC)tlsGetFunction(427);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsVertexArrayOES(array);

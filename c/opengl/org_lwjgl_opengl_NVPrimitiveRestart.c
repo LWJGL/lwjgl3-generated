@@ -11,13 +11,13 @@ typedef void (APIENTRY *glPrimitiveRestartIndexNVPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPrimitiveRestart_nglPrimitiveRestartNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPrimitiveRestart_glPrimitiveRestartNV(JNIEnv *__env, jclass clazz) {
 	glPrimitiveRestartNVPROC glPrimitiveRestartNV = (glPrimitiveRestartNVPROC)tlsGetFunction(1240);
 	UNUSED_PARAM(clazz)
 	glPrimitiveRestartNV();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPrimitiveRestart_nglPrimitiveRestartIndexNV(JNIEnv *__env, jclass clazz, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPrimitiveRestart_glPrimitiveRestartIndexNV(JNIEnv *__env, jclass clazz, jint index) {
 	glPrimitiveRestartIndexNVPROC glPrimitiveRestartIndexNV = (glPrimitiveRestartIndexNVPROC)tlsGetFunction(1239);
 	UNUSED_PARAM(clazz)
 	glPrimitiveRestartIndexNV(index);

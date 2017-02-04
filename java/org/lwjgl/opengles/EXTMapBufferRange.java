@@ -68,10 +68,6 @@ public class EXTMapBufferRange {
 
 	// --- [ glFlushMappedBufferRangeEXT ] ---
 
-	public static native void nglFlushMappedBufferRangeEXT(int target, long offset, long length);
-
-	public static void glFlushMappedBufferRangeEXT(int target, long offset, long length) {
-		nglFlushMappedBufferRangeEXT(target, offset, length);
-	}
+	public static native void glFlushMappedBufferRangeEXT(int target, long offset, long length);
 
 }

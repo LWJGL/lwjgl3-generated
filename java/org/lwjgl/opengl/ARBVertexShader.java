@@ -99,23 +99,15 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib1fARB ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib1fARB VertexAttrib1fARB} */
-	public static native void nglVertexAttrib1fARB(int index, float v0);
-
 	/**
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0f and w to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 */
-	public static void glVertexAttrib1fARB(int index, float v0) {
-		nglVertexAttrib1fARB(index, v0);
-	}
+	public static native void glVertexAttrib1fARB(int index, float v0);
 
 	// --- [ glVertexAttrib1sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib1sARB VertexAttrib1sARB} */
-	public static native void nglVertexAttrib1sARB(int index, short v0);
 
 	/**
 	 * Short version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}.
@@ -123,14 +115,9 @@ public class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 */
-	public static void glVertexAttrib1sARB(int index, short v0) {
-		nglVertexAttrib1sARB(index, v0);
-	}
+	public static native void glVertexAttrib1sARB(int index, short v0);
 
 	// --- [ glVertexAttrib1dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib1dARB VertexAttrib1dARB} */
-	public static native void nglVertexAttrib1dARB(int index, double v0);
 
 	/**
 	 * Double version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}.
@@ -138,14 +125,9 @@ public class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 */
-	public static void glVertexAttrib1dARB(int index, double v0) {
-		nglVertexAttrib1dARB(index, v0);
-	}
+	public static native void glVertexAttrib1dARB(int index, double v0);
 
 	// --- [ glVertexAttrib2fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib2fARB VertexAttrib2fARB} */
-	public static native void nglVertexAttrib2fARB(int index, float v0, float v1);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0f and w to 1.0f.
@@ -154,14 +136,9 @@ public class ARBVertexShader {
 	 * @param v0    the vertex attribute x component
 	 * @param v1    the vertex attribute y component
 	 */
-	public static void glVertexAttrib2fARB(int index, float v0, float v1) {
-		nglVertexAttrib2fARB(index, v0, v1);
-	}
+	public static native void glVertexAttrib2fARB(int index, float v0, float v1);
 
 	// --- [ glVertexAttrib2sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib2sARB VertexAttrib2sARB} */
-	public static native void nglVertexAttrib2sARB(int index, short v0, short v1);
 
 	/**
 	 * Short version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}.
@@ -170,14 +147,9 @@ public class ARBVertexShader {
 	 * @param v0    the vertex attribute x component
 	 * @param v1    the vertex attribute y component
 	 */
-	public static void glVertexAttrib2sARB(int index, short v0, short v1) {
-		nglVertexAttrib2sARB(index, v0, v1);
-	}
+	public static native void glVertexAttrib2sARB(int index, short v0, short v1);
 
 	// --- [ glVertexAttrib2dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib2dARB VertexAttrib2dARB} */
-	public static native void nglVertexAttrib2dARB(int index, double v0, double v1);
 
 	/**
 	 * Double version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}.
@@ -186,14 +158,9 @@ public class ARBVertexShader {
 	 * @param v0    the vertex attribute x component
 	 * @param v1    the vertex attribute y component
 	 */
-	public static void glVertexAttrib2dARB(int index, double v0, double v1) {
-		nglVertexAttrib2dARB(index, v0, v1);
-	}
+	public static native void glVertexAttrib2dARB(int index, double v0, double v1);
 
 	// --- [ glVertexAttrib3fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib3fARB VertexAttrib3fARB} */
-	public static native void nglVertexAttrib3fARB(int index, float v0, float v1, float v2);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0f.
@@ -203,14 +170,9 @@ public class ARBVertexShader {
 	 * @param v1    the vertex attribute y component
 	 * @param v2    the vertex attribute z component
 	 */
-	public static void glVertexAttrib3fARB(int index, float v0, float v1, float v2) {
-		nglVertexAttrib3fARB(index, v0, v1, v2);
-	}
+	public static native void glVertexAttrib3fARB(int index, float v0, float v1, float v2);
 
 	// --- [ glVertexAttrib3sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib3sARB VertexAttrib3sARB} */
-	public static native void nglVertexAttrib3sARB(int index, short v0, short v1, short v2);
 
 	/**
 	 * Short version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}.
@@ -220,14 +182,9 @@ public class ARBVertexShader {
 	 * @param v1    the vertex attribute y component
 	 * @param v2    the vertex attribute z component
 	 */
-	public static void glVertexAttrib3sARB(int index, short v0, short v1, short v2) {
-		nglVertexAttrib3sARB(index, v0, v1, v2);
-	}
+	public static native void glVertexAttrib3sARB(int index, short v0, short v1, short v2);
 
 	// --- [ glVertexAttrib3dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib3dARB VertexAttrib3dARB} */
-	public static native void nglVertexAttrib3dARB(int index, double v0, double v1, double v2);
 
 	/**
 	 * Double version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}.
@@ -237,14 +194,9 @@ public class ARBVertexShader {
 	 * @param v1    the vertex attribute y component
 	 * @param v2    the vertex attribute z component
 	 */
-	public static void glVertexAttrib3dARB(int index, double v0, double v1, double v2) {
-		nglVertexAttrib3dARB(index, v0, v1, v2);
-	}
+	public static native void glVertexAttrib3dARB(int index, double v0, double v1, double v2);
 
 	// --- [ glVertexAttrib4fARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4fARB VertexAttrib4fARB} */
-	public static native void nglVertexAttrib4fARB(int index, float v0, float v1, float v2, float v3);
 
 	/**
 	 * Specifies the value of a generic vertex attribute.
@@ -255,14 +207,9 @@ public class ARBVertexShader {
 	 * @param v2    the vertex attribute z component
 	 * @param v3    the vertex attribute w component
 	 */
-	public static void glVertexAttrib4fARB(int index, float v0, float v1, float v2, float v3) {
-		nglVertexAttrib4fARB(index, v0, v1, v2, v3);
-	}
+	public static native void glVertexAttrib4fARB(int index, float v0, float v1, float v2, float v3);
 
 	// --- [ glVertexAttrib4sARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4sARB VertexAttrib4sARB} */
-	public static native void nglVertexAttrib4sARB(int index, short v0, short v1, short v2, short v3);
 
 	/**
 	 * Short version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -273,14 +220,9 @@ public class ARBVertexShader {
 	 * @param v2    the vertex attribute z component
 	 * @param v3    the vertex attribute w component
 	 */
-	public static void glVertexAttrib4sARB(int index, short v0, short v1, short v2, short v3) {
-		nglVertexAttrib4sARB(index, v0, v1, v2, v3);
-	}
+	public static native void glVertexAttrib4sARB(int index, short v0, short v1, short v2, short v3);
 
 	// --- [ glVertexAttrib4dARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4dARB VertexAttrib4dARB} */
-	public static native void nglVertexAttrib4dARB(int index, double v0, double v1, double v2, double v3);
 
 	/**
 	 * Double version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -291,14 +233,9 @@ public class ARBVertexShader {
 	 * @param v2    the vertex attribute z component
 	 * @param v3    the vertex attribute w component
 	 */
-	public static void glVertexAttrib4dARB(int index, double v0, double v1, double v2, double v3) {
-		nglVertexAttrib4dARB(index, v0, v1, v2, v3);
-	}
+	public static native void glVertexAttrib4dARB(int index, double v0, double v1, double v2, double v3);
 
 	// --- [ glVertexAttrib4NubARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttrib4NubARB VertexAttrib4NubARB} */
-	public static native void nglVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w);
 
 	/**
 	 * Normalized unsigned byte version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
@@ -309,9 +246,7 @@ public class ARBVertexShader {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w) {
-		nglVertexAttrib4NubARB(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w);
 
 	// --- [ glVertexAttrib1fvARB ] ---
 
@@ -791,31 +726,21 @@ public class ARBVertexShader {
 
 	// --- [ glEnableVertexAttribArrayARB ] ---
 
-	/** Unsafe version of: {@link #glEnableVertexAttribArrayARB EnableVertexAttribArrayARB} */
-	public static native void nglEnableVertexAttribArrayARB(int index);
-
 	/**
 	 * Enables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
-	public static void glEnableVertexAttribArrayARB(int index) {
-		nglEnableVertexAttribArrayARB(index);
-	}
+	public static native void glEnableVertexAttribArrayARB(int index);
 
 	// --- [ glDisableVertexAttribArrayARB ] ---
-
-	/** Unsafe version of: {@link #glDisableVertexAttribArrayARB DisableVertexAttribArrayARB} */
-	public static native void nglDisableVertexAttribArrayARB(int index);
 
 	/**
 	 * Disables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
-	public static void glDisableVertexAttribArrayARB(int index) {
-		nglDisableVertexAttribArrayARB(index);
-	}
+	public static native void glDisableVertexAttribArrayARB(int index);
 
 	// --- [ glBindAttribLocationARB ] ---
 

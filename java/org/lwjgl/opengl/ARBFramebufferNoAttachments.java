@@ -79,9 +79,6 @@ public class ARBFramebufferNoAttachments {
 
 	// --- [ glFramebufferParameteri ] ---
 
-	/** Unsafe version of: {@link #glFramebufferParameteri FramebufferParameteri} */
-	public static native void nglFramebufferParameteri(int target, int pname, int param);
-
 	/**
 	 * Sets a named parameter of a framebuffer.
 	 *
@@ -89,9 +86,7 @@ public class ARBFramebufferNoAttachments {
 	 * @param pname  a token indicating the parameter to be modified. One of:<br><table><tr><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}</td><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}</td></tr><tr><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}</td><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}</td></tr><tr><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}</td></tr></table>
 	 * @param param  the new value for the parameter named {@code pname}
 	 */
-	public static void glFramebufferParameteri(int target, int pname, int param) {
-		nglFramebufferParameteri(target, pname, param);
-	}
+	public static native void glFramebufferParameteri(int target, int pname, int param);
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
@@ -130,9 +125,6 @@ public class ARBFramebufferNoAttachments {
 
 	// --- [ glNamedFramebufferParameteriEXT ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferParameteriEXT NamedFramebufferParameteriEXT} */
-	public static native void nglNamedFramebufferParameteriEXT(int framebuffer, int pname, int param);
-
 	/**
 	 * DSA version of {@link #glFramebufferParameteri FramebufferParameteri}.
 	 *
@@ -140,9 +132,7 @@ public class ARBFramebufferNoAttachments {
 	 * @param pname       a token indicating the parameter to be modified. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}</td><td>{@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}</td><td>{@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}</td></tr></table>
 	 * @param param       the new value for the parameter named {@code pname}
 	 */
-	public static void glNamedFramebufferParameteriEXT(int framebuffer, int pname, int param) {
-		nglNamedFramebufferParameteriEXT(framebuffer, pname, param);
-	}
+	public static native void glNamedFramebufferParameteriEXT(int framebuffer, int pname, int param);
 
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
 

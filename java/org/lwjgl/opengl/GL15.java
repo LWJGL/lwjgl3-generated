@@ -129,20 +129,13 @@ public class GL15 {
 
 	// --- [ glBindBuffer ] ---
 
-	/** Unsafe version of: {@link #glBindBuffer BindBuffer} */
-	public static native void nglBindBuffer(int target, int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a named buffer object.
 	 *
 	 * @param target the target to which the buffer object is bound. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
 	 * @param buffer the name of a buffer object
 	 */
-	public static void glBindBuffer(int target, int buffer) {
-		nglBindBuffer(target, buffer);
-	}
+	public static native void glBindBuffer(int target, int buffer);
 
 	// --- [ glDeleteBuffers ] ---
 
@@ -217,19 +210,12 @@ public class GL15 {
 
 	// --- [ glIsBuffer ] ---
 
-	/** Unsafe version of: {@link #glIsBuffer IsBuffer} */
-	public static native boolean nglIsBuffer(int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a buffer object.
 	 *
 	 * @param buffer a value that may be the name of a buffer object
 	 */
-	public static boolean glIsBuffer(int buffer) {
-		return nglIsBuffer(buffer);
-	}
+	public static native boolean glIsBuffer(int buffer);
 
 	// --- [ glBufferData ] ---
 
@@ -651,12 +637,7 @@ public class GL15 {
 
 	// --- [ glUnmapBuffer ] ---
 
-	/** Unsafe version of: {@link #glUnmapBuffer UnmapBuffer} */
-	public static native boolean nglUnmapBuffer(int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUnmapBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Relinquishes the mapping of a buffer object and invalidates the pointer to its data store.
 	 * 
 	 * <p>Returns TRUE unless data values in the buffer’s data store have become corrupted during the period that the buffer was mapped. Such corruption can be
@@ -666,9 +647,7 @@ public class GL15 {
 	 *
 	 * @param target the target buffer object being unmapped. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
 	 */
-	public static boolean glUnmapBuffer(int target) {
-		return nglUnmapBuffer(target);
-	}
+	public static native boolean glUnmapBuffer(int target);
 
 	// --- [ glGetBufferParameteriv ] ---
 
@@ -821,52 +800,31 @@ public class GL15 {
 
 	// --- [ glIsQuery ] ---
 
-	/** Unsafe version of: {@link #glIsQuery IsQuery} */
-	public static native boolean nglIsQuery(int id);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsQuery.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determine if a name corresponds to a query object.
 	 *
 	 * @param id a value that may be the name of a query object
 	 */
-	public static boolean glIsQuery(int id) {
-		return nglIsQuery(id);
-	}
+	public static native boolean glIsQuery(int id);
 
 	// --- [ glBeginQuery ] ---
 
-	/** Unsafe version of: {@link #glBeginQuery BeginQuery} */
-	public static native void nglBeginQuery(int target, int id);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQuery.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Creates a query object and makes it active.
 	 *
 	 * @param target the target type of query object established. One of:<br><table><tr><td>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 * @param id     the name of a query object
 	 */
-	public static void glBeginQuery(int target, int id) {
-		nglBeginQuery(target, id);
-	}
+	public static native void glBeginQuery(int target, int id);
 
 	// --- [ glEndQuery ] ---
 
-	/** Unsafe version of: {@link #glEndQuery EndQuery} */
-	public static native void nglEndQuery(int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQuery.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
 	 *
 	 * @param target the query object target. One of:<br><table><tr><td>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 */
-	public static void glEndQuery(int target) {
-		nglEndQuery(target);
-	}
+	public static native void glEndQuery(int target);
 
 	// --- [ glGetQueryiv ] ---
 

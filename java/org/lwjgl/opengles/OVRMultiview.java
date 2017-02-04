@@ -54,10 +54,6 @@ public class OVRMultiview {
 
 	// --- [ glFramebufferTextureMultiviewOVR ] ---
 
-	public static native void nglFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
-
-	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
-		nglFramebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex, numViews);
-	}
+	public static native void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
 
 }

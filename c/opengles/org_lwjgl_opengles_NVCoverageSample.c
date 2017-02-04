@@ -11,13 +11,13 @@ typedef void (APIENTRY *glCoverageOperationNVPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVCoverageSample_nglCoverageMaskNV(JNIEnv *__env, jclass clazz, jboolean mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVCoverageSample_glCoverageMaskNV(JNIEnv *__env, jclass clazz, jboolean mask) {
 	glCoverageMaskNVPROC glCoverageMaskNV = (glCoverageMaskNVPROC)tlsGetFunction(100);
 	UNUSED_PARAM(clazz)
 	glCoverageMaskNV(mask);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVCoverageSample_nglCoverageOperationNV(JNIEnv *__env, jclass clazz, jint operation) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVCoverageSample_glCoverageOperationNV(JNIEnv *__env, jclass clazz, jint operation) {
 	glCoverageOperationNVPROC glCoverageOperationNV = (glCoverageOperationNVPROC)tlsGetFunction(103);
 	UNUSED_PARAM(clazz)
 	glCoverageOperationNV(operation);

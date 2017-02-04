@@ -76,11 +76,7 @@ public class EXTPointParameters {
 
 	// --- [ glPointParameterfEXT ] ---
 
-	public static native void nglPointParameterfEXT(int pname, float param);
-
-	public static void glPointParameterfEXT(int pname, float param) {
-		nglPointParameterfEXT(pname, param);
-	}
+	public static native void glPointParameterfEXT(int pname, float param);
 
 	// --- [ glPointParameterfvEXT ] ---
 

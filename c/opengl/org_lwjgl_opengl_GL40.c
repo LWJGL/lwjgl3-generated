@@ -55,25 +55,25 @@ typedef void (APIENTRY *glGetQueryIndexedivPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBlendEquationi(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBlendEquationi(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
 	glBlendEquationiPROC glBlendEquationi = (glBlendEquationiPROC)tlsGetFunction(75);
 	UNUSED_PARAM(clazz)
 	glBlendEquationi(buf, mode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBlendEquationSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBlendEquationSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
 	glBlendEquationSeparateiPROC glBlendEquationSeparatei = (glBlendEquationSeparateiPROC)tlsGetFunction(73);
 	UNUSED_PARAM(clazz)
 	glBlendEquationSeparatei(buf, modeRGB, modeAlpha);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBlendFunci(JNIEnv *__env, jclass clazz, jint buf, jint sfactor, jint dfactor) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBlendFunci(JNIEnv *__env, jclass clazz, jint buf, jint sfactor, jint dfactor) {
 	glBlendFunciPROC glBlendFunci = (glBlendFunciPROC)tlsGetFunction(84);
 	UNUSED_PARAM(clazz)
 	glBlendFunci(buf, sfactor, dfactor);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBlendFuncSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBlendFuncSeparatei(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
 	glBlendFuncSeparateiPROC glBlendFuncSeparatei = (glBlendFuncSeparateiPROC)tlsGetFunction(82);
 	UNUSED_PARAM(clazz)
 	glBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
@@ -93,25 +93,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawElementsIndirect__IIJ(J
 	glDrawElementsIndirect(mode, type, indirect);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform1d(JNIEnv *__env, jclass clazz, jint location, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform1d(JNIEnv *__env, jclass clazz, jint location, jdouble x) {
 	glUniform1dPROC glUniform1d = (glUniform1dPROC)tlsGetFunction(1694);
 	UNUSED_PARAM(clazz)
 	glUniform1d(location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform2d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform2d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y) {
 	glUniform2dPROC glUniform2d = (glUniform2dPROC)tlsGetFunction(1716);
 	UNUSED_PARAM(clazz)
 	glUniform2d(location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform3d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform3d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z) {
 	glUniform3dPROC glUniform3d = (glUniform3dPROC)tlsGetFunction(1738);
 	UNUSED_PARAM(clazz)
 	glUniform3d(location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform4d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform4d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glUniform4dPROC glUniform4d = (glUniform4dPROC)tlsGetFunction(1760);
 	UNUSED_PARAM(clazz)
 	glUniform4d(location, x, y, z, w);
@@ -215,7 +215,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGetUniformdv__IIJ(JNIEnv *_
 	glGetUniformdv(program, location, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglMinSampleShading(JNIEnv *__env, jclass clazz, jfloat value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glMinSampleShading(JNIEnv *__env, jclass clazz, jfloat value) {
 	glMinSampleShadingPROC glMinSampleShading = (glMinSampleShadingPROC)tlsGetFunction(980);
 	UNUSED_PARAM(clazz)
 	glMinSampleShading(value);
@@ -279,7 +279,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGetProgramStageiv__IIIJ(JNI
 	glGetProgramStageiv(program, shadertype, pname, values);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
 	glPatchParameteriPROC glPatchParameteri = (glPatchParameteriPROC)tlsGetFunction(1182);
 	UNUSED_PARAM(clazz)
 	glPatchParameteri(pname, value);
@@ -292,7 +292,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglPatchParameterfv__IJ(JNIEnv
 	glPatchParameterfv(pname, values);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBindTransformFeedback(JNIEnv *__env, jclass clazz, jint target, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBindTransformFeedback(JNIEnv *__env, jclass clazz, jint target, jint id) {
 	glBindTransformFeedbackPROC glBindTransformFeedback = (glBindTransformFeedbackPROC)tlsGetFunction(57);
 	UNUSED_PARAM(clazz)
 	glBindTransformFeedback(target, id);
@@ -312,43 +312,43 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGenTransformFeedbacks__IJ(J
 	glGenTransformFeedbacks(n, ids);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL40_nglIsTransformFeedback(JNIEnv *__env, jclass clazz, jint id) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL40_glIsTransformFeedback(JNIEnv *__env, jclass clazz, jint id) {
 	glIsTransformFeedbackPROC glIsTransformFeedback = (glIsTransformFeedbackPROC)tlsGetFunction(886);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsTransformFeedback(id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
 	glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1204);
 	UNUSED_PARAM(clazz)
 	glPauseTransformFeedback();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
 	glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1455);
 	UNUSED_PARAM(clazz)
 	glResumeTransformFeedback();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawTransformFeedback(JNIEnv *__env, jclass clazz, jint mode, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glDrawTransformFeedback(JNIEnv *__env, jclass clazz, jint mode, jint id) {
 	glDrawTransformFeedbackPROC glDrawTransformFeedback = (glDrawTransformFeedbackPROC)tlsGetFunction(370);
 	UNUSED_PARAM(clazz)
 	glDrawTransformFeedback(mode, id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawTransformFeedbackStream(JNIEnv *__env, jclass clazz, jint mode, jint id, jint stream) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glDrawTransformFeedbackStream(JNIEnv *__env, jclass clazz, jint mode, jint id, jint stream) {
 	glDrawTransformFeedbackStreamPROC glDrawTransformFeedbackStream = (glDrawTransformFeedbackStreamPROC)tlsGetFunction(373);
 	UNUSED_PARAM(clazz)
 	glDrawTransformFeedbackStream(mode, id, stream);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBeginQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBeginQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index, jint id) {
 	glBeginQueryIndexedPROC glBeginQueryIndexed = (glBeginQueryIndexedPROC)tlsGetFunction(21);
 	UNUSED_PARAM(clazz)
 	glBeginQueryIndexed(target, index, id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglEndQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glEndQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glEndQueryIndexedPROC glEndQueryIndexed = (glEndQueryIndexedPROC)tlsGetFunction(400);
 	UNUSED_PARAM(clazz)
 	glEndQueryIndexed(target, index);

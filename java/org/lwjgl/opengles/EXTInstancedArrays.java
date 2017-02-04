@@ -46,11 +46,7 @@ public class EXTInstancedArrays {
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
-	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
-
-	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		nglDrawArraysInstancedEXT(mode, start, count, primcount);
-	}
+	public static native void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
 
 	// --- [ glDrawElementsInstancedEXT ] ---
 
@@ -78,10 +74,6 @@ public class EXTInstancedArrays {
 
 	// --- [ glVertexAttribDivisorEXT ] ---
 
-	public static native void nglVertexAttribDivisorEXT(int index, int divisor);
-
-	public static void glVertexAttribDivisorEXT(int index, int divisor) {
-		nglVertexAttribDivisorEXT(index, divisor);
-	}
+	public static native void glVertexAttribDivisorEXT(int index, int divisor);
 
 }

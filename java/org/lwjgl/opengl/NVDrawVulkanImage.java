@@ -47,9 +47,6 @@ public class NVDrawVulkanImage {
 
 	// --- [ glDrawVkImageNV ] ---
 
-	/** Unsafe version of: {@link #glDrawVkImageNV DrawVkImageNV} */
-	public static native void nglDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
-
 	/**
 	 * Draws a screen-aligned rectangle displaying a portion of the contents of the Vulkan {@code VkImage}.
 	 *
@@ -65,9 +62,7 @@ public class NVDrawVulkanImage {
 	 * @param s1      the right texture coordinate
 	 * @param t1      the top texture coordinate
 	 */
-	public static void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1) {
-		nglDrawVkImageNV(vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
-	}
+	public static native void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
 	// --- [ glGetVkProcAddrNV ] ---
 
@@ -102,23 +97,15 @@ public class NVDrawVulkanImage {
 
 	// --- [ glWaitVkSemaphoreNV ] ---
 
-	/** Unsafe version of: {@link #glWaitVkSemaphoreNV WaitVkSemaphoreNV} */
-	public static native void nglWaitVkSemaphoreNV(long vkSemaphore);
-
 	/**
 	 * Causes the GL server to block until the Vulkan {@code VkSemaphore} is signalled. No GL commands after this command are executed by the server until the
 	 * semaphore is signaled.
 	 *
 	 * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
 	 */
-	public static void glWaitVkSemaphoreNV(long vkSemaphore) {
-		nglWaitVkSemaphoreNV(vkSemaphore);
-	}
+	public static native void glWaitVkSemaphoreNV(long vkSemaphore);
 
 	// --- [ glSignalVkSemaphoreNV ] ---
-
-	/** Unsafe version of: {@link #glSignalVkSemaphoreNV SignalVkSemaphoreNV} */
-	public static native void nglSignalVkSemaphoreNV(long vkSemaphore);
 
 	/**
 	 * Causes the GL server to signal the Vulkan {@code VkSemaphore} when it executes this command. The semaphore is not signalled by GL until all commands
@@ -126,14 +113,9 @@ public class NVDrawVulkanImage {
 	 *
 	 * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
 	 */
-	public static void glSignalVkSemaphoreNV(long vkSemaphore) {
-		nglSignalVkSemaphoreNV(vkSemaphore);
-	}
+	public static native void glSignalVkSemaphoreNV(long vkSemaphore);
 
 	// --- [ glSignalVkFenceNV ] ---
-
-	/** Unsafe version of: {@link #glSignalVkFenceNV SignalVkFenceNV} */
-	public static native void nglSignalVkFenceNV(long vkFence);
 
 	/**
 	 * Causes the GL server to signal the Vulkan {@code VkFence} object when it executes this command. The fence is not signalled by the GL until all commands
@@ -141,8 +123,6 @@ public class NVDrawVulkanImage {
 	 *
 	 * @param vkFence a valid Vulkan VkFence non-dispatcable handle otherwise the operation is undefined
 	 */
-	public static void glSignalVkFenceNV(long vkFence) {
-		nglSignalVkFenceNV(vkFence);
-	}
+	public static native void glSignalVkFenceNV(long vkFence);
 
 }

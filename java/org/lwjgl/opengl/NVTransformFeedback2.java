@@ -58,11 +58,7 @@ public class NVTransformFeedback2 {
 
 	// --- [ glBindTransformFeedbackNV ] ---
 
-	public static native void nglBindTransformFeedbackNV(int target, int id);
-
-	public static void glBindTransformFeedbackNV(int target, int id) {
-		nglBindTransformFeedbackNV(target, id);
-	}
+	public static native void glBindTransformFeedbackNV(int target, int id);
 
 	// --- [ glDeleteTransformFeedbacksNV ] ---
 
@@ -105,35 +101,19 @@ public class NVTransformFeedback2 {
 
 	// --- [ glIsTransformFeedbackNV ] ---
 
-	public static native boolean nglIsTransformFeedbackNV(int id);
-
-	public static boolean glIsTransformFeedbackNV(int id) {
-		return nglIsTransformFeedbackNV(id);
-	}
+	public static native boolean glIsTransformFeedbackNV(int id);
 
 	// --- [ glPauseTransformFeedbackNV ] ---
 
-	public static native void nglPauseTransformFeedbackNV();
-
-	public static void glPauseTransformFeedbackNV() {
-		nglPauseTransformFeedbackNV();
-	}
+	public static native void glPauseTransformFeedbackNV();
 
 	// --- [ glResumeTransformFeedbackNV ] ---
 
-	public static native void nglResumeTransformFeedbackNV();
-
-	public static void glResumeTransformFeedbackNV() {
-		nglResumeTransformFeedbackNV();
-	}
+	public static native void glResumeTransformFeedbackNV();
 
 	// --- [ glDrawTransformFeedbackNV ] ---
 
-	public static native void nglDrawTransformFeedbackNV(int mode, int id);
-
-	public static void glDrawTransformFeedbackNV(int mode, int id) {
-		nglDrawTransformFeedbackNV(mode, id);
-	}
+	public static native void glDrawTransformFeedbackNV(int mode, int id);
 
 	/** Array version of: {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	public static void glDeleteTransformFeedbacksNV(int[] ids) {

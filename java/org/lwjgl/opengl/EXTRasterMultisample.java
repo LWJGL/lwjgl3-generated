@@ -48,9 +48,6 @@ public class EXTRasterMultisample {
 
 	// --- [ glRasterSamplesEXT ] ---
 
-	/** Unsafe version of: {@link #glRasterSamplesEXT RasterSamplesEXT} */
-	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations);
-
 	/**
 	 * Selects the number of samples to be used for rasterization. {@code samples} represents a request for a desired minimum number of samples. Since
 	 * different implementations may support different sample counts, the actual sample pattern used is implementation-dependent. However, the resulting value
@@ -82,8 +79,6 @@ public class EXTRasterMultisample {
 	 * @param samples              the number of samples to be used for rasterization
 	 * @param fixedsamplelocations if {@link GL11#GL_TRUE TRUE}, identical sample locations will be used for all pixels
 	 */
-	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		nglRasterSamplesEXT(samples, fixedsamplelocations);
-	}
+	public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
 
 }

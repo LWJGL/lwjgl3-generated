@@ -113,13 +113,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateTrans
 	glCreateTransformFeedbacks(n, ids);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTransformFeedbackBufferBase(JNIEnv *__env, jclass clazz, jint xfb, jint index, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTransformFeedbackBufferBase(JNIEnv *__env, jclass clazz, jint xfb, jint index, jint buffer) {
 	glTransformFeedbackBufferBasePROC glTransformFeedbackBufferBase = (glTransformFeedbackBufferBasePROC)tlsGetFunction(1685);
 	UNUSED_PARAM(clazz)
 	glTransformFeedbackBufferBase(xfb, index, buffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTransformFeedbackBufferRange(JNIEnv *__env, jclass clazz, jint xfb, jint index, jint buffer, jlong offset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTransformFeedbackBufferRange(JNIEnv *__env, jclass clazz, jint xfb, jint index, jint buffer, jlong offset, jlong size) {
 	glTransformFeedbackBufferRangePROC glTransformFeedbackBufferRange = (glTransformFeedbackBufferRangePROC)tlsGetFunction(1686);
 	UNUSED_PARAM(clazz)
 	glTransformFeedbackBufferRange(xfb, index, buffer, (intptr_t)offset, (intptr_t)size);
@@ -174,7 +174,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedBuffer
 	glNamedBufferSubData(buffer, (intptr_t)offset, (intptr_t)size, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCopyNamedBufferSubData(JNIEnv *__env, jclass clazz, jint readBuffer, jint writeBuffer, jlong readOffset, jlong writeOffset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glCopyNamedBufferSubData(JNIEnv *__env, jclass clazz, jint readBuffer, jint writeBuffer, jlong readOffset, jlong writeOffset, jlong size) {
 	glCopyNamedBufferSubDataPROC glCopyNamedBufferSubData = (glCopyNamedBufferSubDataPROC)tlsGetFunction(240);
 	UNUSED_PARAM(clazz)
 	glCopyNamedBufferSubData(readBuffer, writeBuffer, (intptr_t)readOffset, (intptr_t)writeOffset, (intptr_t)size);
@@ -206,13 +206,13 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglMapNamedBu
 	return (jlong)glMapNamedBufferRange(buffer, (intptr_t)offset, (intptr_t)length, access);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglUnmapNamedBuffer(JNIEnv *__env, jclass clazz, jint buffer) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glUnmapNamedBuffer(JNIEnv *__env, jclass clazz, jint buffer) {
 	glUnmapNamedBufferPROC glUnmapNamedBuffer = (glUnmapNamedBufferPROC)tlsGetFunction(1815);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glUnmapNamedBuffer(buffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglFlushMappedNamedBufferRange(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong length) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glFlushMappedNamedBufferRange(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong length) {
 	glFlushMappedNamedBufferRangePROC glFlushMappedNamedBufferRange = (glFlushMappedNamedBufferRangePROC)tlsGetFunction(423);
 	UNUSED_PARAM(clazz)
 	glFlushMappedNamedBufferRange(buffer, (intptr_t)offset, (intptr_t)length);
@@ -253,31 +253,31 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateFrame
 	glCreateFramebuffers(n, framebuffers);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferRenderbuffer(JNIEnv *__env, jclass clazz, jint framebuffer, jint attachment, jint renderbuffertarget, jint renderbuffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebufferRenderbuffer(JNIEnv *__env, jclass clazz, jint framebuffer, jint attachment, jint renderbuffertarget, jint renderbuffer) {
 	glNamedFramebufferRenderbufferPROC glNamedFramebufferRenderbuffer = (glNamedFramebufferRenderbufferPROC)tlsGetFunction(1130);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferParameteri(JNIEnv *__env, jclass clazz, jint framebuffer, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebufferParameteri(JNIEnv *__env, jclass clazz, jint framebuffer, jint pname, jint param) {
 	glNamedFramebufferParameteriPROC glNamedFramebufferParameteri = (glNamedFramebufferParameteriPROC)tlsGetFunction(1127);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferParameteri(framebuffer, pname, param);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferTexture(JNIEnv *__env, jclass clazz, jint framebuffer, jint attachment, jint texture, jint level) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebufferTexture(JNIEnv *__env, jclass clazz, jint framebuffer, jint attachment, jint texture, jint level) {
 	glNamedFramebufferTexturePROC glNamedFramebufferTexture = (glNamedFramebufferTexturePROC)tlsGetFunction(1134);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferTexture(framebuffer, attachment, texture, level);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferTextureLayer(JNIEnv *__env, jclass clazz, jint framebuffer, jint attachment, jint texture, jint level, jint layer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebufferTextureLayer(JNIEnv *__env, jclass clazz, jint framebuffer, jint attachment, jint texture, jint level, jint layer) {
 	glNamedFramebufferTextureLayerPROC glNamedFramebufferTextureLayer = (glNamedFramebufferTextureLayerPROC)tlsGetFunction(1140);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferDrawBuffer(JNIEnv *__env, jclass clazz, jint framebuffer, jint buf) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebufferDrawBuffer(JNIEnv *__env, jclass clazz, jint framebuffer, jint buf) {
 	glNamedFramebufferDrawBufferPROC glNamedFramebufferDrawBuffer = (glNamedFramebufferDrawBufferPROC)tlsGetFunction(1125);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferDrawBuffer(framebuffer, buf);
@@ -290,7 +290,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFrameb
 	glNamedFramebufferDrawBuffers(framebuffer, n, bufs);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferReadBuffer(JNIEnv *__env, jclass clazz, jint framebuffer, jint src) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebufferReadBuffer(JNIEnv *__env, jclass clazz, jint framebuffer, jint src) {
 	glNamedFramebufferReadBufferPROC glNamedFramebufferReadBuffer = (glNamedFramebufferReadBufferPROC)tlsGetFunction(1129);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferReadBuffer(framebuffer, src);
@@ -331,19 +331,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglClearNamedF
 	glClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglClearNamedFramebufferfi(JNIEnv *__env, jclass clazz, jint framebuffer, jint buffer, jint drawbuffer, jfloat depth, jint stencil) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glClearNamedFramebufferfi(JNIEnv *__env, jclass clazz, jint framebuffer, jint buffer, jint drawbuffer, jfloat depth, jint stencil) {
 	glClearNamedFramebufferfiPROC glClearNamedFramebufferfi = (glClearNamedFramebufferfiPROC)tlsGetFunction(125);
 	UNUSED_PARAM(clazz)
 	glClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglBlitNamedFramebuffer(JNIEnv *__env, jclass clazz, jint readFramebuffer, jint drawFramebuffer, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glBlitNamedFramebuffer(JNIEnv *__env, jclass clazz, jint readFramebuffer, jint drawFramebuffer, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter) {
 	glBlitNamedFramebufferPROC glBlitNamedFramebuffer = (glBlitNamedFramebufferPROC)tlsGetFunction(89);
 	UNUSED_PARAM(clazz)
 	glBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCheckNamedFramebufferStatus(JNIEnv *__env, jclass clazz, jint framebuffer, jint target) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glCheckNamedFramebufferStatus(JNIEnv *__env, jclass clazz, jint framebuffer, jint target) {
 	glCheckNamedFramebufferStatusPROC glCheckNamedFramebufferStatus = (glCheckNamedFramebufferStatusPROC)tlsGetFunction(102);
 	UNUSED_PARAM(clazz)
 	return (jint)glCheckNamedFramebufferStatus(framebuffer, target);
@@ -370,13 +370,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateRende
 	glCreateRenderbuffers(n, renderbuffers);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedRenderbufferStorage(JNIEnv *__env, jclass clazz, jint renderbuffer, jint internalformat, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedRenderbufferStorage(JNIEnv *__env, jclass clazz, jint renderbuffer, jint internalformat, jint width, jint height) {
 	glNamedRenderbufferStoragePROC glNamedRenderbufferStorage = (glNamedRenderbufferStoragePROC)tlsGetFunction(1154);
 	UNUSED_PARAM(clazz)
 	glNamedRenderbufferStorage(renderbuffer, internalformat, width, height);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedRenderbufferStorageMultisample(JNIEnv *__env, jclass clazz, jint renderbuffer, jint samples, jint internalformat, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedRenderbufferStorageMultisample(JNIEnv *__env, jclass clazz, jint renderbuffer, jint samples, jint internalformat, jint width, jint height) {
 	glNamedRenderbufferStorageMultisamplePROC glNamedRenderbufferStorageMultisample = (glNamedRenderbufferStorageMultisamplePROC)tlsGetFunction(1156);
 	UNUSED_PARAM(clazz)
 	glNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height);
@@ -396,43 +396,43 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateTextu
 	glCreateTextures(target, n, textures);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureBuffer(JNIEnv *__env, jclass clazz, jint texture, jint internalformat, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureBuffer(JNIEnv *__env, jclass clazz, jint texture, jint internalformat, jint buffer) {
 	glTextureBufferPROC glTextureBuffer = (glTextureBufferPROC)tlsGetFunction(1641);
 	UNUSED_PARAM(clazz)
 	glTextureBuffer(texture, internalformat, buffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureBufferRange(JNIEnv *__env, jclass clazz, jint texture, jint internalformat, jint buffer, jlong offset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureBufferRange(JNIEnv *__env, jclass clazz, jint texture, jint internalformat, jint buffer, jlong offset, jlong size) {
 	glTextureBufferRangePROC glTextureBufferRange = (glTextureBufferRangePROC)tlsGetFunction(1643);
 	UNUSED_PARAM(clazz)
 	glTextureBufferRange(texture, internalformat, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureStorage1D(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalformat, jint width) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureStorage1D(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalformat, jint width) {
 	glTextureStorage1DPROC glTextureStorage1D = (glTextureStorage1DPROC)tlsGetFunction(1666);
 	UNUSED_PARAM(clazz)
 	glTextureStorage1D(texture, levels, internalformat, width);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureStorage2D(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalformat, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureStorage2D(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalformat, jint width, jint height) {
 	glTextureStorage2DPROC glTextureStorage2D = (glTextureStorage2DPROC)tlsGetFunction(1668);
 	UNUSED_PARAM(clazz)
 	glTextureStorage2D(texture, levels, internalformat, width, height);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureStorage3D(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalformat, jint width, jint height, jint depth) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureStorage3D(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalformat, jint width, jint height, jint depth) {
 	glTextureStorage3DPROC glTextureStorage3D = (glTextureStorage3DPROC)tlsGetFunction(1672);
 	UNUSED_PARAM(clazz)
 	glTextureStorage3D(texture, levels, internalformat, width, height, depth);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureStorage2DMultisample(JNIEnv *__env, jclass clazz, jint texture, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureStorage2DMultisample(JNIEnv *__env, jclass clazz, jint texture, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
 	glTextureStorage2DMultisamplePROC glTextureStorage2DMultisample = (glTextureStorage2DMultisamplePROC)tlsGetFunction(1670);
 	UNUSED_PARAM(clazz)
 	glTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureStorage3DMultisample(JNIEnv *__env, jclass clazz, jint texture, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureStorage3DMultisample(JNIEnv *__env, jclass clazz, jint texture, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
 	glTextureStorage3DMultisamplePROC glTextureStorage3DMultisample = (glTextureStorage3DMultisamplePROC)tlsGetFunction(1674);
 	UNUSED_PARAM(clazz)
 	glTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
@@ -480,25 +480,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCompressedT
 	glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCopyTextureSubImage1D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint x, jint y, jint width) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glCopyTextureSubImage1D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint x, jint y, jint width) {
 	glCopyTextureSubImage1DPROC glCopyTextureSubImage1D = (glCopyTextureSubImage1DPROC)tlsGetFunction(250);
 	UNUSED_PARAM(clazz)
 	glCopyTextureSubImage1D(texture, level, xoffset, x, y, width);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCopyTextureSubImage2D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glCopyTextureSubImage2D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint x, jint y, jint width, jint height) {
 	glCopyTextureSubImage2DPROC glCopyTextureSubImage2D = (glCopyTextureSubImage2DPROC)tlsGetFunction(252);
 	UNUSED_PARAM(clazz)
 	glCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCopyTextureSubImage3D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glCopyTextureSubImage3D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
 	glCopyTextureSubImage3DPROC glCopyTextureSubImage3D = (glCopyTextureSubImage3DPROC)tlsGetFunction(254);
 	UNUSED_PARAM(clazz)
 	glCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureParameterf(JNIEnv *__env, jclass clazz, jint texture, jint pname, jfloat param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureParameterf(JNIEnv *__env, jclass clazz, jint texture, jint pname, jfloat param) {
 	glTextureParameterfPROC glTextureParameterf = (glTextureParameterfPROC)tlsGetFunction(1657);
 	UNUSED_PARAM(clazz)
 	glTextureParameterf(texture, pname, param);
@@ -511,7 +511,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTexturePara
 	glTextureParameterfv(texture, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureParameteri(JNIEnv *__env, jclass clazz, jint texture, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureParameteri(JNIEnv *__env, jclass clazz, jint texture, jint pname, jint param) {
 	glTextureParameteriPROC glTextureParameteri = (glTextureParameteriPROC)tlsGetFunction(1661);
 	UNUSED_PARAM(clazz)
 	glTextureParameteri(texture, pname, param);
@@ -538,13 +538,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTexturePara
 	glTextureParameteriv(texture, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglGenerateTextureMipmap(JNIEnv *__env, jclass clazz, jint texture) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glGenerateTextureMipmap(JNIEnv *__env, jclass clazz, jint texture) {
 	glGenerateTextureMipmapPROC glGenerateTextureMipmap = (glGenerateTextureMipmapPROC)tlsGetFunction(487);
 	UNUSED_PARAM(clazz)
 	glGenerateTextureMipmap(texture);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglBindTextureUnit(JNIEnv *__env, jclass clazz, jint unit, jint texture) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glBindTextureUnit(JNIEnv *__env, jclass clazz, jint unit, jint texture) {
 	glBindTextureUnitPROC glBindTextureUnit = (glBindTextureUnitPROC)tlsGetFunction(55);
 	UNUSED_PARAM(clazz)
 	glBindTextureUnit(unit, texture);
@@ -613,25 +613,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateVerte
 	glCreateVertexArrays(n, arrays);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglDisableVertexArrayAttrib(JNIEnv *__env, jclass clazz, jint vaobj, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glDisableVertexArrayAttrib(JNIEnv *__env, jclass clazz, jint vaobj, jint index) {
 	glDisableVertexArrayAttribPROC glDisableVertexArrayAttrib = (glDisableVertexArrayAttribPROC)tlsGetFunction(335);
 	UNUSED_PARAM(clazz)
 	glDisableVertexArrayAttrib(vaobj, index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglEnableVertexArrayAttrib(JNIEnv *__env, jclass clazz, jint vaobj, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glEnableVertexArrayAttrib(JNIEnv *__env, jclass clazz, jint vaobj, jint index) {
 	glEnableVertexArrayAttribPROC glEnableVertexArrayAttrib = (glEnableVertexArrayAttribPROC)tlsGetFunction(385);
 	UNUSED_PARAM(clazz)
 	glEnableVertexArrayAttrib(vaobj, index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayElementBuffer(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayElementBuffer(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer) {
 	glVertexArrayElementBufferPROC glVertexArrayElementBuffer = (glVertexArrayElementBufferPROC)tlsGetFunction(1863);
 	UNUSED_PARAM(clazz)
 	glVertexArrayElementBuffer(vaobj, buffer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayVertexBuffer(JNIEnv *__env, jclass clazz, jint vaobj, jint bindingindex, jint buffer, jlong offset, jint stride) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayVertexBuffer(JNIEnv *__env, jclass clazz, jint vaobj, jint bindingindex, jint buffer, jlong offset, jint stride) {
 	glVertexArrayVertexBufferPROC glVertexArrayVertexBuffer = (glVertexArrayVertexBufferPROC)tlsGetFunction(1880);
 	UNUSED_PARAM(clazz)
 	glVertexArrayVertexBuffer(vaobj, bindingindex, buffer, (intptr_t)offset, stride);
@@ -646,31 +646,31 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArray
 	glVertexArrayVertexBuffers(vaobj, first, count, buffers, offsets, strides);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayAttribFormat(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint size, jint type, jboolean normalized, jint relativeoffset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayAttribFormat(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint size, jint type, jboolean normalized, jint relativeoffset) {
 	glVertexArrayAttribFormatPROC glVertexArrayAttribFormat = (glVertexArrayAttribFormatPROC)tlsGetFunction(1856);
 	UNUSED_PARAM(clazz)
 	glVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayAttribIFormat(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint size, jint type, jint relativeoffset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayAttribIFormat(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint size, jint type, jint relativeoffset) {
 	glVertexArrayAttribIFormatPROC glVertexArrayAttribIFormat = (glVertexArrayAttribIFormatPROC)tlsGetFunction(1857);
 	UNUSED_PARAM(clazz)
 	glVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayAttribLFormat(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint size, jint type, jint relativeoffset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayAttribLFormat(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint size, jint type, jint relativeoffset) {
 	glVertexArrayAttribLFormatPROC glVertexArrayAttribLFormat = (glVertexArrayAttribLFormatPROC)tlsGetFunction(1858);
 	UNUSED_PARAM(clazz)
 	glVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayAttribBinding(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint bindingindex) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayAttribBinding(JNIEnv *__env, jclass clazz, jint vaobj, jint attribindex, jint bindingindex) {
 	glVertexArrayAttribBindingPROC glVertexArrayAttribBinding = (glVertexArrayAttribBindingPROC)tlsGetFunction(1855);
 	UNUSED_PARAM(clazz)
 	glVertexArrayAttribBinding(vaobj, attribindex, bindingindex);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayBindingDivisor(JNIEnv *__env, jclass clazz, jint vaobj, jint bindingindex, jint divisor) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayBindingDivisor(JNIEnv *__env, jclass clazz, jint vaobj, jint bindingindex, jint divisor) {
 	glVertexArrayBindingDivisorPROC glVertexArrayBindingDivisor = (glVertexArrayBindingDivisorPROC)tlsGetFunction(1860);
 	UNUSED_PARAM(clazz)
 	glVertexArrayBindingDivisor(vaobj, bindingindex, divisor);
@@ -718,25 +718,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateQueri
 	glCreateQueries(target, n, ids);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglGetQueryBufferObjecti64v(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glGetQueryBufferObjecti64v(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
 	glGetQueryBufferObjecti64vPROC glGetQueryBufferObjecti64v = (glGetQueryBufferObjecti64vPROC)tlsGetFunction(672);
 	UNUSED_PARAM(clazz)
 	glGetQueryBufferObjecti64v(id, buffer, pname, (intptr_t)offset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglGetQueryBufferObjectiv(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glGetQueryBufferObjectiv(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
 	glGetQueryBufferObjectivPROC glGetQueryBufferObjectiv = (glGetQueryBufferObjectivPROC)tlsGetFunction(673);
 	UNUSED_PARAM(clazz)
 	glGetQueryBufferObjectiv(id, buffer, pname, (intptr_t)offset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglGetQueryBufferObjectui64v(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glGetQueryBufferObjectui64v(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
 	glGetQueryBufferObjectui64vPROC glGetQueryBufferObjectui64v = (glGetQueryBufferObjectui64vPROC)tlsGetFunction(674);
 	UNUSED_PARAM(clazz)
 	glGetQueryBufferObjectui64v(id, buffer, pname, (intptr_t)offset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglGetQueryBufferObjectuiv(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glGetQueryBufferObjectuiv(JNIEnv *__env, jclass clazz, jint id, jint buffer, jint pname, jlong offset) {
 	glGetQueryBufferObjectuivPROC glGetQueryBufferObjectuiv = (glGetQueryBufferObjectuivPROC)tlsGetFunction(675);
 	UNUSED_PARAM(clazz)
 	glGetQueryBufferObjectuiv(id, buffer, pname, (intptr_t)offset);

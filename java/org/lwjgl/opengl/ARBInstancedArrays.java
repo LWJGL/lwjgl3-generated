@@ -46,9 +46,6 @@ public class ARBInstancedArrays {
 
 	// --- [ glVertexAttribDivisorARB ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribDivisorARB VertexAttribDivisorARB} */
-	public static native void nglVertexAttribDivisorARB(int index, int divisor);
-
 	/**
 	 * Modifies the rate at which generic vertex attributes advance when rendering multiple instances of primitives in a single draw call. If {@code divisor}
 	 * is zero, the attribute at slot {@code index} advances once per vertex. If {@code divisor} is non-zero, the attribute advances once per {@code divisor}
@@ -57,14 +54,9 @@ public class ARBInstancedArrays {
 	 * @param index   the attribute index
 	 * @param divisor the divisor value
 	 */
-	public static void glVertexAttribDivisorARB(int index, int divisor) {
-		nglVertexAttribDivisorARB(index, divisor);
-	}
+	public static native void glVertexAttribDivisorARB(int index, int divisor);
 
 	// --- [ glVertexArrayVertexAttribDivisorEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexArrayVertexAttribDivisorEXT VertexArrayVertexAttribDivisorEXT} */
-	public static native void nglVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor);
 
 	/**
 	 * <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
@@ -80,8 +72,6 @@ if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArra
 	 * @param index   the attribute index
 	 * @param divisor the divisor value
 	 */
-	public static void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor) {
-		nglVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor);
-	}
+	public static native void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor);
 
 }

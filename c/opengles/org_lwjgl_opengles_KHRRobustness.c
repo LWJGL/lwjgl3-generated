@@ -14,7 +14,7 @@ typedef void (APIENTRY *glGetnUniformuivKHRPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_KHRRobustness_nglGetGraphicsResetStatusKHR(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_KHRRobustness_glGetGraphicsResetStatusKHR(JNIEnv *__env, jclass clazz) {
 	glGetGraphicsResetStatusKHRPROC glGetGraphicsResetStatusKHR = (glGetGraphicsResetStatusKHRPROC)tlsGetFunction(284);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetGraphicsResetStatusKHR();

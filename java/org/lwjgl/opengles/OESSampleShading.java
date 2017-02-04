@@ -48,10 +48,6 @@ public class OESSampleShading {
 
 	// --- [ glMinSampleShadingOES ] ---
 
-	public static native void nglMinSampleShadingOES(float value);
-
-	public static void glMinSampleShadingOES(float value) {
-		nglMinSampleShadingOES(value);
-	}
+	public static native void glMinSampleShadingOES(float value);
 
 }

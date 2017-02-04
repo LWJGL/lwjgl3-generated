@@ -55,9 +55,6 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3bEXT ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3bEXT SecondaryColor3bEXT} */
-	public static native void nglSecondaryColor3bEXT(byte red, byte green, byte blue);
-
 	/**
 	 * Sets the R, G, and B components of the current secondary color.
 	 *
@@ -65,14 +62,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3bEXT(byte red, byte green, byte blue) {
-		nglSecondaryColor3bEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3bEXT(byte red, byte green, byte blue);
 
 	// --- [ glSecondaryColor3sEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3sEXT SecondaryColor3sEXT} */
-	public static native void nglSecondaryColor3sEXT(short red, short green, short blue);
 
 	/**
 	 * Short version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -81,14 +73,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3sEXT(short red, short green, short blue) {
-		nglSecondaryColor3sEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3sEXT(short red, short green, short blue);
 
 	// --- [ glSecondaryColor3iEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3iEXT SecondaryColor3iEXT} */
-	public static native void nglSecondaryColor3iEXT(int red, int green, int blue);
 
 	/**
 	 * Integer version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -97,14 +84,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3iEXT(int red, int green, int blue) {
-		nglSecondaryColor3iEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3iEXT(int red, int green, int blue);
 
 	// --- [ glSecondaryColor3fEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3fEXT SecondaryColor3fEXT} */
-	public static native void nglSecondaryColor3fEXT(float red, float green, float blue);
 
 	/**
 	 * Float version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -113,14 +95,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3fEXT(float red, float green, float blue) {
-		nglSecondaryColor3fEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3fEXT(float red, float green, float blue);
 
 	// --- [ glSecondaryColor3dEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3dEXT SecondaryColor3dEXT} */
-	public static native void nglSecondaryColor3dEXT(double red, double green, double blue);
 
 	/**
 	 * Double version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -129,14 +106,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3dEXT(double red, double green, double blue) {
-		nglSecondaryColor3dEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3dEXT(double red, double green, double blue);
 
 	// --- [ glSecondaryColor3ubEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3ubEXT SecondaryColor3ubEXT} */
-	public static native void nglSecondaryColor3ubEXT(byte red, byte green, byte blue);
 
 	/**
 	 * Unsigned version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -145,14 +117,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3ubEXT(byte red, byte green, byte blue) {
-		nglSecondaryColor3ubEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3ubEXT(byte red, byte green, byte blue);
 
 	// --- [ glSecondaryColor3usEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3usEXT SecondaryColor3usEXT} */
-	public static native void nglSecondaryColor3usEXT(short red, short green, short blue);
 
 	/**
 	 * Unsigned short version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -161,14 +128,9 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3usEXT(short red, short green, short blue) {
-		nglSecondaryColor3usEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3usEXT(short red, short green, short blue);
 
 	// --- [ glSecondaryColor3uiEXT ] ---
-
-	/** Unsafe version of: {@link #glSecondaryColor3uiEXT SecondaryColor3uiEXT} */
-	public static native void nglSecondaryColor3uiEXT(int red, int green, int blue);
 
 	/**
 	 * Unsigned int version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -177,9 +139,7 @@ public class EXTSecondaryColor {
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3uiEXT(int red, int green, int blue) {
-		nglSecondaryColor3uiEXT(red, green, blue);
-	}
+	public static native void glSecondaryColor3uiEXT(int red, int green, int blue);
 
 	// --- [ glSecondaryColor3bvEXT ] ---
 

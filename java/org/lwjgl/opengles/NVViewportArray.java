@@ -65,11 +65,7 @@ public class NVViewportArray {
 
 	// --- [ glViewportIndexedfNV ] ---
 
-	public static native void nglViewportIndexedfNV(int index, float x, float y, float w, float h);
-
-	public static void glViewportIndexedfNV(int index, float x, float y, float w, float h) {
-		nglViewportIndexedfNV(index, x, y, w, h);
-	}
+	public static native void glViewportIndexedfNV(int index, float x, float y, float w, float h);
 
 	// --- [ glViewportIndexedfvNV ] ---
 
@@ -91,11 +87,7 @@ public class NVViewportArray {
 
 	// --- [ glScissorIndexedNV ] ---
 
-	public static native void nglScissorIndexedNV(int index, int left, int bottom, int width, int height);
-
-	public static void glScissorIndexedNV(int index, int left, int bottom, int width, int height) {
-		nglScissorIndexedNV(index, left, bottom, width, height);
-	}
+	public static native void glScissorIndexedNV(int index, int left, int bottom, int width, int height);
 
 	// --- [ glScissorIndexedvNV ] ---
 
@@ -117,11 +109,7 @@ public class NVViewportArray {
 
 	// --- [ glDepthRangeIndexedfNV ] ---
 
-	public static native void nglDepthRangeIndexedfNV(int index, float n, float f);
-
-	public static void glDepthRangeIndexedfNV(int index, float n, float f) {
-		nglDepthRangeIndexedfNV(index, n, f);
-	}
+	public static native void glDepthRangeIndexedfNV(int index, float n, float f);
 
 	// --- [ glGetFloati_vNV ] ---
 
@@ -146,27 +134,15 @@ public class NVViewportArray {
 
 	// --- [ glEnableiNV ] ---
 
-	public static native void nglEnableiNV(int target, int index);
-
-	public static void glEnableiNV(int target, int index) {
-		nglEnableiNV(target, index);
-	}
+	public static native void glEnableiNV(int target, int index);
 
 	// --- [ glDisableiNV ] ---
 
-	public static native void nglDisableiNV(int target, int index);
-
-	public static void glDisableiNV(int target, int index) {
-		nglDisableiNV(target, index);
-	}
+	public static native void glDisableiNV(int target, int index);
 
 	// --- [ glIsEnablediNV ] ---
 
-	public static native boolean nglIsEnablediNV(int target, int index);
-
-	public static boolean glIsEnablediNV(int target, int index) {
-		return nglIsEnablediNV(target, index);
-	}
+	public static native boolean glIsEnablediNV(int target, int index);
 
 	/** Array version of: {@link #glViewportArrayvNV ViewportArrayvNV} */
 	public static void glViewportArrayvNV(int first, float[] v) {

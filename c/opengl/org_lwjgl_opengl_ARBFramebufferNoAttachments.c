@@ -13,7 +13,7 @@ typedef void (APIENTRY *glGetNamedFramebufferParameterivEXTPROC) (jint, jint, in
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferNoAttachments_nglFramebufferParameteri(JNIEnv *__env, jclass clazz, jint target, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferNoAttachments_glFramebufferParameteri(JNIEnv *__env, jclass clazz, jint target, jint pname, jint param) {
 	glFramebufferParameteriPROC glFramebufferParameteri = (glFramebufferParameteriPROC)tlsGetFunction(442);
 	UNUSED_PARAM(clazz)
 	glFramebufferParameteri(target, pname, param);
@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferNoAttachments_nglGetF
 	glGetFramebufferParameteriv(target, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferNoAttachments_nglNamedFramebufferParameteriEXT(JNIEnv *__env, jclass clazz, jint framebuffer, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBFramebufferNoAttachments_glNamedFramebufferParameteriEXT(JNIEnv *__env, jclass clazz, jint framebuffer, jint pname, jint param) {
 	glNamedFramebufferParameteriEXTPROC glNamedFramebufferParameteriEXT = (glNamedFramebufferParameteriEXTPROC)tlsGetFunction(1128);
 	UNUSED_PARAM(clazz)
 	glNamedFramebufferParameteriEXT(framebuffer, pname, param);

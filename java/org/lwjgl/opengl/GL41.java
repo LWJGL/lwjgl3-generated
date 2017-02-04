@@ -129,17 +129,8 @@ public class GL41 {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
-	/** Unsafe version of: {@link #glReleaseShaderCompiler ReleaseShaderCompiler} */
-	public static native void nglReleaseShaderCompiler();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReleaseShaderCompiler.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler.
-	 */
-	public static void glReleaseShaderCompiler() {
-		nglReleaseShaderCompiler();
-	}
+	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
+	public static native void glReleaseShaderCompiler();
 
 	// --- [ glShaderBinary ] ---
 
@@ -211,36 +202,22 @@ public class GL41 {
 
 	// --- [ glDepthRangef ] ---
 
-	/** Unsafe version of: {@link #glDepthRangef DepthRangef} */
-	public static native void nglDepthRangef(float zNear, float zFar);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/DepthRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates
 	 *
 	 * @param zNear the mapping of the near clipping plane to window coordinates. The initial value is 0.0f.
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.0f.
 	 */
-	public static void glDepthRangef(float zNear, float zFar) {
-		nglDepthRangef(zNear, zFar);
-	}
+	public static native void glDepthRangef(float zNear, float zFar);
 
 	// --- [ glClearDepthf ] ---
 
-	/** Unsafe version of: {@link #glClearDepthf ClearDepthf} */
-	public static native void nglClearDepthf(float depth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearDepthf.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the clear value for the depth buffer
 	 *
 	 * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
 	 */
-	public static void glClearDepthf(float depth) {
-		nglClearDepthf(depth);
-	}
+	public static native void glClearDepthf(float depth);
 
 	// --- [ glGetProgramBinary ] ---
 
@@ -293,56 +270,35 @@ public class GL41 {
 
 	// --- [ glProgramParameteri ] ---
 
-	/** Unsafe version of: {@link #glProgramParameteri ProgramParameteri} */
-	public static native void nglProgramParameteri(int program, int pname, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the integer value of a program object parameter.
 	 *
 	 * @param program the name of a program object whose parameter to modify
 	 * @param pname   the name of the parameter to modify. One of:<br><table><tr><td>{@link #GL_PROGRAM_BINARY_RETRIEVABLE_HINT PROGRAM_BINARY_RETRIEVABLE_HINT}</td><td>{@link #GL_PROGRAM_SEPARABLE PROGRAM_SEPARABLE}</td></tr></table>
 	 * @param value   the new value of the parameter specified by {@code pname} for {@code program}
 	 */
-	public static void glProgramParameteri(int program, int pname, int value) {
-		nglProgramParameteri(program, pname, value);
-	}
+	public static native void glProgramParameteri(int program, int pname, int value);
 
 	// --- [ glUseProgramStages ] ---
 
-	/** Unsafe version of: {@link #glUseProgramStages UseProgramStages} */
-	public static native void nglUseProgramStages(int pipeline, int stages, int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgramStages.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds stages of a program object to a program pipeline.
 	 *
 	 * @param pipeline the program pipeline object to which to bind stages from {@code program}
 	 * @param stages   a set of program stages to bind to the program pipeline object
 	 * @param program  the program object containing the shader executables to use in {@code pipeline}
 	 */
-	public static void glUseProgramStages(int pipeline, int stages, int program) {
-		nglUseProgramStages(pipeline, stages, program);
-	}
+	public static native void glUseProgramStages(int pipeline, int stages, int program);
 
 	// --- [ glActiveShaderProgram ] ---
 
-	/** Unsafe version of: {@link #glActiveShaderProgram ActiveShaderProgram} */
-	public static native void nglActiveShaderProgram(int pipeline, int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveShaderProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the active program object for a program pipeline object.
 	 *
 	 * @param pipeline the program pipeline object to set the active program object for
 	 * @param program  the program object to set as the active program pipeline object {@code pipeline}
 	 */
-	public static void glActiveShaderProgram(int pipeline, int program) {
-		nglActiveShaderProgram(pipeline, program);
-	}
+	public static native void glActiveShaderProgram(int pipeline, int program);
 
 	// --- [ glCreateShaderProgramv ] ---
 
@@ -484,19 +440,12 @@ if (shader) {
 
 	// --- [ glBindProgramPipeline ] ---
 
-	/** Unsafe version of: {@link #glBindProgramPipeline BindProgramPipeline} */
-	public static native void nglBindProgramPipeline(int pipeline);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a program pipeline to the current context.
 	 *
 	 * @param pipeline the name of the pipeline object to bind to the context
 	 */
-	public static void glBindProgramPipeline(int pipeline) {
-		nglBindProgramPipeline(pipeline);
-	}
+	public static native void glBindProgramPipeline(int pipeline);
 
 	// --- [ glDeleteProgramPipelines ] ---
 
@@ -571,19 +520,12 @@ if (shader) {
 
 	// --- [ glIsProgramPipeline ] ---
 
-	/** Unsafe version of: {@link #glIsProgramPipeline IsProgramPipeline} */
-	public static native boolean nglIsProgramPipeline(int pipeline);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a program pipeline object.
 	 *
 	 * @param pipeline a value that may be the name of a program pipeline object
 	 */
-	public static boolean glIsProgramPipeline(int pipeline) {
-		return nglIsProgramPipeline(pipeline);
-	}
+	public static native boolean glIsProgramPipeline(int pipeline);
 
 	// --- [ glGetProgramPipelineiv ] ---
 
@@ -626,30 +568,18 @@ if (shader) {
 
 	// --- [ glProgramUniform1i ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1i ProgramUniform1i} */
-	public static native void nglProgramUniform1i(int program, int location, int x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an int uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1i(int program, int location, int x) {
-		nglProgramUniform1i(program, location, x);
-	}
+	public static native void glProgramUniform1i(int program, int location, int x);
 
 	// --- [ glProgramUniform2i ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform2i ProgramUniform2i} */
-	public static native void nglProgramUniform2i(int program, int location, int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an ivec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -657,18 +587,11 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2i(int program, int location, int x, int y) {
-		nglProgramUniform2i(program, location, x, y);
-	}
+	public static native void glProgramUniform2i(int program, int location, int x, int y);
 
 	// --- [ glProgramUniform3i ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform3i ProgramUniform3i} */
-	public static native void nglProgramUniform3i(int program, int location, int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an ivec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -677,18 +600,11 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3i(int program, int location, int x, int y, int z) {
-		nglProgramUniform3i(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3i(int program, int location, int x, int y, int z);
 
 	// --- [ glProgramUniform4i ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform4i ProgramUniform4i} */
-	public static native void nglProgramUniform4i(int program, int location, int x, int y, int z, int w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an ivec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -698,36 +614,22 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4i(int program, int location, int x, int y, int z, int w) {
-		nglProgramUniform4i(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4i(int program, int location, int x, int y, int z, int w);
 
 	// --- [ glProgramUniform1ui ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1ui ProgramUniform1ui} */
-	public static native void nglProgramUniform1ui(int program, int location, int x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uint uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1ui(int program, int location, int x) {
-		nglProgramUniform1ui(program, location, x);
-	}
+	public static native void glProgramUniform1ui(int program, int location, int x);
 
 	// --- [ glProgramUniform2ui ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform2ui ProgramUniform2ui} */
-	public static native void nglProgramUniform2ui(int program, int location, int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uvec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -735,18 +637,11 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2ui(int program, int location, int x, int y) {
-		nglProgramUniform2ui(program, location, x, y);
-	}
+	public static native void glProgramUniform2ui(int program, int location, int x, int y);
 
 	// --- [ glProgramUniform3ui ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform3ui ProgramUniform3ui} */
-	public static native void nglProgramUniform3ui(int program, int location, int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uvec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -755,18 +650,11 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3ui(int program, int location, int x, int y, int z) {
-		nglProgramUniform3ui(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3ui(int program, int location, int x, int y, int z);
 
 	// --- [ glProgramUniform4ui ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform4ui ProgramUniform4ui} */
-	public static native void nglProgramUniform4ui(int program, int location, int x, int y, int z, int w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uvec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -776,36 +664,22 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4ui(int program, int location, int x, int y, int z, int w) {
-		nglProgramUniform4ui(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4ui(int program, int location, int x, int y, int z, int w);
 
 	// --- [ glProgramUniform1f ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1f ProgramUniform1f} */
-	public static native void nglProgramUniform1f(int program, int location, float x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a float uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1f(int program, int location, float x) {
-		nglProgramUniform1f(program, location, x);
-	}
+	public static native void glProgramUniform1f(int program, int location, float x);
 
 	// --- [ glProgramUniform2f ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform2f ProgramUniform2f} */
-	public static native void nglProgramUniform2f(int program, int location, float x, float y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a vec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -813,18 +687,11 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2f(int program, int location, float x, float y) {
-		nglProgramUniform2f(program, location, x, y);
-	}
+	public static native void glProgramUniform2f(int program, int location, float x, float y);
 
 	// --- [ glProgramUniform3f ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform3f ProgramUniform3f} */
-	public static native void nglProgramUniform3f(int program, int location, float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a vec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -833,18 +700,11 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3f(int program, int location, float x, float y, float z) {
-		nglProgramUniform3f(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3f(int program, int location, float x, float y, float z);
 
 	// --- [ glProgramUniform4f ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform4f ProgramUniform4f} */
-	public static native void nglProgramUniform4f(int program, int location, float x, float y, float z, float w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a vec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -854,36 +714,22 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4f(int program, int location, float x, float y, float z, float w) {
-		nglProgramUniform4f(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4f(int program, int location, float x, float y, float z, float w);
 
 	// --- [ glProgramUniform1d ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1d ProgramUniform1d} */
-	public static native void nglProgramUniform1d(int program, int location, double x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a double uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1d(int program, int location, double x) {
-		nglProgramUniform1d(program, location, x);
-	}
+	public static native void glProgramUniform1d(int program, int location, double x);
 
 	// --- [ glProgramUniform2d ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform2d ProgramUniform2d} */
-	public static native void nglProgramUniform2d(int program, int location, double x, double y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a dvec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -891,18 +737,11 @@ if (shader) {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2d(int program, int location, double x, double y) {
-		nglProgramUniform2d(program, location, x, y);
-	}
+	public static native void glProgramUniform2d(int program, int location, double x, double y);
 
 	// --- [ glProgramUniform3d ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform3d ProgramUniform3d} */
-	public static native void nglProgramUniform3d(int program, int location, double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a dvec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -911,18 +750,11 @@ if (shader) {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3d(int program, int location, double x, double y, double z) {
-		nglProgramUniform3d(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3d(int program, int location, double x, double y, double z);
 
 	// --- [ glProgramUniform4d ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform4d ProgramUniform4d} */
-	public static native void nglProgramUniform4d(int program, int location, double x, double y, double z, double w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a dvec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -932,9 +764,7 @@ if (shader) {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4d(int program, int location, double x, double y, double z, double w) {
-		nglProgramUniform4d(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4d(int program, int location, double x, double y, double z, double w);
 
 	// --- [ glProgramUniform1iv ] ---
 
@@ -1704,19 +1534,12 @@ if (shader) {
 
 	// --- [ glValidateProgramPipeline ] ---
 
-	/** Unsafe version of: {@link #glValidateProgramPipeline ValidateProgramPipeline} */
-	public static native void nglValidateProgramPipeline(int pipeline);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Validates a program pipeline object against current GL state.
 	 *
 	 * @param pipeline the name of a program pipeline object to validate
 	 */
-	public static void glValidateProgramPipeline(int pipeline) {
-		nglValidateProgramPipeline(pipeline);
-	}
+	public static native void glValidateProgramPipeline(int pipeline);
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
 
@@ -1776,47 +1599,28 @@ if (shader) {
 
 	// --- [ glVertexAttribL1d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL1d VertexAttribL1d} */
-	public static native void nglVertexAttribL1d(int index, double x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 */
-	public static void glVertexAttribL1d(int index, double x) {
-		nglVertexAttribL1d(index, x);
-	}
+	public static native void glVertexAttribL1d(int index, double x);
 
 	// --- [ glVertexAttribL2d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL2d VertexAttribL2d} */
-	public static native void nglVertexAttribL2d(int index, double x, double y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 * @param y     the vertex attribute y component
 	 */
-	public static void glVertexAttribL2d(int index, double x, double y) {
-		nglVertexAttribL2d(index, x, y);
-	}
+	public static native void glVertexAttribL2d(int index, double x, double y);
 
 	// --- [ glVertexAttribL3d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL3d VertexAttribL3d} */
-	public static native void nglVertexAttribL3d(int index, double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1824,18 +1628,11 @@ if (shader) {
 	 * @param y     the vertex attribute y component
 	 * @param z     the vertex attribute z component
 	 */
-	public static void glVertexAttribL3d(int index, double x, double y, double z) {
-		nglVertexAttribL3d(index, x, y, z);
-	}
+	public static native void glVertexAttribL3d(int index, double x, double y, double z);
 
 	// --- [ glVertexAttribL4d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL4d VertexAttribL4d} */
-	public static native void nglVertexAttribL4d(int index, double x, double y, double z, double w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1844,9 +1641,7 @@ if (shader) {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
-		nglVertexAttribL4d(index, x, y, z, w);
-	}
+	public static native void glVertexAttribL4d(int index, double x, double y, double z, double w);
 
 	// --- [ glVertexAttribL1dv ] ---
 
@@ -2026,12 +1821,7 @@ if (shader) {
 
 	// --- [ glViewportIndexedf ] ---
 
-	/** Unsafe version of: {@link #glViewportIndexedf ViewportIndexedf} */
-	public static native void nglViewportIndexedf(int index, float x, float y, float w, float h);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewportIndexed.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets a specified viewport.
 	 *
 	 * @param index the viewport to set
@@ -2040,9 +1830,7 @@ if (shader) {
 	 * @param w     the viewport width
 	 * @param h     the viewport height
 	 */
-	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
-		nglViewportIndexedf(index, x, y, w, h);
-	}
+	public static native void glViewportIndexedf(int index, float x, float y, float w, float h);
 
 	// --- [ glViewportIndexedfv ] ---
 
@@ -2086,12 +1874,7 @@ if (shader) {
 
 	// --- [ glScissorIndexed ] ---
 
-	/** Unsafe version of: {@link #glScissorIndexed ScissorIndexed} */
-	public static native void nglScissorIndexed(int index, int left, int bottom, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissorIndexed.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines the scissor box for a specific viewport.
 	 *
 	 * @param index  the index of the viewport whose scissor box to modify
@@ -2100,9 +1883,7 @@ if (shader) {
 	 * @param width  the scissor box width
 	 * @param height the scissor box height
 	 */
-	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
-		nglScissorIndexed(index, left, bottom, width, height);
-	}
+	public static native void glScissorIndexed(int index, int left, int bottom, int width, int height);
 
 	// --- [ glScissorIndexedv ] ---
 
@@ -2146,21 +1927,14 @@ if (shader) {
 
 	// --- [ glDepthRangeIndexed ] ---
 
-	/** Unsafe version of: {@link #glDepthRangeIndexed DepthRangeIndexed} */
-	public static native void nglDepthRangeIndexed(int index, double zNear, double zFar);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthRangeIndexed.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified viewport.
 	 *
 	 * @param index the index of the viewport whose depth range to update
 	 * @param zNear the mapping of the near clipping plane to window coordinates. The initial value is 0.
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.
 	 */
-	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
-		nglDepthRangeIndexed(index, zNear, zFar);
-	}
+	public static native void glDepthRangeIndexed(int index, double zNear, double zFar);
 
 	// --- [ glGetFloati_v ] ---
 

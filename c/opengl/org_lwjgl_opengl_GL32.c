@@ -65,19 +65,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglMultiDrawElementsBaseVertex
 	glMultiDrawElementsBaseVertex(mode, count, type, indices, primcount, basevertex);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglProvokingVertex(JNIEnv *__env, jclass clazz, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glProvokingVertex(JNIEnv *__env, jclass clazz, jint mode) {
 	glProvokingVertexPROC glProvokingVertex = (glProvokingVertexPROC)tlsGetFunction(1396);
 	UNUSED_PARAM(clazz)
 	glProvokingVertex(mode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglTexImage2DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glTexImage2DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
 	glTexImage2DMultisamplePROC glTexImage2DMultisample = (glTexImage2DMultisamplePROC)tlsGetFunction(1615);
 	UNUSED_PARAM(clazz)
 	glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglTexImage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glTexImage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
 	glTexImage3DMultisamplePROC glTexImage3DMultisample = (glTexImage3DMultisamplePROC)tlsGetFunction(1618);
 	UNUSED_PARAM(clazz)
 	glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
@@ -90,19 +90,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetMultisamplefv__IIJ(JNIEn
 	glGetMultisamplefv(pname, index, val);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglSampleMaski(JNIEnv *__env, jclass clazz, jint index, jint mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glSampleMaski(JNIEnv *__env, jclass clazz, jint index, jint mask) {
 	glSampleMaskiPROC glSampleMaski = (glSampleMaskiPROC)tlsGetFunction(1462);
 	UNUSED_PARAM(clazz)
 	glSampleMaski(index, mask);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglFramebufferTexture(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glFramebufferTexture(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level) {
 	glFramebufferTexturePROC glFramebufferTexture = (glFramebufferTexturePROC)tlsGetFunction(448);
 	UNUSED_PARAM(clazz)
 	glFramebufferTexture(target, attachment, texture, level);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GL32_nglFenceSync(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GL32_glFenceSync(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
 	glFenceSyncPROC glFenceSync = (glFenceSyncPROC)tlsGetFunction(418);
 	UNUSED_PARAM(clazz)
 	return (jlong)glFenceSync(condition, flags);

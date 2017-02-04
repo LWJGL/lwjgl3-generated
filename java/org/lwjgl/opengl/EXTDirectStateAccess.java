@@ -295,19 +295,11 @@ public class EXTDirectStateAccess {
 
 	// --- [ glClientAttribDefaultEXT ] ---
 
-	public static native void nglClientAttribDefaultEXT(int mask);
-
-	public static void glClientAttribDefaultEXT(int mask) {
-		nglClientAttribDefaultEXT(mask);
-	}
+	public static native void glClientAttribDefaultEXT(int mask);
 
 	// --- [ glPushClientAttribDefaultEXT ] ---
 
-	public static native void nglPushClientAttribDefaultEXT(int mask);
-
-	public static void glPushClientAttribDefaultEXT(int mask) {
-		nglPushClientAttribDefaultEXT(mask);
-	}
+	public static native void glPushClientAttribDefaultEXT(int mask);
 
 	// --- [ glMatrixLoadfEXT ] ---
 
@@ -351,99 +343,51 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMatrixLoadIdentityEXT ] ---
 
-	public static native void nglMatrixLoadIdentityEXT(int matrixMode);
-
-	public static void glMatrixLoadIdentityEXT(int matrixMode) {
-		nglMatrixLoadIdentityEXT(matrixMode);
-	}
+	public static native void glMatrixLoadIdentityEXT(int matrixMode);
 
 	// --- [ glMatrixRotatefEXT ] ---
 
-	public static native void nglMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z);
-
-	public static void glMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z) {
-		nglMatrixRotatefEXT(matrixMode, angle, x, y, z);
-	}
+	public static native void glMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z);
 
 	// --- [ glMatrixRotatedEXT ] ---
 
-	public static native void nglMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z);
-
-	public static void glMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z) {
-		nglMatrixRotatedEXT(matrixMode, angle, x, y, z);
-	}
+	public static native void glMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z);
 
 	// --- [ glMatrixScalefEXT ] ---
 
-	public static native void nglMatrixScalefEXT(int matrixMode, float x, float y, float z);
-
-	public static void glMatrixScalefEXT(int matrixMode, float x, float y, float z) {
-		nglMatrixScalefEXT(matrixMode, x, y, z);
-	}
+	public static native void glMatrixScalefEXT(int matrixMode, float x, float y, float z);
 
 	// --- [ glMatrixScaledEXT ] ---
 
-	public static native void nglMatrixScaledEXT(int matrixMode, double x, double y, double z);
-
-	public static void glMatrixScaledEXT(int matrixMode, double x, double y, double z) {
-		nglMatrixScaledEXT(matrixMode, x, y, z);
-	}
+	public static native void glMatrixScaledEXT(int matrixMode, double x, double y, double z);
 
 	// --- [ glMatrixTranslatefEXT ] ---
 
-	public static native void nglMatrixTranslatefEXT(int matrixMode, float x, float y, float z);
-
-	public static void glMatrixTranslatefEXT(int matrixMode, float x, float y, float z) {
-		nglMatrixTranslatefEXT(matrixMode, x, y, z);
-	}
+	public static native void glMatrixTranslatefEXT(int matrixMode, float x, float y, float z);
 
 	// --- [ glMatrixTranslatedEXT ] ---
 
-	public static native void nglMatrixTranslatedEXT(int matrixMode, double x, double y, double z);
-
-	public static void glMatrixTranslatedEXT(int matrixMode, double x, double y, double z) {
-		nglMatrixTranslatedEXT(matrixMode, x, y, z);
-	}
+	public static native void glMatrixTranslatedEXT(int matrixMode, double x, double y, double z);
 
 	// --- [ glMatrixOrthoEXT ] ---
 
-	public static native void nglMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f);
-
-	public static void glMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
-		nglMatrixOrthoEXT(matrixMode, l, r, b, t, n, f);
-	}
+	public static native void glMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f);
 
 	// --- [ glMatrixFrustumEXT ] ---
 
-	public static native void nglMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f);
-
-	public static void glMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
-		nglMatrixFrustumEXT(matrixMode, l, r, b, t, n, f);
-	}
+	public static native void glMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f);
 
 	// --- [ glMatrixPushEXT ] ---
 
-	public static native void nglMatrixPushEXT(int matrixMode);
-
-	public static void glMatrixPushEXT(int matrixMode) {
-		nglMatrixPushEXT(matrixMode);
-	}
+	public static native void glMatrixPushEXT(int matrixMode);
 
 	// --- [ glMatrixPopEXT ] ---
 
-	public static native void nglMatrixPopEXT(int matrixMode);
-
-	public static void glMatrixPopEXT(int matrixMode) {
-		nglMatrixPopEXT(matrixMode);
-	}
+	public static native void glMatrixPopEXT(int matrixMode);
 
 	// --- [ glTextureParameteriEXT ] ---
 
-	public static native void nglTextureParameteriEXT(int texture, int target, int pname, int param);
-
-	public static void glTextureParameteriEXT(int texture, int target, int pname, int param) {
-		nglTextureParameteriEXT(texture, target, pname, param);
-	}
+	public static native void glTextureParameteriEXT(int texture, int target, int pname, int param);
 
 	// --- [ glTextureParameterivEXT ] ---
 
@@ -457,11 +401,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterfEXT ] ---
 
-	public static native void nglTextureParameterfEXT(int texture, int target, int pname, float param);
-
-	public static void glTextureParameterfEXT(int texture, int target, int pname, float param) {
-		nglTextureParameterfEXT(texture, target, pname, param);
-	}
+	public static native void glTextureParameterfEXT(int texture, int target, int pname, float param);
 
 	// --- [ glTextureParameterfvEXT ] ---
 
@@ -587,35 +527,19 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyTextureImage1DEXT ] ---
 
-	public static native void nglCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border);
-
-	public static void glCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border) {
-		nglCopyTextureImage1DEXT(texture, target, level, internalformat, x, y, width, border);
-	}
+	public static native void glCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border);
 
 	// --- [ glCopyTextureImage2DEXT ] ---
 
-	public static native void nglCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border);
-
-	public static void glCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border) {
-		nglCopyTextureImage2DEXT(texture, target, level, internalformat, x, y, width, height, border);
-	}
+	public static native void glCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
 	// --- [ glCopyTextureSubImage1DEXT ] ---
 
-	public static native void nglCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width);
-
-	public static void glCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width) {
-		nglCopyTextureSubImage1DEXT(texture, target, level, xoffset, x, y, width);
-	}
+	public static native void glCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width);
 
 	// --- [ glCopyTextureSubImage2DEXT ] ---
 
-	public static native void nglCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
-
-	public static void glCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		nglCopyTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, x, y, width, height);
-	}
+	public static native void glCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 	// --- [ glGetTextureImageEXT ] ---
 
@@ -787,19 +711,11 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyTextureSubImage3DEXT ] ---
 
-	public static native void nglCopyTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-	public static void glCopyTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glBindMultiTextureEXT ] ---
 
-	public static native void nglBindMultiTextureEXT(int texunit, int target, int texture);
-
-	public static void glBindMultiTextureEXT(int texunit, int target, int texture) {
-		nglBindMultiTextureEXT(texunit, target, texture);
-	}
+	public static native void glBindMultiTextureEXT(int texunit, int target, int texture);
 
 	// --- [ glMultiTexCoordPointerEXT ] ---
 
@@ -827,11 +743,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexEnvfEXT ] ---
 
-	public static native void nglMultiTexEnvfEXT(int texunit, int target, int pname, float param);
-
-	public static void glMultiTexEnvfEXT(int texunit, int target, int pname, float param) {
-		nglMultiTexEnvfEXT(texunit, target, pname, param);
-	}
+	public static native void glMultiTexEnvfEXT(int texunit, int target, int pname, float param);
 
 	// --- [ glMultiTexEnvfvEXT ] ---
 
@@ -845,11 +757,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexEnviEXT ] ---
 
-	public static native void nglMultiTexEnviEXT(int texunit, int target, int pname, int param);
-
-	public static void glMultiTexEnviEXT(int texunit, int target, int pname, int param) {
-		nglMultiTexEnviEXT(texunit, target, pname, param);
-	}
+	public static native void glMultiTexEnviEXT(int texunit, int target, int pname, int param);
 
 	// --- [ glMultiTexEnvivEXT ] ---
 
@@ -863,11 +771,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGendEXT ] ---
 
-	public static native void nglMultiTexGendEXT(int texunit, int coord, int pname, double param);
-
-	public static void glMultiTexGendEXT(int texunit, int coord, int pname, double param) {
-		nglMultiTexGendEXT(texunit, coord, pname, param);
-	}
+	public static native void glMultiTexGendEXT(int texunit, int coord, int pname, double param);
 
 	// --- [ glMultiTexGendvEXT ] ---
 
@@ -881,11 +785,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGenfEXT ] ---
 
-	public static native void nglMultiTexGenfEXT(int texunit, int coord, int pname, float param);
-
-	public static void glMultiTexGenfEXT(int texunit, int coord, int pname, float param) {
-		nglMultiTexGenfEXT(texunit, coord, pname, param);
-	}
+	public static native void glMultiTexGenfEXT(int texunit, int coord, int pname, float param);
 
 	// --- [ glMultiTexGenfvEXT ] ---
 
@@ -899,11 +799,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGeniEXT ] ---
 
-	public static native void nglMultiTexGeniEXT(int texunit, int coord, int pname, int param);
-
-	public static void glMultiTexGeniEXT(int texunit, int coord, int pname, int param) {
-		nglMultiTexGeniEXT(texunit, coord, pname, param);
-	}
+	public static native void glMultiTexGeniEXT(int texunit, int coord, int pname, int param);
 
 	// --- [ glMultiTexGenivEXT ] ---
 
@@ -1022,11 +918,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameteriEXT ] ---
 
-	public static native void nglMultiTexParameteriEXT(int texunit, int target, int pname, int param);
-
-	public static void glMultiTexParameteriEXT(int texunit, int target, int pname, int param) {
-		nglMultiTexParameteriEXT(texunit, target, pname, param);
-	}
+	public static native void glMultiTexParameteriEXT(int texunit, int target, int pname, int param);
 
 	// --- [ glMultiTexParameterivEXT ] ---
 
@@ -1040,11 +932,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterfEXT ] ---
 
-	public static native void nglMultiTexParameterfEXT(int texunit, int target, int pname, float param);
-
-	public static void glMultiTexParameterfEXT(int texunit, int target, int pname, float param) {
-		nglMultiTexParameterfEXT(texunit, target, pname, param);
-	}
+	public static native void glMultiTexParameterfEXT(int texunit, int target, int pname, float param);
 
 	// --- [ glMultiTexParameterfvEXT ] ---
 
@@ -1170,35 +1058,19 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyMultiTexImage1DEXT ] ---
 
-	public static native void nglCopyMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int border);
-
-	public static void glCopyMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int border) {
-		nglCopyMultiTexImage1DEXT(texunit, target, level, internalformat, x, y, width, border);
-	}
+	public static native void glCopyMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int border);
 
 	// --- [ glCopyMultiTexImage2DEXT ] ---
 
-	public static native void nglCopyMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int height, int border);
-
-	public static void glCopyMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int height, int border) {
-		nglCopyMultiTexImage2DEXT(texunit, target, level, internalformat, x, y, width, height, border);
-	}
+	public static native void glCopyMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
 	// --- [ glCopyMultiTexSubImage1DEXT ] ---
 
-	public static native void nglCopyMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int x, int y, int width);
-
-	public static void glCopyMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int x, int y, int width) {
-		nglCopyMultiTexSubImage1DEXT(texunit, target, level, xoffset, x, y, width);
-	}
+	public static native void glCopyMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int x, int y, int width);
 
 	// --- [ glCopyMultiTexSubImage2DEXT ] ---
 
-	public static native void nglCopyMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
-
-	public static void glCopyMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		nglCopyMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, x, y, width, height);
-	}
+	public static native void glCopyMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 	// --- [ glGetMultiTexImageEXT ] ---
 
@@ -1370,43 +1242,23 @@ public class EXTDirectStateAccess {
 
 	// --- [ glCopyMultiTexSubImage3DEXT ] ---
 
-	public static native void nglCopyMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-	public static void glCopyMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glEnableClientStateIndexedEXT ] ---
 
-	public static native void nglEnableClientStateIndexedEXT(int array, int index);
-
-	public static void glEnableClientStateIndexedEXT(int array, int index) {
-		nglEnableClientStateIndexedEXT(array, index);
-	}
+	public static native void glEnableClientStateIndexedEXT(int array, int index);
 
 	// --- [ glDisableClientStateIndexedEXT ] ---
 
-	public static native void nglDisableClientStateIndexedEXT(int array, int index);
-
-	public static void glDisableClientStateIndexedEXT(int array, int index) {
-		nglDisableClientStateIndexedEXT(array, index);
-	}
+	public static native void glDisableClientStateIndexedEXT(int array, int index);
 
 	// --- [ glEnableClientStateiEXT ] ---
 
-	public static native void nglEnableClientStateiEXT(int array, int index);
-
-	public static void glEnableClientStateiEXT(int array, int index) {
-		nglEnableClientStateiEXT(array, index);
-	}
+	public static native void glEnableClientStateiEXT(int array, int index);
 
 	// --- [ glDisableClientStateiEXT ] ---
 
-	public static native void nglDisableClientStateiEXT(int array, int index);
-
-	public static void glDisableClientStateiEXT(int array, int index) {
-		nglDisableClientStateiEXT(array, index);
-	}
+	public static native void glDisableClientStateiEXT(int array, int index);
 
 	// --- [ glGetFloatIndexedvEXT ] ---
 
@@ -1536,27 +1388,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glEnableIndexedEXT ] ---
 
-	public static native void nglEnableIndexedEXT(int cap, int index);
-
-	public static void glEnableIndexedEXT(int cap, int index) {
-		nglEnableIndexedEXT(cap, index);
-	}
+	public static native void glEnableIndexedEXT(int cap, int index);
 
 	// --- [ glDisableIndexedEXT ] ---
 
-	public static native void nglDisableIndexedEXT(int cap, int index);
-
-	public static void glDisableIndexedEXT(int cap, int index) {
-		nglDisableIndexedEXT(cap, index);
-	}
+	public static native void glDisableIndexedEXT(int cap, int index);
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
-	public static native boolean nglIsEnabledIndexedEXT(int target, int index);
-
-	public static boolean glIsEnabledIndexedEXT(int target, int index) {
-		return nglIsEnabledIndexedEXT(target, index);
-	}
+	public static native boolean glIsEnabledIndexedEXT(int target, int index);
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
@@ -1610,11 +1450,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameter4dEXT ] ---
 
-	public static native void nglNamedProgramLocalParameter4dEXT(int program, int target, int index, double x, double y, double z, double w);
-
-	public static void glNamedProgramLocalParameter4dEXT(int program, int target, int index, double x, double y, double z, double w) {
-		nglNamedProgramLocalParameter4dEXT(program, target, index, x, y, z, w);
-	}
+	public static native void glNamedProgramLocalParameter4dEXT(int program, int target, int index, double x, double y, double z, double w);
 
 	// --- [ glNamedProgramLocalParameter4dvEXT ] ---
 
@@ -1628,11 +1464,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameter4fEXT ] ---
 
-	public static native void nglNamedProgramLocalParameter4fEXT(int program, int target, int index, float x, float y, float z, float w);
-
-	public static void glNamedProgramLocalParameter4fEXT(int program, int target, int index, float x, float y, float z, float w) {
-		nglNamedProgramLocalParameter4fEXT(program, target, index, x, y, z, w);
-	}
+	public static native void glNamedProgramLocalParameter4fEXT(int program, int target, int index, float x, float y, float z, float w);
 
 	// --- [ glNamedProgramLocalParameter4fvEXT ] ---
 
@@ -1984,11 +1816,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glUnmapNamedBufferEXT ] ---
 
-	public static native boolean nglUnmapNamedBufferEXT(int buffer);
-
-	public static boolean glUnmapNamedBufferEXT(int buffer) {
-		return nglUnmapNamedBufferEXT(buffer);
-	}
+	public static native boolean glUnmapNamedBufferEXT(int buffer);
 
 	// --- [ glGetNamedBufferParameterivEXT ] ---
 
@@ -2037,67 +1865,35 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1fEXT ] ---
 
-	public static native void nglProgramUniform1fEXT(int program, int location, float v0);
-
-	public static void glProgramUniform1fEXT(int program, int location, float v0) {
-		nglProgramUniform1fEXT(program, location, v0);
-	}
+	public static native void glProgramUniform1fEXT(int program, int location, float v0);
 
 	// --- [ glProgramUniform2fEXT ] ---
 
-	public static native void nglProgramUniform2fEXT(int program, int location, float v0, float v1);
-
-	public static void glProgramUniform2fEXT(int program, int location, float v0, float v1) {
-		nglProgramUniform2fEXT(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2fEXT(int program, int location, float v0, float v1);
 
 	// --- [ glProgramUniform3fEXT ] ---
 
-	public static native void nglProgramUniform3fEXT(int program, int location, float v0, float v1, float v2);
-
-	public static void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2) {
-		nglProgramUniform3fEXT(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2);
 
 	// --- [ glProgramUniform4fEXT ] ---
 
-	public static native void nglProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3);
-
-	public static void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3) {
-		nglProgramUniform4fEXT(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3);
 
 	// --- [ glProgramUniform1iEXT ] ---
 
-	public static native void nglProgramUniform1iEXT(int program, int location, int v0);
-
-	public static void glProgramUniform1iEXT(int program, int location, int v0) {
-		nglProgramUniform1iEXT(program, location, v0);
-	}
+	public static native void glProgramUniform1iEXT(int program, int location, int v0);
 
 	// --- [ glProgramUniform2iEXT ] ---
 
-	public static native void nglProgramUniform2iEXT(int program, int location, int v0, int v1);
-
-	public static void glProgramUniform2iEXT(int program, int location, int v0, int v1) {
-		nglProgramUniform2iEXT(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2iEXT(int program, int location, int v0, int v1);
 
 	// --- [ glProgramUniform3iEXT ] ---
 
-	public static native void nglProgramUniform3iEXT(int program, int location, int v0, int v1, int v2);
-
-	public static void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2) {
-		nglProgramUniform3iEXT(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2);
 
 	// --- [ glProgramUniform4iEXT ] ---
 
-	public static native void nglProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3);
-
-	public static void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		nglProgramUniform4iEXT(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glProgramUniform1fvEXT ] ---
 
@@ -2237,19 +2033,11 @@ public class EXTDirectStateAccess {
 
 	// --- [ glTextureBufferEXT ] ---
 
-	public static native void nglTextureBufferEXT(int texture, int target, int internalformat, int buffer);
-
-	public static void glTextureBufferEXT(int texture, int target, int internalformat, int buffer) {
-		nglTextureBufferEXT(texture, target, internalformat, buffer);
-	}
+	public static native void glTextureBufferEXT(int texture, int target, int internalformat, int buffer);
 
 	// --- [ glMultiTexBufferEXT ] ---
 
-	public static native void nglMultiTexBufferEXT(int texunit, int target, int internalformat, int buffer);
-
-	public static void glMultiTexBufferEXT(int texunit, int target, int internalformat, int buffer) {
-		nglMultiTexBufferEXT(texunit, target, internalformat, buffer);
-	}
+	public static native void glMultiTexBufferEXT(int texunit, int target, int internalformat, int buffer);
 
 	// --- [ glTextureParameterIivEXT ] ---
 
@@ -2377,35 +2165,19 @@ public class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1uiEXT ] ---
 
-	public static native void nglProgramUniform1uiEXT(int program, int location, int v0);
-
-	public static void glProgramUniform1uiEXT(int program, int location, int v0) {
-		nglProgramUniform1uiEXT(program, location, v0);
-	}
+	public static native void glProgramUniform1uiEXT(int program, int location, int v0);
 
 	// --- [ glProgramUniform2uiEXT ] ---
 
-	public static native void nglProgramUniform2uiEXT(int program, int location, int v0, int v1);
-
-	public static void glProgramUniform2uiEXT(int program, int location, int v0, int v1) {
-		nglProgramUniform2uiEXT(program, location, v0, v1);
-	}
+	public static native void glProgramUniform2uiEXT(int program, int location, int v0, int v1);
 
 	// --- [ glProgramUniform3uiEXT ] ---
 
-	public static native void nglProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2);
-
-	public static void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2) {
-		nglProgramUniform3uiEXT(program, location, v0, v1, v2);
-	}
+	public static native void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2);
 
 	// --- [ glProgramUniform4uiEXT ] ---
 
-	public static native void nglProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3);
-
-	public static void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3) {
-		nglProgramUniform4uiEXT(program, location, v0, v1, v2, v3);
-	}
+	public static native void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glProgramUniform1uivEXT ] ---
 
@@ -2449,11 +2221,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameterI4iEXT ] ---
 
-	public static native void nglNamedProgramLocalParameterI4iEXT(int program, int target, int index, int x, int y, int z, int w);
-
-	public static void glNamedProgramLocalParameterI4iEXT(int program, int target, int index, int x, int y, int z, int w) {
-		nglNamedProgramLocalParameterI4iEXT(program, target, index, x, y, z, w);
-	}
+	public static native void glNamedProgramLocalParameterI4iEXT(int program, int target, int index, int x, int y, int z, int w);
 
 	// --- [ glNamedProgramLocalParameterI4ivEXT ] ---
 
@@ -2475,11 +2243,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameterI4uiEXT ] ---
 
-	public static native void nglNamedProgramLocalParameterI4uiEXT(int program, int target, int index, int x, int y, int z, int w);
-
-	public static void glNamedProgramLocalParameterI4uiEXT(int program, int target, int index, int x, int y, int z, int w) {
-		nglNamedProgramLocalParameterI4uiEXT(program, target, index, x, y, z, w);
-	}
+	public static native void glNamedProgramLocalParameterI4uiEXT(int program, int target, int index, int x, int y, int z, int w);
 
 	// --- [ glNamedProgramLocalParameterI4uivEXT ] ---
 
@@ -2521,11 +2285,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedRenderbufferStorageEXT ] ---
 
-	public static native void nglNamedRenderbufferStorageEXT(int renderbuffer, int internalformat, int width, int height);
-
-	public static void glNamedRenderbufferStorageEXT(int renderbuffer, int internalformat, int width, int height) {
-		nglNamedRenderbufferStorageEXT(renderbuffer, internalformat, width, height);
-	}
+	public static native void glNamedRenderbufferStorageEXT(int renderbuffer, int internalformat, int width, int height);
 
 	// --- [ glGetNamedRenderbufferParameterivEXT ] ---
 
@@ -2550,59 +2310,31 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedRenderbufferStorageMultisampleEXT ] ---
 
-	public static native void nglNamedRenderbufferStorageMultisampleEXT(int renderbuffer, int samples, int internalformat, int width, int height);
-
-	public static void glNamedRenderbufferStorageMultisampleEXT(int renderbuffer, int samples, int internalformat, int width, int height) {
-		nglNamedRenderbufferStorageMultisampleEXT(renderbuffer, samples, internalformat, width, height);
-	}
+	public static native void glNamedRenderbufferStorageMultisampleEXT(int renderbuffer, int samples, int internalformat, int width, int height);
 
 	// --- [ glNamedRenderbufferStorageMultisampleCoverageEXT ] ---
 
-	public static native void nglNamedRenderbufferStorageMultisampleCoverageEXT(int renderbuffer, int coverageSamples, int colorSamples, int internalformat, int width, int height);
-
-	public static void glNamedRenderbufferStorageMultisampleCoverageEXT(int renderbuffer, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
-		nglNamedRenderbufferStorageMultisampleCoverageEXT(renderbuffer, coverageSamples, colorSamples, internalformat, width, height);
-	}
+	public static native void glNamedRenderbufferStorageMultisampleCoverageEXT(int renderbuffer, int coverageSamples, int colorSamples, int internalformat, int width, int height);
 
 	// --- [ glCheckNamedFramebufferStatusEXT ] ---
 
-	public static native int nglCheckNamedFramebufferStatusEXT(int framebuffer, int target);
-
-	public static int glCheckNamedFramebufferStatusEXT(int framebuffer, int target) {
-		return nglCheckNamedFramebufferStatusEXT(framebuffer, target);
-	}
+	public static native int glCheckNamedFramebufferStatusEXT(int framebuffer, int target);
 
 	// --- [ glNamedFramebufferTexture1DEXT ] ---
 
-	public static native void nglNamedFramebufferTexture1DEXT(int framebuffer, int attachment, int textarget, int texture, int level);
-
-	public static void glNamedFramebufferTexture1DEXT(int framebuffer, int attachment, int textarget, int texture, int level) {
-		nglNamedFramebufferTexture1DEXT(framebuffer, attachment, textarget, texture, level);
-	}
+	public static native void glNamedFramebufferTexture1DEXT(int framebuffer, int attachment, int textarget, int texture, int level);
 
 	// --- [ glNamedFramebufferTexture2DEXT ] ---
 
-	public static native void nglNamedFramebufferTexture2DEXT(int framebuffer, int attachment, int textarget, int texture, int level);
-
-	public static void glNamedFramebufferTexture2DEXT(int framebuffer, int attachment, int textarget, int texture, int level) {
-		nglNamedFramebufferTexture2DEXT(framebuffer, attachment, textarget, texture, level);
-	}
+	public static native void glNamedFramebufferTexture2DEXT(int framebuffer, int attachment, int textarget, int texture, int level);
 
 	// --- [ glNamedFramebufferTexture3DEXT ] ---
 
-	public static native void nglNamedFramebufferTexture3DEXT(int framebuffer, int attachment, int textarget, int texture, int level, int zoffset);
-
-	public static void glNamedFramebufferTexture3DEXT(int framebuffer, int attachment, int textarget, int texture, int level, int zoffset) {
-		nglNamedFramebufferTexture3DEXT(framebuffer, attachment, textarget, texture, level, zoffset);
-	}
+	public static native void glNamedFramebufferTexture3DEXT(int framebuffer, int attachment, int textarget, int texture, int level, int zoffset);
 
 	// --- [ glNamedFramebufferRenderbufferEXT ] ---
 
-	public static native void nglNamedFramebufferRenderbufferEXT(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer);
-
-	public static void glNamedFramebufferRenderbufferEXT(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
-		nglNamedFramebufferRenderbufferEXT(framebuffer, attachment, renderbuffertarget, renderbuffer);
-	}
+	public static native void glNamedFramebufferRenderbufferEXT(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer);
 
 	// --- [ glGetNamedFramebufferAttachmentParameterivEXT ] ---
 
@@ -2627,27 +2359,15 @@ public class EXTDirectStateAccess {
 
 	// --- [ glGenerateTextureMipmapEXT ] ---
 
-	public static native void nglGenerateTextureMipmapEXT(int texture, int target);
-
-	public static void glGenerateTextureMipmapEXT(int texture, int target) {
-		nglGenerateTextureMipmapEXT(texture, target);
-	}
+	public static native void glGenerateTextureMipmapEXT(int texture, int target);
 
 	// --- [ glGenerateMultiTexMipmapEXT ] ---
 
-	public static native void nglGenerateMultiTexMipmapEXT(int texunit, int target);
-
-	public static void glGenerateMultiTexMipmapEXT(int texunit, int target) {
-		nglGenerateMultiTexMipmapEXT(texunit, target);
-	}
+	public static native void glGenerateMultiTexMipmapEXT(int texunit, int target);
 
 	// --- [ glFramebufferDrawBufferEXT ] ---
 
-	public static native void nglFramebufferDrawBufferEXT(int framebuffer, int mode);
-
-	public static void glFramebufferDrawBufferEXT(int framebuffer, int mode) {
-		nglFramebufferDrawBufferEXT(framebuffer, mode);
-	}
+	public static native void glFramebufferDrawBufferEXT(int framebuffer, int mode);
 
 	// --- [ glFramebufferDrawBuffersEXT ] ---
 
@@ -2659,11 +2379,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glFramebufferReadBufferEXT ] ---
 
-	public static native void nglFramebufferReadBufferEXT(int framebuffer, int mode);
-
-	public static void glFramebufferReadBufferEXT(int framebuffer, int mode) {
-		nglFramebufferReadBufferEXT(framebuffer, mode);
-	}
+	public static native void glFramebufferReadBufferEXT(int framebuffer, int mode);
 
 	// --- [ glGetFramebufferParameterivEXT ] ---
 
@@ -2688,171 +2404,87 @@ public class EXTDirectStateAccess {
 
 	// --- [ glNamedCopyBufferSubDataEXT ] ---
 
-	public static native void nglNamedCopyBufferSubDataEXT(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
-
-	public static void glNamedCopyBufferSubDataEXT(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		nglNamedCopyBufferSubDataEXT(readBuffer, writeBuffer, readOffset, writeOffset, size);
-	}
+	public static native void glNamedCopyBufferSubDataEXT(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
 
 	// --- [ glNamedFramebufferTextureEXT ] ---
 
-	public static native void nglNamedFramebufferTextureEXT(int framebuffer, int attachment, int texture, int level);
-
-	public static void glNamedFramebufferTextureEXT(int framebuffer, int attachment, int texture, int level) {
-		nglNamedFramebufferTextureEXT(framebuffer, attachment, texture, level);
-	}
+	public static native void glNamedFramebufferTextureEXT(int framebuffer, int attachment, int texture, int level);
 
 	// --- [ glNamedFramebufferTextureLayerEXT ] ---
 
-	public static native void nglNamedFramebufferTextureLayerEXT(int framebuffer, int attachment, int texture, int level, int layer);
-
-	public static void glNamedFramebufferTextureLayerEXT(int framebuffer, int attachment, int texture, int level, int layer) {
-		nglNamedFramebufferTextureLayerEXT(framebuffer, attachment, texture, level, layer);
-	}
+	public static native void glNamedFramebufferTextureLayerEXT(int framebuffer, int attachment, int texture, int level, int layer);
 
 	// --- [ glNamedFramebufferTextureFaceEXT ] ---
 
-	public static native void nglNamedFramebufferTextureFaceEXT(int framebuffer, int attachment, int texture, int level, int face);
-
-	public static void glNamedFramebufferTextureFaceEXT(int framebuffer, int attachment, int texture, int level, int face) {
-		nglNamedFramebufferTextureFaceEXT(framebuffer, attachment, texture, level, face);
-	}
+	public static native void glNamedFramebufferTextureFaceEXT(int framebuffer, int attachment, int texture, int level, int face);
 
 	// --- [ glTextureRenderbufferEXT ] ---
 
-	public static native void nglTextureRenderbufferEXT(int texture, int target, int renderbuffer);
-
-	public static void glTextureRenderbufferEXT(int texture, int target, int renderbuffer) {
-		nglTextureRenderbufferEXT(texture, target, renderbuffer);
-	}
+	public static native void glTextureRenderbufferEXT(int texture, int target, int renderbuffer);
 
 	// --- [ glMultiTexRenderbufferEXT ] ---
 
-	public static native void nglMultiTexRenderbufferEXT(int texunit, int target, int renderbuffer);
-
-	public static void glMultiTexRenderbufferEXT(int texunit, int target, int renderbuffer) {
-		nglMultiTexRenderbufferEXT(texunit, target, renderbuffer);
-	}
+	public static native void glMultiTexRenderbufferEXT(int texunit, int target, int renderbuffer);
 
 	// --- [ glVertexArrayVertexOffsetEXT ] ---
 
-	public static native void nglVertexArrayVertexOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
-
-	public static void glVertexArrayVertexOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		nglVertexArrayVertexOffsetEXT(vaobj, buffer, size, type, stride, offset);
-	}
+	public static native void glVertexArrayVertexOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
 
 	// --- [ glVertexArrayColorOffsetEXT ] ---
 
-	public static native void nglVertexArrayColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
-
-	public static void glVertexArrayColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		nglVertexArrayColorOffsetEXT(vaobj, buffer, size, type, stride, offset);
-	}
+	public static native void glVertexArrayColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
 
 	// --- [ glVertexArrayEdgeFlagOffsetEXT ] ---
 
-	public static native void nglVertexArrayEdgeFlagOffsetEXT(int vaobj, int buffer, int stride, long offset);
-
-	public static void glVertexArrayEdgeFlagOffsetEXT(int vaobj, int buffer, int stride, long offset) {
-		nglVertexArrayEdgeFlagOffsetEXT(vaobj, buffer, stride, offset);
-	}
+	public static native void glVertexArrayEdgeFlagOffsetEXT(int vaobj, int buffer, int stride, long offset);
 
 	// --- [ glVertexArrayIndexOffsetEXT ] ---
 
-	public static native void nglVertexArrayIndexOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
-
-	public static void glVertexArrayIndexOffsetEXT(int vaobj, int buffer, int type, int stride, long offset) {
-		nglVertexArrayIndexOffsetEXT(vaobj, buffer, type, stride, offset);
-	}
+	public static native void glVertexArrayIndexOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
 
 	// --- [ glVertexArrayNormalOffsetEXT ] ---
 
-	public static native void nglVertexArrayNormalOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
-
-	public static void glVertexArrayNormalOffsetEXT(int vaobj, int buffer, int type, int stride, long offset) {
-		nglVertexArrayNormalOffsetEXT(vaobj, buffer, type, stride, offset);
-	}
+	public static native void glVertexArrayNormalOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
 
 	// --- [ glVertexArrayTexCoordOffsetEXT ] ---
 
-	public static native void nglVertexArrayTexCoordOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
-
-	public static void glVertexArrayTexCoordOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		nglVertexArrayTexCoordOffsetEXT(vaobj, buffer, size, type, stride, offset);
-	}
+	public static native void glVertexArrayTexCoordOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
 
 	// --- [ glVertexArrayMultiTexCoordOffsetEXT ] ---
 
-	public static native void nglVertexArrayMultiTexCoordOffsetEXT(int vaobj, int buffer, int texunit, int size, int type, int stride, long offset);
-
-	public static void glVertexArrayMultiTexCoordOffsetEXT(int vaobj, int buffer, int texunit, int size, int type, int stride, long offset) {
-		nglVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, type, stride, offset);
-	}
+	public static native void glVertexArrayMultiTexCoordOffsetEXT(int vaobj, int buffer, int texunit, int size, int type, int stride, long offset);
 
 	// --- [ glVertexArrayFogCoordOffsetEXT ] ---
 
-	public static native void nglVertexArrayFogCoordOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
-
-	public static void glVertexArrayFogCoordOffsetEXT(int vaobj, int buffer, int type, int stride, long offset) {
-		nglVertexArrayFogCoordOffsetEXT(vaobj, buffer, type, stride, offset);
-	}
+	public static native void glVertexArrayFogCoordOffsetEXT(int vaobj, int buffer, int type, int stride, long offset);
 
 	// --- [ glVertexArraySecondaryColorOffsetEXT ] ---
 
-	public static native void nglVertexArraySecondaryColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
-
-	public static void glVertexArraySecondaryColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset) {
-		nglVertexArraySecondaryColorOffsetEXT(vaobj, buffer, size, type, stride, offset);
-	}
+	public static native void glVertexArraySecondaryColorOffsetEXT(int vaobj, int buffer, int size, int type, int stride, long offset);
 
 	// --- [ glVertexArrayVertexAttribOffsetEXT ] ---
 
-	public static native void nglVertexArrayVertexAttribOffsetEXT(int vaobj, int buffer, int index, int size, int type, boolean normalized, int stride, long offset);
-
-	public static void glVertexArrayVertexAttribOffsetEXT(int vaobj, int buffer, int index, int size, int type, boolean normalized, int stride, long offset) {
-		nglVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, type, normalized, stride, offset);
-	}
+	public static native void glVertexArrayVertexAttribOffsetEXT(int vaobj, int buffer, int index, int size, int type, boolean normalized, int stride, long offset);
 
 	// --- [ glVertexArrayVertexAttribIOffsetEXT ] ---
 
-	public static native void nglVertexArrayVertexAttribIOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
-
-	public static void glVertexArrayVertexAttribIOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
-		nglVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, type, stride, offset);
-	}
+	public static native void glVertexArrayVertexAttribIOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
 
 	// --- [ glEnableVertexArrayEXT ] ---
 
-	public static native void nglEnableVertexArrayEXT(int vaobj, int array);
-
-	public static void glEnableVertexArrayEXT(int vaobj, int array) {
-		nglEnableVertexArrayEXT(vaobj, array);
-	}
+	public static native void glEnableVertexArrayEXT(int vaobj, int array);
 
 	// --- [ glDisableVertexArrayEXT ] ---
 
-	public static native void nglDisableVertexArrayEXT(int vaobj, int array);
-
-	public static void glDisableVertexArrayEXT(int vaobj, int array) {
-		nglDisableVertexArrayEXT(vaobj, array);
-	}
+	public static native void glDisableVertexArrayEXT(int vaobj, int array);
 
 	// --- [ glEnableVertexArrayAttribEXT ] ---
 
-	public static native void nglEnableVertexArrayAttribEXT(int vaobj, int index);
-
-	public static void glEnableVertexArrayAttribEXT(int vaobj, int index) {
-		nglEnableVertexArrayAttribEXT(vaobj, index);
-	}
+	public static native void glEnableVertexArrayAttribEXT(int vaobj, int index);
 
 	// --- [ glDisableVertexArrayAttribEXT ] ---
 
-	public static native void nglDisableVertexArrayAttribEXT(int vaobj, int index);
-
-	public static void glDisableVertexArrayAttribEXT(int vaobj, int index) {
-		nglDisableVertexArrayAttribEXT(vaobj, index);
-	}
+	public static native void glDisableVertexArrayAttribEXT(int vaobj, int index);
 
 	// --- [ glGetVertexArrayIntegervEXT ] ---
 
@@ -2954,11 +2586,7 @@ public class EXTDirectStateAccess {
 
 	// --- [ glFlushMappedNamedBufferRangeEXT ] ---
 
-	public static native void nglFlushMappedNamedBufferRangeEXT(int buffer, long offset, long length);
-
-	public static void glFlushMappedNamedBufferRangeEXT(int buffer, long offset, long length) {
-		nglFlushMappedNamedBufferRangeEXT(buffer, offset, length);
-	}
+	public static native void glFlushMappedNamedBufferRangeEXT(int buffer, long offset, long length);
 
 	/** Array version of: {@link #glMatrixLoadfEXT MatrixLoadfEXT} */
 	public static void glMatrixLoadfEXT(int matrixMode, float[] m) {

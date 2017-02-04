@@ -114,11 +114,7 @@ public class QCOMExtendedGet {
 
 	// --- [ glExtTexObjectStateOverrideiQCOM ] ---
 
-	public static native void nglExtTexObjectStateOverrideiQCOM(int target, int pname, int param);
-
-	public static void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param) {
-		nglExtTexObjectStateOverrideiQCOM(target, pname, param);
-	}
+	public static native void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param);
 
 	// --- [ glExtGetTexSubImageQCOM ] ---
 

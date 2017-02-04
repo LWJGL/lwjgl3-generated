@@ -257,22 +257,14 @@ public class NVCommandList {
 
 	// --- [ glIsStateNV ] ---
 
-	/** Unsafe version of: {@link #glIsStateNV IsStateNV} */
-	public static native boolean nglIsStateNV(int state);
-
 	/**
 	 * Returns true if the specified name corresponds to a state object.
 	 *
 	 * @param state the object name to test
 	 */
-	public static boolean glIsStateNV(int state) {
-		return nglIsStateNV(state);
-	}
+	public static native boolean glIsStateNV(int state);
 
 	// --- [ glStateCaptureNV ] ---
-
-	/** Unsafe version of: {@link #glStateCaptureNV StateCaptureNV} */
-	public static native void nglStateCaptureNV(int state, int mode);
 
 	/**
 	 * Captures the current state of the rendering pipeline into the object indicated by {@code state}.
@@ -297,14 +289,9 @@ public class NVCommandList {
 	 * @param state the state object into which to capture the current rendering state
 	 * @param mode  the basic Begin mode that this state object must be used with. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
 	 */
-	public static void glStateCaptureNV(int state, int mode) {
-		nglStateCaptureNV(state, mode);
-	}
+	public static native void glStateCaptureNV(int state, int mode);
 
 	// --- [ glGetCommandHeaderNV ] ---
-
-	/** Unsafe version of: {@link #glGetCommandHeaderNV GetCommandHeaderNV} */
-	public static native int nglGetCommandHeaderNV(int tokenID, int size);
 
 	/**
 	 * Returns the encoded 32bit header value for a given command; the returned value is implementation specific.
@@ -313,14 +300,9 @@ public class NVCommandList {
 	 * @param size    provided as basic consistency check, since the size of each structure is fixed and no padding is allowed. The value is the sum of the header and
 	 *                the command specific structure.
 	 */
-	public static int glGetCommandHeaderNV(int tokenID, int size) {
-		return nglGetCommandHeaderNV(tokenID, size);
-	}
+	public static native int glGetCommandHeaderNV(int tokenID, int size);
 
 	// --- [ glGetStageIndexNV ] ---
-
-	/** Unsafe version of: {@link #glGetStageIndexNV GetStageIndexNV} */
-	public static native short nglGetStageIndexNV(int shadertype);
 
 	/**
 	 * Returns the 16bit value for a specific shader stage; the returned value is implementation specific. The value is to be used with the stage field within
@@ -328,9 +310,7 @@ public class NVCommandList {
 	 *
 	 * @param shadertype the shader stage type
 	 */
-	public static short glGetStageIndexNV(int shadertype) {
-		return nglGetStageIndexNV(shadertype);
-	}
+	public static native short glGetStageIndexNV(int shadertype);
 
 	// --- [ glDrawCommandsNV ] ---
 
@@ -503,17 +483,12 @@ public class NVCommandList {
 
 	// --- [ glIsCommandListNV ] ---
 
-	/** Unsafe version of: {@link #glIsCommandListNV IsCommandListNV} */
-	public static native boolean nglIsCommandListNV(int list);
-
 	/**
 	 * Returns true if the specified name corresponds to a command list.
 	 *
 	 * @param list the object name to query
 	 */
-	public static boolean glIsCommandListNV(int list) {
-		return nglIsCommandListNV(list);
-	}
+	public static native boolean glIsCommandListNV(int list);
 
 	// --- [ glListDrawCommandsStatesClientNV ] ---
 
@@ -559,9 +534,6 @@ public class NVCommandList {
 
 	// --- [ glCommandListSegmentsNV ] ---
 
-	/** Unsafe version of: {@link #glCommandListSegmentsNV CommandListSegmentsNV} */
-	public static native void nglCommandListSegmentsNV(int list, int segments);
-
 	/**
 	 * Indicates that {@code list} will have {@code segments} number of segments, each of which is a list of command sequences that it enqueues. This must be
 	 * called before any commands are enqueued. In the initial state, a command list has a single segment.
@@ -569,14 +541,9 @@ public class NVCommandList {
 	 * @param list     the command list
 	 * @param segments the number of ordered sequences of commands
 	 */
-	public static void glCommandListSegmentsNV(int list, int segments) {
-		nglCommandListSegmentsNV(list, segments);
-	}
+	public static native void glCommandListSegmentsNV(int list, int segments);
 
 	// --- [ glCompileCommandListNV ] ---
-
-	/** Unsafe version of: {@link #glCompileCommandListNV CompileCommandListNV} */
-	public static native void nglCompileCommandListNV(int list);
 
 	/**
 	 * Makes the list indicated by {@code list} switch from allowing collection of commands to allowing its execution. At this time, the implementation may
@@ -584,14 +551,9 @@ public class NVCommandList {
 	 *
 	 * @param list the command list to compile
 	 */
-	public static void glCompileCommandListNV(int list) {
-		nglCompileCommandListNV(list);
-	}
+	public static native void glCompileCommandListNV(int list);
 
 	// --- [ glCallCommandListNV ] ---
-
-	/** Unsafe version of: {@link #glCallCommandListNV CallCommandListNV} */
-	public static native void nglCallCommandListNV(int list);
 
 	/**
 	 * Executes the command list indicated by {@code list}, which operates as if the DrawCommandsStates* commands were replayed in the order they were
@@ -600,9 +562,7 @@ public class NVCommandList {
 	 *
 	 * @param list the command list to call
 	 */
-	public static void glCallCommandListNV(int list) {
-		nglCallCommandListNV(list);
-	}
+	public static native void glCallCommandListNV(int list);
 
 	/** Array version of: {@link #glCreateStatesNV CreateStatesNV} */
 	public static void glCreateStatesNV(int[] states) {

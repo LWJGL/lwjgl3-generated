@@ -16,7 +16,7 @@ typedef void (APIENTRY *glDrawTransformFeedbackNVPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglBindTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint target, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glBindTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint target, jint id) {
 	glBindTransformFeedbackNVPROC glBindTransformFeedbackNV = (glBindTransformFeedbackNVPROC)tlsGetFunction(58);
 	UNUSED_PARAM(clazz)
 	glBindTransformFeedbackNV(target, id);
@@ -36,25 +36,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglGenTransfor
 	glGenTransformFeedbacksNV(n, ids);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglIsTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint id) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glIsTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint id) {
 	glIsTransformFeedbackNVPROC glIsTransformFeedbackNV = (glIsTransformFeedbackNVPROC)tlsGetFunction(887);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsTransformFeedbackNV(id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglPauseTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glPauseTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
 	glPauseTransformFeedbackNVPROC glPauseTransformFeedbackNV = (glPauseTransformFeedbackNVPROC)tlsGetFunction(1205);
 	UNUSED_PARAM(clazz)
 	glPauseTransformFeedbackNV();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglResumeTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glResumeTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
 	glResumeTransformFeedbackNVPROC glResumeTransformFeedbackNV = (glResumeTransformFeedbackNVPROC)tlsGetFunction(1456);
 	UNUSED_PARAM(clazz)
 	glResumeTransformFeedbackNV();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglDrawTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint mode, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glDrawTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint mode, jint id) {
 	glDrawTransformFeedbackNVPROC glDrawTransformFeedbackNV = (glDrawTransformFeedbackNVPROC)tlsGetFunction(372);
 	UNUSED_PARAM(clazz)
 	glDrawTransformFeedbackNV(mode, id);

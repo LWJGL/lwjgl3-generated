@@ -79,18 +79,10 @@ public class EXTTextureBuffer {
 
 	// --- [ glTexBufferEXT ] ---
 
-	public static native void nglTexBufferEXT(int target, int internalformat, int buffer);
-
-	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
-		nglTexBufferEXT(target, internalformat, buffer);
-	}
+	public static native void glTexBufferEXT(int target, int internalformat, int buffer);
 
 	// --- [ glTexBufferRangeEXT ] ---
 
-	public static native void nglTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size);
-
-	public static void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size) {
-		nglTexBufferRangeEXT(target, internalformat, buffer, offset, size);
-	}
+	public static native void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size);
 
 }

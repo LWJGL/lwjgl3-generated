@@ -100,9 +100,6 @@ public class ARBGetProgramBinary {
 
 	// --- [ glProgramParameteri ] ---
 
-	/** Unsafe version of: {@link #glProgramParameteri ProgramParameteri} */
-	public static native void nglProgramParameteri(int program, int pname, int value);
-
 	/**
 	 * Specifies the integer value of a program object parameter.
 	 *
@@ -110,9 +107,7 @@ public class ARBGetProgramBinary {
 	 * @param pname   the name of the parameter to modify. One of:<br><table><tr><td>{@link GL41#GL_PROGRAM_BINARY_RETRIEVABLE_HINT PROGRAM_BINARY_RETRIEVABLE_HINT}</td><td>{@link GL41#GL_PROGRAM_SEPARABLE PROGRAM_SEPARABLE}</td></tr></table>
 	 * @param value   the new value of the parameter specified by {@code pname} for {@code program}
 	 */
-	public static void glProgramParameteri(int program, int pname, int value) {
-		nglProgramParameteri(program, pname, value);
-	}
+	public static native void glProgramParameteri(int program, int pname, int value);
 
 	/** Array version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {

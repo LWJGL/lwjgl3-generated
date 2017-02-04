@@ -39,9 +39,6 @@ public class ARBCopyBuffer {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** Unsafe version of: {@link #glCopyBufferSubData CopyBufferSubData} */
-	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
-
 	/**
 	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
 	 * 
@@ -61,8 +58,6 @@ public class ARBCopyBuffer {
 	 * @param writeOffset the destination buffer object offset, in bytes
 	 * @param size        the number of bytes to copy
 	 */
-	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
-	}
+	public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 }

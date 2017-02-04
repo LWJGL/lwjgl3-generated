@@ -35,18 +35,10 @@ public class NVXConditionalRender {
 
 	// --- [ glBeginConditionalRenderNVX ] ---
 
-	public static native void nglBeginConditionalRenderNVX(int id);
-
-	public static void glBeginConditionalRenderNVX(int id) {
-		nglBeginConditionalRenderNVX(id);
-	}
+	public static native void glBeginConditionalRenderNVX(int id);
 
 	// --- [ glEndConditionalRenderNVX ] ---
 
-	public static native void nglEndConditionalRenderNVX();
-
-	public static void glEndConditionalRenderNVX() {
-		nglEndConditionalRenderNVX();
-	}
+	public static native void glEndConditionalRenderNVX();
 
 }

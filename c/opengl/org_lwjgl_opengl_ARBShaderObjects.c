@@ -48,25 +48,25 @@ typedef void (APIENTRY *glGetShaderSourceARBPROC) (jint, jint, intptr_t, intptr_
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglDeleteObjectARB(JNIEnv *__env, jclass clazz, jint obj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glDeleteObjectARB(JNIEnv *__env, jclass clazz, jint obj) {
 	glDeleteObjectARBPROC glDeleteObjectARB = (glDeleteObjectARBPROC)tlsGetFunction(300);
 	UNUSED_PARAM(clazz)
 	glDeleteObjectARB(obj);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglGetHandleARB(JNIEnv *__env, jclass clazz, jint pname) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glGetHandleARB(JNIEnv *__env, jclass clazz, jint pname) {
 	glGetHandleARBPROC glGetHandleARB = (glGetHandleARBPROC)tlsGetFunction(555);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetHandleARB(pname);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglDetachObjectARB(JNIEnv *__env, jclass clazz, jint containerObj, jint attachedObj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glDetachObjectARB(JNIEnv *__env, jclass clazz, jint containerObj, jint attachedObj) {
 	glDetachObjectARBPROC glDetachObjectARB = (glDetachObjectARBPROC)tlsGetFunction(328);
 	UNUSED_PARAM(clazz)
 	glDetachObjectARB(containerObj, attachedObj);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglCreateShaderObjectARB(JNIEnv *__env, jclass clazz, jint shaderType) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glCreateShaderObjectARB(JNIEnv *__env, jclass clazz, jint shaderType) {
 	glCreateShaderObjectARBPROC glCreateShaderObjectARB = (glCreateShaderObjectARBPROC)tlsGetFunction(273);
 	UNUSED_PARAM(clazz)
 	return (jint)glCreateShaderObjectARB(shaderType);
@@ -80,85 +80,85 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglShaderSourceARB
 	glShaderSourceARB(shaderObj, count, string, length);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglCompileShaderARB(JNIEnv *__env, jclass clazz, jint shaderObj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glCompileShaderARB(JNIEnv *__env, jclass clazz, jint shaderObj) {
 	glCompileShaderARBPROC glCompileShaderARB = (glCompileShaderARBPROC)tlsGetFunction(191);
 	UNUSED_PARAM(clazz)
 	glCompileShaderARB(shaderObj);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglCreateProgramObjectARB(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glCreateProgramObjectARB(JNIEnv *__env, jclass clazz) {
 	glCreateProgramObjectARBPROC glCreateProgramObjectARB = (glCreateProgramObjectARBPROC)tlsGetFunction(267);
 	UNUSED_PARAM(clazz)
 	return (jint)glCreateProgramObjectARB();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglAttachObjectARB(JNIEnv *__env, jclass clazz, jint containerObj, jint obj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glAttachObjectARB(JNIEnv *__env, jclass clazz, jint containerObj, jint obj) {
 	glAttachObjectARBPROC glAttachObjectARB = (glAttachObjectARBPROC)tlsGetFunction(11);
 	UNUSED_PARAM(clazz)
 	glAttachObjectARB(containerObj, obj);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglLinkProgramARB(JNIEnv *__env, jclass clazz, jint programObj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glLinkProgramARB(JNIEnv *__env, jclass clazz, jint programObj) {
 	glLinkProgramARBPROC glLinkProgramARB = (glLinkProgramARBPROC)tlsGetFunction(901);
 	UNUSED_PARAM(clazz)
 	glLinkProgramARB(programObj);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUseProgramObjectARB(JNIEnv *__env, jclass clazz, jint programObj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUseProgramObjectARB(JNIEnv *__env, jclass clazz, jint programObj) {
 	glUseProgramObjectARBPROC glUseProgramObjectARB = (glUseProgramObjectARBPROC)tlsGetFunction(1819);
 	UNUSED_PARAM(clazz)
 	glUseProgramObjectARB(programObj);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglValidateProgramARB(JNIEnv *__env, jclass clazz, jint programObj) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glValidateProgramARB(JNIEnv *__env, jclass clazz, jint programObj) {
 	glValidateProgramARBPROC glValidateProgramARB = (glValidateProgramARBPROC)tlsGetFunction(1823);
 	UNUSED_PARAM(clazz)
 	glValidateProgramARB(programObj);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform1fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform1fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0) {
 	glUniform1fARBPROC glUniform1fARB = (glUniform1fARBPROC)tlsGetFunction(1697);
 	UNUSED_PARAM(clazz)
 	glUniform1fARB(location, v0);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform2fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform2fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1) {
 	glUniform2fARBPROC glUniform2fARB = (glUniform2fARBPROC)tlsGetFunction(1719);
 	UNUSED_PARAM(clazz)
 	glUniform2fARB(location, v0, v1);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform3fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1, jfloat v2) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform3fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1, jfloat v2) {
 	glUniform3fARBPROC glUniform3fARB = (glUniform3fARBPROC)tlsGetFunction(1741);
 	UNUSED_PARAM(clazz)
 	glUniform3fARB(location, v0, v1, v2);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform4fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1, jfloat v2, jfloat v3) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform4fARB(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1, jfloat v2, jfloat v3) {
 	glUniform4fARBPROC glUniform4fARB = (glUniform4fARBPROC)tlsGetFunction(1763);
 	UNUSED_PARAM(clazz)
 	glUniform4fARB(location, v0, v1, v2, v3);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform1iARB(JNIEnv *__env, jclass clazz, jint location, jint v0) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform1iARB(JNIEnv *__env, jclass clazz, jint location, jint v0) {
 	glUniform1iARBPROC glUniform1iARB = (glUniform1iARBPROC)tlsGetFunction(1705);
 	UNUSED_PARAM(clazz)
 	glUniform1iARB(location, v0);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform2iARB(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform2iARB(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1) {
 	glUniform2iARBPROC glUniform2iARB = (glUniform2iARBPROC)tlsGetFunction(1727);
 	UNUSED_PARAM(clazz)
 	glUniform2iARB(location, v0, v1);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform3iARB(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1, jint v2) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform3iARB(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1, jint v2) {
 	glUniform3iARBPROC glUniform3iARB = (glUniform3iARBPROC)tlsGetFunction(1749);
 	UNUSED_PARAM(clazz)
 	glUniform3iARB(location, v0, v1, v2);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_nglUniform4iARB(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1, jint v2, jint v3) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderObjects_glUniform4iARB(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1, jint v2, jint v3) {
 	glUniform4iARBPROC glUniform4iARB = (glUniform4iARBPROC)tlsGetFunction(1771);
 	UNUSED_PARAM(clazz)
 	glUniform4iARB(location, v0, v1, v2, v3);

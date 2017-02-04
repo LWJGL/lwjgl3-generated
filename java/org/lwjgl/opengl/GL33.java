@@ -260,72 +260,44 @@ public class GL33 {
 
 	// --- [ glIsSampler ] ---
 
-	/** Unsafe version of: {@link #glIsSampler IsSampler} */
-	public static native boolean nglIsSampler(int sampler);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsSampler.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a sampler object.
 	 *
 	 * @param sampler a value that may be the name of a sampler object
 	 */
-	public static boolean glIsSampler(int sampler) {
-		return nglIsSampler(sampler);
-	}
+	public static native boolean glIsSampler(int sampler);
 
 	// --- [ glBindSampler ] ---
 
-	/** Unsafe version of: {@link #glBindSampler BindSampler} */
-	public static native void nglBindSampler(int unit, int sampler);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindSampler.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a named sampler to a texturing target.
 	 *
 	 * @param unit    the index of the texture unit to which the sampler is bound
 	 * @param sampler the name of a sampler
 	 */
-	public static void glBindSampler(int unit, int sampler) {
-		nglBindSampler(unit, sampler);
-	}
+	public static native void glBindSampler(int unit, int sampler);
 
 	// --- [ glSamplerParameteri ] ---
 
-	/** Unsafe version of: {@link #glSamplerParameteri SamplerParameteri} */
-	public static native void nglSamplerParameteri(int sampler, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Set the integer value of a sampler parameter.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a single-valued sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td></tr><tr><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr></table>
 	 * @param param   the value of {@code pname}
 	 */
-	public static void glSamplerParameteri(int sampler, int pname, int param) {
-		nglSamplerParameteri(sampler, pname, param);
-	}
+	public static native void glSamplerParameteri(int sampler, int pname, int param);
 
 	// --- [ glSamplerParameterf ] ---
 
-	/** Unsafe version of: {@link #glSamplerParameterf SamplerParameterf} */
-	public static native void nglSamplerParameterf(int sampler, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterf.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a single-valued sampler parameter
 	 * @param param   the value of {@code pname}
 	 */
-	public static void glSamplerParameterf(int sampler, int pname, float param) {
-		nglSamplerParameterf(sampler, pname, param);
-	}
+	public static native void glSamplerParameterf(int sampler, int pname, float param);
 
 	// --- [ glSamplerParameteriv ] ---
 
@@ -565,20 +537,13 @@ public class GL33 {
 
 	// --- [ glQueryCounter ] ---
 
-	/** Unsafe version of: {@link #glQueryCounter QueryCounter} */
-	public static native void nglQueryCounter(int id, int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glQueryCounter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
 	 * @param id     the name of a query object into which to record the GL time
 	 * @param target the counter to query. Must be:<br><table><tr><td>{@link #GL_TIMESTAMP TIMESTAMP}</td></tr></table>
 	 */
-	public static void glQueryCounter(int id, int target) {
-		nglQueryCounter(id, target);
-	}
+	public static native void glQueryCounter(int id, int target);
 
 	// --- [ glGetQueryObjecti64v ] ---
 
@@ -660,71 +625,43 @@ public class GL33 {
 
 	// --- [ glVertexAttribDivisor ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribDivisor VertexAttribDivisor} */
-	public static native void nglVertexAttribDivisor(int index, int divisor);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribDivisor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
 	 * @param index   the index of the generic vertex attribute
 	 * @param divisor the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
-	public static void glVertexAttribDivisor(int index, int divisor) {
-		nglVertexAttribDivisor(index, divisor);
-	}
+	public static native void glVertexAttribDivisor(int index, int divisor);
 
 	// --- [ glVertexP2ui ] ---
 
-	/** Unsafe version of: {@link #glVertexP2ui VertexP2ui} */
-	public static native void nglVertexP2ui(int type, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glVertex2f Vertex2f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param value the packed value
 	 */
-	public static void glVertexP2ui(int type, int value) {
-		nglVertexP2ui(type, value);
-	}
+	public static native void glVertexP2ui(int type, int value);
 
 	// --- [ glVertexP3ui ] ---
 
-	/** Unsafe version of: {@link #glVertexP3ui VertexP3ui} */
-	public static native void nglVertexP3ui(int type, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glVertex3f Vertex3f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param value the packed value
 	 */
-	public static void glVertexP3ui(int type, int value) {
-		nglVertexP3ui(type, value);
-	}
+	public static native void glVertexP3ui(int type, int value);
 
 	// --- [ glVertexP4ui ] ---
 
-	/** Unsafe version of: {@link #glVertexP4ui VertexP4ui} */
-	public static native void nglVertexP4ui(int type, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glVertex4f Vertex4f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param value the packed value
 	 */
-	public static void glVertexP4ui(int type, int value) {
-		nglVertexP4ui(type, value);
-	}
+	public static native void glVertexP4ui(int type, int value);
 
 	// --- [ glVertexP2uiv ] ---
 
@@ -785,71 +722,43 @@ public class GL33 {
 
 	// --- [ glTexCoordP1ui ] ---
 
-	/** Unsafe version of: {@link #glTexCoordP1ui TexCoordP1ui} */
-	public static native void nglTexCoordP1ui(int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glTexCoord1f TexCoord1f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param coords the packed value
 	 */
-	public static void glTexCoordP1ui(int type, int coords) {
-		nglTexCoordP1ui(type, coords);
-	}
+	public static native void glTexCoordP1ui(int type, int coords);
 
 	// --- [ glTexCoordP2ui ] ---
 
-	/** Unsafe version of: {@link #glTexCoordP2ui TexCoordP2ui} */
-	public static native void nglTexCoordP2ui(int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glTexCoord2f TexCoord2f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param coords the packed value
 	 */
-	public static void glTexCoordP2ui(int type, int coords) {
-		nglTexCoordP2ui(type, coords);
-	}
+	public static native void glTexCoordP2ui(int type, int coords);
 
 	// --- [ glTexCoordP3ui ] ---
 
-	/** Unsafe version of: {@link #glTexCoordP3ui TexCoordP3ui} */
-	public static native void nglTexCoordP3ui(int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glTexCoord3f TexCoord3f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param coords the packed value
 	 */
-	public static void glTexCoordP3ui(int type, int coords) {
-		nglTexCoordP3ui(type, coords);
-	}
+	public static native void glTexCoordP3ui(int type, int coords);
 
 	// --- [ glTexCoordP4ui ] ---
 
-	/** Unsafe version of: {@link #glTexCoordP4ui TexCoordP4ui} */
-	public static native void nglTexCoordP4ui(int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glTexCoord4f TexCoord4f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param coords the packed value
 	 */
-	public static void glTexCoordP4ui(int type, int coords) {
-		nglTexCoordP4ui(type, coords);
-	}
+	public static native void glTexCoordP4ui(int type, int coords);
 
 	// --- [ glTexCoordP1uiv ] ---
 
@@ -929,75 +838,47 @@ public class GL33 {
 
 	// --- [ glMultiTexCoordP1ui ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoordP1ui MultiTexCoordP1ui} */
-	public static native void nglMultiTexCoordP1ui(int texture, int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param type    type of packing used on the data. One of:<br><table><tr><td>type</td><td>of</td><td>packing</td><td>used</td><td>on</td><td>the</td><td>data</td></tr></table>
 	 * @param coords  the packed value
 	 */
-	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
-		nglMultiTexCoordP1ui(texture, type, coords);
-	}
+	public static native void glMultiTexCoordP1ui(int texture, int type, int coords);
 
 	// --- [ glMultiTexCoordP2ui ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoordP2ui MultiTexCoordP2ui} */
-	public static native void nglMultiTexCoordP2ui(int texture, int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param type    type of packing used on the data. One of:<br><table><tr><td>type</td><td>of</td><td>packing</td><td>used</td><td>on</td><td>the</td><td>data</td></tr></table>
 	 * @param coords  the packed value
 	 */
-	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
-		nglMultiTexCoordP2ui(texture, type, coords);
-	}
+	public static native void glMultiTexCoordP2ui(int texture, int type, int coords);
 
 	// --- [ glMultiTexCoordP3ui ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoordP3ui MultiTexCoordP3ui} */
-	public static native void nglMultiTexCoordP3ui(int texture, int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param type    type of packing used on the data. One of:<br><table><tr><td>type</td><td>of</td><td>packing</td><td>used</td><td>on</td><td>the</td><td>data</td></tr></table>
 	 * @param coords  the packed value
 	 */
-	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
-		nglMultiTexCoordP3ui(texture, type, coords);
-	}
+	public static native void glMultiTexCoordP3ui(int texture, int type, int coords);
 
 	// --- [ glMultiTexCoordP4ui ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoordP4ui MultiTexCoordP4ui} */
-	public static native void nglMultiTexCoordP4ui(int texture, int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param type    type of packing used on the data. One of:<br><table><tr><td>type</td><td>of</td><td>packing</td><td>used</td><td>on</td><td>the</td><td>data</td></tr></table>
 	 * @param coords  the packed value
 	 */
-	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
-		nglMultiTexCoordP4ui(texture, type, coords);
-	}
+	public static native void glMultiTexCoordP4ui(int texture, int type, int coords);
 
 	// --- [ glMultiTexCoordP1uiv ] ---
 
@@ -1081,20 +962,13 @@ public class GL33 {
 
 	// --- [ glNormalP3ui ] ---
 
-	/** Unsafe version of: {@link #glNormalP3ui NormalP3ui} */
-	public static native void nglNormalP3ui(int type, int coords);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glNormal3f Normal3f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param coords the packed value
 	 */
-	public static void glNormalP3ui(int type, int coords) {
-		nglNormalP3ui(type, coords);
-	}
+	public static native void glNormalP3ui(int type, int coords);
 
 	// --- [ glNormalP3uiv ] ---
 
@@ -1117,37 +991,23 @@ public class GL33 {
 
 	// --- [ glColorP3ui ] ---
 
-	/** Unsafe version of: {@link #glColorP3ui ColorP3ui} */
-	public static native void nglColorP3ui(int type, int color);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glColor3f Color3f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param color the packed value
 	 */
-	public static void glColorP3ui(int type, int color) {
-		nglColorP3ui(type, color);
-	}
+	public static native void glColorP3ui(int type, int color);
 
 	// --- [ glColorP4ui ] ---
 
-	/** Unsafe version of: {@link #glColorP4ui ColorP4ui} */
-	public static native void nglColorP4ui(int type, int color);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL11#glColor4f Color4f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param color the packed value
 	 */
-	public static void glColorP4ui(int type, int color) {
-		nglColorP4ui(type, color);
-	}
+	public static native void glColorP4ui(int type, int color);
 
 	// --- [ glColorP3uiv ] ---
 
@@ -1189,20 +1049,13 @@ public class GL33 {
 
 	// --- [ glSecondaryColorP3ui ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColorP3ui SecondaryColorP3ui} */
-	public static native void nglSecondaryColorP3ui(int type, int color);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Packed component version of {@link GL14#glSecondaryColor3f SecondaryColor3f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
 	 * @param color the packed value
 	 */
-	public static void glSecondaryColorP3ui(int type, int color) {
-		nglSecondaryColorP3ui(type, color);
-	}
+	public static native void glSecondaryColorP3ui(int type, int color);
 
 	// --- [ glSecondaryColorP3uiv ] ---
 
@@ -1225,12 +1078,7 @@ public class GL33 {
 
 	// --- [ glVertexAttribP1ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribP1ui VertexAttribP1ui} */
-	public static native void nglVertexAttribP1ui(int index, int type, boolean normalized, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP1ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib1f VertexAttrib1f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1238,18 +1086,11 @@ public class GL33 {
 	 * @param normalized whether values should be normalized or cast directly to floating-point
 	 * @param value      the packed value
 	 */
-	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
-		nglVertexAttribP1ui(index, type, normalized, value);
-	}
+	public static native void glVertexAttribP1ui(int index, int type, boolean normalized, int value);
 
 	// --- [ glVertexAttribP2ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribP2ui VertexAttribP2ui} */
-	public static native void nglVertexAttribP2ui(int index, int type, boolean normalized, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP2ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib2f VertexAttrib2f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1257,18 +1098,11 @@ public class GL33 {
 	 * @param normalized whether values should be normalized or cast directly to floating-point
 	 * @param value      the packed value
 	 */
-	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
-		nglVertexAttribP2ui(index, type, normalized, value);
-	}
+	public static native void glVertexAttribP2ui(int index, int type, boolean normalized, int value);
 
 	// --- [ glVertexAttribP3ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribP3ui VertexAttribP3ui} */
-	public static native void nglVertexAttribP3ui(int index, int type, boolean normalized, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP3ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib3f VertexAttrib3f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1276,18 +1110,11 @@ public class GL33 {
 	 * @param normalized whether values should be normalized or cast directly to floating-point
 	 * @param value      the packed value
 	 */
-	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
-		nglVertexAttribP3ui(index, type, normalized, value);
-	}
+	public static native void glVertexAttribP3ui(int index, int type, boolean normalized, int value);
 
 	// --- [ glVertexAttribP4ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribP4ui VertexAttribP4ui} */
-	public static native void nglVertexAttribP4ui(int index, int type, boolean normalized, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP4ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1295,9 +1122,7 @@ public class GL33 {
 	 * @param normalized whether values should be normalized or cast directly to floating-point
 	 * @param value      the packed value
 	 */
-	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
-		nglVertexAttribP4ui(index, type, normalized, value);
-	}
+	public static native void glVertexAttribP4ui(int index, int type, boolean normalized, int value);
 
 	// --- [ glVertexAttribP1uiv ] ---
 

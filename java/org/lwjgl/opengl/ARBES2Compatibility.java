@@ -64,13 +64,8 @@ public class ARBES2Compatibility {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
-	/** Unsafe version of: {@link #glReleaseShaderCompiler ReleaseShaderCompiler} */
-	public static native void nglReleaseShaderCompiler();
-
 	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
-	public static void glReleaseShaderCompiler() {
-		nglReleaseShaderCompiler();
-	}
+	public static native void glReleaseShaderCompiler();
 
 	// --- [ glShaderBinary ] ---
 
@@ -136,32 +131,22 @@ public class ARBES2Compatibility {
 
 	// --- [ glDepthRangef ] ---
 
-	/** Unsafe version of: {@link #glDepthRangef DepthRangef} */
-	public static native void nglDepthRangef(float zNear, float zFar);
-
 	/**
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates
 	 *
 	 * @param zNear the mapping of the near clipping plane to window coordinates. The initial value is 0.0f.
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.0f.
 	 */
-	public static void glDepthRangef(float zNear, float zFar) {
-		nglDepthRangef(zNear, zFar);
-	}
+	public static native void glDepthRangef(float zNear, float zFar);
 
 	// --- [ glClearDepthf ] ---
-
-	/** Unsafe version of: {@link #glClearDepthf ClearDepthf} */
-	public static native void nglClearDepthf(float depth);
 
 	/**
 	 * Specifies the clear value for the depth buffer
 	 *
 	 * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
 	 */
-	public static void glClearDepthf(float depth) {
-		nglClearDepthf(depth);
-	}
+	public static native void glClearDepthf(float depth);
 
 	/** Array version of: {@link #glShaderBinary ShaderBinary} */
 	public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {

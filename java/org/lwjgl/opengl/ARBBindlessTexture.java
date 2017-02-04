@@ -65,23 +65,15 @@ public class ARBBindlessTexture {
 
 	// --- [ glGetTextureHandleARB ] ---
 
-	/** Unsafe version of: {@link #glGetTextureHandleARB GetTextureHandleARB} */
-	public static native long nglGetTextureHandleARB(int texture);
-
 	/**
 	 * Creates a texture handle using the current state of the texture named {@code texture}, including any embedded sampler state. See
 	 * {@link #glGetTextureSamplerHandleARB GetTextureSamplerHandleARB} for details.
 	 *
 	 * @param texture the texture object
 	 */
-	public static long glGetTextureHandleARB(int texture) {
-		return nglGetTextureHandleARB(texture);
-	}
+	public static native long glGetTextureHandleARB(int texture);
 
 	// --- [ glGetTextureSamplerHandleARB ] ---
-
-	/** Unsafe version of: {@link #glGetTextureSamplerHandleARB GetTextureSamplerHandleARB} */
-	public static native long nglGetTextureSamplerHandleARB(int texture, int sampler);
 
 	/**
 	 * Creates a texture handle using the current non-sampler state from the texture named {@code texture} and the sampler state from the sampler object
@@ -114,14 +106,9 @@ public class ARBBindlessTexture {
 	 * @param texture the texture object
 	 * @param sampler the sampler object
 	 */
-	public static long glGetTextureSamplerHandleARB(int texture, int sampler) {
-		return nglGetTextureSamplerHandleARB(texture, sampler);
-	}
+	public static native long glGetTextureSamplerHandleARB(int texture, int sampler);
 
 	// --- [ glMakeTextureHandleResidentARB ] ---
-
-	/** Unsafe version of: {@link #glMakeTextureHandleResidentARB MakeTextureHandleResidentARB} */
-	public static native void nglMakeTextureHandleResidentARB(long handle);
 
 	/**
 	 * Make a texture handle resident, so that it is accessible to shaders for texture mapping operations.
@@ -133,14 +120,9 @@ public class ARBBindlessTexture {
 	 *
 	 * @param handle the texture handle
 	 */
-	public static void glMakeTextureHandleResidentARB(long handle) {
-		nglMakeTextureHandleResidentARB(handle);
-	}
+	public static native void glMakeTextureHandleResidentARB(long handle);
 
 	// --- [ glMakeTextureHandleNonResidentARB ] ---
-
-	/** Unsafe version of: {@link #glMakeTextureHandleNonResidentARB MakeTextureHandleNonResidentARB} */
-	public static native void nglMakeTextureHandleNonResidentARB(long handle);
 
 	/**
 	 * Makes a texture handle inaccessible to shaders.
@@ -150,14 +132,9 @@ public class ARBBindlessTexture {
 	 *
 	 * @param handle the texture handle
 	 */
-	public static void glMakeTextureHandleNonResidentARB(long handle) {
-		nglMakeTextureHandleNonResidentARB(handle);
-	}
+	public static native void glMakeTextureHandleNonResidentARB(long handle);
 
 	// --- [ glGetImageHandleARB ] ---
-
-	/** Unsafe version of: {@link #glGetImageHandleARB GetImageHandleARB} */
-	public static native long nglGetImageHandleARB(int texture, int level, boolean layered, int layer, int format);
 
 	/**
 	 * Creates and returns an image handle for level {@code level} of the texture named {@code texture}. If {@code layered} is {@link GL11#GL_TRUE TRUE}, a handle is created
@@ -201,14 +178,9 @@ public class ARBBindlessTexture {
 	 * @param layer   the texture layer
 	 * @param format  the texture format
 	 */
-	public static long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format) {
-		return nglGetImageHandleARB(texture, level, layered, layer, format);
-	}
+	public static native long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format);
 
 	// --- [ glMakeImageHandleResidentARB ] ---
-
-	/** Unsafe version of: {@link #glMakeImageHandleResidentARB MakeImageHandleResidentARB} */
-	public static native void nglMakeImageHandleResidentARB(long handle, int access);
 
 	/**
 	 * Makes an image handle resident, so that it is accessible to shaders for image loads, stores, and atomic operations.
@@ -225,28 +197,18 @@ public class ARBBindlessTexture {
 	 * @param handle the image handle
 	 * @param access the access type. One of:<br><table><tr><td>{@link GL15#GL_READ_ONLY READ_ONLY}</td><td>{@link GL15#GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link GL15#GL_READ_WRITE READ_WRITE}</td></tr></table>
 	 */
-	public static void glMakeImageHandleResidentARB(long handle, int access) {
-		nglMakeImageHandleResidentARB(handle, access);
-	}
+	public static native void glMakeImageHandleResidentARB(long handle, int access);
 
 	// --- [ glMakeImageHandleNonResidentARB ] ---
-
-	/** Unsafe version of: {@link #glMakeImageHandleNonResidentARB MakeImageHandleNonResidentARB} */
-	public static native void nglMakeImageHandleNonResidentARB(long handle);
 
 	/**
 	 * Makes an image handle inaccessible to shaders.
 	 *
 	 * @param handle the image handle
 	 */
-	public static void glMakeImageHandleNonResidentARB(long handle) {
-		nglMakeImageHandleNonResidentARB(handle);
-	}
+	public static native void glMakeImageHandleNonResidentARB(long handle);
 
 	// --- [ glUniformHandleui64ARB ] ---
-
-	/** Unsafe version of: {@link #glUniformHandleui64ARB UniformHandleui64ARB} */
-	public static native void nglUniformHandleui64ARB(int location, long value);
 
 	/**
 	 * Loads a 64-bit unsigned integer handle into a uniform location corresponding to sampler or image variable types.
@@ -254,9 +216,7 @@ public class ARBBindlessTexture {
 	 * @param location the uniform location
 	 * @param value    the handle value
 	 */
-	public static void glUniformHandleui64ARB(int location, long value) {
-		nglUniformHandleui64ARB(location, value);
-	}
+	public static native void glUniformHandleui64ARB(int location, long value);
 
 	// --- [ glUniformHandleui64vARB ] ---
 
@@ -279,9 +239,6 @@ public class ARBBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniformHandleui64ARB ProgramUniformHandleui64ARB} */
-	public static native void nglProgramUniformHandleui64ARB(int program, int location, long value);
-
 	/**
 	 * DSA version of {@link #glUniformHandleui64ARB UniformHandleui64ARB}.
 	 *
@@ -289,9 +246,7 @@ public class ARBBindlessTexture {
 	 * @param location the uniform location
 	 * @param value    the handle value
 	 */
-	public static void glProgramUniformHandleui64ARB(int program, int location, long value) {
-		nglProgramUniformHandleui64ARB(program, location, value);
-	}
+	public static native void glProgramUniformHandleui64ARB(int program, int location, long value);
 
 	// --- [ glProgramUniformHandleui64vARB ] ---
 
@@ -315,36 +270,23 @@ public class ARBBindlessTexture {
 
 	// --- [ glIsTextureHandleResidentARB ] ---
 
-	/** Unsafe version of: {@link #glIsTextureHandleResidentARB IsTextureHandleResidentARB} */
-	public static native boolean nglIsTextureHandleResidentARB(long handle);
-
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified texture handle is resident in the current context.
 	 *
 	 * @param handle the texture handle
 	 */
-	public static boolean glIsTextureHandleResidentARB(long handle) {
-		return nglIsTextureHandleResidentARB(handle);
-	}
+	public static native boolean glIsTextureHandleResidentARB(long handle);
 
 	// --- [ glIsImageHandleResidentARB ] ---
-
-	/** Unsafe version of: {@link #glIsImageHandleResidentARB IsImageHandleResidentARB} */
-	public static native boolean nglIsImageHandleResidentARB(long handle);
 
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified image handle is resident in the current context.
 	 *
 	 * @param handle the image handle
 	 */
-	public static boolean glIsImageHandleResidentARB(long handle) {
-		return nglIsImageHandleResidentARB(handle);
-	}
+	public static native boolean glIsImageHandleResidentARB(long handle);
 
 	// --- [ glVertexAttribL1ui64ARB ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribL1ui64ARB VertexAttribL1ui64ARB} */
-	public static native void nglVertexAttribL1ui64ARB(int index, long x);
 
 	/**
 	 * Specifies the 64-bit unsigned integer handle value of a generic vertex attribute.
@@ -352,9 +294,7 @@ public class ARBBindlessTexture {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param x     the handle value
 	 */
-	public static void glVertexAttribL1ui64ARB(int index, long x) {
-		nglVertexAttribL1ui64ARB(index, x);
-	}
+	public static native void glVertexAttribL1ui64ARB(int index, long x);
 
 	// --- [ glVertexAttribL1ui64vARB ] ---
 

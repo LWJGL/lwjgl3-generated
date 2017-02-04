@@ -85,11 +85,7 @@ public class APPLESync {
 
 	// --- [ glFenceSyncAPPLE ] ---
 
-	public static native long nglFenceSyncAPPLE(int condition, int flags);
-
-	public static long glFenceSyncAPPLE(int condition, int flags) {
-		return nglFenceSyncAPPLE(condition, flags);
-	}
+	public static native long glFenceSyncAPPLE(int condition, int flags);
 
 	// --- [ glIsSyncAPPLE ] ---
 

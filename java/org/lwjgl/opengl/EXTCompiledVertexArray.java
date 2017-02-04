@@ -40,18 +40,10 @@ public class EXTCompiledVertexArray {
 
 	// --- [ glLockArraysEXT ] ---
 
-	public static native void nglLockArraysEXT(int first, int count);
-
-	public static void glLockArraysEXT(int first, int count) {
-		nglLockArraysEXT(first, count);
-	}
+	public static native void glLockArraysEXT(int first, int count);
 
 	// --- [ glUnlockArraysEXT ] ---
 
-	public static native void nglUnlockArraysEXT();
-
-	public static void glUnlockArraysEXT() {
-		nglUnlockArraysEXT();
-	}
+	public static native void glUnlockArraysEXT();
 
 }

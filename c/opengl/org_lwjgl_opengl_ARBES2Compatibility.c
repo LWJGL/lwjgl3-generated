@@ -14,7 +14,7 @@ typedef void (APIENTRY *glClearDepthfPROC) (jfloat);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_nglReleaseShaderCompiler(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_glReleaseShaderCompiler(JNIEnv *__env, jclass clazz) {
 	glReleaseShaderCompilerPROC glReleaseShaderCompiler = (glReleaseShaderCompilerPROC)tlsGetFunction(1444);
 	UNUSED_PARAM(clazz)
 	glReleaseShaderCompiler();
@@ -36,13 +36,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_nglGetShaderPre
 	glGetShaderPrecisionFormat(shadertype, precisiontype, range, precision);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_nglDepthRangef(JNIEnv *__env, jclass clazz, jfloat zNear, jfloat zFar) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_glDepthRangef(JNIEnv *__env, jclass clazz, jfloat zNear, jfloat zFar) {
 	glDepthRangefPROC glDepthRangef = (glDepthRangefPROC)tlsGetFunction(327);
 	UNUSED_PARAM(clazz)
 	glDepthRangef(zNear, zFar);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_nglClearDepthf(JNIEnv *__env, jclass clazz, jfloat depth) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_glClearDepthf(JNIEnv *__env, jclass clazz, jfloat depth) {
 	glClearDepthfPROC glClearDepthf = (glClearDepthfPROC)tlsGetFunction(119);
 	UNUSED_PARAM(clazz)
 	glClearDepthf(depth);

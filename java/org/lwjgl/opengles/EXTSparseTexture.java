@@ -71,10 +71,6 @@ public class EXTSparseTexture {
 
 	// --- [ glTexPageCommitmentARB ] ---
 
-	public static native void nglTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
-
-	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
-		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
-	}
+	public static native void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 }

@@ -56,9 +56,6 @@ public class OVRMultiview {
 
 	// --- [ glFramebufferTextureMultiviewOVR ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTextureMultiviewOVR FramebufferTextureMultiviewOVR} */
-	public static native void nglFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
-
 	/**
 	 * Operates similarly to {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}, except that {@code baseViewIndex} and {@code numViews} selects a range of texture array elements
 	 * that will be targeted when rendering.
@@ -111,8 +108,6 @@ public class OVRMultiview {
 	 * @param baseViewIndex the base framebuffer texture layer index
 	 * @param numViews      the number of views to target when rendering
 	 */
-	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
-		nglFramebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex, numViews);
-	}
+	public static native void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
 
 }

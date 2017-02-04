@@ -51,10 +51,6 @@ public class ANGLEFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleANGLE ] ---
 
-	public static native void nglRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisampleANGLE(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
 
 }

@@ -45,10 +45,6 @@ public class AMDStencilOperationExtended {
 
 	// --- [ glStencilOpValueAMD ] ---
 
-	public static native void nglStencilOpValueAMD(int face, int value);
-
-	public static void glStencilOpValueAMD(int face, int value) {
-		nglStencilOpValueAMD(face, value);
-	}
+	public static native void glStencilOpValueAMD(int face, int value);
 
 }

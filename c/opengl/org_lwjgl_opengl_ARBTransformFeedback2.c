@@ -16,7 +16,7 @@ typedef void (APIENTRY *glDrawTransformFeedbackPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglBindTransformFeedback(JNIEnv *__env, jclass clazz, jint target, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glBindTransformFeedback(JNIEnv *__env, jclass clazz, jint target, jint id) {
 	glBindTransformFeedbackPROC glBindTransformFeedback = (glBindTransformFeedbackPROC)tlsGetFunction(57);
 	UNUSED_PARAM(clazz)
 	glBindTransformFeedback(target, id);
@@ -36,25 +36,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglGenTransfo
 	glGenTransformFeedbacks(n, ids);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglIsTransformFeedback(JNIEnv *__env, jclass clazz, jint id) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glIsTransformFeedback(JNIEnv *__env, jclass clazz, jint id) {
 	glIsTransformFeedbackPROC glIsTransformFeedback = (glIsTransformFeedbackPROC)tlsGetFunction(886);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsTransformFeedback(id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
 	glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1204);
 	UNUSED_PARAM(clazz)
 	glPauseTransformFeedback();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
 	glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1455);
 	UNUSED_PARAM(clazz)
 	glResumeTransformFeedback();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglDrawTransformFeedback(JNIEnv *__env, jclass clazz, jint mode, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glDrawTransformFeedback(JNIEnv *__env, jclass clazz, jint mode, jint id) {
 	glDrawTransformFeedbackPROC glDrawTransformFeedback = (glDrawTransformFeedbackPROC)tlsGetFunction(370);
 	UNUSED_PARAM(clazz)
 	glDrawTransformFeedback(mode, id);

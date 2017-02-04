@@ -104,43 +104,43 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglGetCompressedTexImage(JNIEn
 	glGetCompressedTexImage(target, level, pixels);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglSampleCoverage(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glSampleCoverage(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert) {
 	glSampleCoveragePROC glSampleCoverage = (glSampleCoveragePROC)tlsGetFunction(1459);
 	UNUSED_PARAM(clazz)
 	glSampleCoverage(value, invert);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglActiveTexture(JNIEnv *__env, jclass clazz, jint texture) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glActiveTexture(JNIEnv *__env, jclass clazz, jint texture) {
 	glActiveTexturePROC glActiveTexture = (glActiveTexturePROC)tlsGetFunction(4);
 	UNUSED_PARAM(clazz)
 	glActiveTexture(texture);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglClientActiveTexture(JNIEnv *__env, jclass clazz, jint texture) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glClientActiveTexture(JNIEnv *__env, jclass clazz, jint texture) {
 	glClientActiveTexturePROC glClientActiveTexture = (glClientActiveTexturePROC)tlsGetFunction(132);
 	UNUSED_PARAM(clazz)
 	glClientActiveTexture(texture);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1f(JNIEnv *__env, jclass clazz, jint texture, jfloat s) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord1f(JNIEnv *__env, jclass clazz, jint texture, jfloat s) {
 	glMultiTexCoord1fPROC glMultiTexCoord1f = (glMultiTexCoord1fPROC)tlsGetFunction(1005);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord1f(texture, s);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1s(JNIEnv *__env, jclass clazz, jint texture, jshort s) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord1s(JNIEnv *__env, jclass clazz, jint texture, jshort s) {
 	glMultiTexCoord1sPROC glMultiTexCoord1s = (glMultiTexCoord1sPROC)tlsGetFunction(1015);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord1s(texture, s);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1i(JNIEnv *__env, jclass clazz, jint texture, jint s) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord1i(JNIEnv *__env, jclass clazz, jint texture, jint s) {
 	glMultiTexCoord1iPROC glMultiTexCoord1i = (glMultiTexCoord1iPROC)tlsGetFunction(1011);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord1i(texture, s);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1d(JNIEnv *__env, jclass clazz, jint texture, jdouble s) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord1d(JNIEnv *__env, jclass clazz, jint texture, jdouble s) {
 	glMultiTexCoord1dPROC glMultiTexCoord1d = (glMultiTexCoord1dPROC)tlsGetFunction(1001);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord1d(texture, s);
@@ -174,25 +174,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1dv__IJ(JNIEnv
 	glMultiTexCoord1dv(texture, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord2f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t) {
 	glMultiTexCoord2fPROC glMultiTexCoord2f = (glMultiTexCoord2fPROC)tlsGetFunction(1023);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord2f(texture, s, t);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord2s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t) {
 	glMultiTexCoord2sPROC glMultiTexCoord2s = (glMultiTexCoord2sPROC)tlsGetFunction(1033);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord2s(texture, s, t);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord2i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t) {
 	glMultiTexCoord2iPROC glMultiTexCoord2i = (glMultiTexCoord2iPROC)tlsGetFunction(1029);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord2i(texture, s, t);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord2d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t) {
 	glMultiTexCoord2dPROC glMultiTexCoord2d = (glMultiTexCoord2dPROC)tlsGetFunction(1019);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord2d(texture, s, t);
@@ -226,25 +226,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2dv__IJ(JNIEnv
 	glMultiTexCoord2dv(texture, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord3f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r) {
 	glMultiTexCoord3fPROC glMultiTexCoord3f = (glMultiTexCoord3fPROC)tlsGetFunction(1041);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord3f(texture, s, t, r);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord3s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r) {
 	glMultiTexCoord3sPROC glMultiTexCoord3s = (glMultiTexCoord3sPROC)tlsGetFunction(1051);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord3s(texture, s, t, r);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord3i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r) {
 	glMultiTexCoord3iPROC glMultiTexCoord3i = (glMultiTexCoord3iPROC)tlsGetFunction(1047);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord3i(texture, s, t, r);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord3d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r) {
 	glMultiTexCoord3dPROC glMultiTexCoord3d = (glMultiTexCoord3dPROC)tlsGetFunction(1037);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord3d(texture, s, t, r);
@@ -278,25 +278,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3dv__IJ(JNIEnv
 	glMultiTexCoord3dv(texture, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r, jfloat q) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord4f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r, jfloat q) {
 	glMultiTexCoord4fPROC glMultiTexCoord4f = (glMultiTexCoord4fPROC)tlsGetFunction(1059);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord4f(texture, s, t, r, q);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r, jshort q) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord4s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r, jshort q) {
 	glMultiTexCoord4sPROC glMultiTexCoord4s = (glMultiTexCoord4sPROC)tlsGetFunction(1069);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord4s(texture, s, t, r, q);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r, jint q) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord4i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r, jint q) {
 	glMultiTexCoord4iPROC glMultiTexCoord4i = (glMultiTexCoord4iPROC)tlsGetFunction(1065);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord4i(texture, s, t, r, q);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r, jdouble q) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glMultiTexCoord4d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r, jdouble q) {
 	glMultiTexCoord4dPROC glMultiTexCoord4d = (glMultiTexCoord4dPROC)tlsGetFunction(1055);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoord4d(texture, s, t, r, q);

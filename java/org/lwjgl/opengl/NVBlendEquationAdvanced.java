@@ -92,18 +92,10 @@ public class NVBlendEquationAdvanced {
 
 	// --- [ glBlendParameteriNV ] ---
 
-	public static native void nglBlendParameteriNV(int pname, int value);
-
-	public static void glBlendParameteriNV(int pname, int value) {
-		nglBlendParameteriNV(pname, value);
-	}
+	public static native void glBlendParameteriNV(int pname, int value);
 
 	// --- [ glBlendBarrierNV ] ---
 
-	public static native void nglBlendBarrierNV();
-
-	public static void glBlendBarrierNV() {
-		nglBlendBarrierNV();
-	}
+	public static native void glBlendBarrierNV();
 
 }

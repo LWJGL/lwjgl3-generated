@@ -10,7 +10,7 @@ typedef void (APIENTRY *glClampColorARBPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBColorBufferFloat_nglClampColorARB(JNIEnv *__env, jclass clazz, jint target, jint clamp) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBColorBufferFloat_glClampColorARB(JNIEnv *__env, jclass clazz, jint target, jint clamp) {
 	glClampColorARBPROC glClampColorARB = (glClampColorARBPROC)tlsGetFunction(105);
 	UNUSED_PARAM(clazz)
 	glClampColorARB(target, clamp);

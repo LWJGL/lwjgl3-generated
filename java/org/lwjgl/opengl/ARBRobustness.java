@@ -115,9 +115,6 @@ public class ARBRobustness {
 
 	// --- [ glGetGraphicsResetStatusARB ] ---
 
-	/** Unsafe version of: {@link #glGetGraphicsResetStatusARB GetGraphicsResetStatusARB} */
-	public static native int nglGetGraphicsResetStatusARB();
-
 	/**
 	 * The symbolic constant returned indicates if the GL context has been in a reset state at any point since the last call to {@code GetGraphicsResetStatusARB}.
 	 * {@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call. {@link #GL_GUILTY_CONTEXT_RESET_ARB GUILTY_CONTEXT_RESET_ARB} indicates that a reset has
@@ -138,9 +135,7 @@ public class ARBRobustness {
 	 * 
 	 * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
 	 */
-	public static int glGetGraphicsResetStatusARB() {
-		return nglGetGraphicsResetStatusARB();
-	}
+	public static native int glGetGraphicsResetStatusARB();
 
 	// --- [ glGetnMapdvARB ] ---
 

@@ -97,7 +97,7 @@ typedef void (APIENTRY *glGetDoublei_vPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglReleaseShaderCompiler(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glReleaseShaderCompiler(JNIEnv *__env, jclass clazz) {
 	glReleaseShaderCompilerPROC glReleaseShaderCompiler = (glReleaseShaderCompilerPROC)tlsGetFunction(1444);
 	UNUSED_PARAM(clazz)
 	glReleaseShaderCompiler();
@@ -119,13 +119,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglGetShaderPrecisionFormat__I
 	glGetShaderPrecisionFormat(shadertype, precisiontype, range, precision);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglDepthRangef(JNIEnv *__env, jclass clazz, jfloat zNear, jfloat zFar) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glDepthRangef(JNIEnv *__env, jclass clazz, jfloat zNear, jfloat zFar) {
 	glDepthRangefPROC glDepthRangef = (glDepthRangefPROC)tlsGetFunction(327);
 	UNUSED_PARAM(clazz)
 	glDepthRangef(zNear, zFar);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglClearDepthf(JNIEnv *__env, jclass clazz, jfloat depth) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glClearDepthf(JNIEnv *__env, jclass clazz, jfloat depth) {
 	glClearDepthfPROC glClearDepthf = (glClearDepthfPROC)tlsGetFunction(119);
 	UNUSED_PARAM(clazz)
 	glClearDepthf(depth);
@@ -147,19 +147,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramBinary(JNIEnv *__env
 	glProgramBinary(program, binaryFormat, binary, length);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
 	glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1253);
 	UNUSED_PARAM(clazz)
 	glProgramParameteri(program, pname, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglUseProgramStages(JNIEnv *__env, jclass clazz, jint pipeline, jint stages, jint program) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glUseProgramStages(JNIEnv *__env, jclass clazz, jint pipeline, jint stages, jint program) {
 	glUseProgramStagesPROC glUseProgramStages = (glUseProgramStagesPROC)tlsGetFunction(1820);
 	UNUSED_PARAM(clazz)
 	glUseProgramStages(pipeline, stages, program);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglActiveShaderProgram(JNIEnv *__env, jclass clazz, jint pipeline, jint program) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glActiveShaderProgram(JNIEnv *__env, jclass clazz, jint pipeline, jint program) {
 	glActiveShaderProgramPROC glActiveShaderProgram = (glActiveShaderProgramPROC)tlsGetFunction(2);
 	UNUSED_PARAM(clazz)
 	glActiveShaderProgram(pipeline, program);
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL41_nglCreateShaderProgramv(JNIEnv
 	return (jint)glCreateShaderProgramv(type, count, strings);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglBindProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glBindProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
 	glBindProgramPipelinePROC glBindProgramPipeline = (glBindProgramPipelinePROC)tlsGetFunction(49);
 	UNUSED_PARAM(clazz)
 	glBindProgramPipeline(pipeline);
@@ -192,7 +192,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglGenProgramPipelines__IJ(JNI
 	glGenProgramPipelines(n, pipelines);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL41_nglIsProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL41_glIsProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
 	glIsProgramPipelinePROC glIsProgramPipeline = (glIsProgramPipelinePROC)tlsGetFunction(874);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsProgramPipeline(pipeline);
@@ -205,97 +205,97 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglGetProgramPipelineiv__IIJ(J
 	glGetProgramPipelineiv(pipeline, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform1i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform1i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
 	glProgramUniform1iPROC glProgramUniform1i = (glProgramUniform1iPROC)tlsGetFunction(1266);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1i(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform2i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform2i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
 	glProgramUniform2iPROC glProgramUniform2i = (glProgramUniform2iPROC)tlsGetFunction(1290);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2i(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform3i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform3i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
 	glProgramUniform3iPROC glProgramUniform3i = (glProgramUniform3iPROC)tlsGetFunction(1314);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3i(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform4i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform4i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
 	glProgramUniform4iPROC glProgramUniform4i = (glProgramUniform4iPROC)tlsGetFunction(1338);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4i(program, location, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform1ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform1ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
 	glProgramUniform1uiPROC glProgramUniform1ui = (glProgramUniform1uiPROC)tlsGetFunction(1274);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1ui(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform2ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform2ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
 	glProgramUniform2uiPROC glProgramUniform2ui = (glProgramUniform2uiPROC)tlsGetFunction(1298);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2ui(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform3ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform3ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
 	glProgramUniform3uiPROC glProgramUniform3ui = (glProgramUniform3uiPROC)tlsGetFunction(1322);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3ui(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform4ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform4ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
 	glProgramUniform4uiPROC glProgramUniform4ui = (glProgramUniform4uiPROC)tlsGetFunction(1346);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4ui(program, location, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform1f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform1f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x) {
 	glProgramUniform1fPROC glProgramUniform1f = (glProgramUniform1fPROC)tlsGetFunction(1262);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1f(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform2f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform2f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y) {
 	glProgramUniform2fPROC glProgramUniform2f = (glProgramUniform2fPROC)tlsGetFunction(1286);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2f(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform3f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform3f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z) {
 	glProgramUniform3fPROC glProgramUniform3f = (glProgramUniform3fPROC)tlsGetFunction(1310);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3f(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform4f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform4f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z, jfloat w) {
 	glProgramUniform4fPROC glProgramUniform4f = (glProgramUniform4fPROC)tlsGetFunction(1334);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4f(program, location, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform1d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform1d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x) {
 	glProgramUniform1dPROC glProgramUniform1d = (glProgramUniform1dPROC)tlsGetFunction(1258);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1d(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform2d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform2d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y) {
 	glProgramUniform2dPROC glProgramUniform2d = (glProgramUniform2dPROC)tlsGetFunction(1282);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2d(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform3d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform3d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z) {
 	glProgramUniform3dPROC glProgramUniform3d = (glProgramUniform3dPROC)tlsGetFunction(1306);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3d(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniform4d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glProgramUniform4d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glProgramUniform4dPROC glProgramUniform4d = (glProgramUniform4dPROC)tlsGetFunction(1330);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4d(program, location, x, y, z, w);
@@ -539,7 +539,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglProgramUniformMatrix4x3dv__
 	glProgramUniformMatrix4x3dv(program, location, count, transpose, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglValidateProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glValidateProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
 	glValidateProgramPipelinePROC glValidateProgramPipeline = (glValidateProgramPipelinePROC)tlsGetFunction(1824);
 	UNUSED_PARAM(clazz)
 	glValidateProgramPipeline(pipeline);
@@ -553,25 +553,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglGetProgramPipelineInfoLog__
 	glGetProgramPipelineInfoLog(pipeline, bufSize, length, infoLog);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglVertexAttribL1d(JNIEnv *__env, jclass clazz, jint index, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glVertexAttribL1d(JNIEnv *__env, jclass clazz, jint index, jdouble x) {
 	glVertexAttribL1dPROC glVertexAttribL1d = (glVertexAttribL1dPROC)tlsGetFunction(2012);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL1d(index, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglVertexAttribL2d(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glVertexAttribL2d(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y) {
 	glVertexAttribL2dPROC glVertexAttribL2d = (glVertexAttribL2dPROC)tlsGetFunction(2022);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL2d(index, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglVertexAttribL3d(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glVertexAttribL3d(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z) {
 	glVertexAttribL3dPROC glVertexAttribL3d = (glVertexAttribL3dPROC)tlsGetFunction(2030);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL3d(index, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglVertexAttribL4d(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glVertexAttribL4d(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glVertexAttribL4dPROC glVertexAttribL4d = (glVertexAttribL4dPROC)tlsGetFunction(2038);
 	UNUSED_PARAM(clazz)
 	glVertexAttribL4d(index, x, y, z, w);
@@ -626,7 +626,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglViewportArrayv__IIJ(JNIEnv 
 	glViewportArrayv(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglViewportIndexedf(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glViewportIndexedf(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
 	glViewportIndexedfPROC glViewportIndexedf = (glViewportIndexedfPROC)tlsGetFunction(2079);
 	UNUSED_PARAM(clazz)
 	glViewportIndexedf(index, x, y, w, h);
@@ -646,7 +646,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglScissorArrayv__IIJ(JNIEnv *
 	glScissorArrayv(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglScissorIndexed(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glScissorIndexed(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
 	glScissorIndexedPROC glScissorIndexed = (glScissorIndexedPROC)tlsGetFunction(1473);
 	UNUSED_PARAM(clazz)
 	glScissorIndexed(index, left, bottom, width, height);
@@ -666,7 +666,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglDepthRangeArrayv__IIJ(JNIEn
 	glDepthRangeArrayv(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglDepthRangeIndexed(JNIEnv *__env, jclass clazz, jint index, jdouble zNear, jdouble zFar) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_glDepthRangeIndexed(JNIEnv *__env, jclass clazz, jint index, jdouble zNear, jdouble zFar) {
 	glDepthRangeIndexedPROC glDepthRangeIndexed = (glDepthRangeIndexedPROC)tlsGetFunction(325);
 	UNUSED_PARAM(clazz)
 	glDepthRangeIndexed(index, zNear, zFar);

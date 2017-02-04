@@ -42,11 +42,7 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glColorMaskIndexedEXT ] ---
 
-	public static native void nglColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a);
-
-	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
-		nglColorMaskIndexedEXT(index, r, g, b, a);
-	}
+	public static native void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a);
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
@@ -92,27 +88,15 @@ public class EXTDrawBuffers2 {
 
 	// --- [ glEnableIndexedEXT ] ---
 
-	public static native void nglEnableIndexedEXT(int target, int index);
-
-	public static void glEnableIndexedEXT(int target, int index) {
-		nglEnableIndexedEXT(target, index);
-	}
+	public static native void glEnableIndexedEXT(int target, int index);
 
 	// --- [ glDisableIndexedEXT ] ---
 
-	public static native void nglDisableIndexedEXT(int target, int index);
-
-	public static void glDisableIndexedEXT(int target, int index) {
-		nglDisableIndexedEXT(target, index);
-	}
+	public static native void glDisableIndexedEXT(int target, int index);
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
-	public static native boolean nglIsEnabledIndexedEXT(int target, int index);
-
-	public static boolean glIsEnabledIndexedEXT(int target, int index) {
-		return nglIsEnabledIndexedEXT(target, index);
-	}
+	public static native boolean glIsEnabledIndexedEXT(int target, int index);
 
 	/** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int target, int index, int[] data) {

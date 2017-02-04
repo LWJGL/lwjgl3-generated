@@ -39,10 +39,6 @@ public class EXTStencilTwoSide {
 
 	// --- [ glActiveStencilFaceEXT ] ---
 
-	public static native void nglActiveStencilFaceEXT(int face);
-
-	public static void glActiveStencilFaceEXT(int face) {
-		nglActiveStencilFaceEXT(face);
-	}
+	public static native void glActiveStencilFaceEXT(int face);
 
 }

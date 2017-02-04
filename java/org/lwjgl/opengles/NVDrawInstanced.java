@@ -44,11 +44,7 @@ public class NVDrawInstanced {
 
 	// --- [ glDrawArraysInstancedNV ] ---
 
-	public static native void nglDrawArraysInstancedNV(int mode, int first, int count, int primcount);
-
-	public static void glDrawArraysInstancedNV(int mode, int first, int count, int primcount) {
-		nglDrawArraysInstancedNV(mode, first, count, primcount);
-	}
+	public static native void glDrawArraysInstancedNV(int mode, int first, int count, int primcount);
 
 	// --- [ glDrawElementsInstancedNV ] ---
 

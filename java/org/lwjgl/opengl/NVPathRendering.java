@@ -643,11 +643,7 @@ public class NVPathRendering {
 
 	// --- [ glCopyPathNV ] ---
 
-	public static native void nglCopyPathNV(int resultPath, int srcPath);
-
-	public static void glCopyPathNV(int resultPath, int srcPath) {
-		nglCopyPathNV(resultPath, srcPath);
-	}
+	public static native void glCopyPathNV(int resultPath, int srcPath);
 
 	// --- [ glWeightPathsNV ] ---
 
@@ -661,11 +657,7 @@ public class NVPathRendering {
 
 	// --- [ glInterpolatePathsNV ] ---
 
-	public static native void nglInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight);
-
-	public static void glInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight) {
-		nglInterpolatePathsNV(resultPath, pathA, pathB, weight);
-	}
+	public static native void glInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight);
 
 	// --- [ glTransformPathNV ] ---
 
@@ -706,9 +698,6 @@ public class NVPathRendering {
 
 	// --- [ glPathParameteriNV ] ---
 
-	/** Unsafe version of: {@link #glPathParameteriNV PathParameteriNV} */
-	public static native void nglPathParameteriNV(int path, int pname, int value);
-
 	/**
 	 * 
 	 *
@@ -716,9 +705,7 @@ public class NVPathRendering {
 	 * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td></tr></table>
 	 * @param value 
 	 */
-	public static void glPathParameteriNV(int path, int pname, int value) {
-		nglPathParameteriNV(path, pname, value);
-	}
+	public static native void glPathParameteriNV(int path, int pname, int value);
 
 	// --- [ glPathParameterfvNV ] ---
 
@@ -740,9 +727,6 @@ public class NVPathRendering {
 
 	// --- [ glPathParameterfNV ] ---
 
-	/** Unsafe version of: {@link #glPathParameterfNV PathParameterfNV} */
-	public static native void nglPathParameterfNV(int path, int pname, float value);
-
 	/**
 	 * 
 	 *
@@ -750,9 +734,7 @@ public class NVPathRendering {
 	 * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_END_CAPS_NV PATH_END_CAPS_NV}</td><td>{@link #GL_PATH_DASH_CAPS_NV PATH_DASH_CAPS_NV}</td></tr></table>
 	 * @param value 
 	 */
-	public static void glPathParameterfNV(int path, int pname, float value) {
-		nglPathParameterfNV(path, pname, value);
-	}
+	public static native void glPathParameterfNV(int path, int pname, float value);
 
 	// --- [ glPathDashArrayNV ] ---
 
@@ -764,48 +746,25 @@ public class NVPathRendering {
 
 	// --- [ glGenPathsNV ] ---
 
-	public static native int nglGenPathsNV(int range);
-
-	public static int glGenPathsNV(int range) {
-		return nglGenPathsNV(range);
-	}
+	public static native int glGenPathsNV(int range);
 
 	// --- [ glDeletePathsNV ] ---
 
-	public static native void nglDeletePathsNV(int path, int range);
-
-	public static void glDeletePathsNV(int path, int range) {
-		nglDeletePathsNV(path, range);
-	}
+	public static native void glDeletePathsNV(int path, int range);
 
 	// --- [ glIsPathNV ] ---
 
-	public static native boolean nglIsPathNV(int path);
-
-	public static boolean glIsPathNV(int path) {
-		return nglIsPathNV(path);
-	}
+	public static native boolean glIsPathNV(int path);
 
 	// --- [ glPathStencilFuncNV ] ---
 
-	public static native void nglPathStencilFuncNV(int func, int ref, int mask);
-
-	public static void glPathStencilFuncNV(int func, int ref, int mask) {
-		nglPathStencilFuncNV(func, ref, mask);
-	}
+	public static native void glPathStencilFuncNV(int func, int ref, int mask);
 
 	// --- [ glPathStencilDepthOffsetNV ] ---
 
-	public static native void nglPathStencilDepthOffsetNV(float factor, float units);
-
-	public static void glPathStencilDepthOffsetNV(float factor, float units) {
-		nglPathStencilDepthOffsetNV(factor, units);
-	}
+	public static native void glPathStencilDepthOffsetNV(float factor, float units);
 
 	// --- [ glStencilFillPathNV ] ---
-
-	/** Unsafe version of: {@link #glStencilFillPathNV StencilFillPathNV} */
-	public static native void nglStencilFillPathNV(int path, int fillMode, int mask);
 
 	/**
 	 * 
@@ -814,17 +773,11 @@ public class NVPathRendering {
 	 * @param fillMode one of:<br><table><tr><td>{@link GL11#GL_INVERT INVERT}</td><td>{@link #GL_COUNT_UP_NV COUNT_UP_NV}</td><td>{@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td></tr></table>
 	 * @param mask     
 	 */
-	public static void glStencilFillPathNV(int path, int fillMode, int mask) {
-		nglStencilFillPathNV(path, fillMode, mask);
-	}
+	public static native void glStencilFillPathNV(int path, int fillMode, int mask);
 
 	// --- [ glStencilStrokePathNV ] ---
 
-	public static native void nglStencilStrokePathNV(int path, int reference, int mask);
-
-	public static void glStencilStrokePathNV(int path, int reference, int mask) {
-		nglStencilStrokePathNV(path, reference, mask);
-	}
+	public static native void glStencilStrokePathNV(int path, int reference, int mask);
 
 	// --- [ glStencilFillPathInstancedNV ] ---
 
@@ -874,11 +827,7 @@ public class NVPathRendering {
 
 	// --- [ glPathCoverDepthFuncNV ] ---
 
-	public static native void nglPathCoverDepthFuncNV(int zfunc);
-
-	public static void glPathCoverDepthFuncNV(int zfunc) {
-		nglPathCoverDepthFuncNV(zfunc);
-	}
+	public static native void glPathCoverDepthFuncNV(int zfunc);
 
 	// --- [ glPathColorGenNV ] ---
 
@@ -911,41 +860,27 @@ public class NVPathRendering {
 
 	// --- [ glPathFogGenNV ] ---
 
-	public static native void nglPathFogGenNV(int genMode);
-
-	public static void glPathFogGenNV(int genMode) {
-		nglPathFogGenNV(genMode);
-	}
+	public static native void glPathFogGenNV(int genMode);
 
 	// --- [ glCoverFillPathNV ] ---
 
-	/** Unsafe version of: {@link #glCoverFillPathNV CoverFillPathNV} */
-	public static native void nglCoverFillPathNV(int path, int coverMode);
-
 	/**
 	 * 
 	 *
 	 * @param path      
 	 * @param coverMode one of:<br><table><tr><td>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}</td><td>{@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}</td></tr></table>
 	 */
-	public static void glCoverFillPathNV(int path, int coverMode) {
-		nglCoverFillPathNV(path, coverMode);
-	}
+	public static native void glCoverFillPathNV(int path, int coverMode);
 
 	// --- [ glCoverStrokePathNV ] ---
 
-	/** Unsafe version of: {@link #glCoverStrokePathNV CoverStrokePathNV} */
-	public static native void nglCoverStrokePathNV(int path, int coverMode);
-
 	/**
 	 * 
 	 *
 	 * @param path      
 	 * @param coverMode one of:<br><table><tr><td>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}</td><td>{@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}</td></tr></table>
 	 */
-	public static void glCoverStrokePathNV(int path, int coverMode) {
-		nglCoverStrokePathNV(path, coverMode);
-	}
+	public static native void glCoverStrokePathNV(int path, int coverMode);
 
 	// --- [ glCoverFillPathInstancedNV ] ---
 
@@ -993,9 +928,6 @@ public class NVPathRendering {
 
 	// --- [ glStencilThenCoverFillPathNV ] ---
 
-	/** Unsafe version of: {@link #glStencilThenCoverFillPathNV StencilThenCoverFillPathNV} */
-	public static native void nglStencilThenCoverFillPathNV(int path, int fillMode, int mask, int coverMode);
-
 	/**
 	 * 
 	 *
@@ -1004,14 +936,9 @@ public class NVPathRendering {
 	 * @param mask      
 	 * @param coverMode one of:<br><table><tr><td>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}</td><td>{@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}</td></tr></table>
 	 */
-	public static void glStencilThenCoverFillPathNV(int path, int fillMode, int mask, int coverMode) {
-		nglStencilThenCoverFillPathNV(path, fillMode, mask, coverMode);
-	}
+	public static native void glStencilThenCoverFillPathNV(int path, int fillMode, int mask, int coverMode);
 
 	// --- [ glStencilThenCoverStrokePathNV ] ---
-
-	/** Unsafe version of: {@link #glStencilThenCoverStrokePathNV StencilThenCoverStrokePathNV} */
-	public static native void nglStencilThenCoverStrokePathNV(int path, int reference, int mask, int coverMode);
 
 	/**
 	 * 
@@ -1021,9 +948,7 @@ public class NVPathRendering {
 	 * @param mask      
 	 * @param coverMode one of:<br><table><tr><td>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}</td><td>{@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}</td></tr></table>
 	 */
-	public static void glStencilThenCoverStrokePathNV(int path, int reference, int mask, int coverMode) {
-		nglStencilThenCoverStrokePathNV(path, reference, mask, coverMode);
-	}
+	public static native void glStencilThenCoverStrokePathNV(int path, int reference, int mask, int coverMode);
 
 	// --- [ glStencilThenCoverFillPathInstancedNV ] ---
 
@@ -1415,27 +1340,15 @@ public class NVPathRendering {
 
 	// --- [ glIsPointInFillPathNV ] ---
 
-	public static native boolean nglIsPointInFillPathNV(int path, int mask, float x, float y);
-
-	public static boolean glIsPointInFillPathNV(int path, int mask, float x, float y) {
-		return nglIsPointInFillPathNV(path, mask, x, y);
-	}
+	public static native boolean glIsPointInFillPathNV(int path, int mask, float x, float y);
 
 	// --- [ glIsPointInStrokePathNV ] ---
 
-	public static native boolean nglIsPointInStrokePathNV(int path, float x, float y);
-
-	public static boolean glIsPointInStrokePathNV(int path, float x, float y) {
-		return nglIsPointInStrokePathNV(path, x, y);
-	}
+	public static native boolean glIsPointInStrokePathNV(int path, float x, float y);
 
 	// --- [ glGetPathLengthNV ] ---
 
-	public static native float nglGetPathLengthNV(int path, int startSegment, int numSegments);
-
-	public static float glGetPathLengthNV(int path, int startSegment, int numSegments) {
-		return nglGetPathLengthNV(path, startSegment, numSegments);
-	}
+	public static native float glGetPathLengthNV(int path, int startSegment, int numSegments);
 
 	// --- [ glPointAlongPathNV ] ---
 

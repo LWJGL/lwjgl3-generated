@@ -30,19 +30,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_nglDelet
 	glDeleteQueriesEXT(n, ids);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_nglIsQueryEXT(JNIEnv *__env, jclass clazz, jint id) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_glIsQueryEXT(JNIEnv *__env, jclass clazz, jint id) {
 	glIsQueryEXTPROC glIsQueryEXT = (glIsQueryEXTPROC)tlsGetFunction(417);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsQueryEXT(id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_nglBeginQueryEXT(JNIEnv *__env, jclass clazz, jint target, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_glBeginQueryEXT(JNIEnv *__env, jclass clazz, jint target, jint id) {
 	glBeginQueryEXTPROC glBeginQueryEXT = (glBeginQueryEXTPROC)tlsGetFunction(10);
 	UNUSED_PARAM(clazz)
 	glBeginQueryEXT(target, id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_nglEndQueryEXT(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_glEndQueryEXT(JNIEnv *__env, jclass clazz, jint target) {
 	glEndQueryEXTPROC glEndQueryEXT = (glEndQueryEXTPROC)tlsGetFunction(196);
 	UNUSED_PARAM(clazz)
 	glEndQueryEXT(target);

@@ -63,11 +63,7 @@ public class NVPointSprite {
 
 	// --- [ glPointParameteriNV ] ---
 
-	public static native void nglPointParameteriNV(int pname, int param);
-
-	public static void glPointParameteriNV(int pname, int param) {
-		nglPointParameteriNV(pname, param);
-	}
+	public static native void glPointParameteriNV(int pname, int param);
 
 	// --- [ glPointParameterivNV ] ---
 

@@ -40,10 +40,6 @@ public class NVFragmentCoverageToColor {
 
 	// --- [ glFragmentCoverageColorNV ] ---
 
-	public static native void nglFragmentCoverageColorNV(int color);
-
-	public static void glFragmentCoverageColorNV(int color) {
-		nglFragmentCoverageColorNV(color);
-	}
+	public static native void glFragmentCoverageColorNV(int color);
 
 }

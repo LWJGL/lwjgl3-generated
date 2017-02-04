@@ -58,67 +58,35 @@ public class NVBindlessTexture {
 
 	// --- [ glGetTextureHandleNV ] ---
 
-	public static native long nglGetTextureHandleNV(int texture);
-
-	public static long glGetTextureHandleNV(int texture) {
-		return nglGetTextureHandleNV(texture);
-	}
+	public static native long glGetTextureHandleNV(int texture);
 
 	// --- [ glGetTextureSamplerHandleNV ] ---
 
-	public static native long nglGetTextureSamplerHandleNV(int texture, int sampler);
-
-	public static long glGetTextureSamplerHandleNV(int texture, int sampler) {
-		return nglGetTextureSamplerHandleNV(texture, sampler);
-	}
+	public static native long glGetTextureSamplerHandleNV(int texture, int sampler);
 
 	// --- [ glMakeTextureHandleResidentNV ] ---
 
-	public static native void nglMakeTextureHandleResidentNV(long handle);
-
-	public static void glMakeTextureHandleResidentNV(long handle) {
-		nglMakeTextureHandleResidentNV(handle);
-	}
+	public static native void glMakeTextureHandleResidentNV(long handle);
 
 	// --- [ glMakeTextureHandleNonResidentNV ] ---
 
-	public static native void nglMakeTextureHandleNonResidentNV(long handle);
-
-	public static void glMakeTextureHandleNonResidentNV(long handle) {
-		nglMakeTextureHandleNonResidentNV(handle);
-	}
+	public static native void glMakeTextureHandleNonResidentNV(long handle);
 
 	// --- [ glGetImageHandleNV ] ---
 
-	public static native long nglGetImageHandleNV(int texture, int level, boolean layered, int layer, int format);
-
-	public static long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format) {
-		return nglGetImageHandleNV(texture, level, layered, layer, format);
-	}
+	public static native long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format);
 
 	// --- [ glMakeImageHandleResidentNV ] ---
 
-	public static native void nglMakeImageHandleResidentNV(long handle, int access);
-
-	public static void glMakeImageHandleResidentNV(long handle, int access) {
-		nglMakeImageHandleResidentNV(handle, access);
-	}
+	public static native void glMakeImageHandleResidentNV(long handle, int access);
 
 	// --- [ glMakeImageHandleNonResidentNV ] ---
 
-	public static native void nglMakeImageHandleNonResidentNV(long handle);
-
-	public static void glMakeImageHandleNonResidentNV(long handle) {
-		nglMakeImageHandleNonResidentNV(handle);
-	}
+	public static native void glMakeImageHandleNonResidentNV(long handle);
 
 	// --- [ glUniformHandleui64NV ] ---
 
-	public static native void nglUniformHandleui64NV(int location, long value);
-
-	public static void glUniformHandleui64NV(int location, long value) {
-		nglUniformHandleui64NV(location, value);
-	}
+	public static native void glUniformHandleui64NV(int location, long value);
 
 	// --- [ glUniformHandleui64vNV ] ---
 
@@ -130,11 +98,7 @@ public class NVBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64NV ] ---
 
-	public static native void nglProgramUniformHandleui64NV(int program, int location, long value);
-
-	public static void glProgramUniformHandleui64NV(int program, int location, long value) {
-		nglProgramUniformHandleui64NV(program, location, value);
-	}
+	public static native void glProgramUniformHandleui64NV(int program, int location, long value);
 
 	// --- [ glProgramUniformHandleui64vNV ] ---
 
@@ -146,19 +110,11 @@ public class NVBindlessTexture {
 
 	// --- [ glIsTextureHandleResidentNV ] ---
 
-	public static native boolean nglIsTextureHandleResidentNV(long handle);
-
-	public static boolean glIsTextureHandleResidentNV(long handle) {
-		return nglIsTextureHandleResidentNV(handle);
-	}
+	public static native boolean glIsTextureHandleResidentNV(long handle);
 
 	// --- [ glIsImageHandleResidentNV ] ---
 
-	public static native boolean nglIsImageHandleResidentNV(long handle);
-
-	public static boolean glIsImageHandleResidentNV(long handle) {
-		return nglIsImageHandleResidentNV(handle);
-	}
+	public static native boolean glIsImageHandleResidentNV(long handle);
 
 	/** Array version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
 	public static void glUniformHandleui64vNV(int location, long[] values) {

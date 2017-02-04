@@ -71,79 +71,79 @@ typedef jboolean (APIENTRY *glIsProgramARBPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib1sARB(JNIEnv *__env, jclass clazz, jint index, jshort x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib1sARB(JNIEnv *__env, jclass clazz, jint index, jshort x) {
 	glVertexAttrib1sARBPROC glVertexAttrib1sARB = (glVertexAttrib1sARBPROC)tlsGetFunction(1894);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib1sARB(index, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib1fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib1fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x) {
 	glVertexAttrib1fARBPROC glVertexAttrib1fARB = (glVertexAttrib1fARBPROC)tlsGetFunction(1888);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib1fARB(index, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib1dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib1dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x) {
 	glVertexAttrib1dARBPROC glVertexAttrib1dARB = (glVertexAttrib1dARBPROC)tlsGetFunction(1884);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib1dARB(index, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib2sARB(JNIEnv *__env, jclass clazz, jint index, jshort x, jshort y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib2sARB(JNIEnv *__env, jclass clazz, jint index, jshort x, jshort y) {
 	glVertexAttrib2sARBPROC glVertexAttrib2sARB = (glVertexAttrib2sARBPROC)tlsGetFunction(1908);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib2sARB(index, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib2fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib2fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y) {
 	glVertexAttrib2fARBPROC glVertexAttrib2fARB = (glVertexAttrib2fARBPROC)tlsGetFunction(1902);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib2fARB(index, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib2dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib2dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y) {
 	glVertexAttrib2dARBPROC glVertexAttrib2dARB = (glVertexAttrib2dARBPROC)tlsGetFunction(1898);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib2dARB(index, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib3sARB(JNIEnv *__env, jclass clazz, jint index, jshort x, jshort y, jshort z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib3sARB(JNIEnv *__env, jclass clazz, jint index, jshort x, jshort y, jshort z) {
 	glVertexAttrib3sARBPROC glVertexAttrib3sARB = (glVertexAttrib3sARBPROC)tlsGetFunction(1922);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib3sARB(index, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib3fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib3fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat z) {
 	glVertexAttrib3fARBPROC glVertexAttrib3fARB = (glVertexAttrib3fARBPROC)tlsGetFunction(1916);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib3fARB(index, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib3dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib3dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z) {
 	glVertexAttrib3dARBPROC glVertexAttrib3dARB = (glVertexAttrib3dARBPROC)tlsGetFunction(1912);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib3dARB(index, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4sARB(JNIEnv *__env, jclass clazz, jint index, jshort x, jshort y, jshort z, jshort w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib4sARB(JNIEnv *__env, jclass clazz, jint index, jshort x, jshort y, jshort z, jshort w) {
 	glVertexAttrib4sARBPROC glVertexAttrib4sARB = (glVertexAttrib4sARBPROC)tlsGetFunction(1954);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib4sARB(index, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib4fARB(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
 	glVertexAttrib4fARBPROC glVertexAttrib4fARB = (glVertexAttrib4fARBPROC)tlsGetFunction(1946);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib4fARB(index, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib4dARB(JNIEnv *__env, jclass clazz, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glVertexAttrib4dARBPROC glVertexAttrib4dARB = (glVertexAttrib4dARBPROC)tlsGetFunction(1942);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib4dARB(index, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4NubARB(JNIEnv *__env, jclass clazz, jint index, jbyte x, jbyte y, jbyte z, jbyte w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glVertexAttrib4NubARB(JNIEnv *__env, jclass clazz, jint index, jbyte x, jbyte y, jbyte z, jbyte w) {
 	glVertexAttrib4NubARBPROC glVertexAttrib4NubARB = (glVertexAttrib4NubARBPROC)tlsGetFunction(1932);
 	UNUSED_PARAM(clazz)
 	glVertexAttrib4NubARB(index, x, y, z, w);
@@ -317,13 +317,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttribPoi
 	glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglEnableVertexAttribArrayARB(JNIEnv *__env, jclass clazz, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glEnableVertexAttribArrayARB(JNIEnv *__env, jclass clazz, jint index) {
 	glEnableVertexAttribArrayARBPROC glEnableVertexAttribArrayARB = (glEnableVertexAttribArrayARBPROC)tlsGetFunction(389);
 	UNUSED_PARAM(clazz)
 	glEnableVertexAttribArrayARB(index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglDisableVertexAttribArrayARB(JNIEnv *__env, jclass clazz, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glDisableVertexAttribArrayARB(JNIEnv *__env, jclass clazz, jint index) {
 	glDisableVertexAttribArrayARBPROC glDisableVertexAttribArrayARB = (glDisableVertexAttribArrayARBPROC)tlsGetFunction(339);
 	UNUSED_PARAM(clazz)
 	glDisableVertexAttribArrayARB(index);
@@ -336,7 +336,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramStringAR
 	glProgramStringARB(target, format, len, string);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglBindProgramARB(JNIEnv *__env, jclass clazz, jint target, jint program) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glBindProgramARB(JNIEnv *__env, jclass clazz, jint target, jint program) {
 	glBindProgramARBPROC glBindProgramARB = (glBindProgramARBPROC)tlsGetFunction(48);
 	UNUSED_PARAM(clazz)
 	glBindProgramARB(target, program);
@@ -356,7 +356,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGenProgramsARB_
 	glGenProgramsARB(n, programs);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramEnvParameter4dARB(JNIEnv *__env, jclass clazz, jint target, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glProgramEnvParameter4dARB(JNIEnv *__env, jclass clazz, jint target, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glProgramEnvParameter4dARBPROC glProgramEnvParameter4dARB = (glProgramEnvParameter4dARBPROC)tlsGetFunction(1243);
 	UNUSED_PARAM(clazz)
 	glProgramEnvParameter4dARB(target, index, x, y, z, w);
@@ -369,7 +369,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramEnvParam
 	glProgramEnvParameter4dvARB(target, index, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramEnvParameter4fARB(JNIEnv *__env, jclass clazz, jint target, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glProgramEnvParameter4fARB(JNIEnv *__env, jclass clazz, jint target, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
 	glProgramEnvParameter4fARBPROC glProgramEnvParameter4fARB = (glProgramEnvParameter4fARBPROC)tlsGetFunction(1245);
 	UNUSED_PARAM(clazz)
 	glProgramEnvParameter4fARB(target, index, x, y, z, w);
@@ -382,7 +382,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramEnvParam
 	glProgramEnvParameter4fvARB(target, index, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramLocalParameter4dARB(JNIEnv *__env, jclass clazz, jint target, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glProgramLocalParameter4dARB(JNIEnv *__env, jclass clazz, jint target, jint index, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glProgramLocalParameter4dARBPROC glProgramLocalParameter4dARB = (glProgramLocalParameter4dARBPROC)tlsGetFunction(1248);
 	UNUSED_PARAM(clazz)
 	glProgramLocalParameter4dARB(target, index, x, y, z, w);
@@ -395,7 +395,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramLocalPar
 	glProgramLocalParameter4dvARB(target, index, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramLocalParameter4fARB(JNIEnv *__env, jclass clazz, jint target, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glProgramLocalParameter4fARB(JNIEnv *__env, jclass clazz, jint target, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
 	glProgramLocalParameter4fARBPROC glProgramLocalParameter4fARB = (glProgramLocalParameter4fARBPROC)tlsGetFunction(1250);
 	UNUSED_PARAM(clazz)
 	glProgramLocalParameter4fARB(target, index, x, y, z, w);
@@ -478,7 +478,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttrib
 	glGetVertexAttribPointervARB(index, pname, pointer);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglIsProgramARB(JNIEnv *__env, jclass clazz, jint program) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_glIsProgramARB(JNIEnv *__env, jclass clazz, jint program) {
 	glIsProgramARBPROC glIsProgramARB = (glIsProgramARBPROC)tlsGetFunction(873);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsProgramARB(program);

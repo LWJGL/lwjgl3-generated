@@ -46,10 +46,6 @@ public class EXTPrimitiveBoundingBox {
 
 	// --- [ glPrimitiveBoundingBoxEXT ] ---
 
-	public static native void nglPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
-
-	public static void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		nglPrimitiveBoundingBoxEXT(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
-	}
+	public static native void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 }

@@ -50,10 +50,6 @@ public class EXTRasterMultisample {
 
 	// --- [ glRasterSamplesEXT ] ---
 
-	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations);
-
-	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
-		nglRasterSamplesEXT(samples, fixedsamplelocations);
-	}
+	public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
 
 }

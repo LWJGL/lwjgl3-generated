@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglProgramBinar
 	glProgramBinary(program, binaryFormat, binary, length);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_glProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
 	glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1253);
 	UNUSED_PARAM(clazz)
 	glProgramParameteri(program, pname, value);

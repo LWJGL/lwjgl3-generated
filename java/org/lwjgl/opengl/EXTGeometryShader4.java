@@ -85,34 +85,18 @@ public class EXTGeometryShader4 {
 
 	// --- [ glProgramParameteriEXT ] ---
 
-	public static native void nglProgramParameteriEXT(int program, int pname, int value);
-
-	public static void glProgramParameteriEXT(int program, int pname, int value) {
-		nglProgramParameteriEXT(program, pname, value);
-	}
+	public static native void glProgramParameteriEXT(int program, int pname, int value);
 
 	// --- [ glFramebufferTextureEXT ] ---
 
-	public static native void nglFramebufferTextureEXT(int target, int attachment, int texture, int level);
-
-	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
-		nglFramebufferTextureEXT(target, attachment, texture, level);
-	}
+	public static native void glFramebufferTextureEXT(int target, int attachment, int texture, int level);
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
-	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
-
-	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
-		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer);
-	}
+	public static native void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
 
 	// --- [ glFramebufferTextureFaceEXT ] ---
 
-	public static native void nglFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face);
-
-	public static void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face) {
-		nglFramebufferTextureFaceEXT(target, attachment, texture, level, face);
-	}
+	public static native void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face);
 
 }

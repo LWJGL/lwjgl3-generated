@@ -79,18 +79,10 @@ public class OESTextureBuffer {
 
 	// --- [ glTexBufferOES ] ---
 
-	public static native void nglTexBufferOES(int target, int internalformat, int buffer);
-
-	public static void glTexBufferOES(int target, int internalformat, int buffer) {
-		nglTexBufferOES(target, internalformat, buffer);
-	}
+	public static native void glTexBufferOES(int target, int internalformat, int buffer);
 
 	// --- [ glTexBufferRangeOES ] ---
 
-	public static native void nglTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size);
-
-	public static void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size) {
-		nglTexBufferRangeOES(target, internalformat, buffer, offset, size);
-	}
+	public static native void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size);
 
 }

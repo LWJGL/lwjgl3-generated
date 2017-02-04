@@ -13,7 +13,7 @@ typedef void (APIENTRY *glGetnUniformivEXTPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_EXTRobustness_nglGetGraphicsResetStatusEXT(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_EXTRobustness_glGetGraphicsResetStatusEXT(JNIEnv *__env, jclass clazz) {
 	glGetGraphicsResetStatusEXTPROC glGetGraphicsResetStatusEXT = (glGetGraphicsResetStatusEXTPROC)tlsGetFunction(283);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetGraphicsResetStatusEXT();

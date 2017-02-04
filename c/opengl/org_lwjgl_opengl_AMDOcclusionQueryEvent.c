@@ -10,7 +10,7 @@ typedef void (APIENTRY *glQueryObjectParameteruiAMDPROC) (jint, jint, jint, jint
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDOcclusionQueryEvent_nglQueryObjectParameteruiAMD(JNIEnv *__env, jclass clazz, jint target, jint id, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDOcclusionQueryEvent_glQueryObjectParameteruiAMD(JNIEnv *__env, jclass clazz, jint target, jint id, jint pname, jint param) {
 	glQueryObjectParameteruiAMDPROC glQueryObjectParameteruiAMD = (glQueryObjectParameteruiAMDPROC)tlsGetFunction(1406);
 	UNUSED_PARAM(clazz)
 	glQueryObjectParameteruiAMD(target, id, pname, param);

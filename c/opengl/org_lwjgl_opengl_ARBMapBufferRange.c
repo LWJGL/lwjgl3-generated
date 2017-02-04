@@ -17,7 +17,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBMapBufferRange_nglMapBufferRang
 	return (jlong)glMapBufferRange(target, (intptr_t)offset, (intptr_t)length, access);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMapBufferRange_nglFlushMappedBufferRange(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong length) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMapBufferRange_glFlushMappedBufferRange(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong length) {
 	glFlushMappedBufferRangePROC glFlushMappedBufferRange = (glFlushMappedBufferRangePROC)tlsGetFunction(422);
 	UNUSED_PARAM(clazz)
 	glFlushMappedBufferRange(target, (intptr_t)offset, (intptr_t)length);

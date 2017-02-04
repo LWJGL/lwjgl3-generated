@@ -139,7 +139,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathMemoryGlyphI
 	return (jint)glPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, (intptr_t)fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCopyPathNV(JNIEnv *__env, jclass clazz, jint resultPath, jint srcPath) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glCopyPathNV(JNIEnv *__env, jclass clazz, jint resultPath, jint srcPath) {
 	glCopyPathNVPROC glCopyPathNV = (glCopyPathNVPROC)tlsGetFunction(241);
 	UNUSED_PARAM(clazz)
 	glCopyPathNV(resultPath, srcPath);
@@ -153,7 +153,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglWeightPathsNV__I
 	glWeightPathsNV(resultPath, numPaths, paths, weights);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglInterpolatePathsNV(JNIEnv *__env, jclass clazz, jint resultPath, jint pathA, jint pathB, jfloat weight) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glInterpolatePathsNV(JNIEnv *__env, jclass clazz, jint resultPath, jint pathA, jint pathB, jfloat weight) {
 	glInterpolatePathsNVPROC glInterpolatePathsNV = (glInterpolatePathsNVPROC)tlsGetFunction(845);
 	UNUSED_PARAM(clazz)
 	glInterpolatePathsNV(resultPath, pathA, pathB, weight);
@@ -173,7 +173,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathParameterivN
 	glPathParameterivNV(path, pname, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathParameteriNV(JNIEnv *__env, jclass clazz, jint path, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glPathParameteriNV(JNIEnv *__env, jclass clazz, jint path, jint pname, jint value) {
 	glPathParameteriNVPROC glPathParameteriNV = (glPathParameteriNVPROC)tlsGetFunction(1196);
 	UNUSED_PARAM(clazz)
 	glPathParameteriNV(path, pname, value);
@@ -186,7 +186,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathParameterfvN
 	glPathParameterfvNV(path, pname, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathParameterfNV(JNIEnv *__env, jclass clazz, jint path, jint pname, jfloat value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glPathParameterfNV(JNIEnv *__env, jclass clazz, jint path, jint pname, jfloat value) {
 	glPathParameterfNVPROC glPathParameterfNV = (glPathParameterfNVPROC)tlsGetFunction(1194);
 	UNUSED_PARAM(clazz)
 	glPathParameterfNV(path, pname, value);
@@ -199,43 +199,43 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathDashArrayNV_
 	glPathDashArrayNV(path, dashCount, dashArray);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGenPathsNV(JNIEnv *__env, jclass clazz, jint range) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVPathRendering_glGenPathsNV(JNIEnv *__env, jclass clazz, jint range) {
 	glGenPathsNVPROC glGenPathsNV = (glGenPathsNVPROC)tlsGetFunction(471);
 	UNUSED_PARAM(clazz)
 	return (jint)glGenPathsNV(range);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglDeletePathsNV(JNIEnv *__env, jclass clazz, jint path, jint range) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glDeletePathsNV(JNIEnv *__env, jclass clazz, jint path, jint range) {
 	glDeletePathsNVPROC glDeletePathsNV = (glDeletePathsNVPROC)tlsGetFunction(301);
 	UNUSED_PARAM(clazz)
 	glDeletePathsNV(path, range);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglIsPathNV(JNIEnv *__env, jclass clazz, jint path) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVPathRendering_glIsPathNV(JNIEnv *__env, jclass clazz, jint path) {
 	glIsPathNVPROC glIsPathNV = (glIsPathNVPROC)tlsGetFunction(869);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsPathNV(path);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathStencilFuncNV(JNIEnv *__env, jclass clazz, jint func, jint ref, jint mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glPathStencilFuncNV(JNIEnv *__env, jclass clazz, jint func, jint ref, jint mask) {
 	glPathStencilFuncNVPROC glPathStencilFuncNV = (glPathStencilFuncNVPROC)tlsGetFunction(1199);
 	UNUSED_PARAM(clazz)
 	glPathStencilFuncNV(func, ref, mask);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathStencilDepthOffsetNV(JNIEnv *__env, jclass clazz, jfloat factor, jfloat units) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glPathStencilDepthOffsetNV(JNIEnv *__env, jclass clazz, jfloat factor, jfloat units) {
 	glPathStencilDepthOffsetNVPROC glPathStencilDepthOffsetNV = (glPathStencilDepthOffsetNVPROC)tlsGetFunction(1198);
 	UNUSED_PARAM(clazz)
 	glPathStencilDepthOffsetNV(factor, units);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint fillMode, jint mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glStencilFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint fillMode, jint mask) {
 	glStencilFillPathNVPROC glStencilFillPathNV = (glStencilFillPathNVPROC)tlsGetFunction(1530);
 	UNUSED_PARAM(clazz)
 	glStencilFillPathNV(path, fillMode, mask);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jint reference, jint mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glStencilStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jint reference, jint mask) {
 	glStencilStrokePathNVPROC glStencilStrokePathNV = (glStencilStrokePathNVPROC)tlsGetFunction(1539);
 	UNUSED_PARAM(clazz)
 	glStencilStrokePathNV(path, reference, mask);
@@ -257,7 +257,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilStrokePat
 	glStencilStrokePathInstancedNV(numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathCoverDepthFuncNV(JNIEnv *__env, jclass clazz, jint zfunc) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glPathCoverDepthFuncNV(JNIEnv *__env, jclass clazz, jint zfunc) {
 	glPathCoverDepthFuncNVPROC glPathCoverDepthFuncNV = (glPathCoverDepthFuncNVPROC)tlsGetFunction(1186);
 	UNUSED_PARAM(clazz)
 	glPathCoverDepthFuncNV(zfunc);
@@ -277,19 +277,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathTexGenNV__II
 	glPathTexGenNV(texCoordSet, genMode, components, coeffs);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathFogGenNV(JNIEnv *__env, jclass clazz, jint genMode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glPathFogGenNV(JNIEnv *__env, jclass clazz, jint genMode) {
 	glPathFogGenNVPROC glPathFogGenNV = (glPathFogGenNVPROC)tlsGetFunction(1188);
 	UNUSED_PARAM(clazz)
 	glPathFogGenNV(genMode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint coverMode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glCoverFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint coverMode) {
 	glCoverFillPathNVPROC glCoverFillPathNV = (glCoverFillPathNVPROC)tlsGetFunction(257);
 	UNUSED_PARAM(clazz)
 	glCoverFillPathNV(path, coverMode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jint coverMode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glCoverStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jint coverMode) {
 	glCoverStrokePathNVPROC glCoverStrokePathNV = (glCoverStrokePathNVPROC)tlsGetFunction(259);
 	UNUSED_PARAM(clazz)
 	glCoverStrokePathNV(path, coverMode);
@@ -311,13 +311,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverStrokePathI
 	glCoverStrokePathInstancedNV(numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCoverFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint fillMode, jint mask, jint coverMode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glStencilThenCoverFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint fillMode, jint mask, jint coverMode) {
 	glStencilThenCoverFillPathNVPROC glStencilThenCoverFillPathNV = (glStencilThenCoverFillPathNVPROC)tlsGetFunction(1541);
 	UNUSED_PARAM(clazz)
 	glStencilThenCoverFillPathNV(path, fillMode, mask, coverMode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCoverStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jint reference, jint mask, jint coverMode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glStencilThenCoverStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jint reference, jint mask, jint coverMode) {
 	glStencilThenCoverStrokePathNVPROC glStencilThenCoverStrokePathNV = (glStencilThenCoverStrokePathNVPROC)tlsGetFunction(1543);
 	UNUSED_PARAM(clazz)
 	glStencilThenCoverStrokePathNV(path, reference, mask, coverMode);
@@ -439,19 +439,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGetPathTexGenfvN
 	glGetPathTexGenfvNV(texCoordSet, pname, value);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglIsPointInFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint mask, jfloat x, jfloat y) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVPathRendering_glIsPointInFillPathNV(JNIEnv *__env, jclass clazz, jint path, jint mask, jfloat x, jfloat y) {
 	glIsPointInFillPathNVPROC glIsPointInFillPathNV = (glIsPointInFillPathNVPROC)tlsGetFunction(870);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsPointInFillPathNV(path, mask, x, y);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglIsPointInStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jfloat x, jfloat y) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVPathRendering_glIsPointInStrokePathNV(JNIEnv *__env, jclass clazz, jint path, jfloat x, jfloat y) {
 	glIsPointInStrokePathNVPROC glIsPointInStrokePathNV = (glIsPointInStrokePathNVPROC)tlsGetFunction(871);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsPointInStrokePathNV(path, x, y);
 }
 
-JNIEXPORT jfloat JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGetPathLengthNV(JNIEnv *__env, jclass clazz, jint path, jint startSegment, jint numSegments) {
+JNIEXPORT jfloat JNICALL Java_org_lwjgl_opengl_NVPathRendering_glGetPathLengthNV(JNIEnv *__env, jclass clazz, jint path, jint startSegment, jint numSegments) {
 	glGetPathLengthNVPROC glGetPathLengthNV = (glGetPathLengthNVPROC)tlsGetFunction(628);
 	UNUSED_PARAM(clazz)
 	return (jfloat)glGetPathLengthNV(path, startSegment, numSegments);

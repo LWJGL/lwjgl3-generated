@@ -117,19 +117,11 @@ public class NVTransformFeedback {
 
 	// --- [ glBeginTransformFeedbackNV ] ---
 
-	public static native void nglBeginTransformFeedbackNV(int primitiveMode);
-
-	public static void glBeginTransformFeedbackNV(int primitiveMode) {
-		nglBeginTransformFeedbackNV(primitiveMode);
-	}
+	public static native void glBeginTransformFeedbackNV(int primitiveMode);
 
 	// --- [ glEndTransformFeedbackNV ] ---
 
-	public static native void nglEndTransformFeedbackNV();
-
-	public static void glEndTransformFeedbackNV() {
-		nglEndTransformFeedbackNV();
-	}
+	public static native void glEndTransformFeedbackNV();
 
 	// --- [ glTransformFeedbackAttribsNV ] ---
 
@@ -141,27 +133,15 @@ public class NVTransformFeedback {
 
 	// --- [ glBindBufferRangeNV ] ---
 
-	public static native void nglBindBufferRangeNV(int target, int index, int buffer, long offset, long size);
-
-	public static void glBindBufferRangeNV(int target, int index, int buffer, long offset, long size) {
-		nglBindBufferRangeNV(target, index, buffer, offset, size);
-	}
+	public static native void glBindBufferRangeNV(int target, int index, int buffer, long offset, long size);
 
 	// --- [ glBindBufferOffsetNV ] ---
 
-	public static native void nglBindBufferOffsetNV(int target, int index, int buffer, long offset);
-
-	public static void glBindBufferOffsetNV(int target, int index, int buffer, long offset) {
-		nglBindBufferOffsetNV(target, index, buffer, offset);
-	}
+	public static native void glBindBufferOffsetNV(int target, int index, int buffer, long offset);
 
 	// --- [ glBindBufferBaseNV ] ---
 
-	public static native void nglBindBufferBaseNV(int target, int index, int buffer);
-
-	public static void glBindBufferBaseNV(int target, int index, int buffer) {
-		nglBindBufferBaseNV(target, index, buffer);
-	}
+	public static native void glBindBufferBaseNV(int target, int index, int buffer);
 
 	// --- [ glTransformFeedbackVaryingsNV ] ---
 

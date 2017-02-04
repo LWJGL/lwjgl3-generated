@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPixelDataRange_nglPixelDataRangeN
 	glPixelDataRangeNV(target, length, pointer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPixelDataRange_nglFlushPixelDataRangeNV(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPixelDataRange_glFlushPixelDataRangeNV(JNIEnv *__env, jclass clazz, jint target) {
 	glFlushPixelDataRangeNVPROC glFlushPixelDataRangeNV = (glFlushPixelDataRangeNVPROC)tlsGetFunction(425);
 	UNUSED_PARAM(clazz)
 	glFlushPixelDataRangeNV(target);

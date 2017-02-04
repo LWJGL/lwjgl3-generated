@@ -344,22 +344,14 @@ public class ARBFramebufferObject {
 
 	// --- [ glIsRenderbuffer ] ---
 
-	/** Unsafe version of: {@link #glIsRenderbuffer IsRenderbuffer} */
-	public static native boolean nglIsRenderbuffer(int renderbuffer);
-
 	/**
 	 * Determines if a name corresponds to a renderbuffer object.
 	 *
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
 	 */
-	public static boolean glIsRenderbuffer(int renderbuffer) {
-		return nglIsRenderbuffer(renderbuffer);
-	}
+	public static native boolean glIsRenderbuffer(int renderbuffer);
 
 	// --- [ glBindRenderbuffer ] ---
-
-	/** Unsafe version of: {@link #glBindRenderbuffer BindRenderbuffer} */
-	public static native void nglBindRenderbuffer(int target, int renderbuffer);
 
 	/**
 	 * Binds a renderbuffer to a renderbuffer target.
@@ -367,9 +359,7 @@ public class ARBFramebufferObject {
 	 * @param target       the renderbuffer target of the binding operation. Must be:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
 	 * @param renderbuffer the name of the renderbuffer object to bind
 	 */
-	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		nglBindRenderbuffer(target, renderbuffer);
-	}
+	public static native void glBindRenderbuffer(int target, int renderbuffer);
 
 	// --- [ glDeleteRenderbuffers ] ---
 
@@ -432,9 +422,6 @@ public class ARBFramebufferObject {
 
 	// --- [ glRenderbufferStorage ] ---
 
-	/** Unsafe version of: {@link #glRenderbufferStorage RenderbufferStorage} */
-	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height);
-
 	/**
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
 	 *
@@ -443,14 +430,9 @@ public class ARBFramebufferObject {
 	 * @param width          the width of the renderbuffer, in pixels
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
-	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		nglRenderbufferStorage(target, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorage(int target, int internalformat, int width, int height);
 
 	// --- [ glRenderbufferStorageMultisample ] ---
-
-	/** Unsafe version of: {@link #glRenderbufferStorageMultisample RenderbufferStorageMultisample} */
-	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
 
 	/**
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
@@ -463,9 +445,7 @@ public class ARBFramebufferObject {
 	 * @param width          the width of the renderbuffer, in pixels
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
-	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisample(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
@@ -504,22 +484,14 @@ public class ARBFramebufferObject {
 
 	// --- [ glIsFramebuffer ] ---
 
-	/** Unsafe version of: {@link #glIsFramebuffer IsFramebuffer} */
-	public static native boolean nglIsFramebuffer(int framebuffer);
-
 	/**
 	 * Determines if a name corresponds to a framebuffer object.
 	 *
 	 * @param framebuffer a value that may be the name of a framebuffer object
 	 */
-	public static boolean glIsFramebuffer(int framebuffer) {
-		return nglIsFramebuffer(framebuffer);
-	}
+	public static native boolean glIsFramebuffer(int framebuffer);
 
 	// --- [ glBindFramebuffer ] ---
-
-	/** Unsafe version of: {@link #glBindFramebuffer BindFramebuffer} */
-	public static native void nglBindFramebuffer(int target, int framebuffer);
 
 	/**
 	 * Binds a framebuffer to a framebuffer target.
@@ -527,9 +499,7 @@ public class ARBFramebufferObject {
 	 * @param target      the framebuffer target of the binding operation. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 * @param framebuffer the name of the framebuffer object to bind
 	 */
-	public static void glBindFramebuffer(int target, int framebuffer) {
-		nglBindFramebuffer(target, framebuffer);
-	}
+	public static native void glBindFramebuffer(int target, int framebuffer);
 
 	// --- [ glDeleteFramebuffers ] ---
 
@@ -592,22 +562,14 @@ public class ARBFramebufferObject {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
-	/** Unsafe version of: {@link #glCheckFramebufferStatus CheckFramebufferStatus} */
-	public static native int nglCheckFramebufferStatus(int target);
-
 	/**
 	 * Checks the completeness status of a framebuffer.
 	 *
 	 * @param target the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 */
-	public static int glCheckFramebufferStatus(int target) {
-		return nglCheckFramebufferStatus(target);
-	}
+	public static native int glCheckFramebufferStatus(int target);
 
 	// --- [ glFramebufferTexture1D ] ---
-
-	/** Unsafe version of: {@link #glFramebufferTexture1D FramebufferTexture1D} */
-	public static native void nglFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level);
 
 	/**
 	 * Attaches a level of a 1D texture object as a logical buffer to the currently bound framebuffer object.
@@ -618,14 +580,9 @@ public class ARBFramebufferObject {
 	 * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
-	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture1D(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFramebufferTexture2D ] ---
-
-	/** Unsafe version of: {@link #glFramebufferTexture2D FramebufferTexture2D} */
-	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
 
 	/**
 	 * Attaches a level of a 2D texture object as a logical buffer to the currently bound framebuffer object.
@@ -636,14 +593,9 @@ public class ARBFramebufferObject {
 	 * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
-	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture2D(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFramebufferTexture3D ] ---
-
-	/** Unsafe version of: {@link #glFramebufferTexture3D FramebufferTexture3D} */
-	public static native void nglFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer);
 
 	/**
 	 * Attaches a layer of a 3D texture object as a logical buffer to the currently bound framebuffer object.
@@ -655,14 +607,9 @@ public class ARBFramebufferObject {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
 	 */
-	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-		nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
-	}
+	public static native void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer);
 
 	// --- [ glFramebufferTextureLayer ] ---
-
-	/** Unsafe version of: {@link #glFramebufferTextureLayer FramebufferTextureLayer} */
-	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
 
 	/**
 	 * Attaches a single layer of a texture to a framebuffer
@@ -673,14 +620,9 @@ public class ARBFramebufferObject {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 * @param layer      the layer of {@code texture} to attach.
 	 */
-	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		nglFramebufferTextureLayer(target, attachment, texture, level, layer);
-	}
+	public static native void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
 
 	// --- [ glFramebufferRenderbuffer ] ---
-
-	/** Unsafe version of: {@link #glFramebufferRenderbuffer FramebufferRenderbuffer} */
-	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
 
 	/**
 	 * Attaches a renderbuffer as a logical buffer to the currently bound framebuffer object.
@@ -690,9 +632,7 @@ public class ARBFramebufferObject {
 	 * @param renderbuffertarget the renderbuffer target. Must be:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
-	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
-	}
+	public static native void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
@@ -733,9 +673,6 @@ public class ARBFramebufferObject {
 
 	// --- [ glBlitFramebuffer ] ---
 
-	/** Unsafe version of: {@link #glBlitFramebuffer BlitFramebuffer} */
-	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
-
 	/**
 	 * Copies a block of pixels from the read framebuffer to the draw framebuffer.
 	 *
@@ -750,23 +687,16 @@ public class ARBFramebufferObject {
 	 * @param mask   the bitwise OR of the flags indicating which buffers are to be copied. One of:<br><table><tr><td>{@link GL11#GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}</td><td>{@link GL11#GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}</td><td>{@link GL11#GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}</td></tr></table>
 	 * @param filter the interpolation to be applied if the image is stretched. One of:<br><table><tr><td>{@link GL11#GL_NEAREST NEAREST}</td><td>{@link GL11#GL_LINEAR LINEAR}</td></tr></table>
 	 */
-	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-	}
+	public static native void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 	// --- [ glGenerateMipmap ] ---
-
-	/** Unsafe version of: {@link #glGenerateMipmap GenerateMipmap} */
-	public static native void nglGenerateMipmap(int target);
 
 	/**
 	 * Generate mipmaps for a specified texture target.
 	 *
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr></table>
 	 */
-	public static void glGenerateMipmap(int target) {
-		nglGenerateMipmap(target);
-	}
+	public static native void glGenerateMipmap(int target);
 
 	/** Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int[] renderbuffers) {

@@ -48,26 +48,14 @@ public class EXTBindableUniform {
 
 	// --- [ glUniformBufferEXT ] ---
 
-	public static native void nglUniformBufferEXT(int program, int location, int buffer);
-
-	public static void glUniformBufferEXT(int program, int location, int buffer) {
-		nglUniformBufferEXT(program, location, buffer);
-	}
+	public static native void glUniformBufferEXT(int program, int location, int buffer);
 
 	// --- [ glGetUniformBufferSizeEXT ] ---
 
-	public static native int nglGetUniformBufferSizeEXT(int program, int location);
-
-	public static int glGetUniformBufferSizeEXT(int program, int location) {
-		return nglGetUniformBufferSizeEXT(program, location);
-	}
+	public static native int glGetUniformBufferSizeEXT(int program, int location);
 
 	// --- [ glGetUniformOffsetEXT ] ---
 
-	public static native long nglGetUniformOffsetEXT(int program, int location);
-
-	public static long glGetUniformOffsetEXT(int program, int location) {
-		return nglGetUniformOffsetEXT(program, location);
-	}
+	public static native long glGetUniformOffsetEXT(int program, int location);
 
 }

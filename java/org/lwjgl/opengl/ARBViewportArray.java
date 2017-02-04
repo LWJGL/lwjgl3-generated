@@ -79,9 +79,6 @@ public class ARBViewportArray {
 
 	// --- [ glViewportIndexedf ] ---
 
-	/** Unsafe version of: {@link #glViewportIndexedf ViewportIndexedf} */
-	public static native void nglViewportIndexedf(int index, float x, float y, float w, float h);
-
 	/**
 	 * Sets a specified viewport.
 	 *
@@ -91,9 +88,7 @@ public class ARBViewportArray {
 	 * @param w     the viewport width
 	 * @param h     the viewport height
 	 */
-	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
-		nglViewportIndexedf(index, x, y, w, h);
-	}
+	public static native void glViewportIndexedf(int index, float x, float y, float w, float h);
 
 	// --- [ glViewportIndexedfv ] ---
 
@@ -133,9 +128,6 @@ public class ARBViewportArray {
 
 	// --- [ glScissorIndexed ] ---
 
-	/** Unsafe version of: {@link #glScissorIndexed ScissorIndexed} */
-	public static native void nglScissorIndexed(int index, int left, int bottom, int width, int height);
-
 	/**
 	 * Defines the scissor box for a specific viewport.
 	 *
@@ -145,9 +137,7 @@ public class ARBViewportArray {
 	 * @param width  the scissor box width
 	 * @param height the scissor box height
 	 */
-	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
-		nglScissorIndexed(index, left, bottom, width, height);
-	}
+	public static native void glScissorIndexed(int index, int left, int bottom, int width, int height);
 
 	// --- [ glScissorIndexedv ] ---
 
@@ -187,9 +177,6 @@ public class ARBViewportArray {
 
 	// --- [ glDepthRangeIndexed ] ---
 
-	/** Unsafe version of: {@link #glDepthRangeIndexed DepthRangeIndexed} */
-	public static native void nglDepthRangeIndexed(int index, double zNear, double zFar);
-
 	/**
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified viewport.
 	 *
@@ -197,9 +184,7 @@ public class ARBViewportArray {
 	 * @param zNear the mapping of the near clipping plane to window coordinates. The initial value is 0.
 	 * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.
 	 */
-	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
-		nglDepthRangeIndexed(index, zNear, zFar);
-	}
+	public static native void glDepthRangeIndexed(int index, double zNear, double zFar);
 
 	// --- [ glGetFloati_v ] ---
 

@@ -92,9 +92,6 @@ public class ARBTextureMultisample {
 
 	// --- [ glTexImage2DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTexImage2DMultisample TexImage2DMultisample} */
-	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
-
 	/**
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
@@ -107,14 +104,9 @@ public class ARBTextureMultisample {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		nglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
-	}
+	public static native void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	// --- [ glTexImage3DMultisample ] ---
-
-	/** Unsafe version of: {@link #glTexImage3DMultisample TexImage3DMultisample} */
-	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	/**
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
@@ -129,9 +121,7 @@ public class ARBTextureMultisample {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		nglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-	}
+	public static native void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	// --- [ glGetMultisamplefv ] ---
 
@@ -170,18 +160,13 @@ public class ARBTextureMultisample {
 
 	// --- [ glSampleMaski ] ---
 
-	/** Unsafe version of: {@link #glSampleMaski SampleMaski} */
-	public static native void nglSampleMaski(int index, int mask);
-
 	/**
 	 * Sets the value of a sub-word of the sample mask.
 	 *
 	 * @param index which 32-bit sub-word of the sample mask to update
 	 * @param mask  the new value of the mask sub-word
 	 */
-	public static void glSampleMaski(int index, int mask) {
-		nglSampleMaski(index, mask);
-	}
+	public static native void glSampleMaski(int index, int mask);
 
 	/** Array version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void glGetMultisamplefv(int pname, int index, float[] val) {

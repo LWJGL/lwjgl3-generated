@@ -10,7 +10,7 @@ typedef void (APIENTRY *glBlendEquationSeparateEXTPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBlendEquationSeparate_nglBlendEquationSeparateEXT(JNIEnv *__env, jclass clazz, jint modeRGB, jint modeAlpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBlendEquationSeparate_glBlendEquationSeparateEXT(JNIEnv *__env, jclass clazz, jint modeRGB, jint modeAlpha) {
 	glBlendEquationSeparateEXTPROC glBlendEquationSeparateEXT = (glBlendEquationSeparateEXTPROC)tlsGetFunction(71);
 	UNUSED_PARAM(clazz)
 	glBlendEquationSeparateEXT(modeRGB, modeAlpha);

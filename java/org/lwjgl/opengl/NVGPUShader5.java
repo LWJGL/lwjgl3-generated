@@ -123,35 +123,19 @@ public class NVGPUShader5 {
 
 	// --- [ glUniform1i64NV ] ---
 
-	public static native void nglUniform1i64NV(int location, long x);
-
-	public static void glUniform1i64NV(int location, long x) {
-		nglUniform1i64NV(location, x);
-	}
+	public static native void glUniform1i64NV(int location, long x);
 
 	// --- [ glUniform2i64NV ] ---
 
-	public static native void nglUniform2i64NV(int location, long x, long y);
-
-	public static void glUniform2i64NV(int location, long x, long y) {
-		nglUniform2i64NV(location, x, y);
-	}
+	public static native void glUniform2i64NV(int location, long x, long y);
 
 	// --- [ glUniform3i64NV ] ---
 
-	public static native void nglUniform3i64NV(int location, long x, long y, long z);
-
-	public static void glUniform3i64NV(int location, long x, long y, long z) {
-		nglUniform3i64NV(location, x, y, z);
-	}
+	public static native void glUniform3i64NV(int location, long x, long y, long z);
 
 	// --- [ glUniform4i64NV ] ---
 
-	public static native void nglUniform4i64NV(int location, long x, long y, long z, long w);
-
-	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
-		nglUniform4i64NV(location, x, y, z, w);
-	}
+	public static native void glUniform4i64NV(int location, long x, long y, long z, long w);
 
 	// --- [ glUniform1i64vNV ] ---
 
@@ -187,35 +171,19 @@ public class NVGPUShader5 {
 
 	// --- [ glUniform1ui64NV ] ---
 
-	public static native void nglUniform1ui64NV(int location, long x);
-
-	public static void glUniform1ui64NV(int location, long x) {
-		nglUniform1ui64NV(location, x);
-	}
+	public static native void glUniform1ui64NV(int location, long x);
 
 	// --- [ glUniform2ui64NV ] ---
 
-	public static native void nglUniform2ui64NV(int location, long x, long y);
-
-	public static void glUniform2ui64NV(int location, long x, long y) {
-		nglUniform2ui64NV(location, x, y);
-	}
+	public static native void glUniform2ui64NV(int location, long x, long y);
 
 	// --- [ glUniform3ui64NV ] ---
 
-	public static native void nglUniform3ui64NV(int location, long x, long y, long z);
-
-	public static void glUniform3ui64NV(int location, long x, long y, long z) {
-		nglUniform3ui64NV(location, x, y, z);
-	}
+	public static native void glUniform3ui64NV(int location, long x, long y, long z);
 
 	// --- [ glUniform4ui64NV ] ---
 
-	public static native void nglUniform4ui64NV(int location, long x, long y, long z, long w);
-
-	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
-		nglUniform4ui64NV(location, x, y, z, w);
-	}
+	public static native void glUniform4ui64NV(int location, long x, long y, long z, long w);
 
 	// --- [ glUniform1ui64vNV ] ---
 
@@ -293,35 +261,19 @@ public class NVGPUShader5 {
 
 	// --- [ glProgramUniform1i64NV ] ---
 
-	public static native void nglProgramUniform1i64NV(int program, int location, long x);
-
-	public static void glProgramUniform1i64NV(int program, int location, long x) {
-		nglProgramUniform1i64NV(program, location, x);
-	}
+	public static native void glProgramUniform1i64NV(int program, int location, long x);
 
 	// --- [ glProgramUniform2i64NV ] ---
 
-	public static native void nglProgramUniform2i64NV(int program, int location, long x, long y);
-
-	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
-		nglProgramUniform2i64NV(program, location, x, y);
-	}
+	public static native void glProgramUniform2i64NV(int program, int location, long x, long y);
 
 	// --- [ glProgramUniform3i64NV ] ---
 
-	public static native void nglProgramUniform3i64NV(int program, int location, long x, long y, long z);
-
-	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
-		nglProgramUniform3i64NV(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3i64NV(int program, int location, long x, long y, long z);
 
 	// --- [ glProgramUniform4i64NV ] ---
 
-	public static native void nglProgramUniform4i64NV(int program, int location, long x, long y, long z, long w);
-
-	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
-		nglProgramUniform4i64NV(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w);
 
 	// --- [ glProgramUniform1i64vNV ] ---
 
@@ -357,35 +309,19 @@ public class NVGPUShader5 {
 
 	// --- [ glProgramUniform1ui64NV ] ---
 
-	public static native void nglProgramUniform1ui64NV(int program, int location, long x);
-
-	public static void glProgramUniform1ui64NV(int program, int location, long x) {
-		nglProgramUniform1ui64NV(program, location, x);
-	}
+	public static native void glProgramUniform1ui64NV(int program, int location, long x);
 
 	// --- [ glProgramUniform2ui64NV ] ---
 
-	public static native void nglProgramUniform2ui64NV(int program, int location, long x, long y);
-
-	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
-		nglProgramUniform2ui64NV(program, location, x, y);
-	}
+	public static native void glProgramUniform2ui64NV(int program, int location, long x, long y);
 
 	// --- [ glProgramUniform3ui64NV ] ---
 
-	public static native void nglProgramUniform3ui64NV(int program, int location, long x, long y, long z);
-
-	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
-		nglProgramUniform3ui64NV(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3ui64NV(int program, int location, long x, long y, long z);
 
 	// --- [ glProgramUniform4ui64NV ] ---
 
-	public static native void nglProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w);
-
-	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
-		nglProgramUniform4ui64NV(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w);
 
 	// --- [ glProgramUniform1ui64vNV ] ---
 

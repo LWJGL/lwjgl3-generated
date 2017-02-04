@@ -14,7 +14,7 @@ typedef void (APIENTRY *glGetnUniformuivPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_KHRRobustness_nglGetGraphicsResetStatus(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_KHRRobustness_glGetGraphicsResetStatus(JNIEnv *__env, jclass clazz) {
 	glGetGraphicsResetStatusPROC glGetGraphicsResetStatus = (glGetGraphicsResetStatusPROC)tlsGetFunction(553);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetGraphicsResetStatus();

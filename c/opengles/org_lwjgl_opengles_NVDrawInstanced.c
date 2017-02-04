@@ -11,7 +11,7 @@ typedef void (APIENTRY *glDrawElementsInstancedNVPROC) (jint, jint, jint, const 
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawInstanced_nglDrawArraysInstancedNV(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawInstanced_glDrawArraysInstancedNV(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
 	glDrawArraysInstancedNVPROC glDrawArraysInstancedNV = (glDrawArraysInstancedNVPROC)tlsGetFunction(160);
 	UNUSED_PARAM(clazz)
 	glDrawArraysInstancedNV(mode, first, count, primcount);

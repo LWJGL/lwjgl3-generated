@@ -145,22 +145,14 @@ public class ARBOcclusionQuery {
 
 	// --- [ glIsQueryARB ] ---
 
-	/** Unsafe version of: {@link #glIsQueryARB IsQueryARB} */
-	public static native boolean nglIsQueryARB(int id);
-
 	/**
 	 * Determine if a name corresponds to a query object.
 	 *
 	 * @param id a value that may be the name of a query object
 	 */
-	public static boolean glIsQueryARB(int id) {
-		return nglIsQueryARB(id);
-	}
+	public static native boolean glIsQueryARB(int id);
 
 	// --- [ glBeginQueryARB ] ---
-
-	/** Unsafe version of: {@link #glBeginQueryARB BeginQueryARB} */
-	public static native void nglBeginQueryARB(int target, int id);
 
 	/**
 	 * Creates a query object and makes it active.
@@ -168,23 +160,16 @@ public class ARBOcclusionQuery {
 	 * @param target the target type of query object established. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 * @param id     the name of a query object
 	 */
-	public static void glBeginQueryARB(int target, int id) {
-		nglBeginQueryARB(target, id);
-	}
+	public static native void glBeginQueryARB(int target, int id);
 
 	// --- [ glEndQueryARB ] ---
-
-	/** Unsafe version of: {@link #glEndQueryARB EndQueryARB} */
-	public static native void nglEndQueryARB(int target);
 
 	/**
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
 	 *
 	 * @param target the query object target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 */
-	public static void glEndQueryARB(int target) {
-		nglEndQueryARB(target);
-	}
+	public static native void glEndQueryARB(int target);
 
 	// --- [ glGetQueryivARB ] ---
 

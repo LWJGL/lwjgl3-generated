@@ -55,18 +55,10 @@ public class IMGMultisampledRenderToTexture {
 
 	// --- [ glRenderbufferStorageMultisampleIMG ] ---
 
-	public static native void nglRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisampleIMG(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
 
 	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
-	public static native void nglFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples);
-
-	public static void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples) {
-		nglFramebufferTexture2DMultisampleIMG(target, attachment, textarget, texture, level, samples);
-	}
+	public static native void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples);
 
 }

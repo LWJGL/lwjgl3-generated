@@ -44,9 +44,6 @@ public class NVConservativeRasterPreSnapTriangles {
 
 	// --- [ glConservativeRasterParameteriNV ] ---
 
-	/** Unsafe version of: {@link #glConservativeRasterParameteriNV ConservativeRasterParameteriNV} */
-	public static native void nglConservativeRasterParameteriNV(int pname, int param);
-
 	/**
 	 * When {@link NVConservativeRaster#GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is enabled, the rasterization behavior may be controlled by calling the this command.
 	 * 
@@ -60,8 +57,6 @@ public class NVConservativeRasterPreSnapTriangles {
 	 * @param pname the parameter to set. Must be:<br><table><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_NV CONSERVATIVE_RASTER_MODE_NV}</td></tr></table>
 	 * @param param specifies the conservative raster mode to be used. One of:<br><table><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV CONSERVATIVE_RASTER_MODE_POST_SNAP_NV}</td></tr><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV}</td></tr></table>
 	 */
-	public static void glConservativeRasterParameteriNV(int pname, int param) {
-		nglConservativeRasterParameteriNV(pname, param);
-	}
+	public static native void glConservativeRasterParameteriNV(int pname, int param);
 
 }

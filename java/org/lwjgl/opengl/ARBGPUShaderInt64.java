@@ -64,18 +64,13 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform1i64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform1i64ARB Uniform1i64ARB} */
-	public static native void nglUniform1i64ARB(int location, long x);
-
 	/**
 	 * Specifies the value of an int64_t uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glUniform1i64ARB(int location, long x) {
-		nglUniform1i64ARB(location, x);
-	}
+	public static native void glUniform1i64ARB(int location, long x);
 
 	// --- [ glUniform1i64vARB ] ---
 
@@ -98,9 +93,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform1i64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1i64ARB ProgramUniform1i64ARB} */
-	public static native void nglProgramUniform1i64ARB(int program, int location, long x);
-
 	/**
 	 * Specifies the value of an int64_t uniform variable for the specified program object.
 	 *
@@ -108,9 +100,7 @@ public class ARBGPUShaderInt64 {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1i64ARB(int program, int location, long x) {
-		nglProgramUniform1i64ARB(program, location, x);
-	}
+	public static native void glProgramUniform1i64ARB(int program, int location, long x);
 
 	// --- [ glProgramUniform1i64vARB ] ---
 
@@ -134,9 +124,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform2i64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform2i64ARB Uniform2i64ARB} */
-	public static native void nglUniform2i64ARB(int location, long x, long y);
-
 	/**
 	 * Specifies the value of an i64vec2 uniform variable for the current program object.
 	 *
@@ -144,9 +131,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glUniform2i64ARB(int location, long x, long y) {
-		nglUniform2i64ARB(location, x, y);
-	}
+	public static native void glUniform2i64ARB(int location, long x, long y);
 
 	// --- [ glUniform2i64vARB ] ---
 
@@ -169,9 +154,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform2i64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform2i64ARB ProgramUniform2i64ARB} */
-	public static native void nglProgramUniform2i64ARB(int program, int location, long x, long y);
-
 	/**
 	 * Specifies the value of an i64vec2 uniform variable for the specified program object.
 	 *
@@ -180,9 +162,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2i64ARB(int program, int location, long x, long y) {
-		nglProgramUniform2i64ARB(program, location, x, y);
-	}
+	public static native void glProgramUniform2i64ARB(int program, int location, long x, long y);
 
 	// --- [ glProgramUniform2i64vARB ] ---
 
@@ -206,9 +186,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform3i64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform3i64ARB Uniform3i64ARB} */
-	public static native void nglUniform3i64ARB(int location, long x, long y, long z);
-
 	/**
 	 * Specifies the value of an i64vec3 uniform variable for the current program object.
 	 *
@@ -217,9 +194,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glUniform3i64ARB(int location, long x, long y, long z) {
-		nglUniform3i64ARB(location, x, y, z);
-	}
+	public static native void glUniform3i64ARB(int location, long x, long y, long z);
 
 	// --- [ glUniform3i64vARB ] ---
 
@@ -242,9 +217,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform3i64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform3i64ARB ProgramUniform3i64ARB} */
-	public static native void nglProgramUniform3i64ARB(int program, int location, long x, long y, long z);
-
 	/**
 	 * Specifies the value of an i64vec3 uniform variable for the specified program object.
 	 *
@@ -254,9 +226,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3i64ARB(int program, int location, long x, long y, long z) {
-		nglProgramUniform3i64ARB(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3i64ARB(int program, int location, long x, long y, long z);
 
 	// --- [ glProgramUniform3i64vARB ] ---
 
@@ -280,9 +250,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform4i64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform4i64ARB Uniform4i64ARB} */
-	public static native void nglUniform4i64ARB(int location, long x, long y, long z, long w);
-
 	/**
 	 * Specifies the value of an i64vec4 uniform variable for the current program object.
 	 *
@@ -292,9 +259,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glUniform4i64ARB(int location, long x, long y, long z, long w) {
-		nglUniform4i64ARB(location, x, y, z, w);
-	}
+	public static native void glUniform4i64ARB(int location, long x, long y, long z, long w);
 
 	// --- [ glUniform4i64vARB ] ---
 
@@ -317,9 +282,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform4i64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform4i64ARB ProgramUniform4i64ARB} */
-	public static native void nglProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w);
-
 	/**
 	 * Specifies the value of an i64vec4 uniform variable for the specified program object.
 	 *
@@ -330,9 +292,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w) {
-		nglProgramUniform4i64ARB(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w);
 
 	// --- [ glProgramUniform4i64vARB ] ---
 
@@ -356,18 +316,13 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform1ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform1ui64ARB Uniform1ui64ARB} */
-	public static native void nglUniform1ui64ARB(int location, long x);
-
 	/**
 	 * Specifies the value of an uint64_t uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glUniform1ui64ARB(int location, long x) {
-		nglUniform1ui64ARB(location, x);
-	}
+	public static native void glUniform1ui64ARB(int location, long x);
 
 	// --- [ glUniform1ui64vARB ] ---
 
@@ -390,9 +345,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform1ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform1ui64ARB ProgramUniform1ui64ARB} */
-	public static native void nglProgramUniform1ui64ARB(int program, int location, long x);
-
 	/**
 	 * Specifies the value of an uint64_t uniform variable for the current program object.
 	 *
@@ -400,9 +352,7 @@ public class ARBGPUShaderInt64 {
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glProgramUniform1ui64ARB(int program, int location, long x) {
-		nglProgramUniform1ui64ARB(program, location, x);
-	}
+	public static native void glProgramUniform1ui64ARB(int program, int location, long x);
 
 	// --- [ glProgramUniform1ui64vARB ] ---
 
@@ -426,9 +376,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform2ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform2ui64ARB Uniform2ui64ARB} */
-	public static native void nglUniform2ui64ARB(int location, long x, long y);
-
 	/**
 	 * Specifies the value of an u64vec2 uniform variable for the current program object.
 	 *
@@ -436,9 +383,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glUniform2ui64ARB(int location, long x, long y) {
-		nglUniform2ui64ARB(location, x, y);
-	}
+	public static native void glUniform2ui64ARB(int location, long x, long y);
 
 	// --- [ glUniform2ui64vARB ] ---
 
@@ -461,9 +406,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform2ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform2ui64ARB ProgramUniform2ui64ARB} */
-	public static native void nglProgramUniform2ui64ARB(int program, int location, long x, long y);
-
 	/**
 	 * Specifies the value of an u64vec2 uniform variable for the current program object.
 	 *
@@ -472,9 +414,7 @@ public class ARBGPUShaderInt64 {
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glProgramUniform2ui64ARB(int program, int location, long x, long y) {
-		nglProgramUniform2ui64ARB(program, location, x, y);
-	}
+	public static native void glProgramUniform2ui64ARB(int program, int location, long x, long y);
 
 	// --- [ glProgramUniform2ui64vARB ] ---
 
@@ -498,9 +438,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform3ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform3ui64ARB Uniform3ui64ARB} */
-	public static native void nglUniform3ui64ARB(int location, long x, long y, long z);
-
 	/**
 	 * Specifies the value of an u64vec3 uniform variable for the current program object.
 	 *
@@ -509,9 +446,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glUniform3ui64ARB(int location, long x, long y, long z) {
-		nglUniform3ui64ARB(location, x, y, z);
-	}
+	public static native void glUniform3ui64ARB(int location, long x, long y, long z);
 
 	// --- [ glUniform3ui64vARB ] ---
 
@@ -534,9 +469,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform3ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform3ui64ARB ProgramUniform3ui64ARB} */
-	public static native void nglProgramUniform3ui64ARB(int program, int location, long x, long y, long z);
-
 	/**
 	 * Specifies the value of an u64vec3 uniform variable for the current program object.
 	 *
@@ -546,9 +478,7 @@ public class ARBGPUShaderInt64 {
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glProgramUniform3ui64ARB(int program, int location, long x, long y, long z) {
-		nglProgramUniform3ui64ARB(program, location, x, y, z);
-	}
+	public static native void glProgramUniform3ui64ARB(int program, int location, long x, long y, long z);
 
 	// --- [ glProgramUniform3ui64vARB ] ---
 
@@ -572,9 +502,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glUniform4ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glUniform4ui64ARB Uniform4ui64ARB} */
-	public static native void nglUniform4ui64ARB(int location, long x, long y, long z, long w);
-
 	/**
 	 * Specifies the value of an u64vec4 uniform variable for the current program object.
 	 *
@@ -584,9 +511,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glUniform4ui64ARB(int location, long x, long y, long z, long w) {
-		nglUniform4ui64ARB(location, x, y, z, w);
-	}
+	public static native void glUniform4ui64ARB(int location, long x, long y, long z, long w);
 
 	// --- [ glUniform4ui64vARB ] ---
 
@@ -609,9 +534,6 @@ public class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform4ui64ARB ] ---
 
-	/** Unsafe version of: {@link #glProgramUniform4ui64ARB ProgramUniform4ui64ARB} */
-	public static native void nglProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w);
-
 	/**
 	 * Specifies the value of an u64vec4 uniform variable for the current program object.
 	 *
@@ -622,9 +544,7 @@ public class ARBGPUShaderInt64 {
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w) {
-		nglProgramUniform4ui64ARB(program, location, x, y, z, w);
-	}
+	public static native void glProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w);
 
 	// --- [ glProgramUniform4ui64vARB ] ---
 

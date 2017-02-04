@@ -202,108 +202,59 @@ public class GL20 {
 
 	// --- [ glCreateProgram ] ---
 
-	/** Unsafe version of: {@link #glCreateProgram CreateProgram} */
-	public static native int nglCreateProgram();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Creates a program object.
-	 */
-	public static int glCreateProgram() {
-		return nglCreateProgram();
-	}
+	/** Creates a program object. */
+	public static native int glCreateProgram();
 
 	// --- [ glDeleteProgram ] ---
 
-	/** Unsafe version of: {@link #glDeleteProgram DeleteProgram} */
-	public static native void nglDeleteProgram(int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Deletes a program object.
 	 *
 	 * @param program the program object to be deleted
 	 */
-	public static void glDeleteProgram(int program) {
-		nglDeleteProgram(program);
-	}
+	public static native void glDeleteProgram(int program);
 
 	// --- [ glIsProgram ] ---
 
-	/** Unsafe version of: {@link #glIsProgram IsProgram} */
-	public static native boolean nglIsProgram(int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Returns {@link GL11#GL_TRUE TRUE} if {@code program} is the name of a program object. If {@code program} is zero, or a non-zero value that is not the name of a program
 	 * object, IsProgram returns {@link GL11#GL_FALSE FALSE}. No error is generated if program is not a valid program object name.
 	 *
 	 * @param program the program object name to query
 	 */
-	public static boolean glIsProgram(int program) {
-		return nglIsProgram(program);
-	}
+	public static native boolean glIsProgram(int program);
 
 	// --- [ glCreateShader ] ---
 
-	/** Unsafe version of: {@link #glCreateShader CreateShader} */
-	public static native int nglCreateShader(int type);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Creates a shader object.
 	 *
 	 * @param type the type of shader to be created. One of:<br><table><tr><td>{@link #GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link #GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
 	 */
-	public static int glCreateShader(int type) {
-		return nglCreateShader(type);
-	}
+	public static native int glCreateShader(int type);
 
 	// --- [ glDeleteShader ] ---
 
-	/** Unsafe version of: {@link #glDeleteShader DeleteShader} */
-	public static native void nglDeleteShader(int shader);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Deletes a shader object.
 	 *
 	 * @param shader the shader object to be deleted
 	 */
-	public static void glDeleteShader(int shader) {
-		nglDeleteShader(shader);
-	}
+	public static native void glDeleteShader(int shader);
 
 	// --- [ glIsShader ] ---
 
-	/** Unsafe version of: {@link #glIsShader IsShader} */
-	public static native boolean nglIsShader(int shader);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Returns {@link GL11#GL_TRUE TRUE} if {@code shader} is the name of a shader object. If {@code shader} is zero, or a nonzero value that is not the name of a shader
 	 * object, IsShader returns {@link GL11#GL_FALSE FALSE}. No error is generated if shader is not a valid shader object name.
 	 *
 	 * @param shader the shader object name to query
 	 */
-	public static boolean glIsShader(int shader) {
-		return nglIsShader(shader);
-	}
+	public static native boolean glIsShader(int shader);
 
 	// --- [ glAttachShader ] ---
 
-	/** Unsafe version of: {@link #glAttachShader AttachShader} */
-	public static native void nglAttachShader(int program, int shader);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glAttachShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a shader object to a program object.
 	 * 
 	 * <p>In order to create a complete shader program, there must be a way to specify the list of things that will be linked together. Program objects provide
@@ -320,26 +271,17 @@ public class GL20 {
 	 * @param program the program object to which a shader object will be attached
 	 * @param shader  the shader object that is to be attached
 	 */
-	public static void glAttachShader(int program, int shader) {
-		nglAttachShader(program, shader);
-	}
+	public static native void glAttachShader(int program, int shader);
 
 	// --- [ glDetachShader ] ---
 
-	/** Unsafe version of: {@link #glDetachShader DetachShader} */
-	public static native void nglDetachShader(int program, int shader);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDetachShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Detaches a shader object from a program object to which it is attached.
 	 *
 	 * @param program the program object from which to detach the shader object
 	 * @param shader  the shader object to be detached
 	 */
-	public static void glDetachShader(int program, int shader) {
-		nglDetachShader(program, shader);
-	}
+	public static native void glDetachShader(int program, int shader);
 
 	// --- [ glShaderSource ] ---
 
@@ -419,111 +361,64 @@ public class GL20 {
 
 	// --- [ glCompileShader ] ---
 
-	/** Unsafe version of: {@link #glCompileShader CompileShader} */
-	public static native void nglCompileShader(int shader);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompileShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Compiles a shader object.
 	 *
 	 * @param shader the shader object to be compiled
 	 */
-	public static void glCompileShader(int shader) {
-		nglCompileShader(shader);
-	}
+	public static native void glCompileShader(int shader);
 
 	// --- [ glLinkProgram ] ---
 
-	/** Unsafe version of: {@link #glLinkProgram LinkProgram} */
-	public static native void nglLinkProgram(int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLinkProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Links a program object.
 	 *
 	 * @param program the program object to be linked
 	 */
-	public static void glLinkProgram(int program) {
-		nglLinkProgram(program);
-	}
+	public static native void glLinkProgram(int program);
 
 	// --- [ glUseProgram ] ---
 
-	/** Unsafe version of: {@link #glUseProgram UseProgram} */
-	public static native void nglUseProgram(int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Installs a program object as part of current rendering state.
 	 *
 	 * @param program the program object whose executables are to be used as part of current rendering state
 	 */
-	public static void glUseProgram(int program) {
-		nglUseProgram(program);
-	}
+	public static native void glUseProgram(int program);
 
 	// --- [ glValidateProgram ] ---
 
-	/** Unsafe version of: {@link #glValidateProgram ValidateProgram} */
-	public static native void nglValidateProgram(int program);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Validates a program object.
 	 *
 	 * @param program the program object to be validated
 	 */
-	public static void glValidateProgram(int program) {
-		nglValidateProgram(program);
-	}
+	public static native void glValidateProgram(int program);
 
 	// --- [ glUniform1f ] ---
 
-	/** Unsafe version of: {@link #glUniform1f Uniform1f} */
-	public static native void nglUniform1f(int location, float v0);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a float uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform value
 	 */
-	public static void glUniform1f(int location, float v0) {
-		nglUniform1f(location, v0);
-	}
+	public static native void glUniform1f(int location, float v0);
 
 	// --- [ glUniform2f ] ---
 
-	/** Unsafe version of: {@link #glUniform2f Uniform2f} */
-	public static native void nglUniform2f(int location, float v0, float v1);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a vec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform x value
 	 * @param v1       the uniform y value
 	 */
-	public static void glUniform2f(int location, float v0, float v1) {
-		nglUniform2f(location, v0, v1);
-	}
+	public static native void glUniform2f(int location, float v0, float v1);
 
 	// --- [ glUniform3f ] ---
 
-	/** Unsafe version of: {@link #glUniform3f Uniform3f} */
-	public static native void nglUniform3f(int location, float v0, float v1, float v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a vec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -531,18 +426,11 @@ public class GL20 {
 	 * @param v1       the uniform y value
 	 * @param v2       the uniform z value
 	 */
-	public static void glUniform3f(int location, float v0, float v1, float v2) {
-		nglUniform3f(location, v0, v1, v2);
-	}
+	public static native void glUniform3f(int location, float v0, float v1, float v2);
 
 	// --- [ glUniform4f ] ---
 
-	/** Unsafe version of: {@link #glUniform4f Uniform4f} */
-	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a vec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -551,53 +439,32 @@ public class GL20 {
 	 * @param v2       the uniform z value
 	 * @param v3       the uniform w value
 	 */
-	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
-		nglUniform4f(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4f(int location, float v0, float v1, float v2, float v3);
 
 	// --- [ glUniform1i ] ---
 
-	/** Unsafe version of: {@link #glUniform1i Uniform1i} */
-	public static native void nglUniform1i(int location, int v0);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an int uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform value
 	 */
-	public static void glUniform1i(int location, int v0) {
-		nglUniform1i(location, v0);
-	}
+	public static native void glUniform1i(int location, int v0);
 
 	// --- [ glUniform2i ] ---
 
-	/** Unsafe version of: {@link #glUniform2i Uniform2i} */
-	public static native void nglUniform2i(int location, int v0, int v1);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an ivec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform x value
 	 * @param v1       the uniform y value
 	 */
-	public static void glUniform2i(int location, int v0, int v1) {
-		nglUniform2i(location, v0, v1);
-	}
+	public static native void glUniform2i(int location, int v0, int v1);
 
 	// --- [ glUniform3i ] ---
 
-	/** Unsafe version of: {@link #glUniform3i Uniform3i} */
-	public static native void nglUniform3i(int location, int v0, int v1, int v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an ivec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -605,18 +472,11 @@ public class GL20 {
 	 * @param v1       the uniform y value
 	 * @param v2       the uniform z value
 	 */
-	public static void glUniform3i(int location, int v0, int v1, int v2) {
-		nglUniform3i(location, v0, v1, v2);
-	}
+	public static native void glUniform3i(int location, int v0, int v1, int v2);
 
 	// --- [ glUniform4i ] ---
 
-	/** Unsafe version of: {@link #glUniform4i Uniform4i} */
-	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an ivec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -625,9 +485,7 @@ public class GL20 {
 	 * @param v2       the uniform z value
 	 * @param v3       the uniform w value
 	 */
-	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-		nglUniform4i(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4i(int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glUniform1fv ] ---
 
@@ -1321,117 +1179,70 @@ public class GL20 {
 
 	// --- [ glVertexAttrib1f ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib1f VertexAttrib1f} */
-	public static native void nglVertexAttrib1f(int index, float v0);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0f and w to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 */
-	public static void glVertexAttrib1f(int index, float v0) {
-		nglVertexAttrib1f(index, v0);
-	}
+	public static native void glVertexAttrib1f(int index, float v0);
 
 	// --- [ glVertexAttrib1s ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib1s VertexAttrib1s} */
-	public static native void nglVertexAttrib1s(int index, short v0);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1s.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Short version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 */
-	public static void glVertexAttrib1s(int index, short v0) {
-		nglVertexAttrib1s(index, v0);
-	}
+	public static native void glVertexAttrib1s(int index, short v0);
 
 	// --- [ glVertexAttrib1d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib1d VertexAttrib1d} */
-	public static native void nglVertexAttrib1d(int index, double v0);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Double version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 */
-	public static void glVertexAttrib1d(int index, double v0) {
-		nglVertexAttrib1d(index, v0);
-	}
+	public static native void glVertexAttrib1d(int index, double v0);
 
 	// --- [ glVertexAttrib2f ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib2f VertexAttrib2f} */
-	public static native void nglVertexAttrib2f(int index, float v0, float v1);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0f and w to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 * @param v1    the vertex attribute y component
 	 */
-	public static void glVertexAttrib2f(int index, float v0, float v1) {
-		nglVertexAttrib2f(index, v0, v1);
-	}
+	public static native void glVertexAttrib2f(int index, float v0, float v1);
 
 	// --- [ glVertexAttrib2s ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib2s VertexAttrib2s} */
-	public static native void nglVertexAttrib2s(int index, short v0, short v1);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2s.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Short version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 * @param v1    the vertex attribute y component
 	 */
-	public static void glVertexAttrib2s(int index, short v0, short v1) {
-		nglVertexAttrib2s(index, v0, v1);
-	}
+	public static native void glVertexAttrib2s(int index, short v0, short v1);
 
 	// --- [ glVertexAttrib2d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib2d VertexAttrib2d} */
-	public static native void nglVertexAttrib2d(int index, double v0, double v1);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Double version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
 	 * @param v1    the vertex attribute y component
 	 */
-	public static void glVertexAttrib2d(int index, double v0, double v1) {
-		nglVertexAttrib2d(index, v0, v1);
-	}
+	public static native void glVertexAttrib2d(int index, double v0, double v1);
 
 	// --- [ glVertexAttrib3f ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib3f VertexAttrib3f} */
-	public static native void nglVertexAttrib3f(int index, float v0, float v1, float v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1439,18 +1250,11 @@ public class GL20 {
 	 * @param v1    the vertex attribute y component
 	 * @param v2    the vertex attribute z component
 	 */
-	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
-		nglVertexAttrib3f(index, v0, v1, v2);
-	}
+	public static native void glVertexAttrib3f(int index, float v0, float v1, float v2);
 
 	// --- [ glVertexAttrib3s ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib3s VertexAttrib3s} */
-	public static native void nglVertexAttrib3s(int index, short v0, short v1, short v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3s.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Short version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1458,18 +1262,11 @@ public class GL20 {
 	 * @param v1    the vertex attribute y component
 	 * @param v2    the vertex attribute z component
 	 */
-	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
-		nglVertexAttrib3s(index, v0, v1, v2);
-	}
+	public static native void glVertexAttrib3s(int index, short v0, short v1, short v2);
 
 	// --- [ glVertexAttrib3d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib3d VertexAttrib3d} */
-	public static native void nglVertexAttrib3d(int index, double v0, double v1, double v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Double version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1477,18 +1274,11 @@ public class GL20 {
 	 * @param v1    the vertex attribute y component
 	 * @param v2    the vertex attribute z component
 	 */
-	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
-		nglVertexAttrib3d(index, v0, v1, v2);
-	}
+	public static native void glVertexAttrib3d(int index, double v0, double v1, double v2);
 
 	// --- [ glVertexAttrib4f ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib4f VertexAttrib4f} */
-	public static native void nglVertexAttrib4f(int index, float v0, float v1, float v2, float v3);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4f.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a generic vertex attribute.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1497,18 +1287,11 @@ public class GL20 {
 	 * @param v2    the vertex attribute z component
 	 * @param v3    the vertex attribute w component
 	 */
-	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
-		nglVertexAttrib4f(index, v0, v1, v2, v3);
-	}
+	public static native void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3);
 
 	// --- [ glVertexAttrib4s ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib4s VertexAttrib4s} */
-	public static native void nglVertexAttrib4s(int index, short v0, short v1, short v2, short v3);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4s.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Short version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1517,18 +1300,11 @@ public class GL20 {
 	 * @param v2    the vertex attribute z component
 	 * @param v3    the vertex attribute w component
 	 */
-	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
-		nglVertexAttrib4s(index, v0, v1, v2, v3);
-	}
+	public static native void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3);
 
 	// --- [ glVertexAttrib4d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib4d VertexAttrib4d} */
-	public static native void nglVertexAttrib4d(int index, double v0, double v1, double v2, double v3);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Double version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1537,18 +1313,11 @@ public class GL20 {
 	 * @param v2    the vertex attribute z component
 	 * @param v3    the vertex attribute w component
 	 */
-	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
-		nglVertexAttrib4d(index, v0, v1, v2, v3);
-	}
+	public static native void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3);
 
 	// --- [ glVertexAttrib4Nub ] ---
 
-	/** Unsafe version of: {@link #glVertexAttrib4Nub VertexAttrib4Nub} */
-	public static native void nglVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Normalized unsigned byte version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1557,9 +1326,7 @@ public class GL20 {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
-		nglVertexAttrib4Nub(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w);
 
 	// --- [ glVertexAttrib1fv ] ---
 
@@ -2095,35 +1862,21 @@ public class GL20 {
 
 	// --- [ glEnableVertexAttribArray ] ---
 
-	/** Unsafe version of: {@link #glEnableVertexAttribArray EnableVertexAttribArray} */
-	public static native void nglEnableVertexAttribArray(int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Enables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
-	public static void glEnableVertexAttribArray(int index) {
-		nglEnableVertexAttribArray(index);
-	}
+	public static native void glEnableVertexAttribArray(int index);
 
 	// --- [ glDisableVertexAttribArray ] ---
 
-	/** Unsafe version of: {@link #glDisableVertexAttribArray DisableVertexAttribArray} */
-	public static native void nglDisableVertexAttribArray(int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Disables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
-	public static void glDisableVertexAttribArray(int index) {
-		nglDisableVertexAttribArray(index);
-	}
+	public static native void glDisableVertexAttribArray(int index);
 
 	// --- [ glBindAttribLocation ] ---
 
@@ -2428,29 +2181,17 @@ public class GL20 {
 
 	// --- [ glBlendEquationSeparate ] ---
 
-	/** Unsafe version of: {@link #glBlendEquationSeparate BlendEquationSeparate} */
-	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the RGB blend equation and the alpha blend equation separately.
 	 *
 	 * @param modeRGB   the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined
 	 */
-	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparate(modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparate(int modeRGB, int modeAlpha);
 
 	// --- [ glStencilOpSeparate ] ---
 
-	/** Unsafe version of: {@link #glStencilOpSeparate StencilOpSeparate} */
-	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilOpSeparate.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets front and/or back stencil test actions.
 	 *
 	 * @param face   whether front and/or back stencil state is updated. One of:<br><table><tr><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
@@ -2459,18 +2200,11 @@ public class GL20 {
 	 * @param dppass the stencil action when both the stencil test and the depth test pass, or when the stencil test passes and either there is no depth buffer or depth
 	 *               testing is not enabled. The initial value is GL_KEEP
 	 */
-	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
-		nglStencilOpSeparate(face, sfail, dpfail, dppass);
-	}
+	public static native void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
 
 	// --- [ glStencilFuncSeparate ] ---
 
-	/** Unsafe version of: {@link #glStencilFuncSeparate StencilFuncSeparate} */
-	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets front and/or back function and reference value for stencil testing.
 	 *
 	 * @param face whether front and/or back stencil state is updated. One of:<br><table><tr><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
@@ -2479,26 +2213,17 @@ public class GL20 {
 	 *             buffer. The initial value is 0.
 	 * @param mask a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The initial value is all 1's.
 	 */
-	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
-		nglStencilFuncSeparate(face, func, ref, mask);
-	}
+	public static native void glStencilFuncSeparate(int face, int func, int ref, int mask);
 
 	// --- [ glStencilMaskSeparate ] ---
 
-	/** Unsafe version of: {@link #glStencilMaskSeparate StencilMaskSeparate} */
-	public static native void nglStencilMaskSeparate(int face, int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilMaskSeparate.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls the front and/or back writing of individual bits in the stencil planes.
 	 *
 	 * @param face whether front and/or back stencil writemask is updated. One of:<br><table><tr><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
 	 * @param mask a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 1's.
 	 */
-	public static void glStencilMaskSeparate(int face, int mask) {
-		nglStencilMaskSeparate(face, mask);
-	}
+	public static native void glStencilMaskSeparate(int face, int mask);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>

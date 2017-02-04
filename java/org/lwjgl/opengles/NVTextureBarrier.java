@@ -28,12 +28,7 @@ public class NVTextureBarrier {
 
 	// --- [ glTextureBarrierNV ] ---
 
-	/** Unsafe version of: {@link #glTextureBarrierNV TextureBarrierNV} */
-	public static native void nglTextureBarrierNV();
-
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
-	public static void glTextureBarrierNV() {
-		nglTextureBarrierNV();
-	}
+	public static native void glTextureBarrierNV();
 
 }

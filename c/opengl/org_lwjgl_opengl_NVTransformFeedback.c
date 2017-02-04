@@ -21,13 +21,13 @@ typedef void (APIENTRY *glTransformFeedbackStreamAttribsNVPROC) (jint, const int
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglBeginTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint primitiveMode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBeginTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint primitiveMode) {
 	glBeginTransformFeedbackNVPROC glBeginTransformFeedbackNV = (glBeginTransformFeedbackNVPROC)tlsGetFunction(24);
 	UNUSED_PARAM(clazz)
 	glBeginTransformFeedbackNV(primitiveMode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglEndTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glEndTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
 	glEndTransformFeedbackNVPROC glEndTransformFeedbackNV = (glEndTransformFeedbackNVPROC)tlsGetFunction(403);
 	UNUSED_PARAM(clazz)
 	glEndTransformFeedbackNV();
@@ -40,19 +40,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglTransformFee
 	glTransformFeedbackAttribsNV(count, attribs, bufferMode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglBindBufferRangeNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBindBufferRangeNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset, jlong size) {
 	glBindBufferRangeNVPROC glBindBufferRangeNV = (glBindBufferRangeNVPROC)tlsGetFunction(36);
 	UNUSED_PARAM(clazz)
 	glBindBufferRangeNV(target, index, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglBindBufferOffsetNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBindBufferOffsetNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset) {
 	glBindBufferOffsetNVPROC glBindBufferOffsetNV = (glBindBufferOffsetNVPROC)tlsGetFunction(33);
 	UNUSED_PARAM(clazz)
 	glBindBufferOffsetNV(target, index, buffer, (intptr_t)offset);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglBindBufferBaseNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBindBufferBaseNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer) {
 	glBindBufferBaseNVPROC glBindBufferBaseNV = (glBindBufferBaseNVPROC)tlsGetFunction(31);
 	UNUSED_PARAM(clazz)
 	glBindBufferBaseNV(target, index, buffer);

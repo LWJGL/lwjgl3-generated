@@ -54,10 +54,6 @@ public class EXTProvokingVertex {
 
 	// --- [ glProvokingVertexEXT ] ---
 
-	public static native void nglProvokingVertexEXT(int mode);
-
-	public static void glProvokingVertexEXT(int mode) {
-		nglProvokingVertexEXT(mode);
-	}
+	public static native void glProvokingVertexEXT(int mode);
 
 }

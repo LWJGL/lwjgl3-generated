@@ -49,10 +49,6 @@ public class NVFramebufferMultisampleCoverage {
 
 	// --- [ glRenderbufferStorageMultisampleCoverageNV ] ---
 
-	public static native void nglRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height);
 
 }

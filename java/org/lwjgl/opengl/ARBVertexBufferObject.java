@@ -124,18 +124,13 @@ public class ARBVertexBufferObject {
 
 	// --- [ glBindBufferARB ] ---
 
-	/** Unsafe version of: {@link #glBindBufferARB BindBufferARB} */
-	public static native void nglBindBufferARB(int target, int buffer);
-
 	/**
 	 * Binds a named buffer object.
 	 *
 	 * @param target the target to which the buffer object is bound. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
 	 * @param buffer the name of a buffer object
 	 */
-	public static void glBindBufferARB(int target, int buffer) {
-		nglBindBufferARB(target, buffer);
-	}
+	public static native void glBindBufferARB(int target, int buffer);
 
 	// --- [ glDeleteBuffersARB ] ---
 
@@ -198,17 +193,12 @@ public class ARBVertexBufferObject {
 
 	// --- [ glIsBufferARB ] ---
 
-	/** Unsafe version of: {@link #glIsBufferARB IsBufferARB} */
-	public static native boolean nglIsBufferARB(int buffer);
-
 	/**
 	 * Determines if a name corresponds to a buffer object.
 	 *
 	 * @param buffer a value that may be the name of a buffer object
 	 */
-	public static boolean glIsBufferARB(int buffer) {
-		return nglIsBufferARB(buffer);
-	}
+	public static native boolean glIsBufferARB(int buffer);
 
 	// --- [ glBufferDataARB ] ---
 
@@ -592,9 +582,6 @@ public class ARBVertexBufferObject {
 
 	// --- [ glUnmapBufferARB ] ---
 
-	/** Unsafe version of: {@link #glUnmapBufferARB UnmapBufferARB} */
-	public static native boolean nglUnmapBufferARB(int target);
-
 	/**
 	 * Relinquishes the mapping of a buffer object and invalidates the pointer to its data store.
 	 * 
@@ -605,9 +592,7 @@ public class ARBVertexBufferObject {
 	 *
 	 * @param target the target buffer object being unmapped. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
 	 */
-	public static boolean glUnmapBufferARB(int target) {
-		return nglUnmapBufferARB(target);
-	}
+	public static native boolean glUnmapBufferARB(int target);
 
 	// --- [ glGetBufferParameterivARB ] ---
 

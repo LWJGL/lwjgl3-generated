@@ -81,11 +81,7 @@ public class EXTRobustness {
 
 	// --- [ glGetGraphicsResetStatusEXT ] ---
 
-	public static native int nglGetGraphicsResetStatusEXT();
-
-	public static int glGetGraphicsResetStatusEXT() {
-		return nglGetGraphicsResetStatusEXT();
-	}
+	public static native int glGetGraphicsResetStatusEXT();
 
 	// --- [ glReadnPixelsEXT ] ---
 

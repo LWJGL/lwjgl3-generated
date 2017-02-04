@@ -10,7 +10,7 @@ typedef void (APIENTRY *glProvokingVertexPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBProvokingVertex_nglProvokingVertex(JNIEnv *__env, jclass clazz, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBProvokingVertex_glProvokingVertex(JNIEnv *__env, jclass clazz, jint mode) {
 	glProvokingVertexPROC glProvokingVertex = (glProvokingVertexPROC)tlsGetFunction(1396);
 	UNUSED_PARAM(clazz)
 	glProvokingVertex(mode);

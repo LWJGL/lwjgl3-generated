@@ -112,11 +112,7 @@ public class NVTextureArray {
 
 	// --- [ glCopyTexSubImage3DNV ] ---
 
-	public static native void nglCopyTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-	public static void glCopyTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glCompressedTexImage3DNV ] ---
 
@@ -144,11 +140,7 @@ public class NVTextureArray {
 
 	// --- [ glFramebufferTextureLayerNV ] ---
 
-	public static native void nglFramebufferTextureLayerNV(int target, int attachment, int texture, int level, int layer);
-
-	public static void glFramebufferTextureLayerNV(int target, int attachment, int texture, int level, int layer) {
-		nglFramebufferTextureLayerNV(target, attachment, texture, level, layer);
-	}
+	public static native void glFramebufferTextureLayerNV(int target, int attachment, int texture, int level, int layer);
 
 	/** Array version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, short[] pixels) {

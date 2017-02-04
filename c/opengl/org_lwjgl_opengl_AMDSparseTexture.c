@@ -11,13 +11,13 @@ typedef void (APIENTRY *glTextureStorageSparseAMDPROC) (jint, jint, jint, jint, 
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDSparseTexture_nglTexStorageSparseAMD(JNIEnv *__env, jclass clazz, jint target, jint internalFormat, jint width, jint height, jint depth, jint layers, jint flags) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDSparseTexture_glTexStorageSparseAMD(JNIEnv *__env, jclass clazz, jint target, jint internalFormat, jint width, jint height, jint depth, jint layers, jint flags) {
 	glTexStorageSparseAMDPROC glTexStorageSparseAMD = (glTexStorageSparseAMDPROC)tlsGetFunction(1635);
 	UNUSED_PARAM(clazz)
 	glTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDSparseTexture_nglTextureStorageSparseAMD(JNIEnv *__env, jclass clazz, jint texture, jint target, jint internalFormat, jint width, jint height, jint depth, jint layers, jint flags) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDSparseTexture_glTextureStorageSparseAMD(JNIEnv *__env, jclass clazz, jint texture, jint target, jint internalFormat, jint width, jint height, jint depth, jint layers, jint flags) {
 	glTextureStorageSparseAMDPROC glTextureStorageSparseAMD = (glTextureStorageSparseAMDPROC)tlsGetFunction(1676);
 	UNUSED_PARAM(clazz)
 	glTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags);

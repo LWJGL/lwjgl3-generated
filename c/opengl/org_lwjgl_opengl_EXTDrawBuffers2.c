@@ -15,7 +15,7 @@ typedef jboolean (APIENTRY *glIsEnabledIndexedEXTPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglColorMaskIndexedEXT(JNIEnv *__env, jclass clazz, jint index, jboolean r, jboolean g, jboolean b, jboolean a) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glColorMaskIndexedEXT(JNIEnv *__env, jclass clazz, jint index, jboolean r, jboolean g, jboolean b, jboolean a) {
 	glColorMaskIndexedEXTPROC glColorMaskIndexedEXT = (glColorMaskIndexedEXTPROC)tlsGetFunction(176);
 	UNUSED_PARAM(clazz)
 	glColorMaskIndexedEXT(index, r, g, b, a);
@@ -35,19 +35,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglGetIntegerIndexe
 	glGetIntegerIndexedvEXT(target, index, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglEnableIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glEnableIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glEnableIndexedEXTPROC glEnableIndexedEXT = (glEnableIndexedEXTPROC)tlsGetFunction(384);
 	UNUSED_PARAM(clazz)
 	glEnableIndexedEXT(target, index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglDisableIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glDisableIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glDisableIndexedEXTPROC glDisableIndexedEXT = (glDisableIndexedEXTPROC)tlsGetFunction(334);
 	UNUSED_PARAM(clazz)
 	glDisableIndexedEXT(target, index);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglIsEnabledIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glIsEnabledIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glIsEnabledIndexedEXTPROC glIsEnabledIndexedEXT = (glIsEnabledIndexedEXTPROC)tlsGetFunction(859);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsEnabledIndexedEXT(target, index);

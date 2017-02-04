@@ -42,66 +42,34 @@ public class OESDrawBuffersIndexed {
 
 	// --- [ glEnableiOES ] ---
 
-	public static native void nglEnableiOES(int target, int index);
-
-	public static void glEnableiOES(int target, int index) {
-		nglEnableiOES(target, index);
-	}
+	public static native void glEnableiOES(int target, int index);
 
 	// --- [ glDisableiOES ] ---
 
-	public static native void nglDisableiOES(int target, int index);
-
-	public static void glDisableiOES(int target, int index) {
-		nglDisableiOES(target, index);
-	}
+	public static native void glDisableiOES(int target, int index);
 
 	// --- [ glBlendEquationiOES ] ---
 
-	public static native void nglBlendEquationiOES(int buf, int mode);
-
-	public static void glBlendEquationiOES(int buf, int mode) {
-		nglBlendEquationiOES(buf, mode);
-	}
+	public static native void glBlendEquationiOES(int buf, int mode);
 
 	// --- [ glBlendEquationSeparateiOES ] ---
 
-	public static native void nglBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha);
-
-	public static void glBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparateiOES(buf, modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunciOES ] ---
 
-	public static native void nglBlendFunciOES(int buf, int src, int dst);
-
-	public static void glBlendFunciOES(int buf, int src, int dst) {
-		nglBlendFunciOES(buf, src, dst);
-	}
+	public static native void glBlendFunciOES(int buf, int src, int dst);
 
 	// --- [ glBlendFuncSeparateiOES ] ---
 
-	public static native void nglBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-
-	public static void glBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		nglBlendFuncSeparateiOES(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-	}
+	public static native void glBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	// --- [ glColorMaskiOES ] ---
 
-	public static native void nglColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a);
-
-	public static void glColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a) {
-		nglColorMaskiOES(index, r, g, b, a);
-	}
+	public static native void glColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a);
 
 	// --- [ glIsEnablediOES ] ---
 
-	public static native boolean nglIsEnablediOES(int target, int index);
-
-	public static boolean glIsEnablediOES(int target, int index) {
-		return nglIsEnablediOES(target, index);
-	}
+	public static native boolean glIsEnablediOES(int target, int index);
 
 }

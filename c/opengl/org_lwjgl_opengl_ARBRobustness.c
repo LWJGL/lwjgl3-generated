@@ -29,7 +29,7 @@ typedef void (APIENTRY *glGetnUniformdvARBPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetGraphicsResetStatusARB(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBRobustness_glGetGraphicsResetStatusARB(JNIEnv *__env, jclass clazz) {
 	glGetGraphicsResetStatusARBPROC glGetGraphicsResetStatusARB = (glGetGraphicsResetStatusARBPROC)tlsGetFunction(554);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetGraphicsResetStatusARB();

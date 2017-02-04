@@ -21,7 +21,7 @@ typedef void (APIENTRY *glMulticastGetQueryObjectui64vNVPROC) (jint, jint, jint,
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglRenderGpuMaskNV(JNIEnv *__env, jclass clazz, jint mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glRenderGpuMaskNV(JNIEnv *__env, jclass clazz, jint mask) {
 	glRenderGpuMaskNVPROC glRenderGpuMaskNV = (glRenderGpuMaskNVPROC)tlsGetFunction(1445);
 	UNUSED_PARAM(clazz)
 	glRenderGpuMaskNV(mask);
@@ -34,19 +34,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastBufferSu
 	glMulticastBufferSubDataNV(gpuMask, buffer, (intptr_t)offset, (intptr_t)size, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastCopyBufferSubDataNV(JNIEnv *__env, jclass clazz, jint readGpu, jint writeGpuMask, jint readBuffer, jint writeBuffer, jlong readOffset, jlong writeOffset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glMulticastCopyBufferSubDataNV(JNIEnv *__env, jclass clazz, jint readGpu, jint writeGpuMask, jint readBuffer, jint writeBuffer, jlong readOffset, jlong writeOffset, jlong size) {
 	glMulticastCopyBufferSubDataNVPROC glMulticastCopyBufferSubDataNV = (glMulticastCopyBufferSubDataNVPROC)tlsGetFunction(1108);
 	UNUSED_PARAM(clazz)
 	glMulticastCopyBufferSubDataNV(readGpu, writeGpuMask, readBuffer, writeBuffer, (intptr_t)readOffset, (intptr_t)writeOffset, (intptr_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastCopyImageSubDataNV(JNIEnv *__env, jclass clazz, jint srcGpu, jint dstGpuMask, jint srcName, jint srcTarget, jint srcLevel, jint srcX, jint srxY, jint srcZ, jint dstName, jint dstTarget, jint dstLevel, jint dstX, jint dstY, jint dstZ, jint srcWidth, jint srcHeight, jint srcDepth) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glMulticastCopyImageSubDataNV(JNIEnv *__env, jclass clazz, jint srcGpu, jint dstGpuMask, jint srcName, jint srcTarget, jint srcLevel, jint srcX, jint srxY, jint srcZ, jint dstName, jint dstTarget, jint dstLevel, jint dstX, jint dstY, jint dstZ, jint srcWidth, jint srcHeight, jint srcDepth) {
 	glMulticastCopyImageSubDataNVPROC glMulticastCopyImageSubDataNV = (glMulticastCopyImageSubDataNVPROC)tlsGetFunction(1109);
 	UNUSED_PARAM(clazz)
 	glMulticastCopyImageSubDataNV(srcGpu, dstGpuMask, srcName, srcTarget, srcLevel, srcX, srxY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastBlitFramebufferNV(JNIEnv *__env, jclass clazz, jint srcGpu, jint dstGpu, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glMulticastBlitFramebufferNV(JNIEnv *__env, jclass clazz, jint srcGpu, jint dstGpu, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter) {
 	glMulticastBlitFramebufferNVPROC glMulticastBlitFramebufferNV = (glMulticastBlitFramebufferNVPROC)tlsGetFunction(1106);
 	UNUSED_PARAM(clazz)
 	glMulticastBlitFramebufferNV(srcGpu, dstGpu, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
@@ -59,13 +59,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastFramebuf
 	glMulticastFramebufferSampleLocationsfvNV(gpu, framebuffer, start, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastBarrierNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glMulticastBarrierNV(JNIEnv *__env, jclass clazz) {
 	glMulticastBarrierNVPROC glMulticastBarrierNV = (glMulticastBarrierNVPROC)tlsGetFunction(1105);
 	UNUSED_PARAM(clazz)
 	glMulticastBarrierNV();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastWaitSyncNV(JNIEnv *__env, jclass clazz, jint signalGpu, jint waitGpuMask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glMulticastWaitSyncNV(JNIEnv *__env, jclass clazz, jint signalGpu, jint waitGpuMask) {
 	glMulticastWaitSyncNVPROC glMulticastWaitSyncNV = (glMulticastWaitSyncNVPROC)tlsGetFunction(1115);
 	UNUSED_PARAM(clazz)
 	glMulticastWaitSyncNV(signalGpu, waitGpuMask);

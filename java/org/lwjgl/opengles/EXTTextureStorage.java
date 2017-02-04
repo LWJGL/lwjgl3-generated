@@ -71,50 +71,26 @@ public class EXTTextureStorage {
 
 	// --- [ glTexStorage1DEXT ] ---
 
-	public static native void nglTexStorage1DEXT(int target, int levels, int internalformat, int width);
-
-	public static void glTexStorage1DEXT(int target, int levels, int internalformat, int width) {
-		nglTexStorage1DEXT(target, levels, internalformat, width);
-	}
+	public static native void glTexStorage1DEXT(int target, int levels, int internalformat, int width);
 
 	// --- [ glTexStorage2DEXT ] ---
 
-	public static native void nglTexStorage2DEXT(int target, int levels, int internalformat, int width, int height);
-
-	public static void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height) {
-		nglTexStorage2DEXT(target, levels, internalformat, width, height);
-	}
+	public static native void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height);
 
 	// --- [ glTexStorage3DEXT ] ---
 
-	public static native void nglTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth);
-
-	public static void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth) {
-		nglTexStorage3DEXT(target, levels, internalformat, width, height, depth);
-	}
+	public static native void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth);
 
 	// --- [ glTextureStorage1DEXT ] ---
 
-	public static native void nglTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width);
-
-	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
-		nglTextureStorage1DEXT(texture, target, levels, internalformat, width);
-	}
+	public static native void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width);
 
 	// --- [ glTextureStorage2DEXT ] ---
 
-	public static native void nglTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height);
-
-	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
-		nglTextureStorage2DEXT(texture, target, levels, internalformat, width, height);
-	}
+	public static native void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height);
 
 	// --- [ glTextureStorage3DEXT ] ---
 
-	public static native void nglTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth);
-
-	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
-		nglTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth);
-	}
+	public static native void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth);
 
 }

@@ -95,25 +95,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglDeleteSamplers__IJ(JNIEnv *
 	glDeleteSamplers(count, samplers);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL33_nglIsSampler(JNIEnv *__env, jclass clazz, jint sampler) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL33_glIsSampler(JNIEnv *__env, jclass clazz, jint sampler) {
 	glIsSamplerPROC glIsSampler = (glIsSamplerPROC)tlsGetFunction(879);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsSampler(sampler);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglBindSampler(JNIEnv *__env, jclass clazz, jint unit, jint sampler) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glBindSampler(JNIEnv *__env, jclass clazz, jint unit, jint sampler) {
 	glBindSamplerPROC glBindSampler = (glBindSamplerPROC)tlsGetFunction(52);
 	UNUSED_PARAM(clazz)
 	glBindSampler(unit, sampler);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglSamplerParameteri(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glSamplerParameteri(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jint param) {
 	glSamplerParameteriPROC glSamplerParameteri = (glSamplerParameteriPROC)tlsGetFunction(1467);
 	UNUSED_PARAM(clazz)
 	glSamplerParameteri(sampler, pname, param);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglSamplerParameterf(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jfloat param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glSamplerParameterf(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jfloat param) {
 	glSamplerParameterfPROC glSamplerParameterf = (glSamplerParameterfPROC)tlsGetFunction(1465);
 	UNUSED_PARAM(clazz)
 	glSamplerParameterf(sampler, pname, param);
@@ -175,7 +175,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglGetSamplerParameterIuiv__II
 	glGetSamplerParameterIuiv(sampler, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglQueryCounter(JNIEnv *__env, jclass clazz, jint id, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glQueryCounter(JNIEnv *__env, jclass clazz, jint id, jint target) {
 	glQueryCounterPROC glQueryCounter = (glQueryCounterPROC)tlsGetFunction(1405);
 	UNUSED_PARAM(clazz)
 	glQueryCounter(id, target);
@@ -195,25 +195,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglGetQueryObjectui64v__IIJ(JN
 	glGetQueryObjectui64v(id, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexAttribDivisor(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexAttribDivisor(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
 	glVertexAttribDivisorPROC glVertexAttribDivisor = (glVertexAttribDivisorPROC)tlsGetFunction(1964);
 	UNUSED_PARAM(clazz)
 	glVertexAttribDivisor(index, divisor);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexP2ui(JNIEnv *__env, jclass clazz, jint type, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexP2ui(JNIEnv *__env, jclass clazz, jint type, jint value) {
 	glVertexP2uiPROC glVertexP2ui = (glVertexP2uiPROC)tlsGetFunction(2068);
 	UNUSED_PARAM(clazz)
 	glVertexP2ui(type, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexP3ui(JNIEnv *__env, jclass clazz, jint type, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexP3ui(JNIEnv *__env, jclass clazz, jint type, jint value) {
 	glVertexP3uiPROC glVertexP3ui = (glVertexP3uiPROC)tlsGetFunction(2070);
 	UNUSED_PARAM(clazz)
 	glVertexP3ui(type, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexP4ui(JNIEnv *__env, jclass clazz, jint type, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexP4ui(JNIEnv *__env, jclass clazz, jint type, jint value) {
 	glVertexP4uiPROC glVertexP4ui = (glVertexP4uiPROC)tlsGetFunction(2072);
 	UNUSED_PARAM(clazz)
 	glVertexP4ui(type, value);
@@ -240,25 +240,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexP4uiv__IJ(JNIEnv *__e
 	glVertexP4uiv(type, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglTexCoordP1ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glTexCoordP1ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
 	glTexCoordP1uiPROC glTexCoordP1ui = (glTexCoordP1uiPROC)tlsGetFunction(1594);
 	UNUSED_PARAM(clazz)
 	glTexCoordP1ui(type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglTexCoordP2ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glTexCoordP2ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
 	glTexCoordP2uiPROC glTexCoordP2ui = (glTexCoordP2uiPROC)tlsGetFunction(1596);
 	UNUSED_PARAM(clazz)
 	glTexCoordP2ui(type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglTexCoordP3ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glTexCoordP3ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
 	glTexCoordP3uiPROC glTexCoordP3ui = (glTexCoordP3uiPROC)tlsGetFunction(1598);
 	UNUSED_PARAM(clazz)
 	glTexCoordP3ui(type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglTexCoordP4ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glTexCoordP4ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
 	glTexCoordP4uiPROC glTexCoordP4ui = (glTexCoordP4uiPROC)tlsGetFunction(1600);
 	UNUSED_PARAM(clazz)
 	glTexCoordP4ui(type, coords);
@@ -292,25 +292,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglTexCoordP4uiv__IJ(JNIEnv *_
 	glTexCoordP4uiv(type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglMultiTexCoordP1ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glMultiTexCoordP1ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
 	glMultiTexCoordP1uiPROC glMultiTexCoordP1ui = (glMultiTexCoordP1uiPROC)tlsGetFunction(1073);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoordP1ui(texture, type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglMultiTexCoordP2ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glMultiTexCoordP2ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
 	glMultiTexCoordP2uiPROC glMultiTexCoordP2ui = (glMultiTexCoordP2uiPROC)tlsGetFunction(1075);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoordP2ui(texture, type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglMultiTexCoordP3ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glMultiTexCoordP3ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
 	glMultiTexCoordP3uiPROC glMultiTexCoordP3ui = (glMultiTexCoordP3uiPROC)tlsGetFunction(1077);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoordP3ui(texture, type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglMultiTexCoordP4ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glMultiTexCoordP4ui(JNIEnv *__env, jclass clazz, jint texture, jint type, jint coords) {
 	glMultiTexCoordP4uiPROC glMultiTexCoordP4ui = (glMultiTexCoordP4uiPROC)tlsGetFunction(1079);
 	UNUSED_PARAM(clazz)
 	glMultiTexCoordP4ui(texture, type, coords);
@@ -344,7 +344,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglMultiTexCoordP4uiv__IIJ(JNI
 	glMultiTexCoordP4uiv(texture, type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglNormalP3ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glNormalP3ui(JNIEnv *__env, jclass clazz, jint type, jint coords) {
 	glNormalP3uiPROC glNormalP3ui = (glNormalP3uiPROC)tlsGetFunction(1174);
 	UNUSED_PARAM(clazz)
 	glNormalP3ui(type, coords);
@@ -357,13 +357,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglNormalP3uiv__IJ(JNIEnv *__e
 	glNormalP3uiv(type, coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglColorP3ui(JNIEnv *__env, jclass clazz, jint type, jint color) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glColorP3ui(JNIEnv *__env, jclass clazz, jint type, jint color) {
 	glColorP3uiPROC glColorP3ui = (glColorP3uiPROC)tlsGetFunction(179);
 	UNUSED_PARAM(clazz)
 	glColorP3ui(type, color);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglColorP4ui(JNIEnv *__env, jclass clazz, jint type, jint color) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glColorP4ui(JNIEnv *__env, jclass clazz, jint type, jint color) {
 	glColorP4uiPROC glColorP4ui = (glColorP4uiPROC)tlsGetFunction(181);
 	UNUSED_PARAM(clazz)
 	glColorP4ui(type, color);
@@ -383,7 +383,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglColorP4uiv__IJ(JNIEnv *__en
 	glColorP4uiv(type, color);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglSecondaryColorP3ui(JNIEnv *__env, jclass clazz, jint type, jint color) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glSecondaryColorP3ui(JNIEnv *__env, jclass clazz, jint type, jint color) {
 	glSecondaryColorP3uiPROC glSecondaryColorP3ui = (glSecondaryColorP3uiPROC)tlsGetFunction(1510);
 	UNUSED_PARAM(clazz)
 	glSecondaryColorP3ui(type, color);
@@ -396,25 +396,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglSecondaryColorP3uiv__IJ(JNI
 	glSecondaryColorP3uiv(type, color);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexAttribP1ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexAttribP1ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
 	glVertexAttribP1uiPROC glVertexAttribP1ui = (glVertexAttribP1uiPROC)tlsGetFunction(2050);
 	UNUSED_PARAM(clazz)
 	glVertexAttribP1ui(index, type, normalized, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexAttribP2ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexAttribP2ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
 	glVertexAttribP2uiPROC glVertexAttribP2ui = (glVertexAttribP2uiPROC)tlsGetFunction(2052);
 	UNUSED_PARAM(clazz)
 	glVertexAttribP2ui(index, type, normalized, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexAttribP3ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexAttribP3ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
 	glVertexAttribP3uiPROC glVertexAttribP3ui = (glVertexAttribP3uiPROC)tlsGetFunction(2054);
 	UNUSED_PARAM(clazz)
 	glVertexAttribP3ui(index, type, normalized, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexAttribP4ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_glVertexAttribP4ui(JNIEnv *__env, jclass clazz, jint index, jint type, jboolean normalized, jint value) {
 	glVertexAttribP4uiPROC glVertexAttribP4ui = (glVertexAttribP4uiPROC)tlsGetFunction(2056);
 	UNUSED_PARAM(clazz)
 	glVertexAttribP4ui(index, type, normalized, value);

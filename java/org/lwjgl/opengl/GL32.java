@@ -523,28 +523,16 @@ public class GL32 {
 
 	// --- [ glProvokingVertex ] ---
 
-	/** Unsafe version of: {@link #glProvokingVertex ProvokingVertex} */
-	public static native void nglProvokingVertex(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProvokingVertex.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
 	 *
 	 * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
 	 */
-	public static void glProvokingVertex(int mode) {
-		nglProvokingVertex(mode);
-	}
+	public static native void glProvokingVertex(int mode);
 
 	// --- [ glTexImage2DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTexImage2DMultisample TexImage2DMultisample} */
-	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
@@ -556,18 +544,11 @@ public class GL32 {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		nglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
-	}
+	public static native void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	// --- [ glTexImage3DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTexImage3DMultisample TexImage3DMultisample} */
-	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
@@ -580,9 +561,7 @@ public class GL32 {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		nglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-	}
+	public static native void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	// --- [ glGetMultisamplefv ] ---
 
@@ -625,29 +604,17 @@ public class GL32 {
 
 	// --- [ glSampleMaski ] ---
 
-	/** Unsafe version of: {@link #glSampleMaski SampleMaski} */
-	public static native void nglSampleMaski(int index, int mask);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleMaski.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the value of a sub-word of the sample mask.
 	 *
 	 * @param index which 32-bit sub-word of the sample mask to update
 	 * @param mask  the new value of the mask sub-word
 	 */
-	public static void glSampleMaski(int index, int mask) {
-		nglSampleMaski(index, mask);
-	}
+	public static native void glSampleMaski(int index, int mask);
 
 	// --- [ glFramebufferTexture ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTexture FramebufferTexture} */
-	public static native void nglFramebufferTexture(int target, int attachment, int texture, int level);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a level of a texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -655,27 +622,18 @@ public class GL32 {
 	 * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
-	public static void glFramebufferTexture(int target, int attachment, int texture, int level) {
-		nglFramebufferTexture(target, attachment, texture, level);
-	}
+	public static native void glFramebufferTexture(int target, int attachment, int texture, int level);
 
 	// --- [ glFenceSync ] ---
 
-	/** Unsafe version of: {@link #glFenceSync FenceSync} */
-	public static native long nglFenceSync(int condition, int flags);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFenceSync.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
 	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<br><table><tr><td>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}</td></tr></table>
 	 * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
 	 *                  be zero.
 	 */
-	public static long glFenceSync(int condition, int flags) {
-		return nglFenceSync(condition, flags);
-	}
+	public static native long glFenceSync(int condition, int flags);
 
 	// --- [ glIsSync ] ---
 

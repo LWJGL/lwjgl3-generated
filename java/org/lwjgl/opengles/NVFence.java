@@ -94,19 +94,11 @@ public class NVFence {
 
 	// --- [ glIsFenceNV ] ---
 
-	public static native boolean nglIsFenceNV(int fence);
-
-	public static boolean glIsFenceNV(int fence) {
-		return nglIsFenceNV(fence);
-	}
+	public static native boolean glIsFenceNV(int fence);
 
 	// --- [ glTestFenceNV ] ---
 
-	public static native boolean nglTestFenceNV(int fence);
-
-	public static boolean glTestFenceNV(int fence) {
-		return nglTestFenceNV(fence);
-	}
+	public static native boolean glTestFenceNV(int fence);
 
 	// --- [ glGetFenceivNV ] ---
 
@@ -131,19 +123,11 @@ public class NVFence {
 
 	// --- [ glFinishFenceNV ] ---
 
-	public static native void nglFinishFenceNV(int fence);
-
-	public static void glFinishFenceNV(int fence) {
-		nglFinishFenceNV(fence);
-	}
+	public static native void glFinishFenceNV(int fence);
 
 	// --- [ glSetFenceNV ] ---
 
-	public static native void nglSetFenceNV(int fence, int condition);
-
-	public static void glSetFenceNV(int fence, int condition) {
-		nglSetFenceNV(fence, condition);
-	}
+	public static native void glSetFenceNV(int fence, int condition);
 
 	/** Array version of: {@link #glDeleteFencesNV DeleteFencesNV} */
 	public static void glDeleteFencesNV(int[] fences) {

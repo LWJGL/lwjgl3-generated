@@ -312,17 +312,12 @@ public class ARBVertexBlend {
 
 	// --- [ glVertexBlendARB ] ---
 
-	/** Unsafe version of: {@link #glVertexBlendARB VertexBlendARB} */
-	public static native void nglVertexBlendARB(int count);
-
 	/**
 	 * Sets the number of active transformations applied.
 	 *
 	 * @param count the number of transformations to blend
 	 */
-	public static void glVertexBlendARB(int count) {
-		nglVertexBlendARB(count);
-	}
+	public static native void glVertexBlendARB(int count);
 
 	/** Array version of: {@link #glWeightfvARB WeightfvARB} */
 	public static void glWeightfvARB(float[] weights) {

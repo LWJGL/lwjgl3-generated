@@ -119,10 +119,6 @@ public class OESGeometryShader {
 
 	// --- [ glFramebufferTextureOES ] ---
 
-	public static native void nglFramebufferTextureOES(int target, int attachment, int texture, int level);
-
-	public static void glFramebufferTextureOES(int target, int attachment, int texture, int level) {
-		nglFramebufferTextureOES(target, attachment, texture, level);
-	}
+	public static native void glFramebufferTextureOES(int target, int attachment, int texture, int level);
 
 }

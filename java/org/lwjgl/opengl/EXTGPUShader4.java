@@ -125,23 +125,15 @@ public class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI1iEXT ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI1iEXT VertexAttribI1iEXT} */
-	public static native void nglVertexAttribI1iEXT(int index, int x);
-
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 */
-	public static void glVertexAttribI1iEXT(int index, int x) {
-		nglVertexAttribI1iEXT(index, x);
-	}
+	public static native void glVertexAttribI1iEXT(int index, int x);
 
 	// --- [ glVertexAttribI2iEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI2iEXT VertexAttribI2iEXT} */
-	public static native void nglVertexAttribI2iEXT(int index, int x, int y);
 
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
@@ -150,14 +142,9 @@ public class EXTGPUShader4 {
 	 * @param x     the vertex attribute x component
 	 * @param y     the vertex attribute y component
 	 */
-	public static void glVertexAttribI2iEXT(int index, int x, int y) {
-		nglVertexAttribI2iEXT(index, x, y);
-	}
+	public static native void glVertexAttribI2iEXT(int index, int x, int y);
 
 	// --- [ glVertexAttribI3iEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI3iEXT VertexAttribI3iEXT} */
-	public static native void nglVertexAttribI3iEXT(int index, int x, int y, int z);
 
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
@@ -167,14 +154,9 @@ public class EXTGPUShader4 {
 	 * @param y     the vertex attribute y component
 	 * @param z     the vertex attribute z component
 	 */
-	public static void glVertexAttribI3iEXT(int index, int x, int y, int z) {
-		nglVertexAttribI3iEXT(index, x, y, z);
-	}
+	public static native void glVertexAttribI3iEXT(int index, int x, int y, int z);
 
 	// --- [ glVertexAttribI4iEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4iEXT VertexAttribI4iEXT} */
-	public static native void nglVertexAttribI4iEXT(int index, int x, int y, int z, int w);
 
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute.
@@ -185,14 +167,9 @@ public class EXTGPUShader4 {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttribI4iEXT(int index, int x, int y, int z, int w) {
-		nglVertexAttribI4iEXT(index, x, y, z, w);
-	}
+	public static native void glVertexAttribI4iEXT(int index, int x, int y, int z, int w);
 
 	// --- [ glVertexAttribI1uiEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI1uiEXT VertexAttribI1uiEXT} */
-	public static native void nglVertexAttribI1uiEXT(int index, int x);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
@@ -200,14 +177,9 @@ public class EXTGPUShader4 {
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 */
-	public static void glVertexAttribI1uiEXT(int index, int x) {
-		nglVertexAttribI1uiEXT(index, x);
-	}
+	public static native void glVertexAttribI1uiEXT(int index, int x);
 
 	// --- [ glVertexAttribI2uiEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI2uiEXT VertexAttribI2uiEXT} */
-	public static native void nglVertexAttribI2uiEXT(int index, int x, int y);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
@@ -216,14 +188,9 @@ public class EXTGPUShader4 {
 	 * @param x     the vertex attribute x component
 	 * @param y     the vertex attribute y component
 	 */
-	public static void glVertexAttribI2uiEXT(int index, int x, int y) {
-		nglVertexAttribI2uiEXT(index, x, y);
-	}
+	public static native void glVertexAttribI2uiEXT(int index, int x, int y);
 
 	// --- [ glVertexAttribI3uiEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI3uiEXT VertexAttribI3uiEXT} */
-	public static native void nglVertexAttribI3uiEXT(int index, int x, int y, int z);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
@@ -233,14 +200,9 @@ public class EXTGPUShader4 {
 	 * @param y     the vertex attribute y component
 	 * @param z     the vertex attribute z component
 	 */
-	public static void glVertexAttribI3uiEXT(int index, int x, int y, int z) {
-		nglVertexAttribI3uiEXT(index, x, y, z);
-	}
+	public static native void glVertexAttribI3uiEXT(int index, int x, int y, int z);
 
 	// --- [ glVertexAttribI4uiEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4uiEXT VertexAttribI4uiEXT} */
-	public static native void nglVertexAttribI4uiEXT(int index, int x, int y, int z, int w);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute.
@@ -251,9 +213,7 @@ public class EXTGPUShader4 {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w) {
-		nglVertexAttribI4uiEXT(index, x, y, z, w);
-	}
+	public static native void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w);
 
 	// --- [ glVertexAttribI1ivEXT ] ---
 
@@ -657,35 +617,19 @@ public class EXTGPUShader4 {
 
 	// --- [ glUniform1uiEXT ] ---
 
-	public static native void nglUniform1uiEXT(int location, int v0);
-
-	public static void glUniform1uiEXT(int location, int v0) {
-		nglUniform1uiEXT(location, v0);
-	}
+	public static native void glUniform1uiEXT(int location, int v0);
 
 	// --- [ glUniform2uiEXT ] ---
 
-	public static native void nglUniform2uiEXT(int location, int v0, int v1);
-
-	public static void glUniform2uiEXT(int location, int v0, int v1) {
-		nglUniform2uiEXT(location, v0, v1);
-	}
+	public static native void glUniform2uiEXT(int location, int v0, int v1);
 
 	// --- [ glUniform3uiEXT ] ---
 
-	public static native void nglUniform3uiEXT(int location, int v0, int v1, int v2);
-
-	public static void glUniform3uiEXT(int location, int v0, int v1, int v2) {
-		nglUniform3uiEXT(location, v0, v1, v2);
-	}
+	public static native void glUniform3uiEXT(int location, int v0, int v1, int v2);
 
 	// --- [ glUniform4uiEXT ] ---
 
-	public static native void nglUniform4uiEXT(int location, int v0, int v1, int v2, int v3);
-
-	public static void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3) {
-		nglUniform4uiEXT(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glUniform1uivEXT ] ---
 

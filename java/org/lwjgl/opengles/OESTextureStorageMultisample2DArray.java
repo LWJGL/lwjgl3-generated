@@ -45,10 +45,6 @@ public class OESTextureStorageMultisample2DArray {
 
 	// --- [ glTexStorage3DMultisampleOES ] ---
 
-	public static native void nglTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
-
-	public static void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		nglTexStorage3DMultisampleOES(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-	}
+	public static native void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 }

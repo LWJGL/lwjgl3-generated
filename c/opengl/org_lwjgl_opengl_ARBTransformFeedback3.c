@@ -13,19 +13,19 @@ typedef void (APIENTRY *glGetQueryIndexedivPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback3_nglDrawTransformFeedbackStream(JNIEnv *__env, jclass clazz, jint mode, jint id, jint stream) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback3_glDrawTransformFeedbackStream(JNIEnv *__env, jclass clazz, jint mode, jint id, jint stream) {
 	glDrawTransformFeedbackStreamPROC glDrawTransformFeedbackStream = (glDrawTransformFeedbackStreamPROC)tlsGetFunction(373);
 	UNUSED_PARAM(clazz)
 	glDrawTransformFeedbackStream(mode, id, stream);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback3_nglBeginQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback3_glBeginQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index, jint id) {
 	glBeginQueryIndexedPROC glBeginQueryIndexed = (glBeginQueryIndexedPROC)tlsGetFunction(21);
 	UNUSED_PARAM(clazz)
 	glBeginQueryIndexed(target, index, id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback3_nglEndQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback3_glEndQueryIndexed(JNIEnv *__env, jclass clazz, jint target, jint index) {
 	glEndQueryIndexedPROC glEndQueryIndexed = (glEndQueryIndexedPROC)tlsGetFunction(400);
 	UNUSED_PARAM(clazz)
 	glEndQueryIndexed(target, index);

@@ -10,7 +10,7 @@ typedef void (APIENTRY *glPatchParameteriOESPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESTessellationShader_nglPatchParameteriOES(JNIEnv *__env, jclass clazz, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESTessellationShader_glPatchParameteriOES(JNIEnv *__env, jclass clazz, jint pname, jint value) {
 	glPatchParameteriOESPROC glPatchParameteriOES = (glPatchParameteriOESPROC)tlsGetFunction(461);
 	UNUSED_PARAM(clazz)
 	glPatchParameteriOES(pname, value);

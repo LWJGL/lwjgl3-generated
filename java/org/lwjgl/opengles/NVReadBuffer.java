@@ -38,10 +38,6 @@ public class NVReadBuffer {
 
 	// --- [ glReadBufferNV ] ---
 
-	public static native void nglReadBufferNV(int mode);
-
-	public static void glReadBufferNV(int mode) {
-		nglReadBufferNV(mode);
-	}
+	public static native void glReadBufferNV(int mode);
 
 }

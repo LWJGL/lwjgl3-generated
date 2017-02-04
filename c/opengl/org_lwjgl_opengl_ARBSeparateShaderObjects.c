@@ -70,13 +70,13 @@ typedef void (APIENTRY *glGetProgramPipelineInfoLogPROC) (jint, jint, intptr_t, 
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglUseProgramStages(JNIEnv *__env, jclass clazz, jint pipeline, jint stages, jint program) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glUseProgramStages(JNIEnv *__env, jclass clazz, jint pipeline, jint stages, jint program) {
 	glUseProgramStagesPROC glUseProgramStages = (glUseProgramStagesPROC)tlsGetFunction(1820);
 	UNUSED_PARAM(clazz)
 	glUseProgramStages(pipeline, stages, program);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglActiveShaderProgram(JNIEnv *__env, jclass clazz, jint pipeline, jint program) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glActiveShaderProgram(JNIEnv *__env, jclass clazz, jint pipeline, jint program) {
 	glActiveShaderProgramPROC glActiveShaderProgram = (glActiveShaderProgramPROC)tlsGetFunction(2);
 	UNUSED_PARAM(clazz)
 	glActiveShaderProgram(pipeline, program);
@@ -89,7 +89,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglCreateS
 	return (jint)glCreateShaderProgramv(type, count, strings);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglBindProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glBindProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
 	glBindProgramPipelinePROC glBindProgramPipeline = (glBindProgramPipelinePROC)tlsGetFunction(49);
 	UNUSED_PARAM(clazz)
 	glBindProgramPipeline(pipeline);
@@ -109,13 +109,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglGenProg
 	glGenProgramPipelines(n, pipelines);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglIsProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glIsProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
 	glIsProgramPipelinePROC glIsProgramPipeline = (glIsProgramPipelinePROC)tlsGetFunction(874);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsProgramPipeline(pipeline);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
 	glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1253);
 	UNUSED_PARAM(clazz)
 	glProgramParameteri(program, pname, value);
@@ -128,97 +128,97 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglGetProg
 	glGetProgramPipelineiv(pipeline, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform1i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform1i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
 	glProgramUniform1iPROC glProgramUniform1i = (glProgramUniform1iPROC)tlsGetFunction(1266);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1i(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform2i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform2i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
 	glProgramUniform2iPROC glProgramUniform2i = (glProgramUniform2iPROC)tlsGetFunction(1290);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2i(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform3i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform3i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
 	glProgramUniform3iPROC glProgramUniform3i = (glProgramUniform3iPROC)tlsGetFunction(1314);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3i(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform4i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform4i(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
 	glProgramUniform4iPROC glProgramUniform4i = (glProgramUniform4iPROC)tlsGetFunction(1338);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4i(program, location, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform1ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform1ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x) {
 	glProgramUniform1uiPROC glProgramUniform1ui = (glProgramUniform1uiPROC)tlsGetFunction(1274);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1ui(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform2ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform2ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y) {
 	glProgramUniform2uiPROC glProgramUniform2ui = (glProgramUniform2uiPROC)tlsGetFunction(1298);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2ui(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform3ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform3ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z) {
 	glProgramUniform3uiPROC glProgramUniform3ui = (glProgramUniform3uiPROC)tlsGetFunction(1322);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3ui(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform4ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform4ui(JNIEnv *__env, jclass clazz, jint program, jint location, jint x, jint y, jint z, jint w) {
 	glProgramUniform4uiPROC glProgramUniform4ui = (glProgramUniform4uiPROC)tlsGetFunction(1346);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4ui(program, location, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform1f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform1f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x) {
 	glProgramUniform1fPROC glProgramUniform1f = (glProgramUniform1fPROC)tlsGetFunction(1262);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1f(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform2f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform2f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y) {
 	glProgramUniform2fPROC glProgramUniform2f = (glProgramUniform2fPROC)tlsGetFunction(1286);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2f(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform3f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform3f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z) {
 	glProgramUniform3fPROC glProgramUniform3f = (glProgramUniform3fPROC)tlsGetFunction(1310);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3f(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform4f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z, jfloat w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform4f(JNIEnv *__env, jclass clazz, jint program, jint location, jfloat x, jfloat y, jfloat z, jfloat w) {
 	glProgramUniform4fPROC glProgramUniform4f = (glProgramUniform4fPROC)tlsGetFunction(1334);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4f(program, location, x, y, z, w);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform1d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform1d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x) {
 	glProgramUniform1dPROC glProgramUniform1d = (glProgramUniform1dPROC)tlsGetFunction(1258);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1d(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform2d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform2d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y) {
 	glProgramUniform2dPROC glProgramUniform2d = (glProgramUniform2dPROC)tlsGetFunction(1282);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2d(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform3d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform3d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z) {
 	glProgramUniform3dPROC glProgramUniform3d = (glProgramUniform3dPROC)tlsGetFunction(1306);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3d(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgramUniform4d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glProgramUniform4d(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glProgramUniform4dPROC glProgramUniform4d = (glProgramUniform4dPROC)tlsGetFunction(1330);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4d(program, location, x, y, z, w);
@@ -462,7 +462,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgram
 	glProgramUniformMatrix4x3dv(program, location, count, transpose, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglValidateProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glValidateProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
 	glValidateProgramPipelinePROC glValidateProgramPipeline = (glValidateProgramPipelinePROC)tlsGetFunction(1824);
 	UNUSED_PARAM(clazz)
 	glValidateProgramPipeline(pipeline);

@@ -16,7 +16,7 @@ typedef void (APIENTRY *glGetSyncivPROC) (intptr_t, jint, jint, intptr_t, intptr
 
 EXTERN_C_ENTER
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBSync_nglFenceSync(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBSync_glFenceSync(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
 	glFenceSyncPROC glFenceSync = (glFenceSyncPROC)tlsGetFunction(418);
 	UNUSED_PARAM(clazz)
 	return (jlong)glFenceSync(condition, flags);

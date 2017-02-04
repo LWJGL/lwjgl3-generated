@@ -466,9 +466,6 @@ public class KHRDebug {
 
 	// --- [ glPopDebugGroup ] ---
 
-	/** Unsafe version of: {@link #glPopDebugGroup PopDebugGroup} */
-	public static native void nglPopDebugGroup();
-
 	/**
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command. {@link GL43#GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}
@@ -478,9 +475,7 @@ public class KHRDebug {
 	 * <p>Attempting to pop the default debug group off the stack generates a {@link GL11#GL_STACK_UNDERFLOW STACK_UNDERFLOW} error; pushing a debug group onto a stack containing
 	 * {@link GL43#GL_MAX_DEBUG_GROUP_STACK_DEPTH MAX_DEBUG_GROUP_STACK_DEPTH} minus one elements will generate a {@link GL11#GL_STACK_OVERFLOW STACK_OVERFLOW} error.</p>
 	 */
-	public static void glPopDebugGroup() {
-		nglPopDebugGroup();
-	}
+	public static native void glPopDebugGroup();
 
 	// --- [ glObjectLabel ] ---
 

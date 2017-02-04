@@ -45,7 +45,7 @@ typedef void (APIENTRY *glGetnUniformui64vARBPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform1i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform1i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x) {
 	glUniform1i64ARBPROC glUniform1i64ARB = (glUniform1i64ARBPROC)tlsGetFunction(1701);
 	UNUSED_PARAM(clazz)
 	glUniform1i64ARB(location, x);
@@ -58,7 +58,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform1i64vAR
 	glUniform1i64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform1i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform1i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x) {
 	glProgramUniform1i64ARBPROC glProgramUniform1i64ARB = (glProgramUniform1i64ARBPROC)tlsGetFunction(1267);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1i64ARB(program, location, x);
@@ -71,7 +71,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform1i64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform2i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform2i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y) {
 	glUniform2i64ARBPROC glUniform2i64ARB = (glUniform2i64ARBPROC)tlsGetFunction(1723);
 	UNUSED_PARAM(clazz)
 	glUniform2i64ARB(location, x, y);
@@ -84,7 +84,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform2i64vAR
 	glUniform2i64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform2i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform2i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y) {
 	glProgramUniform2i64ARBPROC glProgramUniform2i64ARB = (glProgramUniform2i64ARBPROC)tlsGetFunction(1291);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2i64ARB(program, location, x, y);
@@ -97,7 +97,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform2i64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform3i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform3i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z) {
 	glUniform3i64ARBPROC glUniform3i64ARB = (glUniform3i64ARBPROC)tlsGetFunction(1745);
 	UNUSED_PARAM(clazz)
 	glUniform3i64ARB(location, x, y, z);
@@ -110,7 +110,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform3i64vAR
 	glUniform3i64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform3i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform3i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z) {
 	glProgramUniform3i64ARBPROC glProgramUniform3i64ARB = (glProgramUniform3i64ARBPROC)tlsGetFunction(1315);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3i64ARB(program, location, x, y, z);
@@ -123,7 +123,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform3i64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform4i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z, jlong w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform4i64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z, jlong w) {
 	glUniform4i64ARBPROC glUniform4i64ARB = (glUniform4i64ARBPROC)tlsGetFunction(1767);
 	UNUSED_PARAM(clazz)
 	glUniform4i64ARB(location, x, y, z, w);
@@ -136,7 +136,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform4i64vAR
 	glUniform4i64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform4i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z, jlong w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform4i64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z, jlong w) {
 	glProgramUniform4i64ARBPROC glProgramUniform4i64ARB = (glProgramUniform4i64ARBPROC)tlsGetFunction(1339);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4i64ARB(program, location, x, y, z, w);
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform4i64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform1ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform1ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x) {
 	glUniform1ui64ARBPROC glUniform1ui64ARB = (glUniform1ui64ARBPROC)tlsGetFunction(1709);
 	UNUSED_PARAM(clazz)
 	glUniform1ui64ARB(location, x);
@@ -162,7 +162,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform1ui64vA
 	glUniform1ui64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform1ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform1ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x) {
 	glProgramUniform1ui64ARBPROC glProgramUniform1ui64ARB = (glProgramUniform1ui64ARBPROC)tlsGetFunction(1275);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1ui64ARB(program, location, x);
@@ -175,7 +175,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform1ui64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform2ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform2ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y) {
 	glUniform2ui64ARBPROC glUniform2ui64ARB = (glUniform2ui64ARBPROC)tlsGetFunction(1731);
 	UNUSED_PARAM(clazz)
 	glUniform2ui64ARB(location, x, y);
@@ -188,7 +188,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform2ui64vA
 	glUniform2ui64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform2ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform2ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y) {
 	glProgramUniform2ui64ARBPROC glProgramUniform2ui64ARB = (glProgramUniform2ui64ARBPROC)tlsGetFunction(1299);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2ui64ARB(program, location, x, y);
@@ -201,7 +201,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform2ui64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform3ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform3ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z) {
 	glUniform3ui64ARBPROC glUniform3ui64ARB = (glUniform3ui64ARBPROC)tlsGetFunction(1753);
 	UNUSED_PARAM(clazz)
 	glUniform3ui64ARB(location, x, y, z);
@@ -214,7 +214,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform3ui64vA
 	glUniform3ui64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform3ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform3ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z) {
 	glProgramUniform3ui64ARBPROC glProgramUniform3ui64ARB = (glProgramUniform3ui64ARBPROC)tlsGetFunction(1323);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3ui64ARB(program, location, x, y, z);
@@ -227,7 +227,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform
 	glProgramUniform3ui64vARB(program, location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform4ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z, jlong w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glUniform4ui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong x, jlong y, jlong z, jlong w) {
 	glUniform4ui64ARBPROC glUniform4ui64ARB = (glUniform4ui64ARBPROC)tlsGetFunction(1775);
 	UNUSED_PARAM(clazz)
 	glUniform4ui64ARB(location, x, y, z, w);
@@ -240,7 +240,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglUniform4ui64vA
 	glUniform4ui64vARB(location, count, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_nglProgramUniform4ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z, jlong w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderInt64_glProgramUniform4ui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong x, jlong y, jlong z, jlong w) {
 	glProgramUniform4ui64ARBPROC glProgramUniform4ui64ARB = (glProgramUniform4ui64ARBPROC)tlsGetFunction(1347);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4ui64ARB(program, location, x, y, z, w);

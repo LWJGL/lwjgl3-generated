@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportArrayv_
 	glViewportArrayv(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportIndexedf(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glViewportIndexedf(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
 	glViewportIndexedfPROC glViewportIndexedf = (glViewportIndexedfPROC)tlsGetFunction(2079);
 	UNUSED_PARAM(clazz)
 	glViewportIndexedf(index, x, y, w, h);
@@ -46,7 +46,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglScissorArrayv__
 	glScissorArrayv(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglScissorIndexed(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glScissorIndexed(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
 	glScissorIndexedPROC glScissorIndexed = (glScissorIndexedPROC)tlsGetFunction(1473);
 	UNUSED_PARAM(clazz)
 	glScissorIndexed(index, left, bottom, width, height);
@@ -66,7 +66,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglDepthRangeArray
 	glDepthRangeArrayv(first, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglDepthRangeIndexed(JNIEnv *__env, jclass clazz, jint index, jdouble zNear, jdouble zFar) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glDepthRangeIndexed(JNIEnv *__env, jclass clazz, jint index, jdouble zNear, jdouble zFar) {
 	glDepthRangeIndexedPROC glDepthRangeIndexed = (glDepthRangeIndexedPROC)tlsGetFunction(325);
 	UNUSED_PARAM(clazz)
 	glDepthRangeIndexed(index, zNear, zFar);

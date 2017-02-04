@@ -30,12 +30,7 @@ public class ARBTextureBarrier {
 
 	// --- [ glTextureBarrier ] ---
 
-	/** Unsafe version of: {@link #glTextureBarrier TextureBarrier} */
-	public static native void nglTextureBarrier();
-
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
-	public static void glTextureBarrier() {
-		nglTextureBarrier();
-	}
+	public static native void glTextureBarrier();
 
 }

@@ -72,18 +72,10 @@ public class NVCoverageSample {
 
 	// --- [ glCoverageMaskNV ] ---
 
-	public static native void nglCoverageMaskNV(boolean mask);
-
-	public static void glCoverageMaskNV(boolean mask) {
-		nglCoverageMaskNV(mask);
-	}
+	public static native void glCoverageMaskNV(boolean mask);
 
 	// --- [ glCoverageOperationNV ] ---
 
-	public static native void nglCoverageOperationNV(int operation);
-
-	public static void glCoverageOperationNV(int operation) {
-		nglCoverageOperationNV(operation);
-	}
+	public static native void glCoverageOperationNV(int operation);
 
 }

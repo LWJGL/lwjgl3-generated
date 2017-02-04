@@ -53,18 +53,13 @@ public class ARBPointParameters {
 
 	// --- [ glPointParameterfARB ] ---
 
-	/** Unsafe version of: {@link #glPointParameterfARB PointParameterfARB} */
-	public static native void nglPointParameterfARB(int pname, float param);
-
 	/**
 	 * Sets the float value of a pointer parameter.
 	 *
 	 * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN_ARB POINT_SIZE_MIN_ARB}</td><td>{@link #GL_POINT_SIZE_MAX_ARB POINT_SIZE_MAX_ARB}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE_ARB POINT_FADE_THRESHOLD_SIZE_ARB}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glPointParameterfARB(int pname, float param) {
-		nglPointParameterfARB(pname, param);
-	}
+	public static native void glPointParameterfARB(int pname, float param);
 
 	// --- [ glPointParameterfvARB ] ---
 

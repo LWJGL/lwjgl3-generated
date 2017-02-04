@@ -58,26 +58,14 @@ public class NVDepthBufferFloat {
 
 	// --- [ glDepthRangedNV ] ---
 
-	public static native void nglDepthRangedNV(double zNear, double zFar);
-
-	public static void glDepthRangedNV(double zNear, double zFar) {
-		nglDepthRangedNV(zNear, zFar);
-	}
+	public static native void glDepthRangedNV(double zNear, double zFar);
 
 	// --- [ glClearDepthdNV ] ---
 
-	public static native void nglClearDepthdNV(double depth);
-
-	public static void glClearDepthdNV(double depth) {
-		nglClearDepthdNV(depth);
-	}
+	public static native void glClearDepthdNV(double depth);
 
 	// --- [ glDepthBoundsdNV ] ---
 
-	public static native void nglDepthBoundsdNV(double zmin, double zmax);
-
-	public static void glDepthBoundsdNV(double zmin, double zmax) {
-		nglDepthBoundsdNV(zmin, zmax);
-	}
+	public static native void glDepthBoundsdNV(double zmin, double zmax);
 
 }

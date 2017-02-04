@@ -34,34 +34,18 @@ public class AMDDrawBuffersBlend {
 
 	// --- [ glBlendFuncIndexedAMD ] ---
 
-	public static native void nglBlendFuncIndexedAMD(int buf, int src, int dst);
-
-	public static void glBlendFuncIndexedAMD(int buf, int src, int dst) {
-		nglBlendFuncIndexedAMD(buf, src, dst);
-	}
+	public static native void glBlendFuncIndexedAMD(int buf, int src, int dst);
 
 	// --- [ glBlendFuncSeparateIndexedAMD ] ---
 
-	public static native void nglBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-
-	public static void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		nglBlendFuncSeparateIndexedAMD(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-	}
+	public static native void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	// --- [ glBlendEquationIndexedAMD ] ---
 
-	public static native void nglBlendEquationIndexedAMD(int buf, int mode);
-
-	public static void glBlendEquationIndexedAMD(int buf, int mode) {
-		nglBlendEquationIndexedAMD(buf, mode);
-	}
+	public static native void glBlendEquationIndexedAMD(int buf, int mode);
 
 	// --- [ glBlendEquationSeparateIndexedAMD ] ---
 
-	public static native void nglBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha);
-
-	public static void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparateIndexedAMD(buf, modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha);
 
 }

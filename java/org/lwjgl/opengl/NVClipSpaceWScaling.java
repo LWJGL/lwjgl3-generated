@@ -50,9 +50,6 @@ public class NVClipSpaceWScaling {
 
 	// --- [ glViewportPositionWScaleNV ] ---
 
-	/** Unsafe version of: {@link #glViewportPositionWScaleNV ViewportPositionWScaleNV} */
-	public static native void nglViewportPositionWScaleNV(int index, float xcoeff, float ycoeff);
-
 	/**
 	 * If {@link #GL_VIEWPORT_POSITION_W_SCALE_NV VIEWPORT_POSITION_W_SCALE_NV} is enabled, the w coordinates for each primitive sent to a given viewport will be scaled as a function of its x and y
 	 * coordinates using the following equation:
@@ -78,8 +75,6 @@ public class NVClipSpaceWScaling {
 	 * @param xcoeff the x coefficient
 	 * @param ycoeff the y coefficient
 	 */
-	public static void glViewportPositionWScaleNV(int index, float xcoeff, float ycoeff) {
-		nglViewportPositionWScaleNV(index, xcoeff, ycoeff);
-	}
+	public static native void glViewportPositionWScaleNV(int index, float xcoeff, float ycoeff);
 
 }

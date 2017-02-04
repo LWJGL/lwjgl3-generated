@@ -112,22 +112,14 @@ public class ARBSamplerObjects {
 
 	// --- [ glIsSampler ] ---
 
-	/** Unsafe version of: {@link #glIsSampler IsSampler} */
-	public static native boolean nglIsSampler(int sampler);
-
 	/**
 	 * Determines if a name corresponds to a sampler object.
 	 *
 	 * @param sampler a value that may be the name of a sampler object
 	 */
-	public static boolean glIsSampler(int sampler) {
-		return nglIsSampler(sampler);
-	}
+	public static native boolean glIsSampler(int sampler);
 
 	// --- [ glBindSampler ] ---
-
-	/** Unsafe version of: {@link #glBindSampler BindSampler} */
-	public static native void nglBindSampler(int unit, int sampler);
 
 	/**
 	 * Binds a named sampler to a texturing target.
@@ -135,14 +127,9 @@ public class ARBSamplerObjects {
 	 * @param unit    the index of the texture unit to which the sampler is bound
 	 * @param sampler the name of a sampler
 	 */
-	public static void glBindSampler(int unit, int sampler) {
-		nglBindSampler(unit, sampler);
-	}
+	public static native void glBindSampler(int unit, int sampler);
 
 	// --- [ glSamplerParameteri ] ---
-
-	/** Unsafe version of: {@link #glSamplerParameteri SamplerParameteri} */
-	public static native void nglSamplerParameteri(int sampler, int pname, int param);
 
 	/**
 	 * Set the integer value of a sampler parameter.
@@ -151,14 +138,9 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a single-valued sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td></tr><tr><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr></table>
 	 * @param param   the value of {@code pname}
 	 */
-	public static void glSamplerParameteri(int sampler, int pname, int param) {
-		nglSamplerParameteri(sampler, pname, param);
-	}
+	public static native void glSamplerParameteri(int sampler, int pname, int param);
 
 	// --- [ glSamplerParameterf ] ---
-
-	/** Unsafe version of: {@link #glSamplerParameterf SamplerParameterf} */
-	public static native void nglSamplerParameterf(int sampler, int pname, float param);
 
 	/**
 	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
@@ -167,9 +149,7 @@ public class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a single-valued sampler parameter
 	 * @param param   the value of {@code pname}
 	 */
-	public static void glSamplerParameterf(int sampler, int pname, float param) {
-		nglSamplerParameterf(sampler, pname, param);
-	}
+	public static native void glSamplerParameterf(int sampler, int pname, float param);
 
 	// --- [ glSamplerParameteriv ] ---
 

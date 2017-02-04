@@ -52,11 +52,7 @@ public class QCOMExtendedGet2 {
 
 	// --- [ glExtIsProgramBinaryQCOM ] ---
 
-	public static native boolean nglExtIsProgramBinaryQCOM(int program);
-
-	public static boolean glExtIsProgramBinaryQCOM(int program) {
-		return nglExtIsProgramBinaryQCOM(program);
-	}
+	public static native boolean glExtIsProgramBinaryQCOM(int program);
 
 	// --- [ glExtGetProgramBinarySourceQCOM ] ---
 

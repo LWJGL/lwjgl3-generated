@@ -21,7 +21,7 @@ typedef void (APIENTRY *glUniformBlockBindingPROC) (jint, jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawArraysInstanced(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glDrawArraysInstanced(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
 	glDrawArraysInstancedPROC glDrawArraysInstanced = (glDrawArraysInstancedPROC)tlsGetFunction(346);
 	UNUSED_PARAM(clazz)
 	glDrawArraysInstanced(mode, first, count, primcount);
@@ -34,19 +34,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawElementsInstanced(JNIEn
 	glDrawElementsInstanced(mode, count, type, indices, primcount);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglCopyBufferSubData(JNIEnv *__env, jclass clazz, jint readTarget, jint writeTarget, jlong readOffset, jlong writeOffset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glCopyBufferSubData(JNIEnv *__env, jclass clazz, jint readTarget, jint writeTarget, jlong readOffset, jlong writeOffset, jlong size) {
 	glCopyBufferSubDataPROC glCopyBufferSubData = (glCopyBufferSubDataPROC)tlsGetFunction(228);
 	UNUSED_PARAM(clazz)
 	glCopyBufferSubData(readTarget, writeTarget, (intptr_t)readOffset, (intptr_t)writeOffset, (intptr_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglPrimitiveRestartIndex(JNIEnv *__env, jclass clazz, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glPrimitiveRestartIndex(JNIEnv *__env, jclass clazz, jint index) {
 	glPrimitiveRestartIndexPROC glPrimitiveRestartIndex = (glPrimitiveRestartIndexPROC)tlsGetFunction(1238);
 	UNUSED_PARAM(clazz)
 	glPrimitiveRestartIndex(index);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglTexBuffer(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glTexBuffer(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
 	glTexBufferPROC glTexBuffer = (glTexBufferPROC)tlsGetFunction(1549);
 	UNUSED_PARAM(clazz)
 	glTexBuffer(target, internalformat, buffer);
@@ -98,7 +98,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetActiveUniformBlockName__
 	glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
 	glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1782);
 	UNUSED_PARAM(clazz)
 	glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);

@@ -60,7 +60,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglPushDebugGroup(JNIEnv *
 	glPushDebugGroup(source, id, length, message);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglPopDebugGroup(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_glPopDebugGroup(JNIEnv *__env, jclass clazz) {
 	glPopDebugGroupPROC glPopDebugGroup = (glPopDebugGroupPROC)tlsGetFunction(1233);
 	UNUSED_PARAM(clazz)
 	glPopDebugGroup();

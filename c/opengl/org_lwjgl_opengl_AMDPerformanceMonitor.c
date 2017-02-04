@@ -81,13 +81,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglSelectPerf
 	glSelectPerfMonitorCountersAMD(monitor, enable, group, numCounters, counterList);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglBeginPerfMonitorAMD(JNIEnv *__env, jclass clazz, jint monitor) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_glBeginPerfMonitorAMD(JNIEnv *__env, jclass clazz, jint monitor) {
 	glBeginPerfMonitorAMDPROC glBeginPerfMonitorAMD = (glBeginPerfMonitorAMDPROC)tlsGetFunction(17);
 	UNUSED_PARAM(clazz)
 	glBeginPerfMonitorAMD(monitor);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglEndPerfMonitorAMD(JNIEnv *__env, jclass clazz, jint monitor) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_glEndPerfMonitorAMD(JNIEnv *__env, jclass clazz, jint monitor) {
 	glEndPerfMonitorAMDPROC glEndPerfMonitorAMD = (glEndPerfMonitorAMDPROC)tlsGetFunction(396);
 	UNUSED_PARAM(clazz)
 	glEndPerfMonitorAMD(monitor);

@@ -102,18 +102,10 @@ public class QCOMTiledRendering {
 
 	// --- [ glStartTilingQCOM ] ---
 
-	public static native void nglStartTilingQCOM(int x, int y, int width, int height, int preserveMask);
-
-	public static void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask) {
-		nglStartTilingQCOM(x, y, width, height, preserveMask);
-	}
+	public static native void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask);
 
 	// --- [ glEndTilingQCOM ] ---
 
-	public static native void nglEndTilingQCOM(int preserveMask);
-
-	public static void glEndTilingQCOM(int preserveMask) {
-		nglEndTilingQCOM(preserveMask);
-	}
+	public static native void glEndTilingQCOM(int preserveMask);
 
 }

@@ -108,17 +108,12 @@ public class ARBSampleLocations {
 
 	// --- [ glEvaluateDepthValuesARB ] ---
 
-	/** Unsafe version of: {@link #glEvaluateDepthValuesARB EvaluateDepthValuesARB} */
-	public static native void nglEvaluateDepthValuesARB();
-
 	/**
 	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
 	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
 	 * generated. If the current framebuffer has no depth buffer, EvaluateDepthValuesARB will have no effect.
 	 */
-	public static void glEvaluateDepthValuesARB() {
-		nglEvaluateDepthValuesARB();
-	}
+	public static native void glEvaluateDepthValuesARB();
 
 	/** Array version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
 	public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {

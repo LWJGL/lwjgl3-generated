@@ -12,7 +12,7 @@ typedef void (APIENTRY *glGetIntegeri_vEXTPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMultiviewDrawBuffers_nglReadBufferIndexedEXT(JNIEnv *__env, jclass clazz, jint src, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMultiviewDrawBuffers_glReadBufferIndexedEXT(JNIEnv *__env, jclass clazz, jint src, jint index) {
 	glReadBufferIndexedEXTPROC glReadBufferIndexedEXT = (glReadBufferIndexedEXTPROC)tlsGetFunction(587);
 	UNUSED_PARAM(clazz)
 	glReadBufferIndexedEXT(src, index);

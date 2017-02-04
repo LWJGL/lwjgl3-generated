@@ -40,9 +40,6 @@ public class ARBCopyImage {
 
 	// --- [ glCopyImageSubData ] ---
 
-	/** Unsafe version of: {@link #glCopyImageSubData CopyImageSubData} */
-	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
-
 	/**
 	 * Performs a raw data copy between two images.
 	 *
@@ -62,8 +59,6 @@ public class ARBCopyImage {
 	 * @param srcHeight the height of the region to be copied
 	 * @param srcDepth  the depth of the region to be copied
 	 */
-	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		nglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-	}
+	public static native void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 }

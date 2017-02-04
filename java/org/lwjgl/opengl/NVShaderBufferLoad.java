@@ -113,51 +113,27 @@ public class NVShaderBufferLoad {
 
 	// --- [ glMakeBufferResidentNV ] ---
 
-	public static native void nglMakeBufferResidentNV(int target, int access);
-
-	public static void glMakeBufferResidentNV(int target, int access) {
-		nglMakeBufferResidentNV(target, access);
-	}
+	public static native void glMakeBufferResidentNV(int target, int access);
 
 	// --- [ glMakeBufferNonResidentNV ] ---
 
-	public static native void nglMakeBufferNonResidentNV(int target);
-
-	public static void glMakeBufferNonResidentNV(int target) {
-		nglMakeBufferNonResidentNV(target);
-	}
+	public static native void glMakeBufferNonResidentNV(int target);
 
 	// --- [ glIsBufferResidentNV ] ---
 
-	public static native boolean nglIsBufferResidentNV(int target);
-
-	public static boolean glIsBufferResidentNV(int target) {
-		return nglIsBufferResidentNV(target);
-	}
+	public static native boolean glIsBufferResidentNV(int target);
 
 	// --- [ glMakeNamedBufferResidentNV ] ---
 
-	public static native void nglMakeNamedBufferResidentNV(int buffer, int access);
-
-	public static void glMakeNamedBufferResidentNV(int buffer, int access) {
-		nglMakeNamedBufferResidentNV(buffer, access);
-	}
+	public static native void glMakeNamedBufferResidentNV(int buffer, int access);
 
 	// --- [ glMakeNamedBufferNonResidentNV ] ---
 
-	public static native void nglMakeNamedBufferNonResidentNV(int buffer);
-
-	public static void glMakeNamedBufferNonResidentNV(int buffer) {
-		nglMakeNamedBufferNonResidentNV(buffer);
-	}
+	public static native void glMakeNamedBufferNonResidentNV(int buffer);
 
 	// --- [ glIsNamedBufferResidentNV ] ---
 
-	public static native boolean nglIsNamedBufferResidentNV(int buffer);
-
-	public static boolean glIsNamedBufferResidentNV(int buffer) {
-		return nglIsNamedBufferResidentNV(buffer);
-	}
+	public static native boolean glIsNamedBufferResidentNV(int buffer);
 
 	// --- [ glGetBufferParameterui64vNV ] ---
 
@@ -224,11 +200,7 @@ public class NVShaderBufferLoad {
 
 	// --- [ glUniformui64NV ] ---
 
-	public static native void nglUniformui64NV(int location, long value);
-
-	public static void glUniformui64NV(int location, long value) {
-		nglUniformui64NV(location, value);
-	}
+	public static native void glUniformui64NV(int location, long value);
 
 	// --- [ glUniformui64vNV ] ---
 
@@ -261,11 +233,7 @@ public class NVShaderBufferLoad {
 
 	// --- [ glProgramUniformui64NV ] ---
 
-	public static native void nglProgramUniformui64NV(int program, int location, long value);
-
-	public static void glProgramUniformui64NV(int program, int location, long value) {
-		nglProgramUniformui64NV(program, location, value);
-	}
+	public static native void glProgramUniformui64NV(int program, int location, long value);
 
 	// --- [ glProgramUniformui64vNV ] ---
 

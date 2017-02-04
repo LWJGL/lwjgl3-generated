@@ -38,9 +38,6 @@ public class ARBParallelShaderCompile {
 
 	// --- [ glMaxShaderCompilerThreadsARB ] ---
 
-	/** Unsafe version of: {@link #glMaxShaderCompilerThreadsARB MaxShaderCompilerThreadsARB} */
-	public static native void nglMaxShaderCompilerThreadsARB(int count);
-
 	/**
 	 * Application may use the following to hint to the driver the maximum number background threads it would like to be used in the process of compiling
 	 * shaders or linking programs.
@@ -53,8 +50,6 @@ public class ARBParallelShaderCompile {
 	 * @param count the number of background threads. A {@code count} of zero specifies a request for no parallel compiling or linking and a {@code count} of
 	 *              {@code 0xFFFFFFFF} requests an implementation-specific maximum.
 	 */
-	public static void glMaxShaderCompilerThreadsARB(int count) {
-		nglMaxShaderCompilerThreadsARB(count);
-	}
+	public static native void glMaxShaderCompilerThreadsARB(int count);
 
 }

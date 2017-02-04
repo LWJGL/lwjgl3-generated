@@ -141,10 +141,6 @@ public class OESTessellationShader {
 
 	// --- [ glPatchParameteriOES ] ---
 
-	public static native void nglPatchParameteriOES(int pname, int value);
-
-	public static void glPatchParameteriOES(int pname, int value) {
-		nglPatchParameteriOES(pname, value);
-	}
+	public static native void glPatchParameteriOES(int pname, int value);
 
 }

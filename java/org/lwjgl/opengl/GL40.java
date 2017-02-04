@@ -211,65 +211,39 @@ public class GL40 {
 
 	// --- [ glBlendEquationi ] ---
 
-	/** Unsafe version of: {@link #glBlendEquationi BlendEquationi} */
-	public static native void nglBlendEquationi(int buf, int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the specified draw buffer.
 	 *
 	 * @param buf  the index of the draw buffer for which to set the blend equation
 	 * @param mode how source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
-	public static void glBlendEquationi(int buf, int mode) {
-		nglBlendEquationi(buf, mode);
-	}
+	public static native void glBlendEquationi(int buf, int mode);
 
 	// --- [ glBlendEquationSeparatei ] ---
 
-	/** Unsafe version of: {@link #glBlendEquationSeparatei BlendEquationSeparatei} */
-	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the RGB blend equation and the alpha blend equation separately for the specified draw buffer.
 	 *
 	 * @param buf       the index of the draw buffer for which to set the blend equations
 	 * @param modeRGB   the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
-	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunci ] ---
 
-	/** Unsafe version of: {@link #glBlendFunci BlendFunci} */
-	public static native void nglBlendFunci(int buf, int sfactor, int dfactor);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies pixel arithmetic for the specified draw buffer.
 	 *
 	 * @param buf     the index of the draw buffer for which to set the blend function
 	 * @param sfactor how the red, green, blue, and alpha source blending factors are computed
 	 * @param dfactor how the red, green, blue, and alpha destination blending factors are computed
 	 */
-	public static void glBlendFunci(int buf, int sfactor, int dfactor) {
-		nglBlendFunci(buf, sfactor, dfactor);
-	}
+	public static native void glBlendFunci(int buf, int sfactor, int dfactor);
 
 	// --- [ glBlendFuncSeparatei ] ---
 
-	/** Unsafe version of: {@link #glBlendFuncSeparatei BlendFuncSeparatei} */
-	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies pixel arithmetic for RGB and alpha components separately for the specified draw buffer.
 	 *
 	 * @param buf      the index of the draw buffer for which to set the blend functions
@@ -278,9 +252,7 @@ public class GL40 {
 	 * @param srcAlpha how the alpha source blending factor is computed
 	 * @param dstAlpha how the alpha destination blending factor is computed
 	 */
-	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		nglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-	}
+	public static native void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	// --- [ glDrawArraysIndirect ] ---
 
@@ -506,47 +478,28 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glUniform1d ] ---
 
-	/** Unsafe version of: {@link #glUniform1d Uniform1d} */
-	public static native void nglUniform1d(int location, double x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 */
-	public static void glUniform1d(int location, double x) {
-		nglUniform1d(location, x);
-	}
+	public static native void glUniform1d(int location, double x);
 
 	// --- [ glUniform2d ] ---
 
-	/** Unsafe version of: {@link #glUniform2d Uniform2d} */
-	public static native void nglUniform2d(int location, double x, double y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param x        the uniform x value
 	 * @param y        the uniform y value
 	 */
-	public static void glUniform2d(int location, double x, double y) {
-		nglUniform2d(location, x, y);
-	}
+	public static native void glUniform2d(int location, double x, double y);
 
 	// --- [ glUniform3d ] ---
 
-	/** Unsafe version of: {@link #glUniform3d Uniform3d} */
-	public static native void nglUniform3d(int location, double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -554,18 +507,11 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param y        the uniform y value
 	 * @param z        the uniform z value
 	 */
-	public static void glUniform3d(int location, double x, double y, double z) {
-		nglUniform3d(location, x, y, z);
-	}
+	public static native void glUniform3d(int location, double x, double y, double z);
 
 	// --- [ glUniform4d ] ---
 
-	/** Unsafe version of: {@link #glUniform4d Uniform4d} */
-	public static native void nglUniform4d(int location, double x, double y, double z, double w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -574,9 +520,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param z        the uniform z value
 	 * @param w        the uniform w value
 	 */
-	public static void glUniform4d(int location, double x, double y, double z, double w) {
-		nglUniform4d(location, x, y, z, w);
-	}
+	public static native void glUniform4d(int location, double x, double y, double z, double w);
 
 	// --- [ glUniform1dv ] ---
 
@@ -901,19 +845,12 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glMinSampleShading ] ---
 
-	/** Unsafe version of: {@link #glMinSampleShading MinSampleShading} */
-	public static native void nglMinSampleShading(float value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the minimum rate at which sample shading takes place.
 	 *
 	 * @param value the rate at which samples are shaded within each covered pixel
 	 */
-	public static void glMinSampleShading(float value) {
-		nglMinSampleShading(value);
-	}
+	public static native void glMinSampleShading(float value);
 
 	// --- [ glGetSubroutineUniformLocation ] ---
 
@@ -1278,20 +1215,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glPatchParameteri ] ---
 
-	/** Unsafe version of: {@link #glPatchParameteri PatchParameteri} */
-	public static native void nglPatchParameteri(int pname, int value);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
 	 * @param pname the name of the parameter to set. Must be:<br><table><tr><td>{@link #GL_PATCH_VERTICES PATCH_VERTICES}</td></tr></table>
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
-	public static void glPatchParameteri(int pname, int value) {
-		nglPatchParameteri(pname, value);
-	}
+	public static native void glPatchParameteri(int pname, int value);
 
 	// --- [ glPatchParameterfv ] ---
 
@@ -1315,20 +1245,13 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glBindTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glBindTransformFeedback BindTransformFeedback} */
-	public static native void nglBindTransformFeedback(int target, int id);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a transform feedback object.
 	 *
 	 * @param target the target to which to bind the transform feedback object {@code id}. Must be:<br><table><tr><td>{@link #GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
 	 * @param id     the name of a transform feedback object
 	 */
-	public static void glBindTransformFeedback(int target, int id) {
-		nglBindTransformFeedback(target, id);
-	}
+	public static native void glBindTransformFeedback(int target, int id);
 
 	// --- [ glDeleteTransformFeedbacks ] ---
 
@@ -1403,28 +1326,16 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 
 	// --- [ glIsTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glIsTransformFeedback IsTransformFeedback} */
-	public static native boolean nglIsTransformFeedback(int id);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a transform feedback object.
 	 *
 	 * @param id a value that may be the name of a transform feedback object
 	 */
-	public static boolean glIsTransformFeedback(int id) {
-		return nglIsTransformFeedback(id);
-	}
+	public static native boolean glIsTransformFeedback(int id);
 
 	// --- [ glPauseTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glPauseTransformFeedback PauseTransformFeedback} */
-	public static native void nglPauseTransformFeedback();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPauseTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Pauses transform feedback operations for the currently bound transform feedback object.
 	 * 
 	 * <p>When transform feedback operations are paused, transform feedback is still considered active and changing most transform feedback state related to the
@@ -1437,95 +1348,58 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * of the {@code mode} parameter passed to {@link GL11#glBegin Begin} for the purposes of this error check. Any primitive type may be used while transform feedback is
 	 * paused.</p>
 	 */
-	public static void glPauseTransformFeedback() {
-		nglPauseTransformFeedback();
-	}
+	public static native void glPauseTransformFeedback();
 
 	// --- [ glResumeTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glResumeTransformFeedback ResumeTransformFeedback} */
-	public static native void nglResumeTransformFeedback();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glResumeTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Resumes transform feedback operations for the currently bound transform feedback object.
 	 * 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated by {@link #glResumeTransformFeedback ResumeTransformFeedback} if the currently bound transform feedback is not active or is not paused.</p>
 	 */
-	public static void glResumeTransformFeedback() {
-		nglResumeTransformFeedback();
-	}
+	public static native void glResumeTransformFeedback();
 
 	// --- [ glDrawTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glDrawTransformFeedback DrawTransformFeedback} */
-	public static native void nglDrawTransformFeedback(int mode, int id);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Render primitives using a count derived from a transform feedback object.
 	 *
 	 * @param mode what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
 	 * @param id   the name of a transform feedback object from which to retrieve a primitive count
 	 */
-	public static void glDrawTransformFeedback(int mode, int id) {
-		nglDrawTransformFeedback(mode, id);
-	}
+	public static native void glDrawTransformFeedback(int mode, int id);
 
 	// --- [ glDrawTransformFeedbackStream ] ---
 
-	/** Unsafe version of: {@link #glDrawTransformFeedbackStream DrawTransformFeedbackStream} */
-	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
 	 * @param mode   what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
 	 * @param id     the name of a transform feedback object from which to retrieve a primitive count
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
-	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
-		nglDrawTransformFeedbackStream(mode, id, stream);
-	}
+	public static native void glDrawTransformFeedbackStream(int mode, int id, int stream);
 
 	// --- [ glBeginQueryIndexed ] ---
 
-	/** Unsafe version of: {@link #glBeginQueryIndexed BeginQueryIndexed} */
-	public static native void nglBeginQueryIndexed(int target, int index, int id);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Begins a query object on an indexed target
 	 *
 	 * @param target the target type of query object established between {@code glBeginQueryIndexed} and the subsequent {@link #glEndQueryIndexed EndQueryIndexed}. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 * @param index  the index of the query target upon which to begin the query
 	 * @param id     the name of a query object
 	 */
-	public static void glBeginQueryIndexed(int target, int index, int id) {
-		nglBeginQueryIndexed(target, index, id);
-	}
+	public static native void glBeginQueryIndexed(int target, int index, int id);
 
 	// --- [ glEndQueryIndexed ] ---
 
-	/** Unsafe version of: {@link #glEndQueryIndexed EndQueryIndexed} */
-	public static native void nglEndQueryIndexed(int target, int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Ends a query object on an indexed target
 	 *
 	 * @param target the target type of query object to be concluded. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
 	 * @param index  the index of the query target upon which to end the query
 	 */
-	public static void glEndQueryIndexed(int target, int index) {
-		nglEndQueryIndexed(target, index);
-	}
+	public static native void glEndQueryIndexed(int target, int index);
 
 	// --- [ glGetQueryIndexediv ] ---
 

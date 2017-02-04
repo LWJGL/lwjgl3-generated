@@ -56,9 +56,6 @@ public class ARBTextureView {
 
 	// --- [ glTextureView ] ---
 
-	/** Unsafe version of: {@link #glTextureView TextureView} */
-	public static native void nglTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
-
 	/**
 	 * Initializes a texture as a data alias of another texture's data store.
 	 *
@@ -71,8 +68,6 @@ public class ARBTextureView {
 	 * @param minlayer       the index of the first layer to include in the view
 	 * @param numlayers      the number of layers to include in the view
 	 */
-	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		nglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-	}
+	public static native void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
 
 }

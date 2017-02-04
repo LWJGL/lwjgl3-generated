@@ -41,10 +41,6 @@ public class NVConservativeRasterDilate {
 
 	// --- [ glConservativeRasterParameterfNV ] ---
 
-	public static native void nglConservativeRasterParameterfNV(int pname, float value);
-
-	public static void glConservativeRasterParameterfNV(int pname, float value) {
-		nglConservativeRasterParameterfNV(pname, value);
-	}
+	public static native void glConservativeRasterParameterfNV(int pname, float value);
 
 }

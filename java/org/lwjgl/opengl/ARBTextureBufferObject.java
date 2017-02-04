@@ -60,9 +60,6 @@ public class ARBTextureBufferObject {
 
 	// --- [ glTexBufferARB ] ---
 
-	/** Unsafe version of: {@link #glTexBufferARB TexBufferARB} */
-	public static native void nglTexBufferARB(int target, int internalformat, int buffer);
-
 	/**
 	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
 	 * in the attached buffer object. If {@code buffer} is zero, any buffer object attached to the buffer texture is detached, and no new buffer object is
@@ -90,8 +87,6 @@ public class ARBTextureBufferObject {
 	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
-	public static void glTexBufferARB(int target, int internalformat, int buffer) {
-		nglTexBufferARB(target, internalformat, buffer);
-	}
+	public static native void glTexBufferARB(int target, int internalformat, int buffer);
 
 }

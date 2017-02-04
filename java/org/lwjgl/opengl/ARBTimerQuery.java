@@ -56,18 +56,13 @@ public class ARBTimerQuery {
 
 	// --- [ glQueryCounter ] ---
 
-	/** Unsafe version of: {@link #glQueryCounter QueryCounter} */
-	public static native void nglQueryCounter(int id, int target);
-
 	/**
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
 	 * @param id     the name of a query object into which to record the GL time
 	 * @param target the counter to query. Must be:<br><table><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td></tr></table>
 	 */
-	public static void glQueryCounter(int id, int target) {
-		nglQueryCounter(id, target);
-	}
+	public static native void glQueryCounter(int id, int target);
 
 	// --- [ glGetQueryObjecti64v ] ---
 

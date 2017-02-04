@@ -585,12 +585,7 @@ public class GL30 {
 
 	// --- [ glClearBufferfi ] ---
 
-	/** Unsafe version of: {@link #glClearBufferfi ClearBufferfi} */
-	public static native void nglClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferfi.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
 	 *
 	 * @param buffer     the buffer to clear. Must be:<br><table><tr><td>{@link #GL_DEPTH_STENCIL DEPTH_STENCIL}</td></tr></table>
@@ -598,53 +593,32 @@ public class GL30 {
 	 * @param depth      the depth value to clear the buffer to
 	 * @param stencil    the stencil value to clear the buffer to
 	 */
-	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
-		nglClearBufferfi(buffer, drawbuffer, depth, stencil);
-	}
+	public static native void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
 
 	// --- [ glVertexAttribI1i ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI1i VertexAttribI1i} */
-	public static native void nglVertexAttribI1i(int index, int x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 */
-	public static void glVertexAttribI1i(int index, int x) {
-		nglVertexAttribI1i(index, x);
-	}
+	public static native void glVertexAttribI1i(int index, int x);
 
 	// --- [ glVertexAttribI2i ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI2i VertexAttribI2i} */
-	public static native void nglVertexAttribI2i(int index, int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 * @param y     the vertex attribute y component
 	 */
-	public static void glVertexAttribI2i(int index, int x, int y) {
-		nglVertexAttribI2i(index, x, y);
-	}
+	public static native void glVertexAttribI2i(int index, int x, int y);
 
 	// --- [ glVertexAttribI3i ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI3i VertexAttribI3i} */
-	public static native void nglVertexAttribI3i(int index, int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -652,18 +626,11 @@ public class GL30 {
 	 * @param y     the vertex attribute y component
 	 * @param z     the vertex attribute z component
 	 */
-	public static void glVertexAttribI3i(int index, int x, int y, int z) {
-		nglVertexAttribI3i(index, x, y, z);
-	}
+	public static native void glVertexAttribI3i(int index, int x, int y, int z);
 
 	// --- [ glVertexAttribI4i ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI4i VertexAttribI4i} */
-	public static native void nglVertexAttribI4i(int index, int x, int y, int z, int w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4i.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a pure integer generic vertex attribute.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -672,53 +639,32 @@ public class GL30 {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
-		nglVertexAttribI4i(index, x, y, z, w);
-	}
+	public static native void glVertexAttribI4i(int index, int x, int y, int z, int w);
 
 	// --- [ glVertexAttribI1ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI1ui VertexAttribI1ui} */
-	public static native void nglVertexAttribI1ui(int index, int x);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 */
-	public static void glVertexAttribI1ui(int index, int x) {
-		nglVertexAttribI1ui(index, x);
-	}
+	public static native void glVertexAttribI1ui(int index, int x);
 
 	// --- [ glVertexAttribI2ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI2ui VertexAttribI2ui} */
-	public static native void nglVertexAttribI2ui(int index, int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 * @param y     the vertex attribute y component
 	 */
-	public static void glVertexAttribI2ui(int index, int x, int y) {
-		nglVertexAttribI2ui(index, x, y);
-	}
+	public static native void glVertexAttribI2ui(int index, int x, int y);
 
 	// --- [ glVertexAttribI3ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI3ui VertexAttribI3ui} */
-	public static native void nglVertexAttribI3ui(int index, int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -726,18 +672,11 @@ public class GL30 {
 	 * @param y     the vertex attribute y component
 	 * @param z     the vertex attribute z component
 	 */
-	public static void glVertexAttribI3ui(int index, int x, int y, int z) {
-		nglVertexAttribI3ui(index, x, y, z);
-	}
+	public static native void glVertexAttribI3ui(int index, int x, int y, int z);
 
 	// --- [ glVertexAttribI4ui ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribI4ui VertexAttribI4ui} */
-	public static native void nglVertexAttribI4ui(int index, int x, int y, int z, int w);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -746,9 +685,7 @@ public class GL30 {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
-		nglVertexAttribI4ui(index, x, y, z, w);
-	}
+	public static native void glVertexAttribI4ui(int index, int x, int y, int z, int w);
 
 	// --- [ glVertexAttribI1iv ] ---
 
@@ -1131,47 +1068,28 @@ public class GL30 {
 
 	// --- [ glUniform1ui ] ---
 
-	/** Unsafe version of: {@link #glUniform1ui Uniform1ui} */
-	public static native void nglUniform1ui(int location, int v0);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uint uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform value
 	 */
-	public static void glUniform1ui(int location, int v0) {
-		nglUniform1ui(location, v0);
-	}
+	public static native void glUniform1ui(int location, int v0);
 
 	// --- [ glUniform2ui ] ---
 
-	/** Unsafe version of: {@link #glUniform2ui Uniform2ui} */
-	public static native void nglUniform2ui(int location, int v0, int v1);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uvec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform x value
 	 * @param v1       the uniform y value
 	 */
-	public static void glUniform2ui(int location, int v0, int v1) {
-		nglUniform2ui(location, v0, v1);
-	}
+	public static native void glUniform2ui(int location, int v0, int v1);
 
 	// --- [ glUniform3ui ] ---
 
-	/** Unsafe version of: {@link #glUniform3ui Uniform3ui} */
-	public static native void nglUniform3ui(int location, int v0, int v1, int v2);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uvec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1179,18 +1097,11 @@ public class GL30 {
 	 * @param v1       the uniform y value
 	 * @param v2       the uniform z value
 	 */
-	public static void glUniform3ui(int location, int v0, int v1, int v2) {
-		nglUniform3ui(location, v0, v1, v2);
-	}
+	public static native void glUniform3ui(int location, int v0, int v1, int v2);
 
 	// --- [ glUniform4ui ] ---
 
-	/** Unsafe version of: {@link #glUniform4ui Uniform4ui} */
-	public static native void nglUniform4ui(int location, int v0, int v1, int v2, int v3);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4ui.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the value of a uvec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1199,9 +1110,7 @@ public class GL30 {
 	 * @param v2       the uniform z value
 	 * @param v3       the uniform w value
 	 */
-	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
-		nglUniform4ui(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4ui(int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glUniform1uiv ] ---
 
@@ -1404,34 +1313,18 @@ public class GL30 {
 
 	// --- [ glBeginConditionalRender ] ---
 
-	/** Unsafe version of: {@link #glBeginConditionalRender BeginConditionalRender} */
-	public static native void nglBeginConditionalRender(int id, int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Starts conditional rendering.
 	 *
 	 * @param id   the name of an occlusion query object whose results are used to determine if the rendering commands are discarded
 	 * @param mode how {@code glBeginConditionalRender} interprets the results of the occlusion query. One of:<br><table><tr><td>{@link #GL_QUERY_WAIT QUERY_WAIT}</td><td>{@link #GL_QUERY_NO_WAIT QUERY_NO_WAIT}</td><td>{@link #GL_QUERY_BY_REGION_WAIT QUERY_BY_REGION_WAIT}</td></tr><tr><td>{@link #GL_QUERY_BY_REGION_NO_WAIT QUERY_BY_REGION_NO_WAIT}</td><td>{@link GL45#GL_QUERY_WAIT_INVERTED QUERY_WAIT_INVERTED}</td><td>{@link GL45#GL_QUERY_NO_WAIT_INVERTED QUERY_NO_WAIT_INVERTED}</td></tr><tr><td>{@link GL45#GL_QUERY_BY_REGION_WAIT_INVERTED QUERY_BY_REGION_WAIT_INVERTED}</td><td>{@link GL45#GL_QUERY_BY_REGION_NO_WAIT_INVERTED QUERY_BY_REGION_NO_WAIT_INVERTED}</td></tr></table>
 	 */
-	public static void glBeginConditionalRender(int id, int mode) {
-		nglBeginConditionalRender(id, mode);
-	}
+	public static native void glBeginConditionalRender(int id, int mode);
 
 	// --- [ glEndConditionalRender ] ---
 
-	/** Unsafe version of: {@link #glEndConditionalRender EndConditionalRender} */
-	public static native void nglEndConditionalRender();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Ends conditional rendering.
-	 */
-	public static void glEndConditionalRender() {
-		nglEndConditionalRender();
-	}
+	/** Ends conditional rendering. */
+	public static native void glEndConditionalRender();
 
 	// --- [ glMapBufferRange ] ---
 
@@ -1484,71 +1377,43 @@ public class GL30 {
 
 	// --- [ glFlushMappedBufferRange ] ---
 
-	/** Unsafe version of: {@link #glFlushMappedBufferRange FlushMappedBufferRange} */
-	public static native void nglFlushMappedBufferRange(int target, long offset, long length);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedBufferRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Indicates modifications to a range of a mapped buffer.
 	 *
 	 * @param target the target of the flush operation. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
 	 * @param offset the start of the buffer subrange, in basic machine units
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
-	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		nglFlushMappedBufferRange(target, offset, length);
-	}
+	public static native void glFlushMappedBufferRange(int target, long offset, long length);
 
 	// --- [ glClampColor ] ---
 
-	/** Unsafe version of: {@link #glClampColor ClampColor} */
-	public static native void nglClampColor(int target, int clamp);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClampColor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls color clamping.
 	 *
 	 * @param target target for color clamping. One of:<br><table><tr><td>{@link #GL_CLAMP_VERTEX_COLOR CLAMP_VERTEX_COLOR}</td><td>{@link #GL_CLAMP_FRAGMENT_COLOR CLAMP_FRAGMENT_COLOR}</td><td>{@link #GL_CLAMP_READ_COLOR CLAMP_READ_COLOR}</td></tr></table>
 	 * @param clamp  whether to apply color clamping. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td><td>{@link #GL_FIXED_ONLY FIXED_ONLY}</td></tr></table>
 	 */
-	public static void glClampColor(int target, int clamp) {
-		nglClampColor(target, clamp);
-	}
+	public static native void glClampColor(int target, int clamp);
 
 	// --- [ glIsRenderbuffer ] ---
 
-	/** Unsafe version of: {@link #glIsRenderbuffer IsRenderbuffer} */
-	public static native boolean nglIsRenderbuffer(int renderbuffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a renderbuffer object.
 	 *
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
 	 */
-	public static boolean glIsRenderbuffer(int renderbuffer) {
-		return nglIsRenderbuffer(renderbuffer);
-	}
+	public static native boolean glIsRenderbuffer(int renderbuffer);
 
 	// --- [ glBindRenderbuffer ] ---
 
-	/** Unsafe version of: {@link #glBindRenderbuffer BindRenderbuffer} */
-	public static native void nglBindRenderbuffer(int target, int renderbuffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a renderbuffer to a renderbuffer target.
 	 *
 	 * @param target       the renderbuffer target of the binding operation. Must be:<br><table><tr><td>{@link #GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
 	 * @param renderbuffer the name of the renderbuffer object to bind
 	 */
-	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		nglBindRenderbuffer(target, renderbuffer);
-	}
+	public static native void glBindRenderbuffer(int target, int renderbuffer);
 
 	// --- [ glDeleteRenderbuffers ] ---
 
@@ -1623,12 +1488,7 @@ public class GL30 {
 
 	// --- [ glRenderbufferStorage ] ---
 
-	/** Unsafe version of: {@link #glRenderbufferStorage RenderbufferStorage} */
-	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
 	 *
 	 * @param target         the target of the allocation. Must be:<br><table><tr><td>{@link #GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
@@ -1636,18 +1496,11 @@ public class GL30 {
 	 * @param width          the width of the renderbuffer, in pixels
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
-	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		nglRenderbufferStorage(target, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorage(int target, int internalformat, int width, int height);
 
 	// --- [ glRenderbufferStorageMultisample ] ---
 
-	/** Unsafe version of: {@link #glRenderbufferStorageMultisample RenderbufferStorageMultisample} */
-	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
 	 * 
 	 * <p>{@link #glRenderbufferStorage RenderbufferStorage} is equivalent to calling this method with the samples set to zero.</p>
@@ -1658,9 +1511,7 @@ public class GL30 {
 	 * @param width          the width of the renderbuffer, in pixels
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
-	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisample(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
@@ -1703,36 +1554,22 @@ public class GL30 {
 
 	// --- [ glIsFramebuffer ] ---
 
-	/** Unsafe version of: {@link #glIsFramebuffer IsFramebuffer} */
-	public static native boolean nglIsFramebuffer(int framebuffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsFramebuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a framebuffer object.
 	 *
 	 * @param framebuffer a value that may be the name of a framebuffer object
 	 */
-	public static boolean glIsFramebuffer(int framebuffer) {
-		return nglIsFramebuffer(framebuffer);
-	}
+	public static native boolean glIsFramebuffer(int framebuffer);
 
 	// --- [ glBindFramebuffer ] ---
 
-	/** Unsafe version of: {@link #glBindFramebuffer BindFramebuffer} */
-	public static native void nglBindFramebuffer(int target, int framebuffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFramebuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a framebuffer to a framebuffer target.
 	 *
 	 * @param target      the framebuffer target of the binding operation. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 * @param framebuffer the name of the framebuffer object to bind
 	 */
-	public static void glBindFramebuffer(int target, int framebuffer) {
-		nglBindFramebuffer(target, framebuffer);
-	}
+	public static native void glBindFramebuffer(int target, int framebuffer);
 
 	// --- [ glDeleteFramebuffers ] ---
 
@@ -1807,28 +1644,16 @@ public class GL30 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
-	/** Unsafe version of: {@link #glCheckFramebufferStatus CheckFramebufferStatus} */
-	public static native int nglCheckFramebufferStatus(int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCheckFramebufferStatus.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Checks the completeness status of a framebuffer.
 	 *
 	 * @param target the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 */
-	public static int glCheckFramebufferStatus(int target) {
-		return nglCheckFramebufferStatus(target);
-	}
+	public static native int glCheckFramebufferStatus(int target);
 
 	// --- [ glFramebufferTexture1D ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTexture1D FramebufferTexture1D} */
-	public static native void nglFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a level of a 1D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1837,18 +1662,11 @@ public class GL30 {
 	 * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
-	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture1D(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFramebufferTexture2D ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTexture2D FramebufferTexture2D} */
-	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a level of a 2D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1857,18 +1675,11 @@ public class GL30 {
 	 * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
-	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture2D(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFramebufferTexture3D ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTexture3D FramebufferTexture3D} */
-	public static native void nglFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture3D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a layer of a 3D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1878,18 +1689,11 @@ public class GL30 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
 	 */
-	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-		nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
-	}
+	public static native void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer);
 
 	// --- [ glFramebufferTextureLayer ] ---
 
-	/** Unsafe version of: {@link #glFramebufferTextureLayer FramebufferTextureLayer} */
-	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a single layer of a texture to a framebuffer
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1898,18 +1702,11 @@ public class GL30 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 * @param layer      the layer of {@code texture} to attach.
 	 */
-	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		nglFramebufferTextureLayer(target, attachment, texture, level, layer);
-	}
+	public static native void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
 
 	// --- [ glFramebufferRenderbuffer ] ---
 
-	/** Unsafe version of: {@link #glFramebufferRenderbuffer FramebufferRenderbuffer} */
-	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Attaches a renderbuffer as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target             the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1917,9 +1714,7 @@ public class GL30 {
 	 * @param renderbuffertarget the renderbuffer target. Must be:<br><table><tr><td>{@link #GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
-	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
-	}
+	public static native void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
@@ -1964,12 +1759,7 @@ public class GL30 {
 
 	// --- [ glBlitFramebuffer ] ---
 
-	/** Unsafe version of: {@link #glBlitFramebuffer BlitFramebuffer} */
-	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlitFramebuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Copies a block of pixels from the read framebuffer to the draw framebuffer.
 	 *
 	 * @param srcX0  the lower-left coordinate of the source rectangle within the read buffer
@@ -1983,25 +1773,16 @@ public class GL30 {
 	 * @param mask   the bitwise OR of the flags indicating which buffers are to be copied. One of:<br><table><tr><td>{@link GL11#GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}</td><td>{@link GL11#GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}</td><td>{@link GL11#GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}</td></tr></table>
 	 * @param filter the interpolation to be applied if the image is stretched. One of:<br><table><tr><td>{@link GL11#GL_NEAREST NEAREST}</td><td>{@link GL11#GL_LINEAR LINEAR}</td></tr></table>
 	 */
-	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-	}
+	public static native void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 	// --- [ glGenerateMipmap ] ---
 
-	/** Unsafe version of: {@link #glGenerateMipmap GenerateMipmap} */
-	public static native void nglGenerateMipmap(int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenerateMipmap.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Generate mipmaps for a specified texture target.
 	 *
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link #GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link #GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr></table>
 	 */
-	public static void glGenerateMipmap(int target) {
-		nglGenerateMipmap(target);
-	}
+	public static native void glGenerateMipmap(int target);
 
 	// --- [ glTexParameterIiv ] ---
 
@@ -2159,12 +1940,7 @@ public class GL30 {
 
 	// --- [ glColorMaski ] ---
 
-	/** Unsafe version of: {@link #glColorMaski ColorMaski} */
-	public static native void nglColorMaski(int buf, boolean r, boolean g, boolean b, boolean a);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorMaski.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Enables and disables writing of frame buffer color components.
 	 *
 	 * @param buf the index of the draw buffer whose color mask to set
@@ -2173,9 +1949,7 @@ public class GL30 {
 	 * @param b   whether B values are written or not
 	 * @param a   whether A values are written or not
 	 */
-	public static void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a) {
-		nglColorMaski(buf, r, g, b, a);
-	}
+	public static native void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a);
 
 	// --- [ glGetBooleani_v ] ---
 
@@ -2257,63 +2031,37 @@ public class GL30 {
 
 	// --- [ glEnablei ] ---
 
-	/** Unsafe version of: {@link #glEnablei Enablei} */
-	public static native void nglEnablei(int cap, int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnablei.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Enables an indexed capability.
 	 *
 	 * @param cap   the indexed capability to enable
 	 * @param index the index to enable
 	 */
-	public static void glEnablei(int cap, int index) {
-		nglEnablei(cap, index);
-	}
+	public static native void glEnablei(int cap, int index);
 
 	// --- [ glDisablei ] ---
 
-	/** Unsafe version of: {@link #glDisablei Disablei} */
-	public static native void nglDisablei(int target, int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDisablei.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Disables an indexed capability.
 	 *
 	 * @param target the indexed capability to disable
 	 * @param index  the index to disable
 	 */
-	public static void glDisablei(int target, int index) {
-		nglDisablei(target, index);
-	}
+	public static native void glDisablei(int target, int index);
 
 	// --- [ glIsEnabledi ] ---
 
-	/** Unsafe version of: {@link #glIsEnabledi IsEnabledi} */
-	public static native boolean nglIsEnabledi(int target, int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabledi.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Tests whether an indexed capability is enabled.
 	 *
 	 * @param target the indexed capability to query
 	 * @param index  the index to query
 	 */
-	public static boolean glIsEnabledi(int target, int index) {
-		return nglIsEnabledi(target, index);
-	}
+	public static native boolean glIsEnabledi(int target, int index);
 
 	// --- [ glBindBufferRange ] ---
 
-	/** Unsafe version of: {@link #glBindBufferRange BindBufferRange} */
-	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
 	 * @param target the target of the bind operation. One of:<br><table><tr><td>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td></tr></table>
@@ -2322,57 +2070,32 @@ public class GL30 {
 	 * @param offset the starting offset in basic machine units into the buffer object {@code buffer}
 	 * @param size   the amount of data in machine units that can be read from the buffer object while used as an indexed target
 	 */
-	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		nglBindBufferRange(target, index, buffer, offset, size);
-	}
+	public static native void glBindBufferRange(int target, int index, int buffer, long offset, long size);
 
 	// --- [ glBindBufferBase ] ---
 
-	/** Unsafe version of: {@link #glBindBufferBase BindBufferBase} */
-	public static native void nglBindBufferBase(int target, int index, int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferBase.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a buffer object to an indexed buffer target.
 	 *
 	 * @param target the target of the bind operation. One of:<br><table><tr><td>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td></tr></table>
 	 * @param index  the index of the binding point within the array specified by {@code target}
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */
-	public static void glBindBufferBase(int target, int index, int buffer) {
-		nglBindBufferBase(target, index, buffer);
-	}
+	public static native void glBindBufferBase(int target, int index, int buffer);
 
 	// --- [ glBeginTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glBeginTransformFeedback BeginTransformFeedback} */
-	public static native void nglBeginTransformFeedback(int primitiveMode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Starts transform feedback operation.
 	 *
 	 * @param primitiveMode the output type of the primitives that will be recorded into the buffer objects that are bound for transform feedback. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td></tr></table>
 	 */
-	public static void glBeginTransformFeedback(int primitiveMode) {
-		nglBeginTransformFeedback(primitiveMode);
-	}
+	public static native void glBeginTransformFeedback(int primitiveMode);
 
 	// --- [ glEndTransformFeedback ] ---
 
-	/** Unsafe version of: {@link #glEndTransformFeedback EndTransformFeedback} */
-	public static native void nglEndTransformFeedback();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Ends transform feedback operation.
-	 */
-	public static void glEndTransformFeedback() {
-		nglEndTransformFeedback();
-	}
+	/** Ends transform feedback operation. */
+	public static native void glEndTransformFeedback();
 
 	// --- [ glTransformFeedbackVaryings ] ---
 
@@ -2508,19 +2231,12 @@ public class GL30 {
 
 	// --- [ glBindVertexArray ] ---
 
-	/** Unsafe version of: {@link #glBindVertexArray BindVertexArray} */
-	public static native void nglBindVertexArray(int array);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexArray.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a vertex array object
 	 *
 	 * @param array the name of the vertex array to bind
 	 */
-	public static void glBindVertexArray(int array) {
-		nglBindVertexArray(array);
-	}
+	public static native void glBindVertexArray(int array);
 
 	// --- [ glDeleteVertexArrays ] ---
 
@@ -2595,19 +2311,12 @@ public class GL30 {
 
 	// --- [ glIsVertexArray ] ---
 
-	/** Unsafe version of: {@link #glIsVertexArray IsVertexArray} */
-	public static native boolean nglIsVertexArray(int array);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsVertexArray.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Determines if a name corresponds to a vertex array object.
 	 *
 	 * @param array a value that may be the name of a vertex array object
 	 */
-	public static boolean glIsVertexArray(int array) {
-		return nglIsVertexArray(array);
-	}
+	public static native boolean glIsVertexArray(int array);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>

@@ -63,11 +63,7 @@ public class EXTMultiviewDrawBuffers {
 
 	// --- [ glReadBufferIndexedEXT ] ---
 
-	public static native void nglReadBufferIndexedEXT(int src, int index);
-
-	public static void glReadBufferIndexedEXT(int src, int index) {
-		nglReadBufferIndexedEXT(src, index);
-	}
+	public static native void glReadBufferIndexedEXT(int src, int index);
 
 	// --- [ glDrawBuffersIndexedEXT ] ---
 

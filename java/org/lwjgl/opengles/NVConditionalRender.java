@@ -50,18 +50,10 @@ public class NVConditionalRender {
 
 	// --- [ glBeginConditionalRenderNV ] ---
 
-	public static native void nglBeginConditionalRenderNV(int id, int mode);
-
-	public static void glBeginConditionalRenderNV(int id, int mode) {
-		nglBeginConditionalRenderNV(id, mode);
-	}
+	public static native void glBeginConditionalRenderNV(int id, int mode);
 
 	// --- [ glEndConditionalRenderNV ] ---
 
-	public static native void nglEndConditionalRenderNV();
-
-	public static void glEndConditionalRenderNV() {
-		nglEndConditionalRenderNV();
-	}
+	public static native void glEndConditionalRenderNV();
 
 }

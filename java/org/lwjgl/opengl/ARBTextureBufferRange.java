@@ -41,9 +41,6 @@ public class ARBTextureBufferRange {
 
 	// --- [ glTexBufferRange ] ---
 
-	/** Unsafe version of: {@link #glTexBufferRange TexBufferRange} */
-	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
-
 	/**
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
@@ -53,14 +50,9 @@ public class ARBTextureBufferRange {
 	 * @param offset         the offset of the start of the range of the buffer's data store to attach
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
-	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
-		nglTexBufferRange(target, internalformat, buffer, offset, size);
-	}
+	public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
 
 	// --- [ glTextureBufferRangeEXT ] ---
-
-	/** Unsafe version of: {@link #glTextureBufferRangeEXT TextureBufferRangeEXT} */
-	public static native void nglTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size);
 
 	/**
 	 * DSA version of {@link #glTexBufferRange TexBufferRange}.
@@ -72,8 +64,6 @@ public class ARBTextureBufferRange {
 	 * @param offset         the offset of the start of the range of the buffer's data store to attach
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
-	public static void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size) {
-		nglTextureBufferRangeEXT(texture, target, internalformat, buffer, offset, size);
-	}
+	public static native void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size);
 
 }

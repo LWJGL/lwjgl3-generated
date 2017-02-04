@@ -64,9 +64,6 @@ public class ARBInvalidateSubdata {
 
 	// --- [ glInvalidateTexSubImage ] ---
 
-	/** Unsafe version of: {@link #glInvalidateTexSubImage InvalidateTexSubImage} */
-	public static native void nglInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
-
 	/**
 	 * Invalidates a region of a texture image.
 	 *
@@ -79,14 +76,9 @@ public class ARBInvalidateSubdata {
 	 * @param height  the height of the region to be invalidated
 	 * @param depth   the depth of the region to be invalidated
 	 */
-	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
-		nglInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth);
-	}
+	public static native void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
 
 	// --- [ glInvalidateTexImage ] ---
-
-	/** Unsafe version of: {@link #glInvalidateTexImage InvalidateTexImage} */
-	public static native void nglInvalidateTexImage(int texture, int level);
 
 	/**
 	 * Invalidates the entirety of a texture image.
@@ -94,14 +86,9 @@ public class ARBInvalidateSubdata {
 	 * @param texture the name of a texture object to invalidate
 	 * @param level   the level of detail of the texture object to invalidate
 	 */
-	public static void glInvalidateTexImage(int texture, int level) {
-		nglInvalidateTexImage(texture, level);
-	}
+	public static native void glInvalidateTexImage(int texture, int level);
 
 	// --- [ glInvalidateBufferSubData ] ---
-
-	/** Unsafe version of: {@link #glInvalidateBufferSubData InvalidateBufferSubData} */
-	public static native void nglInvalidateBufferSubData(int buffer, long offset, long length);
 
 	/**
 	 * Invalidates a region of a buffer object's data store.
@@ -110,23 +97,16 @@ public class ARBInvalidateSubdata {
 	 * @param offset the offset within the buffer's data store of the start of the range to be invalidated
 	 * @param length the length of the range within the buffer's data store to be invalidated
 	 */
-	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
-		nglInvalidateBufferSubData(buffer, offset, length);
-	}
+	public static native void glInvalidateBufferSubData(int buffer, long offset, long length);
 
 	// --- [ glInvalidateBufferData ] ---
-
-	/** Unsafe version of: {@link #glInvalidateBufferData InvalidateBufferData} */
-	public static native void nglInvalidateBufferData(int buffer);
 
 	/**
 	 * Invalidates the content of a buffer object's data store.
 	 *
 	 * @param buffer the name of a buffer object whose data store to invalidate
 	 */
-	public static void glInvalidateBufferData(int buffer) {
-		nglInvalidateBufferData(buffer);
-	}
+	public static native void glInvalidateBufferData(int buffer);
 
 	// --- [ glInvalidateFramebuffer ] ---
 

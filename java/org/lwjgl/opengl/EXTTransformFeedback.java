@@ -100,43 +100,23 @@ public class EXTTransformFeedback {
 
 	// --- [ glBindBufferRangeEXT ] ---
 
-	public static native void nglBindBufferRangeEXT(int target, int index, int buffer, long offset, long size);
-
-	public static void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size) {
-		nglBindBufferRangeEXT(target, index, buffer, offset, size);
-	}
+	public static native void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size);
 
 	// --- [ glBindBufferOffsetEXT ] ---
 
-	public static native void nglBindBufferOffsetEXT(int target, int index, int buffer, long offset);
-
-	public static void glBindBufferOffsetEXT(int target, int index, int buffer, long offset) {
-		nglBindBufferOffsetEXT(target, index, buffer, offset);
-	}
+	public static native void glBindBufferOffsetEXT(int target, int index, int buffer, long offset);
 
 	// --- [ glBindBufferBaseEXT ] ---
 
-	public static native void nglBindBufferBaseEXT(int target, int index, int buffer);
-
-	public static void glBindBufferBaseEXT(int target, int index, int buffer) {
-		nglBindBufferBaseEXT(target, index, buffer);
-	}
+	public static native void glBindBufferBaseEXT(int target, int index, int buffer);
 
 	// --- [ glBeginTransformFeedbackEXT ] ---
 
-	public static native void nglBeginTransformFeedbackEXT(int primitiveMode);
-
-	public static void glBeginTransformFeedbackEXT(int primitiveMode) {
-		nglBeginTransformFeedbackEXT(primitiveMode);
-	}
+	public static native void glBeginTransformFeedbackEXT(int primitiveMode);
 
 	// --- [ glEndTransformFeedbackEXT ] ---
 
-	public static native void nglEndTransformFeedbackEXT();
-
-	public static void glEndTransformFeedbackEXT() {
-		nglEndTransformFeedbackEXT();
-	}
+	public static native void glEndTransformFeedbackEXT();
 
 	// --- [ glTransformFeedbackVaryingsEXT ] ---
 

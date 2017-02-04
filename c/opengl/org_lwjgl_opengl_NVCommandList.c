@@ -40,25 +40,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglDeleteStatesNV__IJ
 	glDeleteStatesNV(n, states);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVCommandList_nglIsStateNV(JNIEnv *__env, jclass clazz, jint state) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVCommandList_glIsStateNV(JNIEnv *__env, jclass clazz, jint state) {
 	glIsStateNVPROC glIsStateNV = (glIsStateNVPROC)tlsGetFunction(881);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsStateNV(state);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglStateCaptureNV(JNIEnv *__env, jclass clazz, jint state, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_glStateCaptureNV(JNIEnv *__env, jclass clazz, jint state, jint mode) {
 	glStateCaptureNVPROC glStateCaptureNV = (glStateCaptureNVPROC)tlsGetFunction(1527);
 	UNUSED_PARAM(clazz)
 	glStateCaptureNV(state, mode);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVCommandList_nglGetCommandHeaderNV(JNIEnv *__env, jclass clazz, jint tokenID, jint size) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVCommandList_glGetCommandHeaderNV(JNIEnv *__env, jclass clazz, jint tokenID, jint size) {
 	glGetCommandHeaderNVPROC glGetCommandHeaderNV = (glGetCommandHeaderNVPROC)tlsGetFunction(521);
 	UNUSED_PARAM(clazz)
 	return (jint)glGetCommandHeaderNV(tokenID, size);
 }
 
-JNIEXPORT jshort JNICALL Java_org_lwjgl_opengl_NVCommandList_nglGetStageIndexNV(JNIEnv *__env, jclass clazz, jint shadertype) {
+JNIEXPORT jshort JNICALL Java_org_lwjgl_opengl_NVCommandList_glGetStageIndexNV(JNIEnv *__env, jclass clazz, jint shadertype) {
 	glGetStageIndexNVPROC glGetStageIndexNV = (glGetStageIndexNVPROC)tlsGetFunction(699);
 	UNUSED_PARAM(clazz)
 	return (jshort)glGetStageIndexNV(shadertype);
@@ -114,7 +114,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglDeleteCommandLists
 	glDeleteCommandListsNV(n, lists);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVCommandList_nglIsCommandListNV(JNIEnv *__env, jclass clazz, jint list) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVCommandList_glIsCommandListNV(JNIEnv *__env, jclass clazz, jint list) {
 	glIsCommandListNVPROC glIsCommandListNV = (glIsCommandListNVPROC)tlsGetFunction(857);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsCommandListNV(list);
@@ -130,19 +130,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglListDrawCommandsSt
 	glListDrawCommandsStatesClientNV(list, segment, indirects, sizes, states, fbos, count);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglCommandListSegmentsNV(JNIEnv *__env, jclass clazz, jint list, jint segments) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_glCommandListSegmentsNV(JNIEnv *__env, jclass clazz, jint list, jint segments) {
 	glCommandListSegmentsNVPROC glCommandListSegmentsNV = (glCommandListSegmentsNVPROC)tlsGetFunction(188);
 	UNUSED_PARAM(clazz)
 	glCommandListSegmentsNV(list, segments);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglCompileCommandListNV(JNIEnv *__env, jclass clazz, jint list) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_glCompileCommandListNV(JNIEnv *__env, jclass clazz, jint list) {
 	glCompileCommandListNVPROC glCompileCommandListNV = (glCompileCommandListNVPROC)tlsGetFunction(189);
 	UNUSED_PARAM(clazz)
 	glCompileCommandListNV(list);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglCallCommandListNV(JNIEnv *__env, jclass clazz, jint list) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_glCallCommandListNV(JNIEnv *__env, jclass clazz, jint list) {
 	glCallCommandListNVPROC glCallCommandListNV = (glCallCommandListNVPROC)tlsGetFunction(97);
 	UNUSED_PARAM(clazz)
 	glCallCommandListNV(list);

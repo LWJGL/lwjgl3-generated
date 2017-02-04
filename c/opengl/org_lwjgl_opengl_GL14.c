@@ -56,25 +56,25 @@ typedef void (APIENTRY *glWindowPos3dvPROC) (const intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglBlendColor(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glBlendColor(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
 	glBlendColorPROC glBlendColor = (glBlendColorPROC)tlsGetFunction(65);
 	UNUSED_PARAM(clazz)
 	glBlendColor(red, green, blue, alpha);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglBlendEquation(JNIEnv *__env, jclass clazz, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glBlendEquation(JNIEnv *__env, jclass clazz, jint mode) {
 	glBlendEquationPROC glBlendEquation = (glBlendEquationPROC)tlsGetFunction(67);
 	UNUSED_PARAM(clazz)
 	glBlendEquation(mode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordf(JNIEnv *__env, jclass clazz, jfloat coord) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glFogCoordf(JNIEnv *__env, jclass clazz, jfloat coord) {
 	glFogCoordfPROC glFogCoordf = (glFogCoordfPROC)tlsGetFunction(431);
 	UNUSED_PARAM(clazz)
 	glFogCoordf(coord);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordd(JNIEnv *__env, jclass clazz, jdouble coord) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glFogCoordd(JNIEnv *__env, jclass clazz, jdouble coord) {
 	glFogCoorddPROC glFogCoordd = (glFogCoorddPROC)tlsGetFunction(429);
 	UNUSED_PARAM(clazz)
 	glFogCoordd(coord);
@@ -117,13 +117,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawElements__IJIJI(JN
 	glMultiDrawElements(mode, count, type, indices, primcount);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglPointParameterf(JNIEnv *__env, jclass clazz, jint pname, jfloat param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glPointParameterf(JNIEnv *__env, jclass clazz, jint pname, jfloat param) {
 	glPointParameterfPROC glPointParameterf = (glPointParameterfPROC)tlsGetFunction(1216);
 	UNUSED_PARAM(clazz)
 	glPointParameterf(pname, param);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglPointParameteri(JNIEnv *__env, jclass clazz, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glPointParameteri(JNIEnv *__env, jclass clazz, jint pname, jint param) {
 	glPointParameteriPROC glPointParameteri = (glPointParameteriPROC)tlsGetFunction(1222);
 	UNUSED_PARAM(clazz)
 	glPointParameteri(pname, param);
@@ -143,49 +143,49 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglPointParameteriv__IJ(JNIEnv
 	glPointParameteriv(pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3b(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3b(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
 	glSecondaryColor3bPROC glSecondaryColor3b = (glSecondaryColor3bPROC)tlsGetFunction(1475);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3b(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3s(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3s(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
 	glSecondaryColor3sPROC glSecondaryColor3s = (glSecondaryColor3sPROC)tlsGetFunction(1493);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3s(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3i(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3i(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
 	glSecondaryColor3iPROC glSecondaryColor3i = (glSecondaryColor3iPROC)tlsGetFunction(1489);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3i(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3f(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3f(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue) {
 	glSecondaryColor3fPROC glSecondaryColor3f = (glSecondaryColor3fPROC)tlsGetFunction(1483);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3f(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3d(JNIEnv *__env, jclass clazz, jdouble red, jdouble green, jdouble blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3d(JNIEnv *__env, jclass clazz, jdouble red, jdouble green, jdouble blue) {
 	glSecondaryColor3dPROC glSecondaryColor3d = (glSecondaryColor3dPROC)tlsGetFunction(1479);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3d(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3ub(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3ub(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
 	glSecondaryColor3ubPROC glSecondaryColor3ub = (glSecondaryColor3ubPROC)tlsGetFunction(1497);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3ub(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3us(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3us(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
 	glSecondaryColor3usPROC glSecondaryColor3us = (glSecondaryColor3usPROC)tlsGetFunction(1505);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3us(red, green, blue);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3ui(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3ui(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
 	glSecondaryColor3uiPROC glSecondaryColor3ui = (glSecondaryColor3uiPROC)tlsGetFunction(1501);
 	UNUSED_PARAM(clazz)
 	glSecondaryColor3ui(red, green, blue);
@@ -254,31 +254,31 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColorPointer__IIIJ
 	glSecondaryColorPointer(size, type, stride, pointer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglBlendFuncSeparate(JNIEnv *__env, jclass clazz, jint sfactorRGB, jint dfactorRGB, jint sfactorAlpha, jint dfactorAlpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glBlendFuncSeparate(JNIEnv *__env, jclass clazz, jint sfactorRGB, jint dfactorRGB, jint sfactorAlpha, jint dfactorAlpha) {
 	glBlendFuncSeparatePROC glBlendFuncSeparate = (glBlendFuncSeparatePROC)tlsGetFunction(79);
 	UNUSED_PARAM(clazz)
 	glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2i(JNIEnv *__env, jclass clazz, jint x, jint y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2i(JNIEnv *__env, jclass clazz, jint x, jint y) {
 	glWindowPos2iPROC glWindowPos2i = (glWindowPos2iPROC)tlsGetFunction(2103);
 	UNUSED_PARAM(clazz)
 	glWindowPos2i(x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2s(JNIEnv *__env, jclass clazz, jshort x, jshort y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2s(JNIEnv *__env, jclass clazz, jshort x, jshort y) {
 	glWindowPos2sPROC glWindowPos2s = (glWindowPos2sPROC)tlsGetFunction(2107);
 	UNUSED_PARAM(clazz)
 	glWindowPos2s(x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2f(JNIEnv *__env, jclass clazz, jfloat x, jfloat y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2f(JNIEnv *__env, jclass clazz, jfloat x, jfloat y) {
 	glWindowPos2fPROC glWindowPos2f = (glWindowPos2fPROC)tlsGetFunction(2099);
 	UNUSED_PARAM(clazz)
 	glWindowPos2f(x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2d(JNIEnv *__env, jclass clazz, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2d(JNIEnv *__env, jclass clazz, jdouble x, jdouble y) {
 	glWindowPos2dPROC glWindowPos2d = (glWindowPos2dPROC)tlsGetFunction(2095);
 	UNUSED_PARAM(clazz)
 	glWindowPos2d(x, y);
@@ -312,25 +312,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2dv__J(JNIEnv *__e
 	glWindowPos2dv(p);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3i(JNIEnv *__env, jclass clazz, jint x, jint y, jint z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3i(JNIEnv *__env, jclass clazz, jint x, jint y, jint z) {
 	glWindowPos3iPROC glWindowPos3i = (glWindowPos3iPROC)tlsGetFunction(2119);
 	UNUSED_PARAM(clazz)
 	glWindowPos3i(x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3s(JNIEnv *__env, jclass clazz, jshort x, jshort y, jshort z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3s(JNIEnv *__env, jclass clazz, jshort x, jshort y, jshort z) {
 	glWindowPos3sPROC glWindowPos3s = (glWindowPos3sPROC)tlsGetFunction(2123);
 	UNUSED_PARAM(clazz)
 	glWindowPos3s(x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3f(JNIEnv *__env, jclass clazz, jfloat x, jfloat y, jfloat z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3f(JNIEnv *__env, jclass clazz, jfloat x, jfloat y, jfloat z) {
 	glWindowPos3fPROC glWindowPos3f = (glWindowPos3fPROC)tlsGetFunction(2115);
 	UNUSED_PARAM(clazz)
 	glWindowPos3f(x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3d(JNIEnv *__env, jclass clazz, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3d(JNIEnv *__env, jclass clazz, jdouble x, jdouble y, jdouble z) {
 	glWindowPos3dPROC glWindowPos3d = (glWindowPos3dPROC)tlsGetFunction(2111);
 	UNUSED_PARAM(clazz)
 	glWindowPos3d(x, y, z);

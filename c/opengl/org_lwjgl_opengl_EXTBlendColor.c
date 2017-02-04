@@ -10,7 +10,7 @@ typedef void (APIENTRY *glBlendColorEXTPROC) (jfloat, jfloat, jfloat, jfloat);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBlendColor_nglBlendColorEXT(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBlendColor_glBlendColorEXT(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha) {
 	glBlendColorEXTPROC glBlendColorEXT = (glBlendColorEXTPROC)tlsGetFunction(66);
 	UNUSED_PARAM(clazz)
 	glBlendColorEXT(red, green, blue, alpha);

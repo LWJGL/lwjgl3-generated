@@ -49,10 +49,6 @@ public class AMDInterleavedElements {
 
 	// --- [ glVertexAttribParameteriAMD ] ---
 
-	public static native void nglVertexAttribParameteriAMD(int index, int pname, int param);
-
-	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
-		nglVertexAttribParameteriAMD(index, pname, param);
-	}
+	public static native void glVertexAttribParameteriAMD(int index, int pname, int param);
 
 }

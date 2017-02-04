@@ -65,13 +65,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetActive
 	glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglBindBufferRange(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset, jlong size) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glBindBufferRange(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset, jlong size) {
 	glBindBufferRangePROC glBindBufferRange = (glBindBufferRangePROC)tlsGetFunction(34);
 	UNUSED_PARAM(clazz)
 	glBindBufferRange(target, index, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglBindBufferBase(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glBindBufferBase(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer) {
 	glBindBufferBasePROC glBindBufferBase = (glBindBufferBasePROC)tlsGetFunction(29);
 	UNUSED_PARAM(clazz)
 	glBindBufferBase(target, index, buffer);
@@ -84,7 +84,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetIntege
 	glGetIntegeri_v(target, index, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
 	glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1782);
 	UNUSED_PARAM(clazz)
 	glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);

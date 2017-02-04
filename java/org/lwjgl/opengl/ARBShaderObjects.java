@@ -104,9 +104,6 @@ public class ARBShaderObjects {
 
 	// --- [ glDeleteObjectARB ] ---
 
-	/** Unsafe version of: {@link #glDeleteObjectARB DeleteObjectARB} */
-	public static native void nglDeleteObjectARB(int obj);
-
 	/**
 	 * Either deletes the object, or flags it for deletion. An object that is attached to a container object is not deleted until it is no longer attached to
 	 * any container object, for any context. If it is still attached to at least one container object, the object is flagged for deletion. If the object is
@@ -122,28 +119,18 @@ public class ARBShaderObjects {
 	 *
 	 * @param obj the shader object to delete
 	 */
-	public static void glDeleteObjectARB(int obj) {
-		nglDeleteObjectARB(obj);
-	}
+	public static native void glDeleteObjectARB(int obj);
 
 	// --- [ glGetHandleARB ] ---
-
-	/** Unsafe version of: {@link #glGetHandleARB GetHandleARB} */
-	public static native int nglGetHandleARB(int pname);
 
 	/**
 	 * Returns the handle to an object that is in use as part of current state.
 	 *
 	 * @param pname the state item for which the current object is to be returned. Must be:<br><table><tr><td>{@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}</td></tr></table>
 	 */
-	public static int glGetHandleARB(int pname) {
-		return nglGetHandleARB(pname);
-	}
+	public static native int glGetHandleARB(int pname);
 
 	// --- [ glDetachObjectARB ] ---
-
-	/** Unsafe version of: {@link #glDetachObjectARB DetachObjectARB} */
-	public static native void nglDetachObjectARB(int containerObj, int attachedObj);
 
 	/**
 	 * Detaches an object from the container object it is attached to.
@@ -151,23 +138,16 @@ public class ARBShaderObjects {
 	 * @param containerObj the container object
 	 * @param attachedObj  the object to detach
 	 */
-	public static void glDetachObjectARB(int containerObj, int attachedObj) {
-		nglDetachObjectARB(containerObj, attachedObj);
-	}
+	public static native void glDetachObjectARB(int containerObj, int attachedObj);
 
 	// --- [ glCreateShaderObjectARB ] ---
-
-	/** Unsafe version of: {@link #glCreateShaderObjectARB CreateShaderObjectARB} */
-	public static native int nglCreateShaderObjectARB(int shaderType);
 
 	/**
 	 * Creates a shader object.
 	 *
 	 * @param shaderType the type of the shader object to be created. One of:<br><table><tr><td>{@link ARBVertexShader#GL_VERTEX_SHADER_ARB VERTEX_SHADER_ARB}</td><td>{@link ARBFragmentShader#GL_FRAGMENT_SHADER_ARB FRAGMENT_SHADER_ARB}</td></tr></table>
 	 */
-	public static int glCreateShaderObjectARB(int shaderType) {
-		return nglCreateShaderObjectARB(shaderType);
-	}
+	public static native int glCreateShaderObjectARB(int shaderType);
 
 	// --- [ glShaderSourceARB ] ---
 
@@ -241,9 +221,6 @@ public class ARBShaderObjects {
 
 	// --- [ glCompileShaderARB ] ---
 
-	/** Unsafe version of: {@link #glCompileShaderARB CompileShaderARB} */
-	public static native void nglCompileShaderARB(int shaderObj);
-
 	/**
 	 * Compiles a shader object. Each shader object has a Boolean status, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, that is modified as a result of compilation. This status
 	 * can be queried with {@link #glGetObjectParameterivARB GetObjectParameterivARB}. This status will be set to {@link GL11#GL_TRUE TRUE} if the shader {@code shaderObj} was compiled without errors and is
@@ -258,14 +235,9 @@ public class ARBShaderObjects {
 	 *
 	 * @param shaderObj the shader object to compile
 	 */
-	public static void glCompileShaderARB(int shaderObj) {
-		nglCompileShaderARB(shaderObj);
-	}
+	public static native void glCompileShaderARB(int shaderObj);
 
 	// --- [ glCreateProgramObjectARB ] ---
-
-	/** Unsafe version of: {@link #glCreateProgramObjectARB CreateProgramObjectARB} */
-	public static native int nglCreateProgramObjectARB();
 
 	/**
 	 * Creates a program object.
@@ -275,14 +247,9 @@ public class ARBShaderObjects {
 	 * permissible to attach multiple shader objects of the same type to a single program object, and it is permissible to attach a shader object to more than
 	 * one program object.</p>
 	 */
-	public static int glCreateProgramObjectARB() {
-		return nglCreateProgramObjectARB();
-	}
+	public static native int glCreateProgramObjectARB();
 
 	// --- [ glAttachObjectARB ] ---
-
-	/** Unsafe version of: {@link #glAttachObjectARB AttachObjectARB} */
-	public static native void nglAttachObjectARB(int containerObj, int obj);
 
 	/**
 	 * Attaches an object to a container object.
@@ -290,14 +257,9 @@ public class ARBShaderObjects {
 	 * @param containerObj the container object
 	 * @param obj          the object to attach
 	 */
-	public static void glAttachObjectARB(int containerObj, int obj) {
-		nglAttachObjectARB(containerObj, obj);
-	}
+	public static native void glAttachObjectARB(int containerObj, int obj);
 
 	// --- [ glLinkProgramARB ] ---
-
-	/** Unsafe version of: {@link #glLinkProgramARB LinkProgramARB} */
-	public static native void nglLinkProgramARB(int programObj);
 
 	/**
 	 * Links a program object.
@@ -314,14 +276,9 @@ public class ARBShaderObjects {
 	 *
 	 * @param programObj the program object to link
 	 */
-	public static void glLinkProgramARB(int programObj) {
-		nglLinkProgramARB(programObj);
-	}
+	public static native void glLinkProgramARB(int programObj);
 
 	// --- [ glUseProgramObjectARB ] ---
-
-	/** Unsafe version of: {@link #glUseProgramObjectARB UseProgramObjectARB} */
-	public static native void nglUseProgramObjectARB(int programObj);
 
 	/**
 	 * Installs the executable code as part of current rendering state if the program object {@code programObj} contains valid executable code, i.e. has been
@@ -339,14 +296,9 @@ public class ARBShaderObjects {
 	 *
 	 * @param programObj the program object to use
 	 */
-	public static void glUseProgramObjectARB(int programObj) {
-		nglUseProgramObjectARB(programObj);
-	}
+	public static native void glUseProgramObjectARB(int programObj);
 
 	// --- [ glValidateProgramARB ] ---
-
-	/** Unsafe version of: {@link #glValidateProgramARB ValidateProgramARB} */
-	public static native void nglValidateProgramARB(int programObj);
 
 	/**
 	 * Validates the program object {@code programObj} against the GL state at that moment. Each program object has a Boolean status,
@@ -365,14 +317,9 @@ public class ARBShaderObjects {
 	 *
 	 * @param programObj the program object to validate
 	 */
-	public static void glValidateProgramARB(int programObj) {
-		nglValidateProgramARB(programObj);
-	}
+	public static native void glValidateProgramARB(int programObj);
 
 	// --- [ glUniform1fARB ] ---
-
-	/** Unsafe version of: {@link #glUniform1fARB Uniform1fARB} */
-	public static native void nglUniform1fARB(int location, float v0);
 
 	/**
 	 * float version of {@link #glUniform4fARB Uniform4fARB}.
@@ -380,14 +327,9 @@ public class ARBShaderObjects {
 	 * @param location the uniform variable location
 	 * @param v0       the uniform x value
 	 */
-	public static void glUniform1fARB(int location, float v0) {
-		nglUniform1fARB(location, v0);
-	}
+	public static native void glUniform1fARB(int location, float v0);
 
 	// --- [ glUniform2fARB ] ---
-
-	/** Unsafe version of: {@link #glUniform2fARB Uniform2fARB} */
-	public static native void nglUniform2fARB(int location, float v0, float v1);
 
 	/**
 	 * vec2 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -396,14 +338,9 @@ public class ARBShaderObjects {
 	 * @param v0       the uniform x value
 	 * @param v1       the uniform y value
 	 */
-	public static void glUniform2fARB(int location, float v0, float v1) {
-		nglUniform2fARB(location, v0, v1);
-	}
+	public static native void glUniform2fARB(int location, float v0, float v1);
 
 	// --- [ glUniform3fARB ] ---
-
-	/** Unsafe version of: {@link #glUniform3fARB Uniform3fARB} */
-	public static native void nglUniform3fARB(int location, float v0, float v1, float v2);
 
 	/**
 	 * vec3 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -413,14 +350,9 @@ public class ARBShaderObjects {
 	 * @param v1       the uniform y value
 	 * @param v2       the uniform z value
 	 */
-	public static void glUniform3fARB(int location, float v0, float v1, float v2) {
-		nglUniform3fARB(location, v0, v1, v2);
-	}
+	public static native void glUniform3fARB(int location, float v0, float v1, float v2);
 
 	// --- [ glUniform4fARB ] ---
-
-	/** Unsafe version of: {@link #glUniform4fARB Uniform4fARB} */
-	public static native void nglUniform4fARB(int location, float v0, float v1, float v2, float v3);
 
 	/**
 	 * Loads a vec4 value into a uniform variable of the program object that is currently in use.
@@ -431,14 +363,9 @@ public class ARBShaderObjects {
 	 * @param v2       the uniform z value
 	 * @param v3       the uniform w value
 	 */
-	public static void glUniform4fARB(int location, float v0, float v1, float v2, float v3) {
-		nglUniform4fARB(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4fARB(int location, float v0, float v1, float v2, float v3);
 
 	// --- [ glUniform1iARB ] ---
-
-	/** Unsafe version of: {@link #glUniform1iARB Uniform1iARB} */
-	public static native void nglUniform1iARB(int location, int v0);
 
 	/**
 	 * int version of {@link #glUniform1fARB Uniform1fARB}.
@@ -446,14 +373,9 @@ public class ARBShaderObjects {
 	 * @param location the uniform variable location
 	 * @param v0       the uniform x value
 	 */
-	public static void glUniform1iARB(int location, int v0) {
-		nglUniform1iARB(location, v0);
-	}
+	public static native void glUniform1iARB(int location, int v0);
 
 	// --- [ glUniform2iARB ] ---
-
-	/** Unsafe version of: {@link #glUniform2iARB Uniform2iARB} */
-	public static native void nglUniform2iARB(int location, int v0, int v1);
 
 	/**
 	 * ivec2 version of {@link #glUniform2fARB Uniform2fARB}.
@@ -462,14 +384,9 @@ public class ARBShaderObjects {
 	 * @param v0       the uniform x value
 	 * @param v1       the uniform y value
 	 */
-	public static void glUniform2iARB(int location, int v0, int v1) {
-		nglUniform2iARB(location, v0, v1);
-	}
+	public static native void glUniform2iARB(int location, int v0, int v1);
 
 	// --- [ glUniform3iARB ] ---
-
-	/** Unsafe version of: {@link #glUniform3iARB Uniform3iARB} */
-	public static native void nglUniform3iARB(int location, int v0, int v1, int v2);
 
 	/**
 	 * ivec3 version of {@link #glUniform3fARB Uniform3fARB}.
@@ -479,14 +396,9 @@ public class ARBShaderObjects {
 	 * @param v1       the uniform y value
 	 * @param v2       the uniform z value
 	 */
-	public static void glUniform3iARB(int location, int v0, int v1, int v2) {
-		nglUniform3iARB(location, v0, v1, v2);
-	}
+	public static native void glUniform3iARB(int location, int v0, int v1, int v2);
 
 	// --- [ glUniform4iARB ] ---
-
-	/** Unsafe version of: {@link #glUniform4iARB Uniform4iARB} */
-	public static native void nglUniform4iARB(int location, int v0, int v1, int v2, int v3);
 
 	/**
 	 * ivec4 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -497,9 +409,7 @@ public class ARBShaderObjects {
 	 * @param v2       the uniform z value
 	 * @param v3       the uniform w value
 	 */
-	public static void glUniform4iARB(int location, int v0, int v1, int v2, int v3) {
-		nglUniform4iARB(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4iARB(int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glUniform1fvARB ] ---
 

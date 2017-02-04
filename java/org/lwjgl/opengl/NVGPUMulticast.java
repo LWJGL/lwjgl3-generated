@@ -80,17 +80,12 @@ public class NVGPUMulticast {
 
 	// --- [ glRenderGpuMaskNV ] ---
 
-	/** Unsafe version of: {@link #glRenderGpuMaskNV RenderGpuMaskNV} */
-	public static native void nglRenderGpuMaskNV(int mask);
-
 	/**
 	 * Restricts render commands to a specific set of GPUs.
 	 *
 	 * @param mask 
 	 */
-	public static void glRenderGpuMaskNV(int mask) {
-		nglRenderGpuMaskNV(mask);
-	}
+	public static native void glRenderGpuMaskNV(int mask);
 
 	// --- [ glMulticastBufferSubDataNV ] ---
 
@@ -118,27 +113,15 @@ public class NVGPUMulticast {
 
 	// --- [ glMulticastCopyBufferSubDataNV ] ---
 
-	public static native void nglMulticastCopyBufferSubDataNV(int readGpu, int writeGpuMask, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
-
-	public static void glMulticastCopyBufferSubDataNV(int readGpu, int writeGpuMask, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		nglMulticastCopyBufferSubDataNV(readGpu, writeGpuMask, readBuffer, writeBuffer, readOffset, writeOffset, size);
-	}
+	public static native void glMulticastCopyBufferSubDataNV(int readGpu, int writeGpuMask, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
 
 	// --- [ glMulticastCopyImageSubDataNV ] ---
 
-	public static native void nglMulticastCopyImageSubDataNV(int srcGpu, int dstGpuMask, int srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
-
-	public static void glMulticastCopyImageSubDataNV(int srcGpu, int dstGpuMask, int srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		nglMulticastCopyImageSubDataNV(srcGpu, dstGpuMask, srcName, srcTarget, srcLevel, srcX, srxY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-	}
+	public static native void glMulticastCopyImageSubDataNV(int srcGpu, int dstGpuMask, int srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 	// --- [ glMulticastBlitFramebufferNV ] ---
 
-	public static native void nglMulticastBlitFramebufferNV(int srcGpu, int dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
-
-	public static void glMulticastBlitFramebufferNV(int srcGpu, int dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		nglMulticastBlitFramebufferNV(srcGpu, dstGpu, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-	}
+	public static native void glMulticastBlitFramebufferNV(int srcGpu, int dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 	// --- [ glMulticastFramebufferSampleLocationsfvNV ] ---
 
@@ -150,19 +133,11 @@ public class NVGPUMulticast {
 
 	// --- [ glMulticastBarrierNV ] ---
 
-	public static native void nglMulticastBarrierNV();
-
-	public static void glMulticastBarrierNV() {
-		nglMulticastBarrierNV();
-	}
+	public static native void glMulticastBarrierNV();
 
 	// --- [ glMulticastWaitSyncNV ] ---
 
-	public static native void nglMulticastWaitSyncNV(int signalGpu, int waitGpuMask);
-
-	public static void glMulticastWaitSyncNV(int signalGpu, int waitGpuMask) {
-		nglMulticastWaitSyncNV(signalGpu, waitGpuMask);
-	}
+	public static native void glMulticastWaitSyncNV(int signalGpu, int waitGpuMask);
 
 	// --- [ glMulticastGetQueryObjectivNV ] ---
 

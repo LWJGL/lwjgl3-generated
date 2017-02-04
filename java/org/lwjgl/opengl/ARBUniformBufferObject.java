@@ -436,9 +436,6 @@ public class ARBUniformBufferObject {
 
 	// --- [ glBindBufferRange ] ---
 
-	/** Unsafe version of: {@link #glBindBufferRange BindBufferRange} */
-	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size);
-
 	/**
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
@@ -448,14 +445,9 @@ public class ARBUniformBufferObject {
 	 * @param offset the starting offset in basic machine units into the buffer object {@code buffer}
 	 * @param size   the amount of data in machine units that can be read from the buffer object while used as an indexed target
 	 */
-	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		nglBindBufferRange(target, index, buffer, offset, size);
-	}
+	public static native void glBindBufferRange(int target, int index, int buffer, long offset, long size);
 
 	// --- [ glBindBufferBase ] ---
-
-	/** Unsafe version of: {@link #glBindBufferBase BindBufferBase} */
-	public static native void nglBindBufferBase(int target, int index, int buffer);
 
 	/**
 	 * Binds a buffer object to an indexed buffer target.
@@ -464,9 +456,7 @@ public class ARBUniformBufferObject {
 	 * @param index  the index of the binding point within the array specified by {@code target}
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */
-	public static void glBindBufferBase(int target, int index, int buffer) {
-		nglBindBufferBase(target, index, buffer);
-	}
+	public static native void glBindBufferBase(int target, int index, int buffer);
 
 	// --- [ glGetIntegeri_v ] ---
 
@@ -505,9 +495,6 @@ public class ARBUniformBufferObject {
 
 	// --- [ glUniformBlockBinding ] ---
 
-	/** Unsafe version of: {@link #glUniformBlockBinding UniformBlockBinding} */
-	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
-
 	/**
 	 * Assigns a binding point to an active uniform block.
 	 *
@@ -515,9 +502,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformBlockIndex   the index of the active uniform block within {@code program} whose binding to assign
 	 * @param uniformBlockBinding the binding point to which to bind the uniform block with index {@code uniformBlockIndex} within {@code program}
 	 */
-	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
-		nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
-	}
+	public static native void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
 
 	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {

@@ -410,12 +410,7 @@ public class GL12 {
 
 	// --- [ glCopyTexSubImage3D ] ---
 
-	/** Unsafe version of: {@link #glCopyTexSubImage3D CopyTexSubImage3D} */
-	public static native void nglCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Respecifies a rectangular subregion of a slice of an existing 3D texel array. No change is made to the {@code internalformat}, {@code width},
 	 * {@code height}, or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
 	 * {@link GL11#glCopyTexImage2D CopyTexImage2D} for more details.
@@ -430,9 +425,7 @@ public class GL12 {
 	 * @param width   the texture subregion width
 	 * @param height  the texture subregion height
 	 */
-	public static void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glDrawRangeElements ] ---
 

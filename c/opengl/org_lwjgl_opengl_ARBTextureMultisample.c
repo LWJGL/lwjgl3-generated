@@ -13,13 +13,13 @@ typedef void (APIENTRY *glSampleMaskiPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_nglTexImage2DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_glTexImage2DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
 	glTexImage2DMultisamplePROC glTexImage2DMultisample = (glTexImage2DMultisamplePROC)tlsGetFunction(1615);
 	UNUSED_PARAM(clazz)
 	glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_nglTexImage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_glTexImage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
 	glTexImage3DMultisamplePROC glTexImage3DMultisample = (glTexImage3DMultisamplePROC)tlsGetFunction(1618);
 	UNUSED_PARAM(clazz)
 	glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
@@ -32,7 +32,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_nglGetMultisa
 	glGetMultisamplefv(pname, index, val);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_nglSampleMaski(JNIEnv *__env, jclass clazz, jint index, jint mask) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureMultisample_glSampleMaski(JNIEnv *__env, jclass clazz, jint index, jint mask) {
 	glSampleMaskiPROC glSampleMaski = (glSampleMaskiPROC)tlsGetFunction(1462);
 	UNUSED_PARAM(clazz)
 	glSampleMaski(index, mask);

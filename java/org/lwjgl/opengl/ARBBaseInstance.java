@@ -41,9 +41,6 @@ public class ARBBaseInstance {
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
-	/** Unsafe version of: {@link #glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance} */
-	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
-
 	/**
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
@@ -53,9 +50,7 @@ public class ARBBaseInstance {
 	 * @param primcount    the number of instances of the specified range of indices to be rendered
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
-	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
-		nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
-	}
+	public static native void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
 

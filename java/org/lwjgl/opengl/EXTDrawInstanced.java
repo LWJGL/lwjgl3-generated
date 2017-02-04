@@ -34,11 +34,7 @@ public class EXTDrawInstanced {
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
-	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
-
-	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
-		nglDrawArraysInstancedEXT(mode, start, count, primcount);
-	}
+	public static native void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
 
 	// --- [ glDrawElementsInstancedEXT ] ---
 

@@ -64,11 +64,7 @@ public class OESViewportArray {
 
 	// --- [ glViewportIndexedfOES ] ---
 
-	public static native void nglViewportIndexedfOES(int index, float x, float y, float w, float h);
-
-	public static void glViewportIndexedfOES(int index, float x, float y, float w, float h) {
-		nglViewportIndexedfOES(index, x, y, w, h);
-	}
+	public static native void glViewportIndexedfOES(int index, float x, float y, float w, float h);
 
 	// --- [ glViewportIndexedfvOES ] ---
 
@@ -90,11 +86,7 @@ public class OESViewportArray {
 
 	// --- [ glScissorIndexedOES ] ---
 
-	public static native void nglScissorIndexedOES(int index, int left, int bottom, int width, int height);
-
-	public static void glScissorIndexedOES(int index, int left, int bottom, int width, int height) {
-		nglScissorIndexedOES(index, left, bottom, width, height);
-	}
+	public static native void glScissorIndexedOES(int index, int left, int bottom, int width, int height);
 
 	// --- [ glScissorIndexedvOES ] ---
 
@@ -116,11 +108,7 @@ public class OESViewportArray {
 
 	// --- [ glDepthRangeIndexedfOES ] ---
 
-	public static native void nglDepthRangeIndexedfOES(int index, float n, float f);
-
-	public static void glDepthRangeIndexedfOES(int index, float n, float f) {
-		nglDepthRangeIndexedfOES(index, n, f);
-	}
+	public static native void glDepthRangeIndexedfOES(int index, float n, float f);
 
 	// --- [ glGetFloati_vOES ] ---
 
@@ -145,27 +133,15 @@ public class OESViewportArray {
 
 	// --- [ glEnableiOES ] ---
 
-	public static native void nglEnableiOES(int target, int index);
-
-	public static void glEnableiOES(int target, int index) {
-		nglEnableiOES(target, index);
-	}
+	public static native void glEnableiOES(int target, int index);
 
 	// --- [ glDisableiOES ] ---
 
-	public static native void nglDisableiOES(int target, int index);
-
-	public static void glDisableiOES(int target, int index) {
-		nglDisableiOES(target, index);
-	}
+	public static native void glDisableiOES(int target, int index);
 
 	// --- [ glIsEnablediOES ] ---
 
-	public static native boolean nglIsEnablediOES(int target, int index);
-
-	public static boolean glIsEnablediOES(int target, int index) {
-		return nglIsEnablediOES(target, index);
-	}
+	public static native boolean glIsEnablediOES(int target, int index);
 
 	/** Array version of: {@link #glViewportArrayvOES ViewportArrayvOES} */
 	public static void glViewportArrayvOES(int first, float[] v) {

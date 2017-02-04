@@ -43,10 +43,6 @@ public class EXTBlendMinmax {
 
 	// --- [ glBlendEquationEXT ] ---
 
-	public static native void nglBlendEquationEXT(int mode);
-
-	public static void glBlendEquationEXT(int mode) {
-		nglBlendEquationEXT(mode);
-	}
+	public static native void glBlendEquationEXT(int mode);
 
 }

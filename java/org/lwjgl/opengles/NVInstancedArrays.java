@@ -46,10 +46,6 @@ public class NVInstancedArrays {
 
 	// --- [ glVertexAttribDivisorNV ] ---
 
-	public static native void nglVertexAttribDivisorNV(int index, int divisor);
-
-	public static void glVertexAttribDivisorNV(int index, int divisor) {
-		nglVertexAttribDivisorNV(index, divisor);
-	}
+	public static native void glVertexAttribDivisorNV(int index, int divisor);
 
 }

@@ -52,19 +52,11 @@ public class EXTShaderPixelLocalStorage2 {
 
 	// --- [ glFramebufferPixelLocalStorageSizeEXT ] ---
 
-	public static native void nglFramebufferPixelLocalStorageSizeEXT(int target, int size);
-
-	public static void glFramebufferPixelLocalStorageSizeEXT(int target, int size) {
-		nglFramebufferPixelLocalStorageSizeEXT(target, size);
-	}
+	public static native void glFramebufferPixelLocalStorageSizeEXT(int target, int size);
 
 	// --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
 
-	public static native int nglGetFramebufferPixelLocalStorageSizeEXT(int target);
-
-	public static int glGetFramebufferPixelLocalStorageSizeEXT(int target) {
-		return nglGetFramebufferPixelLocalStorageSizeEXT(target);
-	}
+	public static native int glGetFramebufferPixelLocalStorageSizeEXT(int target);
 
 	// --- [ glClearPixelLocalStorageuiEXT ] ---
 

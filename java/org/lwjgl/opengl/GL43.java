@@ -620,21 +620,14 @@ public class GL43 {
 
 	// --- [ glDispatchCompute ] ---
 
-	/** Unsafe version of: {@link #glDispatchCompute DispatchCompute} */
-	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDispatchCompute.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Launches one or more compute work groups.
 	 *
 	 * @param num_groups_x the number of work groups to be launched in the X dimension
 	 * @param num_groups_y the number of work groups to be launched in the Y dimension
 	 * @param num_groups_z the number of work groups to be launched in the Z dimension
 	 */
-	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
-		nglDispatchCompute(num_groups_x, num_groups_y, num_groups_z);
-	}
+	public static native void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
 
 	// --- [ glDispatchComputeIndirect ] ---
 
@@ -668,12 +661,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glCopyImageSubData ] ---
 
-	/** Unsafe version of: {@link #glCopyImageSubData CopyImageSubData} */
-	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyImageSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Performs a raw data copy between two images.
 	 *
 	 * @param srcName   the name of a texture or renderbuffer object from which to copy
@@ -692,9 +680,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param srcHeight the height of the region to be copied
 	 * @param srcDepth  the depth of the region to be copied
 	 */
-	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
-		nglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
-	}
+	public static native void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 	// --- [ glDebugMessageControl ] ---
 
@@ -1007,12 +993,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glPopDebugGroup ] ---
 
-	/** Unsafe version of: {@link #glPopDebugGroup PopDebugGroup} */
-	public static native void nglPopDebugGroup();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPopDebugGroup.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command. {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}
 	 * and {@link #GL_DEBUG_TYPE_POP_GROUP DEBUG_TYPE_POP_GROUP} share a single namespace for message {@code id}. {@code severity} has the value {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The {@code type}
@@ -1021,9 +1002,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * <p>Attempting to pop the default debug group off the stack generates a {@link GL11#GL_STACK_UNDERFLOW STACK_UNDERFLOW} error; pushing a debug group onto a stack containing
 	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH MAX_DEBUG_GROUP_STACK_DEPTH} minus one elements will generate a {@link GL11#GL_STACK_OVERFLOW STACK_OVERFLOW} error.</p>
 	 */
-	public static void glPopDebugGroup() {
-		nglPopDebugGroup();
-	}
+	public static native void glPopDebugGroup();
 
 	// --- [ glObjectLabel ] ---
 
@@ -1228,21 +1207,14 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glFramebufferParameteri ] ---
 
-	/** Unsafe version of: {@link #glFramebufferParameteri FramebufferParameteri} */
-	public static native void nglFramebufferParameteri(int target, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets a named parameter of a framebuffer.
 	 *
 	 * @param target target of the operation. One of:<br><table><tr><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td></tr></table>
 	 * @param pname  a token indicating the parameter to be modified. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}</td><td>{@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}</td><td>{@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}</td></tr></table>
 	 * @param param  the new value for the parameter named {@code pname}
 	 */
-	public static void glFramebufferParameteri(int target, int pname, int param) {
-		nglFramebufferParameteri(target, pname, param);
-	}
+	public static native void glFramebufferParameteri(int target, int pname, int param);
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
@@ -1328,12 +1300,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 
 	// --- [ glInvalidateTexSubImage ] ---
 
-	/** Unsafe version of: {@link #glInvalidateTexSubImage InvalidateTexSubImage} */
-	public static native void nglInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateTexSubImage.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Invalidates a region of a texture image.
 	 *
 	 * @param texture the name of a texture object a subregion of which to invalidate
@@ -1345,60 +1312,37 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param height  the height of the region to be invalidated
 	 * @param depth   the depth of the region to be invalidated
 	 */
-	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
-		nglInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth);
-	}
+	public static native void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
 
 	// --- [ glInvalidateTexImage ] ---
 
-	/** Unsafe version of: {@link #glInvalidateTexImage InvalidateTexImage} */
-	public static native void nglInvalidateTexImage(int texture, int level);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateTexImage.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Invalidates the entirety of a texture image.
 	 *
 	 * @param texture the name of a texture object to invalidate
 	 * @param level   the level of detail of the texture object to invalidate
 	 */
-	public static void glInvalidateTexImage(int texture, int level) {
-		nglInvalidateTexImage(texture, level);
-	}
+	public static native void glInvalidateTexImage(int texture, int level);
 
 	// --- [ glInvalidateBufferSubData ] ---
 
-	/** Unsafe version of: {@link #glInvalidateBufferSubData InvalidateBufferSubData} */
-	public static native void nglInvalidateBufferSubData(int buffer, long offset, long length);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Invalidates a region of a buffer object's data store.
 	 *
 	 * @param buffer the name of a buffer object, a subrange of whose data store to invalidate
 	 * @param offset the offset within the buffer's data store of the start of the range to be invalidated
 	 * @param length the length of the range within the buffer's data store to be invalidated
 	 */
-	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
-		nglInvalidateBufferSubData(buffer, offset, length);
-	}
+	public static native void glInvalidateBufferSubData(int buffer, long offset, long length);
 
 	// --- [ glInvalidateBufferData ] ---
 
-	/** Unsafe version of: {@link #glInvalidateBufferData InvalidateBufferData} */
-	public static native void nglInvalidateBufferData(int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Invalidates the content of a buffer object's data store.
 	 *
 	 * @param buffer the name of a buffer object whose data store to invalidate
 	 */
-	public static void glInvalidateBufferData(int buffer) {
-		nglInvalidateBufferData(buffer);
-	}
+	public static native void glInvalidateBufferData(int buffer);
 
 	// --- [ glInvalidateFramebuffer ] ---
 
@@ -1961,30 +1905,18 @@ for ( i = 0; i < primcount; i++ ) {
 
 	// --- [ glShaderStorageBlockBinding ] ---
 
-	/** Unsafe version of: {@link #glShaderStorageBlockBinding ShaderStorageBlockBinding} */
-	public static native void nglShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderStorageBlockBinding.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Changes an active shader storage block binding.
 	 *
 	 * @param program             the name of the program containing the block whose binding to change
 	 * @param storageBlockIndex   the index storage block within the program
 	 * @param storageBlockBinding the index storage block binding to associate with the specified storage block
 	 */
-	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
-		nglShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
-	}
+	public static native void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
 
 	// --- [ glTexBufferRange ] ---
 
-	/** Unsafe version of: {@link #glTexBufferRange TexBufferRange} */
-	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBufferRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
 	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
@@ -1993,18 +1925,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param offset         the offset of the start of the range of the buffer's data store to attach
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
-	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
-		nglTexBufferRange(target, internalformat, buffer, offset, size);
-	}
+	public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
 
 	// --- [ glTexStorage2DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTexStorage2DMultisample TexStorage2DMultisample} */
-	public static native void nglTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies storage for a two-dimensional multisample texture.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
@@ -2015,18 +1940,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		nglTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
-	}
+	public static native void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	// --- [ glTexStorage3DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTexStorage3DMultisample TexStorage3DMultisample} */
-	public static native void nglTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies storage for a two-dimensional multisample array texture.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
@@ -2038,18 +1956,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		nglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-	}
+	public static native void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	// --- [ glTextureView ] ---
 
-	/** Unsafe version of: {@link #glTextureView TextureView} */
-	public static native void nglTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureView.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Initializes a texture as a data alias of another texture's data store.
 	 *
 	 * @param texture        the texture object to be initialized as a view
@@ -2061,18 +1972,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param minlayer       the index of the first layer to include in the view
 	 * @param numlayers      the number of layers to include in the view
 	 */
-	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
-		nglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
-	}
+	public static native void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
 
 	// --- [ glBindVertexBuffer ] ---
 
-	/** Unsafe version of: {@link #glBindVertexBuffer BindVertexBuffer} */
-	public static native void nglBindVertexBuffer(int bindingindex, int buffer, long offset, int stride);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a buffer to a vertex buffer bind point.
 	 *
 	 * @param bindingindex the index of the vertex buffer binding point to which to bind the buffer
@@ -2080,18 +1984,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param offset       the offset of the first element of the buffer
 	 * @param stride       the distance between elements within the buffer
 	 */
-	public static void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride) {
-		nglBindVertexBuffer(bindingindex, buffer, offset, stride);
-	}
+	public static native void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride);
 
 	// --- [ glVertexAttribFormat ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribFormat VertexAttribFormat} */
-	public static native void nglVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribFormat.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the organization of data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
@@ -2101,18 +1998,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 *                       directly converted to floating point.
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
-	public static void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset) {
-		nglVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
-	}
+	public static native void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset);
 
 	// --- [ glVertexAttribIFormat ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribIFormat VertexAttribIFormat} */
-	public static native void nglVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIFormat.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the organization of pure integer data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
@@ -2120,18 +2010,11 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
-	public static void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset) {
-		nglVertexAttribIFormat(attribindex, size, type, relativeoffset);
-	}
+	public static native void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset);
 
 	// --- [ glVertexAttribLFormat ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribLFormat VertexAttribLFormat} */
-	public static native void nglVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribLFormat.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the organization of 64-bit double data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
@@ -2139,115 +2022,27 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
-	public static void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset) {
-		nglVertexAttribLFormat(attribindex, size, type, relativeoffset);
-	}
+	public static native void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset);
 
 	// --- [ glVertexAttribBinding ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribBinding VertexAttribBinding} */
-	public static native void nglVertexAttribBinding(int attribindex, int bindingindex);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribBinding.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Associate a vertex attribute and a vertex buffer binding.
 	 *
 	 * @param attribindex  the index of the attribute to associate with a vertex buffer binding
 	 * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
 	 */
-	public static void glVertexAttribBinding(int attribindex, int bindingindex) {
-		nglVertexAttribBinding(attribindex, bindingindex);
-	}
+	public static native void glVertexAttribBinding(int attribindex, int bindingindex);
 
 	// --- [ glVertexBindingDivisor ] ---
 
-	/** Unsafe version of: {@link #glVertexBindingDivisor VertexBindingDivisor} */
-	public static native void nglVertexBindingDivisor(int bindingindex, int divisor);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexBindingDivisor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
 	 * @param bindingindex the index of the generic vertex attribute
 	 * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
-	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
-		nglVertexBindingDivisor(bindingindex, divisor);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearBufferData ClearBufferData}
-	 */
-	public static void glClearBufferData(int target, int internalformat, int format, int type, short[] data) {
-		long __functionAddress = GL.getICD().glClearBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearBufferData ClearBufferData}
-	 */
-	public static void glClearBufferData(int target, int internalformat, int format, int type, int[] data) {
-		long __functionAddress = GL.getICD().glClearBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearBufferData ClearBufferData}
-	 */
-	public static void glClearBufferData(int target, int internalformat, int format, int type, float[] data) {
-		long __functionAddress = GL.getICD().glClearBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearBufferSubData ClearBufferSubData}
-	 */
-	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, short[] data) {
-		long __functionAddress = GL.getICD().glClearBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearBufferSubData ClearBufferSubData}
-	 */
-	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, int[] data) {
-		long __functionAddress = GL.getICD().glClearBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearBufferSubData ClearBufferSubData}
-	 */
-	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, float[] data) {
-		long __functionAddress = GL.getICD().glClearBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, target, internalformat, offset, size, format, type, data);
-	}
+	public static native void glVertexBindingDivisor(int bindingindex, int divisor);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageControl.xhtml">OpenGL SDK Reference</a></p>

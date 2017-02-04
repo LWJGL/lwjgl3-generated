@@ -47,9 +47,6 @@ public class ARBComputeVariableGroupSize {
 
 	// --- [ glDispatchComputeGroupSizeARB ] ---
 
-	/** Unsafe version of: {@link #glDispatchComputeGroupSizeARB DispatchComputeGroupSizeARB} */
-	public static native void nglDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z);
-
 	/**
 	 * Launches one or more compute work groups, with arbitrary dimensions.
 	 * 
@@ -71,8 +68,6 @@ public class ARBComputeVariableGroupSize {
 	 * @param group_size_y the group size in the Y dimension
 	 * @param group_size_z the group size in the Z dimension
 	 */
-	public static void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z) {
-		nglDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
-	}
+	public static native void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z);
 
 }

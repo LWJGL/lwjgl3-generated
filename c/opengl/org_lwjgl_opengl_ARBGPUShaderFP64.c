@@ -44,25 +44,25 @@ typedef void (APIENTRY *glProgramUniformMatrix4x3dvEXTPROC) (jint, jint, jint, j
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglUniform1d(JNIEnv *__env, jclass clazz, jint location, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glUniform1d(JNIEnv *__env, jclass clazz, jint location, jdouble x) {
 	glUniform1dPROC glUniform1d = (glUniform1dPROC)tlsGetFunction(1694);
 	UNUSED_PARAM(clazz)
 	glUniform1d(location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglUniform2d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glUniform2d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y) {
 	glUniform2dPROC glUniform2d = (glUniform2dPROC)tlsGetFunction(1716);
 	UNUSED_PARAM(clazz)
 	glUniform2d(location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglUniform3d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glUniform3d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z) {
 	glUniform3dPROC glUniform3d = (glUniform3dPROC)tlsGetFunction(1738);
 	UNUSED_PARAM(clazz)
 	glUniform3d(location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglUniform4d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glUniform4d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glUniform4dPROC glUniform4d = (glUniform4dPROC)tlsGetFunction(1760);
 	UNUSED_PARAM(clazz)
 	glUniform4d(location, x, y, z, w);
@@ -166,25 +166,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglGetUniformdv__I
 	glGetUniformdv(program, location, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglProgramUniform1dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glProgramUniform1dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x) {
 	glProgramUniform1dEXTPROC glProgramUniform1dEXT = (glProgramUniform1dEXTPROC)tlsGetFunction(1259);
 	UNUSED_PARAM(clazz)
 	glProgramUniform1dEXT(program, location, x);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglProgramUniform2dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glProgramUniform2dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y) {
 	glProgramUniform2dEXTPROC glProgramUniform2dEXT = (glProgramUniform2dEXTPROC)tlsGetFunction(1283);
 	UNUSED_PARAM(clazz)
 	glProgramUniform2dEXT(program, location, x, y);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglProgramUniform3dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glProgramUniform3dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z) {
 	glProgramUniform3dEXTPROC glProgramUniform3dEXT = (glProgramUniform3dEXTPROC)tlsGetFunction(1307);
 	UNUSED_PARAM(clazz)
 	glProgramUniform3dEXT(program, location, x, y, z);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_nglProgramUniform4dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGPUShaderFP64_glProgramUniform4dEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
 	glProgramUniform4dEXTPROC glProgramUniform4dEXT = (glProgramUniform4dEXTPROC)tlsGetFunction(1331);
 	UNUSED_PARAM(clazz)
 	glProgramUniform4dEXT(program, location, x, y, z, w);

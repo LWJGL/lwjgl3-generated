@@ -82,9 +82,6 @@ public class KHRBlendEquationAdvanced {
 
 	// --- [ glBlendBarrierKHR ] ---
 
-	/** Unsafe version of: {@link #glBlendBarrierKHR BlendBarrierKHR} */
-	public static native void nglBlendBarrierKHR();
-
 	/**
 	 * Specifies a boundary between passes when using advanced blend equations.
 	 * 
@@ -93,8 +90,6 @@ public class KHRBlendEquationAdvanced {
 	 * the same pass. Any command that causes the value of a sample to be modified using the framebuffer is considered to touch the sample, including clears,
 	 * blended or unblended primitives, and {@link GL30#glBlitFramebuffer BlitFramebuffer} copies.</p>
 	 */
-	public static void glBlendBarrierKHR() {
-		nglBlendBarrierKHR();
-	}
+	public static native void glBlendBarrierKHR();
 
 }

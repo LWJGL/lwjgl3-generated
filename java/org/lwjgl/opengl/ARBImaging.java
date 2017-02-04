@@ -296,9 +296,6 @@ public class ARBImaging {
 
 	// --- [ glCopyColorTable ] ---
 
-	/** Unsafe version of: {@link #glCopyColorTable CopyColorTable} */
-	public static native void nglCopyColorTable(int target, int internalformat, int x, int y, int width);
-
 	/**
 	 * Defines a color table in exactly the manner of {@link #glColorTable ColorTable}, except that the image data are taken from the framebuffer rather than from client memory.
 	 *
@@ -308,9 +305,7 @@ public class ARBImaging {
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the color table width
 	 */
-	public static void glCopyColorTable(int target, int internalformat, int x, int y, int width) {
-		nglCopyColorTable(target, internalformat, x, y, width);
-	}
+	public static native void glCopyColorTable(int target, int internalformat, int x, int y, int width);
 
 	// --- [ glColorTableParameteriv ] ---
 
@@ -518,9 +513,6 @@ public class ARBImaging {
 
 	// --- [ glCopyColorSubTable ] ---
 
-	/** Unsafe version of: {@link #glCopyColorSubTable CopyColorSubTable} */
-	public static native void nglCopyColorSubTable(int target, int start, int x, int y, int width);
-
 	/**
 	 * Respecifies a portion of an existing color table using image taken from the framebuffer.
 	 *
@@ -530,9 +522,7 @@ public class ARBImaging {
 	 * @param y      the lower framebuffer pixel coordinate
 	 * @param width  the number of colors in the subregion to respecify
 	 */
-	public static void glCopyColorSubTable(int target, int start, int x, int y, int width) {
-		nglCopyColorSubTable(target, start, x, y, width);
-	}
+	public static native void glCopyColorSubTable(int target, int start, int x, int y, int width);
 
 	// --- [ glConvolutionFilter1D ] ---
 
@@ -604,9 +594,6 @@ public class ARBImaging {
 
 	// --- [ glCopyConvolutionFilter1D ] ---
 
-	/** Unsafe version of: {@link #glCopyConvolutionFilter1D CopyConvolutionFilter1D} */
-	public static native void nglCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width);
-
 	/**
 	 * Defines a one-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D ConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
 	 * client memory.
@@ -617,14 +604,9 @@ public class ARBImaging {
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the filter width
 	 */
-	public static void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width) {
-		nglCopyConvolutionFilter1D(target, internalformat, x, y, width);
-	}
+	public static native void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width);
 
 	// --- [ glCopyConvolutionFilter2D ] ---
-
-	/** Unsafe version of: {@link #glCopyConvolutionFilter2D CopyConvolutionFilter2D} */
-	public static native void nglCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height);
 
 	/**
 	 * Defines a two-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D ConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
@@ -637,9 +619,7 @@ public class ARBImaging {
 	 * @param width          the filter width
 	 * @param height         the filter height
 	 */
-	public static void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height) {
-		nglCopyConvolutionFilter2D(target, internalformat, x, y, width, height);
-	}
+	public static native void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height);
 
 	// --- [ glGetConvolutionFilter ] ---
 
@@ -742,9 +722,6 @@ public class ARBImaging {
 
 	// --- [ glConvolutionParameteri ] ---
 
-	/** Unsafe version of: {@link #glConvolutionParameteri ConvolutionParameteri} */
-	public static native void nglConvolutionParameteri(int target, int pname, int param);
-
 	/**
 	 * Specifies the scale and bias of a convolution filter.
 	 *
@@ -752,9 +729,7 @@ public class ARBImaging {
 	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_CONVOLUTION_BORDER_MODE CONVOLUTION_BORDER_MODE}</td></tr></table>
 	 * @param param  the parameter value
 	 */
-	public static void glConvolutionParameteri(int target, int pname, int param) {
-		nglConvolutionParameteri(target, pname, param);
-	}
+	public static native void glConvolutionParameteri(int target, int pname, int param);
 
 	// --- [ glConvolutionParameteriv ] ---
 
@@ -776,9 +751,6 @@ public class ARBImaging {
 
 	// --- [ glConvolutionParameterf ] ---
 
-	/** Unsafe version of: {@link #glConvolutionParameterf ConvolutionParameterf} */
-	public static native void nglConvolutionParameterf(int target, int pname, float param);
-
 	/**
 	 * Float version of {@link #glConvolutionParameteri ConvolutionParameteri}
 	 *
@@ -786,9 +758,7 @@ public class ARBImaging {
 	 * @param pname  the parameter to set
 	 * @param param  the parameter value
 	 */
-	public static void glConvolutionParameterf(int target, int pname, float param) {
-		nglConvolutionParameterf(target, pname, param);
-	}
+	public static native void glConvolutionParameterf(int target, int pname, float param);
 
 	// --- [ glConvolutionParameterfv ] ---
 
@@ -880,9 +850,6 @@ public class ARBImaging {
 
 	// --- [ glHistogram ] ---
 
-	/** Unsafe version of: {@link #glHistogram Histogram} */
-	public static native void nglHistogram(int target, int width, int internalformat, boolean sink);
-
 	/**
 	 * Specifies the histogram table.
 	 *
@@ -891,23 +858,16 @@ public class ARBImaging {
 	 * @param internalformat the histogram internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
 	 * @param sink           whether pixel groups will be consumed by the histogram operation ({@link GL11#GL_TRUE TRUE}) or passed on to the minmax operation ({@link GL11#GL_FALSE FALSE})
 	 */
-	public static void glHistogram(int target, int width, int internalformat, boolean sink) {
-		nglHistogram(target, width, internalformat, sink);
-	}
+	public static native void glHistogram(int target, int width, int internalformat, boolean sink);
 
 	// --- [ glResetHistogram ] ---
-
-	/** Unsafe version of: {@link #glResetHistogram ResetHistogram} */
-	public static native void nglResetHistogram(int target);
 
 	/**
 	 * Resets all counters of all elements of the histogram table to zero.
 	 *
 	 * @param target the histogram target. Must be:<br><table><tr><td>{@link #GL_HISTOGRAM HISTOGRAM}</td></tr></table>
 	 */
-	public static void glResetHistogram(int target) {
-		nglResetHistogram(target);
-	}
+	public static native void glResetHistogram(int target);
 
 	// --- [ glGetHistogram ] ---
 
@@ -1012,9 +972,6 @@ public class ARBImaging {
 
 	// --- [ glMinmax ] ---
 
-	/** Unsafe version of: {@link #glMinmax Minmax} */
-	public static native void nglMinmax(int target, int internalformat, boolean sink);
-
 	/**
 	 * Specifies the minmax table.
 	 *
@@ -1022,23 +979,16 @@ public class ARBImaging {
 	 * @param internalformat the minmax table internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
 	 * @param sink           whether pixel groups will be consumed by the minmax operation ({@link GL11#GL_TRUE TRUE}) or passed on to final conversion ({@link GL11#GL_FALSE FALSE})
 	 */
-	public static void glMinmax(int target, int internalformat, boolean sink) {
-		nglMinmax(target, internalformat, sink);
-	}
+	public static native void glMinmax(int target, int internalformat, boolean sink);
 
 	// --- [ glResetMinmax ] ---
-
-	/** Unsafe version of: {@link #glResetMinmax ResetMinmax} */
-	public static native void nglResetMinmax(int target);
 
 	/**
 	 * Resets all minimum and maximum values of {@code target} to to their maximum and minimum representable values, respectively.
 	 *
 	 * @param target the minmax target. Must be:<br><table><tr><td>{@link #GL_MINMAX MINMAX}</td></tr></table>
 	 */
-	public static void glResetMinmax(int target) {
-		nglResetMinmax(target);
-	}
+	public static native void glResetMinmax(int target);
 
 	// --- [ glGetMinmax ] ---
 
@@ -1145,9 +1095,6 @@ public class ARBImaging {
 
 	// --- [ glBlendColor ] ---
 
-	/** Unsafe version of: {@link #glBlendColor BlendColor} */
-	public static native void nglBlendColor(float red, float green, float blue, float alpha);
-
 	/**
 	 * Specifies the constant color C<sub>c</sub> to be used in blending.
 	 *
@@ -1156,23 +1103,16 @@ public class ARBImaging {
 	 * @param blue  the blue color component
 	 * @param alpha the alpha color component
 	 */
-	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		nglBlendColor(red, green, blue, alpha);
-	}
+	public static native void glBlendColor(float red, float green, float blue, float alpha);
 
 	// --- [ glBlendEquation ] ---
-
-	/** Unsafe version of: {@link #glBlendEquation BlendEquation} */
-	public static native void nglBlendEquation(int mode);
 
 	/**
 	 * Controls the blend equations used for per-fragment blending.
 	 *
 	 * @param mode the blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
-	public static void glBlendEquation(int mode) {
-		nglBlendEquation(mode);
-	}
+	public static native void glBlendEquation(int mode);
 
 	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, short[] table) {

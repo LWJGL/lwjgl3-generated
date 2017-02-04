@@ -34,9 +34,6 @@ public class ARBDrawBuffersBlend {
 
 	// --- [ glBlendEquationiARB ] ---
 
-	/** Unsafe version of: {@link #glBlendEquationiARB BlendEquationiARB} */
-	public static native void nglBlendEquationiARB(int buf, int mode);
-
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
 	 * 
@@ -53,14 +50,9 @@ public class ARBDrawBuffersBlend {
 	 * @param buf  an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
 	 * @param mode determines both the RGB and alpha blend equations. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
-	public static void glBlendEquationiARB(int buf, int mode) {
-		nglBlendEquationiARB(buf, mode);
-	}
+	public static native void glBlendEquationiARB(int buf, int mode);
 
 	// --- [ glBlendEquationSeparateiARB ] ---
-
-	/** Unsafe version of: {@link #glBlendEquationSeparateiARB BlendEquationSeparateiARB} */
-	public static native void nglBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -79,14 +71,9 @@ public class ARBDrawBuffersBlend {
 	 * @param modeRGB   the RGB blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 * @param modeAlpha the alpha blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
 	 */
-	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparateiARB(buf, modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunciARB ] ---
-
-	/** Unsafe version of: {@link #glBlendFunciARB BlendFunciARB} */
-	public static native void nglBlendFunciARB(int buf, int src, int dst);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -104,14 +91,9 @@ public class ARBDrawBuffersBlend {
 	 * @param src determines both RGB and alpha source functions
 	 * @param dst determines both RGB and alpha destination functions
 	 */
-	public static void glBlendFunciARB(int buf, int src, int dst) {
-		nglBlendFunciARB(buf, src, dst);
-	}
+	public static native void glBlendFunciARB(int buf, int src, int dst);
 
 	// --- [ glBlendFuncSeparateiARB ] ---
-
-	/** Unsafe version of: {@link #glBlendFuncSeparateiARB BlendFuncSeparateiARB} */
-	public static native void nglBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -131,8 +113,6 @@ public class ARBDrawBuffersBlend {
 	 * @param srcAlpha the source alpha blend function
 	 * @param dstAlpha the destination alpha blend function
 	 */
-	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
-		nglBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
-	}
+	public static native void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 }

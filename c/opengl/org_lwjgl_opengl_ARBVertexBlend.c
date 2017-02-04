@@ -82,7 +82,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightPointerARB_
 	glWeightPointerARB(size, type, stride, pointer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglVertexBlendARB(JNIEnv *__env, jclass clazz, jint count) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_glVertexBlendARB(JNIEnv *__env, jclass clazz, jint count) {
 	glVertexBlendARBPROC glVertexBlendARB = (glVertexBlendARBPROC)tlsGetFunction(2066);
 	UNUSED_PARAM(clazz)
 	glVertexBlendARB(count);

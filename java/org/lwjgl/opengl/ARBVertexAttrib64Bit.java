@@ -73,23 +73,15 @@ public class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexAttribL1d ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL1d VertexAttribL1d} */
-	public static native void nglVertexAttribL1d(int index, double x);
-
 	/**
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
 	 */
-	public static void glVertexAttribL1d(int index, double x) {
-		nglVertexAttribL1d(index, x);
-	}
+	public static native void glVertexAttribL1d(int index, double x);
 
 	// --- [ glVertexAttribL2d ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribL2d VertexAttribL2d} */
-	public static native void nglVertexAttribL2d(int index, double x, double y);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
@@ -98,14 +90,9 @@ public class ARBVertexAttrib64Bit {
 	 * @param x     the vertex attribute x component
 	 * @param y     the vertex attribute y component
 	 */
-	public static void glVertexAttribL2d(int index, double x, double y) {
-		nglVertexAttribL2d(index, x, y);
-	}
+	public static native void glVertexAttribL2d(int index, double x, double y);
 
 	// --- [ glVertexAttribL3d ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribL3d VertexAttribL3d} */
-	public static native void nglVertexAttribL3d(int index, double x, double y, double z);
 
 	/**
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
@@ -115,14 +102,9 @@ public class ARBVertexAttrib64Bit {
 	 * @param y     the vertex attribute y component
 	 * @param z     the vertex attribute z component
 	 */
-	public static void glVertexAttribL3d(int index, double x, double y, double z) {
-		nglVertexAttribL3d(index, x, y, z);
-	}
+	public static native void glVertexAttribL3d(int index, double x, double y, double z);
 
 	// --- [ glVertexAttribL4d ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribL4d VertexAttribL4d} */
-	public static native void nglVertexAttribL4d(int index, double x, double y, double z, double w);
 
 	/**
 	 * Specifies the value of a generic vertex attribute.
@@ -133,9 +115,7 @@ public class ARBVertexAttrib64Bit {
 	 * @param z     the vertex attribute z component
 	 * @param w     the vertex attribute w component
 	 */
-	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
-		nglVertexAttribL4d(index, x, y, z, w);
-	}
+	public static native void glVertexAttribL4d(int index, double x, double y, double z, double w);
 
 	// --- [ glVertexAttribL1dv ] ---
 
@@ -278,9 +258,6 @@ public class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayVertexAttribLOffsetEXT VertexArrayVertexAttribLOffsetEXT} */
-	public static native void nglVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
-
 	/**
 	 * DSA version of {@link #glVertexAttribLPointer VertexAttribLPointer}.
 	 *
@@ -293,9 +270,7 @@ public class ARBVertexAttrib64Bit {
 	 *               the array. The initial value is 0.
 	 * @param offset the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer. The initial value is 0.
 	 */
-	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
-		nglVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, type, stride, offset);
-	}
+	public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
 
 	/** Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	public static void glVertexAttribL1dv(int index, double[] v) {

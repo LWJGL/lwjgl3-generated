@@ -89,10 +89,6 @@ public class EXTTextureArray {
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
-	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
-
-	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
-		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer);
-	}
+	public static native void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
 
 }

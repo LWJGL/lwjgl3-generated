@@ -531,12 +531,7 @@ public class GL13 {
 
 	// --- [ glSampleCoverage ] ---
 
-	/** Unsafe version of: {@link #glSampleCoverage SampleCoverage} */
-	public static native void nglSampleCoverage(float value, boolean invert);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleCoverage.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies multisample coverage parameters.
 	 * 
 	 * <p>Multisampling samples a pixel multiple times at various implementation-dependent subpixel locations to generate antialiasing effects. Multisampling
@@ -555,111 +550,67 @@ public class GL13 {
 	 * @param value  a sample coverage value. The value is clamped to the range [0, 1]. The initial value is 1.0.
 	 * @param invert if the coverage masks should be inverted. The initial value is false.
 	 */
-	public static void glSampleCoverage(float value, boolean invert) {
-		nglSampleCoverage(value, invert);
-	}
+	public static native void glSampleCoverage(float value, boolean invert);
 
 	// --- [ glActiveTexture ] ---
 
-	/** Unsafe version of: {@link #glActiveTexture ActiveTexture} */
-	public static native void nglActiveTexture(int texture);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveTexture.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Selects which texture unit subsequent texture state calls will affect. The number of texture units an implementation supports is implementation
 	 * dependent.
 	 *
 	 * @param texture which texture unit to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0 TEXTURE0}</td><td>GL_TEXTURE[1-31]</td></tr></table>
 	 */
-	public static void glActiveTexture(int texture) {
-		nglActiveTexture(texture);
-	}
+	public static native void glActiveTexture(int texture);
 
 	// --- [ glClientActiveTexture ] ---
 
-	/** Unsafe version of: {@link #glClientActiveTexture ClientActiveTexture} */
-	public static native void nglClientActiveTexture(int texture);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClientActiveTexture.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Selects the vertex array client state parameters to be modified by the TexCoordPointer command and the array affected by EnableClientState and
 	 * DisableClientState with parameter TEXTURE_COORD_ARRAY.
 	 *
 	 * @param texture which texture coordinate array to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0 TEXTURE0}</td><td>GL_TEXTURE[1-31]</td></tr></table>
 	 */
-	public static void glClientActiveTexture(int texture) {
-		nglClientActiveTexture(texture);
-	}
+	public static native void glClientActiveTexture(int texture);
 
 	// --- [ glMultiTexCoord1f ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord1f MultiTexCoord1f} */
-	public static native void nglMultiTexCoord1f(int texture, float s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current one-dimensional texture coordinate for the specified texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1f(int texture, float s) {
-		nglMultiTexCoord1f(texture, s);
-	}
+	public static native void glMultiTexCoord1f(int texture, float s);
 
 	// --- [ glMultiTexCoord1s ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord1s MultiTexCoord1s} */
-	public static native void nglMultiTexCoord1s(int texture, short s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1s(int texture, short s) {
-		nglMultiTexCoord1s(texture, s);
-	}
+	public static native void glMultiTexCoord1s(int texture, short s);
 
 	// --- [ glMultiTexCoord1i ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord1i MultiTexCoord1i} */
-	public static native void nglMultiTexCoord1i(int texture, int s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1i(int texture, int s) {
-		nglMultiTexCoord1i(texture, s);
-	}
+	public static native void glMultiTexCoord1i(int texture, int s);
 
 	// --- [ glMultiTexCoord1d ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord1d MultiTexCoord1d} */
-	public static native void nglMultiTexCoord1d(int texture, double s);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord1d(int texture, double s) {
-		nglMultiTexCoord1d(texture, s);
-	}
+	public static native void glMultiTexCoord1d(int texture, double s);
 
 	// --- [ glMultiTexCoord1fv ] ---
 
@@ -739,75 +690,47 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord2f ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord2f MultiTexCoord2f} */
-	public static native void nglMultiTexCoord2f(int texture, float s, float t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current two-dimensional texture coordinate for the specified texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2f(int texture, float s, float t) {
-		nglMultiTexCoord2f(texture, s, t);
-	}
+	public static native void glMultiTexCoord2f(int texture, float s, float t);
 
 	// --- [ glMultiTexCoord2s ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord2s MultiTexCoord2s} */
-	public static native void nglMultiTexCoord2s(int texture, short s, short t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2s(int texture, short s, short t) {
-		nglMultiTexCoord2s(texture, s, t);
-	}
+	public static native void glMultiTexCoord2s(int texture, short s, short t);
 
 	// --- [ glMultiTexCoord2i ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord2i MultiTexCoord2i} */
-	public static native void nglMultiTexCoord2i(int texture, int s, int t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2i(int texture, int s, int t) {
-		nglMultiTexCoord2i(texture, s, t);
-	}
+	public static native void glMultiTexCoord2i(int texture, int s, int t);
 
 	// --- [ glMultiTexCoord2d ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord2d MultiTexCoord2d} */
-	public static native void nglMultiTexCoord2d(int texture, double s, double t);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
 	 * @param t       the t component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord2d(int texture, double s, double t) {
-		nglMultiTexCoord2d(texture, s, t);
-	}
+	public static native void glMultiTexCoord2d(int texture, double s, double t);
 
 	// --- [ glMultiTexCoord2fv ] ---
 
@@ -887,12 +810,7 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord3f ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord3f MultiTexCoord3f} */
-	public static native void nglMultiTexCoord3f(int texture, float s, float t, float r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current three-dimensional texture coordinate for the specified texture coordinate set. {@code q} is implicitly set to 1.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -900,18 +818,11 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3f(int texture, float s, float t, float r) {
-		nglMultiTexCoord3f(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3f(int texture, float s, float t, float r);
 
 	// --- [ glMultiTexCoord3s ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord3s MultiTexCoord3s} */
-	public static native void nglMultiTexCoord3s(int texture, short s, short t, short r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -919,18 +830,11 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3s(int texture, short s, short t, short r) {
-		nglMultiTexCoord3s(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3s(int texture, short s, short t, short r);
 
 	// --- [ glMultiTexCoord3i ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord3i MultiTexCoord3i} */
-	public static native void nglMultiTexCoord3i(int texture, int s, int t, int r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -938,18 +842,11 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3i(int texture, int s, int t, int r) {
-		nglMultiTexCoord3i(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3i(int texture, int s, int t, int r);
 
 	// --- [ glMultiTexCoord3d ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord3d MultiTexCoord3d} */
-	public static native void nglMultiTexCoord3d(int texture, double s, double t, double r);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -957,9 +854,7 @@ public class GL13 {
 	 * @param t       the t component of the current texture coordinates
 	 * @param r       the r component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord3d(int texture, double s, double t, double r) {
-		nglMultiTexCoord3d(texture, s, t, r);
-	}
+	public static native void glMultiTexCoord3d(int texture, double s, double t, double r);
 
 	// --- [ glMultiTexCoord3fv ] ---
 
@@ -1039,12 +934,7 @@ public class GL13 {
 
 	// --- [ glMultiTexCoord4f ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord4f MultiTexCoord4f} */
-	public static native void nglMultiTexCoord4f(int texture, float s, float t, float r, float q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current four-dimensional texture coordinate for the specified texture coordinate set.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -1053,18 +943,11 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4f(int texture, float s, float t, float r, float q) {
-		nglMultiTexCoord4f(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4f(int texture, float s, float t, float r, float q);
 
 	// --- [ glMultiTexCoord4s ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord4s MultiTexCoord4s} */
-	public static native void nglMultiTexCoord4s(int texture, short s, short t, short r, short q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -1073,18 +956,11 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4s(int texture, short s, short t, short r, short q) {
-		nglMultiTexCoord4s(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4s(int texture, short s, short t, short r, short q);
 
 	// --- [ glMultiTexCoord4i ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord4i MultiTexCoord4i} */
-	public static native void nglMultiTexCoord4i(int texture, int s, int t, int r, int q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -1093,18 +969,11 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4i(int texture, int s, int t, int r, int q) {
-		nglMultiTexCoord4i(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4i(int texture, int s, int t, int r, int q);
 
 	// --- [ glMultiTexCoord4d ] ---
 
-	/** Unsafe version of: {@link #glMultiTexCoord4d MultiTexCoord4d} */
-	public static native void nglMultiTexCoord4d(int texture, double s, double t, double r, double q);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -1113,9 +982,7 @@ public class GL13 {
 	 * @param r       the r component of the current texture coordinates
 	 * @param q       the q component of the current texture coordinates
 	 */
-	public static void glMultiTexCoord4d(int texture, double s, double t, double r, double q) {
-		nglMultiTexCoord4d(texture, s, t, r, q);
-	}
+	public static native void glMultiTexCoord4d(int texture, double s, double t, double r, double q);
 
 	// --- [ glMultiTexCoord4fv ] ---
 

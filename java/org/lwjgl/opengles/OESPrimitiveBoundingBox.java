@@ -46,10 +46,6 @@ public class OESPrimitiveBoundingBox {
 
 	// --- [ glPrimitiveBoundingBoxOES ] ---
 
-	public static native void nglPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
-
-	public static void glPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		nglPrimitiveBoundingBoxOES(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
-	}
+	public static native void glPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 }

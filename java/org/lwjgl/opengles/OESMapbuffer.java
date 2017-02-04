@@ -69,11 +69,7 @@ public class OESMapbuffer {
 
 	// --- [ glUnmapBufferOES ] ---
 
-	public static native boolean nglUnmapBufferOES(int target);
-
-	public static boolean glUnmapBufferOES(int target) {
-		return nglUnmapBufferOES(target);
-	}
+	public static native boolean glUnmapBufferOES(int target);
 
 	// --- [ glGetBufferPointervOES ] ---
 

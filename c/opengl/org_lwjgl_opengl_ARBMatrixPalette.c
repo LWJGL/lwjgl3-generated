@@ -14,7 +14,7 @@ typedef void (APIENTRY *glMatrixIndexPointerARBPROC) (jint, jint, jint, intptr_t
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglCurrentPaletteMatrixARB(JNIEnv *__env, jclass clazz, jint index) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_glCurrentPaletteMatrixARB(JNIEnv *__env, jclass clazz, jint index) {
 	glCurrentPaletteMatrixARBPROC glCurrentPaletteMatrixARB = (glCurrentPaletteMatrixARBPROC)tlsGetFunction(282);
 	UNUSED_PARAM(clazz)
 	glCurrentPaletteMatrixARB(index);

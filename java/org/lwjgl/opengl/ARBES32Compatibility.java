@@ -48,9 +48,6 @@ public class ARBES32Compatibility {
 
 	// --- [ glPrimitiveBoundingBoxARB ] ---
 
-	/** Unsafe version of: {@link #glPrimitiveBoundingBoxARB PrimitiveBoundingBoxARB} */
-	public static native void nglPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
-
 	/**
 	 * Specifies the primitive bounding box.
 	 * 
@@ -67,8 +64,6 @@ public class ARBES32Compatibility {
 	 * @param maxZ the maximum z clip space coordinate
 	 * @param maxW the maximum w clip space coordinate
 	 */
-	public static void glPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
-		nglPrimitiveBoundingBoxARB(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
-	}
+	public static native void glPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 }

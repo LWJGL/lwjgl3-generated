@@ -13,7 +13,7 @@ typedef jboolean (APIENTRY *glIsVertexArrayPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_nglBindVertexArray(JNIEnv *__env, jclass clazz, jint array) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_glBindVertexArray(JNIEnv *__env, jclass clazz, jint array) {
 	glBindVertexArrayPROC glBindVertexArray = (glBindVertexArrayPROC)tlsGetFunction(59);
 	UNUSED_PARAM(clazz)
 	glBindVertexArray(array);
@@ -33,7 +33,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_nglGenVertexAr
 	glGenVertexArrays(n, arrays);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_nglIsVertexArray(JNIEnv *__env, jclass clazz, jint array) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_glIsVertexArray(JNIEnv *__env, jclass clazz, jint array) {
 	glIsVertexArrayPROC glIsVertexArray = (glIsVertexArrayPROC)tlsGetFunction(888);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsVertexArray(array);

@@ -119,18 +119,10 @@ public class EXTShaderImageLoadStore {
 
 	// --- [ glBindImageTextureEXT ] ---
 
-	public static native void nglBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format);
-
-	public static void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format) {
-		nglBindImageTextureEXT(index, texture, level, layered, layer, access, format);
-	}
+	public static native void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format);
 
 	// --- [ glMemoryBarrierEXT ] ---
 
-	public static native void nglMemoryBarrierEXT(int barriers);
-
-	public static void glMemoryBarrierEXT(int barriers) {
-		nglMemoryBarrierEXT(barriers);
-	}
+	public static native void glMemoryBarrierEXT(int barriers);
 
 }

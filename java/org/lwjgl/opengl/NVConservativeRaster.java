@@ -45,9 +45,6 @@ public class NVConservativeRaster {
 
 	// --- [ glSubpixelPrecisionBiasNV ] ---
 
-	/** Unsafe version of: {@link #glSubpixelPrecisionBiasNV SubpixelPrecisionBiasNV} */
-	public static native void nglSubpixelPrecisionBiasNV(int xbits, int ybits);
-
 	/**
 	 * Sets the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} and {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} values.
 	 * 
@@ -61,8 +58,6 @@ public class NVConservativeRaster {
 	 * @param xbits the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} value. The initial value is zero.
 	 * @param ybits the {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} value. The initial value is zero.
 	 */
-	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
-		nglSubpixelPrecisionBiasNV(xbits, ybits);
-	}
+	public static native void glSubpixelPrecisionBiasNV(int xbits, int ybits);
 
 }

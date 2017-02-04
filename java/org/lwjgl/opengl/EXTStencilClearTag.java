@@ -64,10 +64,6 @@ public class EXTStencilClearTag {
 
 	// --- [ glStencilClearTagEXT ] ---
 
-	public static native void nglStencilClearTagEXT(int stencilTagBits, int stencilClearTag);
-
-	public static void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag) {
-		nglStencilClearTagEXT(stencilTagBits, stencilClearTag);
-	}
+	public static native void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag);
 
 }

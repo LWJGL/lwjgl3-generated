@@ -182,12 +182,7 @@ public class GL14 {
 
 	// --- [ glBlendColor ] ---
 
-	/** Unsafe version of: {@link #glBlendColor BlendColor} */
-	public static native void nglBlendColor(float red, float green, float blue, float alpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendColor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies the constant color C<sub>c</sub> to be used in blending.
 	 *
 	 * @param red   the red color component
@@ -195,57 +190,34 @@ public class GL14 {
 	 * @param blue  the blue color component
 	 * @param alpha the alpha color component
 	 */
-	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		nglBlendColor(red, green, blue, alpha);
-	}
+	public static native void glBlendColor(float red, float green, float blue, float alpha);
 
 	// --- [ glBlendEquation ] ---
 
-	/** Unsafe version of: {@link #glBlendEquation BlendEquation} */
-	public static native void nglBlendEquation(int mode);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls the blend equations used for per-fragment blending.
 	 *
 	 * @param mode the blend equation. One of:<br><table><tr><td>{@link #GL_FUNC_ADD FUNC_ADD}</td><td>{@link #GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link #GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link #GL_MIN MIN}</td><td>{@link #GL_MAX MAX}</td></tr></table>
 	 */
-	public static void glBlendEquation(int mode) {
-		nglBlendEquation(mode);
-	}
+	public static native void glBlendEquation(int mode);
 
 	// --- [ glFogCoordf ] ---
 
-	/** Unsafe version of: {@link #glFogCoordf FogCoordf} */
-	public static native void nglFogCoordf(float coord);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the current fog coordinate.
 	 *
 	 * @param coord the fog coordinate value
 	 */
-	public static void glFogCoordf(float coord) {
-		nglFogCoordf(coord);
-	}
+	public static native void glFogCoordf(float coord);
 
 	// --- [ glFogCoordd ] ---
 
-	/** Unsafe version of: {@link #glFogCoordd FogCoordd} */
-	public static native void nglFogCoordd(double coord);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glFogCoordf FogCoordf}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
-	public static void glFogCoordd(double coord) {
-		nglFogCoordd(coord);
-	}
+	public static native void glFogCoordd(double coord);
 
 	// --- [ glFogCoordfv ] ---
 
@@ -393,37 +365,23 @@ public class GL14 {
 
 	// --- [ glPointParameterf ] ---
 
-	/** Unsafe version of: {@link #glPointParameterf PointParameterf} */
-	public static native void nglPointParameterf(int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameterf.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Sets the float value of a pointer parameter.
 	 *
 	 * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}</td><td>{@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glPointParameterf(int pname, float param) {
-		nglPointParameterf(pname, param);
-	}
+	public static native void glPointParameterf(int pname, float param);
 
 	// --- [ glPointParameteri ] ---
 
-	/** Unsafe version of: {@link #glPointParameteri PointParameteri} */
-	public static native void nglPointParameteri(int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Integer version of {@link #glPointParameterf PointParameterf}.
 	 *
 	 * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}</td><td>{@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}</td></tr></table>
 	 * @param param the parameter value
 	 */
-	public static void glPointParameteri(int pname, int param) {
-		nglPointParameteri(pname, param);
-	}
+	public static native void glPointParameteri(int pname, int param);
 
 	// --- [ glPointParameterfv ] ---
 
@@ -465,147 +423,91 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3b ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3b SecondaryColor3b} */
-	public static native void nglSecondaryColor3b(byte red, byte green, byte blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Sets the R, G, and B components of the current secondary color. The alpha component is set to 1.0.
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
-		nglSecondaryColor3b(red, green, blue);
-	}
+	public static native void glSecondaryColor3b(byte red, byte green, byte blue);
 
 	// --- [ glSecondaryColor3s ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3s SecondaryColor3s} */
-	public static native void nglSecondaryColor3s(short red, short green, short blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3s(short red, short green, short blue) {
-		nglSecondaryColor3s(red, green, blue);
-	}
+	public static native void glSecondaryColor3s(short red, short green, short blue);
 
 	// --- [ glSecondaryColor3i ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3i SecondaryColor3i} */
-	public static native void nglSecondaryColor3i(int red, int green, int blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Integer version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3i(int red, int green, int blue) {
-		nglSecondaryColor3i(red, green, blue);
-	}
+	public static native void glSecondaryColor3i(int red, int green, int blue);
 
 	// --- [ glSecondaryColor3f ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3f SecondaryColor3f} */
-	public static native void nglSecondaryColor3f(float red, float green, float blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3f(float red, float green, float blue) {
-		nglSecondaryColor3f(red, green, blue);
-	}
+	public static native void glSecondaryColor3f(float red, float green, float blue);
 
 	// --- [ glSecondaryColor3d ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3d SecondaryColor3d} */
-	public static native void nglSecondaryColor3d(double red, double green, double blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3d(double red, double green, double blue) {
-		nglSecondaryColor3d(red, green, blue);
-	}
+	public static native void glSecondaryColor3d(double red, double green, double blue);
 
 	// --- [ glSecondaryColor3ub ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3ub SecondaryColor3ub} */
-	public static native void nglSecondaryColor3ub(byte red, byte green, byte blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
-		nglSecondaryColor3ub(red, green, blue);
-	}
+	public static native void glSecondaryColor3ub(byte red, byte green, byte blue);
 
 	// --- [ glSecondaryColor3us ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3us SecondaryColor3us} */
-	public static native void nglSecondaryColor3us(short red, short green, short blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3us(short red, short green, short blue) {
-		nglSecondaryColor3us(red, green, blue);
-	}
+	public static native void glSecondaryColor3us(short red, short green, short blue);
 
 	// --- [ glSecondaryColor3ui ] ---
 
-	/** Unsafe version of: {@link #glSecondaryColor3ui SecondaryColor3ui} */
-	public static native void nglSecondaryColor3ui(int red, int green, int blue);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Unsigned int version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
-	public static void glSecondaryColor3ui(int red, int green, int blue) {
-		nglSecondaryColor3ui(red, green, blue);
-	}
+	public static native void glSecondaryColor3ui(int red, int green, int blue);
 
 	// --- [ glSecondaryColor3bv ] ---
 
@@ -828,12 +730,7 @@ public class GL14 {
 
 	// --- [ glBlendFuncSeparate ] ---
 
-	/** Unsafe version of: {@link #glBlendFuncSeparate BlendFuncSeparate} */
-	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Specifies pixel arithmetic for RGB and alpha components separately.
 	 *
 	 * @param sfactorRGB   how the red, green, and blue blending factors are computed. The initial value is GL_ONE.
@@ -841,77 +738,47 @@ public class GL14 {
 	 * @param sfactorAlpha how the alpha source blending factor is computed. The initial value is GL_ONE.
 	 * @param dfactorAlpha how the alpha destination blending factor is computed. The initial value is GL_ZERO.
 	 */
-	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-	}
+	public static native void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
 
 	// --- [ glWindowPos2i ] ---
 
-	/** Unsafe version of: {@link #glWindowPos2i WindowPos2i} */
-	public static native void nglWindowPos2i(int x, int y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Alternate way to set the current raster position. {@code z} is implictly set to 0.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2i(int x, int y) {
-		nglWindowPos2i(x, y);
-	}
+	public static native void glWindowPos2i(int x, int y);
 
 	// --- [ glWindowPos2s ] ---
 
-	/** Unsafe version of: {@link #glWindowPos2s WindowPos2s} */
-	public static native void nglWindowPos2s(short x, short y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2s(short x, short y) {
-		nglWindowPos2s(x, y);
-	}
+	public static native void glWindowPos2s(short x, short y);
 
 	// --- [ glWindowPos2f ] ---
 
-	/** Unsafe version of: {@link #glWindowPos2f WindowPos2f} */
-	public static native void nglWindowPos2f(float x, float y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2f(float x, float y) {
-		nglWindowPos2f(x, y);
-	}
+	public static native void glWindowPos2f(float x, float y);
 
 	// --- [ glWindowPos2d ] ---
 
-	/** Unsafe version of: {@link #glWindowPos2d WindowPos2d} */
-	public static native void nglWindowPos2d(double x, double y);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
-	public static void glWindowPos2d(double x, double y) {
-		nglWindowPos2d(x, y);
-	}
+	public static native void glWindowPos2d(double x, double y);
 
 	// --- [ glWindowPos2iv ] ---
 
@@ -987,75 +854,47 @@ public class GL14 {
 
 	// --- [ glWindowPos3i ] ---
 
-	/** Unsafe version of: {@link #glWindowPos3i WindowPos3i} */
-	public static native void nglWindowPos3i(int x, int y, int z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Alternate way to set the current raster position.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3i(int x, int y, int z) {
-		nglWindowPos3i(x, y, z);
-	}
+	public static native void glWindowPos3i(int x, int y, int z);
 
 	// --- [ glWindowPos3s ] ---
 
-	/** Unsafe version of: {@link #glWindowPos3s WindowPos3s} */
-	public static native void nglWindowPos3s(short x, short y, short z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Short version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3s(short x, short y, short z) {
-		nglWindowPos3s(x, y, z);
-	}
+	public static native void glWindowPos3s(short x, short y, short z);
 
 	// --- [ glWindowPos3f ] ---
 
-	/** Unsafe version of: {@link #glWindowPos3f WindowPos3f} */
-	public static native void nglWindowPos3f(float x, float y, float z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Float version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3f(float x, float y, float z) {
-		nglWindowPos3f(x, y, z);
-	}
+	public static native void glWindowPos3f(float x, float y, float z);
 
 	// --- [ glWindowPos3d ] ---
 
-	/** Unsafe version of: {@link #glWindowPos3d WindowPos3d} */
-	public static native void nglWindowPos3d(double x, double y, double z);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
 	 * Double version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
-	public static void glWindowPos3d(double x, double y, double z) {
-		nglWindowPos3d(x, y, z);
-	}
+	public static native void glWindowPos3d(double x, double y, double z);
 
 	// --- [ glWindowPos3iv ] ---
 

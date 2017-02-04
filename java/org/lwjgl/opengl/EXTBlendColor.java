@@ -41,10 +41,6 @@ public class EXTBlendColor {
 
 	// --- [ glBlendColorEXT ] ---
 
-	public static native void nglBlendColorEXT(float red, float green, float blue, float alpha);
-
-	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
-		nglBlendColorEXT(red, green, blue, alpha);
-	}
+	public static native void glBlendColorEXT(float red, float green, float blue, float alpha);
 
 }

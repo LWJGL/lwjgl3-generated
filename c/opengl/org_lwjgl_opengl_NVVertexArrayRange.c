@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexArrayRange_nglVertexArrayRa
 	glVertexArrayRangeNV(length, pointer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexArrayRange_nglFlushVertexArrayRangeNV(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexArrayRange_glFlushVertexArrayRangeNV(JNIEnv *__env, jclass clazz) {
 	glFlushVertexArrayRangeNVPROC glFlushVertexArrayRangeNV = (glFlushVertexArrayRangeNVPROC)tlsGetFunction(426);
 	UNUSED_PARAM(clazz)
 	glFlushVertexArrayRangeNV();

@@ -107,35 +107,19 @@ public class EXTDisjointTimerQuery {
 
 	// --- [ glIsQueryEXT ] ---
 
-	public static native boolean nglIsQueryEXT(int id);
-
-	public static boolean glIsQueryEXT(int id) {
-		return nglIsQueryEXT(id);
-	}
+	public static native boolean glIsQueryEXT(int id);
 
 	// --- [ glBeginQueryEXT ] ---
 
-	public static native void nglBeginQueryEXT(int target, int id);
-
-	public static void glBeginQueryEXT(int target, int id) {
-		nglBeginQueryEXT(target, id);
-	}
+	public static native void glBeginQueryEXT(int target, int id);
 
 	// --- [ glEndQueryEXT ] ---
 
-	public static native void nglEndQueryEXT(int target);
-
-	public static void glEndQueryEXT(int target) {
-		nglEndQueryEXT(target);
-	}
+	public static native void glEndQueryEXT(int target);
 
 	// --- [ glQueryCounterEXT ] ---
 
-	public static native void nglQueryCounterEXT(int id, int target);
-
-	public static void glQueryCounterEXT(int id, int target) {
-		nglQueryCounterEXT(id, target);
-	}
+	public static native void glQueryCounterEXT(int id, int target);
 
 	// --- [ glGetQueryivEXT ] ---
 

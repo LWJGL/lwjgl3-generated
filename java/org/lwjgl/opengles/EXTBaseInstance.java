@@ -41,11 +41,7 @@ public class EXTBaseInstance {
 
 	// --- [ glDrawArraysInstancedBaseInstanceEXT ] ---
 
-	public static native void nglDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance);
-
-	public static void glDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance) {
-		nglDrawArraysInstancedBaseInstanceEXT(mode, first, count, instancecount, baseinstance);
-	}
+	public static native void glDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance);
 
 	// --- [ glDrawElementsInstancedBaseInstanceEXT ] ---
 

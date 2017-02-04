@@ -38,9 +38,6 @@ public class ARBSparseBuffer {
 
 	// --- [ glBufferPageCommitmentARB ] ---
 
-	/** Unsafe version of: {@link #glBufferPageCommitmentARB BufferPageCommitmentARB} */
-	public static native void nglBufferPageCommitmentARB(int target, long offset, long size, boolean commit);
-
 	/**
 	 * Commit and de-commits regions of sparse buffer storage.
 	 *
@@ -51,15 +48,10 @@ public class ARBSparseBuffer {
 	 *               the data store in the specified region may be freed and those pages become uncommitted. Newly committed pages have undefined content. However,
 	 *               redundantly committing pages does not alter their content.
 	 */
-	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
-		nglBufferPageCommitmentARB(target, offset, size, commit);
-	}
+	public static native void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit);
 
 	// --- [ glNamedBufferPageCommitmentEXT ] ---
 
-	/** Unsafe version of: {@link #glNamedBufferPageCommitmentEXT NamedBufferPageCommitmentEXT} */
-	public static native void nglNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit);
-
 	/**
 	 * Direct-state-access version of {@link #glBufferPageCommitmentARB BufferPageCommitmentARB}.
 	 *
@@ -68,15 +60,10 @@ public class ARBSparseBuffer {
 	 * @param size   the data size. must either be a multiple of {@link #GL_SPARSE_BUFFER_PAGE_SIZE_ARB SPARSE_BUFFER_PAGE_SIZE_ARB}, or extend to the end of the buffer's data store.
 	 * @param commit the commit state
 	 */
-	public static void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit) {
-		nglNamedBufferPageCommitmentEXT(buffer, offset, size, commit);
-	}
+	public static native void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit);
 
 	// --- [ glNamedBufferPageCommitmentARB ] ---
 
-	/** Unsafe version of: {@link #glNamedBufferPageCommitmentARB NamedBufferPageCommitmentARB} */
-	public static native void nglNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit);
-
 	/**
 	 * Direct-state-access version of {@link #glBufferPageCommitmentARB BufferPageCommitmentARB}.
 	 *
@@ -85,8 +72,6 @@ public class ARBSparseBuffer {
 	 * @param size   the data size. must either be a multiple of {@link #GL_SPARSE_BUFFER_PAGE_SIZE_ARB SPARSE_BUFFER_PAGE_SIZE_ARB}, or extend to the end of the buffer's data store.
 	 * @param commit the commit state
 	 */
-	public static void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit) {
-		nglNamedBufferPageCommitmentARB(buffer, offset, size, commit);
-	}
+	public static native void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit);
 
 }

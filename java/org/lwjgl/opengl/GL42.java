@@ -263,12 +263,7 @@ public class GL42 {
 
 	// --- [ glTexStorage1D ] ---
 
-	/** Unsafe version of: {@link #glTexStorage1D TexStorage1D} */
-	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
 	 *
 	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td></tr></table>
@@ -276,18 +271,11 @@ public class GL42 {
 	 * @param internalformat the sized internal format to be used to store texture image data
 	 * @param width          the width of the texture, in texels
 	 */
-	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
-		nglTexStorage1D(target, levels, internalformat, width);
-	}
+	public static native void glTexStorage1D(int target, int levels, int internalformat, int width);
 
 	// --- [ glTexStorage2D ] ---
 
-	/** Unsafe version of: {@link #glTexStorage2D TexStorage2D} */
-	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
 	 *
 	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr></table>
@@ -296,18 +284,11 @@ public class GL42 {
 	 * @param width          the width of the texture, in texels
 	 * @param height         the height of the texture, in texels
 	 */
-	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
-		nglTexStorage2D(target, levels, internalformat, width, height);
-	}
+	public static native void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
 	// --- [ glTexStorage3D ] ---
 
-	/** Unsafe version of: {@link #glTexStorage3D TexStorage3D} */
-	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
 	 *
 	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}</td></tr><tr><td>{@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}</td></tr></table>
@@ -317,36 +298,22 @@ public class GL42 {
 	 * @param height         the height of the texture, in texels
 	 * @param depth          the depth of the texture, in texels
 	 */
-	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
-		nglTexStorage3D(target, levels, internalformat, width, height, depth);
-	}
+	public static native void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
 
-	/** Unsafe version of: {@link #glDrawTransformFeedbackInstanced DrawTransformFeedbackInstanced} */
-	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackInstanced.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Renders multiple instances of primitives using a count derived from a transform feedback object.
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
 	 * @param id        the name of a transform feedback object from which to retrieve a primitive count
 	 * @param primcount the number of instances of the geometry to render
 	 */
-	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
-		nglDrawTransformFeedbackInstanced(mode, id, primcount);
-	}
+	public static native void glDrawTransformFeedbackInstanced(int mode, int id, int primcount);
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
-	/** Unsafe version of: {@link #glDrawTransformFeedbackStreamInstanced DrawTransformFeedbackStreamInstanced} */
-	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStreamInstanced.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Renders multiple instances of primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
@@ -354,18 +321,11 @@ public class GL42 {
 	 * @param stream    the index of the transform feedback stream from which to retrieve a primitive count
 	 * @param primcount the number of instances of the geometry to render
 	 */
-	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
-		nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
-	}
+	public static native void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount);
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
-	/** Unsafe version of: {@link #glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance} */
-	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
 	 * @param mode         what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
@@ -374,9 +334,7 @@ public class GL42 {
 	 * @param primcount    the number of instances of the specified range of indices to be rendered
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
-	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
-		nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
-	}
+	public static native void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
 
@@ -551,12 +509,7 @@ public class GL42 {
 
 	// --- [ glBindImageTexture ] ---
 
-	/** Unsafe version of: {@link #glBindImageTexture BindImageTexture} */
-	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindImageTexture.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a level of a texture to an image unit.
 	 *
 	 * @param unit    the index of the image unit to which to bind the texture
@@ -567,25 +520,16 @@ public class GL42 {
 	 * @param access  a token indicating the type of access that will be performed on the image
 	 * @param format  the format that the elements of the image will be treated as for the purposes of formatted stores
 	 */
-	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
-		nglBindImageTexture(unit, texture, level, layered, layer, access, format);
-	}
+	public static native void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
 
 	// --- [ glMemoryBarrier ] ---
 
-	/** Unsafe version of: {@link #glMemoryBarrier MemoryBarrier} */
-	public static native void nglMemoryBarrier(int barriers);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrier.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Defines a barrier ordering memory transactions.
 	 *
 	 * @param barriers the barriers to insert (bitwise combination). One or more of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}</td><td>{@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}</td><td>{@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr><tr><td>{@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td><td>{@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}</td></tr><tr><td>{@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}</td><td>{@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}</td><td>{@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}</td><td>{@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td></tr><tr><td>{@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}</td><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td></tr></table>
 	 */
-	public static void glMemoryBarrier(int barriers) {
-		nglMemoryBarrier(barriers);
-	}
+	public static native void glMemoryBarrier(int barriers);
 
 	// --- [ glGetInternalformativ ] ---
 

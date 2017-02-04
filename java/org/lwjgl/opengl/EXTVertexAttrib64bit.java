@@ -72,35 +72,19 @@ public class EXTVertexAttrib64bit {
 
 	// --- [ glVertexAttribL1dEXT ] ---
 
-	public static native void nglVertexAttribL1dEXT(int index, double x);
-
-	public static void glVertexAttribL1dEXT(int index, double x) {
-		nglVertexAttribL1dEXT(index, x);
-	}
+	public static native void glVertexAttribL1dEXT(int index, double x);
 
 	// --- [ glVertexAttribL2dEXT ] ---
 
-	public static native void nglVertexAttribL2dEXT(int index, double x, double y);
-
-	public static void glVertexAttribL2dEXT(int index, double x, double y) {
-		nglVertexAttribL2dEXT(index, x, y);
-	}
+	public static native void glVertexAttribL2dEXT(int index, double x, double y);
 
 	// --- [ glVertexAttribL3dEXT ] ---
 
-	public static native void nglVertexAttribL3dEXT(int index, double x, double y, double z);
-
-	public static void glVertexAttribL3dEXT(int index, double x, double y, double z) {
-		nglVertexAttribL3dEXT(index, x, y, z);
-	}
+	public static native void glVertexAttribL3dEXT(int index, double x, double y, double z);
 
 	// --- [ glVertexAttribL4dEXT ] ---
 
-	public static native void nglVertexAttribL4dEXT(int index, double x, double y, double z, double w);
-
-	public static void glVertexAttribL4dEXT(int index, double x, double y, double z, double w) {
-		nglVertexAttribL4dEXT(index, x, y, z, w);
-	}
+	public static native void glVertexAttribL4dEXT(int index, double x, double y, double z, double w);
 
 	// --- [ glVertexAttribL1dvEXT ] ---
 
@@ -170,11 +154,7 @@ public class EXTVertexAttrib64bit {
 
 	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
-	public static native void nglVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
-
-	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
-		nglVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, type, stride, offset);
-	}
+	public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
 
 	/** Array version of: {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
 	public static void glVertexAttribL1dvEXT(int index, double[] v) {

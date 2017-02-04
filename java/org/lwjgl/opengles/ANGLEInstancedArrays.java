@@ -46,11 +46,7 @@ public class ANGLEInstancedArrays {
 
 	// --- [ glDrawArraysInstancedANGLE ] ---
 
-	public static native void nglDrawArraysInstancedANGLE(int mode, int first, int count, int primcount);
-
-	public static void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount) {
-		nglDrawArraysInstancedANGLE(mode, first, count, primcount);
-	}
+	public static native void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount);
 
 	// --- [ glDrawElementsInstancedANGLE ] ---
 
@@ -78,10 +74,6 @@ public class ANGLEInstancedArrays {
 
 	// --- [ glVertexAttribDivisorANGLE ] ---
 
-	public static native void nglVertexAttribDivisorANGLE(int index, int divisor);
-
-	public static void glVertexAttribDivisorANGLE(int index, int divisor) {
-		nglVertexAttribDivisorANGLE(index, divisor);
-	}
+	public static native void glVertexAttribDivisorANGLE(int index, int divisor);
 
 }

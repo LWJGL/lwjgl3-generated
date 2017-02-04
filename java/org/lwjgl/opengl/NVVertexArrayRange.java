@@ -52,10 +52,6 @@ public class NVVertexArrayRange {
 
 	// --- [ glFlushVertexArrayRangeNV ] ---
 
-	public static native void nglFlushVertexArrayRangeNV();
-
-	public static void glFlushVertexArrayRangeNV() {
-		nglFlushVertexArrayRangeNV();
-	}
+	public static native void glFlushVertexArrayRangeNV();
 
 }

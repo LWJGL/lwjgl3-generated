@@ -81,9 +81,6 @@ public class ARBSync {
 
 	// --- [ glFenceSync ] ---
 
-	/** Unsafe version of: {@link #glFenceSync FenceSync} */
-	public static native long nglFenceSync(int condition, int flags);
-
 	/**
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
@@ -91,9 +88,7 @@ public class ARBSync {
 	 * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
 	 *                  be zero.
 	 */
-	public static long glFenceSync(int condition, int flags) {
-		return nglFenceSync(condition, flags);
-	}
+	public static native long glFenceSync(int condition, int flags);
 
 	// --- [ glIsSync ] ---
 

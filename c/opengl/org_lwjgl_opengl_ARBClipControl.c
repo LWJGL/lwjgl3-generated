@@ -10,7 +10,7 @@ typedef void (APIENTRY *glClipControlPROC) (jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBClipControl_nglClipControl(JNIEnv *__env, jclass clazz, jint origin, jint depth) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBClipControl_glClipControl(JNIEnv *__env, jclass clazz, jint origin, jint depth) {
 	glClipControlPROC glClipControl = (glClipControlPROC)tlsGetFunction(136);
 	UNUSED_PARAM(clazz)
 	glClipControl(origin, depth);

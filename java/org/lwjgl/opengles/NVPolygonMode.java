@@ -46,10 +46,6 @@ public class NVPolygonMode {
 
 	// --- [ glPolygonModeNV ] ---
 
-	public static native void nglPolygonModeNV(int face, int mode);
-
-	public static void glPolygonModeNV(int face, int mode) {
-		nglPolygonModeNV(face, mode);
-	}
+	public static native void glPolygonModeNV(int face, int mode);
 
 }

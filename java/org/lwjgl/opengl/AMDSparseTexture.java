@@ -59,18 +59,10 @@ public class AMDSparseTexture {
 
 	// --- [ glTexStorageSparseAMD ] ---
 
-	public static native void nglTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags);
-
-	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
-		nglTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags);
-	}
+	public static native void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags);
 
 	// --- [ glTextureStorageSparseAMD ] ---
 
-	public static native void nglTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags);
-
-	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
-		nglTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags);
-	}
+	public static native void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags);
 
 }

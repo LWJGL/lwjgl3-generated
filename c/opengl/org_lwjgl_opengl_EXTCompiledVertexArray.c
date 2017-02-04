@@ -11,13 +11,13 @@ typedef void (APIENTRY *glUnlockArraysEXTPROC) (void);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTCompiledVertexArray_nglLockArraysEXT(JNIEnv *__env, jclass clazz, jint first, jint count) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTCompiledVertexArray_glLockArraysEXT(JNIEnv *__env, jclass clazz, jint first, jint count) {
 	glLockArraysEXTPROC glLockArraysEXT = (glLockArraysEXTPROC)tlsGetFunction(912);
 	UNUSED_PARAM(clazz)
 	glLockArraysEXT(first, count);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTCompiledVertexArray_nglUnlockArraysEXT(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTCompiledVertexArray_glUnlockArraysEXT(JNIEnv *__env, jclass clazz) {
 	glUnlockArraysEXTPROC glUnlockArraysEXT = (glUnlockArraysEXTPROC)tlsGetFunction(1812);
 	UNUSED_PARAM(clazz)
 	glUnlockArraysEXT();

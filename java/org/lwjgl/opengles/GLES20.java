@@ -359,19 +359,11 @@ public class GLES20 {
 
 	// --- [ glActiveTexture ] ---
 
-	public static native void nglActiveTexture(int texture);
-
-	public static void glActiveTexture(int texture) {
-		nglActiveTexture(texture);
-	}
+	public static native void glActiveTexture(int texture);
 
 	// --- [ glAttachShader ] ---
 
-	public static native void nglAttachShader(int program, int shader);
-
-	public static void glAttachShader(int program, int shader) {
-		nglAttachShader(program, shader);
-	}
+	public static native void glAttachShader(int program, int shader);
 
 	// --- [ glBindAttribLocation ] ---
 
@@ -395,75 +387,39 @@ public class GLES20 {
 
 	// --- [ glBindBuffer ] ---
 
-	public static native void nglBindBuffer(int target, int buffer);
-
-	public static void glBindBuffer(int target, int buffer) {
-		nglBindBuffer(target, buffer);
-	}
+	public static native void glBindBuffer(int target, int buffer);
 
 	// --- [ glBindFramebuffer ] ---
 
-	public static native void nglBindFramebuffer(int target, int framebuffer);
-
-	public static void glBindFramebuffer(int target, int framebuffer) {
-		nglBindFramebuffer(target, framebuffer);
-	}
+	public static native void glBindFramebuffer(int target, int framebuffer);
 
 	// --- [ glBindRenderbuffer ] ---
 
-	public static native void nglBindRenderbuffer(int target, int renderbuffer);
-
-	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		nglBindRenderbuffer(target, renderbuffer);
-	}
+	public static native void glBindRenderbuffer(int target, int renderbuffer);
 
 	// --- [ glBindTexture ] ---
 
-	public static native void nglBindTexture(int target, int texture);
-
-	public static void glBindTexture(int target, int texture) {
-		nglBindTexture(target, texture);
-	}
+	public static native void glBindTexture(int target, int texture);
 
 	// --- [ glBlendColor ] ---
 
-	public static native void nglBlendColor(float red, float green, float blue, float alpha);
-
-	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		nglBlendColor(red, green, blue, alpha);
-	}
+	public static native void glBlendColor(float red, float green, float blue, float alpha);
 
 	// --- [ glBlendEquation ] ---
 
-	public static native void nglBlendEquation(int mode);
-
-	public static void glBlendEquation(int mode) {
-		nglBlendEquation(mode);
-	}
+	public static native void glBlendEquation(int mode);
 
 	// --- [ glBlendEquationSeparate ] ---
 
-	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha);
-
-	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
-		nglBlendEquationSeparate(modeRGB, modeAlpha);
-	}
+	public static native void glBlendEquationSeparate(int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunc ] ---
 
-	public static native void nglBlendFunc(int sfactor, int dfactor);
-
-	public static void glBlendFunc(int sfactor, int dfactor) {
-		nglBlendFunc(sfactor, dfactor);
-	}
+	public static native void glBlendFunc(int sfactor, int dfactor);
 
 	// --- [ glBlendFuncSeparate ] ---
 
-	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
-
-	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
-	}
+	public static native void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
 
 	// --- [ glBufferData ] ---
 
@@ -511,59 +467,31 @@ public class GLES20 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
-	public static native int nglCheckFramebufferStatus(int target);
-
-	public static int glCheckFramebufferStatus(int target) {
-		return nglCheckFramebufferStatus(target);
-	}
+	public static native int glCheckFramebufferStatus(int target);
 
 	// --- [ glClear ] ---
 
-	public static native void nglClear(int mask);
-
-	public static void glClear(int mask) {
-		nglClear(mask);
-	}
+	public static native void glClear(int mask);
 
 	// --- [ glClearColor ] ---
 
-	public static native void nglClearColor(float red, float green, float blue, float alpha);
-
-	public static void glClearColor(float red, float green, float blue, float alpha) {
-		nglClearColor(red, green, blue, alpha);
-	}
+	public static native void glClearColor(float red, float green, float blue, float alpha);
 
 	// --- [ glClearDepthf ] ---
 
-	public static native void nglClearDepthf(float d);
-
-	public static void glClearDepthf(float d) {
-		nglClearDepthf(d);
-	}
+	public static native void glClearDepthf(float d);
 
 	// --- [ glClearStencil ] ---
 
-	public static native void nglClearStencil(int s);
-
-	public static void glClearStencil(int s) {
-		nglClearStencil(s);
-	}
+	public static native void glClearStencil(int s);
 
 	// --- [ glColorMask ] ---
 
-	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha);
-
-	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
-		nglColorMask(red, green, blue, alpha);
-	}
+	public static native void glColorMask(boolean red, boolean green, boolean blue, boolean alpha);
 
 	// --- [ glCompileShader ] ---
 
-	public static native void nglCompileShader(int shader);
-
-	public static void glCompileShader(int shader) {
-		nglCompileShader(shader);
-	}
+	public static native void glCompileShader(int shader);
 
 	// --- [ glCompressedTexImage2D ] ---
 
@@ -591,43 +519,23 @@ public class GLES20 {
 
 	// --- [ glCopyTexImage2D ] ---
 
-	public static native void nglCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border);
-
-	public static void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border) {
-		nglCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
-	}
+	public static native void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
 	// --- [ glCopyTexSubImage2D ] ---
 
-	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
-
-	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
-	}
+	public static native void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 	// --- [ glCreateProgram ] ---
 
-	public static native int nglCreateProgram();
-
-	public static int glCreateProgram() {
-		return nglCreateProgram();
-	}
+	public static native int glCreateProgram();
 
 	// --- [ glCreateShader ] ---
 
-	public static native int nglCreateShader(int type);
-
-	public static int glCreateShader(int type) {
-		return nglCreateShader(type);
-	}
+	public static native int glCreateShader(int type);
 
 	// --- [ glCullFace ] ---
 
-	public static native void nglCullFace(int mode);
-
-	public static void glCullFace(int mode) {
-		nglCullFace(mode);
-	}
+	public static native void glCullFace(int mode);
 
 	// --- [ glDeleteBuffers ] ---
 
@@ -667,11 +575,7 @@ public class GLES20 {
 
 	// --- [ glDeleteProgram ] ---
 
-	public static native void nglDeleteProgram(int program);
-
-	public static void glDeleteProgram(int program) {
-		nglDeleteProgram(program);
-	}
+	public static native void glDeleteProgram(int program);
 
 	// --- [ glDeleteRenderbuffers ] ---
 
@@ -693,11 +597,7 @@ public class GLES20 {
 
 	// --- [ glDeleteShader ] ---
 
-	public static native void nglDeleteShader(int shader);
-
-	public static void glDeleteShader(int shader) {
-		nglDeleteShader(shader);
-	}
+	public static native void glDeleteShader(int shader);
 
 	// --- [ glDeleteTextures ] ---
 
@@ -719,59 +619,31 @@ public class GLES20 {
 
 	// --- [ glDepthFunc ] ---
 
-	public static native void nglDepthFunc(int func);
-
-	public static void glDepthFunc(int func) {
-		nglDepthFunc(func);
-	}
+	public static native void glDepthFunc(int func);
 
 	// --- [ glDepthMask ] ---
 
-	public static native void nglDepthMask(boolean flag);
-
-	public static void glDepthMask(boolean flag) {
-		nglDepthMask(flag);
-	}
+	public static native void glDepthMask(boolean flag);
 
 	// --- [ glDepthRangef ] ---
 
-	public static native void nglDepthRangef(float n, float f);
-
-	public static void glDepthRangef(float n, float f) {
-		nglDepthRangef(n, f);
-	}
+	public static native void glDepthRangef(float n, float f);
 
 	// --- [ glDetachShader ] ---
 
-	public static native void nglDetachShader(int program, int shader);
-
-	public static void glDetachShader(int program, int shader) {
-		nglDetachShader(program, shader);
-	}
+	public static native void glDetachShader(int program, int shader);
 
 	// --- [ glDisable ] ---
 
-	public static native void nglDisable(int cap);
-
-	public static void glDisable(int cap) {
-		nglDisable(cap);
-	}
+	public static native void glDisable(int cap);
 
 	// --- [ glDisableVertexAttribArray ] ---
 
-	public static native void nglDisableVertexAttribArray(int index);
-
-	public static void glDisableVertexAttribArray(int index) {
-		nglDisableVertexAttribArray(index);
-	}
+	public static native void glDisableVertexAttribArray(int index);
 
 	// --- [ glDrawArrays ] ---
 
-	public static native void nglDrawArrays(int mode, int first, int count);
-
-	public static void glDrawArrays(int mode, int first, int count) {
-		nglDrawArrays(mode, first, count);
-	}
+	public static native void glDrawArrays(int mode, int first, int count);
 
 	// --- [ glDrawElements ] ---
 
@@ -799,59 +671,31 @@ public class GLES20 {
 
 	// --- [ glEnable ] ---
 
-	public static native void nglEnable(int cap);
-
-	public static void glEnable(int cap) {
-		nglEnable(cap);
-	}
+	public static native void glEnable(int cap);
 
 	// --- [ glEnableVertexAttribArray ] ---
 
-	public static native void nglEnableVertexAttribArray(int index);
-
-	public static void glEnableVertexAttribArray(int index) {
-		nglEnableVertexAttribArray(index);
-	}
+	public static native void glEnableVertexAttribArray(int index);
 
 	// --- [ glFinish ] ---
 
-	public static native void nglFinish();
-
-	public static void glFinish() {
-		nglFinish();
-	}
+	public static native void glFinish();
 
 	// --- [ glFlush ] ---
 
-	public static native void nglFlush();
-
-	public static void glFlush() {
-		nglFlush();
-	}
+	public static native void glFlush();
 
 	// --- [ glFramebufferRenderbuffer ] ---
 
-	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
-
-	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
-	}
+	public static native void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
 
 	// --- [ glFramebufferTexture2D ] ---
 
-	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
-
-	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		nglFramebufferTexture2D(target, attachment, textarget, texture, level);
-	}
+	public static native void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
 
 	// --- [ glFrontFace ] ---
 
-	public static native void nglFrontFace(int mode);
-
-	public static void glFrontFace(int mode) {
-		nglFrontFace(mode);
-	}
+	public static native void glFrontFace(int mode);
 
 	// --- [ glGenBuffers ] ---
 
@@ -874,11 +718,7 @@ public class GLES20 {
 
 	// --- [ glGenerateMipmap ] ---
 
-	public static native void nglGenerateMipmap(int target);
-
-	public static void glGenerateMipmap(int target) {
-		nglGenerateMipmap(target);
-	}
+	public static native void glGenerateMipmap(int target);
 
 	// --- [ glGenFramebuffers ] ---
 
@@ -1077,11 +917,7 @@ public class GLES20 {
 
 	// --- [ glGetError ] ---
 
-	public static native int nglGetError();
-
-	public static int glGetError() {
-		return nglGetError();
-	}
+	public static native int glGetError();
 
 	// --- [ glGetFloatv ] ---
 
@@ -1458,99 +1294,51 @@ public class GLES20 {
 
 	// --- [ glHint ] ---
 
-	public static native void nglHint(int target, int mode);
-
-	public static void glHint(int target, int mode) {
-		nglHint(target, mode);
-	}
+	public static native void glHint(int target, int mode);
 
 	// --- [ glIsBuffer ] ---
 
-	public static native boolean nglIsBuffer(int buffer);
-
-	public static boolean glIsBuffer(int buffer) {
-		return nglIsBuffer(buffer);
-	}
+	public static native boolean glIsBuffer(int buffer);
 
 	// --- [ glIsEnabled ] ---
 
-	public static native boolean nglIsEnabled(int cap);
-
-	public static boolean glIsEnabled(int cap) {
-		return nglIsEnabled(cap);
-	}
+	public static native boolean glIsEnabled(int cap);
 
 	// --- [ glIsFramebuffer ] ---
 
-	public static native boolean nglIsFramebuffer(int framebuffer);
-
-	public static boolean glIsFramebuffer(int framebuffer) {
-		return nglIsFramebuffer(framebuffer);
-	}
+	public static native boolean glIsFramebuffer(int framebuffer);
 
 	// --- [ glIsProgram ] ---
 
-	public static native boolean nglIsProgram(int program);
-
-	public static boolean glIsProgram(int program) {
-		return nglIsProgram(program);
-	}
+	public static native boolean glIsProgram(int program);
 
 	// --- [ glIsRenderbuffer ] ---
 
-	public static native boolean nglIsRenderbuffer(int renderbuffer);
-
-	public static boolean glIsRenderbuffer(int renderbuffer) {
-		return nglIsRenderbuffer(renderbuffer);
-	}
+	public static native boolean glIsRenderbuffer(int renderbuffer);
 
 	// --- [ glIsShader ] ---
 
-	public static native boolean nglIsShader(int shader);
-
-	public static boolean glIsShader(int shader) {
-		return nglIsShader(shader);
-	}
+	public static native boolean glIsShader(int shader);
 
 	// --- [ glIsTexture ] ---
 
-	public static native boolean nglIsTexture(int texture);
-
-	public static boolean glIsTexture(int texture) {
-		return nglIsTexture(texture);
-	}
+	public static native boolean glIsTexture(int texture);
 
 	// --- [ glLineWidth ] ---
 
-	public static native void nglLineWidth(float width);
-
-	public static void glLineWidth(float width) {
-		nglLineWidth(width);
-	}
+	public static native void glLineWidth(float width);
 
 	// --- [ glLinkProgram ] ---
 
-	public static native void nglLinkProgram(int program);
-
-	public static void glLinkProgram(int program) {
-		nglLinkProgram(program);
-	}
+	public static native void glLinkProgram(int program);
 
 	// --- [ glPixelStorei ] ---
 
-	public static native void nglPixelStorei(int pname, int param);
-
-	public static void glPixelStorei(int pname, int param) {
-		nglPixelStorei(pname, param);
-	}
+	public static native void glPixelStorei(int pname, int param);
 
 	// --- [ glPolygonOffset ] ---
 
-	public static native void nglPolygonOffset(float factor, float units);
-
-	public static void glPolygonOffset(float factor, float units) {
-		nglPolygonOffset(factor, units);
-	}
+	public static native void glPolygonOffset(float factor, float units);
 
 	// --- [ glReadPixels ] ---
 
@@ -1578,35 +1366,19 @@ public class GLES20 {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
-	public static native void nglReleaseShaderCompiler();
-
-	public static void glReleaseShaderCompiler() {
-		nglReleaseShaderCompiler();
-	}
+	public static native void glReleaseShaderCompiler();
 
 	// --- [ glRenderbufferStorage ] ---
 
-	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		nglRenderbufferStorage(target, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorage(int target, int internalformat, int width, int height);
 
 	// --- [ glSampleCoverage ] ---
 
-	public static native void nglSampleCoverage(float value, boolean invert);
-
-	public static void glSampleCoverage(float value, boolean invert) {
-		nglSampleCoverage(value, invert);
-	}
+	public static native void glSampleCoverage(float value, boolean invert);
 
 	// --- [ glScissor ] ---
 
-	public static native void nglScissor(int x, int y, int width, int height);
-
-	public static void glScissor(int x, int y, int width, int height) {
-		nglScissor(x, y, width, height);
-	}
+	public static native void glScissor(int x, int y, int width, int height);
 
 	// --- [ glShaderBinary ] ---
 
@@ -1650,51 +1422,27 @@ public class GLES20 {
 
 	// --- [ glStencilFunc ] ---
 
-	public static native void nglStencilFunc(int func, int ref, int mask);
-
-	public static void glStencilFunc(int func, int ref, int mask) {
-		nglStencilFunc(func, ref, mask);
-	}
+	public static native void glStencilFunc(int func, int ref, int mask);
 
 	// --- [ glStencilFuncSeparate ] ---
 
-	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask);
-
-	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
-		nglStencilFuncSeparate(face, func, ref, mask);
-	}
+	public static native void glStencilFuncSeparate(int face, int func, int ref, int mask);
 
 	// --- [ glStencilMask ] ---
 
-	public static native void nglStencilMask(int mask);
-
-	public static void glStencilMask(int mask) {
-		nglStencilMask(mask);
-	}
+	public static native void glStencilMask(int mask);
 
 	// --- [ glStencilMaskSeparate ] ---
 
-	public static native void nglStencilMaskSeparate(int face, int mask);
-
-	public static void glStencilMaskSeparate(int face, int mask) {
-		nglStencilMaskSeparate(face, mask);
-	}
+	public static native void glStencilMaskSeparate(int face, int mask);
 
 	// --- [ glStencilOp ] ---
 
-	public static native void nglStencilOp(int fail, int zfail, int zpass);
-
-	public static void glStencilOp(int fail, int zfail, int zpass) {
-		nglStencilOp(fail, zfail, zpass);
-	}
+	public static native void glStencilOp(int fail, int zfail, int zpass);
 
 	// --- [ glStencilOpSeparate ] ---
 
-	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
-
-	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
-		nglStencilOpSeparate(face, sfail, dpfail, dppass);
-	}
+	public static native void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
 
 	// --- [ glTexImage2D ] ---
 
@@ -1722,11 +1470,7 @@ public class GLES20 {
 
 	// --- [ glTexParameterf ] ---
 
-	public static native void nglTexParameterf(int target, int pname, float param);
-
-	public static void glTexParameterf(int target, int pname, float param) {
-		nglTexParameterf(target, pname, param);
-	}
+	public static native void glTexParameterf(int target, int pname, float param);
 
 	// --- [ glTexParameterfv ] ---
 
@@ -1740,11 +1484,7 @@ public class GLES20 {
 
 	// --- [ glTexParameteri ] ---
 
-	public static native void nglTexParameteri(int target, int pname, int param);
-
-	public static void glTexParameteri(int target, int pname, int param) {
-		nglTexParameteri(target, pname, param);
-	}
+	public static native void glTexParameteri(int target, int pname, int param);
 
 	// --- [ glTexParameteriv ] ---
 
@@ -1782,11 +1522,7 @@ public class GLES20 {
 
 	// --- [ glUniform1f ] ---
 
-	public static native void nglUniform1f(int location, float v0);
-
-	public static void glUniform1f(int location, float v0) {
-		nglUniform1f(location, v0);
-	}
+	public static native void glUniform1f(int location, float v0);
 
 	// --- [ glUniform1fv ] ---
 
@@ -1798,11 +1534,7 @@ public class GLES20 {
 
 	// --- [ glUniform1i ] ---
 
-	public static native void nglUniform1i(int location, int v0);
-
-	public static void glUniform1i(int location, int v0) {
-		nglUniform1i(location, v0);
-	}
+	public static native void glUniform1i(int location, int v0);
 
 	// --- [ glUniform1iv ] ---
 
@@ -1814,11 +1546,7 @@ public class GLES20 {
 
 	// --- [ glUniform2f ] ---
 
-	public static native void nglUniform2f(int location, float v0, float v1);
-
-	public static void glUniform2f(int location, float v0, float v1) {
-		nglUniform2f(location, v0, v1);
-	}
+	public static native void glUniform2f(int location, float v0, float v1);
 
 	// --- [ glUniform2fv ] ---
 
@@ -1830,11 +1558,7 @@ public class GLES20 {
 
 	// --- [ glUniform2i ] ---
 
-	public static native void nglUniform2i(int location, int v0, int v1);
-
-	public static void glUniform2i(int location, int v0, int v1) {
-		nglUniform2i(location, v0, v1);
-	}
+	public static native void glUniform2i(int location, int v0, int v1);
 
 	// --- [ glUniform2iv ] ---
 
@@ -1846,11 +1570,7 @@ public class GLES20 {
 
 	// --- [ glUniform3f ] ---
 
-	public static native void nglUniform3f(int location, float v0, float v1, float v2);
-
-	public static void glUniform3f(int location, float v0, float v1, float v2) {
-		nglUniform3f(location, v0, v1, v2);
-	}
+	public static native void glUniform3f(int location, float v0, float v1, float v2);
 
 	// --- [ glUniform3fv ] ---
 
@@ -1862,11 +1582,7 @@ public class GLES20 {
 
 	// --- [ glUniform3i ] ---
 
-	public static native void nglUniform3i(int location, int v0, int v1, int v2);
-
-	public static void glUniform3i(int location, int v0, int v1, int v2) {
-		nglUniform3i(location, v0, v1, v2);
-	}
+	public static native void glUniform3i(int location, int v0, int v1, int v2);
 
 	// --- [ glUniform3iv ] ---
 
@@ -1878,11 +1594,7 @@ public class GLES20 {
 
 	// --- [ glUniform4f ] ---
 
-	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3);
-
-	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
-		nglUniform4f(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4f(int location, float v0, float v1, float v2, float v3);
 
 	// --- [ glUniform4fv ] ---
 
@@ -1894,11 +1606,7 @@ public class GLES20 {
 
 	// --- [ glUniform4i ] ---
 
-	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3);
-
-	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-		nglUniform4i(location, v0, v1, v2, v3);
-	}
+	public static native void glUniform4i(int location, int v0, int v1, int v2, int v3);
 
 	// --- [ glUniform4iv ] ---
 
@@ -1934,27 +1642,15 @@ public class GLES20 {
 
 	// --- [ glUseProgram ] ---
 
-	public static native void nglUseProgram(int program);
-
-	public static void glUseProgram(int program) {
-		nglUseProgram(program);
-	}
+	public static native void glUseProgram(int program);
 
 	// --- [ glValidateProgram ] ---
 
-	public static native void nglValidateProgram(int program);
-
-	public static void glValidateProgram(int program) {
-		nglValidateProgram(program);
-	}
+	public static native void glValidateProgram(int program);
 
 	// --- [ glVertexAttrib1f ] ---
 
-	public static native void nglVertexAttrib1f(int index, float x);
-
-	public static void glVertexAttrib1f(int index, float x) {
-		nglVertexAttrib1f(index, x);
-	}
+	public static native void glVertexAttrib1f(int index, float x);
 
 	// --- [ glVertexAttrib1fv ] ---
 
@@ -1968,11 +1664,7 @@ public class GLES20 {
 
 	// --- [ glVertexAttrib2f ] ---
 
-	public static native void nglVertexAttrib2f(int index, float x, float y);
-
-	public static void glVertexAttrib2f(int index, float x, float y) {
-		nglVertexAttrib2f(index, x, y);
-	}
+	public static native void glVertexAttrib2f(int index, float x, float y);
 
 	// --- [ glVertexAttrib2fv ] ---
 
@@ -1986,11 +1678,7 @@ public class GLES20 {
 
 	// --- [ glVertexAttrib3f ] ---
 
-	public static native void nglVertexAttrib3f(int index, float x, float y, float z);
-
-	public static void glVertexAttrib3f(int index, float x, float y, float z) {
-		nglVertexAttrib3f(index, x, y, z);
-	}
+	public static native void glVertexAttrib3f(int index, float x, float y, float z);
 
 	// --- [ glVertexAttrib3fv ] ---
 
@@ -2004,11 +1692,7 @@ public class GLES20 {
 
 	// --- [ glVertexAttrib4f ] ---
 
-	public static native void nglVertexAttrib4f(int index, float x, float y, float z, float w);
-
-	public static void glVertexAttrib4f(int index, float x, float y, float z, float w) {
-		nglVertexAttrib4f(index, x, y, z, w);
-	}
+	public static native void glVertexAttrib4f(int index, float x, float y, float z, float w);
 
 	// --- [ glVertexAttrib4fv ] ---
 
@@ -2046,11 +1730,7 @@ public class GLES20 {
 
 	// --- [ glViewport ] ---
 
-	public static native void nglViewport(int x, int y, int width, int height);
-
-	public static void glViewport(int x, int y, int width, int height) {
-		nglViewport(x, y, width, height);
-	}
+	public static native void glViewport(int x, int y, int width, int height);
 
 	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, short[] data, int usage) {

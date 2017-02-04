@@ -99,9 +99,6 @@ public class ARBMapBufferRange {
 
 	// --- [ glFlushMappedBufferRange ] ---
 
-	/** Unsafe version of: {@link #glFlushMappedBufferRange FlushMappedBufferRange} */
-	public static native void nglFlushMappedBufferRange(int target, long offset, long length);
-
 	/**
 	 * Indicates modifications to a range of a mapped buffer.
 	 *
@@ -109,8 +106,6 @@ public class ARBMapBufferRange {
 	 * @param offset the start of the buffer subrange, in basic machine units
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
-	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		nglFlushMappedBufferRange(target, offset, length);
-	}
+	public static native void glFlushMappedBufferRange(int target, long offset, long length);
 
 }

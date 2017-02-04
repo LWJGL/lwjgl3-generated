@@ -10,7 +10,7 @@ typedef void (APIENTRY *glTexBufferARBPROC) (jint, jint, jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureBufferObject_nglTexBufferARB(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureBufferObject_glTexBufferARB(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
 	glTexBufferARBPROC glTexBufferARB = (glTexBufferARBPROC)tlsGetFunction(1550);
 	UNUSED_PARAM(clazz)
 	glTexBufferARB(target, internalformat, buffer);

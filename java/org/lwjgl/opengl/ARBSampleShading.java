@@ -51,16 +51,11 @@ public class ARBSampleShading {
 
 	// --- [ glMinSampleShadingARB ] ---
 
-	/** Unsafe version of: {@link #glMinSampleShadingARB MinSampleShadingARB} */
-	public static native void nglMinSampleShadingARB(float value);
-
 	/**
 	 * Sets the minimum sample shading fraction. {@code value} is clamped to [0,1] when specified.
 	 *
 	 * @param value the minimum sample shading fraction
 	 */
-	public static void glMinSampleShadingARB(float value) {
-		nglMinSampleShadingARB(value);
-	}
+	public static native void glMinSampleShadingARB(float value);
 
 }

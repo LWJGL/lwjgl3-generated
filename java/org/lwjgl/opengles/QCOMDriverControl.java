@@ -74,19 +74,11 @@ public class QCOMDriverControl {
 
 	// --- [ glEnableDriverControlQCOM ] ---
 
-	public static native void nglEnableDriverControlQCOM(int driverControl);
-
-	public static void glEnableDriverControlQCOM(int driverControl) {
-		nglEnableDriverControlQCOM(driverControl);
-	}
+	public static native void glEnableDriverControlQCOM(int driverControl);
 
 	// --- [ glDisableDriverControlQCOM ] ---
 
-	public static native void nglDisableDriverControlQCOM(int driverControl);
-
-	public static void glDisableDriverControlQCOM(int driverControl) {
-		nglDisableDriverControlQCOM(driverControl);
-	}
+	public static native void glDisableDriverControlQCOM(int driverControl);
 
 	/** Array version of: {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
 	public static void glGetDriverControlsQCOM(int[] num, int[] driverControls) {

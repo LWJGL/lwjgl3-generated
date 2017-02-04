@@ -46,9 +46,6 @@ public class ARBClipControl {
 
 	// --- [ glClipControl ] ---
 
-	/** Unsafe version of: {@link #glClipControl ClipControl} */
-	public static native void nglClipControl(int origin, int depth);
-
 	/**
 	 * Controls the clipping volume behavior.
 	 * 
@@ -61,8 +58,6 @@ public class ARBClipControl {
 	 * @param origin the clip origin. One of:<br><table><tr><td>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}</td><td>{@link GL20#GL_UPPER_LEFT UPPER_LEFT}</td></tr></table>
 	 * @param depth  the clip depth mode. One of:<br><table><tr><td>{@link GL45#GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}</td><td>{@link GL45#GL_ZERO_TO_ONE ZERO_TO_ONE}</td></tr></table>
 	 */
-	public static void glClipControl(int origin, int depth) {
-		nglClipControl(origin, depth);
-	}
+	public static native void glClipControl(int origin, int depth);
 
 }

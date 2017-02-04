@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSampleLocations_nglNamedFramebuf
 	glNamedFramebufferSampleLocationsfvARB(framebuffer, start, count, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSampleLocations_nglEvaluateDepthValuesARB(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSampleLocations_glEvaluateDepthValuesARB(JNIEnv *__env, jclass clazz) {
 	glEvaluateDepthValuesARBPROC glEvaluateDepthValuesARB = (glEvaluateDepthValuesARBPROC)tlsGetFunction(416);
 	UNUSED_PARAM(clazz)
 	glEvaluateDepthValuesARB();

@@ -27,7 +27,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_nglTexSubImage3D__IIIIIIIIIIJ(
 	glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_nglCopyTexSubImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_glCopyTexSubImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
 	glCopyTexSubImage3DPROC glCopyTexSubImage3D = (glCopyTexSubImage3DPROC)tlsGetFunction(247);
 	UNUSED_PARAM(clazz)
 	glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);

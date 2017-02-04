@@ -78,91 +78,47 @@ public class NVVertexBufferUnifiedMemory {
 
 	// --- [ glBufferAddressRangeNV ] ---
 
-	public static native void nglBufferAddressRangeNV(int pname, int index, long address, long length);
-
-	public static void glBufferAddressRangeNV(int pname, int index, long address, long length) {
-		nglBufferAddressRangeNV(pname, index, address, length);
-	}
+	public static native void glBufferAddressRangeNV(int pname, int index, long address, long length);
 
 	// --- [ glVertexFormatNV ] ---
 
-	public static native void nglVertexFormatNV(int size, int type, int stride);
-
-	public static void glVertexFormatNV(int size, int type, int stride) {
-		nglVertexFormatNV(size, type, stride);
-	}
+	public static native void glVertexFormatNV(int size, int type, int stride);
 
 	// --- [ glNormalFormatNV ] ---
 
-	public static native void nglNormalFormatNV(int type, int stride);
-
-	public static void glNormalFormatNV(int type, int stride) {
-		nglNormalFormatNV(type, stride);
-	}
+	public static native void glNormalFormatNV(int type, int stride);
 
 	// --- [ glColorFormatNV ] ---
 
-	public static native void nglColorFormatNV(int size, int type, int stride);
-
-	public static void glColorFormatNV(int size, int type, int stride) {
-		nglColorFormatNV(size, type, stride);
-	}
+	public static native void glColorFormatNV(int size, int type, int stride);
 
 	// --- [ glIndexFormatNV ] ---
 
-	public static native void nglIndexFormatNV(int type, int stride);
-
-	public static void glIndexFormatNV(int type, int stride) {
-		nglIndexFormatNV(type, stride);
-	}
+	public static native void glIndexFormatNV(int type, int stride);
 
 	// --- [ glTexCoordFormatNV ] ---
 
-	public static native void nglTexCoordFormatNV(int size, int type, int stride);
-
-	public static void glTexCoordFormatNV(int size, int type, int stride) {
-		nglTexCoordFormatNV(size, type, stride);
-	}
+	public static native void glTexCoordFormatNV(int size, int type, int stride);
 
 	// --- [ glEdgeFlagFormatNV ] ---
 
-	public static native void nglEdgeFlagFormatNV(int stride);
-
-	public static void glEdgeFlagFormatNV(int stride) {
-		nglEdgeFlagFormatNV(stride);
-	}
+	public static native void glEdgeFlagFormatNV(int stride);
 
 	// --- [ glSecondaryColorFormatNV ] ---
 
-	public static native void nglSecondaryColorFormatNV(int size, int type, int stride);
-
-	public static void glSecondaryColorFormatNV(int size, int type, int stride) {
-		nglSecondaryColorFormatNV(size, type, stride);
-	}
+	public static native void glSecondaryColorFormatNV(int size, int type, int stride);
 
 	// --- [ glFogCoordFormatNV ] ---
 
-	public static native void nglFogCoordFormatNV(int type, int stride);
-
-	public static void glFogCoordFormatNV(int type, int stride) {
-		nglFogCoordFormatNV(type, stride);
-	}
+	public static native void glFogCoordFormatNV(int type, int stride);
 
 	// --- [ glVertexAttribFormatNV ] ---
 
-	public static native void nglVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride);
-
-	public static void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride) {
-		nglVertexAttribFormatNV(index, size, type, normalized, stride);
-	}
+	public static native void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride);
 
 	// --- [ glVertexAttribIFormatNV ] ---
 
-	public static native void nglVertexAttribIFormatNV(int index, int size, int type, int stride);
-
-	public static void glVertexAttribIFormatNV(int index, int size, int type, int stride) {
-		nglVertexAttribIFormatNV(index, size, type, stride);
-	}
+	public static native void glVertexAttribIFormatNV(int index, int size, int type, int stride);
 
 	// --- [ glGetIntegerui64i_vNV ] ---
 

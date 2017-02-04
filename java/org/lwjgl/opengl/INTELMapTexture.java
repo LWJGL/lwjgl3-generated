@@ -52,9 +52,6 @@ public class INTELMapTexture {
 
 	// --- [ glSyncTextureINTEL ] ---
 
-	/** Unsafe version of: {@link #glSyncTextureINTEL SyncTextureINTEL} */
-	public static native void nglSyncTextureINTEL(int texture);
-
 	/**
 	 * Makes sure that changes made by CPU are visible to GPU by flushing texture cache in GPU. The GL implementation tracks the cache usage and ignores the
 	 * command if such flush is not needed.
@@ -65,14 +62,9 @@ public class INTELMapTexture {
 	 *
 	 * @param texture the texture to synchronize
 	 */
-	public static void glSyncTextureINTEL(int texture) {
-		nglSyncTextureINTEL(texture);
-	}
+	public static native void glSyncTextureINTEL(int texture);
 
 	// --- [ glUnmapTexture2DINTEL ] ---
-
-	/** Unsafe version of: {@link #glUnmapTexture2DINTEL UnmapTexture2DINTEL} */
-	public static native void nglUnmapTexture2DINTEL(int texture, int level);
 
 	/**
 	 * Releases the pointer obtained previously via {@link #glMapTexture2DINTEL MapTexture2DINTEL}. This means that virtual memory space dedicated to make the texture available via a
@@ -82,9 +74,7 @@ public class INTELMapTexture {
 	 * @param texture the texture to unmap
 	 * @param level   the mipmap level-of-detail of the texture
 	 */
-	public static void glUnmapTexture2DINTEL(int texture, int level) {
-		nglUnmapTexture2DINTEL(texture, level);
-	}
+	public static native void glUnmapTexture2DINTEL(int texture, int level);
 
 	// --- [ glMapTexture2DINTEL ] ---
 

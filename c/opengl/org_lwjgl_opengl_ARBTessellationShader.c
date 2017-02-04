@@ -11,7 +11,7 @@ typedef void (APIENTRY *glPatchParameterfvPROC) (jint, const intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTessellationShader_nglPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTessellationShader_glPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
 	glPatchParameteriPROC glPatchParameteri = (glPatchParameteriPROC)tlsGetFunction(1182);
 	UNUSED_PARAM(clazz)
 	glPatchParameteri(pname, value);

@@ -86,9 +86,6 @@ public class ARBComputeShader {
 
 	// --- [ glDispatchCompute ] ---
 
-	/** Unsafe version of: {@link #glDispatchCompute DispatchCompute} */
-	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
-
 	/**
 	 * Launches one or more compute work groups.
 	 *
@@ -96,9 +93,7 @@ public class ARBComputeShader {
 	 * @param num_groups_y the number of work groups to be launched in the Y dimension
 	 * @param num_groups_z the number of work groups to be launched in the Z dimension
 	 */
-	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
-		nglDispatchCompute(num_groups_x, num_groups_y, num_groups_z);
-	}
+	public static native void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
 
 	// --- [ glDispatchComputeIndirect ] ---
 

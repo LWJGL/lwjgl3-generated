@@ -45,17 +45,12 @@ public class ARBVertexArrayObject {
 
 	// --- [ glBindVertexArray ] ---
 
-	/** Unsafe version of: {@link #glBindVertexArray BindVertexArray} */
-	public static native void nglBindVertexArray(int array);
-
 	/**
 	 * Binds a vertex array object
 	 *
 	 * @param array the name of the vertex array to bind
 	 */
-	public static void glBindVertexArray(int array) {
-		nglBindVertexArray(array);
-	}
+	public static native void glBindVertexArray(int array);
 
 	// --- [ glDeleteVertexArrays ] ---
 
@@ -118,17 +113,12 @@ public class ARBVertexArrayObject {
 
 	// --- [ glIsVertexArray ] ---
 
-	/** Unsafe version of: {@link #glIsVertexArray IsVertexArray} */
-	public static native boolean nglIsVertexArray(int array);
-
 	/**
 	 * Determines if a name corresponds to a vertex array object.
 	 *
 	 * @param array a value that may be the name of a vertex array object
 	 */
-	public static boolean glIsVertexArray(int array) {
-		return nglIsVertexArray(array);
-	}
+	public static native boolean glIsVertexArray(int array);
 
 	/** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int[] arrays) {

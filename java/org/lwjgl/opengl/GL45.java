@@ -130,12 +130,7 @@ public class GL45 {
 
 	// --- [ glClipControl ] ---
 
-	/** Unsafe version of: {@link #glClipControl ClipControl} */
-	public static native void nglClipControl(int origin, int depth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClipControl.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Controls the clipping volume behavior.
 	 * 
 	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link GL20#GL_LOWER_LEFT LOWER_LEFT} and the
@@ -147,9 +142,7 @@ public class GL45 {
 	 * @param origin the clip origin. One of:<br><table><tr><td>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}</td><td>{@link GL20#GL_UPPER_LEFT UPPER_LEFT}</td></tr></table>
 	 * @param depth  the clip depth mode. One of:<br><table><tr><td>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}</td><td>{@link #GL_ZERO_TO_ONE ZERO_TO_ONE}</td></tr></table>
 	 */
-	public static void glClipControl(int origin, int depth) {
-		nglClipControl(origin, depth);
-	}
+	public static native void glClipControl(int origin, int depth);
 
 	// --- [ glCreateTransformFeedbacks ] ---
 
@@ -189,30 +182,18 @@ public class GL45 {
 
 	// --- [ glTransformFeedbackBufferBase ] ---
 
-	/** Unsafe version of: {@link #glTransformFeedbackBufferBase TransformFeedbackBufferBase} */
-	public static native void nglTransformFeedbackBufferBase(int xfb, int index, int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackBufferBase.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a buffer object to a transform feedback object.
 	 *
 	 * @param xfb    zero or the name of an existing transform feedback object
 	 * @param index  the transform feedback stream index
 	 * @param buffer the name of an existing buffer object
 	 */
-	public static void glTransformFeedbackBufferBase(int xfb, int index, int buffer) {
-		nglTransformFeedbackBufferBase(xfb, index, buffer);
-	}
+	public static native void glTransformFeedbackBufferBase(int xfb, int index, int buffer);
 
 	// --- [ glTransformFeedbackBufferRange ] ---
 
-	/** Unsafe version of: {@link #glTransformFeedbackBufferRange TransformFeedbackBufferRange} */
-	public static native void nglTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackBufferRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a region of a buffer object to a transform feedback object.
 	 *
 	 * @param xfb    zero or the name of an existing transform feedback object
@@ -221,9 +202,7 @@ public class GL45 {
 	 * @param offset the starting offset in basic machine units into the buffer object
 	 * @param size   the amount of data in machine units
 	 */
-	public static void glTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size) {
-		nglTransformFeedbackBufferRange(xfb, index, buffer, offset, size);
-	}
+	public static native void glTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size);
 
 	// --- [ glGetTransformFeedbackiv ] ---
 
@@ -849,12 +828,7 @@ public class GL45 {
 
 	// --- [ glCopyNamedBufferSubData ] ---
 
-	/** Unsafe version of: {@link #glCopyNamedBufferSubData CopyNamedBufferSubData} */
-	public static native void nglCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 *
 	 * @param readBuffer  the source buffer object name
@@ -863,9 +837,7 @@ public class GL45 {
 	 * @param writeOffset the destination buffer object offset, in bytes
 	 * @param size        the number of bytes to copy
 	 */
-	public static void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		nglCopyNamedBufferSubData(readBuffer, writeBuffer, readOffset, writeOffset, size);
-	}
+	public static native void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
 
 	// --- [ glClearNamedBufferData ] ---
 
@@ -1103,37 +1075,23 @@ public class GL45 {
 
 	// --- [ glUnmapNamedBuffer ] ---
 
-	/** Unsafe version of: {@link #glUnmapNamedBuffer UnmapNamedBuffer} */
-	public static native boolean nglUnmapNamedBuffer(int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUnmapNamedBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL15#glUnmapBuffer UnmapBuffer}.
 	 *
 	 * @param buffer the buffer object name
 	 */
-	public static boolean glUnmapNamedBuffer(int buffer) {
-		return nglUnmapNamedBuffer(buffer);
-	}
+	public static native boolean glUnmapNamedBuffer(int buffer);
 
 	// --- [ glFlushMappedNamedBufferRange ] ---
 
-	/** Unsafe version of: {@link #glFlushMappedNamedBufferRange FlushMappedNamedBufferRange} */
-	public static native void nglFlushMappedNamedBufferRange(int buffer, long offset, long length);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedNamedBufferRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glFlushMappedBufferRange FlushMappedBufferRange}.
 	 *
 	 * @param buffer the buffer object name
 	 * @param offset the start of the buffer subrange, in basic machine units
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
-	public static void glFlushMappedNamedBufferRange(int buffer, long offset, long length) {
-		nglFlushMappedNamedBufferRange(buffer, offset, length);
-	}
+	public static native void glFlushMappedNamedBufferRange(int buffer, long offset, long length);
 
 	// --- [ glGetNamedBufferParameteriv ] ---
 
@@ -1364,12 +1322,7 @@ public class GL45 {
 
 	// --- [ glNamedFramebufferRenderbuffer ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferRenderbuffer NamedFramebufferRenderbuffer} */
-	public static native void nglNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glFramebufferRenderbuffer FramebufferRenderbuffer}.
 	 *
 	 * @param framebuffer        the framebuffer name
@@ -1377,36 +1330,22 @@ public class GL45 {
 	 * @param renderbuffertarget the renderbuffer target. Must be:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
-	public static void glNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
-		nglNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
-	}
+	public static native void glNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer);
 
 	// --- [ glNamedFramebufferParameteri ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferParameteri NamedFramebufferParameteri} */
-	public static native void nglNamedFramebufferParameteri(int framebuffer, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glFramebufferParameteri FramebufferParameteri}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param pname       a token indicating the parameter to be modified. One of:<br><table><tr><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}</td><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}</td></tr><tr><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}</td><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}</td></tr><tr><td>{@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}</td></tr></table>
 	 * @param param       the new value for the parameter named {@code pname}
 	 */
-	public static void glNamedFramebufferParameteri(int framebuffer, int pname, int param) {
-		nglNamedFramebufferParameteri(framebuffer, pname, param);
-	}
+	public static native void glNamedFramebufferParameteri(int framebuffer, int pname, int param);
 
 	// --- [ glNamedFramebufferTexture ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferTexture NamedFramebufferTexture} */
-	public static native void nglNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferTexture.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL32#glFramebufferTexture FramebufferTexture}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1414,18 +1353,11 @@ public class GL45 {
 	 * @param texture     the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level       the mipmap level of {@code texture} to attach
 	 */
-	public static void glNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level) {
-		nglNamedFramebufferTexture(framebuffer, attachment, texture, level);
-	}
+	public static native void glNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level);
 
 	// --- [ glNamedFramebufferTextureLayer ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferTextureLayer NamedFramebufferTextureLayer} */
-	public static native void nglNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1434,26 +1366,17 @@ public class GL45 {
 	 * @param level       the mipmap level of {@code texture} to attach
 	 * @param layer       the layer of {@code texture} to attach.
 	 */
-	public static void glNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer) {
-		nglNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
-	}
+	public static native void glNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer);
 
 	// --- [ glNamedFramebufferDrawBuffer ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferDrawBuffer NamedFramebufferDrawBuffer} */
-	public static native void nglNamedFramebufferDrawBuffer(int framebuffer, int buf);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL11#glDrawBuffer DrawBuffer}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param buf         the color buffer to draw to. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_LEFT LEFT}</td></tr><tr><td>{@link GL11#GL_RIGHT RIGHT}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
 	 */
-	public static void glNamedFramebufferDrawBuffer(int framebuffer, int buf) {
-		nglNamedFramebufferDrawBuffer(framebuffer, buf);
-	}
+	public static native void glNamedFramebufferDrawBuffer(int framebuffer, int buf);
 
 	// --- [ glNamedFramebufferDrawBuffers ] ---
 
@@ -1495,20 +1418,13 @@ public class GL45 {
 
 	// --- [ glNamedFramebufferReadBuffer ] ---
 
-	/** Unsafe version of: {@link #glNamedFramebufferReadBuffer NamedFramebufferReadBuffer} */
-	public static native void nglNamedFramebufferReadBuffer(int framebuffer, int src);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferReadBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL11#glReadBuffer ReadBuffer}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param src         the color buffer to read from. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_LEFT LEFT}</td></tr><tr><td>{@link GL11#GL_RIGHT RIGHT}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
 	 */
-	public static void glNamedFramebufferReadBuffer(int framebuffer, int src) {
-		nglNamedFramebufferReadBuffer(framebuffer, src);
-	}
+	public static native void glNamedFramebufferReadBuffer(int framebuffer, int src);
 
 	// --- [ glInvalidateNamedFramebufferData ] ---
 
@@ -1661,12 +1577,7 @@ public class GL45 {
 
 	// --- [ glClearNamedFramebufferfi ] ---
 
-	/** Unsafe version of: {@link #glClearNamedFramebufferfi ClearNamedFramebufferfi} */
-	public static native void nglClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebufferfi.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glClearBufferfi ClearBufferfi}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1675,18 +1586,11 @@ public class GL45 {
 	 * @param depth       the depth value to clear the buffer to
 	 * @param stencil     the stencil value to clear the buffer to
 	 */
-	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil) {
-		nglClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
-	}
+	public static native void glClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil);
 
 	// --- [ glBlitNamedFramebuffer ] ---
 
-	/** Unsafe version of: {@link #glBlitNamedFramebuffer BlitNamedFramebuffer} */
-	public static native void nglBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlitNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glBlitFramebuffer BlitFramebuffer}.
 	 *
 	 * @param readFramebuffer the source framebuffer name
@@ -1702,26 +1606,17 @@ public class GL45 {
 	 * @param mask            the bitwise OR of the flags indicating which buffers are to be copied. One of:<br><table><tr><td>{@link GL11#GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}</td><td>{@link GL11#GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}</td><td>{@link GL11#GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}</td></tr></table>
 	 * @param filter          the interpolation to be applied if the image is stretched. One of:<br><table><tr><td>{@link GL11#GL_NEAREST NEAREST}</td><td>{@link GL11#GL_LINEAR LINEAR}</td></tr></table>
 	 */
-	public static void glBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		nglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
-	}
+	public static native void glBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 	// --- [ glCheckNamedFramebufferStatus ] ---
 
-	/** Unsafe version of: {@link #glCheckNamedFramebufferStatus CheckNamedFramebufferStatus} */
-	public static native int nglCheckNamedFramebufferStatus(int framebuffer, int target);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCheckNamedFramebufferStatus.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glCheckFramebufferStatus CheckFramebufferStatus}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param target      the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
 	 */
-	public static int glCheckNamedFramebufferStatus(int framebuffer, int target) {
-		return nglCheckNamedFramebufferStatus(framebuffer, target);
-	}
+	public static native int glCheckNamedFramebufferStatus(int framebuffer, int target);
 
 	// --- [ glGetNamedFramebufferParameteriv ] ---
 
@@ -1841,12 +1736,7 @@ public class GL45 {
 
 	// --- [ glNamedRenderbufferStorage ] ---
 
-	/** Unsafe version of: {@link #glNamedRenderbufferStorage NamedRenderbufferStorage} */
-	public static native void nglNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glRenderbufferStorage RenderbufferStorage}.
 	 *
 	 * @param renderbuffer   
@@ -1854,18 +1744,11 @@ public class GL45 {
 	 * @param width          the width of the renderbuffer, in pixels
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
-	public static void glNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height) {
-		nglNamedRenderbufferStorage(renderbuffer, internalformat, width, height);
-	}
+	public static native void glNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height);
 
 	// --- [ glNamedRenderbufferStorageMultisample ] ---
 
-	/** Unsafe version of: {@link #glNamedRenderbufferStorageMultisample NamedRenderbufferStorageMultisample} */
-	public static native void nglNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glRenderbufferStorageMultisample RenderbufferStorageMultisample}.
 	 *
 	 * @param renderbuffer   
@@ -1874,9 +1757,7 @@ public class GL45 {
 	 * @param width          the width of the renderbuffer, in pixels
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
-	public static void glNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height) {
-		nglNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height);
-	}
+	public static native void glNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height);
 
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
 
@@ -1958,30 +1839,18 @@ public class GL45 {
 
 	// --- [ glTextureBuffer ] ---
 
-	/** Unsafe version of: {@link #glTextureBuffer TextureBuffer} */
-	public static native void nglTextureBuffer(int texture, int internalformat, int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL31#glTexBuffer TexBuffer}.
 	 *
 	 * @param texture        the texture name
 	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
-	public static void glTextureBuffer(int texture, int internalformat, int buffer) {
-		nglTextureBuffer(texture, internalformat, buffer);
-	}
+	public static native void glTextureBuffer(int texture, int internalformat, int buffer);
 
 	// --- [ glTextureBufferRange ] ---
 
-	/** Unsafe version of: {@link #glTextureBufferRange TextureBufferRange} */
-	public static native void nglTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBufferRange.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glTexBufferRange TexBufferRange}.
 	 *
 	 * @param texture        the texture name
@@ -1990,18 +1859,11 @@ public class GL45 {
 	 * @param offset         the offset of the start of the range of the buffer's data store to attach
 	 * @param size           the size of the range of the buffer's data store to attach
 	 */
-	public static void glTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size) {
-		nglTextureBufferRange(texture, internalformat, buffer, offset, size);
-	}
+	public static native void glTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size);
 
 	// --- [ glTextureStorage1D ] ---
 
-	/** Unsafe version of: {@link #glTextureStorage1D TextureStorage1D} */
-	public static native void nglTextureStorage1D(int texture, int levels, int internalformat, int width);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL42#glTexStorage1D TexStorage1D}.
 	 *
 	 * @param texture        the texture name
@@ -2009,18 +1871,11 @@ public class GL45 {
 	 * @param internalformat the sized internal format to be used to store texture image data
 	 * @param width          the width of the texture, in texels
 	 */
-	public static void glTextureStorage1D(int texture, int levels, int internalformat, int width) {
-		nglTextureStorage1D(texture, levels, internalformat, width);
-	}
+	public static native void glTextureStorage1D(int texture, int levels, int internalformat, int width);
 
 	// --- [ glTextureStorage2D ] ---
 
-	/** Unsafe version of: {@link #glTextureStorage2D TextureStorage2D} */
-	public static native void nglTextureStorage2D(int texture, int levels, int internalformat, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL42#glTexStorage2D TexStorage2D}.
 	 *
 	 * @param texture        the texture name
@@ -2029,18 +1884,11 @@ public class GL45 {
 	 * @param width          the width of the texture, in texels
 	 * @param height         the height of the texture, in texels
 	 */
-	public static void glTextureStorage2D(int texture, int levels, int internalformat, int width, int height) {
-		nglTextureStorage2D(texture, levels, internalformat, width, height);
-	}
+	public static native void glTextureStorage2D(int texture, int levels, int internalformat, int width, int height);
 
 	// --- [ glTextureStorage3D ] ---
 
-	/** Unsafe version of: {@link #glTextureStorage3D TextureStorage3D} */
-	public static native void nglTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage3D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL42#glTexStorage3D TexStorage3D}.
 	 *
 	 * @param texture        the texture name
@@ -2050,18 +1898,11 @@ public class GL45 {
 	 * @param height         the height of the texture, in texels
 	 * @param depth          the depth of the texture, in texels
 	 */
-	public static void glTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth) {
-		nglTextureStorage3D(texture, levels, internalformat, width, height, depth);
-	}
+	public static native void glTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth);
 
 	// --- [ glTextureStorage2DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTextureStorage2DMultisample TextureStorage2DMultisample} */
-	public static native void nglTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glTexStorage2DMultisample TexStorage2DMultisample}.
 	 *
 	 * @param texture              the texture name
@@ -2072,18 +1913,11 @@ public class GL45 {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
-		nglTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
-	}
+	public static native void glTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
 	// --- [ glTextureStorage3DMultisample ] ---
 
-	/** Unsafe version of: {@link #glTextureStorage3DMultisample TextureStorage3DMultisample} */
-	public static native void nglTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glTexStorage3DMultisample TexStorage3DMultisample}.
 	 *
 	 * @param texture              the texture name
@@ -2095,9 +1929,7 @@ public class GL45 {
 	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
 	 *                             depend on the internal format or size of the image
 	 */
-	public static void glTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
-		nglTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
-	}
+	public static native void glTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	// --- [ glTextureSubImage1D ] ---
 
@@ -2596,12 +2428,7 @@ public class GL45 {
 
 	// --- [ glCopyTextureSubImage1D ] ---
 
-	/** Unsafe version of: {@link #glCopyTextureSubImage1D CopyTextureSubImage1D} */
-	public static native void nglCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL11#glCopyTexSubImage1D CopyTexSubImage1D}.
 	 *
 	 * @param texture the texture name
@@ -2611,18 +2438,11 @@ public class GL45 {
 	 * @param y       the lower framebuffer pixel coordinate
 	 * @param width   the texture subregion width
 	 */
-	public static void glCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width) {
-		nglCopyTextureSubImage1D(texture, level, xoffset, x, y, width);
-	}
+	public static native void glCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width);
 
 	// --- [ glCopyTextureSubImage2D ] ---
 
-	/** Unsafe version of: {@link #glCopyTextureSubImage2D CopyTextureSubImage2D} */
-	public static native void nglCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL11#glCopyTexSubImage2D CopyTexSubImage2D}.
 	 *
 	 * @param texture the texture name
@@ -2634,18 +2454,11 @@ public class GL45 {
 	 * @param width   the texture subregion width
 	 * @param height  the texture subregion height
 	 */
-	public static void glCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		nglCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height);
-	}
+	public static native void glCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 	// --- [ glCopyTextureSubImage3D ] ---
 
-	/** Unsafe version of: {@link #glCopyTextureSubImage3D CopyTextureSubImage3D} */
-	public static native void nglCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL12#glCopyTexSubImage3D CopyTexSubImage3D}.
 	 *
 	 * @param texture the texture name
@@ -2658,27 +2471,18 @@ public class GL45 {
 	 * @param width   the texture subregion width
 	 * @param height  the texture subregion height
 	 */
-	public static void glCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
-		nglCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height);
-	}
+	public static native void glCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 	// --- [ glTextureParameterf ] ---
 
-	/** Unsafe version of: {@link #glTextureParameterf TextureParameterf} */
-	public static native void nglTextureParameterf(int texture, int pname, float param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterf.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL11#glTexParameterf TexParameterf}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the parameter to set
 	 * @param param   the parameter value
 	 */
-	public static void glTextureParameterf(int texture, int pname, float param) {
-		nglTextureParameterf(texture, pname, param);
-	}
+	public static native void glTextureParameterf(int texture, int pname, float param);
 
 	// --- [ glTextureParameterfv ] ---
 
@@ -2702,21 +2506,14 @@ public class GL45 {
 
 	// --- [ glTextureParameteri ] ---
 
-	/** Unsafe version of: {@link #glTextureParameteri TextureParameteri} */
-	public static native void nglTextureParameteri(int texture, int pname, int param);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameteri.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL11#glTexParameteri TexParameteri}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the parameter to set. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}</td><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL11#GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}</td></tr><tr><td>{@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}</td></tr><tr><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}</td></tr><tr><td>{@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}</td></tr></table>
 	 * @param param   the parameter value
 	 */
-	public static void glTextureParameteri(int texture, int pname, int param) {
-		nglTextureParameteri(texture, pname, param);
-	}
+	public static native void glTextureParameteri(int texture, int pname, int param);
 
 	// --- [ glTextureParameterIiv ] ---
 
@@ -2816,28 +2613,16 @@ public class GL45 {
 
 	// --- [ glGenerateTextureMipmap ] ---
 
-	/** Unsafe version of: {@link #glGenerateTextureMipmap GenerateTextureMipmap} */
-	public static native void nglGenerateTextureMipmap(int texture);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenerateTextureMipmap.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL30#glGenerateMipmap GenerateMipmap}.
 	 *
 	 * @param texture the texture name
 	 */
-	public static void glGenerateTextureMipmap(int texture) {
-		nglGenerateTextureMipmap(texture);
-	}
+	public static native void glGenerateTextureMipmap(int texture);
 
 	// --- [ glBindTextureUnit ] ---
 
-	/** Unsafe version of: {@link #glBindTextureUnit BindTextureUnit} */
-	public static native void nglBindTextureUnit(int unit, int texture);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTextureUnit.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds an existing texture object to the texture unit numbered {@code unit}.
 	 * 
 	 * <p>{@code texture} must be zero or the name of an existing texture object. When {@code texture} is the name of an existing texture object, that object is
@@ -2847,9 +2632,7 @@ public class GL45 {
 	 * @param unit    the texture unit number
 	 * @param texture the texture name
 	 */
-	public static void glBindTextureUnit(int unit, int texture) {
-		nglBindTextureUnit(unit, texture);
-	}
+	public static native void glBindTextureUnit(int unit, int texture);
 
 	// --- [ glGetTextureImage ] ---
 
@@ -3266,63 +3049,37 @@ public class GL45 {
 
 	// --- [ glDisableVertexArrayAttrib ] ---
 
-	/** Unsafe version of: {@link #glDisableVertexArrayAttrib DisableVertexArrayAttrib} */
-	public static native void nglDisableVertexArrayAttrib(int vaobj, int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDisableVertexArrayAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL20#glDisableVertexAttribArray DisableVertexAttribArray}.
 	 *
 	 * @param vaobj the vertex array object name
 	 * @param index the index of the generic vertex attribute to be disabled
 	 */
-	public static void glDisableVertexArrayAttrib(int vaobj, int index) {
-		nglDisableVertexArrayAttrib(vaobj, index);
-	}
+	public static native void glDisableVertexArrayAttrib(int vaobj, int index);
 
 	// --- [ glEnableVertexArrayAttrib ] ---
 
-	/** Unsafe version of: {@link #glEnableVertexArrayAttrib EnableVertexArrayAttrib} */
-	public static native void nglEnableVertexArrayAttrib(int vaobj, int index);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexArrayAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL20#glEnableVertexAttribArray EnableVertexAttribArray}.
 	 *
 	 * @param vaobj the vertex array object name
 	 * @param index the index of the generic vertex attribute to be enabled
 	 */
-	public static void glEnableVertexArrayAttrib(int vaobj, int index) {
-		nglEnableVertexArrayAttrib(vaobj, index);
-	}
+	public static native void glEnableVertexArrayAttrib(int vaobj, int index);
 
 	// --- [ glVertexArrayElementBuffer ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayElementBuffer VertexArrayElementBuffer} */
-	public static native void nglVertexArrayElementBuffer(int vaobj, int buffer);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayElementBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Binds a buffer object to the element array buffer bind point of a vertex array object.
 	 *
 	 * @param vaobj  the vertex array object name
 	 * @param buffer the buffer object name. If {@code buffer} is zero, any existing element array buffer binding to {@code vaobj} is removed.
 	 */
-	public static void glVertexArrayElementBuffer(int vaobj, int buffer) {
-		nglVertexArrayElementBuffer(vaobj, buffer);
-	}
+	public static native void glVertexArrayElementBuffer(int vaobj, int buffer);
 
 	// --- [ glVertexArrayVertexBuffer ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayVertexBuffer VertexArrayVertexBuffer} */
-	public static native void nglVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayVertexBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glBindVertexBuffer BindVertexBuffer}.
 	 *
 	 * @param vaobj        the vertex array object name
@@ -3331,9 +3088,7 @@ public class GL45 {
 	 * @param offset       the offset of the first element of the buffer
 	 * @param stride       the distance between elements within the buffer
 	 */
-	public static void glVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride) {
-		nglVertexArrayVertexBuffer(vaobj, bindingindex, buffer, offset, stride);
-	}
+	public static native void glVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride);
 
 	// --- [ glVertexArrayVertexBuffers ] ---
 
@@ -3365,12 +3120,7 @@ public class GL45 {
 
 	// --- [ glVertexArrayAttribFormat ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayAttribFormat VertexArrayAttribFormat} */
-	public static native void nglVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribFormat.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glVertexAttribFormat VertexAttribFormat}.
 	 *
 	 * @param vaobj          the vertex array object name
@@ -3381,18 +3131,11 @@ public class GL45 {
 	 *                       directly converted to floating point.
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
-	public static void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
-		nglVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
-	}
+	public static native void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset);
 
 	// --- [ glVertexArrayAttribIFormat ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayAttribIFormat VertexArrayAttribIFormat} */
-	public static native void nglVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribIFormat.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glVertexAttribIFormat VertexAttribIFormat}.
 	 *
 	 * @param vaobj          the vertex array object name
@@ -3401,18 +3144,11 @@ public class GL45 {
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
-	public static void glVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
-		nglVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
-	}
+	public static native void glVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset);
 
 	// --- [ glVertexArrayAttribLFormat ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayAttribLFormat VertexArrayAttribLFormat} */
-	public static native void nglVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribLFormat.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glVertexAttribLFormat VertexAttribLFormat}.
 	 *
 	 * @param vaobj          the vertex array object name
@@ -3421,45 +3157,29 @@ public class GL45 {
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
-	public static void glVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
-		nglVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
-	}
+	public static native void glVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset);
 
 	// --- [ glVertexArrayAttribBinding ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayAttribBinding VertexArrayAttribBinding} */
-	public static native void nglVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribBinding.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glVertexAttribBinding VertexAttribBinding}.
 	 *
 	 * @param vaobj        the vertex array object name
 	 * @param attribindex  the index of the attribute to associate with a vertex buffer binding
 	 * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
 	 */
-	public static void glVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex) {
-		nglVertexArrayAttribBinding(vaobj, attribindex, bindingindex);
-	}
+	public static native void glVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex);
 
 	// --- [ glVertexArrayBindingDivisor ] ---
 
-	/** Unsafe version of: {@link #glVertexArrayBindingDivisor VertexArrayBindingDivisor} */
-	public static native void nglVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayBindingDivisor.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * DSA version of {@link GL43#glVertexBindingDivisor VertexBindingDivisor}.
 	 *
 	 * @param vaobj        the vertex array object name
 	 * @param bindingindex the index of the generic vertex attribute
 	 * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
-	public static void glVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor) {
-		nglVertexArrayBindingDivisor(vaobj, bindingindex, divisor);
-	}
+	public static native void glVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor);
 
 	// --- [ glGetVertexArrayiv ] ---
 
@@ -3695,12 +3415,7 @@ public class GL45 {
 
 	// --- [ glGetQueryBufferObjectiv ] ---
 
-	/** Unsafe version of: {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv} */
-	public static native void nglGetQueryBufferObjectiv(int id, int buffer, int pname, long offset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectiv.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Queries the state of a query object.
 	 *
 	 * @param id     the name of a query object
@@ -3708,18 +3423,11 @@ public class GL45 {
 	 * @param pname  the state to query
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
-	public static void glGetQueryBufferObjectiv(int id, int buffer, int pname, long offset) {
-		nglGetQueryBufferObjectiv(id, buffer, pname, offset);
-	}
+	public static native void glGetQueryBufferObjectiv(int id, int buffer, int pname, long offset);
 
 	// --- [ glGetQueryBufferObjectuiv ] ---
 
-	/** Unsafe version of: {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv} */
-	public static native void nglGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectuiv.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Unsigned version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
 	 * @param id     the name of a query object
@@ -3727,18 +3435,11 @@ public class GL45 {
 	 * @param pname  the state to query
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
-	public static void glGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset) {
-		nglGetQueryBufferObjectuiv(id, buffer, pname, offset);
-	}
+	public static native void glGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset);
 
 	// --- [ glGetQueryBufferObjecti64v ] ---
 
-	/** Unsafe version of: {@link #glGetQueryBufferObjecti64v GetQueryBufferObjecti64v} */
-	public static native void nglGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjecti64v.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * 64bit version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
 	 * @param id     the name of a query object
@@ -3746,18 +3447,11 @@ public class GL45 {
 	 * @param pname  the state to query
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
-	public static void glGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset) {
-		nglGetQueryBufferObjecti64v(id, buffer, pname, offset);
-	}
+	public static native void glGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset);
 
 	// --- [ glGetQueryBufferObjectui64v ] ---
 
-	/** Unsafe version of: {@link #glGetQueryBufferObjectui64v GetQueryBufferObjectui64v} */
-	public static native void nglGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectui64v.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * 64bit version of {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
 	 *
 	 * @param id     the name of a query object
@@ -3765,18 +3459,11 @@ public class GL45 {
 	 * @param pname  the state to query
 	 * @param offset the offset into {@code buffer} at which the queried value is written
 	 */
-	public static void glGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset) {
-		nglGetQueryBufferObjectui64v(id, buffer, pname, offset);
-	}
+	public static native void glGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset);
 
 	// --- [ glMemoryBarrierByRegion ] ---
 
-	/** Unsafe version of: {@link #glMemoryBarrierByRegion MemoryBarrierByRegion} */
-	public static native void nglMemoryBarrierByRegion(int barriers);
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrierByRegion.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Behaves like {@link GL42#glMemoryBarrier MemoryBarrier}, with two differences:
 	 * 
 	 * <p>First, it narrows the region under consideration so that only reads/writes of prior fragment shaders that are invoked for a smaller region of the
@@ -3793,9 +3480,7 @@ public class GL45 {
 	 *
 	 * @param barriers the barriers to insert. One or more of:<br><table><tr><td>{@link GL42#GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td><td>{@link GL42#GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link GL42#GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td><td>{@link GL42#GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link GL42#GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr></table>
 	 */
-	public static void glMemoryBarrierByRegion(int barriers) {
-		nglMemoryBarrierByRegion(barriers);
-	}
+	public static native void glMemoryBarrierByRegion(int barriers);
 
 	// --- [ glGetTextureSubImage ] ---
 
@@ -4059,26 +3744,12 @@ public class GL45 {
 
 	// --- [ glTextureBarrier ] ---
 
-	/** Unsafe version of: {@link #glTextureBarrier TextureBarrier} */
-	public static native void nglTextureBarrier();
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBarrier.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed.
-	 */
-	public static void glTextureBarrier() {
-		nglTextureBarrier();
-	}
+	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
+	public static native void glTextureBarrier();
 
 	// --- [ glGetGraphicsResetStatus ] ---
 
-	/** Unsafe version of: {@link #glGetGraphicsResetStatus GetGraphicsResetStatus} */
-	public static native int nglGetGraphicsResetStatus();
-
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetGraphicsResetStatus.xhtml">OpenGL SDK Reference</a></p>
-	 * 
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * 
 	 * <ul>
@@ -4113,9 +3784,7 @@ public class GL45 {
 	 * indicating completion to the application.</li>
 	 * </ul>
 	 */
-	public static int glGetGraphicsResetStatus() {
-		return nglGetGraphicsResetStatus();
-	}
+	public static native int glGetGraphicsResetStatus();
 
 	// --- [ glGetnMapdv ] ---
 
@@ -5185,78 +4854,6 @@ public class GL45 {
 		if ( CHECKS )
 			check(__functionAddress);
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearNamedBufferData ClearNamedBufferData}
-	 */
-	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, short[] data) {
-		long __functionAddress = GL.getICD().glClearNamedBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, internalformat, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearNamedBufferData ClearNamedBufferData}
-	 */
-	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, int[] data) {
-		long __functionAddress = GL.getICD().glClearNamedBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, internalformat, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearNamedBufferData ClearNamedBufferData}
-	 */
-	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, float[] data) {
-		long __functionAddress = GL.getICD().glClearNamedBufferData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, buffer, internalformat, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
-	 */
-	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, short[] data) {
-		long __functionAddress = GL.getICD().glClearNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
-	 */
-	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, int[] data) {
-		long __functionAddress = GL.getICD().glClearNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
-	}
-
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Array version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
-	 */
-	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, float[] data) {
-		long __functionAddress = GL.getICD().glClearNamedBufferSubData;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}
 
 	/**

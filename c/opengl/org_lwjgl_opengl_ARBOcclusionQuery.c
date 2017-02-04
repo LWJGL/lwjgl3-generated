@@ -31,19 +31,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_nglDeleteQueriesA
 	glDeleteQueriesARB(n, ids);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_nglIsQueryARB(JNIEnv *__env, jclass clazz, jint id) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_glIsQueryARB(JNIEnv *__env, jclass clazz, jint id) {
 	glIsQueryARBPROC glIsQueryARB = (glIsQueryARBPROC)tlsGetFunction(876);
 	UNUSED_PARAM(clazz)
 	return (jboolean)glIsQueryARB(id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_nglBeginQueryARB(JNIEnv *__env, jclass clazz, jint target, jint id) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_glBeginQueryARB(JNIEnv *__env, jclass clazz, jint target, jint id) {
 	glBeginQueryARBPROC glBeginQueryARB = (glBeginQueryARBPROC)tlsGetFunction(20);
 	UNUSED_PARAM(clazz)
 	glBeginQueryARB(target, id);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_nglEndQueryARB(JNIEnv *__env, jclass clazz, jint target) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_glEndQueryARB(JNIEnv *__env, jclass clazz, jint target) {
 	glEndQueryARBPROC glEndQueryARB = (glEndQueryARBPROC)tlsGetFunction(399);
 	UNUSED_PARAM(clazz)
 	glEndQueryARB(target);

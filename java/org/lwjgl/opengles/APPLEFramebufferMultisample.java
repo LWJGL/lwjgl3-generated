@@ -66,18 +66,10 @@ public class APPLEFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleAPPLE ] ---
 
-	public static native void nglRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
-
-	public static void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height) {
-		nglRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height);
-	}
+	public static native void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
 
 	// --- [ glResolveMultisampleFramebufferAPPLE ] ---
 
-	public static native void nglResolveMultisampleFramebufferAPPLE();
-
-	public static void glResolveMultisampleFramebufferAPPLE() {
-		nglResolveMultisampleFramebufferAPPLE();
-	}
+	public static native void glResolveMultisampleFramebufferAPPLE();
 
 }

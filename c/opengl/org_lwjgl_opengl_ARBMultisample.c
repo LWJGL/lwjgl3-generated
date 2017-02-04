@@ -10,7 +10,7 @@ typedef void (APIENTRY *glSampleCoverageARBPROC) (jfloat, jboolean);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultisample_nglSampleCoverageARB(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultisample_glSampleCoverageARB(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert) {
 	glSampleCoverageARBPROC glSampleCoverageARB = (glSampleCoverageARBPROC)tlsGetFunction(1460);
 	UNUSED_PARAM(clazz)
 	glSampleCoverageARB(value, invert);

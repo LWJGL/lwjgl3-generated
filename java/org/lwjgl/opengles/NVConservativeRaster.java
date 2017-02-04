@@ -47,10 +47,6 @@ public class NVConservativeRaster {
 
 	// --- [ glSubpixelPrecisionBiasNV ] ---
 
-	public static native void nglSubpixelPrecisionBiasNV(int xbits, int ybits);
-
-	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
-		nglSubpixelPrecisionBiasNV(xbits, ybits);
-	}
+	public static native void glSubpixelPrecisionBiasNV(int xbits, int ybits);
 
 }

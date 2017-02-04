@@ -10,7 +10,7 @@ typedef void (APIENTRY *glReadBufferNVPROC) (jint);
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVReadBuffer_nglReadBufferNV(JNIEnv *__env, jclass clazz, jint mode) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVReadBuffer_glReadBufferNV(JNIEnv *__env, jclass clazz, jint mode) {
 	glReadBufferNVPROC glReadBufferNV = (glReadBufferNVPROC)tlsGetFunction(588);
 	UNUSED_PARAM(clazz)
 	glReadBufferNV(mode);

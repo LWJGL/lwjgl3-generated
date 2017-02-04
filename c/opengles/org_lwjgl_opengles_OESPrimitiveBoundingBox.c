@@ -10,7 +10,7 @@ typedef void (APIENTRY *glPrimitiveBoundingBoxOESPROC) (jfloat, jfloat, jfloat, 
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESPrimitiveBoundingBox_nglPrimitiveBoundingBoxOES(JNIEnv *__env, jclass clazz, jfloat minX, jfloat minY, jfloat minZ, jfloat minW, jfloat maxX, jfloat maxY, jfloat maxZ, jfloat maxW) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESPrimitiveBoundingBox_glPrimitiveBoundingBoxOES(JNIEnv *__env, jclass clazz, jfloat minX, jfloat minY, jfloat minZ, jfloat minW, jfloat maxX, jfloat maxY, jfloat maxZ, jfloat maxW) {
 	glPrimitiveBoundingBoxOESPROC glPrimitiveBoundingBoxOES = (glPrimitiveBoundingBoxOESPROC)tlsGetFunction(491);
 	UNUSED_PARAM(clazz)
 	glPrimitiveBoundingBoxOES(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
