@@ -12,7 +12,6 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import java.lang.reflect.*;
@@ -107,77 +106,6 @@ public class JNINativeInterface {
 	 */
 	public static native int GetVersion();
 
-	// --- [ FindClass ] ---
-
-	/** Unsafe version of: {@link #FindClass} */
-	public static native long nFindClass(long name);
-
-	/**
-	 * Returns a class object from a fully-qualified name.
-	 * 
-	 * <p>The Java security model allows non-system classes to load and call native methods. {@code FindClass} Locates the class loader associated with the
-	 * current native method; that is, the class loader of the class that declared the native method. If the native method belongs to a system class, no class
-	 * loader will be involved. Otherwise, the proper class loader will be invoked to load and link the named class.</p>
-	 * 
-	 * <p>When FindClass is called through the Invocation Interface, there is no current native method or its associated class loader. In that case, the result
-	 * of {@link ClassLoader#getSystemClassLoader} is used. This is the class loader the virtual machine creates for applications, and is able to locate
-	 * classes listed in the {@code java.class.path} property.</p>
-	 * 
-	 * <p>The {@code name} argument is a fully-qualified class name or an array type signature. For example, the fully-qualified class name for the
-	 * {@code java.lang.String} class is:</p>
-	 * 
-	 * <pre><code>"java/lang/String"</code></pre>
-	 * 
-	 * <p>The array type signature of the array class {@code java.lang.Object[]} is:</p>
-	 * 
-	 * <pre><code>"[Ljava/lang/Object;"</code></pre>
-	 *
-	 * @param name a fully-qualified class name (that is, a package name, delimited by “/”, followed by the class name). If the name begins with “[“ (the array
-	 *             signature character), it returns an array class. The string is encoded in modified UTF-8.
-	 *
-	 * @return a class object from a fully-qualified name, or {@code NULL} if the class cannot be found
-	 */
-	public static long FindClass(ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		return nFindClass(memAddress(name));
-	}
-
-	/**
-	 * Returns a class object from a fully-qualified name.
-	 * 
-	 * <p>The Java security model allows non-system classes to load and call native methods. {@code FindClass} Locates the class loader associated with the
-	 * current native method; that is, the class loader of the class that declared the native method. If the native method belongs to a system class, no class
-	 * loader will be involved. Otherwise, the proper class loader will be invoked to load and link the named class.</p>
-	 * 
-	 * <p>When FindClass is called through the Invocation Interface, there is no current native method or its associated class loader. In that case, the result
-	 * of {@link ClassLoader#getSystemClassLoader} is used. This is the class loader the virtual machine creates for applications, and is able to locate
-	 * classes listed in the {@code java.class.path} property.</p>
-	 * 
-	 * <p>The {@code name} argument is a fully-qualified class name or an array type signature. For example, the fully-qualified class name for the
-	 * {@code java.lang.String} class is:</p>
-	 * 
-	 * <pre><code>"java/lang/String"</code></pre>
-	 * 
-	 * <p>The array type signature of the array class {@code java.lang.Object[]} is:</p>
-	 * 
-	 * <pre><code>"[Ljava/lang/Object;"</code></pre>
-	 *
-	 * @param name a fully-qualified class name (that is, a package name, delimited by “/”, followed by the class name). If the name begins with “[“ (the array
-	 *             signature character), it returns an array class. The string is encoded in modified UTF-8.
-	 *
-	 * @return a class object from a fully-qualified name, or {@code NULL} if the class cannot be found
-	 */
-	public static long FindClass(CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.UTF8(name);
-			return nFindClass(memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
 	// --- [ FromReflectedMethod ] ---
 
 	/**
@@ -199,7 +127,7 @@ public class JNINativeInterface {
 	// --- [ ToReflectedMethod ] ---
 
 	/** Unsafe version of: {@link #ToReflectedMethod} */
-	public static native Method nToReflectedMethod(long cls, long methodID, boolean isStatic);
+	public static native Method nToReflectedMethod(Class<?> cls, long methodID, boolean isStatic);
 
 	/**
 	 * Converts a method ID derived from {@code cls} to a {@link Method} or {@link Constructor} object.
@@ -208,18 +136,16 @@ public class JNINativeInterface {
 	 * @param methodID 
 	 * @param isStatic must be set to {@link #JNI_TRUE TRUE} if the method ID refers to a static field, and # FALSE otherwise
 	 */
-	public static Method ToReflectedMethod(long cls, long methodID, boolean isStatic) {
-		if ( CHECKS ) {
-			check(cls);
+	public static Method ToReflectedMethod(Class<?> cls, long methodID, boolean isStatic) {
+		if ( CHECKS )
 			check(methodID);
-		}
 		return nToReflectedMethod(cls, methodID, isStatic);
 	}
 
 	// --- [ ToReflectedField ] ---
 
 	/** Unsafe version of: {@link #ToReflectedField} */
-	public static native Method nToReflectedField(long cls, long fieldID, boolean isStatic);
+	public static native Method nToReflectedField(Class<?> cls, long fieldID, boolean isStatic);
 
 	/**
 	 * Converts a field ID derived from {@code cls} to a {@link Field} object.
@@ -228,11 +154,9 @@ public class JNINativeInterface {
 	 * @param fieldID  
 	 * @param isStatic must be set to {@link #JNI_TRUE TRUE} if {@code fieldID} refers to a static field, and {@link #JNI_FALSE FALSE} otherwise
 	 */
-	public static Method ToReflectedField(long cls, long fieldID, boolean isStatic) {
-		if ( CHECKS ) {
-			check(cls);
+	public static Method ToReflectedField(Class<?> cls, long fieldID, boolean isStatic) {
+		if ( CHECKS )
 			check(fieldID);
-		}
 		return nToReflectedField(cls, fieldID, isStatic);
 	}
 
@@ -1023,7 +947,7 @@ public class JNINativeInterface {
 	 *
 	 * @param nMethods the number of native methods in the class
 	 */
-	public static native int nRegisterNatives(long targetClass, long methods, int nMethods);
+	public static native int nRegisterNatives(Class<?> targetClass, long methods, int nMethods);
 
 	/**
 	 * Registers native methods with the class specified by the {@code targetClass} argument. The methods parameter specifies an array of JNINativeMethod
@@ -1035,18 +959,13 @@ public class JNINativeInterface {
 	 *
 	 * @return “0” on success; returns a negative value on failure
 	 */
-	public static int RegisterNatives(long targetClass, JNINativeMethod.Buffer methods) {
-		if ( CHECKS ) {
-			check(targetClass);
+	public static int RegisterNatives(Class<?> targetClass, JNINativeMethod.Buffer methods) {
+		if ( CHECKS )
 			JNINativeMethod.validate(methods.address(), methods.remaining());
-		}
 		return nRegisterNatives(targetClass, methods.address(), methods.remaining());
 	}
 
 	// --- [ UnregisterNatives ] ---
-
-	/** Unsafe version of: {@link #UnregisterNatives} */
-	public static native int nUnregisterNatives(long targetClass);
 
 	/**
 	 * Unregisters native methods of a class. The class goes back to the state before it was linked or registered with its native method functions.
@@ -1057,11 +976,7 @@ public class JNINativeInterface {
 	 *
 	 * @return “0” on success; returns a negative value on failure
 	 */
-	public static int UnregisterNatives(long targetClass) {
-		if ( CHECKS )
-			check(targetClass);
-		return nUnregisterNatives(targetClass);
-	}
+	public static native int UnregisterNatives(Class<?> targetClass);
 
 	// --- [ GetJavaVM ] ---
 

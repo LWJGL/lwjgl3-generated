@@ -12,12 +12,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_GetVersion(J
 	return (*__env)->GetVersion(__env);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nFindClass(JNIEnv *__env, jclass clazz, jlong nameAddress) {
-	const char *name = (const char *)(intptr_t)nameAddress;
-	UNUSED_PARAM(clazz)
-	return (jlong)(intptr_t)(*__env)->FindClass(__env, name);
-}
-
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_FromReflectedMethod(JNIEnv *__env, jclass clazz, jobject method) {
 	UNUSED_PARAM(clazz)
 	return (jlong)(intptr_t)(*__env)->FromReflectedMethod(__env, method);
@@ -28,15 +22,13 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_FromReflect
 	return (jlong)(intptr_t)(*__env)->FromReflectedField(__env, field);
 }
 
-JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nToReflectedMethod(JNIEnv *__env, jclass clazz, jlong clsAddress, jlong methodIDAddress, jboolean isStatic) {
-	jclass cls = (jclass)(intptr_t)clsAddress;
+JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nToReflectedMethod(JNIEnv *__env, jclass clazz, jclass cls, jlong methodIDAddress, jboolean isStatic) {
 	jmethodID methodID = (jmethodID)(intptr_t)methodIDAddress;
 	UNUSED_PARAM(clazz)
 	return (*__env)->ToReflectedMethod(__env, cls, methodID, isStatic);
 }
 
-JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nToReflectedField(JNIEnv *__env, jclass clazz, jlong clsAddress, jlong fieldIDAddress, jboolean isStatic) {
-	jclass cls = (jclass)(intptr_t)clsAddress;
+JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nToReflectedField(JNIEnv *__env, jclass clazz, jclass cls, jlong fieldIDAddress, jboolean isStatic) {
 	jfieldID fieldID = (jfieldID)(intptr_t)fieldIDAddress;
 	UNUSED_PARAM(clazz)
 	return (*__env)->ToReflectedField(__env, cls, fieldID, isStatic);
@@ -245,15 +237,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetDoubleAr
 	(*__env)->SetDoubleArrayRegion(__env, array, start, len, buf);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nRegisterNatives(JNIEnv *__env, jclass clazz, jlong targetClassAddress, jlong methodsAddress, jint nMethods) {
-	jclass targetClass = (jclass)(intptr_t)targetClassAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nRegisterNatives(JNIEnv *__env, jclass clazz, jclass targetClass, jlong methodsAddress, jint nMethods) {
 	const JNINativeMethod *methods = (const JNINativeMethod *)(intptr_t)methodsAddress;
 	UNUSED_PARAM(clazz)
 	return (*__env)->RegisterNatives(__env, targetClass, methods, nMethods);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nUnregisterNatives(JNIEnv *__env, jclass clazz, jlong targetClassAddress) {
-	jclass targetClass = (jclass)(intptr_t)targetClassAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_UnregisterNatives(JNIEnv *__env, jclass clazz, jclass targetClass) {
 	UNUSED_PARAM(clazz)
 	return (*__env)->UnregisterNatives(__env, targetClass);
 }
