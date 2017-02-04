@@ -78,9 +78,7 @@ public class WGL {
 			GetCurrentDC       = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetCurrentDC"),
 			GetProcAddress     = apiGetFunctionAddress(GL.getFunctionProvider(), "wglGetProcAddress"),
 			MakeCurrent        = apiGetFunctionAddress(GL.getFunctionProvider(), "wglMakeCurrent"),
-			ShareLists         = apiGetFunctionAddress(GL.getFunctionProvider(), "wglShareLists"),
-			UseFontBitmaps     = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontBitmapsW"),
-			UseFontOutlines    = apiGetFunctionAddress(GL.getFunctionProvider(), "wglUseFontOutlinesW");
+			ShareLists         = apiGetFunctionAddress(GL.getFunctionProvider(), "wglShareLists");
 
 	}
 
@@ -235,69 +233,6 @@ public class WGL {
 			check(hglrc2);
 		}
 		return callPPI(__functionAddress, hglrc1, hglrc2) != 0;
-	}
-
-	// --- [ wglUseFontBitmaps ] ---
-
-	/**
-	 * Creates a set of bitmap display lists for use in the current OpenGL rendering context. The set of bitmap display lists is based on the glyphs in the
-	 * currently selected font in the device context. You can then use bitmaps to draw characters in an OpenGL image.
-	 * 
-	 * <p>Creates count display lists, one for each of a run of count glyphs that begins with the first glyph in the device parameter's selected fonts.</p>
-	 *
-	 * @param hdc      the device context whose currently selected font will be used to form the glyph bitmap display lists in the current OpenGL rendering context
-	 * @param first    the first glyph in the run of glyphs that will be used to form glyph bitmap display lists
-	 * @param count    the number of glyphs in the run of glyphs that will be used to form glyph bitmap display lists. The function creates count display lists, one for each glyph in the run.
-	 * @param listBase the starting display list
-	 */
-	public static boolean wglUseFontBitmaps(long hdc, int first, int count, int listBase) {
-		long __functionAddress = Functions.UseFontBitmaps;
-		if ( CHECKS )
-			check(hdc);
-		return callPI(__functionAddress, hdc, first, count, listBase) != 0;
-	}
-
-	// --- [ wglUseFontOutlines ] ---
-
-	/**
-	 * Unsafe version of: {@link #wglUseFontOutlines UseFontOutlines}
-	 *
-	 * @param count the number of glyphs in the set of glyphs used to form the font outline display lists. The {@code wglUseFontOutlines} function creates count display
-	 *              lists, one display list for each glyph in a set of glyphs.
-	 */
-	public static int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics) {
-		long __functionAddress = Functions.UseFontOutlines;
-		if ( CHECKS )
-			check(hdc);
-		return callPPI(__functionAddress, hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);
-	}
-
-	/**
-	 * Creates a set of display lists, one for each glyph of the currently selected outline font of a device context, for use with the current rendering
-	 * context. The display lists are used to draw 3-D characters of TrueType fonts. Each display list describes a glyph outline in floating-point coordinates.
-	 * 
-	 * <p>The run of glyphs begins with thefirstglyph of the font of the specified device context. The em square size of the font, the notional grid size of the
-	 * original font outline from which the font is fitted, is mapped to 1.0 in the x- and y-coordinates in the display lists. The extrusion parameter sets how
-	 * much depth the font has in the z direction.</p>
-	 * 
-	 * <p>The glyphMetrics parameter returns a {@link GLYPHMETRICSFLOAT} structure that contains information about the placement and orientation of each glyph in
-	 * a character cell.</p>
-	 *
-	 * @param hdc          the device context with the desired outline font. The outline font of {@code dc} is used to create the display lists in the current rendering
-	 *                     context.
-	 * @param first        the first of the set of glyphs that form the font outline display lists
-	 * @param listBase     the starting display list
-	 * @param deviation    the maximum chordal deviation from the original outlines. When deviation is zero, the chordal deviation is equivalent to one design unit of the
-	 *                     original font. The value of deviation must be equal to or greater than 0.
-	 * @param extrusion    how much a font is extruded in the negative z direction. The value must be equal to or greater than 0. When extrusion is 0, the display lists are
-	 *                     not extruded.
-	 * @param format       the format to use in the display lists. When format is {@link #WGL_FONT_LINES FONT_LINES}, the {@code wglUseFontOutlines} function creates fonts with line
-	 *                     segments. When format is {@link #WGL_FONT_POLYGONS FONT_POLYGONS}, {@code wglUseFontOutlines} creates fonts with polygons. One of:<br><table><tr><td>{@link #WGL_FONT_LINES FONT_LINES}</td><td>{@link #WGL_FONT_POLYGONS FONT_POLYGONS}</td></tr></table>
-	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is {@code NULL}, no
-	 *                     glyph metrics are returned.
-	 */
-	public static boolean wglUseFontOutlines(long hdc, int first, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
-		return nwglUseFontOutlines(hdc, first, remainingSafe(glyphMetrics), listBase, deviation, extrusion, format, memAddressSafe(glyphMetrics)) != 0;
 	}
 
 }
