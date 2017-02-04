@@ -11,12 +11,6 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.opengl.GL31;
-
 /** The OpenCL 1.2 OpenGL interoperability functionality. */
 public class CL12GL {
 
@@ -61,17 +55,17 @@ public class CL12GL {
 	 * <li>an OpenCL 3D image object from an OpenGL 3D texture object.</li>
 	 * </ul>
 	 * 
-	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@link GL11#glTexImage2D}, {@link GL12#glTexImage3D} or the values of the
-	 * texture parameters {@link GL12#GL_TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image
-	 * object, subsequent use of the CL image object will result in undefined behavior.</p>
+	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@code glTexImage2D}, {@code glTexImage3D} or the values of the texture
+	 * parameters {@code GL_TEXTURE_BASE_LEVEL} or {@code GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent
+	 * use of the CL image object will result in undefined behavior.</p>
 	 * 
 	 * <p>The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.</p>
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
 	 * @param flags          a bit-field that is used to specify usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td></tr></table>
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_BUFFER}</td></tr><tr><td>{@link GL11#GL_TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY}</td><td>{@link GL12#GL_TEXTURE_3D}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z}</td></tr><tr><td>{@link GL31#GL_TEXTURE_RECTANGLE}</td></tr></table>
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<br><table><tr><td>GL_TEXTURE_1D</td><td>GL_TEXTURE_1D_ARRAY</td><td>GL_TEXTURE_BUFFER</td></tr><tr><td>GL_TEXTURE_2D</td><td>GL_TEXTURE_2D_ARRAY</td><td>GL_TEXTURE_3D</td></tr><tr><td>GL_TEXTURE_CUBE_MAP_POSITIVE_X</td><td>GL_TEXTURE_CUBE_MAP_POSITIVE_Y</td><td>GL_TEXTURE_CUBE_MAP_POSITIVE_Z</td></tr><tr><td>GL_TEXTURE_CUBE_MAP_NEGATIVE_X</td><td>GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</td><td>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</td></tr><tr><td>GL_TEXTURE_RECTANGLE</td></tr></table>
 	 * @param miplevel       the mipmap level to be used. Implementations may return {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} for {@code miplevel} values &gt; 0. If
-	 *                       {@code texture_target} is {@link GL31#GL_TEXTURE_BUFFER}, {@code miplevel} must be 0.
+	 *                       {@code texture_target} is {@code GL_TEXTURE_BUFFER}, {@code miplevel} must be 0.
 	 * @param texture        the name of a GL 1D, 2D, 3D, 1D array, 2D array, cubemap, rectangle or buffer texture object. The texture object must be a complete texture as per
 	 *                       OpenGL rules on texture completeness. The texture format and dimensions defined by OpenGL for the specified {@code miplevel} of the texture will be
 	 *                       used to create the OpenCL image memory object. Only GL texture objects with an internal format that maps to appropriate OpenCL image channel order

@@ -76,21 +76,20 @@ public class GLFWVulkan {
 	}
 
 	/**
-	 * Returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list
-	 * will always contain {@code VK_KHR_surface}, so if you don't require any additional extensions you can pass this list directly to the
-	 * {@link VkInstanceCreateInfo} struct.
+	 * Returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list will
+	 * always contain {@code VK_KHR_surface}, so if you don't require any additional extensions you can pass this list directly to the	{@link VkInstanceCreateInfo}
+	 * struct.
 	 * 
-	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
-	 * whether Vulkan is available.</p>
+	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether
+	 * Vulkan is available.</p>
 	 * 
-	 * <p>If Vulkan is available but no set of extensions allowing window surface creation was found, this function returns {@code NULL}. You may still use Vulkan
-	 * for off-screen rendering and compute work.</p>
+	 * <p>If Vulkan is available but no set of extensions allowing window surface creation was found, this function returns {@code NULL}. You may still use Vulkan for
+	 * off-screen rendering and compute work.</p>
 	 * 
 	 * <p>Additional extensions may be required by future versions of GLFW. You should check if any extensions you wish to enable are already in the returned
 	 * array, as it is an error to specify an extension more than once in the {@code VkInstanceCreateInfo} struct.</p>
 	 * 
-	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the library is
-	 * terminated.</p>
+	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the library is terminated.</p>
 	 * 
 	 * <p>This function may be called from any thread.</p>
 	 * 
@@ -130,8 +129,8 @@ public class GLFWVulkan {
 	 * <li>{@link VK10#vkGetInstanceProcAddr}</li>
 	 * </ul>
 	 * 
-	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
-	 * whether Vulkan is available.</p>
+	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether
+	 * Vulkan is available.</p>
 	 * 
 	 * <p>This function is equivalent to calling {@link VK10#vkGetInstanceProcAddr} with a platform-specific query of the Vulkan loader as a fallback.</p>
 	 * 
@@ -165,8 +164,8 @@ public class GLFWVulkan {
 	 * <li>{@link VK10#vkGetInstanceProcAddr}</li>
 	 * </ul>
 	 * 
-	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
-	 * whether Vulkan is available.</p>
+	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether
+	 * Vulkan is available.</p>
 	 * 
 	 * <p>This function is equivalent to calling {@link VK10#vkGetInstanceProcAddr} with a platform-specific query of the Vulkan loader as a fallback.</p>
 	 * 
@@ -198,9 +197,9 @@ public class GLFWVulkan {
 	/**
 	 * Returns whether the specified queue family of the specified physical device supports presentation to the platform GLFW was built for.
 	 * 
-	 * <p>If Vulkan or the required window surface creation instance extensions are not available on the machine, or if the specified instance was not
-	 * created with the required extensions, this function returns {@link GLFW#GLFW_FALSE FALSE} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
-	 * whether Vulkan is available and {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to check what instance extensions are required.</p>
+	 * <p>If Vulkan or the required window surface creation instance extensions are not available on the machine, or if the specified instance was not created
+	 * with the required extensions, this function returns {@link GLFW#GLFW_FALSE FALSE} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether Vulkan is
+	 * available and {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to check what instance extensions are required.</p>
 	 * 
 	 * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED}, {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} and {@link GLFW#GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</p>
 	 * 
@@ -234,15 +233,15 @@ public class GLFWVulkan {
 	/**
 	 * Creates a Vulkan surface for the specified window.
 	 * 
-	 * <p>If the Vulkan loader was not found at initialization, this function returns {@link VK10#VK_ERROR_INITIALIZATION_FAILED} and generates a
-	 * {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether the Vulkan loader was found.</p>
+	 * <p>If the Vulkan loader was not found at initialization, this function returns {@link VK10#VK_ERROR_INITIALIZATION_FAILED} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error.
+	 * Call {@link #glfwVulkanSupported VulkanSupported} to check whether the Vulkan loader was found.</p>
 	 * 
 	 * <p>If the required window surface creation instance extensions are not available or if the specified instance was not created with these extensions
-	 * enabled, this function returns {@link VK10#VK_ERROR_EXTENSION_NOT_PRESENT} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call
-	 * {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to check what instance extensions are required.</p>
+	 * enabled, this function returns {@link VK10#VK_ERROR_EXTENSION_NOT_PRESENT} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to
+	 * check what instance extensions are required.</p>
 	 * 
-	 * <p>The window surface must be destroyed before the specified Vulkan instance. It is the responsibility of the caller to destroy the window surface.
-	 * GLFW does not destroy it for you. Call {@link KHRSurface#vkDestroySurfaceKHR} to destroy the surface.</p>
+	 * <p>The window surface must be destroyed before the specified Vulkan instance. It is the responsibility of the caller to destroy the window surface. GLFW
+	 * does not destroy it for you. Call {@link KHRSurface#vkDestroySurfaceKHR} to destroy the surface.</p>
 	 * 
 	 * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED}, {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} and {@link GLFW#GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</p>
 	 * 

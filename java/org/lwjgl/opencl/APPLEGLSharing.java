@@ -21,21 +21,21 @@ public class APPLEGLSharing {
 	public static final int CL_INVALID_GL_CONTEXT_APPLE = -1000;
 
 	/**
-	 * This enumerated value can be specified as part of the {@code properties} argument passed to {@link CL10#clCreateContext CreateContext} to allow OpenCL compliant
-	 * devices in an existing CGL share group to be used as the devices in the newly created CL context. GL objects that were allocated in the specified CGL share
-	 * group can now be shared between CL and GL.
+	 * This enumerated value can be specified as part of the {@code properties} argument passed to {@link CL10#clCreateContext CreateContext} to allow OpenCL compliant devices in an
+	 * existing CGL share group to be used as the devices in the newly created CL context. GL objects that were allocated in the specified CGL share group can
+	 * now be shared between CL and GL.
 	 */
 	public static final int CL_CONTEXT_PROPERTY_USE_CGL_SHAREGROUP_APPLE = 0x10000000;
 
 	/**
-	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE}. Returns an array of {@code cl_device_ids} for the CL device(s)
-	 * corresponding to the virtual screen(s) for the specified CGL context.
+	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE}. Returns an array of {@code cl_device_ids} for the CL device(s) corresponding
+	 * to the virtual screen(s) for the specified CGL context.
 	 */
 	public static final int CL_CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE = 0x10000003;
 
 	/**
-	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE}. Returns a {@code cl_device_id} for the CL device associated with the
-	 * virtual screen for the specified CGL context.
+	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE}. Returns a {@code cl_device_id} for the CL device associated with the virtual
+	 * screen for the specified CGL context.
 	 */
 	public static final int CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE = 0x10000002;
 

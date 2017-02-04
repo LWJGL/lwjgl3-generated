@@ -19,8 +19,8 @@ public class NanoVGGLES3 {
 	 * <ul>
 	 * <li>{@link #NVG_ANTIALIAS ANTIALIAS} - Flag indicating if geometry based anti-aliasing is used (may not be needed when using MSAA).</li>
 	 * <li>{@link #NVG_STENCIL_STROKES STENCIL_STROKES} - 
-	 * Flag indicating if strokes should be drawn using stencil buffer. The rendering will be a little slower, but path overlaps (i.e.
-	 * self-intersecting or sharp turns) will be drawn just once.
+	 * Flag indicating if strokes should be drawn using stencil buffer. The rendering will be a little slower, but path overlaps (i.e. self-intersecting
+	 * or sharp turns) will be drawn just once.
 	 * </li>
 	 * <li>{@link #NVG_DEBUG DEBUG} - Flag indicating that additional debug checks are done.</li>
 	 * </ul>

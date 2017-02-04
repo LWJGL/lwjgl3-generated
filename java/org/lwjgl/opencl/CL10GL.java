@@ -16,13 +16,6 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL30;
-import org.lwjgl.opengl.GL31;
-
 /**
  * The OpenCL 1.0 OpenGL interoperability functionality.
  * 
@@ -38,9 +31,9 @@ import org.lwjgl.opengl.GL31;
  * <h3>Lifetime of Shared Objects</h3>
  * 
  * <p>An OpenCL memory object created from an OpenGL object (hereinafter refered to as a “shared CL/GL object”) remains valid as long as the
- * corresponding GL object has not been deleted. If the GL object is deleted through the GL API (e.g. {@link GL15#glDeleteBuffers},
- * {@link GL11#glDeleteTextures}, or {@link GL30#glDeleteRenderbuffers}), subsequent use of the CL buffer or image object will result in undefined behavior,
- * including but not limited to possible CL errors and data corruption, but may not result in program termination.</p>
+ * corresponding GL object has not been deleted. If the GL object is deleted through the GL API (e.g. {@code glDeleteBuffers}, {@code glDeleteTextures},
+ * or {@code glDeleteRenderbuffers}), subsequent use of the CL buffer or image object will result in undefined behavior, including but not limited to
+ * possible CL errors and data corruption, but may not result in program termination.</p>
  * 
  * <p>The CL context and corresponding command-queues are dependent on the existence of the GL share group object, or the share group associated with the
  * GL context from which the CL context is created. If the GL share group object or all GL contexts in the share group are destroyed, any use of the
@@ -106,14 +99,14 @@ public class CL10GL {
 	 * Creates an OpenCL buffer object from an OpenGL buffer object.
 	 * 
 	 * <p>The size of the GL buffer object data store at the time {@code clCreateFromGLBuffer} is called will be used as the size of buffer object returned by
-	 * {@code clCreateFromGLBuffer}. If the state of a GL buffer object is modified through the GL API (e.g. {@link GL15#glBufferData}) while there exists a
+	 * {@code clCreateFromGLBuffer}. If the state of a GL buffer object is modified through the GL API (e.g. {@code glBufferData}) while there exists a
 	 * corresponding CL buffer object, subsequent use of the CL buffer object will result in undefined behavior.</p>
 	 * 
 	 * <p>The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the buffer object.</p>
 	 *
 	 * @param context     a valid OpenCL context created from an OpenGL context
 	 * @param flags       a bit-field that is used to specify usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td></tr></table>
-	 * @param bufobj      the name of a GL buffer object. The data store of the GL buffer object must have have been previously created by calling {@link GL15#glBufferData},
+	 * @param bufobj      the name of a GL buffer object. The data store of the GL buffer object must have have been previously created by calling {@code glBufferData},
 	 *                    although its contents need not be initialized. The size of the data store will be used to determine the size of the CL buffer object.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
@@ -150,15 +143,15 @@ public class CL10GL {
 	/**
 	 * Creates an OpenCL 2D image object from an OpenGL 2D texture object, or a single face of an OpenGL cubemap texture object.
 	 * 
-	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@link GL11#glTexImage2D} or the values of the texture parameters
-	 * {@link GL12#GL_TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use
-	 * of the CL image object will result in undefined behavior.</p>
+	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@code glTexImage2D} or the values of the texture parameters
+	 * {@code GL_TEXTURE_BASE_LEVEL} or {@code GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use of the
+	 * CL image object will result in undefined behavior.</p>
 	 * 
 	 * <p>The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.</p>
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
 	 * @param flags          a bit-field that is used to specify usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td></tr></table>
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_2D}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE}</td></tr></table>
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<br><table><tr><td>GL_TEXTURE_2D</td><td>GL_TEXTURE_CUBE_MAP_POSITIVE_X</td></tr><tr><td>GL_TEXTURE_CUBE_MAP_POSITIVE_Y</td><td>GL_TEXTURE_CUBE_MAP_POSITIVE_Z</td></tr><tr><td>GL_TEXTURE_CUBE_MAP_NEGATIVE_X</td><td>GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</td></tr><tr><td>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</td><td>GL_TEXTURE_RECTANGLE</td></tr></table>
 	 * @param miplevel       the mipmap level to be used. Implementations may return {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} for {@code miplevel} values &gt; 0.
 	 * @param texture        the name of a GL 2D, cubemap or rectangle texture object. The texture object must be a complete texture as per OpenGL rules on texture completeness.
 	 *                       The texture format and dimensions defined by OpenGL for the specified {@code miplevel} of the texture will be used to create the 2D image object.
@@ -206,15 +199,15 @@ public class CL10GL {
 	/**
 	 * Creates an OpenCL 3D image object from an OpenGL 3D texture object.
 	 * 
-	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@link GL12#glTexImage3D} or the values of the texture parameters
-	 * {@link GL12#GL_TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use
-	 * of the CL image object will result in undefined behavior.</p>
+	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@code glTexImage3D} or the values of the texture parameters
+	 * {@code GL_TEXTURE_BASE_LEVEL} or {@code GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use of the
+	 * CL image object will result in undefined behavior.</p>
 	 * 
 	 * <p>The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.</p>
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
 	 * @param flags          a bit-field that is used to specify usage information. One of:<br><table><tr><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td></tr></table>
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. Must be:<br><table><tr><td>{@link GL12#GL_TEXTURE_3D}</td></tr></table>
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. Must be:<br><table><tr><td>GL_TEXTURE_3D</td></tr></table>
 	 * @param miplevel       the mipmap level to be used
 	 * @param texture        the name of a GL 3D texture object. The texture object must be a complete texture as per OpenGL rules on texture completeness. The texture format
 	 *                       and dimensions defined by OpenGL for the specified {@code miplevel} of the texture will be used to create the 3D image object. Only GL texture
@@ -262,7 +255,7 @@ public class CL10GL {
 	 * Creates an OpenCL 2D image object from an OpenGL renderbuffer object.
 	 * 
 	 * <p>If the state of a GL renderbuffer object is modified through the GL API (i.e. changes to the dimensions or format used to represent pixels of the GL
-	 * renderbuffer using appropriate GL API calls such as {@link GL30#glRenderbufferStorage}) while there exists a corresponding CL image object, subsequent
+	 * renderbuffer using appropriate GL API calls such as {@code glRenderbufferStorage}) while there exists a corresponding CL image object, subsequent
 	 * use of the CL image object will result in undefined behavior.</p>
 	 * 
 	 * <p>The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.</p>
@@ -419,11 +412,11 @@ public class CL10GL {
 	 * command-queues associated with the OpenCL context.
 	 * 
 	 * <p>Prior to calling {@code clEnqueueAcquireGLObjects}, the application must ensure that any pending GL operations which access the objects specified in
-	 * {@code mem_objects} have completed. This may be accomplished portably by issuing and waiting for completion of a {@link GL11#glFinish} command on all GL
+	 * {@code mem_objects} have completed. This may be accomplished portably by issuing and waiting for completion of a {@code glFinish} command on all GL
 	 * contexts with pending references to these objects. Implementations may offer more efficient synchronization methods; for example on some platforms
-	 * calling {@link GL11#glFlush} may be sufficient, or synchronization may be implicit within a thread, or there may be vendor-specific extensions that
+	 * calling {@code glFlush} may be sufficient, or synchronization may be implicit within a thread, or there may be vendor-specific extensions that
 	 * enable placing a fence in the GL command stream and waiting for completion of that fence in the CL command queue. Note that no synchronization methods
-	 * other than {@link GL11#glFinish} are portable between OpenGL implementations at this time.</p>
+	 * other than {@code glFinish} are portable between OpenGL implementations at this time.</p>
 	 *
 	 * @param command_queue   a valid command-queue. All devices used to create the OpenCL context associated with {@code command_queue} must support acquiring shared CL/GL
 	 *                        objects. This constraint is enforced at context creation time.
@@ -464,11 +457,11 @@ public class CL10GL {
 	 * command-queues associated with the OpenCL context.
 	 * 
 	 * <p>Prior to calling {@code clEnqueueAcquireGLObjects}, the application must ensure that any pending GL operations which access the objects specified in
-	 * {@code mem_objects} have completed. This may be accomplished portably by issuing and waiting for completion of a {@link GL11#glFinish} command on all GL
+	 * {@code mem_objects} have completed. This may be accomplished portably by issuing and waiting for completion of a {@code glFinish} command on all GL
 	 * contexts with pending references to these objects. Implementations may offer more efficient synchronization methods; for example on some platforms
-	 * calling {@link GL11#glFlush} may be sufficient, or synchronization may be implicit within a thread, or there may be vendor-specific extensions that
+	 * calling {@code glFlush} may be sufficient, or synchronization may be implicit within a thread, or there may be vendor-specific extensions that
 	 * enable placing a fence in the GL command stream and waiting for completion of that fence in the CL command queue. Note that no synchronization methods
-	 * other than {@link GL11#glFinish} are portable between OpenGL implementations at this time.</p>
+	 * other than {@code glFinish} are portable between OpenGL implementations at this time.</p>
 	 *
 	 * @param command_queue   a valid command-queue. All devices used to create the OpenCL context associated with {@code command_queue} must support acquiring shared CL/GL
 	 *                        objects. This constraint is enforced at context creation time.
