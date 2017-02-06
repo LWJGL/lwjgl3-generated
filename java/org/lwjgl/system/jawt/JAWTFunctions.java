@@ -64,7 +64,7 @@ public class JAWTFunctions {
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary JAWT = Library.loadNative("jawt");
+	private static final SharedLibrary JAWT = Library.loadNative(JAWTFunctions.class, "jawt");
 
 	/** Contains the function pointers loaded from the jawt {@link SharedLibrary}. */
 	public static final class Functions {

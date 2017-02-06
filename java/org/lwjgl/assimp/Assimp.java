@@ -1652,7 +1652,7 @@ x1</code></pre>
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary ASSIMP = Library.loadNative(Configuration.ASSIMP_LIBRARY_NAME.get(Platform.mapLibraryNameBundled("assimp")), true);
+	private static final SharedLibrary ASSIMP = Library.loadNative(Assimp.class, Configuration.ASSIMP_LIBRARY_NAME.get(Platform.mapLibraryNameBundled("assimp")), true);
 
 	/** Contains the function pointers loaded from the assimp {@link SharedLibrary}. */
 	public static final class Functions {

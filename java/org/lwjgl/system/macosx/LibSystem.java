@@ -20,7 +20,7 @@ public final class LibSystem {
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary SYSTEM = Library.loadNative("System");
+	private static final SharedLibrary SYSTEM = Library.loadNative(LibSystem.class, "System");
 
 	/** Contains the function pointers loaded from the System {@link SharedLibrary}. */
 	/** Returns the System {@link SharedLibrary}. */

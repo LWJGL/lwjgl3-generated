@@ -12,7 +12,7 @@ final class LibOVR {
 
 	static {
 		String libName = Platform.mapLibraryNameBundled("lwjgl_ovr");
-		Library.loadSystem(libName);
+		Library.loadSystem(LibOVR.class, libName);
 	}
 
 	private LibOVR() {

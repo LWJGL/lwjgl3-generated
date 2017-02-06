@@ -848,7 +848,7 @@ public class BGFX {
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary BGFX = Library.loadNative(Configuration.BGFX_LIBRARY_NAME.get(Platform.mapLibraryNameBundled("bgfx")), true);
+	private static final SharedLibrary BGFX = Library.loadNative(BGFX.class, Configuration.BGFX_LIBRARY_NAME.get(Platform.mapLibraryNameBundled("bgfx")), true);
 
 	/** Contains the function pointers loaded from the bgfx {@link SharedLibrary}. */
 	public static final class Functions {

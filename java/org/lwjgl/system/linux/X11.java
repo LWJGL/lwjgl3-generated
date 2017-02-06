@@ -399,7 +399,7 @@ public class X11 {
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary X11 = Library.loadNative("X11");
+	private static final SharedLibrary X11 = Library.loadNative(X11.class, "X11");
 
 	/** Contains the function pointers loaded from the X11 {@link SharedLibrary}. */
 	public static final class Functions {

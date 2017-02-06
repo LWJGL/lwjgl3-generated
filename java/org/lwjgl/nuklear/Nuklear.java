@@ -1179,7 +1179,7 @@ public class Nuklear {
 		NK_WINDOW_MINIMIZED  = 1 << 14,
 		NK_WINDOW_REMOVE_ROM = 1 << 15;
 
-	static { Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
+	static { Library.loadSystem(Nuklear.class, Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
 
 	protected Nuklear() {
 		throw new UnsupportedOperationException();

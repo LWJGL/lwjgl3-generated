@@ -306,7 +306,7 @@ public class Yoga {
 		YGUnitPixel     = 1,
 		YGUnitPercent   = 2;
 
-	static { Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_yoga")); }
+	static { Library.loadSystem(Yoga.class, Platform.mapLibraryNameBundled("lwjgl_yoga")); }
 
 	protected Yoga() {
 		throw new UnsupportedOperationException();

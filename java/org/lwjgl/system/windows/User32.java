@@ -909,7 +909,7 @@ public class User32 {
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary USER32 = Library.loadNative("user32");
+	private static final SharedLibrary USER32 = Library.loadNative(User32.class, "user32");
 
 	/** Contains the function pointers loaded from the user32 {@link SharedLibrary}. */
 	public static final class Functions {
