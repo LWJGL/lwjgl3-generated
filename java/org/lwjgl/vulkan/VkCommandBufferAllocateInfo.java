@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code commandPool} &ndash; the name of the command pool that the command buffers allocate their memory from.</li>
+ * <li>{@code commandPool} &ndash; the command pool from which the command buffers are allocated.</li>
  * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers. Possible values include:
  * 
  * <pre><code>typedef enum VkCommandBufferLevel {

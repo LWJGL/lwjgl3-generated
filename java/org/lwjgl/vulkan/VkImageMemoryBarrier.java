@@ -26,7 +26,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If {@code dstQueueFamilyIndex} is not equal to {@code srcQueueFamilyIndex}, and {@code dstQueueFamilyIndex} is equal to the current queue family, then the memory barrier defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers-acquire"> queue family acquire operation</a> for the specified image subresource range, and the first access scope includes no access, as if {@code srcAccessMask} was 0.</p>
  * 
- * <p>If {@code oldLayout} is not equal to {@code newLayout}, then the memory barrier defines an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-image-layout-transitions"> image layout transition</a> for the specified image subresource range. Layout transitions that are performed via image memory barriers automatically happen-after layout transitions previously submitted to the same queue, and automatically happen-before layout transitions subsequently submitted to the same queue; this includes layout transitions that occur as part of a render pass instance, in both cases.</p>
+ * <p>If {@code oldLayout} is not equal to {@code newLayout}, then the memory barrier defines an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-image-layout-transitions"> image layout transition</a> for the specified image subresource range.</p>
+ * 
+ * <p>Layout transitions that are performed via image memory barriers execute in their entirety in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-order"> submission order</a>, relative to other image layout transitions submitted to the same queue, including those performed by <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass"> render passes</a>. In effect there is an implicit execution dependency from each such layout transition to all layout transitions previously submitted to the same queue.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

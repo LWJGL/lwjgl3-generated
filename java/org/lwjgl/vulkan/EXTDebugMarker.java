@@ -17,14 +17,15 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>23</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-04-23</dd>
+ * <dd>2017-01-31</dd>
  * <dt><b>Revision</b></dt>
- * <dd>3</dd>
+ * <dd>4</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Dependencies</b></dt>
  * <dd><ul>
  * <li>This extension is written against version 1.0.11 of the Vulkan API.</li>
+ * <li>Requires VK_EXT_debug_report.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
@@ -134,7 +135,7 @@ import static org.lwjgl.system.JNI.*;
 public class EXTDebugMarker {
 
 	/** The extension specification version. */
-	public static final int VK_EXT_DEBUG_MARKER_SPEC_VERSION = 3;
+	public static final int VK_EXT_DEBUG_MARKER_SPEC_VERSION = 4;
 
 	/** The extension name. */
 	public static final String VK_EXT_DEBUG_MARKER_EXTENSION_NAME = "VK_EXT_debug_marker";
@@ -159,7 +160,7 @@ public class EXTDebugMarker {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesDevice caps) {
 		return checkFunctions(
 			caps.vkDebugMarkerSetObjectTagEXT, caps.vkDebugMarkerSetObjectNameEXT, caps.vkCmdDebugMarkerBeginEXT, caps.vkCmdDebugMarkerEndEXT, 
 			caps.vkCmdDebugMarkerInsertEXT

@@ -94,10 +94,10 @@ E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
 public final class EXTSwapchainColorspace {
 
 	/** The extension specification version. */
-	public static final int VK_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION = 1;
+	public static final int VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION = 1;
 
 	/** The extension name. */
-	public static final String VK_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME = "VK_EXT_swapchain_colorspace";
+	public static final String VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME = "VK_EXT_swapchain_colorspace";
 
 	/**
 	 * Extends {@code VkColorSpaceKHR}.

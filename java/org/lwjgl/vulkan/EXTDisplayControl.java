@@ -146,7 +146,7 @@ public class EXTDisplayControl {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesDevice caps) {
 		return checkFunctions(
 			caps.vkDisplayPowerControlEXT, caps.vkRegisterDeviceEventEXT, caps.vkRegisterDisplayEventEXT, caps.vkGetSwapchainCounterEXT
 		);

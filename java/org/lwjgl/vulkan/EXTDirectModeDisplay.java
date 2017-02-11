@@ -55,7 +55,7 @@ public class EXTDirectModeDisplay {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
 			caps.vkReleaseDisplayEXT
 		);

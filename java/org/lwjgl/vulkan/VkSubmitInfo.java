@@ -17,6 +17,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a queue submit operation.
  * 
+ * <h5>Description</h5>
+ * 
+ * <p>The order that command buffers appear in {@code pCommandBuffers} is used to determine <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-order"> submission order</a>, and thus all the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-implicit"> implicit ordering guarantees</a> that respect it. Other than these implicit ordering guarantees and any <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> explicit synchronization primitives</a>, these command buffers <b>may</b> overlap or otherwise execute out of order.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -59,7 +63,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pWaitSemaphores} &ndash; a pointer to an array of semaphores upon which to wait before the command buffers for this batch begin execution. If semaphores to wait on are provided, they define a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-waiting">semaphore wait operation</a>.</li>
  * <li>{@code pWaitDstStageMask} &ndash; a pointer to an array of pipeline stages at which each corresponding semaphore wait will occur.</li>
  * <li>{@code commandBufferCount} &ndash; the number of command buffers to execute in the batch.</li>
- * <li>{@code pCommandBuffers} &ndash; a pointer to an array of command buffers to execute in the batch. The command buffers submitted in a batch begin execution in the order they appear in {@code pCommandBuffers}, but <b>may</b> complete out of order.</li>
+ * <li>{@code pCommandBuffers} &ndash; a pointer to an array of command buffers to execute in the batch.</li>
  * <li>{@code signalSemaphoreCount} &ndash; the number of semaphores to be signaled once the commands specified in {@code pCommandBuffers} have completed execution.</li>
  * <li>{@code pSignalSemaphores} &ndash; a pointer to an array of semaphores which will be signaled when the command buffers for this batch have completed execution. If semaphores to be signaled are provided, they define a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-signaling">semaphore signal operation</a>.</li>
  * </ul>

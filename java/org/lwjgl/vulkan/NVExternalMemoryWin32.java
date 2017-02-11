@@ -206,7 +206,7 @@ public class NVExternalMemoryWin32 {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesDevice caps) {
 		return checkFunctions(
 			caps.vkGetMemoryWin32HandleNV
 		);

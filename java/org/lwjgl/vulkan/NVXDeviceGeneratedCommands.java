@@ -326,11 +326,16 @@ public class NVXDeviceGeneratedCommands {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
-			caps.vkCmdProcessCommandsNVX, caps.vkCmdReserveSpaceForCommandsNVX, caps.vkCreateIndirectCommandsLayoutNVX, caps.vkDestroyIndirectCommandsLayoutNVX, 
-			caps.vkCreateObjectTableNVX, caps.vkDestroyObjectTableNVX, caps.vkRegisterObjectsNVX, caps.vkUnregisterObjectsNVX, 
 			caps.vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX
+		);
+	}
+
+	static boolean isAvailable(VKCapabilitiesInstance capsInstance, VKCapabilitiesDevice caps) {
+		return isAvailable(capsInstance) && checkFunctions(
+			caps.vkCmdProcessCommandsNVX, caps.vkCmdReserveSpaceForCommandsNVX, caps.vkCreateIndirectCommandsLayoutNVX, caps.vkDestroyIndirectCommandsLayoutNVX, 
+			caps.vkCreateObjectTableNVX, caps.vkDestroyObjectTableNVX, caps.vkRegisterObjectsNVX, caps.vkUnregisterObjectsNVX
 		);
 	}
 

@@ -96,7 +96,7 @@ public class KHRMaintenance1 {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesDevice caps) {
 		return checkFunctions(
 			caps.vkTrimCommandPoolKHR
 		);

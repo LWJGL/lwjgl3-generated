@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <dl>
  * <dd><code>metadataRegion = [base, base + imageMipTailSize)</code></dd>
- * <dd><code>base = imageMipTailOffset + imageMipTailStride &#x00d7; n</code></dd>
+ * <dd><code>base = imageMipTailOffset + imageMipTailStride × n</code></dd>
  * </dl>
  * 
  * <p>and {@code imageMipTailOffset}, {@code imageMipTailSize}, and {@code imageMipTailStride} values are from the {@link VkSparseImageMemoryRequirements} corresponding to the metadata aspect of the image, and <code>n</code> is a valid array layer index for the image,</p>

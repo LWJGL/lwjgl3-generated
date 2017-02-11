@@ -133,7 +133,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
 			caps.vkGetPhysicalDeviceFeatures2KHR, caps.vkGetPhysicalDeviceProperties2KHR, caps.vkGetPhysicalDeviceFormatProperties2KHR, 
 			caps.vkGetPhysicalDeviceImageFormatProperties2KHR, caps.vkGetPhysicalDeviceQueueFamilyProperties2KHR, caps.vkGetPhysicalDeviceMemoryProperties2KHR, 
@@ -463,12 +463,6 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * <h5>Description</h5>
 	 * 
 	 * <p>{@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} behaves identically to {@link VK10#vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}, with the ability to return extended information via chained output structures.</p>
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code samples} <b>must</b> be a bit value that is set in {@link VkImageFormatProperties}{@code ::sampleCounts} returned by {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} with {@code format}, {@code type}, {@code tiling}, and {@code usage} equal to those in this command and {@code flags} equal to the value that is set in {@link VkImageCreateInfo}{@code ::flags} when the image is created</li>
-	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 

@@ -73,7 +73,7 @@ public class KHRWin32Surface {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
 			caps.vkCreateWin32SurfaceKHR, caps.vkGetPhysicalDeviceWin32PresentationSupportKHR
 		);

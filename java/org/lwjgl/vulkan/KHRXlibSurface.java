@@ -73,7 +73,7 @@ public class KHRXlibSurface {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
 			caps.vkCreateXlibSurfaceKHR, caps.vkGetPhysicalDeviceXlibPresentationSupportKHR
 		);

@@ -23,9 +23,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>12</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-12-08</dd>
+ * <dd>2017-01-31</dd>
  * <dt><b>Revision</b></dt>
- * <dd>4</dd>
+ * <dd>5</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Dependencies</b></dt>
@@ -103,7 +103,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDebugReport {
 
 	/** The extension specification version. */
-	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 4;
+	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 5;
 
 	/** The extension name. */
 	public static final String VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report";
@@ -122,6 +122,7 @@ public class EXTDebugReport {
 	 * <p>For more information, see:</p>
 	 * 
 	 * <ul>
+	 * <li>The reference page for {@link VkDebugReportCallbackEXT}, where this interface is defined.</li>
 	 * <li>The See Also section for other reference pages using this type.</li>
 	 * <li>The Vulkan Specification.</li>
 	 * </ul>
@@ -268,7 +269,7 @@ public class EXTDebugReport {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(VKCapabilities caps) {
+	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
 			caps.vkCreateDebugReportCallbackEXT, caps.vkDestroyDebugReportCallbackEXT, caps.vkDebugReportMessageEXT
 		);
