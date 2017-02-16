@@ -361,17 +361,22 @@ public class GLFW {
 	 * 
 	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window is maximized, whether by the user or {@link #glfwMaximizeWindow MaximizeWindow}.</p>
 	 * </li>
+	 * <li>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR} - 
+	 * {@code WindowHint}: Specifies whether the cursor should be centered over newly created full screen windows. This hint is ignored for windowed mode
+	 * windows.
+	 * </li>
 	 * </ul>
 	 */
 	public static final int
-		GLFW_FOCUSED      = 0x20001,
-		GLFW_ICONIFIED    = 0x20002,
-		GLFW_RESIZABLE    = 0x20003,
-		GLFW_VISIBLE      = 0x20004,
-		GLFW_DECORATED    = 0x20005,
-		GLFW_AUTO_ICONIFY = 0x20006,
-		GLFW_FLOATING     = 0x20007,
-		GLFW_MAXIMIZED    = 0x20008;
+		GLFW_FOCUSED       = 0x20001,
+		GLFW_ICONIFIED     = 0x20002,
+		GLFW_RESIZABLE     = 0x20003,
+		GLFW_VISIBLE       = 0x20004,
+		GLFW_DECORATED     = 0x20005,
+		GLFW_AUTO_ICONIFY  = 0x20006,
+		GLFW_FLOATING      = 0x20007,
+		GLFW_MAXIMIZED     = 0x20008,
+		GLFW_CENTER_CURSOR = 0x20009;
 
 	/** Input options. */
 	public static final int
@@ -532,6 +537,13 @@ public class GLFW {
 
 	/** Specifies whether to activate frame autosaving on macOS. This is ignored on other platforms. */
 	public static final int GLFW_COCOA_FRAME_AUTOSAVE = 0x23002;
+
+	/**
+	 * Specifies whether to enable Automatic Graphics Switching, i.e. to allow the system to choose the integrated GPU for the OpenGL context and move it
+	 * between GPUs if necessary or whether to force it to always run on the discrete GPU. This only affects systems with both integrated and discrete GPUs.
+	 * This is ignored on other platforms.
+	 */
+	public static final int GLFW_COCOA_GRAPHICS_SWITCHING = 0x23003;
 
 	/** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
 	public static final int
@@ -1205,6 +1217,7 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
 	 * <tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
 	 * <tr><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
@@ -1222,21 +1235,23 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API}</td><td>{@link #GLFW_NO_API NO_API} {@link #GLFW_OPENGL_API OPENGL_API} {@link #GLFW_OPENGL_ES_API OPENGL_ES_API}</td></tr>
+	 * <tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>1</td><td>Any valid major version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>0</td><td>Any valid minor version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR} {@link #GLFW_RELEASE_BEHAVIOR_FLUSH RELEASE_BEHAVIOR_FLUSH} {@link #GLFW_RELEASE_BEHAVIOR_NONE RELEASE_BEHAVIOR_NONE}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE}</td></tr>
 	 * <tr><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_COCOA_GRAPHICS_SWITCHING COCOA_GRAPHICS_SWITCHING}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * </table>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_FLOATING FLOATING}</td></tr><tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td></tr><tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td></tr><tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td></tr><tr><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td></tr><tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td></tr></table>
+	 * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_FLOATING FLOATING}</td></tr><tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td></tr><tr><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr><tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td></tr><tr><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td><td>{@link #GLFW_STEREO STEREO}</td></tr><tr><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td></tr></table>
 	 * @param value the new value of the window hint
 	 *
 	 * @since version 2.2
@@ -2012,7 +2027,7 @@ public class GLFW {
 	 * function should not fail as long as it is passed valid arguments and the library has been initialized.</p>
 	 *
 	 * @param window the window to query
-	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td></tr><tr><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
+	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td></tr><tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
 	 *
 	 * @return the value of the attribute, or zero if an error occured
 	 *
@@ -3490,7 +3505,7 @@ public class GLFW {
 	 * <p>As this functions retrieves and searches one or more extension strings each call, it is recommended that you cache its results if it is going to be used
 	 * frequently. The extension strings will not change during the lifetime of a context, so there is no danger in doing this.</p>
 	 * 
-	 * <p>This function does not apply to Vulkan. If you are using Vulkan, see {@link GLFWVulkan#glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions},
+	 * <p>This function does not apply to Vulkan. If you are using Vulkan, see {@code glfwGetRequiredInstanceExtensions},
 	 * {@code vkEnumerateInstanceExtensionProperties} and {@code vkEnumerateDeviceExtensionProperties} instead.</p>
 	 * 
 	 * <p>This function may be called from any thread.</p>
@@ -3516,7 +3531,7 @@ public class GLFW {
 	 * <p>As this functions retrieves and searches one or more extension strings each call, it is recommended that you cache its results if it is going to be used
 	 * frequently. The extension strings will not change during the lifetime of a context, so there is no danger in doing this.</p>
 	 * 
-	 * <p>This function does not apply to Vulkan. If you are using Vulkan, see {@link GLFWVulkan#glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions},
+	 * <p>This function does not apply to Vulkan. If you are using Vulkan, see {@code glfwGetRequiredInstanceExtensions},
 	 * {@code vkEnumerateInstanceExtensionProperties} and {@code vkEnumerateDeviceExtensionProperties} instead.</p>
 	 * 
 	 * <p>This function may be called from any thread.</p>
@@ -3551,7 +3566,7 @@ public class GLFW {
 	 * 
 	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
-	 * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@link GLFWVulkan#glfwGetInstanceProcAddress GetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
+	 * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@code glfwGetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
 	 * {@code vkGetDeviceProcAddr} instead.</p>
 	 * 
 	 * <p>Notes:</p>
@@ -3582,7 +3597,7 @@ public class GLFW {
 	 * 
 	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
-	 * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@link GLFWVulkan#glfwGetInstanceProcAddress GetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
+	 * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@code glfwGetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
 	 * {@code vkGetDeviceProcAddr} instead.</p>
 	 * 
 	 * <p>Notes:</p>
