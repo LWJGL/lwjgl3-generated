@@ -8,7 +8,6 @@ package org.lwjgl.vulkan;
 import org.lwjgl.system.*;
 import java.util.Set;
 
-import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.vulkan.VK.*;
 
 /** Defines the capabilities of a Vulkan {@code VkInstance}. */
