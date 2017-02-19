@@ -299,7 +299,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * 
 	 * <p>{@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, with the ability to return extended information via chained output structures.</p>
 	 * 
-	 * <p>If the loader implementation emulates {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} on a device that doesn't support the extension, and the query involves a structure the loader does not support, {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} returns {@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}.</p>
+	 * <p>If the loader implementation emulates {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} on a device that does not support the extension, and the query involves a structure the loader does not support, {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} returns {@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 

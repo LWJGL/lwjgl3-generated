@@ -145,8 +145,8 @@ public interface VkDebugReportCallbackEXTI extends CallbackI.I {
 	 * @param object       gives the object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
 	 * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
 	 * @param messageCode  a layer-defined value indicating what test triggered this callback.
-	 * @param pLayerPrefix the abbreviation of the component making the callback.
-	 * @param pMessage     a null-terminated string detailing the trigger conditions.
+	 * @param pLayerPrefix the abbreviation of the component making the callback. {@code pLayerPrefix} is only valid for the duration of the callback.
+	 * @param pMessage     a null-terminated string detailing the trigger conditions. {@code pMessage} is only valid for the duration of the callback.
 	 * @param pUserData    the user data given when the DebugReportCallback was created.
 	 */
 	int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);

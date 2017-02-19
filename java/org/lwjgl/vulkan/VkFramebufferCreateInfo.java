@@ -40,8 +40,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>Any given element of {@code pAttachments} <b>must</b> have dimensions at least as large as the corresponding framebuffer dimension</li>
  * <li>Any given element of {@code pAttachments} <b>must</b> only specify a single mip level</li>
  * <li>Any given element of {@code pAttachments} <b>must</b> have been created with the identity swizzle</li>
+ * <li>{@code width} <b>must</b> be greater than 0.</li>
  * <li>{@code width} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferWidth}</li>
+ * <li>{@code height} <b>must</b> be greater than 0.</li>
  * <li>{@code height} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferHeight}</li>
+ * <li>{@code layers} <b>must</b> be greater than 0.</li>
  * <li>{@code layers} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferLayers}</li>
  * <li>Any given element of {@code pAttachments} that is a 2D or 2D array image view taken from a 3D image <b>must</b> not be a depth/stencil format</li>
  * </ul>
