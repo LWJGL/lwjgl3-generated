@@ -261,6 +261,8 @@ public class GL33 {
 	// --- [ glIsSampler ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsSampler.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a sampler object.
 	 *
 	 * @param sampler a value that may be the name of a sampler object
@@ -270,6 +272,8 @@ public class GL33 {
 	// --- [ glBindSampler ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindSampler.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a named sampler to a texturing target.
 	 *
 	 * @param unit    the index of the texture unit to which the sampler is bound
@@ -280,6 +284,8 @@ public class GL33 {
 	// --- [ glSamplerParameteri ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Set the integer value of a sampler parameter.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
@@ -291,6 +297,8 @@ public class GL33 {
 	// --- [ glSamplerParameterf ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterf.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
@@ -538,6 +546,8 @@ public class GL33 {
 	// --- [ glQueryCounter ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glQueryCounter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
 	 * @param id     the name of a query object into which to record the GL time
@@ -626,6 +636,8 @@ public class GL33 {
 	// --- [ glVertexAttribDivisor ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribDivisor.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
 	 * @param index   the index of the generic vertex attribute
@@ -636,6 +648,8 @@ public class GL33 {
 	// --- [ glVertexP2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glVertex2f Vertex2f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -646,6 +660,8 @@ public class GL33 {
 	// --- [ glVertexP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glVertex3f Vertex3f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -656,6 +672,8 @@ public class GL33 {
 	// --- [ glVertexP4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glVertex4f Vertex4f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -723,6 +741,8 @@ public class GL33 {
 	// --- [ glTexCoordP1ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glTexCoord1f TexCoord1f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -733,6 +753,8 @@ public class GL33 {
 	// --- [ glTexCoordP2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glTexCoord2f TexCoord2f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -743,6 +765,8 @@ public class GL33 {
 	// --- [ glTexCoordP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glTexCoord3f TexCoord3f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -753,6 +777,8 @@ public class GL33 {
 	// --- [ glTexCoordP4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glTexCoord4f TexCoord4f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -839,6 +865,8 @@ public class GL33 {
 	// --- [ glMultiTexCoordP1ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -850,6 +878,8 @@ public class GL33 {
 	// --- [ glMultiTexCoordP2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -861,6 +891,8 @@ public class GL33 {
 	// --- [ glMultiTexCoordP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -872,6 +904,8 @@ public class GL33 {
 	// --- [ glMultiTexCoordP4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -963,6 +997,8 @@ public class GL33 {
 	// --- [ glNormalP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glNormal3f Normal3f}.
 	 *
 	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -992,6 +1028,8 @@ public class GL33 {
 	// --- [ glColorP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glColor3f Color3f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -1002,6 +1040,8 @@ public class GL33 {
 	// --- [ glColorP4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL11#glColor4f Color4f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -1050,6 +1090,8 @@ public class GL33 {
 	// --- [ glSecondaryColorP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Packed component version of {@link GL14#glSecondaryColor3f SecondaryColor3f}.
 	 *
 	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
@@ -1079,6 +1121,8 @@ public class GL33 {
 	// --- [ glVertexAttribP1ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP1ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib1f VertexAttrib1f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1091,6 +1135,8 @@ public class GL33 {
 	// --- [ glVertexAttribP2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP2ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib2f VertexAttrib2f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1103,6 +1149,8 @@ public class GL33 {
 	// --- [ glVertexAttribP3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP3ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib3f VertexAttrib3f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified
@@ -1115,6 +1163,8 @@ public class GL33 {
 	// --- [ glVertexAttribP4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP4ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index      the index of the generic vertex attribute to be modified

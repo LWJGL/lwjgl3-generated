@@ -621,6 +621,8 @@ public class GL43 {
 	// --- [ glDispatchCompute ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDispatchCompute.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Launches one or more compute work groups.
 	 *
 	 * @param num_groups_x the number of work groups to be launched in the X dimension
@@ -662,6 +664,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glCopyImageSubData ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyImageSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Performs a raw data copy between two images.
 	 *
 	 * @param srcName   the name of a texture or renderbuffer object from which to copy
@@ -994,6 +998,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glPopDebugGroup ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPopDebugGroup.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command. {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}
 	 * and {@link #GL_DEBUG_TYPE_POP_GROUP DEBUG_TYPE_POP_GROUP} share a single namespace for message {@code id}. {@code severity} has the value {@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}. The {@code type}
@@ -1208,6 +1214,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glFramebufferParameteri ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets a named parameter of a framebuffer.
 	 *
 	 * @param target target of the operation. One of:<br><table><tr><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td></tr></table>
@@ -1301,6 +1309,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateTexSubImage ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateTexSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Invalidates a region of a texture image.
 	 *
 	 * @param texture the name of a texture object a subregion of which to invalidate
@@ -1317,6 +1327,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateTexImage ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Invalidates the entirety of a texture image.
 	 *
 	 * @param texture the name of a texture object to invalidate
@@ -1327,6 +1339,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateBufferSubData ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Invalidates a region of a buffer object's data store.
 	 *
 	 * @param buffer the name of a buffer object, a subrange of whose data store to invalidate
@@ -1338,6 +1352,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateBufferData ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Invalidates the content of a buffer object's data store.
 	 *
 	 * @param buffer the name of a buffer object whose data store to invalidate
@@ -1906,6 +1922,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glShaderStorageBlockBinding ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderStorageBlockBinding.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Changes an active shader storage block binding.
 	 *
 	 * @param program             the name of the program containing the block whose binding to change
@@ -1917,6 +1935,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTexBufferRange ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
 	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
@@ -1930,6 +1950,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTexStorage2DMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies storage for a two-dimensional multisample texture.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
@@ -1945,6 +1967,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTexStorage3DMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies storage for a two-dimensional multisample array texture.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
@@ -1961,6 +1985,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTextureView ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureView.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Initializes a texture as a data alias of another texture's data store.
 	 *
 	 * @param texture        the texture object to be initialized as a view
@@ -1977,6 +2003,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glBindVertexBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a buffer to a vertex buffer bind point.
 	 *
 	 * @param bindingindex the index of the vertex buffer binding point to which to bind the buffer
@@ -1989,6 +2017,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribFormat ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the organization of data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
@@ -2003,6 +2033,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribIFormat ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the organization of pure integer data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
@@ -2015,6 +2047,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribLFormat ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribLFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the organization of 64-bit double data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
@@ -2027,6 +2061,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribBinding ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribBinding.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Associate a vertex attribute and a vertex buffer binding.
 	 *
 	 * @param attribindex  the index of the attribute to associate with a vertex buffer binding
@@ -2037,6 +2073,8 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexBindingDivisor ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexBindingDivisor.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
 	 * @param bindingindex the index of the generic vertex attribute

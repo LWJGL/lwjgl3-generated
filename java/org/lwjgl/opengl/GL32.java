@@ -524,6 +524,8 @@ public class GL32 {
 	// --- [ glProvokingVertex ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProvokingVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
 	 *
 	 * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
@@ -533,6 +535,8 @@ public class GL32 {
 	// --- [ glTexImage2DMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
@@ -549,6 +553,8 @@ public class GL32 {
 	// --- [ glTexImage3DMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
 	 *
 	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
@@ -605,6 +611,8 @@ public class GL32 {
 	// --- [ glSampleMaski ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleMaski.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets the value of a sub-word of the sample mask.
 	 *
 	 * @param index which 32-bit sub-word of the sample mask to update
@@ -615,6 +623,8 @@ public class GL32 {
 	// --- [ glFramebufferTexture ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a level of a texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -627,6 +637,8 @@ public class GL32 {
 	// --- [ glFenceSync ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFenceSync.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
 	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<br><table><tr><td>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}</td></tr></table>

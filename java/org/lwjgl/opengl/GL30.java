@@ -586,6 +586,8 @@ public class GL30 {
 	// --- [ glClearBufferfi ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferfi.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
 	 *
 	 * @param buffer     the buffer to clear. Must be:<br><table><tr><td>{@link #GL_DEPTH_STENCIL DEPTH_STENCIL}</td></tr></table>
@@ -598,6 +600,8 @@ public class GL30 {
 	// --- [ glVertexAttribI1i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -608,6 +612,8 @@ public class GL30 {
 	// --- [ glVertexAttribI2i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -619,6 +625,8 @@ public class GL30 {
 	// --- [ glVertexAttribI3i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -631,6 +639,8 @@ public class GL30 {
 	// --- [ glVertexAttribI4i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a pure integer generic vertex attribute.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -644,6 +654,8 @@ public class GL30 {
 	// --- [ glVertexAttribI1ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -654,6 +666,8 @@ public class GL30 {
 	// --- [ glVertexAttribI2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -665,6 +679,8 @@ public class GL30 {
 	// --- [ glVertexAttribI3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -677,6 +693,8 @@ public class GL30 {
 	// --- [ glVertexAttribI4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
@@ -1069,6 +1087,8 @@ public class GL30 {
 	// --- [ glUniform1ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uint uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1079,6 +1099,8 @@ public class GL30 {
 	// --- [ glUniform2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uvec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1090,6 +1112,8 @@ public class GL30 {
 	// --- [ glUniform3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uvec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1102,6 +1126,8 @@ public class GL30 {
 	// --- [ glUniform4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4ui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uvec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1314,6 +1340,8 @@ public class GL30 {
 	// --- [ glBeginConditionalRender ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Starts conditional rendering.
 	 *
 	 * @param id   the name of an occlusion query object whose results are used to determine if the rendering commands are discarded
@@ -1323,7 +1351,11 @@ public class GL30 {
 
 	// --- [ glEndConditionalRender ] ---
 
-	/** Ends conditional rendering. */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Ends conditional rendering.
+	 */
 	public static native void glEndConditionalRender();
 
 	// --- [ glMapBufferRange ] ---
@@ -1378,6 +1410,8 @@ public class GL30 {
 	// --- [ glFlushMappedBufferRange ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Indicates modifications to a range of a mapped buffer.
 	 *
 	 * @param target the target of the flush operation. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
@@ -1389,6 +1423,8 @@ public class GL30 {
 	// --- [ glClampColor ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClampColor.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Controls color clamping.
 	 *
 	 * @param target target for color clamping. One of:<br><table><tr><td>{@link #GL_CLAMP_VERTEX_COLOR CLAMP_VERTEX_COLOR}</td><td>{@link #GL_CLAMP_FRAGMENT_COLOR CLAMP_FRAGMENT_COLOR}</td><td>{@link #GL_CLAMP_READ_COLOR CLAMP_READ_COLOR}</td></tr></table>
@@ -1399,6 +1435,8 @@ public class GL30 {
 	// --- [ glIsRenderbuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a renderbuffer object.
 	 *
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
@@ -1408,6 +1446,8 @@ public class GL30 {
 	// --- [ glBindRenderbuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a renderbuffer to a renderbuffer target.
 	 *
 	 * @param target       the renderbuffer target of the binding operation. Must be:<br><table><tr><td>{@link #GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
@@ -1489,6 +1529,8 @@ public class GL30 {
 	// --- [ glRenderbufferStorage ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
 	 *
 	 * @param target         the target of the allocation. Must be:<br><table><tr><td>{@link #GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
@@ -1501,6 +1543,8 @@ public class GL30 {
 	// --- [ glRenderbufferStorageMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
 	 * 
 	 * <p>{@link #glRenderbufferStorage RenderbufferStorage} is equivalent to calling this method with the samples set to zero.</p>
@@ -1555,6 +1599,8 @@ public class GL30 {
 	// --- [ glIsFramebuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a framebuffer object.
 	 *
 	 * @param framebuffer a value that may be the name of a framebuffer object
@@ -1564,6 +1610,8 @@ public class GL30 {
 	// --- [ glBindFramebuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a framebuffer to a framebuffer target.
 	 *
 	 * @param target      the framebuffer target of the binding operation. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1645,6 +1693,8 @@ public class GL30 {
 	// --- [ glCheckFramebufferStatus ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCheckFramebufferStatus.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Checks the completeness status of a framebuffer.
 	 *
 	 * @param target the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1654,6 +1704,8 @@ public class GL30 {
 	// --- [ glFramebufferTexture1D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a level of a 1D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1667,6 +1719,8 @@ public class GL30 {
 	// --- [ glFramebufferTexture2D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a level of a 2D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1680,6 +1734,8 @@ public class GL30 {
 	// --- [ glFramebufferTexture3D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a layer of a 3D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1694,6 +1750,8 @@ public class GL30 {
 	// --- [ glFramebufferTextureLayer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a single layer of a texture to a framebuffer
 	 *
 	 * @param target     the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1707,6 +1765,8 @@ public class GL30 {
 	// --- [ glFramebufferRenderbuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a renderbuffer as a logical buffer to the currently bound framebuffer object.
 	 *
 	 * @param target             the framebuffer target. One of:<br><table><tr><td>{@link #GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
@@ -1760,6 +1820,8 @@ public class GL30 {
 	// --- [ glBlitFramebuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlitFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Copies a block of pixels from the read framebuffer to the draw framebuffer.
 	 *
 	 * @param srcX0  the lower-left coordinate of the source rectangle within the read buffer
@@ -1778,6 +1840,8 @@ public class GL30 {
 	// --- [ glGenerateMipmap ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenerateMipmap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Generate mipmaps for a specified texture target.
 	 *
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link #GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link #GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr></table>
@@ -1941,6 +2005,8 @@ public class GL30 {
 	// --- [ glColorMaski ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorMaski.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Enables and disables writing of frame buffer color components.
 	 *
 	 * @param buf the index of the draw buffer whose color mask to set
@@ -2032,6 +2098,8 @@ public class GL30 {
 	// --- [ glEnablei ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnablei.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Enables an indexed capability.
 	 *
 	 * @param cap   the indexed capability to enable
@@ -2042,6 +2110,8 @@ public class GL30 {
 	// --- [ glDisablei ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDisablei.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Disables an indexed capability.
 	 *
 	 * @param target the indexed capability to disable
@@ -2052,6 +2122,8 @@ public class GL30 {
 	// --- [ glIsEnabledi ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabledi.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Tests whether an indexed capability is enabled.
 	 *
 	 * @param target the indexed capability to query
@@ -2062,6 +2134,8 @@ public class GL30 {
 	// --- [ glBindBufferRange ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
 	 * @param target the target of the bind operation. One of:<br><table><tr><td>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td></tr></table>
@@ -2075,6 +2149,8 @@ public class GL30 {
 	// --- [ glBindBufferBase ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferBase.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a buffer object to an indexed buffer target.
 	 *
 	 * @param target the target of the bind operation. One of:<br><table><tr><td>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td></tr></table>
@@ -2086,6 +2162,8 @@ public class GL30 {
 	// --- [ glBeginTransformFeedback ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Starts transform feedback operation.
 	 *
 	 * @param primitiveMode the output type of the primitives that will be recorded into the buffer objects that are bound for transform feedback. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td></tr></table>
@@ -2094,7 +2172,11 @@ public class GL30 {
 
 	// --- [ glEndTransformFeedback ] ---
 
-	/** Ends transform feedback operation. */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Ends transform feedback operation.
+	 */
 	public static native void glEndTransformFeedback();
 
 	// --- [ glTransformFeedbackVaryings ] ---
@@ -2232,6 +2314,8 @@ public class GL30 {
 	// --- [ glBindVertexArray ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexArray.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a vertex array object
 	 *
 	 * @param array the name of the vertex array to bind
@@ -2312,6 +2396,8 @@ public class GL30 {
 	// --- [ glIsVertexArray ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsVertexArray.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a vertex array object.
 	 *
 	 * @param array a value that may be the name of a vertex array object

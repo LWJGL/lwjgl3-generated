@@ -411,6 +411,8 @@ public class GL12 {
 	// --- [ glCopyTexSubImage3D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Respecifies a rectangular subregion of a slice of an existing 3D texel array. No change is made to the {@code internalformat}, {@code width},
 	 * {@code height}, or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
 	 * {@link GL11#glCopyTexImage2D CopyTexImage2D} for more details.

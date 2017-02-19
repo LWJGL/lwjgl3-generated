@@ -202,12 +202,18 @@ public class GL20 {
 
 	// --- [ glCreateProgram ] ---
 
-	/** Creates a program object. */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Creates a program object.
+	 */
 	public static native int glCreateProgram();
 
 	// --- [ glDeleteProgram ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Deletes a program object.
 	 *
 	 * @param program the program object to be deleted
@@ -217,6 +223,8 @@ public class GL20 {
 	// --- [ glIsProgram ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Returns {@link GL11#GL_TRUE TRUE} if {@code program} is the name of a program object. If {@code program} is zero, or a non-zero value that is not the name of a program
 	 * object, IsProgram returns {@link GL11#GL_FALSE FALSE}. No error is generated if program is not a valid program object name.
 	 *
@@ -227,6 +235,8 @@ public class GL20 {
 	// --- [ glCreateShader ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Creates a shader object.
 	 *
 	 * @param type the type of shader to be created. One of:<br><table><tr><td>{@link #GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link #GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
@@ -236,6 +246,8 @@ public class GL20 {
 	// --- [ glDeleteShader ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Deletes a shader object.
 	 *
 	 * @param shader the shader object to be deleted
@@ -245,6 +257,8 @@ public class GL20 {
 	// --- [ glIsShader ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Returns {@link GL11#GL_TRUE TRUE} if {@code shader} is the name of a shader object. If {@code shader} is zero, or a nonzero value that is not the name of a shader
 	 * object, IsShader returns {@link GL11#GL_FALSE FALSE}. No error is generated if shader is not a valid shader object name.
 	 *
@@ -255,6 +269,8 @@ public class GL20 {
 	// --- [ glAttachShader ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glAttachShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches a shader object to a program object.
 	 * 
 	 * <p>In order to create a complete shader program, there must be a way to specify the list of things that will be linked together. Program objects provide
@@ -276,6 +292,8 @@ public class GL20 {
 	// --- [ glDetachShader ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDetachShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Detaches a shader object from a program object to which it is attached.
 	 *
 	 * @param program the program object from which to detach the shader object
@@ -362,6 +380,8 @@ public class GL20 {
 	// --- [ glCompileShader ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompileShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Compiles a shader object.
 	 *
 	 * @param shader the shader object to be compiled
@@ -371,6 +391,8 @@ public class GL20 {
 	// --- [ glLinkProgram ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLinkProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Links a program object.
 	 *
 	 * @param program the program object to be linked
@@ -380,6 +402,8 @@ public class GL20 {
 	// --- [ glUseProgram ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Installs a program object as part of current rendering state.
 	 *
 	 * @param program the program object whose executables are to be used as part of current rendering state
@@ -389,6 +413,8 @@ public class GL20 {
 	// --- [ glValidateProgram ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Validates a program object.
 	 *
 	 * @param program the program object to be validated
@@ -398,6 +424,8 @@ public class GL20 {
 	// --- [ glUniform1f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a float uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -408,6 +436,8 @@ public class GL20 {
 	// --- [ glUniform2f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a vec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -419,6 +449,8 @@ public class GL20 {
 	// --- [ glUniform3f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a vec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -431,6 +463,8 @@ public class GL20 {
 	// --- [ glUniform4f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a vec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -444,6 +478,8 @@ public class GL20 {
 	// --- [ glUniform1i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an int uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -454,6 +490,8 @@ public class GL20 {
 	// --- [ glUniform2i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an ivec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -465,6 +503,8 @@ public class GL20 {
 	// --- [ glUniform3i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an ivec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -477,6 +517,8 @@ public class GL20 {
 	// --- [ glUniform4i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an ivec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -1180,6 +1222,8 @@ public class GL20 {
 	// --- [ glVertexAttrib1f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0f and w to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1190,6 +1234,8 @@ public class GL20 {
 	// --- [ glVertexAttrib1s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1s.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Short version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1200,6 +1246,8 @@ public class GL20 {
 	// --- [ glVertexAttrib1d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Double version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1210,6 +1258,8 @@ public class GL20 {
 	// --- [ glVertexAttrib2f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0f and w to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1221,6 +1271,8 @@ public class GL20 {
 	// --- [ glVertexAttrib2s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2s.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Short version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1232,6 +1284,8 @@ public class GL20 {
 	// --- [ glVertexAttrib2d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Double version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1243,6 +1297,8 @@ public class GL20 {
 	// --- [ glVertexAttrib3f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0f.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1255,6 +1311,8 @@ public class GL20 {
 	// --- [ glVertexAttrib3s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3s.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Short version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1267,6 +1325,8 @@ public class GL20 {
 	// --- [ glVertexAttrib3d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Double version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1279,6 +1339,8 @@ public class GL20 {
 	// --- [ glVertexAttrib4f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4f.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1292,6 +1354,8 @@ public class GL20 {
 	// --- [ glVertexAttrib4s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4s.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Short version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1305,6 +1369,8 @@ public class GL20 {
 	// --- [ glVertexAttrib4d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Double version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1318,6 +1384,8 @@ public class GL20 {
 	// --- [ glVertexAttrib4Nub ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Normalized unsigned byte version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1863,6 +1931,8 @@ public class GL20 {
 	// --- [ glEnableVertexAttribArray ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Enables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be enabled
@@ -1872,6 +1942,8 @@ public class GL20 {
 	// --- [ glDisableVertexAttribArray ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Disables a generic vertex attribute array.
 	 *
 	 * @param index the index of the generic vertex attribute to be disabled
@@ -2182,6 +2254,8 @@ public class GL20 {
 	// --- [ glBlendEquationSeparate ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets the RGB blend equation and the alpha blend equation separately.
 	 *
 	 * @param modeRGB   the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
@@ -2192,6 +2266,8 @@ public class GL20 {
 	// --- [ glStencilOpSeparate ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilOpSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets front and/or back stencil test actions.
 	 *
 	 * @param face   whether front and/or back stencil state is updated. One of:<br><table><tr><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
@@ -2205,6 +2281,8 @@ public class GL20 {
 	// --- [ glStencilFuncSeparate ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets front and/or back function and reference value for stencil testing.
 	 *
 	 * @param face whether front and/or back stencil state is updated. One of:<br><table><tr><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>
@@ -2218,6 +2296,8 @@ public class GL20 {
 	// --- [ glStencilMaskSeparate ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilMaskSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Controls the front and/or back writing of individual bits in the stencil planes.
 	 *
 	 * @param face whether front and/or back stencil writemask is updated. One of:<br><table><tr><td>{@link GL11#GL_FRONT FRONT}</td><td>{@link GL11#GL_BACK BACK}</td><td>{@link GL11#GL_FRONT_AND_BACK FRONT_AND_BACK}</td></tr></table>

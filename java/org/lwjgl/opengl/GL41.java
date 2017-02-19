@@ -129,7 +129,11 @@ public class GL41 {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
-	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReleaseShaderCompiler.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler.
+	 */
 	public static native void glReleaseShaderCompiler();
 
 	// --- [ glShaderBinary ] ---
@@ -203,6 +207,8 @@ public class GL41 {
 	// --- [ glDepthRangef ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/DepthRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates
 	 *
 	 * @param zNear the mapping of the near clipping plane to window coordinates. The initial value is 0.0f.
@@ -213,6 +219,8 @@ public class GL41 {
 	// --- [ glClearDepthf ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearDepthf.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the clear value for the depth buffer
 	 *
 	 * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
@@ -271,6 +279,8 @@ public class GL41 {
 	// --- [ glProgramParameteri ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the integer value of a program object parameter.
 	 *
 	 * @param program the name of a program object whose parameter to modify
@@ -282,6 +292,8 @@ public class GL41 {
 	// --- [ glUseProgramStages ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgramStages.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds stages of a program object to a program pipeline.
 	 *
 	 * @param pipeline the program pipeline object to which to bind stages from {@code program}
@@ -293,6 +305,8 @@ public class GL41 {
 	// --- [ glActiveShaderProgram ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveShaderProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets the active program object for a program pipeline object.
 	 *
 	 * @param pipeline the program pipeline object to set the active program object for
@@ -441,6 +455,8 @@ if (shader) {
 	// --- [ glBindProgramPipeline ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a program pipeline to the current context.
 	 *
 	 * @param pipeline the name of the pipeline object to bind to the context
@@ -521,6 +537,8 @@ if (shader) {
 	// --- [ glIsProgramPipeline ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a program pipeline object.
 	 *
 	 * @param pipeline a value that may be the name of a program pipeline object
@@ -569,6 +587,8 @@ if (shader) {
 	// --- [ glProgramUniform1i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an int uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -580,6 +600,8 @@ if (shader) {
 	// --- [ glProgramUniform2i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an ivec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -592,6 +614,8 @@ if (shader) {
 	// --- [ glProgramUniform3i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an ivec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -605,6 +629,8 @@ if (shader) {
 	// --- [ glProgramUniform4i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of an ivec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -619,6 +645,8 @@ if (shader) {
 	// --- [ glProgramUniform1ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uint uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -630,6 +658,8 @@ if (shader) {
 	// --- [ glProgramUniform2ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uvec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -642,6 +672,8 @@ if (shader) {
 	// --- [ glProgramUniform3ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uvec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -655,6 +687,8 @@ if (shader) {
 	// --- [ glProgramUniform4ui ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a uvec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -669,6 +703,8 @@ if (shader) {
 	// --- [ glProgramUniform1f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a float uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -680,6 +716,8 @@ if (shader) {
 	// --- [ glProgramUniform2f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a vec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -692,6 +730,8 @@ if (shader) {
 	// --- [ glProgramUniform3f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a vec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -705,6 +745,8 @@ if (shader) {
 	// --- [ glProgramUniform4f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a vec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -719,6 +761,8 @@ if (shader) {
 	// --- [ glProgramUniform1d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a double uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -730,6 +774,8 @@ if (shader) {
 	// --- [ glProgramUniform2d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec2 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -742,6 +788,8 @@ if (shader) {
 	// --- [ glProgramUniform3d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec3 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -755,6 +803,8 @@ if (shader) {
 	// --- [ glProgramUniform4d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec4 uniform variable for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
@@ -1535,6 +1585,8 @@ if (shader) {
 	// --- [ glValidateProgramPipeline ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgramPipeline.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Validates a program pipeline object against current GL state.
 	 *
 	 * @param pipeline the name of a program pipeline object to validate
@@ -1600,6 +1652,8 @@ if (shader) {
 	// --- [ glVertexAttribL1d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1610,6 +1664,8 @@ if (shader) {
 	// --- [ glVertexAttribL2d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1621,6 +1677,8 @@ if (shader) {
 	// --- [ glVertexAttribL3d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1633,6 +1691,8 @@ if (shader) {
 	// --- [ glVertexAttribL4d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a generic vertex attribute.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
@@ -1822,6 +1882,8 @@ if (shader) {
 	// --- [ glViewportIndexedf ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewportIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets a specified viewport.
 	 *
 	 * @param index the viewport to set
@@ -1875,6 +1937,8 @@ if (shader) {
 	// --- [ glScissorIndexed ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissorIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Defines the scissor box for a specific viewport.
 	 *
 	 * @param index  the index of the viewport whose scissor box to modify
@@ -1928,6 +1992,8 @@ if (shader) {
 	// --- [ glDepthRangeIndexed ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthRangeIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified viewport.
 	 *
 	 * @param index the index of the viewport whose depth range to update

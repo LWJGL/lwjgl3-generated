@@ -131,6 +131,8 @@ public class GL45 {
 	// --- [ glClipControl ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClipControl.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Controls the clipping volume behavior.
 	 * 
 	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link GL20#GL_LOWER_LEFT LOWER_LEFT} and the
@@ -183,6 +185,8 @@ public class GL45 {
 	// --- [ glTransformFeedbackBufferBase ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackBufferBase.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a buffer object to a transform feedback object.
 	 *
 	 * @param xfb    zero or the name of an existing transform feedback object
@@ -194,6 +198,8 @@ public class GL45 {
 	// --- [ glTransformFeedbackBufferRange ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a region of a buffer object to a transform feedback object.
 	 *
 	 * @param xfb    zero or the name of an existing transform feedback object
@@ -829,6 +835,8 @@ public class GL45 {
 	// --- [ glCopyNamedBufferSubData ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 *
 	 * @param readBuffer  the source buffer object name
@@ -1076,6 +1084,8 @@ public class GL45 {
 	// --- [ glUnmapNamedBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUnmapNamedBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL15#glUnmapBuffer UnmapBuffer}.
 	 *
 	 * @param buffer the buffer object name
@@ -1085,6 +1095,8 @@ public class GL45 {
 	// --- [ glFlushMappedNamedBufferRange ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedNamedBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glFlushMappedBufferRange FlushMappedBufferRange}.
 	 *
 	 * @param buffer the buffer object name
@@ -1323,6 +1335,8 @@ public class GL45 {
 	// --- [ glNamedFramebufferRenderbuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glFramebufferRenderbuffer FramebufferRenderbuffer}.
 	 *
 	 * @param framebuffer        the framebuffer name
@@ -1335,6 +1349,8 @@ public class GL45 {
 	// --- [ glNamedFramebufferParameteri ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glFramebufferParameteri FramebufferParameteri}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1346,6 +1362,8 @@ public class GL45 {
 	// --- [ glNamedFramebufferTexture ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferTexture.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL32#glFramebufferTexture FramebufferTexture}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1358,6 +1376,8 @@ public class GL45 {
 	// --- [ glNamedFramebufferTextureLayer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1371,6 +1391,8 @@ public class GL45 {
 	// --- [ glNamedFramebufferDrawBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL11#glDrawBuffer DrawBuffer}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1419,6 +1441,8 @@ public class GL45 {
 	// --- [ glNamedFramebufferReadBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferReadBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL11#glReadBuffer ReadBuffer}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1578,6 +1602,8 @@ public class GL45 {
 	// --- [ glClearNamedFramebufferfi ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebufferfi.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glClearBufferfi ClearBufferfi}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1591,6 +1617,8 @@ public class GL45 {
 	// --- [ glBlitNamedFramebuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlitNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glBlitFramebuffer BlitFramebuffer}.
 	 *
 	 * @param readFramebuffer the source framebuffer name
@@ -1611,6 +1639,8 @@ public class GL45 {
 	// --- [ glCheckNamedFramebufferStatus ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCheckNamedFramebufferStatus.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glCheckFramebufferStatus CheckFramebufferStatus}.
 	 *
 	 * @param framebuffer the framebuffer name
@@ -1737,6 +1767,8 @@ public class GL45 {
 	// --- [ glNamedRenderbufferStorage ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glRenderbufferStorage RenderbufferStorage}.
 	 *
 	 * @param renderbuffer   
@@ -1749,6 +1781,8 @@ public class GL45 {
 	// --- [ glNamedRenderbufferStorageMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glRenderbufferStorageMultisample RenderbufferStorageMultisample}.
 	 *
 	 * @param renderbuffer   
@@ -1840,6 +1874,8 @@ public class GL45 {
 	// --- [ glTextureBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL31#glTexBuffer TexBuffer}.
 	 *
 	 * @param texture        the texture name
@@ -1851,6 +1887,8 @@ public class GL45 {
 	// --- [ glTextureBufferRange ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glTexBufferRange TexBufferRange}.
 	 *
 	 * @param texture        the texture name
@@ -1864,6 +1902,8 @@ public class GL45 {
 	// --- [ glTextureStorage1D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL42#glTexStorage1D TexStorage1D}.
 	 *
 	 * @param texture        the texture name
@@ -1876,6 +1916,8 @@ public class GL45 {
 	// --- [ glTextureStorage2D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL42#glTexStorage2D TexStorage2D}.
 	 *
 	 * @param texture        the texture name
@@ -1889,6 +1931,8 @@ public class GL45 {
 	// --- [ glTextureStorage3D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL42#glTexStorage3D TexStorage3D}.
 	 *
 	 * @param texture        the texture name
@@ -1903,6 +1947,8 @@ public class GL45 {
 	// --- [ glTextureStorage2DMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glTexStorage2DMultisample TexStorage2DMultisample}.
 	 *
 	 * @param texture              the texture name
@@ -1918,6 +1964,8 @@ public class GL45 {
 	// --- [ glTextureStorage3DMultisample ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glTexStorage3DMultisample TexStorage3DMultisample}.
 	 *
 	 * @param texture              the texture name
@@ -2429,6 +2477,8 @@ public class GL45 {
 	// --- [ glCopyTextureSubImage1D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL11#glCopyTexSubImage1D CopyTexSubImage1D}.
 	 *
 	 * @param texture the texture name
@@ -2443,6 +2493,8 @@ public class GL45 {
 	// --- [ glCopyTextureSubImage2D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL11#glCopyTexSubImage2D CopyTexSubImage2D}.
 	 *
 	 * @param texture the texture name
@@ -2459,6 +2511,8 @@ public class GL45 {
 	// --- [ glCopyTextureSubImage3D ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL12#glCopyTexSubImage3D CopyTexSubImage3D}.
 	 *
 	 * @param texture the texture name
@@ -2476,6 +2530,8 @@ public class GL45 {
 	// --- [ glTextureParameterf ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterf.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL11#glTexParameterf TexParameterf}.
 	 *
 	 * @param texture the texture name
@@ -2507,6 +2563,8 @@ public class GL45 {
 	// --- [ glTextureParameteri ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL11#glTexParameteri TexParameteri}.
 	 *
 	 * @param texture the texture name
@@ -2614,6 +2672,8 @@ public class GL45 {
 	// --- [ glGenerateTextureMipmap ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenerateTextureMipmap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL30#glGenerateMipmap GenerateMipmap}.
 	 *
 	 * @param texture the texture name
@@ -2623,6 +2683,8 @@ public class GL45 {
 	// --- [ glBindTextureUnit ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTextureUnit.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds an existing texture object to the texture unit numbered {@code unit}.
 	 * 
 	 * <p>{@code texture} must be zero or the name of an existing texture object. When {@code texture} is the name of an existing texture object, that object is
@@ -3050,6 +3112,8 @@ public class GL45 {
 	// --- [ glDisableVertexArrayAttrib ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDisableVertexArrayAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL20#glDisableVertexAttribArray DisableVertexAttribArray}.
 	 *
 	 * @param vaobj the vertex array object name
@@ -3060,6 +3124,8 @@ public class GL45 {
 	// --- [ glEnableVertexArrayAttrib ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexArrayAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL20#glEnableVertexAttribArray EnableVertexAttribArray}.
 	 *
 	 * @param vaobj the vertex array object name
@@ -3070,6 +3136,8 @@ public class GL45 {
 	// --- [ glVertexArrayElementBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayElementBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a buffer object to the element array buffer bind point of a vertex array object.
 	 *
 	 * @param vaobj  the vertex array object name
@@ -3080,6 +3148,8 @@ public class GL45 {
 	// --- [ glVertexArrayVertexBuffer ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayVertexBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glBindVertexBuffer BindVertexBuffer}.
 	 *
 	 * @param vaobj        the vertex array object name
@@ -3121,6 +3191,8 @@ public class GL45 {
 	// --- [ glVertexArrayAttribFormat ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glVertexAttribFormat VertexAttribFormat}.
 	 *
 	 * @param vaobj          the vertex array object name
@@ -3136,6 +3208,8 @@ public class GL45 {
 	// --- [ glVertexArrayAttribIFormat ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribIFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glVertexAttribIFormat VertexAttribIFormat}.
 	 *
 	 * @param vaobj          the vertex array object name
@@ -3149,6 +3223,8 @@ public class GL45 {
 	// --- [ glVertexArrayAttribLFormat ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribLFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glVertexAttribLFormat VertexAttribLFormat}.
 	 *
 	 * @param vaobj          the vertex array object name
@@ -3162,6 +3238,8 @@ public class GL45 {
 	// --- [ glVertexArrayAttribBinding ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribBinding.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glVertexAttribBinding VertexAttribBinding}.
 	 *
 	 * @param vaobj        the vertex array object name
@@ -3173,6 +3251,8 @@ public class GL45 {
 	// --- [ glVertexArrayBindingDivisor ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayBindingDivisor.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * DSA version of {@link GL43#glVertexBindingDivisor VertexBindingDivisor}.
 	 *
 	 * @param vaobj        the vertex array object name
@@ -3416,6 +3496,8 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjectiv ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectiv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries the state of a query object.
 	 *
 	 * @param id     the name of a query object
@@ -3428,6 +3510,8 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjectuiv ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectuiv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Unsigned version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
 	 * @param id     the name of a query object
@@ -3440,6 +3524,8 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjecti64v ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjecti64v.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * 64bit version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
 	 * @param id     the name of a query object
@@ -3452,6 +3538,8 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjectui64v ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectui64v.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * 64bit version of {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
 	 *
 	 * @param id     the name of a query object
@@ -3464,6 +3552,8 @@ public class GL45 {
 	// --- [ glMemoryBarrierByRegion ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrierByRegion.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Behaves like {@link GL42#glMemoryBarrier MemoryBarrier}, with two differences:
 	 * 
 	 * <p>First, it narrows the region under consideration so that only reads/writes of prior fragment shaders that are invoked for a smaller region of the
@@ -3744,12 +3834,18 @@ public class GL45 {
 
 	// --- [ glTextureBarrier ] ---
 
-	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBarrier.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed.
+	 */
 	public static native void glTextureBarrier();
 
 	// --- [ glGetGraphicsResetStatus ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetGraphicsResetStatus.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * 
 	 * <ul>

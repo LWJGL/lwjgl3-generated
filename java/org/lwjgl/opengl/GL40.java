@@ -212,6 +212,8 @@ public class GL40 {
 	// --- [ glBlendEquationi ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the specified draw buffer.
 	 *
 	 * @param buf  the index of the draw buffer for which to set the blend equation
@@ -222,6 +224,8 @@ public class GL40 {
 	// --- [ glBlendEquationSeparatei ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets the RGB blend equation and the alpha blend equation separately for the specified draw buffer.
 	 *
 	 * @param buf       the index of the draw buffer for which to set the blend equations
@@ -233,6 +237,8 @@ public class GL40 {
 	// --- [ glBlendFunci ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies pixel arithmetic for the specified draw buffer.
 	 *
 	 * @param buf     the index of the draw buffer for which to set the blend function
@@ -244,6 +250,8 @@ public class GL40 {
 	// --- [ glBlendFuncSeparatei ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies pixel arithmetic for RGB and alpha components separately for the specified draw buffer.
 	 *
 	 * @param buf      the index of the draw buffer for which to set the blend functions
@@ -479,6 +487,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform1d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -489,6 +499,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform2d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -500,6 +512,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform3d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -512,6 +526,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform4d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -846,6 +862,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glMinSampleShading ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the minimum rate at which sample shading takes place.
 	 *
 	 * @param value the rate at which samples are shaded within each covered pixel
@@ -1216,6 +1234,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glPatchParameteri ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
 	 * @param pname the name of the parameter to set. Must be:<br><table><tr><td>{@link #GL_PATCH_VERTICES PATCH_VERTICES}</td></tr></table>
@@ -1246,6 +1266,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glBindTransformFeedback ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a transform feedback object.
 	 *
 	 * @param target the target to which to bind the transform feedback object {@code id}. Must be:<br><table><tr><td>{@link #GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
@@ -1327,6 +1349,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glIsTransformFeedback ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a transform feedback object.
 	 *
 	 * @param id a value that may be the name of a transform feedback object
@@ -1336,6 +1360,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glPauseTransformFeedback ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPauseTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Pauses transform feedback operations for the currently bound transform feedback object.
 	 * 
 	 * <p>When transform feedback operations are paused, transform feedback is still considered active and changing most transform feedback state related to the
@@ -1353,6 +1379,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glResumeTransformFeedback ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glResumeTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Resumes transform feedback operations for the currently bound transform feedback object.
 	 * 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated by {@link #glResumeTransformFeedback ResumeTransformFeedback} if the currently bound transform feedback is not active or is not paused.</p>
@@ -1362,6 +1390,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glDrawTransformFeedback ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Render primitives using a count derived from a transform feedback object.
 	 *
 	 * @param mode what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
@@ -1372,6 +1402,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glDrawTransformFeedbackStream ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
 	 * @param mode   what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
@@ -1383,6 +1415,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glBeginQueryIndexed ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Begins a query object on an indexed target
 	 *
 	 * @param target the target type of query object established between {@code glBeginQueryIndexed} and the subsequent {@link #glEndQueryIndexed EndQueryIndexed}. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
@@ -1394,6 +1428,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glEndQueryIndexed ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Ends a query object on an indexed target
 	 *
 	 * @param target the target type of query object to be concluded. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>

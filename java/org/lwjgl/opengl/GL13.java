@@ -532,6 +532,8 @@ public class GL13 {
 	// --- [ glSampleCoverage ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleCoverage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies multisample coverage parameters.
 	 * 
 	 * <p>Multisampling samples a pixel multiple times at various implementation-dependent subpixel locations to generate antialiasing effects. Multisampling
@@ -555,6 +557,8 @@ public class GL13 {
 	// --- [ glActiveTexture ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveTexture.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Selects which texture unit subsequent texture state calls will affect. The number of texture units an implementation supports is implementation
 	 * dependent.
 	 *
@@ -565,6 +569,8 @@ public class GL13 {
 	// --- [ glClientActiveTexture ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClientActiveTexture.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Selects the vertex array client state parameters to be modified by the TexCoordPointer command and the array affected by EnableClientState and
 	 * DisableClientState with parameter TEXTURE_COORD_ARRAY.
 	 *
@@ -575,6 +581,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord1f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Sets the current one-dimensional texture coordinate for the specified texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -585,6 +593,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord1s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Short version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -595,6 +605,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord1i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Integer version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -605,6 +617,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord1d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Double version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -691,6 +705,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord2f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Sets the current two-dimensional texture coordinate for the specified texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -702,6 +718,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord2s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Short version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -713,6 +731,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord2i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Integer version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -724,6 +744,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord2d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Double version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -811,6 +833,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord3f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Sets the current three-dimensional texture coordinate for the specified texture coordinate set. {@code q} is implicitly set to 1.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -823,6 +847,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord3s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Short version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -835,6 +861,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord3i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Integer version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -847,6 +875,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord3d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Double version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -935,6 +965,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord4f ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Sets the current four-dimensional texture coordinate for the specified texture coordinate set.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -948,6 +980,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord4s ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Short version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -961,6 +995,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord4i ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Integer version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
@@ -974,6 +1010,8 @@ public class GL13 {
 	// --- [ glMultiTexCoord4d ] ---
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
 	 * Double version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
 	 * @param texture the coordinate set to be modified
