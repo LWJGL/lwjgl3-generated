@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class TinyFileDialogs {
 
 	static {
-		Library.loadSystem(TinyFileDialogs.class, Platform.mapLibraryNameBundled("lwjgl_tinyfd"));
+		Library.loadSystem(System::load, System::loadLibrary, TinyFileDialogs.class, Platform.mapLibraryNameBundled("lwjgl_tinyfd"));
 		tinyfd_winUtf8().put(0, 1);
 	}
 

@@ -972,6 +972,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1focus(JNIEnv *_
 	nk_edit_focus(ctx, flags);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1unfocus(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_edit_unfocus(ctx);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1string__JIJJIJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint flags, jlong memoryAddress, jlong lenAddress, jint max, jlong filterAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	char *memory = (char *)(intptr_t)memoryAddress;

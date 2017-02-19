@@ -324,7 +324,7 @@ public class LMDB {
 	/** The last defined error code. */
 	public static final int MDB_LAST_ERRCODE = MDB_PROBLEM;
 
-	static { Library.loadSystem(LMDB.class, Platform.mapLibraryNameBundled("lwjgl_lmdb")); }
+	static { Library.loadSystem(System::load, System::loadLibrary, LMDB.class, Platform.mapLibraryNameBundled("lwjgl_lmdb")); }
 
 	protected LMDB() {
 		throw new UnsupportedOperationException();

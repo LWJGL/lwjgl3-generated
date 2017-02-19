@@ -14,7 +14,7 @@ final class LibSTB {
 
 	static {
 		String libName = Platform.mapLibraryNameBundled("lwjgl_stb");
-		Library.loadSystem(LibSTB.class, libName);
+		Library.loadSystem(System::load, System::loadLibrary, LibSTB.class, libName);
 
 		MemoryAllocator allocator = getAllocator();
 		setupMalloc(

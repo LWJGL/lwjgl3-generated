@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     YGPositionType positionType;
     YGWrap flexWrap;
     YGOverflow overflow;
+    YGDisplay display;
     float flex;
     float flexGrow;
     float flexShrink;
@@ -57,6 +58,7 @@ public class YGStyle extends Struct {
 		POSITIONTYPE,
 		FLEXWRAP,
 		OVERFLOW,
+		DISPLAY,
 		FLEX,
 		FLEXGROW,
 		FLEXSHRINK,
@@ -72,6 +74,7 @@ public class YGStyle extends Struct {
 
 	static {
 		Layout layout = __struct(
+			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -107,18 +110,19 @@ public class YGStyle extends Struct {
 		POSITIONTYPE = layout.offsetof(6);
 		FLEXWRAP = layout.offsetof(7);
 		OVERFLOW = layout.offsetof(8);
-		FLEX = layout.offsetof(9);
-		FLEXGROW = layout.offsetof(10);
-		FLEXSHRINK = layout.offsetof(11);
-		FLEXBASIS = layout.offsetof(12);
-		MARGIN = layout.offsetof(13);
-		POSITIONS = layout.offsetof(14);
-		PADDING = layout.offsetof(15);
-		BORDER = layout.offsetof(16);
-		DIMENSIONS = layout.offsetof(17);
-		MINDIMENSIONS = layout.offsetof(18);
-		MAXDIMENSIONS = layout.offsetof(19);
-		ASPECTRATIO = layout.offsetof(20);
+		DISPLAY = layout.offsetof(9);
+		FLEX = layout.offsetof(10);
+		FLEXGROW = layout.offsetof(11);
+		FLEXSHRINK = layout.offsetof(12);
+		FLEXBASIS = layout.offsetof(13);
+		MARGIN = layout.offsetof(14);
+		POSITIONS = layout.offsetof(15);
+		PADDING = layout.offsetof(16);
+		BORDER = layout.offsetof(17);
+		DIMENSIONS = layout.offsetof(18);
+		MINDIMENSIONS = layout.offsetof(19);
+		MAXDIMENSIONS = layout.offsetof(20);
+		ASPECTRATIO = layout.offsetof(21);
 	}
 
 	YGStyle(long address, ByteBuffer container) {
@@ -156,6 +160,8 @@ public class YGStyle extends Struct {
 	public int flexWrap() { return nflexWrap(address()); }
 	/** Returns the value of the {@code overflow} field. */
 	public int overflow() { return noverflow(address()); }
+	/** Returns the value of the {@code display} field. */
+	public int display() { return ndisplay(address()); }
 	/** Returns the value of the {@code flex} field. */
 	public float flex() { return nflex(address()); }
 	/** Returns the value of the {@code flexGrow} field. */
@@ -232,6 +238,8 @@ public class YGStyle extends Struct {
 	public static int nflexWrap(long struct) { return memGetInt(struct + YGStyle.FLEXWRAP); }
 	/** Unsafe version of {@link #overflow}. */
 	public static int noverflow(long struct) { return memGetInt(struct + YGStyle.OVERFLOW); }
+	/** Unsafe version of {@link #display}. */
+	public static int ndisplay(long struct) { return memGetInt(struct + YGStyle.DISPLAY); }
 	/** Unsafe version of {@link #flex}. */
 	public static float nflex(long struct) { return memGetFloat(struct + YGStyle.FLEX); }
 	/** Unsafe version of {@link #flexGrow}. */
@@ -352,6 +360,8 @@ public class YGStyle extends Struct {
 		public int flexWrap() { return YGStyle.nflexWrap(address()); }
 		/** Returns the value of the {@code overflow} field. */
 		public int overflow() { return YGStyle.noverflow(address()); }
+		/** Returns the value of the {@code display} field. */
+		public int display() { return YGStyle.ndisplay(address()); }
 		/** Returns the value of the {@code flex} field. */
 		public float flex() { return YGStyle.nflex(address()); }
 		/** Returns the value of the {@code flexGrow} field. */

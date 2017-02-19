@@ -1179,7 +1179,7 @@ public class Nuklear {
 		NK_WINDOW_MINIMIZED  = 1 << 14,
 		NK_WINDOW_REMOVE_ROM = 1 << 15;
 
-	static { Library.loadSystem(Nuklear.class, Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
+	static { Library.loadSystem(System::load, System::loadLibrary, Nuklear.class, Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
 
 	protected Nuklear() {
 		throw new UnsupportedOperationException();
@@ -4660,6 +4660,20 @@ public class Nuklear {
 	 */
 	public static void nk_edit_focus(NkContext ctx, int flags) {
 		nnk_edit_focus(ctx.address(), flags);
+	}
+
+	// --- [ nk_edit_unfocus ] ---
+
+	/** Unsafe version of: {@link #nk_edit_unfocus edit_unfocus} */
+	public static native void nnk_edit_unfocus(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static void nk_edit_unfocus(NkContext ctx) {
+		nnk_edit_unfocus(ctx.address());
 	}
 
 	// --- [ nk_edit_string ] ---

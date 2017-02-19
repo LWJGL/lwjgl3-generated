@@ -14,7 +14,7 @@ final class LibPar {
 
 	static {
 		String libName = Platform.mapLibraryNameBundled("lwjgl_par");
-		Library.loadSystem(LibPar.class, libName);
+		Library.loadSystem(System::load, System::loadLibrary, LibPar.class, libName);
 
 		MemoryAllocator allocator = getAllocator();
 		setupMalloc(

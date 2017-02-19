@@ -288,6 +288,18 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetOverflow(JNI
 	return (jint)YGNodeStyleGetOverflow(node);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetDisplay(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint display) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGNodeStyleSetDisplay(node, display);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetDisplay(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)YGNodeStyleGetDisplay(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetFlex(JNIEnv *__env, jclass clazz, jlong nodeAddress, jfloat flex) {
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -336,6 +348,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetFlexBasis(JN
 	*((YGValue*)(intptr_t)__result) = YGNodeStyleGetFlexBasis(node);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetFlexBasisAuto(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGNodeStyleSetFlexBasisAuto(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetPosition(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge, jfloat position) {
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -370,6 +388,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetMargin(JNIEn
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((YGValue*)(intptr_t)__result) = YGNodeStyleGetMargin(node, edge);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetMarginAuto(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGNodeStyleSetMarginAuto(node, edge);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetPadding(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge, jfloat padding) {
@@ -420,6 +444,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetWidth(JNIEnv
 	*((YGValue*)(intptr_t)__result) = YGNodeStyleGetWidth(node);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetWidthAuto(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGNodeStyleSetWidthAuto(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetHeight(JNIEnv *__env, jclass clazz, jlong nodeAddress, jfloat height) {
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -436,6 +466,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetHeight(JNIEn
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
 	*((YGValue*)(intptr_t)__result) = YGNodeStyleGetHeight(node);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetHeightAuto(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGNodeStyleSetHeightAuto(node);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetMinWidth(JNIEnv *__env, jclass clazz, jlong nodeAddress, jfloat minWidth) {

@@ -63,54 +63,74 @@ public class Yoga {
 	public static final float YGUndefined = Float.NaN;
 
 	/**
-	 * YGFlexDirection
+	 * YGAlign
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGFlexDirectionColumn FlexDirectionColumn}</li>
-	 * <li>{@link #YGFlexDirectionColumnReverse FlexDirectionColumnReverse}</li>
-	 * <li>{@link #YGFlexDirectionRow FlexDirectionRow}</li>
-	 * <li>{@link #YGFlexDirectionRowReverse FlexDirectionRowReverse}</li>
+	 * <li>{@link #YGAlignAuto AlignAuto}</li>
+	 * <li>{@link #YGAlignFlexStart AlignFlexStart}</li>
+	 * <li>{@link #YGAlignCenter AlignCenter}</li>
+	 * <li>{@link #YGAlignFlexEnd AlignFlexEnd}</li>
+	 * <li>{@link #YGAlignStretch AlignStretch}</li>
+	 * <li>{@link #YGAlignBaseline AlignBaseline}</li>
+	 * <li>{@link #YGAlignSpaceBetween AlignSpaceBetween}</li>
+	 * <li>{@link #YGAlignSpaceAround AlignSpaceAround}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGFlexDirectionColumn        = 0,
-		YGFlexDirectionColumnReverse = 1,
-		YGFlexDirectionRow           = 2,
-		YGFlexDirectionRowReverse    = 3;
+		YGAlignAuto         = 0,
+		YGAlignFlexStart    = 1,
+		YGAlignCenter       = 2,
+		YGAlignFlexEnd      = 3,
+		YGAlignStretch      = 4,
+		YGAlignBaseline     = 5,
+		YGAlignSpaceBetween = 6,
+		YGAlignSpaceAround  = 7;
 
 	/**
-	 * YGMeasureMode
+	 * YGDimension
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGMeasureModeUndefined MeasureModeUndefined}</li>
-	 * <li>{@link #YGMeasureModeExactly MeasureModeExactly}</li>
-	 * <li>{@link #YGMeasureModeAtMost MeasureModeAtMost}</li>
+	 * <li>{@link #YGDimensionWidth DimensionWidth}</li>
+	 * <li>{@link #YGDimensionHeight DimensionHeight}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGMeasureModeUndefined = 0,
-		YGMeasureModeExactly   = 1,
-		YGMeasureModeAtMost    = 2;
+		YGDimensionWidth  = 0,
+		YGDimensionHeight = 1;
 
 	/**
-	 * YGPrintOptions
+	 * YGDirection
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGPrintOptionsLayout PrintOptionsLayout}</li>
-	 * <li>{@link #YGPrintOptionsStyle PrintOptionsStyle}</li>
-	 * <li>{@link #YGPrintOptionsChildren PrintOptionsChildren}</li>
+	 * <li>{@link #YGDirectionInherit DirectionInherit}</li>
+	 * <li>{@link #YGDirectionLTR DirectionLTR}</li>
+	 * <li>{@link #YGDirectionRTL DirectionRTL}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGPrintOptionsLayout   = 1,
-		YGPrintOptionsStyle    = 2,
-		YGPrintOptionsChildren = 4;
+		YGDirectionInherit = 0,
+		YGDirectionLTR     = 1,
+		YGDirectionRTL     = 2;
+
+	/**
+	 * YGDisplay
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #YGDisplayFlex DisplayFlex}</li>
+	 * <li>{@link #YGDisplayNone DisplayNone}</li>
+	 * </ul>
+	 */
+	public static final int
+		YGDisplayFlex = 0,
+		YGDisplayNone = 1;
 
 	/**
 	 * YGEdge
@@ -141,32 +161,36 @@ public class Yoga {
 		YGEdgeAll        = 8;
 
 	/**
-	 * YGPositionType
+	 * YGExperimentalFeature
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGPositionTypeRelative PositionTypeRelative}</li>
-	 * <li>{@link #YGPositionTypeAbsolute PositionTypeAbsolute}</li>
+	 * <li>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</li>
+	 * <li>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGPositionTypeRelative = 0,
-		YGPositionTypeAbsolute = 1;
+		YGExperimentalFeatureRounding     = 0,
+		YGExperimentalFeatureWebFlexBasis = 1;
 
 	/**
-	 * YGDimension
+	 * YGFlexDirection
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGDimensionWidth DimensionWidth}</li>
-	 * <li>{@link #YGDimensionHeight DimensionHeight}</li>
+	 * <li>{@link #YGFlexDirectionColumn FlexDirectionColumn}</li>
+	 * <li>{@link #YGFlexDirectionColumnReverse FlexDirectionColumnReverse}</li>
+	 * <li>{@link #YGFlexDirectionRow FlexDirectionRow}</li>
+	 * <li>{@link #YGFlexDirectionRowReverse FlexDirectionRowReverse}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGDimensionWidth  = 0,
-		YGDimensionHeight = 1;
+		YGFlexDirectionColumn        = 0,
+		YGFlexDirectionColumnReverse = 1,
+		YGFlexDirectionRow           = 2,
+		YGFlexDirectionRowReverse    = 3;
 
 	/**
 	 * YGJustify
@@ -189,22 +213,6 @@ public class Yoga {
 		YGJustifySpaceAround  = 4;
 
 	/**
-	 * YGDirection
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #YGDirectionInherit DirectionInherit}</li>
-	 * <li>{@link #YGDirectionLTR DirectionLTR}</li>
-	 * <li>{@link #YGDirectionRTL DirectionRTL}</li>
-	 * </ul>
-	 */
-	public static final int
-		YGDirectionInherit = 0,
-		YGDirectionLTR     = 1,
-		YGDirectionRTL     = 2;
-
-	/**
 	 * YGLogLevel
 	 * 
 	 * <h5>Enum values:</h5>
@@ -225,18 +233,20 @@ public class Yoga {
 		YGLogLevelVerbose = 4;
 
 	/**
-	 * YGWrap
+	 * YGMeasureMode
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGWrapNoWrap WrapNoWrap}</li>
-	 * <li>{@link #YGWrapWrap WrapWrap}</li>
+	 * <li>{@link #YGMeasureModeUndefined MeasureModeUndefined}</li>
+	 * <li>{@link #YGMeasureModeExactly MeasureModeExactly}</li>
+	 * <li>{@link #YGMeasureModeAtMost MeasureModeAtMost}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGWrapNoWrap = 0,
-		YGWrapWrap   = 1;
+		YGMeasureModeUndefined = 0,
+		YGMeasureModeExactly   = 1,
+		YGMeasureModeAtMost    = 2;
 
 	/**
 	 * YGOverflow
@@ -255,40 +265,34 @@ public class Yoga {
 		YGOverflowScroll  = 2;
 
 	/**
-	 * YGExperimentalFeature
+	 * YGPositionType
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</li>
-	 * <li>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</li>
+	 * <li>{@link #YGPositionTypeRelative PositionTypeRelative}</li>
+	 * <li>{@link #YGPositionTypeAbsolute PositionTypeAbsolute}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGExperimentalFeatureRounding     = 0,
-		YGExperimentalFeatureWebFlexBasis = 1;
+		YGPositionTypeRelative = 0,
+		YGPositionTypeAbsolute = 1;
 
 	/**
-	 * YGAlign
+	 * YGPrintOptions
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
 	 * <ul>
-	 * <li>{@link #YGAlignAuto AlignAuto}</li>
-	 * <li>{@link #YGAlignFlexStart AlignFlexStart}</li>
-	 * <li>{@link #YGAlignCenter AlignCenter}</li>
-	 * <li>{@link #YGAlignFlexEnd AlignFlexEnd}</li>
-	 * <li>{@link #YGAlignStretch AlignStretch}</li>
-	 * <li>{@link #YGAlignBaseline AlignBaseline}</li>
+	 * <li>{@link #YGPrintOptionsLayout PrintOptionsLayout}</li>
+	 * <li>{@link #YGPrintOptionsStyle PrintOptionsStyle}</li>
+	 * <li>{@link #YGPrintOptionsChildren PrintOptionsChildren}</li>
 	 * </ul>
 	 */
 	public static final int
-		YGAlignAuto      = 0,
-		YGAlignFlexStart = 1,
-		YGAlignCenter    = 2,
-		YGAlignFlexEnd   = 3,
-		YGAlignStretch   = 4,
-		YGAlignBaseline  = 5;
+		YGPrintOptionsLayout   = 1,
+		YGPrintOptionsStyle    = 2,
+		YGPrintOptionsChildren = 4;
 
 	/**
 	 * YGUnit
@@ -297,16 +301,34 @@ public class Yoga {
 	 * 
 	 * <ul>
 	 * <li>{@link #YGUnitUndefined UnitUndefined}</li>
-	 * <li>{@link #YGUnitPixel UnitPixel}</li>
+	 * <li>{@link #YGUnitPoint UnitPoint}</li>
 	 * <li>{@link #YGUnitPercent UnitPercent}</li>
+	 * <li>{@link #YGUnitAuto UnitAuto}</li>
 	 * </ul>
 	 */
 	public static final int
 		YGUnitUndefined = 0,
-		YGUnitPixel     = 1,
-		YGUnitPercent   = 2;
+		YGUnitPoint     = 1,
+		YGUnitPercent   = 2,
+		YGUnitAuto      = 3;
 
-	static { Library.loadSystem(Yoga.class, Platform.mapLibraryNameBundled("lwjgl_yoga")); }
+	/**
+	 * YGWrap
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #YGWrapNoWrap WrapNoWrap}</li>
+	 * <li>{@link #YGWrapWrap WrapWrap}</li>
+	 * <li>{@link #YGWrapReverse WrapReverse}</li>
+	 * </ul>
+	 */
+	public static final int
+		YGWrapNoWrap  = 0,
+		YGWrapWrap    = 1,
+		YGWrapReverse = 2;
+
+	static { Library.loadSystem(System::load, System::loadLibrary, Yoga.class, Platform.mapLibraryNameBundled("lwjgl_yoga")); }
 
 	protected Yoga() {
 		throw new UnsupportedOperationException();
@@ -697,7 +719,7 @@ public class Yoga {
 	 * 
 	 *
 	 * @param node         
-	 * @param alignContent one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr></table>
+	 * @param alignContent one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
 	 */
 	public static void YGNodeStyleSetAlignContent(long node, int alignContent) {
 		if ( CHECKS )
@@ -724,7 +746,7 @@ public class Yoga {
 	 * 
 	 *
 	 * @param node       
-	 * @param alignItems one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr></table>
+	 * @param alignItems one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
 	 */
 	public static void YGNodeStyleSetAlignItems(long node, int alignItems) {
 		if ( CHECKS )
@@ -751,7 +773,7 @@ public class Yoga {
 	 * 
 	 *
 	 * @param node      
-	 * @param alignSelf one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr></table>
+	 * @param alignSelf one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
 	 */
 	public static void YGNodeStyleSetAlignSelf(long node, int alignSelf) {
 		if ( CHECKS )
@@ -805,7 +827,7 @@ public class Yoga {
 	 * 
 	 *
 	 * @param node     
-	 * @param flexWrap one of:<br><table><tr><td>{@link #YGWrapNoWrap WrapNoWrap}</td><td>{@link #YGWrapWrap WrapWrap}</td></tr></table>
+	 * @param flexWrap one of:<br><table><tr><td>{@link #YGWrapNoWrap WrapNoWrap}</td><td>{@link #YGWrapWrap WrapWrap}</td><td>{@link #YGWrapReverse WrapReverse}</td></tr></table>
 	 */
 	public static void YGNodeStyleSetFlexWrap(long node, int flexWrap) {
 		if ( CHECKS )
@@ -848,6 +870,33 @@ public class Yoga {
 		if ( CHECKS )
 			check(node);
 		return nYGNodeStyleGetOverflow(node);
+	}
+
+	// --- [ YGNodeStyleSetDisplay ] ---
+
+	/** Unsafe version of: {@link #YGNodeStyleSetDisplay NodeStyleSetDisplay} */
+	public static native void nYGNodeStyleSetDisplay(long node, int display);
+
+	/**
+	 * 
+	 *
+	 * @param node    
+	 * @param display one of:<br><table><tr><td>{@link #YGDisplayFlex DisplayFlex}</td><td>{@link #YGDisplayNone DisplayNone}</td></tr></table>
+	 */
+	public static void YGNodeStyleSetDisplay(long node, int display) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleSetDisplay(node, display);
+	}
+
+	// --- [ YGNodeStyleGetDisplay ] ---
+
+	public static native int nYGNodeStyleGetDisplay(long node);
+
+	public static int YGNodeStyleGetDisplay(long node) {
+		if ( CHECKS )
+			check(node);
+		return nYGNodeStyleGetDisplay(node);
 	}
 
 	// --- [ YGNodeStyleSetFlex ] ---
@@ -929,6 +978,16 @@ public class Yoga {
 			check(node);
 		nYGNodeStyleGetFlexBasis(node, __result.address());
 		return __result;
+	}
+
+	// --- [ YGNodeStyleSetFlexBasisAuto ] ---
+
+	public static native void nYGNodeStyleSetFlexBasisAuto(long node);
+
+	public static void YGNodeStyleSetFlexBasisAuto(long node) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleSetFlexBasisAuto(node);
 	}
 
 	// --- [ YGNodeStyleSetPosition ] ---
@@ -1037,6 +1096,23 @@ public class Yoga {
 			check(node);
 		nYGNodeStyleGetMargin(node, edge, __result.address());
 		return __result;
+	}
+
+	// --- [ YGNodeStyleSetMarginAuto ] ---
+
+	/** Unsafe version of: {@link #YGNodeStyleSetMarginAuto NodeStyleSetMarginAuto} */
+	public static native void nYGNodeStyleSetMarginAuto(long node, int edge);
+
+	/**
+	 * 
+	 *
+	 * @param node 
+	 * @param edge one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
+	 */
+	public static void YGNodeStyleSetMarginAuto(long node, int edge) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleSetMarginAuto(node, edge);
 	}
 
 	// --- [ YGNodeStyleSetPadding ] ---
@@ -1159,6 +1235,16 @@ public class Yoga {
 		return __result;
 	}
 
+	// --- [ YGNodeStyleSetWidthAuto ] ---
+
+	public static native void nYGNodeStyleSetWidthAuto(long node);
+
+	public static void YGNodeStyleSetWidthAuto(long node) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleSetWidthAuto(node);
+	}
+
 	// --- [ YGNodeStyleSetHeight ] ---
 
 	public static native void nYGNodeStyleSetHeight(long node, float height);
@@ -1188,6 +1274,16 @@ public class Yoga {
 			check(node);
 		nYGNodeStyleGetHeight(node, __result.address());
 		return __result;
+	}
+
+	// --- [ YGNodeStyleSetHeightAuto ] ---
+
+	public static native void nYGNodeStyleSetHeightAuto(long node);
+
+	public static void YGNodeStyleSetHeightAuto(long node) {
+		if ( CHECKS )
+			check(node);
+		nYGNodeStyleSetHeightAuto(node);
 	}
 
 	// --- [ YGNodeStyleSetMinWidth ] ---
@@ -1445,7 +1541,7 @@ public class Yoga {
 	public static native float nYGNodeLayoutGetMargin(long node, int edge);
 
 	/**
-	 * Gets the computed value for this nodes after performing layout. If they were set using pixel values then the returned value will be the same as
+	 * Gets the computed value for this nodes after performing layout. If they were set using point values then the returned value will be the same as
 	 * {@code YGNodeStyleGetXXX}. However if they were set using a percentage value then the returned value is the computed value used during layout.
 	 *
 	 * @param node 
@@ -1463,7 +1559,7 @@ public class Yoga {
 	public static native float nYGNodeLayoutGetBorder(long node, int edge);
 
 	/**
-	 * Gets the computed value for this nodes after performing layout. If they were set using pixel values then the returned value will be the same as
+	 * Gets the computed value for this nodes after performing layout. If they were set using point values then the returned value will be the same as
 	 * {@code YGNodeStyleGetXXX}. However if they were set using a percentage value then the returned value is the computed value used during layout.
 	 *
 	 * @param node 
@@ -1481,7 +1577,7 @@ public class Yoga {
 	public static native float nYGNodeLayoutGetPadding(long node, int edge);
 
 	/**
-	 * Gets the computed value for this nodes after performing layout. If they were set using pixel values then the returned value will be the same as
+	 * Gets the computed value for this nodes after performing layout. If they were set using point values then the returned value will be the same as
 	 * {@code YGNodeStyleGetXXX}. However if they were set using a percentage value then the returned value is the computed value used during layout.
 	 *
 	 * @param node 
