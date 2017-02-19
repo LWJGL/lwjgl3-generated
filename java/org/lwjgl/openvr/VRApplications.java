@@ -579,7 +579,7 @@ public class VRApplications {
 	 * Returns a bool value for an application property. Returns false in all error cases.
 	 *
 	 * @param pchAppKey 
-	 * @param eProperty one of:<br><table><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool}</td></tr></table>
+	 * @param eProperty one of:<br><table><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsInternal_Bool}</td></tr></table>
 	 * @param peError   
 	 */
 	public static boolean VRApplications_GetApplicationPropertyBool(ByteBuffer pchAppKey, int eProperty, IntBuffer peError) {
@@ -594,7 +594,7 @@ public class VRApplications {
 	 * Returns a bool value for an application property. Returns false in all error cases.
 	 *
 	 * @param pchAppKey 
-	 * @param eProperty one of:<br><table><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool}</td></tr></table>
+	 * @param eProperty one of:<br><table><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool}</td></tr><tr><td>{@link VR#EVRApplicationProperty_VRApplicationProperty_IsInternal_Bool}</td></tr></table>
 	 * @param peError   
 	 */
 	public static boolean VRApplications_GetApplicationPropertyBool(CharSequence pchAppKey, int eProperty, IntBuffer peError) {
@@ -1105,6 +1105,20 @@ public class VRApplications {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	// --- [ VRApplications_GetCurrentSceneProcessId ] ---
+
+	/**
+	 * Returns the current scene process ID according to the application system. A scene process will get scene focus once it starts rendering, but it will
+	 * appear here once it calls {@code VR_Init} with the Scene application.
+		* type.
+	 */
+	public static int VRApplications_GetCurrentSceneProcessId() {
+		long __functionAddress = OpenVR.VRApplications.GetCurrentSceneProcessId;
+		if ( CHECKS )
+			check(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 }

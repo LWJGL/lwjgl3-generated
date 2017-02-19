@@ -36,7 +36,7 @@ public final class OpenVR {
 
 	static {
 		String libName = Platform.mapLibraryNameBundled("lwjgl_openvr");
-		Library.loadSystem(OpenVR.class, libName);
+		Library.loadSystem(System::load, System::loadLibrary, OpenVR.class, libName);
 	}
 
 	private OpenVR() {
@@ -231,10 +231,11 @@ public final class OpenVR {
 			PerformApplicationPrelaunchCheck,
 			GetApplicationsTransitionStateNameFromEnum,
 			IsQuitUserPromptRequested,
-			LaunchInternalProcess;
+			LaunchInternalProcess,
+			GetCurrentSceneProcessId;
 
 		public IVRApplications(long tableAddress) {
-			PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 30);
+			PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 31);
 			AddApplicationManifest = table.get(0);
 			RemoveApplicationManifest = table.get(1);
 			IsApplicationInstalled = table.get(2);
@@ -265,6 +266,7 @@ public final class OpenVR {
 			GetApplicationsTransitionStateNameFromEnum = table.get(27);
 			IsQuitUserPromptRequested = table.get(28);
 			LaunchInternalProcess = table.get(29);
+			GetCurrentSceneProcessId = table.get(30);
 		}
 
 	}
@@ -382,6 +384,7 @@ public final class OpenVR {
 			ForceReconnectProcess,
 			SuspendRendering,
 			GetMirrorTextureD3D11,
+			ReleaseMirrorTextureD3D11,
 			GetMirrorTextureGL,
 			ReleaseSharedGLTexture,
 			LockGLSharedTextureForAccess,
@@ -390,7 +393,7 @@ public final class OpenVR {
 			GetVulkanDeviceExtensionsRequired;
 
 		public IVRCompositor(long tableAddress) {
-			PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 40);
+			PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 41);
 			SetTrackingSpace = table.get(0);
 			GetTrackingSpace = table.get(1);
 			WaitGetPoses = table.get(2);
@@ -425,12 +428,13 @@ public final class OpenVR {
 			ForceReconnectProcess = table.get(31);
 			SuspendRendering = table.get(32);
 			GetMirrorTextureD3D11 = table.get(33);
-			GetMirrorTextureGL = table.get(34);
-			ReleaseSharedGLTexture = table.get(35);
-			LockGLSharedTextureForAccess = table.get(36);
-			UnlockGLSharedTextureForAccess = table.get(37);
-			GetVulkanInstanceExtensionsRequired = table.get(38);
-			GetVulkanDeviceExtensionsRequired = table.get(39);
+			ReleaseMirrorTextureD3D11 = table.get(34);
+			GetMirrorTextureGL = table.get(35);
+			ReleaseSharedGLTexture = table.get(36);
+			LockGLSharedTextureForAccess = table.get(37);
+			UnlockGLSharedTextureForAccess = table.get(38);
+			GetVulkanInstanceExtensionsRequired = table.get(39);
+			GetVulkanDeviceExtensionsRequired = table.get(40);
 		}
 
 	}

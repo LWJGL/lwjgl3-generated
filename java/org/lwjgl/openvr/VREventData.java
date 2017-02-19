@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VREventApplicationLaunch VREvent_ApplicationLaunch_t} applicationLaunch;
     {@link VREventEditingCameraSurface VREvent_EditingCameraSurface_t} cameraSurface;
     {@link VREventMessageOverlay VREvent_MessageOverlay_t} messageOverlay;
+    {@link VREventProperty VREvent_Property_t} property;
 }</code></pre>
  */
 public class VREventData extends Struct implements NativeResource {
@@ -65,7 +66,8 @@ public class VREventData extends Struct implements NativeResource {
 		SCREENSHOTPROGRESS,
 		APPLICATIONLAUNCH,
 		CAMERASURFACE,
-		MESSAGEOVERLAY;
+		MESSAGEOVERLAY,
+		PROPERTY;
 
 	static {
 		Layout layout = __union(
@@ -87,7 +89,8 @@ public class VREventData extends Struct implements NativeResource {
 			__member(VREventScreenshotProgress.SIZEOF, VREventScreenshotProgress.ALIGNOF),
 			__member(VREventApplicationLaunch.SIZEOF, VREventApplicationLaunch.ALIGNOF),
 			__member(VREventEditingCameraSurface.SIZEOF, VREventEditingCameraSurface.ALIGNOF),
-			__member(VREventMessageOverlay.SIZEOF, VREventMessageOverlay.ALIGNOF)
+			__member(VREventMessageOverlay.SIZEOF, VREventMessageOverlay.ALIGNOF),
+			__member(VREventProperty.SIZEOF, VREventProperty.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
@@ -112,6 +115,7 @@ public class VREventData extends Struct implements NativeResource {
 		APPLICATIONLAUNCH = layout.offsetof(16);
 		CAMERASURFACE = layout.offsetof(17);
 		MESSAGEOVERLAY = layout.offsetof(18);
+		PROPERTY = layout.offsetof(19);
 	}
 
 	VREventData(long address, ByteBuffer container) {
@@ -169,6 +173,8 @@ public class VREventData extends Struct implements NativeResource {
 	public VREventEditingCameraSurface cameraSurface() { return ncameraSurface(address()); }
 	/** Returns a {@link VREventMessageOverlay} view of the {@code messageOverlay} field. */
 	public VREventMessageOverlay messageOverlay() { return nmessageOverlay(address()); }
+	/** Returns a {@link VREventProperty} view of the {@code property} field. */
+	public VREventProperty property() { return nproperty(address()); }
 
 	/** Copies the specified {@link VREventReserved} to the {@code reserved} field. */
 	public VREventData reserved(VREventReserved value) { nreserved(address(), value); return this; }
@@ -208,6 +214,8 @@ public class VREventData extends Struct implements NativeResource {
 	public VREventData cameraSurface(VREventEditingCameraSurface value) { ncameraSurface(address(), value); return this; }
 	/** Copies the specified {@link VREventMessageOverlay} to the {@code messageOverlay} field. */
 	public VREventData messageOverlay(VREventMessageOverlay value) { nmessageOverlay(address(), value); return this; }
+	/** Copies the specified {@link VREventProperty} to the {@code property} field. */
+	public VREventData property(VREventProperty value) { nproperty(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(VREventData) set}. */
 	public VREventData nset(long struct) {
@@ -393,6 +401,8 @@ public class VREventData extends Struct implements NativeResource {
 	public static VREventEditingCameraSurface ncameraSurface(long struct) { return VREventEditingCameraSurface.create(struct + VREventData.CAMERASURFACE); }
 	/** Unsafe version of {@link #messageOverlay}. */
 	public static VREventMessageOverlay nmessageOverlay(long struct) { return VREventMessageOverlay.create(struct + VREventData.MESSAGEOVERLAY); }
+	/** Unsafe version of {@link #property}. */
+	public static VREventProperty nproperty(long struct) { return VREventProperty.create(struct + VREventData.PROPERTY); }
 
 	/** Unsafe version of {@link #reserved(VREventReserved) reserved}. */
 	public static void nreserved(long struct, VREventReserved value) { memCopy(value.address(), struct + VREventData.RESERVED, VREventReserved.SIZEOF); }
@@ -432,6 +442,8 @@ public class VREventData extends Struct implements NativeResource {
 	public static void ncameraSurface(long struct, VREventEditingCameraSurface value) { memCopy(value.address(), struct + VREventData.CAMERASURFACE, VREventEditingCameraSurface.SIZEOF); }
 	/** Unsafe version of {@link #messageOverlay(VREventMessageOverlay) messageOverlay}. */
 	public static void nmessageOverlay(long struct, VREventMessageOverlay value) { memCopy(value.address(), struct + VREventData.MESSAGEOVERLAY, VREventMessageOverlay.SIZEOF); }
+	/** Unsafe version of {@link #property(VREventProperty) property}. */
+	public static void nproperty(long struct, VREventProperty value) { memCopy(value.address(), struct + VREventData.PROPERTY, VREventProperty.SIZEOF); }
 
 	// -----------------------------------
 
@@ -513,6 +525,8 @@ public class VREventData extends Struct implements NativeResource {
 		public VREventEditingCameraSurface cameraSurface() { return VREventData.ncameraSurface(address()); }
 		/** Returns a {@link VREventMessageOverlay} view of the {@code messageOverlay} field. */
 		public VREventMessageOverlay messageOverlay() { return VREventData.nmessageOverlay(address()); }
+		/** Returns a {@link VREventProperty} view of the {@code property} field. */
+		public VREventProperty property() { return VREventData.nproperty(address()); }
 
 		/** Copies the specified {@link VREventReserved} to the {@code reserved} field. */
 		public VREventData.Buffer reserved(VREventReserved value) { VREventData.nreserved(address(), value); return this; }
@@ -552,6 +566,8 @@ public class VREventData extends Struct implements NativeResource {
 		public VREventData.Buffer cameraSurface(VREventEditingCameraSurface value) { VREventData.ncameraSurface(address(), value); return this; }
 		/** Copies the specified {@link VREventMessageOverlay} to the {@code messageOverlay} field. */
 		public VREventData.Buffer messageOverlay(VREventMessageOverlay value) { VREventData.nmessageOverlay(address(), value); return this; }
+		/** Copies the specified {@link VREventProperty} to the {@code property} field. */
+		public VREventData.Buffer property(VREventProperty value) { VREventData.nproperty(address(), value); return this; }
 
 	}
 

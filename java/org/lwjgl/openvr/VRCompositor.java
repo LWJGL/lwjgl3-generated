@@ -553,6 +553,8 @@ public class VRCompositor {
 
 	/**
 	 * Opens a shared D3D11 texture with the undistorted composited image for each eye.
+	 * 
+	 * <p>Use {@link #VRCompositor_ReleaseMirrorTextureD3D11 ReleaseMirrorTextureD3D11} when finished instead of calling Release on the resource itself.</p>
 	 *
 	 * @param eEye                      
 	 * @param pD3D11DeviceOrResource    
@@ -562,6 +564,22 @@ public class VRCompositor {
 		if ( CHECKS )
 			check(ppD3D11ShaderResourceView, 1);
 		return nVRCompositor_GetMirrorTextureD3D11(eEye, pD3D11DeviceOrResource, memAddress(ppD3D11ShaderResourceView));
+	}
+
+	// --- [ VRCompositor_ReleaseMirrorTextureD3D11 ] ---
+
+	/**
+	 * Releases a shared D3D11 texture.
+	 *
+	 * @param pD3D11ShaderResourceView 
+	 */
+	public static void VRCompositor_ReleaseMirrorTextureD3D11(long pD3D11ShaderResourceView) {
+		long __functionAddress = OpenVR.VRCompositor.ReleaseMirrorTextureD3D11;
+		if ( CHECKS ) {
+			check(__functionAddress);
+			check(pD3D11ShaderResourceView);
+		}
+		callPV(__functionAddress, pD3D11ShaderResourceView);
 	}
 
 	// --- [ VRCompositor_GetMirrorTextureGL ] ---

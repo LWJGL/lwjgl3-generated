@@ -24,13 +24,31 @@ public class VR {
 
 	/** OpenVR constants. */
 	public static final int
-		k_unMaxDriverDebugResponseSize = 32768,
-		k_unTrackedDeviceIndex_Hmd     = 0,
-		k_unMaxTrackedDeviceCount      = 16,
-		k_unTrackedDeviceIndexOther    = 0xFFFFFFFE,
-		k_unTrackedDeviceIndexInvalid  = 0xFFFFFFFF,
-		k_unScreenshotHandleInvalid    = 0,
-		k_unNotificationTextMaxSize    = 256;
+		k_unMaxDriverDebugResponseSize   = 32768,
+		k_unTrackedDeviceIndex_Hmd       = 0,
+		k_unMaxTrackedDeviceCount        = 16,
+		k_unTrackedDeviceIndexOther      = 0xFFFFFFFE,
+		k_unTrackedDeviceIndexInvalid    = 0xFFFFFFFF,
+		k_unInvalidPropertyTag           = 0,
+		k_unFloatPropertyTag             = 1,
+		k_unInt32PropertyTag             = 2,
+		k_unUint64PropertyTag            = 3,
+		k_unBoolPropertyTag              = 4,
+		k_unStringPropertyTag            = 5,
+		k_unHmdMatrix34PropertyTag       = 20,
+		k_unHmdMatrix44PropertyTag       = 21,
+		k_unHmdVector3PropertyTag        = 22,
+		k_unHmdVector4PropertyTag        = 23,
+		k_unHiddenAreaPropertyTag        = 30,
+		k_unOpenVRInternalReserved_Start = 1000,
+		k_unOpenVRInternalReserved_End   = 10000,
+		k_unScreenshotHandleInvalid      = 0,
+		k_unNotificationTextMaxSize      = 256;
+
+	/** OpenVR constants. */
+	public static final long
+		k_ulInvalidPropertyContainer = 0L,
+		k_ulOverlayHandleInvalid     = 0L;
 
 	/** No string property will ever be longer than this length. */
 	public static final int k_unMaxPropertyStringSize = 32768;
@@ -57,9 +75,6 @@ public class VR {
 	public static final int k_unMaxSettingsKeyLength = 128;
 
 	/** OpenVR constants. */
-	public static final long k_ulOverlayHandleInvalid = 0L;
-
-	/** OpenVR constants. */
 	public static final String
 		IVRSystem_Version                                   = "IVRSystem_015",
 		IVRExtendedDisplay_Version                          = "IVRExtendedDisplay_001",
@@ -69,7 +84,7 @@ public class VR {
 		IVRApplications_Version                             = "IVRApplications_006",
 		IVRChaperone_Version                                = "IVRChaperone_003",
 		IVRChaperoneSetup_Version                           = "IVRChaperoneSetup_005",
-		IVRCompositor_Version                               = "IVRCompositor_019",
+		IVRCompositor_Version                               = "IVRCompositor_020",
 		IVROverlay_Version                                  = "IVROverlay_014",
 		k_pch_Controller_Component_GDC2015                  = "gdc2015",
 		k_pch_Controller_Component_Base                     = "base",
@@ -130,7 +145,6 @@ public class VR {
 		k_pch_Lighthouse_PrimaryBasestation_Int32           = "primarybasestation",
 		k_pch_Lighthouse_DBHistory_Bool                     = "dbhistory",
 		k_pch_Null_Section                                  = "driver_null",
-		k_pch_Null_EnableNullDriver_Bool                    = "enable",
 		k_pch_Null_SerialNumber_String                      = "serialNumber",
 		k_pch_Null_ModelNumber_String                       = "modelNumber",
 		k_pch_Null_WindowX_Int32                            = "windowX",
@@ -200,6 +214,7 @@ public class VR {
 		k_pch_Dashboard_EnableDashboard_Bool                = "enableDashboard",
 		k_pch_Dashboard_ArcadeMode_Bool                     = "arcadeMode",
 		k_pch_modelskin_Section                             = "modelskins",
+		k_pch_Driver_Enable_Bool                            = "enable",
 		IVRScreenshots_Version                              = "IVRScreenshots_001",
 		IVRResources_Version                                = "IVRResources_001";
 
@@ -225,13 +240,17 @@ public class VR {
 	 * <ul>
 	 * <li>{@link #ETextureType_TextureType_DirectX ETextureType_TextureType_DirectX} - Handle is an ID3D11Texture.</li>
 	 * <li>{@link #ETextureType_TextureType_OpenGL ETextureType_TextureType_OpenGL} - Handle is an OpenGL texture name or an OpenGL render buffer name, depending on submit flags.</li>
-	 * <li>{@link #ETextureType_TextureType_Vulkan ETextureType_TextureType_Vulkan} - Handle is a pointer to a VRVulkanTextureData_t structure.</li>
+	 * <li>{@link #ETextureType_TextureType_Vulkan ETextureType_TextureType_Vulkan} - Handle is a pointer to a {@code VRVulkanTextureData_t} structure.</li>
+	 * <li>{@link #ETextureType_TextureType_IOSurface ETextureType_TextureType_IOSurface} - Handle is a macOS cross-process-sharable IOSurface.</li>
+	 * <li>{@link #ETextureType_TextureType_DirectX12 ETextureType_TextureType_DirectX12} - Handle is a pointer to a {@code D3D12TextureData_t} structure.</li>
 	 * </ul>
 	 */
 	public static final int
-		ETextureType_TextureType_DirectX = 0,
-		ETextureType_TextureType_OpenGL  = 1,
-		ETextureType_TextureType_Vulkan  = 2;
+		ETextureType_TextureType_DirectX   = 0,
+		ETextureType_TextureType_OpenGL    = 1,
+		ETextureType_TextureType_Vulkan    = 2,
+		ETextureType_TextureType_IOSurface = 3,
+		ETextureType_TextureType_DirectX12 = 4;
 
 	/**
 	 * EColorSpace
@@ -366,6 +385,7 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DriverVersion_String ETrackedDeviceProperty_Prop_DriverVersion_String}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_ParentDriver_Uint64 ETrackedDeviceProperty_Prop_ParentDriver_Uint64}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayFrequency_Float ETrackedDeviceProperty_Prop_DisplayFrequency_Float}</li>
@@ -404,6 +424,11 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceProperty_Prop_ScreenshotVerticalFieldOfViewDegrees_Float ETrackedDeviceProperty_Prop_ScreenshotVerticalFieldOfViewDegrees_Float}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplaySuppressed_Bool ETrackedDeviceProperty_Prop_DisplaySuppressed_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayAllowNightMode_Bool ETrackedDeviceProperty_Prop_DisplayAllowNightMode_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageWidth_Int32 ETrackedDeviceProperty_Prop_DisplayMCImageWidth_Int32}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32 ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32 ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_UsesDriverDirectMode_Bool ETrackedDeviceProperty_Prop_UsesDriverDirectMode_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_AttachedDeviceId_String ETrackedDeviceProperty_Prop_AttachedDeviceId_String}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_SupportedButtons_Uint64 ETrackedDeviceProperty_Prop_SupportedButtons_Uint64}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_Axis0Type_Int32 ETrackedDeviceProperty_Prop_Axis0Type_Int32}</li>
@@ -428,6 +453,10 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathDeviceNotReady_String ETrackedDeviceProperty_Prop_NamedIconPathDeviceNotReady_String} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathDeviceStandby_String ETrackedDeviceProperty_Prop_NamedIconPathDeviceStandby_String} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_UserConfigPath_String ETrackedDeviceProperty_Prop_UserConfigPath_String}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_InstallPath_String ETrackedDeviceProperty_Prop_InstallPath_String}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
 	 * </ul>
@@ -468,6 +497,7 @@ public class VR {
 		ETrackedDeviceProperty_Prop_DriverVersion_String                         = 1031,
 		ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool            = 1032,
 		ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool             = 1033,
+		ETrackedDeviceProperty_Prop_ParentDriver_Uint64                          = 1034,
 		ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool                   = 2000,
 		ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float              = 2001,
 		ETrackedDeviceProperty_Prop_DisplayFrequency_Float                       = 2002,
@@ -506,6 +536,11 @@ public class VR {
 		ETrackedDeviceProperty_Prop_ScreenshotVerticalFieldOfViewDegrees_Float   = 2035,
 		ETrackedDeviceProperty_Prop_DisplaySuppressed_Bool                       = 2036,
 		ETrackedDeviceProperty_Prop_DisplayAllowNightMode_Bool                   = 2037,
+		ETrackedDeviceProperty_Prop_DisplayMCImageWidth_Int32                    = 2038,
+		ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32                   = 2039,
+		ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32              = 2040,
+		ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary                    = 2041,
+		ETrackedDeviceProperty_Prop_UsesDriverDirectMode_Bool                    = 2042,
 		ETrackedDeviceProperty_Prop_AttachedDeviceId_String                      = 3000,
 		ETrackedDeviceProperty_Prop_SupportedButtons_Uint64                      = 3001,
 		ETrackedDeviceProperty_Prop_Axis0Type_Int32                              = 3002,
@@ -530,6 +565,10 @@ public class VR {
 		ETrackedDeviceProperty_Prop_NamedIconPathDeviceNotReady_String           = 5006,
 		ETrackedDeviceProperty_Prop_NamedIconPathDeviceStandby_String            = 5007,
 		ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String           = 5008,
+		ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start               = 5100,
+		ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End                 = 5150,
+		ETrackedDeviceProperty_Prop_UserConfigPath_String                        = 6000,
+		ETrackedDeviceProperty_Prop_InstallPath_String                           = 6001,
 		ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start                = 10000,
 		ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End                  = 10999;
 
@@ -543,13 +582,14 @@ public class VR {
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_WrongDataType ETrackedPropertyError_TrackedProp_WrongDataType}</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_WrongDeviceClass ETrackedPropertyError_TrackedProp_WrongDeviceClass}</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_BufferTooSmall ETrackedPropertyError_TrackedProp_BufferTooSmall}</li>
-	 * <li>{@link #ETrackedPropertyError_TrackedProp_UnknownProperty ETrackedPropertyError_TrackedProp_UnknownProperty}</li>
+	 * <li>{@link #ETrackedPropertyError_TrackedProp_UnknownProperty ETrackedPropertyError_TrackedProp_UnknownProperty} - Driver has not set the property (and may not ever).</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_InvalidDevice ETrackedPropertyError_TrackedProp_InvalidDevice}</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_CouldNotContactServer ETrackedPropertyError_TrackedProp_CouldNotContactServer}</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_ValueNotProvidedByDevice ETrackedPropertyError_TrackedProp_ValueNotProvidedByDevice}</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_StringExceedsMaximumLength ETrackedPropertyError_TrackedProp_StringExceedsMaximumLength}</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_NotYetAvailable ETrackedPropertyError_TrackedProp_NotYetAvailable} - The property value isn't known yet, but is expected soon. Call again later.</li>
 	 * <li>{@link #ETrackedPropertyError_TrackedProp_PermissionDenied ETrackedPropertyError_TrackedProp_PermissionDenied}</li>
+	 * <li>{@link #ETrackedPropertyError_TrackedProp_InvalidOperation ETrackedPropertyError_TrackedProp_InvalidOperation}</li>
 	 * </ul>
 	 */
 	public static final int
@@ -563,7 +603,8 @@ public class VR {
 		ETrackedPropertyError_TrackedProp_ValueNotProvidedByDevice   = 7,
 		ETrackedPropertyError_TrackedProp_StringExceedsMaximumLength = 8,
 		ETrackedPropertyError_TrackedProp_NotYetAvailable            = 9,
-		ETrackedPropertyError_TrackedProp_PermissionDenied           = 10;
+		ETrackedPropertyError_TrackedProp_PermissionDenied           = 10,
+		ETrackedPropertyError_TrackedProp_InvalidOperation           = 11;
 
 	/**
 	 * {@code EVRSubmitFlags}: Allows the application to control how scene textures are used by the compositor when calling {@link VRCompositor#VRCompositor_Submit Submit}.
@@ -633,6 +674,7 @@ public class VR {
 	 * <li>{@link #EVREventType_VREvent_TrackedDeviceRoleChanged EVREventType_VREvent_TrackedDeviceRoleChanged}</li>
 	 * <li>{@link #EVREventType_VREvent_WatchdogWakeUpRequested EVREventType_VREvent_WatchdogWakeUpRequested}</li>
 	 * <li>{@link #EVREventType_VREvent_LensDistortionChanged EVREventType_VREvent_LensDistortionChanged}</li>
+	 * <li>{@link #EVREventType_VREvent_PropertyChanged EVREventType_VREvent_PropertyChanged}</li>
 	 * <li>{@link #EVREventType_VREvent_ButtonPress EVREventType_VREvent_ButtonPress} - data is controller</li>
 	 * <li>{@link #EVREventType_VREvent_ButtonUnpress EVREventType_VREvent_ButtonUnpress} - data is controller</li>
 	 * <li>{@link #EVREventType_VREvent_ButtonTouch EVREventType_VREvent_ButtonTouch} - data is controller</li>
@@ -679,6 +721,7 @@ public class VR {
 	 * <li>{@link #EVREventType_VREvent_ScreenshotFailed EVREventType_VREvent_ScreenshotFailed} - Sent by compositor to the application that the screenshot failed to be taken</li>
 	 * <li>{@link #EVREventType_VREvent_SubmitScreenshotToDashboard EVREventType_VREvent_SubmitScreenshotToDashboard} - Sent by compositor to the dashboard that a completed screenshot was submitted</li>
 	 * <li>{@link #EVREventType_VREvent_ScreenshotProgressToDashboard EVREventType_VREvent_ScreenshotProgressToDashboard} - Sent by compositor to the dashboard that a completed screenshot was submitted</li>
+	 * <li>{@link #EVREventType_VREvent_PrimaryDashboardDeviceChanged EVREventType_VREvent_PrimaryDashboardDeviceChanged}</li>
 	 * <li>{@link #EVREventType_VREvent_Notification_Shown EVREventType_VREvent_Notification_Shown}</li>
 	 * <li>{@link #EVREventType_VREvent_Notification_Hidden EVREventType_VREvent_Notification_Hidden}</li>
 	 * <li>{@link #EVREventType_VREvent_Notification_BeginInteraction EVREventType_VREvent_Notification_BeginInteraction}</li>
@@ -712,6 +755,7 @@ public class VR {
 	 * <li>{@link #EVREventType_VREvent_ApplicationTransitionNewAppStarted EVREventType_VREvent_ApplicationTransitionNewAppStarted}</li>
 	 * <li>{@link #EVREventType_VREvent_ApplicationListUpdated EVREventType_VREvent_ApplicationListUpdated}</li>
 	 * <li>{@link #EVREventType_VREvent_ApplicationMimeTypeLoad EVREventType_VREvent_ApplicationMimeTypeLoad}</li>
+	 * <li>{@link #EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete}</li>
 	 * <li>{@link #EVREventType_VREvent_Compositor_MirrorWindowShown EVREventType_VREvent_Compositor_MirrorWindowShown}</li>
 	 * <li>{@link #EVREventType_VREvent_Compositor_MirrorWindowHidden EVREventType_VREvent_Compositor_MirrorWindowHidden}</li>
 	 * <li>{@link #EVREventType_VREvent_Compositor_ChaperoneBoundsShown EVREventType_VREvent_Compositor_ChaperoneBoundsShown}</li>
@@ -742,6 +786,7 @@ public class VR {
 		EVREventType_VREvent_TrackedDeviceRoleChanged                  = 108,
 		EVREventType_VREvent_WatchdogWakeUpRequested                   = 109,
 		EVREventType_VREvent_LensDistortionChanged                     = 110,
+		EVREventType_VREvent_PropertyChanged                           = 111,
 		EVREventType_VREvent_ButtonPress                               = 200,
 		EVREventType_VREvent_ButtonUnpress                             = 201,
 		EVREventType_VREvent_ButtonTouch                               = 202,
@@ -788,6 +833,7 @@ public class VR {
 		EVREventType_VREvent_ScreenshotFailed                          = 522,
 		EVREventType_VREvent_SubmitScreenshotToDashboard               = 523,
 		EVREventType_VREvent_ScreenshotProgressToDashboard             = 524,
+		EVREventType_VREvent_PrimaryDashboardDeviceChanged             = 525,
 		EVREventType_VREvent_Notification_Shown                        = 600,
 		EVREventType_VREvent_Notification_Hidden                       = 601,
 		EVREventType_VREvent_Notification_BeginInteraction             = 602,
@@ -821,6 +867,7 @@ public class VR {
 		EVREventType_VREvent_ApplicationTransitionNewAppStarted        = 1302,
 		EVREventType_VREvent_ApplicationListUpdated                    = 1303,
 		EVREventType_VREvent_ApplicationMimeTypeLoad                   = 1304,
+		EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete = 1305,
 		EVREventType_VREvent_Compositor_MirrorWindowShown              = 1400,
 		EVREventType_VREvent_Compositor_MirrorWindowHidden             = 1401,
 		EVREventType_VREvent_Compositor_ChaperoneBoundsShown           = 1410,
@@ -928,12 +975,14 @@ public class VR {
 	 * <li>{@link #EHiddenAreaMeshType_k_eHiddenAreaMesh_Standard EHiddenAreaMeshType_k_eHiddenAreaMesh_Standard}</li>
 	 * <li>{@link #EHiddenAreaMeshType_k_eHiddenAreaMesh_Inverse EHiddenAreaMeshType_k_eHiddenAreaMesh_Inverse}</li>
 	 * <li>{@link #EHiddenAreaMeshType_k_eHiddenAreaMesh_LineLoop EHiddenAreaMeshType_k_eHiddenAreaMesh_LineLoop}</li>
+	 * <li>{@link #EHiddenAreaMeshType_k_eHiddenAreaMesh_Max EHiddenAreaMeshType_k_eHiddenAreaMesh_Max}</li>
 	 * </ul>
 	 */
 	public static final int
 		EHiddenAreaMeshType_k_eHiddenAreaMesh_Standard = 0,
 		EHiddenAreaMeshType_k_eHiddenAreaMesh_Inverse  = 1,
-		EHiddenAreaMeshType_k_eHiddenAreaMesh_LineLoop = 2;
+		EHiddenAreaMeshType_k_eHiddenAreaMesh_LineLoop = 2,
+		EHiddenAreaMeshType_k_eHiddenAreaMesh_Max      = 3;
 
 	/**
 	 * {@code EVRControllerAxisType}: Identifies what kind of axis is on the controller at index {@code n}. Read this type with:
@@ -1441,6 +1490,7 @@ public class VR {
 	 * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool}</li>
 	 * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool}</li>
 	 * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool}</li>
+	 * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsInternal_Bool EVRApplicationProperty_VRApplicationProperty_IsInternal_Bool}</li>
 	 * <li>{@link #EVRApplicationProperty_VRApplicationProperty_LastLaunchTime_Uint64 EVRApplicationProperty_VRApplicationProperty_LastLaunchTime_Uint64}</li>
 	 * </ul>
 	 */
@@ -1458,6 +1508,7 @@ public class VR {
 		EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool = 60,
 		EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool         = 61,
 		EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool        = 62,
+		EVRApplicationProperty_VRApplicationProperty_IsInternal_Bool         = 63,
 		EVRApplicationProperty_VRApplicationProperty_LastLaunchTime_Uint64   = 70;
 
 	/**
