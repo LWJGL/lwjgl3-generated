@@ -85,6 +85,7 @@ public class EGL15 {
 		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateSync.xhtml">Reference Page</a> */
 	public static long eglCreateSync(long dpy, int type, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
@@ -93,6 +94,7 @@ public class EGL15 {
 
 	// --- [ eglDestroySync ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglDestroySync.xhtml">Reference Page</a> */
 	public static boolean eglDestroySync(long dpy, long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySync;
 		if ( CHECKS ) {
@@ -105,6 +107,7 @@ public class EGL15 {
 
 	// --- [ eglClientWaitSync ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglClientWaitSync.xhtml">Reference Page</a> */
 	public static int eglClientWaitSync(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = EGL.getCapabilities().eglClientWaitSync;
 		if ( CHECKS ) {
@@ -127,6 +130,7 @@ public class EGL15 {
 		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetSyncAttrib.xhtml">Reference Page</a> */
 	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			check(value, 1);
@@ -146,6 +150,7 @@ public class EGL15 {
 		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateImage.xhtml">Reference Page</a> */
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -154,6 +159,7 @@ public class EGL15 {
 
 	// --- [ eglDestroyImage ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglDestroyImage.xhtml">Reference Page</a> */
 	public static boolean eglDestroyImage(long dpy, long image) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyImage;
 		if ( CHECKS ) {
@@ -175,6 +181,7 @@ public class EGL15 {
 		return callPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetPlatformDisplay.xhtml">Reference Page</a> */
 	public static long eglGetPlatformDisplay(int platform, long native_display, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -194,6 +201,7 @@ public class EGL15 {
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePlatformWindowSurface.xhtml">Reference Page</a> */
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -213,6 +221,7 @@ public class EGL15 {
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePlatformPixmapSurface.xhtml">Reference Page</a> */
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, PointerBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -221,6 +230,7 @@ public class EGL15 {
 
 	// --- [ eglWaitSync ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglWaitSync.xhtml">Reference Page</a> */
 	public static boolean eglWaitSync(long dpy, long sync, int flags) {
 		long __functionAddress = EGL.getCapabilities().eglWaitSync;
 		if ( CHECKS ) {

@@ -58,6 +58,7 @@ public class EGL12 {
 
 	// --- [ eglBindAPI ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglBindAPI.xhtml">Reference Page</a> */
 	public static boolean eglBindAPI(int api) {
 		long __functionAddress = EGL.getCapabilities().eglBindAPI;
 		if ( CHECKS )
@@ -67,6 +68,7 @@ public class EGL12 {
 
 	// --- [ eglQueryAPI ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQueryAPI.xhtml">Reference Page</a> */
 	public static int eglQueryAPI() {
 		long __functionAddress = EGL.getCapabilities().eglQueryAPI;
 		if ( CHECKS )
@@ -87,6 +89,7 @@ public class EGL12 {
 		return callPPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePbufferFromClientBuffer.xhtml">Reference Page</a> */
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -95,6 +98,7 @@ public class EGL12 {
 
 	// --- [ eglReleaseThread ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglReleaseThread.xhtml">Reference Page</a> */
 	public static boolean eglReleaseThread() {
 		long __functionAddress = EGL.getCapabilities().eglReleaseThread;
 		if ( CHECKS )
@@ -104,6 +108,7 @@ public class EGL12 {
 
 	// --- [ eglWaitClient ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglWaitClient.xhtml">Reference Page</a> */
 	public static boolean eglWaitClient() {
 		long __functionAddress = EGL.getCapabilities().eglWaitClient;
 		if ( CHECKS )
@@ -111,7 +116,11 @@ public class EGL12 {
 		return callI(__functionAddress) != 0;
 	}
 
-	/** Array version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePbufferFromClientBuffer.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer}
+	 */
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
 		if ( CHECKS ) {

@@ -108,6 +108,7 @@ public class EGL10 {
 		return callPPPPI(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglChooseConfig.xhtml">Reference Page</a> */
 	public static boolean eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS ) {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -118,6 +119,7 @@ public class EGL10 {
 
 	// --- [ eglCopyBuffers ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCopyBuffers.xhtml">Reference Page</a> */
 	public static boolean eglCopyBuffers(long dpy, long surface, long target) {
 		long __functionAddress = EGL.getCapabilities().eglCopyBuffers;
 		if ( CHECKS ) {
@@ -141,6 +143,7 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, share_context, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateContext.xhtml">Reference Page</a> */
 	public static long eglCreateContext(long dpy, long config, long share_context, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -159,6 +162,7 @@ public class EGL10 {
 		return callPPPP(__functionAddress, dpy, config, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePbufferSurface.xhtml">Reference Page</a> */
 	public static long eglCreatePbufferSurface(long dpy, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -178,6 +182,7 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePixmapSurface.xhtml">Reference Page</a> */
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -197,6 +202,7 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, win, attrib_list);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateWindowSurface.xhtml">Reference Page</a> */
 	public static long eglCreateWindowSurface(long dpy, long config, long win, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
@@ -205,6 +211,7 @@ public class EGL10 {
 
 	// --- [ eglDestroyContext ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglDestroyContext.xhtml">Reference Page</a> */
 	public static boolean eglDestroyContext(long dpy, long ctx) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyContext;
 		if ( CHECKS ) {
@@ -217,6 +224,7 @@ public class EGL10 {
 
 	// --- [ eglDestroySurface ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglDestroySurface.xhtml">Reference Page</a> */
 	public static boolean eglDestroySurface(long dpy, long surface) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySurface;
 		if ( CHECKS ) {
@@ -239,6 +247,7 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, config, attribute, value);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetConfigAttrib.xhtml">Reference Page</a> */
 	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			check(value, 1);
@@ -256,6 +265,7 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetConfigs.xhtml">Reference Page</a> */
 	public static boolean eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS )
 			check(num_config, 1);
@@ -264,6 +274,7 @@ public class EGL10 {
 
 	// --- [ eglGetCurrentDisplay ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetCurrentDisplay.xhtml">Reference Page</a> */
 	public static long eglGetCurrentDisplay() {
 		long __functionAddress = EGL.getCapabilities().eglGetCurrentDisplay;
 		if ( CHECKS )
@@ -273,6 +284,7 @@ public class EGL10 {
 
 	// --- [ eglGetCurrentSurface ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetCurrentSurface.xhtml">Reference Page</a> */
 	public static long eglGetCurrentSurface(int readdraw) {
 		long __functionAddress = EGL.getCapabilities().eglGetCurrentSurface;
 		if ( CHECKS )
@@ -282,6 +294,7 @@ public class EGL10 {
 
 	// --- [ eglGetDisplay ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetDisplay.xhtml">Reference Page</a> */
 	public static long eglGetDisplay(long display_id) {
 		long __functionAddress = EGL.getCapabilities().eglGetDisplay;
 		if ( CHECKS )
@@ -291,6 +304,7 @@ public class EGL10 {
 
 	// --- [ eglGetError ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetError.xhtml">Reference Page</a> */
 	public static int eglGetError() {
 		long __functionAddress = EGL.getCapabilities().eglGetError;
 		if ( CHECKS )
@@ -307,12 +321,14 @@ public class EGL10 {
 		return callPP(__functionAddress, procname);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetProcAddress.xhtml">Reference Page</a> */
 	public static long eglGetProcAddress(ByteBuffer procname) {
 		if ( CHECKS )
 			checkNT1(procname);
 		return neglGetProcAddress(memAddress(procname));
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetProcAddress.xhtml">Reference Page</a> */
 	public static long eglGetProcAddress(CharSequence procname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -334,6 +350,7 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, major, minor);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglInitialize.xhtml">Reference Page</a> */
 	public static boolean eglInitialize(long dpy, IntBuffer major, IntBuffer minor) {
 		if ( CHECKS ) {
 			check(major, 1);
@@ -344,6 +361,7 @@ public class EGL10 {
 
 	// --- [ eglMakeCurrent ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglMakeCurrent.xhtml">Reference Page</a> */
 	public static boolean eglMakeCurrent(long dpy, long draw, long read, long ctx) {
 		long __functionAddress = EGL.getCapabilities().eglMakeCurrent;
 		if ( CHECKS ) {
@@ -368,6 +386,7 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, ctx, attribute, value);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQueryContext.xhtml">Reference Page</a> */
 	public static boolean eglQueryContext(long dpy, long ctx, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			check(value, 1);
@@ -383,6 +402,7 @@ public class EGL10 {
 		return callPP(__functionAddress, dpy, name);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQueryString.xhtml">Reference Page</a> */
 	public static String eglQueryString(long dpy, int name) {
 		long __result = neglQueryString(dpy, name);
 		return memASCII(__result);
@@ -400,6 +420,7 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQuerySurface.xhtml">Reference Page</a> */
 	public static boolean eglQuerySurface(long dpy, long surface, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			check(value, 1);
@@ -408,6 +429,7 @@ public class EGL10 {
 
 	// --- [ eglSwapBuffers ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglSwapBuffers.xhtml">Reference Page</a> */
 	public static boolean eglSwapBuffers(long dpy, long surface) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffers;
 		if ( CHECKS ) {
@@ -420,6 +442,7 @@ public class EGL10 {
 
 	// --- [ eglTerminate ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglTerminate.xhtml">Reference Page</a> */
 	public static boolean eglTerminate(long dpy) {
 		long __functionAddress = EGL.getCapabilities().eglTerminate;
 		if ( CHECKS ) {
@@ -431,6 +454,7 @@ public class EGL10 {
 
 	// --- [ eglWaitGL ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglWaitGL.xhtml">Reference Page</a> */
 	public static boolean eglWaitGL() {
 		long __functionAddress = EGL.getCapabilities().eglWaitGL;
 		if ( CHECKS )
@@ -440,6 +464,7 @@ public class EGL10 {
 
 	// --- [ eglWaitNative ] ---
 
+	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglWaitNative.xhtml">Reference Page</a> */
 	public static boolean eglWaitNative(int engine) {
 		long __functionAddress = EGL.getCapabilities().eglWaitNative;
 		if ( CHECKS )
@@ -447,7 +472,11 @@ public class EGL10 {
 		return callI(__functionAddress, engine) != 0;
 	}
 
-	/** Array version of: {@link #eglChooseConfig ChooseConfig} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglChooseConfig.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglChooseConfig ChooseConfig}
+	 */
 	public static boolean eglChooseConfig(long dpy, int[] attrib_list, PointerBuffer configs, int[] num_config) {
 		long __functionAddress = EGL.getCapabilities().eglChooseConfig;
 		if ( CHECKS ) {
@@ -459,7 +488,11 @@ public class EGL10 {
 		return callPPPPI(__functionAddress, dpy, attrib_list, memAddressSafe(configs), remainingSafe(configs), num_config) != 0;
 	}
 
-	/** Array version of: {@link #eglCreateContext CreateContext} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateContext.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglCreateContext CreateContext}
+	 */
 	public static long eglCreateContext(long dpy, long config, long share_context, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateContext;
 		if ( CHECKS ) {
@@ -471,7 +504,11 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, share_context, attrib_list);
 	}
 
-	/** Array version of: {@link #eglCreatePbufferSurface CreatePbufferSurface} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePbufferSurface.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglCreatePbufferSurface CreatePbufferSurface}
+	 */
 	public static long eglCreatePbufferSurface(long dpy, long config, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePbufferSurface;
 		if ( CHECKS ) {
@@ -483,7 +520,11 @@ public class EGL10 {
 		return callPPPP(__functionAddress, dpy, config, attrib_list);
 	}
 
-	/** Array version of: {@link #eglCreatePixmapSurface CreatePixmapSurface} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePixmapSurface.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglCreatePixmapSurface CreatePixmapSurface}
+	 */
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurface;
 		if ( CHECKS ) {
@@ -496,7 +537,11 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
 	}
 
-	/** Array version of: {@link #eglCreateWindowSurface CreateWindowSurface} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateWindowSurface.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglCreateWindowSurface CreateWindowSurface}
+	 */
 	public static long eglCreateWindowSurface(long dpy, long config, long win, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateWindowSurface;
 		if ( CHECKS ) {
@@ -509,7 +554,11 @@ public class EGL10 {
 		return callPPPPP(__functionAddress, dpy, config, win, attrib_list);
 	}
 
-	/** Array version of: {@link #eglGetConfigAttrib GetConfigAttrib} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetConfigAttrib.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglGetConfigAttrib GetConfigAttrib}
+	 */
 	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglGetConfigAttrib;
 		if ( CHECKS ) {
@@ -521,7 +570,11 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, config, attribute, value) != 0;
 	}
 
-	/** Array version of: {@link #eglGetConfigs GetConfigs} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetConfigs.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglGetConfigs GetConfigs}
+	 */
 	public static boolean eglGetConfigs(long dpy, PointerBuffer configs, int[] num_config) {
 		long __functionAddress = EGL.getCapabilities().eglGetConfigs;
 		if ( CHECKS ) {
@@ -532,7 +585,11 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, memAddressSafe(configs), remainingSafe(configs), num_config) != 0;
 	}
 
-	/** Array version of: {@link #eglInitialize Initialize} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglInitialize.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglInitialize Initialize}
+	 */
 	public static boolean eglInitialize(long dpy, int[] major, int[] minor) {
 		long __functionAddress = EGL.getCapabilities().eglInitialize;
 		if ( CHECKS ) {
@@ -544,7 +601,11 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, major, minor) != 0;
 	}
 
-	/** Array version of: {@link #eglQueryContext QueryContext} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQueryContext.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglQueryContext QueryContext}
+	 */
 	public static boolean eglQueryContext(long dpy, long ctx, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryContext;
 		if ( CHECKS ) {
@@ -556,7 +617,11 @@ public class EGL10 {
 		return callPPPI(__functionAddress, dpy, ctx, attribute, value) != 0;
 	}
 
-	/** Array version of: {@link #eglQuerySurface QuerySurface} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQuerySurface.xhtml">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #eglQuerySurface QuerySurface}
+	 */
 	public static boolean eglQuerySurface(long dpy, long surface, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglQuerySurface;
 		if ( CHECKS ) {
