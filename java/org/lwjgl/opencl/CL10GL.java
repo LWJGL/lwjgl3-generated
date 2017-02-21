@@ -96,6 +96,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates an OpenCL buffer object from an OpenGL buffer object.
 	 * 
 	 * <p>The size of the GL buffer object data store at the time {@code clCreateFromGLBuffer} is called will be used as the size of buffer object returned by
@@ -141,6 +143,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates an OpenCL 2D image object from an OpenGL 2D texture object, or a single face of an OpenGL cubemap texture object.
 	 * 
 	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@code glTexImage2D} or the values of the texture parameters
@@ -197,6 +201,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates an OpenCL 3D image object from an OpenGL 3D texture object.
 	 * 
 	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@code glTexImage3D} or the values of the texture parameters
@@ -252,6 +258,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLRenderbuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates an OpenCL 2D image object from an OpenGL renderbuffer object.
 	 * 
 	 * <p>If the state of a GL renderbuffer object is modified through the GL API (i.e. changes to the dimensions or format used to represent pixels of the GL
@@ -299,6 +307,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLObjectInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries the OpenGL object used to create the OpenCL memory object and information about the object type i.e. whether it is a texture, renderbuffer or
 	 * buffer object.
 	 *
@@ -340,6 +350,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns additional information about the GL texture object associated with {@code memobj}.
 	 *
 	 * @param memobj               
@@ -365,6 +377,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns additional information about the GL texture object associated with {@code memobj}.
 	 *
 	 * @param memobj               
@@ -407,6 +421,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueAcquireGLObjects.html">Reference Page</a></p>
+	 * 
 	 * Acquire OpenCL memory objects that have been created from OpenGL objects. These objects need to be acquired before they can be used by any OpenCL
 	 * commands queued to a command-queue. The OpenGL objects are acquired by the OpenCL context associated with command_queue and can therefore be used by all
 	 * command-queues associated with the OpenCL context.
@@ -452,6 +468,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueAcquireGLObjects.html">Reference Page</a></p>
+	 * 
 	 * Acquire OpenCL memory objects that have been created from OpenGL objects. These objects need to be acquired before they can be used by any OpenCL
 	 * commands queued to a command-queue. The OpenGL objects are acquired by the OpenCL context associated with command_queue and can therefore be used by all
 	 * command-queues associated with the OpenCL context.
@@ -519,6 +537,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReleaseGLObjects.html">Reference Page</a></p>
+	 * 
 	 * Releases OpenCL memory objects that have been created from OpenGL objects. These objects need to be released before they can be used by OpenGL. The
 	 * OpenGL objects are released by the OpenCL context associated with {@code command_queue}.
 	 * 
@@ -560,6 +580,8 @@ public class CL10GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReleaseGLObjects.html">Reference Page</a></p>
+	 * 
 	 * Releases OpenCL memory objects that have been created from OpenGL objects. These objects need to be released before they can be used by OpenGL. The
 	 * OpenGL objects are released by the OpenCL context associated with {@code command_queue}.
 	 * 
@@ -605,7 +627,11 @@ public class CL10GL {
 		}
 	}
 
-	/** Array version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer}
+	 */
 	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLBuffer;
 		if ( CHECKS ) {
@@ -616,7 +642,11 @@ public class CL10GL {
 		return callPJPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D}
+	 */
 	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
 		if ( CHECKS ) {
@@ -627,7 +657,11 @@ public class CL10GL {
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D}
+	 */
 	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
 		if ( CHECKS ) {
@@ -638,7 +672,11 @@ public class CL10GL {
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLRenderbuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer}
+	 */
 	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
 		if ( CHECKS ) {
@@ -649,7 +687,11 @@ public class CL10GL {
 		return callPJPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetGLObjectInfo GetGLObjectInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLObjectInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetGLObjectInfo GetGLObjectInfo}
+	 */
 	public static int clGetGLObjectInfo(long memobj, int[] gl_object_type, int[] gl_object_name) {
 		long __functionAddress = CL.getICD().clGetGLObjectInfo;
 		if ( CHECKS ) {
@@ -661,7 +703,11 @@ public class CL10GL {
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
 
-	/** Array version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetGLTextureInfo GetGLTextureInfo}
+	 */
 	public static int clGetGLTextureInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetGLTextureInfo;
 		if ( CHECKS ) {

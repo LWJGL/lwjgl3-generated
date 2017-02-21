@@ -100,6 +100,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSubBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a new buffer object (referred to as a sub-buffer object) from an existing buffer object.
 	 * 
 	 * <p><strong>NOTE</strong>: Concurrent reading from, writing to and copying between both a buffer object and its sub-buffer object(s) is undefined.
@@ -162,6 +164,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetMemObjectDestructorCallback.html">Reference Page</a></p>
+	 * 
 	 * Registers a user callback function with a memory object. Each call to {@code clSetMemObjectDestructorCallback} registers the specified user callback
 	 * function on a callback stack associated with {@code memobj}. The registered user callback functions are called in the reverse order in which they were
 	 * registered. The user callback functions are called and then the memory object's resources are freed and the memory object is deleted. This provides a
@@ -204,6 +208,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
@@ -288,6 +294,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
@@ -372,6 +380,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
@@ -456,6 +466,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
@@ -540,6 +552,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
@@ -641,6 +655,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -725,6 +741,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -809,6 +827,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -893,6 +913,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -977,6 +999,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -1079,6 +1103,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyBufferRect.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to copy a 2D or 3D rectangular region from the buffer object identified by {@code src_buffer} to a 2D or 3D region in the buffer
 	 * object identified by {@code dst_buffer}. Copying begins at the source offset and destination offset which are computed as described below in the
 	 * description for {@code src_origin} and {@code dst_origin}. Each byte of the region's width is copied from the source offset to the destination offset.
@@ -1168,6 +1194,8 @@ public class CL11 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateUserEvent.html">Reference Page</a></p>
+	 * 
 	 * Creates a user event object. User events allow applications to enqueue commands that wait on a user event to finish before the command is executed by
 	 * the device.
 	 * 
@@ -1194,6 +1222,8 @@ public class CL11 {
 	// --- [ clSetUserEventStatus ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetUserEventStatus.html">Reference Page</a></p>
+	 * 
 	 * Sets the execution status of a user event object.
 	 * 
 	 * <p><strong>NOTE</strong>: Enqueued commands that specify user events in the {@code event_wait_list} argument of {@code clEnqueue***} commands must ensure
@@ -1253,6 +1283,8 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetEventCallback.html">Reference Page</a></p>
+	 * 
 	 * Registers a user callback function for a specific command execution status. The registered callback function will be called when the execution status of
 	 * command associated with event changes to an execution status equal to or past the status specified by {@code command_exec_status}.
 	 * 
@@ -1303,7 +1335,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.address(), user_data);
 	}
 
-	/** Array version of: {@link #clCreateSubBuffer CreateSubBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSubBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateSubBuffer CreateSubBuffer}
+	 */
 	public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateSubBuffer;
 		if ( CHECKS ) {
@@ -1314,7 +1350,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPJPPP(__functionAddress, buffer, flags, buffer_create_type, memAddress(buffer_create_info), errcode_ret);
 	}
 
-	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -1329,7 +1369,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -1344,7 +1388,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -1359,7 +1407,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -1374,7 +1426,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -1389,7 +1445,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -1404,7 +1464,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -1419,7 +1483,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -1434,7 +1502,11 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clCreateUserEvent CreateUserEvent} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateUserEvent.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateUserEvent CreateUserEvent}
+	 */
 	public static long clCreateUserEvent(long context, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateUserEvent;
 		if ( CHECKS ) {

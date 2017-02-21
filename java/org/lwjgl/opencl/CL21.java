@@ -63,6 +63,8 @@ public class CL21 {
 	// --- [ clSetDefaultDeviceCommandQueue ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetDefaultDeviceCommandQueue.html">Reference Page</a></p>
+	 * 
 	 * Replaces a default device command queue created with {@link CL20#clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} and the {@link CL20#CL_QUEUE_ON_DEVICE_DEFAULT QUEUE_ON_DEVICE_DEFAULT} flag.
 	 *
 	 * @param context       a valid OpenCL context
@@ -103,6 +105,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceAndHostTimer.html">Reference Page</a></p>
+	 * 
 	 * Returns a reasonably synchronized pair of timestamps from the device timer and the host timer as seen by device. Implementations may need to execute
 	 * this query with a high latency in order to provide reasonable synchronization of the timestamps. The host timestamp and device timestamp returned by
 	 * this function and {@link #clGetHostTimer GetHostTimer} each have an implementation defined timebase. The timestamps will always be in their respective timebases regardless
@@ -145,6 +149,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetHostTimer.html">Reference Page</a></p>
+	 * 
 	 * Returns the current value of the host clock as seen by device. This value is in the same timebase as the {@code host_timestamp} returned from
 	 * {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer}. The implementation will return with as low a latency as possible to allow a correlation with a subsequent application sampled
 	 * time. The host timestamp and device timestamp returned by this function and {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} each have an implementation defined timebase. The
@@ -187,6 +193,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithIL.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the IL pointed to by {@code il} and with length in bytes {@code length} into the program object.
 	 *
 	 * @param context     a valid OpenCL context
@@ -224,6 +232,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCloneKernel.html">Reference Page</a></p>
+	 * 
 	 * Makes a shallow copy of the kernel object, its arguments and any information passed to the kernel object using {@link CL20#clSetKernelExecInfo SetKernelExecInfo}. If the kernel
 	 * object was ready to be enqueued before copying it, the clone of the kernel object is ready to enqueue.
 	 * 
@@ -276,6 +286,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelSubGroupInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the kernel object.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -307,6 +319,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelSubGroupInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the kernel object.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -356,6 +370,8 @@ public class CL21 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMigrateMem.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to indicate which device a set of ranges of SVM allocations should be associated with. Once the event returned by
 	 * {@code clEnqueueSVMMigrateMem} has become {@link CL10#CL_COMPLETE COMPLETE}, the ranges specified by svm pointers and sizes have been successfully migrated to the device
 	 * associated with command queue.
@@ -399,7 +415,11 @@ public class CL21 {
 		return nclEnqueueSVMMigrateMem(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(sizes), flags, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceAndHostTimer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer}
+	 */
 	public static int clGetDeviceAndHostTimer(long device, long[] device_timestamp, long[] host_timestamp) {
 		long __functionAddress = CL.getICD().clGetDeviceAndHostTimer;
 		if ( CHECKS ) {
@@ -411,7 +431,11 @@ public class CL21 {
 		return callPPPI(__functionAddress, device, device_timestamp, host_timestamp);
 	}
 
-	/** Array version of: {@link #clGetHostTimer GetHostTimer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetHostTimer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetHostTimer GetHostTimer}
+	 */
 	public static int clGetHostTimer(long device, long[] host_timestamp) {
 		long __functionAddress = CL.getICD().clGetHostTimer;
 		if ( CHECKS ) {
@@ -422,7 +446,11 @@ public class CL21 {
 		return callPPI(__functionAddress, device, host_timestamp);
 	}
 
-	/** Array version of: {@link #clCreateProgramWithIL CreateProgramWithIL} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithIL.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateProgramWithIL CreateProgramWithIL}
+	 */
 	public static long clCreateProgramWithIL(long context, ByteBuffer il, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithIL;
 		if ( CHECKS ) {
@@ -433,7 +461,11 @@ public class CL21 {
 		return callPPPPP(__functionAddress, context, memAddress(il), (long)il.remaining(), errcode_ret);
 	}
 
-	/** Array version of: {@link #clCloneKernel CloneKernel} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCloneKernel.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCloneKernel CloneKernel}
+	 */
 	public static long clCloneKernel(long source_kernel, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCloneKernel;
 		if ( CHECKS ) {

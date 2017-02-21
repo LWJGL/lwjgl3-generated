@@ -44,6 +44,8 @@ public class CL12GL {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLTexture.html">Reference Page</a></p>
+	 * 
 	 * Creates one of the following:
 	 * 
 	 * <ul>
@@ -97,7 +99,11 @@ public class CL12GL {
 		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
-	/** Array version of: {@link #clCreateFromGLTexture CreateFromGLTexture} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLTexture.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateFromGLTexture CreateFromGLTexture}
+	 */
 	public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture;
 		if ( CHECKS ) {

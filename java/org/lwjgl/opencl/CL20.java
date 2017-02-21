@@ -137,6 +137,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateCommandQueueWithProperties.html">Reference Page</a></p>
+	 * 
 	 * Creates a host or device command-queue on a specific device.
 	 * 
 	 * <p>OpenCL objects such as memory, program and kernel objects are created using a context. Operations on these objects are performed using a command-queue.
@@ -185,6 +187,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreatePipe.html">Reference Page</a></p>
+	 * 
 	 * Creates a pipe object.
 	 *
 	 * @param context          a valid OpenCL context used to create the pipe object
@@ -235,6 +239,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information specific to a pipe object.
 	 *
 	 * @param pipe                 the pipe object being queried
@@ -259,6 +265,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information specific to a pipe object.
 	 *
 	 * @param pipe                 the pipe object being queried
@@ -295,6 +303,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSVMAlloc.html">Reference Page</a></p>
+	 * 
 	 * Allocates a shared virtual memory buffer (referred to as a SVM buffer) that can be shared by the host and all devices in an OpenCL context that support
 	 * shared virtual memory.
 	 * 
@@ -359,6 +369,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSVMFree.html">Reference Page</a></p>
+	 * 
 	 * Frees a shared virtual memory buffer allocated using {@link #clSVMAlloc SVMAlloc}.
 	 * 
 	 * <p>Note that {@code SVMFree} does not wait for previously enqueued commands that may be using {@code svm_pointer} to finish before freeing
@@ -395,6 +407,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMFree.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to free the shared virtual memory buffer allocated using {@link #clSVMAlloc SVMAlloc} or a shared system memory pointer.
 	 *
 	 * @param command_queue   a valid host command-queue
@@ -450,6 +464,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMemcpy.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to do a {@code memcpy} operation.
 	 * 
 	 * <p>If {@code dst_ptr} and/or {@code src_ptr} are allocated using {@link #clSVMAlloc SVMAlloc} then they must be allocated from the same context from which
@@ -518,6 +534,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMemFill.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to fill a region in memory with a pattern of a given pattern size.
 	 *
 	 * @param command_queue   the host command-queue in which the fill command will be queued
@@ -577,6 +595,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMap.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command that will allow the host to update a region of a SVM buffer. Note that since we are enqueuing a command with a SVM buffer, the region
 	 * is already mapped in the host address space.
 	 *
@@ -638,6 +658,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMUnmap.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to indicate that the host has completed updating the region given by {@code svm_ptr} and which was specified in a previous call to
 	 * {@link #clEnqueueSVMMap EnqueueSVMMap}.
 	 *
@@ -683,6 +705,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArgSVMPointer.html">Reference Page</a></p>
+	 * 
 	 * Set a SVM pointer as the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -726,6 +750,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * 
 	 * Can be used to pass additional information other than argument values to a kernel.
 	 * 
 	 * <p>NOTES</p>
@@ -776,6 +802,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * 
 	 * Can be used to pass additional information other than argument values to a kernel.
 	 * 
 	 * <p>NOTES</p>
@@ -826,6 +854,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * 
 	 * Can be used to pass additional information other than argument values to a kernel.
 	 * 
 	 * <p>NOTES</p>
@@ -888,6 +918,8 @@ public class CL20 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSamplerWithProperties.html">Reference Page</a></p>
+	 * 
 	 * Creates a sampler object.
 	 *
 	 * @param context            a valid OpenCL context
@@ -916,7 +948,11 @@ public class CL20 {
 		return nclCreateSamplerWithProperties(context, memAddressSafe(sampler_properties), memAddressSafe(errcode_ret));
 	}
 
-	/** Array version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateCommandQueueWithProperties.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties}
+	 */
 	public static long clCreateCommandQueueWithProperties(long context, long device, long[] properties, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueueWithProperties;
 		if ( CHECKS ) {
@@ -929,7 +965,11 @@ public class CL20 {
 		return callPPPPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreatePipe CreatePipe} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreatePipe.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreatePipe CreatePipe}
+	 */
 	public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, int[] properties, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreatePipe;
 		if ( CHECKS ) {
@@ -941,7 +981,11 @@ public class CL20 {
 		return callPJPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetPipeInfo GetPipeInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetPipeInfo GetPipeInfo}
+	 */
 	public static int clGetPipeInfo(long pipe, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetPipeInfo;
 		if ( CHECKS ) {
@@ -952,7 +996,11 @@ public class CL20 {
 		return callPPPPI(__functionAddress, pipe, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clSetKernelExecInfo SetKernelExecInfo}
+	 */
 	public static int clSetKernelExecInfo(long kernel, int param_name, int[] param_value) {
 		long __functionAddress = CL.getICD().clSetKernelExecInfo;
 		if ( CHECKS ) {
@@ -962,7 +1010,11 @@ public class CL20 {
 		return callPPPI(__functionAddress, kernel, param_name, (long)(param_value.length << 2), param_value);
 	}
 
-	/** Array version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSamplerWithProperties.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties}
+	 */
 	public static long clCreateSamplerWithProperties(long context, int[] sampler_properties, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateSamplerWithProperties;
 		if ( CHECKS ) {

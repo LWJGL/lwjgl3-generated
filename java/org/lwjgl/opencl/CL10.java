@@ -396,6 +396,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPlatformIDs.html">Reference Page</a></p>
+	 * 
 	 * Obtains the list of available platforms.
 	 *
 	 * @param platforms     returns a list of OpenCL platforms found. The {@code cl_platform_id} values returned in {@code platforms} can be used to identify a specific OpenCL
@@ -432,6 +434,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPlatformInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the specified OpenCL platform.
 	 *
 	 * @param platform             the platform to query
@@ -455,6 +459,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPlatformInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the specified OpenCL platform.
 	 *
 	 * @param platform             the platform to query
@@ -491,6 +497,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceIDs.html">Reference Page</a></p>
+	 * 
 	 * Obtains the list of devices available on a platform.
 	 *
 	 * @param platform    the platform to query
@@ -533,6 +541,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns specific information about an OpenCL device. {@code device} may be a device returned by {@link #clGetDeviceIDs GetDeviceIDs} or a sub-device created by
 	 * {@link CL12#clCreateSubDevices CreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
@@ -559,6 +569,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns specific information about an OpenCL device. {@code device} may be a device returned by {@link #clGetDeviceIDs GetDeviceIDs} or a sub-device created by
 	 * {@link CL12#clCreateSubDevices CreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
@@ -585,6 +597,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns specific information about an OpenCL device. {@code device} may be a device returned by {@link #clGetDeviceIDs GetDeviceIDs} or a sub-device created by
 	 * {@link CL12#clCreateSubDevices CreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
@@ -611,6 +625,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns specific information about an OpenCL device. {@code device} may be a device returned by {@link #clGetDeviceIDs GetDeviceIDs} or a sub-device created by
 	 * {@link CL12#clCreateSubDevices CreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
@@ -649,6 +665,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateContext.html">Reference Page</a></p>
+	 * 
 	 * Creates an OpenCL context. An OpenCL context is created with one or more devices. Contexts are used by the OpenCL runtime for managing objects such as
 	 * command-queues, memory, program and kernel objects and for executing kernels on one or more devices specified in the context.
 	 *
@@ -689,6 +707,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateContext.html">Reference Page</a></p>
+	 * 
 	 * Creates an OpenCL context. An OpenCL context is created with one or more devices. Contexts are used by the OpenCL runtime for managing objects such as
 	 * command-queues, memory, program and kernel objects and for executing kernels on one or more devices specified in the context.
 	 *
@@ -742,6 +762,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateContextFromType.html">Reference Page</a></p>
+	 * 
 	 * Creates a context using devices of the specified type. See {@link #clCreateContext CreateContext} for details.
 	 *
 	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
@@ -762,6 +784,8 @@ public class CL10 {
 	// --- [ clRetainContext ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainContext.html">Reference Page</a></p>
+	 * 
 	 * Increments the context reference count.
 	 * 
 	 * <p>{@link #clCreateContext CreateContext} and {@link #clCreateContextFromType CreateContextFromType} perform an implicit retain. This is very helpful for 3rd party libraries, which typically get a context passed
@@ -788,6 +812,8 @@ public class CL10 {
 	// --- [ clReleaseContext ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseContext.html">Reference Page</a></p>
+	 * 
 	 * Decrements the context reference count.
 	 * 
 	 * <p>After the context reference count becomes zero and all the objects attached to context (such as memory objects, command-queues) are released, the
@@ -825,6 +851,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetContextInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a context.
 	 *
 	 * @param context              the OpenCL context being queried
@@ -849,6 +877,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetContextInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a context.
 	 *
 	 * @param context              the OpenCL context being queried
@@ -873,6 +903,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetContextInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a context.
 	 *
 	 * @param context              the OpenCL context being queried
@@ -909,6 +941,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/clCreateCommandQueue.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.2</em></p>
+	 * 
 	 * Creates a command-queue on a specific device.
 	 * 
 	 * <p>OpenCL objects such as memory, program and kernel objects are created using a context. Operations on these objects are performed using a command-queue.
@@ -943,6 +977,8 @@ public class CL10 {
 	// --- [ clRetainCommandQueue ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainCommandQueue.html">Reference Page</a></p>
+	 * 
 	 * Increments the {@code command_queue} reference count.
 	 * 
 	 * <p>{@link #clCreateCommandQueue CreateCommandQueue} performs an implicit retain. This is very helpful for 3rd party libraries, which typically get a command-queue passed to them by the
@@ -969,6 +1005,8 @@ public class CL10 {
 	// --- [ clReleaseCommandQueue ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseCommandQueue.html">Reference Page</a></p>
+	 * 
 	 * Decrements the {@code command_queue} reference count.
 	 * 
 	 * <p>After the {@code command_queue} reference count becomes zero and all commands queued to {@code command_queue} have finished (eg. kernel executions,
@@ -1008,6 +1046,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetCommandQueueInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a command-queue.
 	 *
 	 * @param command_queue        the command-queue being queried
@@ -1032,6 +1072,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetCommandQueueInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a command-queue.
 	 *
 	 * @param command_queue        the command-queue being queried
@@ -1056,6 +1098,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetCommandQueueInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a command-queue.
 	 *
 	 * @param command_queue        the command-queue being queried
@@ -1080,6 +1124,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetCommandQueueInfo.html">Reference Page</a></p>
+	 * 
 	 * Queries information about a command-queue.
 	 *
 	 * @param command_queue        the command-queue being queried
@@ -1118,6 +1164,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a buffer object.
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
@@ -1148,6 +1196,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a buffer object.
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
@@ -1179,6 +1229,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a buffer object.
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
@@ -1210,6 +1262,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a buffer object.
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
@@ -1241,6 +1295,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a buffer object.
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
@@ -1272,6 +1328,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
 	 * Creates a buffer object.
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
@@ -1320,6 +1378,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
@@ -1383,6 +1443,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
@@ -1446,6 +1508,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
@@ -1509,6 +1573,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
@@ -1572,6 +1638,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from a buffer object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
@@ -1652,6 +1720,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -1714,6 +1784,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -1776,6 +1848,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -1838,6 +1912,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -1900,6 +1976,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to a buffer object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
@@ -1979,6 +2057,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to copy a buffer object identified by {@code src_buffer} to another buffer object identified by {@code dst_buffer}.
 	 *
 	 * @param command_queue   the command-queue in which the copy command will be queued. The OpenCL context associated with {@code command_queue}, {@code src_buffer} and
@@ -2044,6 +2124,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueMapBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to map a region of the buffer object given by buffer into the host address space and returns a pointer to this mapped region.
 	 * 
 	 * <p>The pointer returned maps a region starting at {@code offset} and is at least {@code size} bytes in size. The result of a memory access outside this
@@ -2128,6 +2210,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 2D image object.
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
@@ -2170,6 +2254,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 2D image object.
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
@@ -2212,6 +2298,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 2D image object.
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
@@ -2254,6 +2342,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 2D image object.
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
@@ -2306,6 +2396,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 3D image object.
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
@@ -2355,6 +2447,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 3D image object.
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
@@ -2404,6 +2498,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 3D image object.
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
@@ -2453,6 +2549,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Creates a 3D image object.
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
@@ -2516,6 +2614,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetSupportedImageFormats.html">Reference Page</a></p>
+	 * 
 	 * Can be used to get the list of image formats supported by an OpenCL implementation when the following information about an image memory object is
 	 * specified:
 	 * 
@@ -2567,6 +2667,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from an image or image array object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
@@ -2655,6 +2757,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from an image or image array object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
@@ -2743,6 +2847,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from an image or image array object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
@@ -2831,6 +2937,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from an image or image array object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
@@ -2919,6 +3027,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to read from an image or image array object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
@@ -3023,6 +3133,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to an image or image array object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
@@ -3111,6 +3223,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to an image or image array object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
@@ -3199,6 +3313,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to an image or image array object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
@@ -3287,6 +3403,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to an image or image array object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
@@ -3375,6 +3493,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to write to an image or image array object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
@@ -3480,6 +3600,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to copy image objects. {@code src_image} and {@code dst_image} can be 1D, 2D, 3D image or a 1D, 2D image array objects allowing us to
 	 * perform the following actions:
 	 * 
@@ -3578,6 +3700,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyImageToBuffer.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to copy an image object to a buffer object.
 	 *
 	 * @param command_queue   a valid command-queue. The OpenCL context associated with {@code command_queue}, {@code src_image} and {@code dst_buffer} must be the same.
@@ -3661,6 +3785,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyBufferToImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to copy a buffer object to an image object.
 	 *
 	 * @param command_queue   a valid command-queue. The OpenCL context associated with {@code command_queue}, {@code src_buffer} and {@code dst_image} must be the same.
@@ -3739,6 +3865,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueMapImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to map a region in the image object given by {@code image} into the host address space and returns a pointer to this mapped region.
 	 * 
 	 * <p>The pointer returned maps a 1D, 2D or 3D region starting at {@code origin} and is at least {@code region[0]} pixels in size for a 1D image, 1D image
@@ -3838,6 +3966,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueMapImage.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to map a region in the image object given by {@code image} into the host address space and returns a pointer to this mapped region.
 	 * 
 	 * <p>The pointer returned maps a 1D, 2D or 3D region starting at {@code origin} and is at least {@code region[0]} pixels in size for a 1D image, 1D image
@@ -3950,6 +4080,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetImageInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information specific to an image object.
 	 *
 	 * @param image                the image object being queried
@@ -3974,6 +4106,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetImageInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information specific to an image object.
 	 *
 	 * @param image                the image object being queried
@@ -3998,6 +4132,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetImageInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information specific to an image object.
 	 *
 	 * @param image                the image object being queried
@@ -4024,6 +4160,8 @@ public class CL10 {
 	// --- [ clRetainMemObject ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainMemObject.html">Reference Page</a></p>
+	 * 
 	 * Increments the {@code memobj} reference count.
 	 * 
 	 * <p>{@link #clCreateBuffer CreateBuffer}, {@link CL11#clCreateSubBuffer CreateSubBuffer} and {@link CL12#clCreateImage CreateImage} perform an implicit retain.</p>
@@ -4048,6 +4186,8 @@ public class CL10 {
 	// --- [ clReleaseMemObject ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseMemObject.html">Reference Page</a></p>
+	 * 
 	 * Decrements the {@code memobj} reference count.
 	 * 
 	 * <p>After the {@code memobj} reference count becomes zero and commands queued for execution on a command-queue(s) that use {@code memobj} have finished, the
@@ -4088,6 +4228,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueUnmapMemObject.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to unmap a previously mapped region of a memory object. Reads or writes from the host using the pointer returned by
 	 * {@link #clEnqueueMapBuffer EnqueueMapBuffer} or {@link #clEnqueueMapImage EnqueueMapImage} are considered to be complete.
 	 * 
@@ -4142,6 +4284,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetMemObjectInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information that is common to all memory objects (buffer and image objects).
 	 *
 	 * @param memobj               the memory object being queried
@@ -4166,6 +4310,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetMemObjectInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information that is common to all memory objects (buffer and image objects).
 	 *
 	 * @param memobj               the memory object being queried
@@ -4190,6 +4336,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetMemObjectInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information that is common to all memory objects (buffer and image objects).
 	 *
 	 * @param memobj               the memory object being queried
@@ -4214,6 +4362,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetMemObjectInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information that is common to all memory objects (buffer and image objects).
 	 *
 	 * @param memobj               the memory object being queried
@@ -4248,6 +4398,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/clCreateSampler.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.2</em></p>
+	 * 
 	 * Creates a sampler object.
 	 * 
 	 * <p>A sampler object describes how to sample an image when the image is read in the kernel. The built-in functions to read from an image in a kernel take a
@@ -4282,6 +4434,8 @@ public class CL10 {
 	// --- [ clRetainSampler ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainSampler.html">Reference Page</a></p>
+	 * 
 	 * Increments the sampler reference count. {@link #clCreateSampler CreateSampler} performs an implicit retain.
 	 *
 	 * @param sampler the sample object to retain
@@ -4304,6 +4458,8 @@ public class CL10 {
 	// --- [ clReleaseSampler ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseSampler.html">Reference Page</a></p>
+	 * 
 	 * Decrements the sampler reference count. The sampler object is deleted after the reference count becomes zero and commands queued for execution on a
 	 * command-queue(s) that use sampler have finished.
 	 *
@@ -4339,6 +4495,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetSamplerInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a sampler object.
 	 *
 	 * @param sampler              the sampler being queried
@@ -4363,6 +4521,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetSamplerInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a sampler object.
 	 *
 	 * @param sampler              the sampler being queried
@@ -4387,6 +4547,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetSamplerInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a sampler object.
 	 *
 	 * @param sampler              the sampler being queried
@@ -4425,6 +4587,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithSource.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the source code specified by the text strings in the strings array into the program object. The
 	 * devices associated with the program object are the devices associated with {@code context}. The source code specified by strings is either an OpenCL C
 	 * program source, header or implementation-defined source for custom devices that support an online compiler.
@@ -4455,6 +4619,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithSource.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the source code specified by the text strings in the strings array into the program object. The
 	 * devices associated with the program object are the devices associated with {@code context}. The source code specified by strings is either an OpenCL C
 	 * program source, header or implementation-defined source for custom devices that support an online compiler.
@@ -4488,6 +4654,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithSource.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the source code specified by the text strings in the strings array into the program object. The
 	 * devices associated with the program object are the devices associated with {@code context}. The source code specified by strings is either an OpenCL C
 	 * program source, header or implementation-defined source for custom devices that support an online compiler.
@@ -4534,6 +4702,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithBinary.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the binary bits specified by {@code binary} into the program object.
 	 * 
 	 * <p>The program binaries specified by {@code binaries} contain the bits that describe one of the following:</p>
@@ -4594,6 +4764,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithBinary.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the binary bits specified by {@code binary} into the program object.
 	 * 
 	 * <p>The program binaries specified by {@code binaries} contain the bits that describe one of the following:</p>
@@ -4658,6 +4830,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithBinary.html">Reference Page</a></p>
+	 * 
 	 * Creates a program object for a context, and loads the binary bits specified by {@code binary} into the program object.
 	 * 
 	 * <p>The program binaries specified by {@code binaries} contain the bits that describe one of the following:</p>
@@ -4721,6 +4895,8 @@ public class CL10 {
 	// --- [ clRetainProgram ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainProgram.html">Reference Page</a></p>
+	 * 
 	 * Increments the {@code program} reference count. {@code clCreateProgram} does an implicit retain.
 	 *
 	 * @param program the program object to retain
@@ -4743,6 +4919,8 @@ public class CL10 {
 	// --- [ clReleaseProgram ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseProgram.html">Reference Page</a></p>
+	 * 
 	 * Decrements the {@code program} reference count. The program object is deleted after all kernel objects associated with program have been deleted and the
 	 * program reference count becomes zero.
 	 *
@@ -4778,6 +4956,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clBuildProgram.html">Reference Page</a></p>
+	 * 
 	 * Builds (compiles & links) a program executable from the program source or binary for all the devices or a specific device(s) in the OpenCL context
 	 * associated with {@code program}. OpenCL allows program executables to be built using the source or the binary. {@code clBuildProgram} must be called for
 	 * {@code program} created using either {@link #clCreateProgramWithSource CreateProgramWithSource} or {@link #clCreateProgramWithBinary CreateProgramWithBinary} to build the program executable for one or more devices
@@ -4829,6 +5009,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clBuildProgram.html">Reference Page</a></p>
+	 * 
 	 * Builds (compiles & links) a program executable from the program source or binary for all the devices or a specific device(s) in the OpenCL context
 	 * associated with {@code program}. OpenCL allows program executables to be built using the source or the binary. {@code clBuildProgram} must be called for
 	 * {@code program} created using either {@link #clCreateProgramWithSource CreateProgramWithSource} or {@link #clCreateProgramWithBinary CreateProgramWithBinary} to build the program executable for one or more devices
@@ -4884,6 +5066,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clBuildProgram.html">Reference Page</a></p>
+	 * 
 	 * Builds (compiles & links) a program executable from the program source or binary for all the devices or a specific device(s) in the OpenCL context
 	 * associated with {@code program}. OpenCL allows program executables to be built using the source or the binary. {@code clBuildProgram} must be called for
 	 * {@code program} created using either {@link #clCreateProgramWithSource CreateProgramWithSource} or {@link #clCreateProgramWithBinary CreateProgramWithBinary} to build the program executable for one or more devices
@@ -4939,6 +5123,8 @@ public class CL10 {
 	// --- [ clUnloadCompiler ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clUnloadCompiler.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Allows the implementation to release the resources allocated by the OpenCL compiler. This is a hint from the application and does not guarantee that the
 	 * compiler will not be used in the future or that the compiler will actually be unloaded by the implementation.
 	 * 
@@ -4966,6 +5152,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a program object.
 	 *
 	 * @param program              the program object being queried
@@ -4992,6 +5180,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a program object.
 	 *
 	 * @param program              the program object being queried
@@ -5018,6 +5208,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a program object.
 	 *
 	 * @param program              the program object being queried
@@ -5060,6 +5252,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramBuildInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns build information for each device in the program object.
 	 *
 	 * @param program              the program object being queried
@@ -5086,6 +5280,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramBuildInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns build information for each device in the program object.
 	 *
 	 * @param program              the program object being queried
@@ -5112,6 +5308,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramBuildInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns build information for each device in the program object.
 	 *
 	 * @param program              the program object being queried
@@ -5148,6 +5346,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateKernel.html">Reference Page</a></p>
+	 * 
 	 * Creates a kernel object.
 	 * 
 	 * <p>A kernel is a function declared in a program. A kernel is identified by the {@code __kernel} qualifier applied to any function in a program. A kernel
@@ -5188,6 +5388,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateKernel.html">Reference Page</a></p>
+	 * 
 	 * Creates a kernel object.
 	 * 
 	 * <p>A kernel is a function declared in a program. A kernel is identified by the {@code __kernel} qualifier applied to any function in a program. A kernel
@@ -5246,6 +5448,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateKernelsInProgram.html">Reference Page</a></p>
+	 * 
 	 * Creates kernel objects for all kernel functions in {@code program}. Kernel objects are not created for any {@code __kernel} functions in {@code program}
 	 * that do not have the same function definition across all devices for which a program executable has been successfully built.
 	 * 
@@ -5275,6 +5479,8 @@ public class CL10 {
 	// --- [ clRetainKernel ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainKernel.html">Reference Page</a></p>
+	 * 
 	 * Increments the {@code kernel} reference count. {@link #clCreateKernel CreateKernel} or {@link #clCreateKernelsInProgram CreateKernelsInProgram} do an implicit retain.
 	 *
 	 * @param kernel the kernel to retain
@@ -5297,6 +5503,8 @@ public class CL10 {
 	// --- [ clReleaseKernel ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseKernel.html">Reference Page</a></p>
+	 * 
 	 * Decrements the {@code kernel} reference count.
 	 * 
 	 * <p>The kernel object is deleted once the number of instances that are retained to {@code kernel} become zero and the kernel object is no longer needed by
@@ -5337,6 +5545,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5387,6 +5597,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5458,6 +5670,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5529,6 +5743,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5600,6 +5816,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5671,6 +5889,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5742,6 +5962,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5813,6 +6035,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5884,6 +6108,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5936,6 +6162,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -5988,6 +6216,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6040,6 +6270,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6092,6 +6324,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6144,6 +6378,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6196,6 +6432,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6248,6 +6486,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6300,6 +6540,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6352,6 +6594,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6404,6 +6648,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6456,6 +6702,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6508,6 +6756,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6560,6 +6810,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6612,6 +6864,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6664,6 +6918,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6716,6 +6972,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6768,6 +7026,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6820,6 +7080,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6872,6 +7134,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6924,6 +7188,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -6976,6 +7242,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7028,6 +7296,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7080,6 +7350,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7132,6 +7404,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7184,6 +7458,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7236,6 +7512,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7288,6 +7566,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
 	 * Set the argument value for a specific argument of a kernel.
 	 *
 	 * @param kernel    a valid kernel object
@@ -7354,6 +7634,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a kernel object.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7378,6 +7660,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a kernel object.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7402,6 +7686,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about a kernel object.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7442,6 +7728,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelWorkGroupInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the kernel object that may be specific to a device.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7472,6 +7760,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelWorkGroupInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the kernel object that may be specific to a device.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7502,6 +7792,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelWorkGroupInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the kernel object that may be specific to a device.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7532,6 +7824,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelWorkGroupInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about the kernel object that may be specific to a device.
 	 *
 	 * @param kernel               the kernel object being queried
@@ -7578,6 +7872,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueNDRangeKernel.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to execute a kernel on a device.
 	 *
 	 * @param command_queue      a valid command-queue. The kernel will be queued for execution on the device associated with {@code command_queue}.
@@ -7682,6 +7978,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/clEnqueueTask.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.2</em></p>
+	 * 
 	 * Enqueues a command to execute a kernel on a device. The kernel is executed using a single work-item.
 	 * 
 	 * <p>{@code clEnqueueTask} is equivalent to calling {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} with {@code work_dim = 1}, {@code global_work_offset = NULL},
@@ -7727,6 +8025,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueNativeKernel.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to execute a native C/C++ function not compiled using the OpenCL compiler.
 	 *
 	 * @param command_queue   a valid command-queue. A native user function can only be executed on a command-queue created on a device that has {@link #CL_EXEC_NATIVE_KERNEL EXEC_NATIVE_KERNEL}
@@ -7777,6 +8077,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueNativeKernel.html">Reference Page</a></p>
+	 * 
 	 * Enqueues a command to execute a native C/C++ function not compiled using the OpenCL compiler.
 	 *
 	 * @param command_queue   a valid command-queue. A native user function can only be executed on a command-queue created on a device that has {@link #CL_EXEC_NATIVE_KERNEL EXEC_NATIVE_KERNEL}
@@ -7840,6 +8142,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clWaitForEvents.html">Reference Page</a></p>
+	 * 
 	 * Waits on the host thread for commands identified by event objects in {@code event_list} to complete. A command is considered complete if its execution
 	 * status is {@link #CL_COMPLETE COMPLETE} or a negative value. The events specified in {@code event_list} act as synchronization points.
 	 *
@@ -7861,6 +8165,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clWaitForEvents.html">Reference Page</a></p>
+	 * 
 	 * Waits on the host thread for commands identified by event objects in {@code event_list} to complete. A command is considered complete if its execution
 	 * status is {@link #CL_COMPLETE COMPLETE} or a negative value. The events specified in {@code event_list} act as synchronization points.
 	 *
@@ -7900,6 +8206,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about an event object.
 	 * 
 	 * <p>Using {@code clGetEventInfo} to determine if a command identified by event has finished execution (i.e. {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}
@@ -7929,6 +8237,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about an event object.
 	 * 
 	 * <p>Using {@code clGetEventInfo} to determine if a command identified by event has finished execution (i.e. {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}
@@ -7958,6 +8268,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns information about an event object.
 	 * 
 	 * <p>Using {@code clGetEventInfo} to determine if a command identified by event has finished execution (i.e. {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}
@@ -7989,6 +8301,8 @@ public class CL10 {
 	// --- [ clRetainEvent ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clRetainEvent.html">Reference Page</a></p>
+	 * 
 	 * Increments the event reference count. The OpenCL commands that return an event perform an implicit retain.
 	 *
 	 * @param event the event to retain
@@ -8011,6 +8325,8 @@ public class CL10 {
 	// --- [ clReleaseEvent ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clReleaseEvent.html">Reference Page</a></p>
+	 * 
 	 * Decrements the event reference count.
 	 * 
 	 * <p>The event object is deleted once the reference count becomes zero, the specific command identified by this event has completed (or terminated) and there
@@ -8052,6 +8368,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clEnqueueMarker.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Enqueues a marker command to {@code command_queue}. The marker command is not completed until all commands enqueued before it have completed. The marker
 	 * command returns an event which can be waited on, i.e. this event can be waited on to insure that all commands, which have been queued before the marker
 	 * command, have been completed.
@@ -8080,6 +8398,8 @@ public class CL10 {
 	// --- [ clEnqueueBarrier ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clEnqueueBarrier.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Enqueues a barrier operation. The {@code clEnqueueBarrier} command ensures that all queued commands in {@code command_queue} have finished execution
 	 * before the next batch of commands can begin execution. The {@code clEnqueueBarrier} command is a synchronization point.
 	 *
@@ -8115,6 +8435,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clEnqueueWaitForEvents.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Enqueues a wait for a specific event or a list of events to complete before any future commands queued in the command-queue are executed.
 	 *
 	 * @param command_queue the command-queue
@@ -8136,6 +8458,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clEnqueueWaitForEvents.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Enqueues a wait for a specific event or a list of events to complete before any future commands queued in the command-queue are executed.
 	 *
 	 * @param command_queue the command-queue
@@ -8176,6 +8500,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventProfilingInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns profiling information for the command associated with {@code event}.
 	 *
 	 * @param event                the event object
@@ -8202,6 +8528,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventProfilingInfo.html">Reference Page</a></p>
+	 * 
 	 * Returns profiling information for the command associated with {@code event}.
 	 *
 	 * @param event                the event object
@@ -8230,6 +8558,8 @@ public class CL10 {
 	// --- [ clFlush ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clFlush.html">Reference Page</a></p>
+	 * 
 	 * Issues all previously queued OpenCL commands in {@code command_queue} to the device associated with {@code command_queue}. {@code clFlush} only
 	 * guarantees that all queued commands to {@code command_queue} will eventually be submitted to the appropriate device. There is no guarantee that they
 	 * will be complete after {@code clFlush} returns.
@@ -8263,6 +8593,8 @@ public class CL10 {
 	// --- [ clFinish ] ---
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clFinish.html">Reference Page</a></p>
+	 * 
 	 * Blocks until all previously queued OpenCL commands in {@code command_queue} are issued to the associated device and have completed. {@code clFinish}
 	 * does not return until all previously queued commands in {@code command_queue} have been processed and completed. {@code clFinish} is also a
 	 * synchronization point.
@@ -8285,6 +8617,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clGetExtensionFunctionAddress.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Returns the address of the extension function named by {@code funcname}. The pointer returned should be cast to a function pointer type matching the
 	 * extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL} indicates that the specified
 	 * function does not exist for the implementation. A non-{@code NULL} return value for {@code clGetExtensionFunctionAddress} does not guarantee that an extension
@@ -8306,6 +8640,8 @@ public class CL10 {
 	}
 
 	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clGetExtensionFunctionAddress.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
 	 * Returns the address of the extension function named by {@code funcname}. The pointer returned should be cast to a function pointer type matching the
 	 * extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL} indicates that the specified
 	 * function does not exist for the implementation. A non-{@code NULL} return value for {@code clGetExtensionFunctionAddress} does not guarantee that an extension
@@ -8330,7 +8666,11 @@ public class CL10 {
 		}
 	}
 
-	/** Array version of: {@link #clGetPlatformIDs GetPlatformIDs} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPlatformIDs.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetPlatformIDs GetPlatformIDs}
+	 */
 	public static int clGetPlatformIDs(PointerBuffer platforms, int[] num_platforms) {
 		long __functionAddress = CL.getICD().clGetPlatformIDs;
 		if ( CHECKS )
@@ -8338,7 +8678,11 @@ public class CL10 {
 		return callPPI(__functionAddress, remainingSafe(platforms), memAddressSafe(platforms), num_platforms);
 	}
 
-	/** Array version of: {@link #clGetPlatformInfo GetPlatformInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPlatformInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetPlatformInfo GetPlatformInfo}
+	 */
 	public static int clGetPlatformInfo(long platform, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetPlatformInfo;
 		if ( CHECKS ) {
@@ -8348,7 +8692,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, platform, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetDeviceIDs GetDeviceIDs} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceIDs.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetDeviceIDs GetDeviceIDs}
+	 */
 	public static int clGetDeviceIDs(long platform, long device_type, PointerBuffer devices, int[] num_devices) {
 		long __functionAddress = CL.getICD().clGetDeviceIDs;
 		if ( CHECKS )
@@ -8356,7 +8704,11 @@ public class CL10 {
 		return callPJPPI(__functionAddress, platform, device_type, remainingSafe(devices), memAddressSafe(devices), num_devices);
 	}
 
-	/** Array version of: {@link #clGetDeviceInfo GetDeviceInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetDeviceInfo GetDeviceInfo}
+	 */
 	public static int clGetDeviceInfo(long device, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceInfo;
 		if ( CHECKS ) {
@@ -8366,7 +8718,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetDeviceInfo GetDeviceInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetDeviceInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetDeviceInfo GetDeviceInfo}
+	 */
 	public static int clGetDeviceInfo(long device, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceInfo;
 		if ( CHECKS ) {
@@ -8376,7 +8732,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, device, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clCreateContext CreateContext} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateContext.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateContext CreateContext}
+	 */
 	public static long clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallbackI pfn_notify, long user_data, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateContext;
 		if ( CHECKS ) {
@@ -8386,7 +8746,11 @@ public class CL10 {
 		return callPPPPPP(__functionAddress, memAddress(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateContextFromType CreateContextFromType} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateContextFromType.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateContextFromType CreateContextFromType}
+	 */
 	public static long clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallbackI pfn_notify, long user_data, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateContextFromType;
 		if ( CHECKS ) {
@@ -8396,7 +8760,11 @@ public class CL10 {
 		return callPJPPPP(__functionAddress, memAddress(properties), device_type, memAddressSafe(pfn_notify), user_data, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetContextInfo GetContextInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetContextInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetContextInfo GetContextInfo}
+	 */
 	public static int clGetContextInfo(long context, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetContextInfo;
 		if ( CHECKS ) {
@@ -8406,7 +8774,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, context, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clCreateCommandQueue CreateCommandQueue} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/clCreateCommandQueue.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.2</em></p>
+	 * 
+	 * Array version of: {@link #clCreateCommandQueue CreateCommandQueue}
+	 */
 	public static long clCreateCommandQueue(long context, long device, long properties, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueue;
 		if ( CHECKS ) {
@@ -8417,7 +8789,11 @@ public class CL10 {
 		return callPPJPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetCommandQueueInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo}
+	 */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetCommandQueueInfo;
 		if ( CHECKS ) {
@@ -8427,7 +8803,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, command_queue, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetCommandQueueInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo}
+	 */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetCommandQueueInfo;
 		if ( CHECKS ) {
@@ -8437,7 +8817,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, command_queue, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clCreateBuffer CreateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateBuffer CreateBuffer}
+	 */
 	public static long clCreateBuffer(long context, long flags, ByteBuffer host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
@@ -8447,7 +8831,11 @@ public class CL10 {
 		return callPJPPPP(__functionAddress, context, flags, (long)host_ptr.remaining(), memAddress(host_ptr), errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateBuffer CreateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateBuffer CreateBuffer}
+	 */
 	public static long clCreateBuffer(long context, long flags, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
@@ -8457,7 +8845,11 @@ public class CL10 {
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 1), host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateBuffer CreateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateBuffer CreateBuffer}
+	 */
 	public static long clCreateBuffer(long context, long flags, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
@@ -8467,7 +8859,11 @@ public class CL10 {
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 2), host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateBuffer CreateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateBuffer CreateBuffer}
+	 */
 	public static long clCreateBuffer(long context, long flags, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
@@ -8477,7 +8873,11 @@ public class CL10 {
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 2), host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateBuffer CreateBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateBuffer CreateBuffer}
+	 */
 	public static long clCreateBuffer(long context, long flags, double[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
@@ -8487,7 +8887,11 @@ public class CL10 {
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 3), host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
+	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
@@ -8498,7 +8902,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
+	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
@@ -8509,7 +8917,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
+	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
@@ -8520,7 +8932,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
+	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, boolean blocking_read, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
@@ -8531,7 +8947,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
+	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
@@ -8542,7 +8962,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
+	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
@@ -8553,7 +8977,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
+	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
@@ -8564,7 +8992,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
+	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, boolean blocking_write, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
@@ -8575,7 +9007,11 @@ public class CL10 {
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueMapBuffer.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueMapBuffer EnqueueMapBuffer}
+	 */
 	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, boolean blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapBuffer;
 		if ( CHECKS ) {
@@ -8588,7 +9024,11 @@ public class CL10 {
 		return apiGetMappedBuffer(old_buffer, __result, (int)size);
 	}
 
-	/** Array version of: {@link #clCreateImage2D CreateImage2D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage2D CreateImage2D}
+	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
@@ -8598,7 +9038,11 @@ public class CL10 {
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage2D CreateImage2D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage2D CreateImage2D}
+	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
@@ -8608,7 +9052,11 @@ public class CL10 {
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage2D CreateImage2D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage2D CreateImage2D}
+	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
@@ -8618,7 +9066,11 @@ public class CL10 {
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage2D CreateImage2D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage2D CreateImage2D}
+	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
@@ -8628,7 +9080,11 @@ public class CL10 {
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage3D CreateImage3D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage3D CreateImage3D}
+	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
@@ -8638,7 +9094,11 @@ public class CL10 {
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage3D CreateImage3D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage3D CreateImage3D}
+	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
@@ -8648,7 +9108,11 @@ public class CL10 {
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage3D CreateImage3D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage3D CreateImage3D}
+	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
@@ -8658,7 +9122,11 @@ public class CL10 {
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateImage3D CreateImage3D} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * 
+	 * Array version of: {@link #clCreateImage3D CreateImage3D}
+	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
@@ -8668,7 +9136,11 @@ public class CL10 {
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetSupportedImageFormats.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetSupportedImageFormats GetSupportedImageFormats}
+	 */
 	public static int clGetSupportedImageFormats(long context, long flags, int image_type, CLImageFormat.Buffer image_formats, int[] num_image_formats) {
 		long __functionAddress = CL.getICD().clGetSupportedImageFormats;
 		if ( CHECKS ) {
@@ -8678,7 +9150,11 @@ public class CL10 {
 		return callPJPPI(__functionAddress, context, flags, image_type, remainingSafe(image_formats), memAddressSafe(image_formats), num_image_formats);
 	}
 
-	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
+	 */
 	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
@@ -8691,7 +9167,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
+	 */
 	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
@@ -8704,7 +9184,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
+	 */
 	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
@@ -8717,7 +9201,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueReadImage EnqueueReadImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
+	 */
 	public static int clEnqueueReadImage(long command_queue, long image, boolean blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
@@ -8730,7 +9218,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read ? 1 : 0, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
+	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
@@ -8743,7 +9235,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
+	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
@@ -8756,7 +9252,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
+	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
@@ -8769,7 +9269,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
+	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, boolean blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
@@ -8782,7 +9286,11 @@ public class CL10 {
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write ? 1 : 0, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** Array version of: {@link #clEnqueueMapImage EnqueueMapImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueMapImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueMapImage EnqueueMapImage}
+	 */
 	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, boolean blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
@@ -8800,7 +9308,11 @@ public class CL10 {
 		return apiGetMappedBuffer(old_buffer, __result, length);
 	}
 
-	/** Array version of: {@link #clEnqueueMapImage EnqueueMapImage} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueMapImage.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clEnqueueMapImage EnqueueMapImage}
+	 */
 	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, boolean blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, long length, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
@@ -8817,7 +9329,11 @@ public class CL10 {
 		return apiGetMappedBuffer(old_buffer, __result, (int)length);
 	}
 
-	/** Array version of: {@link #clGetImageInfo GetImageInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetImageInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetImageInfo GetImageInfo}
+	 */
 	public static int clGetImageInfo(long image, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetImageInfo;
 		if ( CHECKS ) {
@@ -8827,7 +9343,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, image, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetMemObjectInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetMemObjectInfo GetMemObjectInfo}
+	 */
 	public static int clGetMemObjectInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetMemObjectInfo;
 		if ( CHECKS ) {
@@ -8837,7 +9357,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetMemObjectInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetMemObjectInfo GetMemObjectInfo}
+	 */
 	public static int clGetMemObjectInfo(long memobj, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetMemObjectInfo;
 		if ( CHECKS ) {
@@ -8847,7 +9371,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clCreateSampler CreateSampler} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/clCreateSampler.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.2</em></p>
+	 * 
+	 * Array version of: {@link #clCreateSampler CreateSampler}
+	 */
 	public static long clCreateSampler(long context, boolean normalized_coords, int addressing_mode, int filter_mode, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateSampler;
 		if ( CHECKS ) {
@@ -8857,7 +9385,11 @@ public class CL10 {
 		return callPPP(__functionAddress, context, normalized_coords ? 1 : 0, addressing_mode, filter_mode, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetSamplerInfo GetSamplerInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetSamplerInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetSamplerInfo GetSamplerInfo}
+	 */
 	public static int clGetSamplerInfo(long sampler, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetSamplerInfo;
 		if ( CHECKS ) {
@@ -8867,7 +9399,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, sampler, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clCreateProgramWithSource CreateProgramWithSource} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithSource.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateProgramWithSource CreateProgramWithSource}
+	 */
 	public static long clCreateProgramWithSource(long context, PointerBuffer strings, PointerBuffer lengths, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithSource;
 		if ( CHECKS ) {
@@ -8878,7 +9414,11 @@ public class CL10 {
 		return callPPPPP(__functionAddress, context, strings.remaining(), memAddress(strings), memAddressSafe(lengths), errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateProgramWithBinary.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary}
+	 */
 	public static long clCreateProgramWithBinary(long context, PointerBuffer device_list, PointerBuffer lengths, PointerBuffer binaries, int[] binary_status, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithBinary;
 		if ( CHECKS ) {
@@ -8891,7 +9431,11 @@ public class CL10 {
 		return callPPPPPPP(__functionAddress, context, binaries.remaining(), memAddress(device_list), memAddress(lengths), memAddress(binaries), binary_status, errcode_ret);
 	}
 
-	/** Array version of: {@link #clGetProgramInfo GetProgramInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetProgramInfo GetProgramInfo}
+	 */
 	public static int clGetProgramInfo(long program, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetProgramInfo;
 		if ( CHECKS ) {
@@ -8901,7 +9445,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, program, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetProgramBuildInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo}
+	 */
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetProgramBuildInfo;
 		if ( CHECKS ) {
@@ -8912,7 +9460,11 @@ public class CL10 {
 		return callPPPPPI(__functionAddress, program, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clCreateKernel CreateKernel} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateKernel.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateKernel CreateKernel}
+	 */
 	public static long clCreateKernel(long program, ByteBuffer kernel_name, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateKernel;
 		if ( CHECKS ) {
@@ -8923,7 +9475,11 @@ public class CL10 {
 		return callPPPP(__functionAddress, program, memAddress(kernel_name), errcode_ret);
 	}
 
-	/** Array version of: {@link #clCreateKernel CreateKernel} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateKernel.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateKernel CreateKernel}
+	 */
 	public static long clCreateKernel(long program, CharSequence kernel_name, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateKernel;
 		if ( CHECKS ) {
@@ -8939,7 +9495,11 @@ public class CL10 {
 		}
 	}
 
-	/** Array version of: {@link #clCreateKernelsInProgram CreateKernelsInProgram} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateKernelsInProgram.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clCreateKernelsInProgram CreateKernelsInProgram}
+	 */
 	public static int clCreateKernelsInProgram(long program, PointerBuffer kernels, int[] num_kernels_ret) {
 		long __functionAddress = CL.getICD().clCreateKernelsInProgram;
 		if ( CHECKS ) {
@@ -8949,7 +9509,11 @@ public class CL10 {
 		return callPPPI(__functionAddress, program, remainingSafe(kernels), memAddressSafe(kernels), num_kernels_ret);
 	}
 
-	/** Array version of: {@link #clSetKernelArg SetKernelArg} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clSetKernelArg SetKernelArg}
+	 */
 	public static int clSetKernelArg(long kernel, int arg_index, short[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
@@ -8957,7 +9521,11 @@ public class CL10 {
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 1), arg_value);
 	}
 
-	/** Array version of: {@link #clSetKernelArg SetKernelArg} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clSetKernelArg SetKernelArg}
+	 */
 	public static int clSetKernelArg(long kernel, int arg_index, int[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
@@ -8965,7 +9533,11 @@ public class CL10 {
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 2), arg_value);
 	}
 
-	/** Array version of: {@link #clSetKernelArg SetKernelArg} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clSetKernelArg SetKernelArg}
+	 */
 	public static int clSetKernelArg(long kernel, int arg_index, long[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
@@ -8973,7 +9545,11 @@ public class CL10 {
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 3), arg_value);
 	}
 
-	/** Array version of: {@link #clSetKernelArg SetKernelArg} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clSetKernelArg SetKernelArg}
+	 */
 	public static int clSetKernelArg(long kernel, int arg_index, float[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
@@ -8981,7 +9557,11 @@ public class CL10 {
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 2), arg_value);
 	}
 
-	/** Array version of: {@link #clSetKernelArg SetKernelArg} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArg.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clSetKernelArg SetKernelArg}
+	 */
 	public static int clSetKernelArg(long kernel, int arg_index, double[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
@@ -8989,7 +9569,11 @@ public class CL10 {
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 3), arg_value);
 	}
 
-	/** Array version of: {@link #clGetKernelInfo GetKernelInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetKernelInfo GetKernelInfo}
+	 */
 	public static int clGetKernelInfo(long kernel, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelInfo;
 		if ( CHECKS ) {
@@ -8999,7 +9583,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, kernel, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelWorkGroupInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo}
+	 */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
 		if ( CHECKS ) {
@@ -9010,7 +9598,11 @@ public class CL10 {
 		return callPPPPPI(__functionAddress, kernel, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetKernelWorkGroupInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo}
+	 */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
 		if ( CHECKS ) {
@@ -9021,7 +9613,11 @@ public class CL10 {
 		return callPPPPPI(__functionAddress, kernel, device, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetEventInfo GetEventInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetEventInfo GetEventInfo}
+	 */
 	public static int clGetEventInfo(long event, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetEventInfo;
 		if ( CHECKS ) {
@@ -9031,7 +9627,11 @@ public class CL10 {
 		return callPPPPI(__functionAddress, event, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** Array version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetEventProfilingInfo.html">Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo}
+	 */
 	public static int clGetEventProfilingInfo(long event, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetEventProfilingInfo;
 		if ( CHECKS ) {
