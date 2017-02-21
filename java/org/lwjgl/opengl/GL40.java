@@ -212,7 +212,7 @@ public class GL40 {
 	// --- [ glBlendEquationi ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBlendEquationi">Reference Page</a></p>
 	 * 
 	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the specified draw buffer.
 	 *
@@ -224,7 +224,7 @@ public class GL40 {
 	// --- [ glBlendEquationSeparatei ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBlendEquationSeparatei">Reference Page</a></p>
 	 * 
 	 * Sets the RGB blend equation and the alpha blend equation separately for the specified draw buffer.
 	 *
@@ -237,7 +237,7 @@ public class GL40 {
 	// --- [ glBlendFunci ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBlendFunci">Reference Page</a></p>
 	 * 
 	 * Specifies pixel arithmetic for the specified draw buffer.
 	 *
@@ -250,7 +250,7 @@ public class GL40 {
 	// --- [ glBlendFuncSeparatei ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBlendFuncSeparatei">Reference Page</a></p>
 	 * 
 	 * Specifies pixel arithmetic for RGB and alpha components separately for the specified draw buffer.
 	 *
@@ -268,7 +268,7 @@ public class GL40 {
 	public static native void nglDrawArraysIndirect(int mode, long indirect);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data, taking parameters from memory.
 	 * 
@@ -297,7 +297,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data, taking parameters from memory.
 	 * 
@@ -324,7 +324,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data, taking parameters from memory.
 	 * 
@@ -358,7 +358,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglDrawElementsIndirect(int mode, int type, long indirect);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Renders indexed primitives from array data, taking parameters from memory.
 	 * 
@@ -401,7 +401,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Renders indexed primitives from array data, taking parameters from memory.
 	 * 
@@ -442,7 +442,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Renders indexed primitives from array data, taking parameters from memory.
 	 * 
@@ -487,7 +487,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform1d ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
@@ -499,7 +499,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform2d ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
 	 *
@@ -512,7 +512,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform3d ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
 	 *
@@ -526,7 +526,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glUniform4d ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
 	 *
@@ -548,7 +548,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniform1dv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
 	 *
@@ -569,7 +569,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniform2dv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
 	 *
@@ -590,7 +590,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniform3dv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
 	 *
@@ -611,7 +611,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniform4dv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
 	 *
@@ -632,7 +632,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix2dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
 	 *
@@ -654,7 +654,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix3dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
 	 *
@@ -676,7 +676,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix4dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
 	 *
@@ -698,7 +698,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
 	 *
@@ -720,7 +720,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
 	 *
@@ -742,7 +742,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
 	 *
@@ -764,7 +764,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
 	 *
@@ -786,7 +786,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
 	 *
@@ -808,7 +808,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
 	 *
@@ -826,7 +826,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetUniformdv(int program, int location, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the double value(s) of a uniform variable.
 	 *
@@ -841,7 +841,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the double value(s) of a uniform variable.
 	 *
@@ -862,7 +862,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glMinSampleShading ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMinSampleShading">Reference Page</a></p>
 	 * 
 	 * Specifies the minimum rate at which sample shading takes place.
 	 *
@@ -876,7 +876,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native int nglGetSubroutineUniformLocation(int program, int shadertype, long name);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSubroutineUniformLocation">Reference Page</a></p>
 	 * 
 	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
 	 *
@@ -891,7 +891,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSubroutineUniformLocation">Reference Page</a></p>
 	 * 
 	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
 	 *
@@ -915,7 +915,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native int nglGetSubroutineIndex(int program, int shadertype, long name);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSubroutineIndex">Reference Page</a></p>
 	 * 
 	 * Retrieves the index of a subroutine function of a given shader stage within a program.
 	 *
@@ -930,7 +930,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSubroutineIndex">Reference Page</a></p>
 	 * 
 	 * Retrieves the index of a subroutine function of a given shader stage within a program.
 	 *
@@ -954,7 +954,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniform">Reference Page</a></p>
 	 * 
 	 * Queries a property of an active shader subroutine uniform.
 	 *
@@ -971,7 +971,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniform">Reference Page</a></p>
 	 * 
 	 * Queries a property of an active shader subroutine uniform.
 	 *
@@ -1001,7 +1001,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniformName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active shader subroutine uniform.
 	 *
@@ -1018,7 +1018,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniformName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active shader subroutine uniform.
 	 *
@@ -1040,7 +1040,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniformName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active shader subroutine uniform.
 	 *
@@ -1062,7 +1062,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active shader subroutine.
 	 *
@@ -1079,7 +1079,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active shader subroutine.
 	 *
@@ -1101,7 +1101,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active shader subroutine.
 	 *
@@ -1123,7 +1123,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglUniformSubroutinesuiv(int shadertype, int count, long indices);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniformSubroutines">Reference Page</a></p>
 	 * 
 	 * Loads active subroutine uniforms.
 	 *
@@ -1135,7 +1135,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniformSubroutines">Reference Page</a></p>
 	 * 
 	 * Loads active subroutine uniforms.
 	 *
@@ -1157,7 +1157,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetUniformSubroutineuiv(int shadertype, int location, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformSubroutine">Reference Page</a></p>
 	 * 
 	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
 	 *
@@ -1172,7 +1172,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformSubroutine">Reference Page</a></p>
 	 * 
 	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
 	 *
@@ -1196,7 +1196,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetProgramStageiv(int program, int shadertype, int pname, long values);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetProgramStage">Reference Page</a></p>
 	 * 
 	 * Retrieves properties of a program object corresponding to a specified shader stage.
 	 *
@@ -1212,7 +1212,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetProgramStage">Reference Page</a></p>
 	 * 
 	 * Retrieves properties of a program object corresponding to a specified shader stage.
 	 *
@@ -1234,7 +1234,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glPatchParameteri ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glPatchParameteri">Reference Page</a></p>
 	 * 
 	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
@@ -1249,7 +1249,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglPatchParameterfv(int pname, long values);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glPatchParameter">Reference Page</a></p>
 	 * 
 	 * Specifies an array of float values for the specified parameter for patch primitives.
 	 *
@@ -1266,7 +1266,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glBindTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBindTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Binds a transform feedback object.
 	 *
@@ -1285,7 +1285,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglDeleteTransformFeedbacks(int n, long ids);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDeleteTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Deletes transform feedback objects.
 	 *
@@ -1296,7 +1296,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDeleteTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Deletes transform feedback objects.
 	 */
@@ -1320,7 +1320,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGenTransformFeedbacks(int n, long ids);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGenTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Reserves transform feedback object names.
 	 *
@@ -1331,7 +1331,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGenTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Reserves transform feedback object names.
 	 */
@@ -1349,7 +1349,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glIsTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glIsTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a transform feedback object.
 	 *
@@ -1360,7 +1360,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glPauseTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPauseTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glPauseTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Pauses transform feedback operations for the currently bound transform feedback object.
 	 * 
@@ -1379,7 +1379,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glResumeTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glResumeTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glResumeTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Resumes transform feedback operations for the currently bound transform feedback object.
 	 * 
@@ -1390,7 +1390,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glDrawTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Render primitives using a count derived from a transform feedback object.
 	 *
@@ -1402,7 +1402,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glDrawTransformFeedbackStream ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawTransformFeedbackStream">Reference Page</a></p>
 	 * 
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -1415,7 +1415,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glBeginQueryIndexed ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBeginQueryIndexed">Reference Page</a></p>
 	 * 
 	 * Begins a query object on an indexed target
 	 *
@@ -1428,7 +1428,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	// --- [ glEndQueryIndexed ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glEndQueryIndexed">Reference Page</a></p>
 	 * 
 	 * Ends a query object on an indexed target
 	 *
@@ -1443,7 +1443,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static native void nglGetQueryIndexediv(int target, int index, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryIndexed">Reference Page</a></p>
 	 * 
 	 * Returns parameters of an indexed query object target.
 	 *
@@ -1459,7 +1459,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryIndexed">Reference Page</a></p>
 	 * 
 	 * Returns parameters of an indexed query object target.
 	 *
@@ -1479,7 +1479,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDrawArraysIndirect DrawArraysIndirect}
 	 */
@@ -1493,7 +1493,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDrawElementsIndirect DrawElementsIndirect}
 	 */
@@ -1507,7 +1507,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform1dv Uniform1dv}
 	 */
@@ -1519,7 +1519,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform2dv Uniform2dv}
 	 */
@@ -1531,7 +1531,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform3dv Uniform3dv}
 	 */
@@ -1543,7 +1543,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform4dv Uniform4dv}
 	 */
@@ -1555,7 +1555,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix2dv UniformMatrix2dv}
 	 */
@@ -1567,7 +1567,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix3dv UniformMatrix3dv}
 	 */
@@ -1579,7 +1579,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix4dv UniformMatrix4dv}
 	 */
@@ -1591,7 +1591,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv}
 	 */
@@ -1603,7 +1603,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv}
 	 */
@@ -1615,7 +1615,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv}
 	 */
@@ -1627,7 +1627,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv}
 	 */
@@ -1639,7 +1639,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv}
 	 */
@@ -1651,7 +1651,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv}
 	 */
@@ -1663,7 +1663,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetUniformdv GetUniformdv}
 	 */
@@ -1677,7 +1677,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv}
 	 */
@@ -1691,7 +1691,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineUniformName">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName}
 	 */
@@ -1705,7 +1705,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveSubroutineName">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName}
 	 */
@@ -1719,7 +1719,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniformSubroutines">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv}
 	 */
@@ -1731,7 +1731,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformSubroutine">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv}
 	 */
@@ -1745,7 +1745,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetProgramStage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramStageiv GetProgramStageiv}
 	 */
@@ -1759,7 +1759,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glPatchParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glPatchParameterfv PatchParameterfv}
 	 */
@@ -1774,7 +1774,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDeleteTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks}
 	 */
@@ -1786,7 +1786,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGenTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks}
 	 */
@@ -1798,7 +1798,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryIndexed">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetQueryIndexediv GetQueryIndexediv}
 	 */

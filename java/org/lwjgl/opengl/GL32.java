@@ -209,7 +209,7 @@ public class GL32 {
 	public static native void nglGetBufferParameteri64v(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Returns the value of a buffer object parameter.
 	 *
@@ -224,7 +224,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Returns the value of a buffer object parameter.
 	 *
@@ -253,7 +253,7 @@ public class GL32 {
 	public static native void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -268,7 +268,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -282,7 +282,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -295,7 +295,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -308,7 +308,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -331,7 +331,7 @@ public class GL32 {
 	public static native void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -348,7 +348,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -364,7 +364,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -379,7 +379,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -394,7 +394,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -419,7 +419,7 @@ public class GL32 {
 	public static native void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -435,7 +435,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -450,7 +450,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -464,7 +464,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -478,7 +478,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -501,7 +501,7 @@ public class GL32 {
 	public static native void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMultiDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Renders multiple sets of primitives by specifying indices of array data elements and an offset to apply to each index.
 	 * 
@@ -524,7 +524,7 @@ public class GL32 {
 	// --- [ glProvokingVertex ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glProvokingVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glProvokingVertex">Reference Page</a></p>
 	 * 
 	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
 	 *
@@ -535,7 +535,7 @@ public class GL32 {
 	// --- [ glTexImage2DMultisample ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage2DMultisample">Reference Page</a></p>
 	 * 
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
@@ -553,7 +553,7 @@ public class GL32 {
 	// --- [ glTexImage3DMultisample ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3DMultisample">Reference Page</a></p>
 	 * 
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
 	 *
@@ -575,7 +575,7 @@ public class GL32 {
 	public static native void nglGetMultisamplefv(int pname, int index, long val);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMultisample">Reference Page</a></p>
 	 * 
 	 * Retrieves the location of a sample.
 	 *
@@ -590,7 +590,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMultisample">Reference Page</a></p>
 	 * 
 	 * Retrieves the location of a sample.
 	 *
@@ -611,7 +611,7 @@ public class GL32 {
 	// --- [ glSampleMaski ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleMaski.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glSampleMaski">Reference Page</a></p>
 	 * 
 	 * Sets the value of a sub-word of the sample mask.
 	 *
@@ -623,7 +623,7 @@ public class GL32 {
 	// --- [ glFramebufferTexture ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferTexture">Reference Page</a></p>
 	 * 
 	 * Attaches a level of a texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -637,7 +637,7 @@ public class GL32 {
 	// --- [ glFenceSync ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFenceSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFenceSync">Reference Page</a></p>
 	 * 
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
@@ -653,7 +653,7 @@ public class GL32 {
 	public static native boolean nglIsSync(long sync);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glIsSync">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a sync object.
 	 *
@@ -671,7 +671,7 @@ public class GL32 {
 	public static native void nglDeleteSync(long sync);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDeleteSync">Reference Page</a></p>
 	 * 
 	 * Deletes a sync object.
 	 *
@@ -689,7 +689,7 @@ public class GL32 {
 	public static native int nglClientWaitSync(long sync, int flags, long timeout);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClientWaitSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClientWaitSync">Reference Page</a></p>
 	 * 
 	 * Causes the client to block and wait for a sync object to become signaled. If {@code sync} is signaled when {@code glClientWaitSync} is called,
 	 * {@code glClientWaitSync} returns immediately, otherwise it will block and wait for up to timeout nanoseconds for {@code sync} to become signaled.
@@ -719,7 +719,7 @@ public class GL32 {
 	public static native void nglWaitSync(long sync, int flags, long timeout);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glWaitSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glWaitSync">Reference Page</a></p>
 	 * 
 	 * Causes the GL server to block and wait for a sync object to become signaled.
 	 * 
@@ -745,7 +745,7 @@ public class GL32 {
 	public static native void nglGetInteger64v(int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInteger64v">Reference Page</a></p>
 	 * 
 	 * Returns the 64bit integer value or values of a selected parameter.
 	 *
@@ -759,7 +759,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInteger64v">Reference Page</a></p>
 	 * 
 	 * Returns the 64bit integer value or values of a selected parameter.
 	 *
@@ -782,7 +782,7 @@ public class GL32 {
 	public static native void nglGetInteger64i_v(int pname, int index, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInteger">Reference Page</a></p>
 	 * 
 	 * Queries the 64bit integer value of an indexed state variable.
 	 *
@@ -797,7 +797,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInteger">Reference Page</a></p>
 	 * 
 	 * Queries the 64bit integer value of an indexed state variable.
 	 *
@@ -825,7 +825,7 @@ public class GL32 {
 	public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSync">Reference Page</a></p>
 	 * 
 	 * Queries the properties of a sync object.
 	 *
@@ -843,7 +843,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSync">Reference Page</a></p>
 	 * 
 	 * Queries the properties of a sync object.
 	 *
@@ -867,7 +867,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v}
 	 */
@@ -881,7 +881,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMultiDrawElementsBaseVertex">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex}
 	 */
@@ -896,7 +896,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMultisample">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetMultisamplefv GetMultisamplefv}
 	 */
@@ -910,7 +910,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInteger64v">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetInteger64v GetInteger64v}
 	 */
@@ -924,7 +924,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInteger">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetInteger64i_v GetInteger64i_v}
 	 */
@@ -938,7 +938,7 @@ public class GL32 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetSync">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSynciv GetSynciv}
 	 */

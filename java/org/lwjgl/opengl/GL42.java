@@ -226,7 +226,7 @@ public class GL42 {
 	public static native void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAtomicCounterBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
 	 * 
 	 * Obtains information about the set of active atomic counter buffers for a program.
 	 *
@@ -242,7 +242,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAtomicCounterBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
 	 * 
 	 * Obtains information about the set of active atomic counter buffers for a program.
 	 *
@@ -264,7 +264,7 @@ public class GL42 {
 	// --- [ glTexStorage1D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexStorage1D">Reference Page</a></p>
 	 * 
 	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
 	 *
@@ -278,7 +278,7 @@ public class GL42 {
 	// --- [ glTexStorage2D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexStorage2D">Reference Page</a></p>
 	 * 
 	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
 	 *
@@ -293,7 +293,7 @@ public class GL42 {
 	// --- [ glTexStorage3D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexStorage3D">Reference Page</a></p>
 	 * 
 	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
 	 *
@@ -309,7 +309,7 @@ public class GL42 {
 	// --- [ glDrawTransformFeedbackInstanced ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawTransformFeedbackInstanced">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of primitives using a count derived from a transform feedback object.
 	 *
@@ -322,7 +322,7 @@ public class GL42 {
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStreamInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawTransformFeedbackStreamInstanced">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -336,7 +336,7 @@ public class GL42 {
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawArraysInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
@@ -359,7 +359,7 @@ public class GL42 {
 	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -375,7 +375,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -390,7 +390,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -404,7 +404,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -418,7 +418,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -442,7 +442,7 @@ public class GL42 {
 	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -459,7 +459,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -475,7 +475,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -490,7 +490,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -505,7 +505,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -522,7 +522,7 @@ public class GL42 {
 	// --- [ glBindImageTexture ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindImageTexture.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBindImageTexture">Reference Page</a></p>
 	 * 
 	 * Binds a level of a texture to an image unit.
 	 *
@@ -539,7 +539,7 @@ public class GL42 {
 	// --- [ glMemoryBarrier ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrier.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMemoryBarrier">Reference Page</a></p>
 	 * 
 	 * Defines a barrier ordering memory transactions.
 	 *
@@ -557,7 +557,7 @@ public class GL42 {
 	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -571,7 +571,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -591,7 +591,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAtomicCounterBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv}
 	 */
@@ -605,7 +605,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetInternalformativ GetInternalformativ}
 	 */

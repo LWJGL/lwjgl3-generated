@@ -152,7 +152,7 @@ public class GL12 {
 	public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -172,7 +172,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -192,7 +192,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -212,7 +212,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -232,7 +232,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -252,7 +252,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -277,7 +277,7 @@ public class GL12 {
 	public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -299,7 +299,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -321,7 +321,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -343,7 +343,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -365,7 +365,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -387,7 +387,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -411,7 +411,7 @@ public class GL12 {
 	// --- [ glCopyTexSubImage3D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCopyTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of a slice of an existing 3D texel array. No change is made to the {@code internalformat}, {@code width},
 	 * {@code height}, or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
@@ -440,7 +440,7 @@ public class GL12 {
 	public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElements.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -485,7 +485,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElements.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -529,7 +529,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElements.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -572,7 +572,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElements.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -615,7 +615,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElements.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -658,7 +658,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -670,7 +670,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -682,7 +682,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -694,7 +694,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -706,7 +706,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
@@ -718,7 +718,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
@@ -730,7 +730,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
@@ -742,7 +742,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */

@@ -177,7 +177,7 @@ public class GL31 {
 	// --- [ glDrawArraysInstanced ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawArraysInstanced">Reference Page</a></p>
 	 * 
 	 * Draw multiple instances of a range of elements.
 	 *
@@ -199,7 +199,7 @@ public class GL31 {
 	public static native void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstanced">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements.
 	 *
@@ -214,7 +214,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstanced">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements.
 	 *
@@ -228,7 +228,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstanced">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements.
 	 *
@@ -241,7 +241,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstanced">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements.
 	 *
@@ -254,7 +254,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstanced">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements.
 	 *
@@ -269,7 +269,7 @@ public class GL31 {
 	// --- [ glCopyBufferSubData ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCopyBufferSubData">Reference Page</a></p>
 	 * 
 	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
 	 * 
@@ -294,7 +294,7 @@ public class GL31 {
 	// --- [ glPrimitiveRestartIndex ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPrimitiveRestartIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glPrimitiveRestartIndex">Reference Page</a></p>
 	 * 
 	 * Specifies the primitive restart index.
 	 *
@@ -305,7 +305,7 @@ public class GL31 {
 	// --- [ glTexBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTexBuffer">Reference Page</a></p>
 	 * 
 	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
 	 * in the attached buffer object. If {@code buffer} is zero, any buffer object attached to the buffer texture is detached, and no new buffer object is
@@ -345,7 +345,7 @@ public class GL31 {
 	public static native void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformIndices">Reference Page</a></p>
 	 * 
 	 * Retrieves the indices of a number of uniforms within a program object
 	 *
@@ -360,7 +360,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformIndices">Reference Page</a></p>
 	 * 
 	 * Retrieves the indices of a number of uniforms within a program object
 	 *
@@ -382,7 +382,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformIndices">Reference Page</a></p>
 	 * 
 	 * Retrieves the indices of a number of uniforms within a program object
 	 *
@@ -411,7 +411,7 @@ public class GL31 {
 	public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniforms">Reference Page</a></p>
 	 * 
 	 * Returns information about several active uniform variables for the specified program object.
 	 *
@@ -427,7 +427,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniforms">Reference Page</a></p>
 	 * 
 	 * Returns information about several active uniform variables for the specified program object.
 	 *
@@ -456,7 +456,7 @@ public class GL31 {
 	public static native void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active uniform.
 	 *
@@ -472,7 +472,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active uniform.
 	 *
@@ -493,7 +493,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an active uniform.
 	 *
@@ -510,7 +510,7 @@ public class GL31 {
 	public static native int nglGetUniformBlockIndex(int program, long uniformBlockName);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformBlockIndex">Reference Page</a></p>
 	 * 
 	 * Retrieves the index of a named uniform block.
 	 *
@@ -524,7 +524,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformBlockIndex">Reference Page</a></p>
 	 * 
 	 * Retrieves the index of a named uniform block.
 	 *
@@ -547,7 +547,7 @@ public class GL31 {
 	public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlock">Reference Page</a></p>
 	 * 
 	 * Queries information about an active uniform block.
 	 *
@@ -563,7 +563,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlock">Reference Page</a></p>
 	 * 
 	 * Queries information about an active uniform block.
 	 *
@@ -592,7 +592,7 @@ public class GL31 {
 	public static native void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlockName">Reference Page</a></p>
 	 * 
 	 * Retrieves the name of an active uniform block.
 	 *
@@ -608,7 +608,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlockName">Reference Page</a></p>
 	 * 
 	 * Retrieves the name of an active uniform block.
 	 *
@@ -629,7 +629,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlockName">Reference Page</a></p>
 	 * 
 	 * Retrieves the name of an active uniform block.
 	 *
@@ -643,7 +643,7 @@ public class GL31 {
 	// --- [ glUniformBlockBinding ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformBlockBinding.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUniformBlockBinding">Reference Page</a></p>
 	 * 
 	 * Assigns a binding point to an active uniform block.
 	 *
@@ -654,7 +654,7 @@ public class GL31 {
 	public static native void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniformIndices">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetUniformIndices GetUniformIndices}
 	 */
@@ -668,7 +668,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniforms">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv}
 	 */
@@ -682,7 +682,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformName">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveUniformName GetActiveUniformName}
 	 */
@@ -696,7 +696,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlock">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv}
 	 */
@@ -710,7 +710,7 @@ public class GL31 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetActiveUniformBlockName">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName}
 	 */

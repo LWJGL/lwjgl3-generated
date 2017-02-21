@@ -131,7 +131,7 @@ public class GL45 {
 	// --- [ glClipControl ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClipControl.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClipControl">Reference Page</a></p>
 	 * 
 	 * Controls the clipping volume behavior.
 	 * 
@@ -156,7 +156,7 @@ public class GL45 {
 	public static native void nglCreateTransformFeedbacks(int n, long ids);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused transform feedback object names in {@code ids}, each representing a new state vector.
 	 *
@@ -167,7 +167,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused transform feedback object names in {@code ids}, each representing a new state vector.
 	 */
@@ -185,7 +185,7 @@ public class GL45 {
 	// --- [ glTransformFeedbackBufferBase ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackBufferBase.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTransformFeedbackBufferBase">Reference Page</a></p>
 	 * 
 	 * Binds a buffer object to a transform feedback object.
 	 *
@@ -198,7 +198,7 @@ public class GL45 {
 	// --- [ glTransformFeedbackBufferRange ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTransformFeedbackBufferRange">Reference Page</a></p>
 	 * 
 	 * Binds a region of a buffer object to a transform feedback object.
 	 *
@@ -216,7 +216,7 @@ public class GL45 {
 	public static native void nglGetTransformFeedbackiv(int xfb, int pname, long param);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Returns information about a transform feedback object.
 	 *
@@ -231,7 +231,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Returns information about a transform feedback object.
 	 *
@@ -255,7 +255,7 @@ public class GL45 {
 	public static native void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbacki_v">Reference Page</a></p>
 	 * 
 	 * Returns information about a transform feedback object.
 	 *
@@ -271,7 +271,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbacki_v">Reference Page</a></p>
 	 * 
 	 * Returns information about a transform feedback object.
 	 *
@@ -296,7 +296,7 @@ public class GL45 {
 	public static native void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbacki64_v">Reference Page</a></p>
 	 * 
 	 * Returns information about a transform feedback object.
 	 *
@@ -312,7 +312,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbacki64_v">Reference Page</a></p>
 	 * 
 	 * Returns information about a transform feedback object.
 	 *
@@ -341,7 +341,7 @@ public class GL45 {
 	public static native void nglCreateBuffers(int n, long buffers);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateBuffers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused buffer names in {@code buffers}, each representing a new buffer object initialized as if it had been bound to an
 	 * unspecified target.
@@ -353,7 +353,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateBuffers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused buffer names in {@code buffers}, each representing a new buffer object initialized as if it had been bound to an
 	 * unspecified target.
@@ -379,7 +379,7 @@ public class GL45 {
 	public static native void nglNamedBufferStorage(int buffer, long size, long data, int flags);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
 	 *
@@ -427,7 +427,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
 	 *
@@ -476,7 +476,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
 	 *
@@ -525,7 +525,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
 	 *
@@ -574,7 +574,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
 	 *
@@ -623,7 +623,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBufferStorage BufferStorage}.
 	 *
@@ -681,7 +681,7 @@ public class GL45 {
 	public static native void nglNamedBufferData(int buffer, long size, long data, int usage);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferData BufferData}.
 	 *
@@ -694,7 +694,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferData BufferData}.
 	 *
@@ -707,7 +707,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferData BufferData}.
 	 *
@@ -720,7 +720,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferData BufferData}.
 	 *
@@ -733,7 +733,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferData BufferData}.
 	 *
@@ -746,7 +746,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferData BufferData}.
 	 *
@@ -768,7 +768,7 @@ public class GL45 {
 	public static native void nglNamedBufferSubData(int buffer, long offset, long size, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
 	 *
@@ -781,7 +781,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
 	 *
@@ -794,7 +794,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
 	 *
@@ -807,7 +807,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
 	 *
@@ -820,7 +820,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glBufferSubData BufferSubData}.
 	 *
@@ -835,7 +835,7 @@ public class GL45 {
 	// --- [ glCopyNamedBufferSubData ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCopyBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 *
@@ -853,7 +853,7 @@ public class GL45 {
 	public static native void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferData ClearBufferData}.
 	 *
@@ -870,7 +870,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferData ClearBufferData}.
 	 *
@@ -887,7 +887,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferData ClearBufferData}.
 	 *
@@ -904,7 +904,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferData ClearBufferData}.
 	 *
@@ -926,7 +926,7 @@ public class GL45 {
 	public static native void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferSubData ClearBufferSubData}.
 	 *
@@ -945,7 +945,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferSubData ClearBufferSubData}.
 	 *
@@ -964,7 +964,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferSubData ClearBufferSubData}.
 	 *
@@ -983,7 +983,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glClearBufferSubData ClearBufferSubData}.
 	 *
@@ -1007,7 +1007,7 @@ public class GL45 {
 	public static native long nglMapNamedBuffer(int buffer, int access);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapNamedBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
 	 *
@@ -1020,7 +1020,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapNamedBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
 	 *
@@ -1034,7 +1034,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapNamedBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glMapBuffer MapBuffer}.
 	 *
@@ -1052,7 +1052,7 @@ public class GL45 {
 	public static native long nglMapNamedBufferRange(int buffer, long offset, long length, int access);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapNamedBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMapBufferRange">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glMapBufferRange MapBufferRange}.
 	 *
@@ -1067,7 +1067,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapNamedBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMapBufferRange">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glMapBufferRange MapBufferRange}.
 	 *
@@ -1084,7 +1084,7 @@ public class GL45 {
 	// --- [ glUnmapNamedBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUnmapNamedBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glUnmapBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glUnmapBuffer UnmapBuffer}.
 	 *
@@ -1095,7 +1095,7 @@ public class GL45 {
 	// --- [ glFlushMappedNamedBufferRange ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedNamedBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFlushMappedBufferRange">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glFlushMappedBufferRange FlushMappedBufferRange}.
 	 *
@@ -1111,7 +1111,7 @@ public class GL45 {
 	public static native void nglGetNamedBufferParameteriv(int buffer, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferParameteriv GetBufferParameteriv}.
 	 *
@@ -1126,7 +1126,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferParameteriv GetBufferParameteriv}.
 	 *
@@ -1150,7 +1150,7 @@ public class GL45 {
 	public static native void nglGetNamedBufferParameteri64v(int buffer, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}.
 	 *
@@ -1165,7 +1165,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}.
 	 *
@@ -1189,7 +1189,7 @@ public class GL45 {
 	public static native void nglGetNamedBufferPointerv(int buffer, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferPointerv">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferPointerv GetBufferPointerv}.
 	 *
@@ -1204,7 +1204,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferPointerv">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferPointerv GetBufferPointerv}.
 	 *
@@ -1232,7 +1232,7 @@ public class GL45 {
 	public static native void nglGetNamedBufferSubData(int buffer, long offset, long size, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
 	 *
@@ -1245,7 +1245,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
 	 *
@@ -1258,7 +1258,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
 	 *
@@ -1271,7 +1271,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
 	 *
@@ -1284,7 +1284,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
 	 *
@@ -1306,7 +1306,7 @@ public class GL45 {
 	public static native void nglCreateFramebuffers(int n, long framebuffers);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateFramebuffers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused framebuffer names in {@code framebuffers}, each representing a new framebuffer object.
 	 *
@@ -1317,7 +1317,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateFramebuffers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused framebuffer names in {@code framebuffers}, each representing a new framebuffer object.
 	 */
@@ -1335,7 +1335,7 @@ public class GL45 {
 	// --- [ glNamedFramebufferRenderbuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferRenderbuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glFramebufferRenderbuffer FramebufferRenderbuffer}.
 	 *
@@ -1349,7 +1349,7 @@ public class GL45 {
 	// --- [ glNamedFramebufferParameteri ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferParameteri">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glFramebufferParameteri FramebufferParameteri}.
 	 *
@@ -1362,7 +1362,7 @@ public class GL45 {
 	// --- [ glNamedFramebufferTexture ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferTexture.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferTexture">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL32#glFramebufferTexture FramebufferTexture}.
 	 *
@@ -1376,7 +1376,7 @@ public class GL45 {
 	// --- [ glNamedFramebufferTextureLayer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferTextureLayer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}.
 	 *
@@ -1391,7 +1391,7 @@ public class GL45 {
 	// --- [ glNamedFramebufferDrawBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferDrawBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glDrawBuffer DrawBuffer}.
 	 *
@@ -1410,7 +1410,7 @@ public class GL45 {
 	public static native void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferDrawBuffers">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL20#glDrawBuffers DrawBuffers}.
 	 *
@@ -1422,7 +1422,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferDrawBuffers">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL20#glDrawBuffers DrawBuffers}.
 	 *
@@ -1441,7 +1441,7 @@ public class GL45 {
 	// --- [ glNamedFramebufferReadBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferReadBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferReadBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glReadBuffer ReadBuffer}.
 	 *
@@ -1460,7 +1460,7 @@ public class GL45 {
 	public static native void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glInvalidateFramebuffer InvalidateFramebuffer}.
 	 *
@@ -1472,7 +1472,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebufferData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glInvalidateFramebuffer InvalidateFramebuffer}.
 	 *
@@ -1498,7 +1498,7 @@ public class GL45 {
 	public static native void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glInvalidateSubFramebuffer InvalidateSubFramebuffer}.
 	 *
@@ -1514,7 +1514,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebufferSubData">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glInvalidateSubFramebuffer InvalidateSubFramebuffer}.
 	 *
@@ -1540,7 +1540,7 @@ public class GL45 {
 	public static native void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glClearBufferiv ClearBufferiv}.
 	 *
@@ -1562,7 +1562,7 @@ public class GL45 {
 	public static native void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glClearBufferuiv ClearBufferuiv}.
 	 *
@@ -1583,7 +1583,7 @@ public class GL45 {
 	public static native void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glClearBufferfv ClearBufferfv}.
 	 *
@@ -1602,7 +1602,7 @@ public class GL45 {
 	// --- [ glClearNamedFramebufferfi ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebufferfi.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebufferfi">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glClearBufferfi ClearBufferfi}.
 	 *
@@ -1617,7 +1617,7 @@ public class GL45 {
 	// --- [ glBlitNamedFramebuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlitNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBlitFramebuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glBlitFramebuffer BlitFramebuffer}.
 	 *
@@ -1639,7 +1639,7 @@ public class GL45 {
 	// --- [ glCheckNamedFramebufferStatus ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCheckNamedFramebufferStatus.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCheckFramebufferStatus">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glCheckFramebufferStatus CheckFramebufferStatus}.
 	 *
@@ -1654,7 +1654,7 @@ public class GL45 {
 	public static native void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glGetFramebufferParameteriv GetFramebufferParameteriv}.
 	 *
@@ -1669,7 +1669,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glGetFramebufferParameteriv GetFramebufferParameteriv}.
 	 *
@@ -1693,7 +1693,7 @@ public class GL45 {
 	public static native void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
 	 *
@@ -1709,7 +1709,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
 	 *
@@ -1738,7 +1738,7 @@ public class GL45 {
 	public static native void nglCreateRenderbuffers(int n, long renderbuffers);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused renderbuffer names in {@code renderbuffers}, each representing a new renderbuffer object.
 	 *
@@ -1749,7 +1749,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused renderbuffer names in {@code renderbuffers}, each representing a new renderbuffer object.
 	 */
@@ -1767,7 +1767,7 @@ public class GL45 {
 	// --- [ glNamedRenderbufferStorage ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glRenderbufferStorage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glRenderbufferStorage RenderbufferStorage}.
 	 *
@@ -1781,7 +1781,7 @@ public class GL45 {
 	// --- [ glNamedRenderbufferStorageMultisample ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glRenderbufferStorageMultisample">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glRenderbufferStorageMultisample RenderbufferStorageMultisample}.
 	 *
@@ -1799,7 +1799,7 @@ public class GL45 {
 	public static native void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetRenderbufferParameteriv GetRenderbufferParameteriv}.
 	 *
@@ -1814,7 +1814,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetRenderbufferParameteriv GetRenderbufferParameteriv}.
 	 *
@@ -1842,7 +1842,7 @@ public class GL45 {
 	public static native void nglCreateTextures(int target, int n, long textures);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTextures.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateTextures">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused texture names in {@code textures}, each representing a new texture object.
 	 *
@@ -1854,7 +1854,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTextures.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateTextures">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused texture names in {@code textures}, each representing a new texture object.
 	 *
@@ -1874,7 +1874,7 @@ public class GL45 {
 	// --- [ glTextureBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL31#glTexBuffer TexBuffer}.
 	 *
@@ -1887,7 +1887,7 @@ public class GL45 {
 	// --- [ glTextureBufferRange ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBufferRange.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureBufferRange">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glTexBufferRange TexBufferRange}.
 	 *
@@ -1902,7 +1902,7 @@ public class GL45 {
 	// --- [ glTextureStorage1D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureStorage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL42#glTexStorage1D TexStorage1D}.
 	 *
@@ -1916,7 +1916,7 @@ public class GL45 {
 	// --- [ glTextureStorage2D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureStorage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL42#glTexStorage2D TexStorage2D}.
 	 *
@@ -1931,7 +1931,7 @@ public class GL45 {
 	// --- [ glTextureStorage3D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureStorage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL42#glTexStorage3D TexStorage3D}.
 	 *
@@ -1947,7 +1947,7 @@ public class GL45 {
 	// --- [ glTextureStorage2DMultisample ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage2DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureStorage2DMultisample">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glTexStorage2DMultisample TexStorage2DMultisample}.
 	 *
@@ -1964,7 +1964,7 @@ public class GL45 {
 	// --- [ glTextureStorage3DMultisample ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureStorage3DMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureStorage3DMultisample">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glTexStorage3DMultisample TexStorage3DMultisample}.
 	 *
@@ -1985,7 +1985,7 @@ public class GL45 {
 	public static native void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
 	 *
@@ -2002,7 +2002,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
 	 *
@@ -2019,7 +2019,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
 	 *
@@ -2036,7 +2036,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
 	 *
@@ -2053,7 +2053,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
 	 *
@@ -2070,7 +2070,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage1D TexSubImage1D}.
 	 *
@@ -2092,7 +2092,7 @@ public class GL45 {
 	public static native void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
 	 *
@@ -2111,7 +2111,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
 	 *
@@ -2130,7 +2130,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
 	 *
@@ -2149,7 +2149,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
 	 *
@@ -2168,7 +2168,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
 	 *
@@ -2187,7 +2187,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexSubImage2D TexSubImage2D}.
 	 *
@@ -2211,7 +2211,7 @@ public class GL45 {
 	public static native void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
 	 *
@@ -2232,7 +2232,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
 	 *
@@ -2253,7 +2253,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
 	 *
@@ -2274,7 +2274,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
 	 *
@@ -2295,7 +2295,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
 	 *
@@ -2316,7 +2316,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glTexSubImage3D TexSubImage3D}.
 	 *
@@ -2346,7 +2346,7 @@ public class GL45 {
 	public static native void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCompressedTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glCompressedTexSubImage1D CompressedTexSubImage1D}.
 	 *
@@ -2363,7 +2363,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCompressedTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glCompressedTexSubImage1D CompressedTexSubImage1D}.
 	 *
@@ -2388,7 +2388,7 @@ public class GL45 {
 	public static native void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCompressedTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glCompressedTexSubImage2D CompressedTexSubImage2D}.
 	 *
@@ -2407,7 +2407,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCompressedTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glCompressedTexSubImage2D CompressedTexSubImage2D}.
 	 *
@@ -2434,7 +2434,7 @@ public class GL45 {
 	public static native void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCompressedTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glCompressedTexSubImage3D CompressedTexSubImage3D}.
 	 *
@@ -2455,7 +2455,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCompressedTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glCompressedTexSubImage3D CompressedTexSubImage3D}.
 	 *
@@ -2477,7 +2477,7 @@ public class GL45 {
 	// --- [ glCopyTextureSubImage1D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCopyTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glCopyTexSubImage1D CopyTexSubImage1D}.
 	 *
@@ -2493,7 +2493,7 @@ public class GL45 {
 	// --- [ glCopyTextureSubImage2D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCopyTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glCopyTexSubImage2D CopyTexSubImage2D}.
 	 *
@@ -2511,7 +2511,7 @@ public class GL45 {
 	// --- [ glCopyTextureSubImage3D ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCopyTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL12#glCopyTexSubImage3D CopyTexSubImage3D}.
 	 *
@@ -2530,7 +2530,7 @@ public class GL45 {
 	// --- [ glTextureParameterf ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterf.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameterf">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexParameterf TexParameterf}.
 	 *
@@ -2546,7 +2546,7 @@ public class GL45 {
 	public static native void nglTextureParameterfv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexParameterfv TexParameterfv}.
 	 *
@@ -2563,7 +2563,7 @@ public class GL45 {
 	// --- [ glTextureParameteri ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameteri">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexParameteri TexParameteri}.
 	 *
@@ -2579,7 +2579,7 @@ public class GL45 {
 	public static native void nglTextureParameterIiv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glTexParameterIiv TexParameterIiv}.
 	 *
@@ -2594,7 +2594,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glTexParameterIiv TexParameterIiv}.
 	 *
@@ -2617,7 +2617,7 @@ public class GL45 {
 	public static native void nglTextureParameterIuiv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glTexParameterIuiv TexParameterIuiv}.
 	 *
@@ -2632,7 +2632,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glTexParameterIuiv TexParameterIuiv}.
 	 *
@@ -2655,7 +2655,7 @@ public class GL45 {
 	public static native void nglTextureParameteriv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glTexParameteriv TexParameteriv}.
 	 *
@@ -2672,7 +2672,7 @@ public class GL45 {
 	// --- [ glGenerateTextureMipmap ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenerateTextureMipmap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGenerateTextureMipmap">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGenerateMipmap GenerateMipmap}.
 	 *
@@ -2683,7 +2683,7 @@ public class GL45 {
 	// --- [ glBindTextureUnit ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTextureUnit.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBindTextureUnit">Reference Page</a></p>
 	 * 
 	 * Binds an existing texture object to the texture unit numbered {@code unit}.
 	 * 
@@ -2706,7 +2706,7 @@ public class GL45 {
 	public static native void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
 	 *
@@ -2722,7 +2722,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
 	 *
@@ -2737,7 +2737,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
 	 *
@@ -2752,7 +2752,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
 	 *
@@ -2767,7 +2767,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
 	 *
@@ -2782,7 +2782,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexImage GetTexImage}.
 	 *
@@ -2806,7 +2806,7 @@ public class GL45 {
 	public static native void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}.
 	 *
@@ -2820,7 +2820,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureImage">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}.
 	 *
@@ -2841,7 +2841,7 @@ public class GL45 {
 	public static native void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureLevelParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexLevelParameterfv GetTexLevelParameterfv}.
 	 *
@@ -2857,7 +2857,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureLevelParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexLevelParameterfv GetTexLevelParameterfv}.
 	 *
@@ -2882,7 +2882,7 @@ public class GL45 {
 	public static native void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureLevelParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexLevelParameteriv GetTexLevelParameteriv}.
 	 *
@@ -2898,7 +2898,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureLevelParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexLevelParameteriv GetTexLevelParameteriv}.
 	 *
@@ -2923,7 +2923,7 @@ public class GL45 {
 	public static native void nglGetTextureParameterfv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexParameterfv GetTexParameterfv}.
 	 *
@@ -2938,7 +2938,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexParameterfv GetTexParameterfv}.
 	 *
@@ -2962,7 +2962,7 @@ public class GL45 {
 	public static native void nglGetTextureParameterIiv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetTexParameterIiv GetTexParameterIiv}.
 	 *
@@ -2977,7 +2977,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetTexParameterIiv GetTexParameterIiv}.
 	 *
@@ -3001,7 +3001,7 @@ public class GL45 {
 	public static native void nglGetTextureParameterIuiv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetTexParameterIuiv GetTexParameterIuiv}.
 	 *
@@ -3016,7 +3016,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL30#glGetTexParameterIuiv GetTexParameterIuiv}.
 	 *
@@ -3040,7 +3040,7 @@ public class GL45 {
 	public static native void nglGetTextureParameteriv(int texture, int pname, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexParameteriv GetTexParameteriv}.
 	 *
@@ -3055,7 +3055,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL11#glGetTexParameteriv GetTexParameteriv}.
 	 *
@@ -3083,7 +3083,7 @@ public class GL45 {
 	public static native void nglCreateVertexArrays(int n, long arrays);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateVertexArrays">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused vertex array object names in {@code arrays}.
 	 *
@@ -3094,7 +3094,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateVertexArrays">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused vertex array object names in {@code arrays}.
 	 */
@@ -3112,7 +3112,7 @@ public class GL45 {
 	// --- [ glDisableVertexArrayAttrib ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDisableVertexArrayAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glDisableVertexArrayAttrib">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL20#glDisableVertexAttribArray DisableVertexAttribArray}.
 	 *
@@ -3124,7 +3124,7 @@ public class GL45 {
 	// --- [ glEnableVertexArrayAttrib ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexArrayAttrib.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glEnableVertexArrayAttrib">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL20#glEnableVertexAttribArray EnableVertexAttribArray}.
 	 *
@@ -3136,7 +3136,7 @@ public class GL45 {
 	// --- [ glVertexArrayElementBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayElementBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayElementBuffer">Reference Page</a></p>
 	 * 
 	 * Binds a buffer object to the element array buffer bind point of a vertex array object.
 	 *
@@ -3148,7 +3148,7 @@ public class GL45 {
 	// --- [ glVertexArrayVertexBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayVertexBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayVertexBuffer">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glBindVertexBuffer BindVertexBuffer}.
 	 *
@@ -3170,7 +3170,7 @@ public class GL45 {
 	public static native void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayVertexBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayVertexBuffers">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL44#glBindVertexBuffers BindVertexBuffers}.
 	 *
@@ -3191,7 +3191,7 @@ public class GL45 {
 	// --- [ glVertexArrayAttribFormat ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayAttribFormat">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glVertexAttribFormat VertexAttribFormat}.
 	 *
@@ -3208,7 +3208,7 @@ public class GL45 {
 	// --- [ glVertexArrayAttribIFormat ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribIFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayAttribIFormat">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glVertexAttribIFormat VertexAttribIFormat}.
 	 *
@@ -3223,7 +3223,7 @@ public class GL45 {
 	// --- [ glVertexArrayAttribLFormat ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribLFormat.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayAttribLFormat">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glVertexAttribLFormat VertexAttribLFormat}.
 	 *
@@ -3238,7 +3238,7 @@ public class GL45 {
 	// --- [ glVertexArrayAttribBinding ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayAttribBinding.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayAttribBinding">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glVertexAttribBinding VertexAttribBinding}.
 	 *
@@ -3251,7 +3251,7 @@ public class GL45 {
 	// --- [ glVertexArrayBindingDivisor ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayBindingDivisor.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayBindingDivisor">Reference Page</a></p>
 	 * 
 	 * DSA version of {@link GL43#glVertexBindingDivisor VertexBindingDivisor}.
 	 *
@@ -3267,7 +3267,7 @@ public class GL45 {
 	public static native void nglGetVertexArrayiv(int vaobj, int pname, long param);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArray.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArray">Reference Page</a></p>
 	 * 
 	 * Queries parameters of a vertex array object.
 	 *
@@ -3282,7 +3282,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArray.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArray">Reference Page</a></p>
 	 * 
 	 * Queries parameters of a vertex array object.
 	 *
@@ -3306,7 +3306,7 @@ public class GL45 {
 	public static native void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArrayIndexed">Reference Page</a></p>
 	 * 
 	 * Queries parameters of an attribute of a vertex array object.
 	 *
@@ -3322,7 +3322,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArrayIndexed">Reference Page</a></p>
 	 * 
 	 * Queries parameters of an attribute of a vertex array object.
 	 *
@@ -3347,7 +3347,7 @@ public class GL45 {
 	public static native void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed64i.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArrayIndexed">Reference Page</a></p>
 	 * 
 	 * Queries parameters of an attribute of a vertex array object.
 	 *
@@ -3363,7 +3363,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed64i.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArrayIndexed">Reference Page</a></p>
 	 * 
 	 * Queries parameters of an attribute of a vertex array object.
 	 *
@@ -3392,7 +3392,7 @@ public class GL45 {
 	public static native void nglCreateSamplers(int n, long samplers);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateSamplers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateSamplers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused sampler names in {@code samplers}, each representing a new sampler object.
 	 *
@@ -3403,7 +3403,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateSamplers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateSamplers">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused sampler names in {@code samplers}, each representing a new sampler object.
 	 */
@@ -3428,7 +3428,7 @@ public class GL45 {
 	public static native void nglCreateProgramPipelines(int n, long pipelines);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgramPipelines.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused program pipeline names in {@code pipelines}, each representing a new program pipeline object.
 	 *
@@ -3439,7 +3439,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgramPipelines.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused program pipeline names in {@code pipelines}, each representing a new program pipeline object.
 	 */
@@ -3464,7 +3464,7 @@ public class GL45 {
 	public static native void nglCreateQueries(int target, int n, long ids);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateQueries.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateQueries">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused query object names in {@code ids}, each representing a new query object with the specified {@code target}.
 	 *
@@ -3476,7 +3476,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateQueries.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateQueries">Reference Page</a></p>
 	 * 
 	 * Returns {@code n} previously unused query object names in {@code ids}, each representing a new query object with the specified {@code target}.
 	 *
@@ -3496,7 +3496,7 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjectiv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectiv.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryBufferObject">Reference Page</a></p>
 	 * 
 	 * Queries the state of a query object.
 	 *
@@ -3510,7 +3510,7 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjectuiv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectuiv.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryBufferObject">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
@@ -3524,7 +3524,7 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjecti64v ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjecti64v.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryBufferObject">Reference Page</a></p>
 	 * 
 	 * 64bit version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
 	 *
@@ -3538,7 +3538,7 @@ public class GL45 {
 	// --- [ glGetQueryBufferObjectui64v ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectui64v.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetQueryBufferObject">Reference Page</a></p>
 	 * 
 	 * 64bit version of {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
 	 *
@@ -3552,7 +3552,7 @@ public class GL45 {
 	// --- [ glMemoryBarrierByRegion ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrierByRegion.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glMemoryBarrierByRegion">Reference Page</a></p>
 	 * 
 	 * Behaves like {@link GL42#glMemoryBarrier MemoryBarrier}, with two differences:
 	 * 
@@ -3582,7 +3582,7 @@ public class GL45 {
 	public static native void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains sub-regions of a texture image from a texture object.
 	 *
@@ -3604,7 +3604,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains sub-regions of a texture image from a texture object.
 	 *
@@ -3625,7 +3625,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains sub-regions of a texture image from a texture object.
 	 *
@@ -3646,7 +3646,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains sub-regions of a texture image from a texture object.
 	 *
@@ -3667,7 +3667,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains sub-regions of a texture image from a texture object.
 	 *
@@ -3688,7 +3688,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains sub-regions of a texture image from a texture object.
 	 *
@@ -3718,7 +3718,7 @@ public class GL45 {
 	public static native void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains a sub-region of a compressed texture image.
 	 *
@@ -3738,7 +3738,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains a sub-region of a compressed texture image.
 	 *
@@ -3757,7 +3757,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains a sub-region of a compressed texture image.
 	 *
@@ -3776,7 +3776,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains a sub-region of a compressed texture image.
 	 *
@@ -3795,7 +3795,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains a sub-region of a compressed texture image.
 	 *
@@ -3814,7 +3814,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Obtains a sub-region of a compressed texture image.
 	 *
@@ -3835,7 +3835,7 @@ public class GL45 {
 	// --- [ glTextureBarrier ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureBarrier.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureBarrier">Reference Page</a></p>
 	 * 
 	 * Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed.
 	 */
@@ -3844,7 +3844,7 @@ public class GL45 {
 	// --- [ glGetGraphicsResetStatus ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetGraphicsResetStatus.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetGraphicsResetStatus">Reference Page</a></p>
 	 * 
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * 
@@ -3892,7 +3892,7 @@ public class GL45 {
 	public static native void nglGetnMapdv(int target, int query, int bufSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetMapdv GetMapdv}
 	 *
@@ -3905,7 +3905,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetMapdv GetMapdv}
 	 *
@@ -3933,7 +3933,7 @@ public class GL45 {
 	public static native void nglGetnMapfv(int target, int query, int bufSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetMapfv GetMapfv}
 	 *
@@ -3946,7 +3946,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetMapfv GetMapfv}
 	 *
@@ -3974,7 +3974,7 @@ public class GL45 {
 	public static native void nglGetnMapiv(int target, int query, int bufSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetMapiv GetMapiv}
 	 *
@@ -3987,7 +3987,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetMapiv GetMapiv}
 	 *
@@ -4015,7 +4015,7 @@ public class GL45 {
 	public static native void nglGetnPixelMapfv(int map, int bufSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetPixelMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetPixelMapfv GetPixelMapfv}
 	 *
@@ -4036,7 +4036,7 @@ public class GL45 {
 	public static native void nglGetnPixelMapuiv(int map, int bufSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetPixelMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetPixelMapuiv GetPixelMapuiv}
 	 *
@@ -4057,7 +4057,7 @@ public class GL45 {
 	public static native void nglGetnPixelMapusv(int map, int bufSize, long data);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetPixelMap">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetPixelMapusv GetPixelMapusv}
 	 *
@@ -4078,7 +4078,7 @@ public class GL45 {
 	public static native void nglGetnPolygonStipple(int bufSize, long pattern);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPolygonStipple.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnPolygonStipple">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetPolygonStipple GetPolygonStipple}
 	 *
@@ -4090,7 +4090,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPolygonStipple.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnPolygonStipple">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetPolygonStipple GetPolygonStipple}
 	 *
@@ -4110,7 +4110,7 @@ public class GL45 {
 	public static native void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
 	 *
@@ -4126,7 +4126,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
 	 *
@@ -4141,7 +4141,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
 	 *
@@ -4156,7 +4156,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
 	 *
@@ -4171,7 +4171,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
 	 *
@@ -4186,7 +4186,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
 	 *
@@ -4210,7 +4210,7 @@ public class GL45 {
 	public static native void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -4228,7 +4228,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -4245,7 +4245,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -4262,7 +4262,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -4279,7 +4279,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GL11#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -4305,7 +4305,7 @@ public class GL45 {
 	public static native void nglGetnColorTable(int target, int format, int type, int bufSize, long table);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
 	 *
@@ -4320,7 +4320,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
 	 *
@@ -4334,7 +4334,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
 	 *
@@ -4348,7 +4348,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
 	 *
@@ -4362,7 +4362,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
 	 *
@@ -4385,7 +4385,7 @@ public class GL45 {
 	public static native void nglGetnConvolutionFilter(int target, int format, int type, int bufSize, long image);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnConvolutionFilter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnConvolutionFilter">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetConvolutionFilter GetConvolutionFilter}
 	 *
@@ -4400,7 +4400,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnConvolutionFilter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnConvolutionFilter">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetConvolutionFilter GetConvolutionFilter}
 	 *
@@ -4424,7 +4424,7 @@ public class GL45 {
 	public static native void nglGetnSeparableFilter(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnSeparableFilter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnSeparableFilter">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetSeparableFilter GetSeparableFilter}
 	 *
@@ -4442,7 +4442,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnSeparableFilter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnSeparableFilter">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetSeparableFilter GetSeparableFilter}
 	 *
@@ -4467,7 +4467,7 @@ public class GL45 {
 	public static native void nglGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnHistogram.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnHistogram">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetHistogram GetHistogram}
 	 *
@@ -4483,7 +4483,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnHistogram.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnHistogram">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetHistogram GetHistogram}
 	 *
@@ -4507,7 +4507,7 @@ public class GL45 {
 	public static native void nglGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long values);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMinmax.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnMinmax">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetMinmax GetMinmax}
 	 *
@@ -4524,7 +4524,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMinmax.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnMinmax">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link ARBImaging#glGetMinmax GetMinmax}
 	 *
@@ -4549,7 +4549,7 @@ public class GL45 {
 	public static native void nglGetnCompressedTexImage(int target, int level, int bufSize, long img);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnCompressedTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnCompressedTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}
 	 *
@@ -4563,7 +4563,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnCompressedTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnCompressedTexImage">Reference Page</a></p>
 	 * 
 	 * Robust version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}
 	 *
@@ -4588,7 +4588,7 @@ public class GL45 {
 	public static native void nglGetnUniformfv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the value or values of a uniform of the default uniform block.
 	 *
@@ -4601,7 +4601,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the value or values of a uniform of the default uniform block.
 	 *
@@ -4629,7 +4629,7 @@ public class GL45 {
 	public static native void nglGetnUniformdv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Double version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
@@ -4642,7 +4642,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Double version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
@@ -4670,7 +4670,7 @@ public class GL45 {
 	public static native void nglGetnUniformiv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformi.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
@@ -4683,7 +4683,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformi.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
@@ -4711,7 +4711,7 @@ public class GL45 {
 	public static native void nglGetnUniformuiv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
 	 *
@@ -4724,7 +4724,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
 	 *
@@ -4743,7 +4743,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateTransformFeedbacks">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateTransformFeedbacks CreateTransformFeedbacks}
 	 */
@@ -4755,7 +4755,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv}
 	 */
@@ -4769,7 +4769,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbacki_v">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v}
 	 */
@@ -4783,7 +4783,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbacki64_v">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v}
 	 */
@@ -4797,7 +4797,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateBuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateBuffers CreateBuffers}
 	 */
@@ -4809,7 +4809,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferStorage NamedBufferStorage}
 	 */
@@ -4821,7 +4821,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferStorage NamedBufferStorage}
 	 */
@@ -4833,7 +4833,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferStorage NamedBufferStorage}
 	 */
@@ -4845,7 +4845,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferStorage NamedBufferStorage}
 	 */
@@ -4857,7 +4857,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferData NamedBufferData}
 	 */
@@ -4869,7 +4869,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferData NamedBufferData}
 	 */
@@ -4881,7 +4881,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferData NamedBufferData}
 	 */
@@ -4893,7 +4893,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferData NamedBufferData}
 	 */
@@ -4905,7 +4905,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferSubData NamedBufferSubData}
 	 */
@@ -4917,7 +4917,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferSubData NamedBufferSubData}
 	 */
@@ -4929,7 +4929,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferSubData NamedBufferSubData}
 	 */
@@ -4941,7 +4941,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedBufferSubData NamedBufferSubData}
 	 */
@@ -4953,7 +4953,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv}
 	 */
@@ -4967,7 +4967,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v}
 	 */
@@ -4981,7 +4981,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
 	 */
@@ -4993,7 +4993,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
 	 */
@@ -5005,7 +5005,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
 	 */
@@ -5017,7 +5017,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
 	 */
@@ -5029,7 +5029,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateFramebuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateFramebuffers CreateFramebuffers}
 	 */
@@ -5041,7 +5041,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glFramebufferDrawBuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers}
 	 */
@@ -5053,7 +5053,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData}
 	 */
@@ -5065,7 +5065,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData}
 	 */
@@ -5077,7 +5077,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv}
 	 */
@@ -5091,7 +5091,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv}
 	 */
@@ -5105,7 +5105,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glClearFramebuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv}
 	 */
@@ -5119,7 +5119,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv}
 	 */
@@ -5133,7 +5133,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv}
 	 */
@@ -5147,7 +5147,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateRenderbuffers CreateRenderbuffers}
 	 */
@@ -5159,7 +5159,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv}
 	 */
@@ -5173,7 +5173,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTextures.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateTextures">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateTextures CreateTextures}
 	 */
@@ -5185,7 +5185,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage1D TextureSubImage1D}
 	 */
@@ -5197,7 +5197,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage1D TextureSubImage1D}
 	 */
@@ -5209,7 +5209,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage1D TextureSubImage1D}
 	 */
@@ -5221,7 +5221,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage1D TextureSubImage1D}
 	 */
@@ -5233,7 +5233,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage2D TextureSubImage2D}
 	 */
@@ -5245,7 +5245,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage2D TextureSubImage2D}
 	 */
@@ -5257,7 +5257,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage2D TextureSubImage2D}
 	 */
@@ -5269,7 +5269,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage2D TextureSubImage2D}
 	 */
@@ -5281,7 +5281,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage3D TextureSubImage3D}
 	 */
@@ -5293,7 +5293,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage3D TextureSubImage3D}
 	 */
@@ -5305,7 +5305,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage3D TextureSubImage3D}
 	 */
@@ -5317,7 +5317,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureSubImage3D TextureSubImage3D}
 	 */
@@ -5329,7 +5329,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureParameterfv TextureParameterfv}
 	 */
@@ -5343,7 +5343,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureParameterIiv TextureParameterIiv}
 	 */
@@ -5357,7 +5357,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureParameterIuiv TextureParameterIuiv}
 	 */
@@ -5371,7 +5371,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTextureParameteriv TextureParameteriv}
 	 */
@@ -5385,7 +5385,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureImage GetTextureImage}
 	 */
@@ -5397,7 +5397,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureImage GetTextureImage}
 	 */
@@ -5409,7 +5409,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureImage GetTextureImage}
 	 */
@@ -5421,7 +5421,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureImage GetTextureImage}
 	 */
@@ -5433,7 +5433,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureLevelParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv}
 	 */
@@ -5447,7 +5447,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureLevelParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv}
 	 */
@@ -5461,7 +5461,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureParameterfv GetTextureParameterfv}
 	 */
@@ -5475,7 +5475,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv}
 	 */
@@ -5489,7 +5489,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv}
 	 */
@@ -5503,7 +5503,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureParameteriv GetTextureParameteriv}
 	 */
@@ -5517,7 +5517,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateVertexArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateVertexArrays CreateVertexArrays}
 	 */
@@ -5529,7 +5529,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayVertexBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glVertexArrayVertexBuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers}
 	 */
@@ -5544,7 +5544,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArray.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArray">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexArrayiv GetVertexArrayiv}
 	 */
@@ -5558,7 +5558,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArrayIndexed">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv}
 	 */
@@ -5572,7 +5572,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed64i.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetVertexArrayIndexed">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv}
 	 */
@@ -5586,7 +5586,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateSamplers.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateSamplers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateSamplers CreateSamplers}
 	 */
@@ -5598,7 +5598,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgramPipelines.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateProgramPipelines CreateProgramPipelines}
 	 */
@@ -5610,7 +5610,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateQueries.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glCreateQueries">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glCreateQueries CreateQueries}
 	 */
@@ -5622,7 +5622,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureSubImage GetTextureSubImage}
 	 */
@@ -5634,7 +5634,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureSubImage GetTextureSubImage}
 	 */
@@ -5646,7 +5646,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureSubImage GetTextureSubImage}
 	 */
@@ -5658,7 +5658,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTextureSubImage GetTextureSubImage}
 	 */
@@ -5670,7 +5670,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
 	 */
@@ -5682,7 +5682,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
 	 */
@@ -5694,7 +5694,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
 	 */
@@ -5706,7 +5706,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetCompressedTextureSubImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
 	 */
@@ -5718,7 +5718,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnMapdv GetnMapdv}
 	 */
@@ -5730,7 +5730,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnMapfv GetnMapfv}
 	 */
@@ -5742,7 +5742,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetMap">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnMapiv GetnMapiv}
 	 */
@@ -5754,7 +5754,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetPixelMap">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnPixelMapfv GetnPixelMapfv}
 	 */
@@ -5766,7 +5766,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetPixelMap">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnPixelMapuiv GetnPixelMapuiv}
 	 */
@@ -5778,7 +5778,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetPixelMap">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnPixelMapusv GetnPixelMapusv}
 	 */
@@ -5790,7 +5790,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnTexImage GetnTexImage}
 	 */
@@ -5802,7 +5802,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnTexImage GetnTexImage}
 	 */
@@ -5814,7 +5814,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnTexImage GetnTexImage}
 	 */
@@ -5826,7 +5826,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnTexImage GetnTexImage}
 	 */
@@ -5838,7 +5838,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixel.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadnPixels ReadnPixels}
 	 */
@@ -5850,7 +5850,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadnPixels ReadnPixels}
 	 */
@@ -5862,7 +5862,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadnPixels ReadnPixels}
 	 */
@@ -5874,7 +5874,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnColorTable GetnColorTable}
 	 */
@@ -5886,7 +5886,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnColorTable GetnColorTable}
 	 */
@@ -5898,7 +5898,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetnColorTable">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnColorTable GetnColorTable}
 	 */
@@ -5910,7 +5910,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformfv GetnUniformfv}
 	 */
@@ -5922,7 +5922,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformdv GetnUniformdv}
 	 */
@@ -5934,7 +5934,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformi.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformiv GetnUniformiv}
 	 */
@@ -5946,7 +5946,7 @@ public class GL45 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformuiv GetnUniformuiv}
 	 */
