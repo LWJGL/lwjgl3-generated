@@ -2621,34 +2621,4 @@ public class GLES20 {
 		callPV(__functionAddress, index, v);
 	}
 
-	/**
-	 * <p><a href="http://docs.gl/es3/glVertexAttribPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
-	 */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
-		long __functionAddress = GLES.getICD().glVertexAttribPointer;
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/es3/glVertexAttribPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
-	 */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
-		long __functionAddress = GLES.getICD().glVertexAttribPointer;
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/es3/glVertexAttribPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
-	 */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
-		long __functionAddress = GLES.getICD().glVertexAttribPointer;
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
-
 }

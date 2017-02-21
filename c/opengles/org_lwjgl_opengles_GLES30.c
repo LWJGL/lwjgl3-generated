@@ -372,7 +372,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES30_nglGetTransformFeedbackVar
 	glGetTransformFeedbackVarying(program, index, bufSize, length, size, type, name);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES30_nglVertexAttribIPointer__IIIIJ(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES30_nglVertexAttribIPointer(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride, jlong pointerAddress) {
 	glVertexAttribIPointerPROC glVertexAttribIPointer = (glVertexAttribIPointerPROC)tlsGetFunction(770);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)

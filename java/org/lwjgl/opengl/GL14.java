@@ -1043,30 +1043,6 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glFogCoordPointer FogCoordPointer}
-	 */
-	public static void glFogCoordPointer(int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glFogCoordPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glFogCoordPointer FogCoordPointer}
-	 */
-	public static void glFogCoordPointer(int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glFogCoordPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, stride, pointer);
-	}
-
-	/**
 	 * <p><a href="http://docs.gl/gl4/glMultiDrawArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glMultiDrawArrays MultiDrawArrays}
@@ -1204,42 +1180,6 @@ public class GL14 {
 			check(v, 3);
 		}
 		callPV(__functionAddress, v);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
-	 */
-	public static void glSecondaryColorPointer(int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glSecondaryColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
-	 */
-	public static void glSecondaryColorPointer(int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glSecondaryColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
-	 */
-	public static void glSecondaryColorPointer(int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glSecondaryColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**

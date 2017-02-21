@@ -1998,30 +1998,6 @@ public class GLES30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glVertexAttribIPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
-	 */
-	public static void glVertexAttribIPointer(int index, int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GLES.getICD().glVertexAttribIPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/es3/glVertexAttribIPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
-	 */
-	public static void glVertexAttribIPointer(int index, int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GLES.getICD().glVertexAttribIPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
-
-	/**
 	 * <p><a href="http://docs.gl/es3/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv}

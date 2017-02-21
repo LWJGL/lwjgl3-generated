@@ -2846,42 +2846,6 @@ public class GL20 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
-	 */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glVertexAttribPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
-	 */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glVertexAttribPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribPointer">Reference Page</a></p>
-	 * 
-	 * Array version of: {@link #glVertexAttribPointer VertexAttribPointer}
-	 */
-	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glVertexAttribPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
-	}
-
-	/**
 	 * <p><a href="http://docs.gl/gl4/glGetActiveAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveAttrib GetActiveAttrib}

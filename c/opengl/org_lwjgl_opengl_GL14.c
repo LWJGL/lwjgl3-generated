@@ -94,7 +94,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoorddv__J(JNIEnv *__env
 	glFogCoorddv(coord);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordPointer__IIJ(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress) {
 	glFogCoordPointerPROC glFogCoordPointer = (glFogCoordPointerPROC)tlsGetFunction(428);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)
@@ -247,7 +247,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3uiv__J(JNIEn
 	glSecondaryColor3uiv(v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColorPointer__IIIJ(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColorPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
 	glSecondaryColorPointerPROC glSecondaryColorPointer = (glSecondaryColorPointerPROC)tlsGetFunction(1512);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)

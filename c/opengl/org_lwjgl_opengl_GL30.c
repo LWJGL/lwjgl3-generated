@@ -258,7 +258,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglVertexAttribI4usv__IJ(JNIEn
 	glVertexAttribI4usv(index, v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglVertexAttribIPointer__IIIIJ(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglVertexAttribIPointer(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride, jlong pointerAddress) {
 	glVertexAttribIPointerPROC glVertexAttribIPointer = (glVertexAttribIPointerPROC)tlsGetFunction(2010);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)

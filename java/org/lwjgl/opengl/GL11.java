@@ -8037,42 +8037,6 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glColorPointer ColorPointer}
-	 */
-	public static void glColorPointer(int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glColorPointer ColorPointer}
-	 */
-	public static void glColorPointer(int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glColorPointer ColorPointer}
-	 */
-	public static void glColorPointer(int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glColorPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
 	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glDrawPixels DrawPixels}
@@ -8915,42 +8879,6 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glNormalPointer NormalPointer}
-	 */
-	public static void glNormalPointer(int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glNormalPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glNormalPointer NormalPointer}
-	 */
-	public static void glNormalPointer(int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glNormalPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glNormalPointer NormalPointer}
-	 */
-	public static void glNormalPointer(int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glNormalPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, type, stride, pointer);
-	}
-
-	/**
 	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glPixelMapfv PixelMapfv}
@@ -9495,42 +9423,6 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glTexCoordPointer TexCoordPointer}
-	 */
-	public static void glTexCoordPointer(int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glTexCoordPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glTexCoordPointer TexCoordPointer}
-	 */
-	public static void glTexCoordPointer(int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glTexCoordPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glTexCoordPointer TexCoordPointer}
-	 */
-	public static void glTexCoordPointer(int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glTexCoordPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
 	 * <p><a href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexEnviv TexEnviv}
@@ -9946,42 +9838,6 @@ public class GL11 {
 			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glVertexPointer VertexPointer}
-	 */
-	public static void glVertexPointer(int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glVertexPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glVertexPointer VertexPointer}
-	 */
-	public static void glVertexPointer(int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glVertexPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
-	}
-
-	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Array version of: {@link #glVertexPointer VertexPointer}
-	 */
-	public static void glVertexPointer(int size, int type, int stride, float[] pointer) {
-		long __functionAddress = GL.getICD().glVertexPointer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 }

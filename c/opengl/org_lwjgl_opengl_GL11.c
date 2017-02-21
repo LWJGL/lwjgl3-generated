@@ -684,7 +684,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glColorMaterial(JNIEnv *__env,
 	glColorMaterial(face, mode);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglColorPointer__IIIJ(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglColorPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
 	glColorPointerPROC glColorPointer = (glColorPointerPROC)tlsGetFunction(183);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)
@@ -1537,7 +1537,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglNormal3dv__J(JNIEnv *__env,
 	glNormal3dv(v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglNormalPointer__IIJ(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglNormalPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress) {
 	glNormalPointerPROC glNormalPointer = (glNormalPointerPROC)tlsGetFunction(1176);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)
@@ -2188,7 +2188,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexCoord4dv__J(JNIEnv *__en
 	glTexCoord4dv(v);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexCoordPointer__IIIJ(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexCoordPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
 	glTexCoordPointerPROC glTexCoordPointer = (glTexCoordPointerPROC)tlsGetFunction(1602);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)
@@ -2506,7 +2506,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglVertex4dv__J(JNIEnv *__env,
 	glVertex4dv(coords);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglVertexPointer__IIIJ(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglVertexPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
 	glVertexPointerPROC glVertexPointer = (glVertexPointerPROC)tlsGetFunction(2074);
 	const intptr_t pointer = (const intptr_t)pointerAddress;
 	UNUSED_PARAM(clazz)
