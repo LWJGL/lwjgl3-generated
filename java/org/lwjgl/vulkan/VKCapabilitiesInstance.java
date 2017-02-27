@@ -85,6 +85,32 @@ public class VKCapabilitiesInstance {
 		vkCreateXlibSurfaceKHR,
 		vkGetPhysicalDeviceXlibPresentationSupportKHR;
 
+	// KHX_device_group
+	public final long
+		vkGetPhysicalDevicePresentRectanglesKHX;
+
+	// KHX_device_group_creation
+	public final long
+		vkEnumeratePhysicalDeviceGroupsKHX;
+
+	// KHX_external_memory_capabilities
+	public final long
+		vkGetPhysicalDeviceExternalBufferPropertiesKHX,
+		vkGetPhysicalDeviceProperties2KHX,
+		vkGetPhysicalDeviceImageFormatProperties2KHX;
+
+	// KHX_external_semaphore_capabilities
+	public final long
+		vkGetPhysicalDeviceExternalSemaphorePropertiesKHX;
+
+	// MVK_ios_surface
+	public final long
+		vkCreateIOSSurfaceMVK;
+
+	// MVK_macos_surface
+	public final long
+		vkCreateMacOSSurfaceMVK;
+
 	// NV_external_memory_capabilities
 	public final long
 		vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
@@ -118,6 +144,16 @@ public class VKCapabilitiesInstance {
 	public final boolean VK_KHR_win32_surface;
 	/** When true, {@link KHRXlibSurface} is supported. */
 	public final boolean VK_KHR_xlib_surface;
+	/** When true, {@link KHXDeviceGroupCreation} is supported. */
+	public final boolean VK_KHX_device_group_creation;
+	/** When true, {@link KHXExternalMemoryCapabilities} is supported. */
+	public final boolean VK_KHX_external_memory_capabilities;
+	/** When true, {@link KHXExternalSemaphoreCapabilities} is supported. */
+	public final boolean VK_KHX_external_semaphore_capabilities;
+	/** When true, {@link MVKIosSurface} is supported. */
+	public final boolean VK_MVK_ios_surface;
+	/** When true, {@link MVKMacosSurface} is supported. */
+	public final boolean VK_MVK_macos_surface;
 	/** When true, {@link NVExternalMemoryCapabilities} is supported. */
 	public final boolean VK_NV_external_memory_capabilities;
 
@@ -208,6 +244,36 @@ public class VKCapabilitiesInstance {
 			vkCreateXlibSurfaceKHR = isSupported(provider, "vkCreateXlibSurfaceKHR", supported);
 			vkGetPhysicalDeviceXlibPresentationSupportKHR = isSupported(provider, "vkGetPhysicalDeviceXlibPresentationSupportKHR", supported);
 			VK_KHR_xlib_surface = supported && VK.checkExtension("VK_KHR_xlib_surface", KHRXlibSurface.isAvailable(this));
+		}
+		{
+			vkGetPhysicalDevicePresentRectanglesKHX = isSupported(provider, "vkGetPhysicalDevicePresentRectanglesKHX", true);
+		}
+		{
+			supported = ext.contains("VK_KHX_device_group_creation");
+			vkEnumeratePhysicalDeviceGroupsKHX = isSupported(provider, "vkEnumeratePhysicalDeviceGroupsKHX", supported);
+			VK_KHX_device_group_creation = supported && VK.checkExtension("VK_KHX_device_group_creation", KHXDeviceGroupCreation.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHX_external_memory_capabilities");
+			vkGetPhysicalDeviceExternalBufferPropertiesKHX = isSupported(provider, "vkGetPhysicalDeviceExternalBufferPropertiesKHX", supported);
+			vkGetPhysicalDeviceProperties2KHX = isSupported(provider, "vkGetPhysicalDeviceProperties2KHX", supported);
+			vkGetPhysicalDeviceImageFormatProperties2KHX = isSupported(provider, "vkGetPhysicalDeviceImageFormatProperties2KHX", supported);
+			VK_KHX_external_memory_capabilities = supported && VK.checkExtension("VK_KHX_external_memory_capabilities", KHXExternalMemoryCapabilities.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHX_external_semaphore_capabilities");
+			vkGetPhysicalDeviceExternalSemaphorePropertiesKHX = isSupported(provider, "vkGetPhysicalDeviceExternalSemaphorePropertiesKHX", supported);
+			VK_KHX_external_semaphore_capabilities = supported && VK.checkExtension("VK_KHX_external_semaphore_capabilities", KHXExternalSemaphoreCapabilities.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_MVK_ios_surface");
+			vkCreateIOSSurfaceMVK = isSupported(provider, "vkCreateIOSSurfaceMVK", supported);
+			VK_MVK_ios_surface = supported && VK.checkExtension("VK_MVK_ios_surface", MVKIosSurface.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_MVK_macos_surface");
+			vkCreateMacOSSurfaceMVK = isSupported(provider, "vkCreateMacOSSurfaceMVK", supported);
+			VK_MVK_macos_surface = supported && VK.checkExtension("VK_MVK_macos_surface", MVKMacosSurface.isAvailable(this));
 		}
 		{
 			supported = ext.contains("VK_NV_external_memory_capabilities");

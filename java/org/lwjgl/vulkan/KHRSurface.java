@@ -538,7 +538,7 @@ public class KHRSurface {
 	 * @param physicalDevice    the physical device that will be associated with the swapchain to be created, as described for {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR}.
 	 * @param surface           the surface that will be associated with the swapchain.
 	 * @param pPresentModeCount a pointer to an integer related to the number of presentation modes available or queried, as described below.
-	 * @param pPresentModes     either {@code NULL} or a pointer to an array of {@code VkPresentModeKHR} structures.
+	 * @param pPresentModes     either {@code NULL} or a pointer to an array of {@code VkPresentModeKHR} values.
 	 */
 	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pPresentModeCount, IntBuffer pPresentModes) {
 		if ( CHECKS ) {

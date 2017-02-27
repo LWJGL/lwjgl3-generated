@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkExtent3D}, {@link VkExternalImageFormatPropertiesNV}, {@link VkImageFormatProperties2KHR}, {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}</p>
+ * <p>{@link VkExtent3D}, {@link VkExternalImageFormatPropertiesNV}, {@link VkImageFormatProperties2KHR}, {@link VkImageFormatProperties2KHX}, {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 

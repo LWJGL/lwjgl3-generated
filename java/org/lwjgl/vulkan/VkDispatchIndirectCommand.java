@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The members of {@link VkDispatchIndirectCommand} structure have the same meaning as the similarly named parameters of {@link VK10#vkCmdDispatch CmdDispatch}.</p>
+ * <p>The members of {@link VkDispatchIndirectCommand} have the same meaning as the corresponding parameters of {@link VK10#vkCmdDispatch CmdDispatch}.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

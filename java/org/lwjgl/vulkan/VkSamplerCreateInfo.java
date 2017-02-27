@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@link VK10#VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT} indicates that the mirrored repeat wrap mode will be used.</li>
  * <li>{@link VK10#VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE} indicates that the clamp to edge wrap mode will be used.</li>
  * <li>{@link VK10#VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER} indicates that the clamp to border wrap mode will be used.</li>
- * <li>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE} indicates that the mirror clamp to edge wrap mode will be used. This is only valid if the {@code VK_KHR_mirror_clamp_to_edge} extension is enabled.</li>
+ * <li>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE} indicates that the mirror clamp to edge wrap mode will be used. This is only valid if the VK_KHR_mirror_clamp_to_edge extension is enabled.</li>
  * </ul>
  * 
  * <p>The maximum number of sampler objects which <b>can</b> be simultaneously created on a device is implementation-dependent and specified by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxSamplerAllocationCount">{@code maxSamplerAllocationCount}</a> member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxSamplerAllocationCount} is exceeded, {@link VK10#vkCreateSampler CreateSampler} will return {@link VK10#VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
@@ -64,7 +64,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code unnormalizedCoordinates} is {@link VK10#VK_TRUE TRUE}, {@code anisotropyEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * <li>If {@code unnormalizedCoordinates} is {@link VK10#VK_TRUE TRUE}, {@code compareEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * <li>If any of {@code addressModeU}, {@code addressModeV} or {@code addressModeW} are {@link VK10#VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER}, {@code borderColor} <b>must</b> be a valid {@code VkBorderColor} value</li>
- * <li>If the {@code VK_KHR_sampler_mirror_clamp_to_edge} extension is not enabled, {@code addressModeU}, {@code addressModeV} and {@code addressModeW} <b>must</b> not be {@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE}</li>
+ * <li>If the VK_KHR_sampler_mirror_clamp_to_edge extension is not enabled, {@code addressModeU}, {@code addressModeV} and {@code addressModeW} <b>must</b> not be {@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE}</li>
  * <li>If {@code compareEnable} is {@link VK10#VK_TRUE TRUE}, {@code compareOp} <b>must</b> be a valid {@code VkCompareOp} value</li>
  * <li>If either {@code magFilter} or {@code minFilter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code anisotropyEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * </ul>

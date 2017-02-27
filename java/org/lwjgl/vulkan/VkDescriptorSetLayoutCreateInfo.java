@@ -17,31 +17,24 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying parameters of a newly created descriptor set layout.
  * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>The {@link VkDescriptorSetLayoutBinding}{@code ::binding} members of the elements of the {@code pBindings} array <b>must</b> each have different values.</li>
- * </ul>
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code bindingCount} is not 0, {@code pBindings} <b>must</b> be a pointer to an array of {@code bindingCount} valid {@link VkDescriptorSetLayoutBinding} structures</li>
- * </ul>
- * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkDescriptorSetLayoutBinding}, {@link VK10#vkCreateDescriptorSetLayout CreateDescriptorSetLayout}</p>
+ * <p>{@link VkDescriptorSetLayoutBinding}, {@code VkDescriptorSetLayoutCreateFlags}, {@code VkStructureType}, {@link VK10#vkCreateDescriptorSetLayout CreateDescriptorSetLayout}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code flags} &ndash; provides options for descriptor set layout creation, and is of type {@code VkDescriptorSetLayoutCreateFlags}. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkDescriptorSetLayoutCreateFlagBits {
+    VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR = 0x00000001,
+} VkDescriptorSetLayoutCreateFlagBits;</code></pre>
+ * 
+ * <p>== Description</p>
+ * 
+ * <p>If {@code flags} contains {@link KHRPushDescriptor#VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR}, then descriptor sets <b>must</b> not be allocated using this layout, and descriptors are instead pushed via {@link KHRPushDescriptor#vkCmdPushDescriptorSetKHR CmdPushDescriptorSetKHR}.</p></li>
  * <li>{@code bindingCount} &ndash; the number of elements in {@code pBindings}.</li>
  * <li>{@code pBindings} &ndash; a pointer to an array of {@link VkDescriptorSetLayoutBinding} structures.</li>
  * </ul>

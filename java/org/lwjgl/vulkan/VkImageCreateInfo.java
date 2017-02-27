@@ -88,13 +88,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code tiling} is {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, and {@link VkFormatProperties}{@code ::optimalTilingFeatures} (as returned by {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} with the same value of {@code format}) does not include {@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT}, {@code usage} <b>must</b> not contain {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}</li>
  * <li>If {@code tiling} is {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, and {@link VkFormatProperties}{@code ::optimalTilingFeatures} (as returned by {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} with the same value of {@code format}) does not include {@link VK10#VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT}, {@code usage} <b>must</b> not contain {@link VK10#VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}</li>
  * <li>If {@code flags} contains {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} or {@link VK10#VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT}, it <b>must</b> also contain {@link VK10#VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}</li>
+ * <li>If the {@code pNext} extension chain contains an instance of {@link VkExternalMemoryImageCreateInfoNV}, it <b>must</b> not contain an instance of {@link VkExternalMemoryImageCreateInfoKHX}.</li>
+ * <li>If the {@code pNext} extension chain contains an instance of {@link VkExternalMemoryImageCreateInfoKHX}, and any of the handle types specified in {@link VkExternalMemoryImageCreateInfoKHX}{@code ::handleTypes} require a dedicated allocation, as reported by {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} in {@link VkExternalImageFormatPropertiesKHX}{@code ::externalMemoryProperties}{@code ::externalMemoryFeatures}, the {@code pNext} extension chain must contain an instance of {@link VkDedicatedAllocationImageCreateInfoNV} with its {@code dedicatedAllocation} field set to {@link VK10#VK_TRUE TRUE}.</li>
+ * <li>If {@code flags} contains {@link KHXDeviceGroup#VK_IMAGE_CREATE_BIND_SFR_BIT_KHX IMAGE_CREATE_BIND_SFR_BIT_KHX}, then {@code mipLevels} <b>must</b> be one, {@code arrayLayers} <b>must</b> be one, {@code imageType} <b>must</b> be {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, and {@code tiling} <b>must</b> be {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO STRUCTURE_TYPE_IMAGE_CREATE_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkDedicatedAllocationImageCreateInfoNV}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkDedicatedAllocationImageCreateInfoNV}, or {@link VkImageSwapchainCreateInfoKHX}</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
  * <li>{@code imageType} <b>must</b> be a valid {@code VkImageType} value</li>
  * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>

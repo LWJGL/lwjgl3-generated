@@ -24,6 +24,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code buffer} is not {@code VK_NULL_HANDLE}, the buffer <b>must</b> have been created with {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link VK10#VK_TRUE TRUE}</li>
  * <li>If {@code image} is not {@code VK_NULL_HANDLE}, {@link VkMemoryAllocateInfo}{@code ::allocationSize} <b>must</b> equal the {@link VkMemoryRequirements}{@code ::size} of the image</li>
  * <li>If {@code buffer} is not {@code VK_NULL_HANDLE}, {@link VkMemoryAllocateInfo}{@code ::allocationSize} <b>must</b> equal the {@link VkMemoryRequirements}{@code ::size} of the buffer</li>
+ * <li>If {@code image} is not {@code VK_NULL_HANDLE} and {@link VkMemoryAllocateInfo} defines a memory import operation, the memory being imported <b>must</b> also be a dedicated image allocation and {@code image} must be identical to the image associated with the imported memory.</li>
+ * <li>If {@code buffer} is not {@code VK_NULL_HANDLE} and {@link VkMemoryAllocateInfo} defines a memory import operation, the memory being imported <b>must</b> also be a dedicated buffer allocation and {@code buffer} must be identical to the buffer associated with the imported memory.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

@@ -21,6 +21,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>{@code renderArea} is the render area that is affected by the render pass instance. The effects of attachment load, store and multisample resolve operations are restricted to the pixels whose x and y coordinates fall within the render area on all attachments. The render area extends to all layers of {@code framebuffer}. The application <b>must</b> ensure (using scissor if necessary) that all rendering is contained within the render area, otherwise the pixels outside of the render area become undefined and shader side effects <b>may</b> occur for fragments outside the render area. The render area <b>must</b> be contained within the framebuffer dimensions.</p>
  * 
+ * <p>When multiview is enabled, the resolve operation at the end of a subpass applies to all views in the view mask.</p>
+ * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
  * <p>There <b>may</b> be a performance cost for using a render area smaller than the framebuffer, unless it matches the render area granularity for the render pass.</p>
@@ -38,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkDeviceGroupRenderPassBeginInfoKHX}</li>
  * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
  * <li>{@code framebuffer} <b>must</b> be a valid {@code VkFramebuffer} handle</li>
  * <li>Both of {@code framebuffer}, and {@code renderPass} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>

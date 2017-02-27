@@ -150,12 +150,23 @@ public class VKCapabilitiesDevice {
 		vkCmdDebugMarkerEndEXT,
 		vkCmdDebugMarkerInsertEXT;
 
+	// EXT_discard_rectangles
+	public final long
+		vkCmdSetDiscardRectangleEXT;
+
 	// EXT_display_control
 	public final long
 		vkDisplayPowerControlEXT,
 		vkRegisterDeviceEventEXT,
 		vkRegisterDisplayEventEXT,
 		vkGetSwapchainCounterEXT;
+
+	// KHR_descriptor_update_template
+	public final long
+		vkCreateDescriptorUpdateTemplateKHR,
+		vkDestroyDescriptorUpdateTemplateKHR,
+		vkUpdateDescriptorSetWithTemplateKHR,
+		vkCmdPushDescriptorSetWithTemplateKHR;
 
 	// KHR_display_swapchain
 	public final long
@@ -165,6 +176,10 @@ public class VKCapabilitiesDevice {
 	public final long
 		vkTrimCommandPoolKHR;
 
+	// KHR_push_descriptor
+	public final long
+		vkCmdPushDescriptorSetKHR;
+
 	// KHR_swapchain
 	public final long
 		vkCreateSwapchainKHR,
@@ -172,6 +187,41 @@ public class VKCapabilitiesDevice {
 		vkGetSwapchainImagesKHR,
 		vkAcquireNextImageKHR,
 		vkQueuePresentKHR;
+
+	// KHX_device_group
+	public final long
+		vkGetDeviceGroupPeerMemoryFeaturesKHX,
+		vkBindBufferMemory2KHX,
+		vkBindImageMemory2KHX,
+		vkCmdSetDeviceMaskKHX,
+		vkGetDeviceGroupPresentCapabilitiesKHX,
+		vkGetDeviceGroupSurfacePresentModesKHX,
+		vkAcquireNextImage2KHX,
+		vkCmdDispatchBaseKHX;
+
+	// KHX_external_memory_fd
+	public final long
+		vkGetMemoryFdKHX,
+		vkGetMemoryFdPropertiesKHX;
+
+	// KHX_external_memory_win32
+	public final long
+		vkGetMemoryWin32HandleKHX,
+		vkGetMemoryWin32HandlePropertiesKHX;
+
+	// KHX_external_semaphore_fd
+	public final long
+		vkImportSemaphoreFdKHX,
+		vkGetSemaphoreFdKHX;
+
+	// KHX_external_semaphore_win32
+	public final long
+		vkImportSemaphoreWin32HandleKHX,
+		vkGetSemaphoreWin32HandleKHX;
+
+	// NV_clip_space_w_scaling
+	public final long
+		vkCmdSetViewportWScalingNV;
 
 	// NV_external_memory_win32
 	public final long
@@ -211,6 +261,8 @@ public class VKCapabilitiesDevice {
 	public final boolean VK_AMD_shader_trinary_minmax;
 	/** When true, {@link EXTDebugMarker} is supported. */
 	public final boolean VK_EXT_debug_marker;
+	/** When true, {@link EXTDiscardRectangles} is supported. */
+	public final boolean VK_EXT_discard_rectangles;
 	/** When true, {@link EXTDisplayControl} is supported. */
 	public final boolean VK_EXT_display_control;
 	/** When true, {@link EXTShaderSubgroupBallot} is supported. */
@@ -223,28 +275,62 @@ public class VKCapabilitiesDevice {
 	public final boolean VK_IMG_filter_cubic;
 	/** When true, {@link IMGFormatPVRTC} is supported. */
 	public final boolean VK_IMG_format_pvrtc;
+	/** When true, {@link KHRDescriptorUpdateTemplate} is supported. */
+	public final boolean VK_KHR_descriptor_update_template;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
 	public final boolean VK_KHR_display_swapchain;
 	/** When true, {@link KHRMaintenance1} is supported. */
 	public final boolean VK_KHR_maintenance1;
+	/** When true, {@link KHRPushDescriptor} is supported. */
+	public final boolean VK_KHR_push_descriptor;
 	/** When true, {@link KHRSamplerMirrorClampToEdge} is supported. */
 	public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
 	/** When true, {@link KHRShaderDrawParameters} is supported. */
 	public final boolean VK_KHR_shader_draw_parameters;
 	/** When true, {@link KHRSwapchain} is supported. */
 	public final boolean VK_KHR_swapchain;
+	/** When true, {@link KHXDeviceGroup} is supported. */
+	public final boolean VK_KHX_device_group;
+	/** When true, {@link KHXExternalMemory} is supported. */
+	public final boolean VK_KHX_external_memory;
+	/** When true, {@link KHXExternalMemoryFd} is supported. */
+	public final boolean VK_KHX_external_memory_fd;
+	/** When true, {@link KHXExternalMemoryWin32} is supported. */
+	public final boolean VK_KHX_external_memory_win32;
+	/** When true, {@link KHXExternalSemaphore} is supported. */
+	public final boolean VK_KHX_external_semaphore;
+	/** When true, {@link KHXExternalSemaphoreFd} is supported. */
+	public final boolean VK_KHX_external_semaphore_fd;
+	/** When true, {@link KHXExternalSemaphoreWin32} is supported. */
+	public final boolean VK_KHX_external_semaphore_win32;
+	/** When true, {@link KHXMultiview} is supported. */
+	public final boolean VK_KHX_multiview;
+	/** When true, {@link KHXWin32KeyedMutex} is supported. */
+	public final boolean VK_KHX_win32_keyed_mutex;
+	/** When true, {@link NVClipSpaceWScaling} is supported. */
+	public final boolean VK_NV_clip_space_w_scaling;
 	/** When true, {@link NVDedicatedAllocation} is supported. */
 	public final boolean VK_NV_dedicated_allocation;
 	/** When true, {@link NVExternalMemory} is supported. */
 	public final boolean VK_NV_external_memory;
 	/** When true, {@link NVExternalMemoryWin32} is supported. */
 	public final boolean VK_NV_external_memory_win32;
+	/** When true, {@link NVGeometryShaderPassthrough} is supported. */
+	public final boolean VK_NV_geometry_shader_passthrough;
 	/** When true, {@link NVGLSLShader} is supported. */
 	public final boolean VK_NV_glsl_shader;
+	/** When true, {@link NVSampleMaskOverrideCoverage} is supported. */
+	public final boolean VK_NV_sample_mask_override_coverage;
+	/** When true, {@link NVViewportArray2} is supported. */
+	public final boolean VK_NV_viewport_array2;
+	/** When true, {@link NVViewportSwizzle} is supported. */
+	public final boolean VK_NV_viewport_swizzle;
 	/** When true, {@link NVWin32KeyedMutex} is supported. */
 	public final boolean VK_NV_win32_keyed_mutex;
 	/** When true, {@link NVXDeviceGeneratedCommands} is supported. */
 	public final boolean VK_NVX_device_generated_commands;
+	/** When true, {@link NVXMultiviewPerViewAttributes} is supported. */
+	public final boolean VK_NVX_multiview_per_view_attributes;
 
 	VKCapabilitiesDevice(FunctionProvider provider, VKCapabilitiesInstance capsInstance, Set<String> ext) {
 		this.apiVersion = capsInstance.apiVersion;
@@ -399,6 +485,11 @@ public class VKCapabilitiesDevice {
 			VK_EXT_debug_marker = supported && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
 		}
 		{
+			supported = ext.contains("VK_EXT_discard_rectangles");
+			vkCmdSetDiscardRectangleEXT = isSupported(provider, "vkCmdSetDiscardRectangleEXT", supported);
+			VK_EXT_discard_rectangles = supported && VK.checkExtension("VK_EXT_discard_rectangles", EXTDiscardRectangles.isAvailable(this));
+		}
+		{
 			supported = ext.contains("VK_EXT_display_control");
 			vkDisplayPowerControlEXT = isSupported(provider, "vkDisplayPowerControlEXT", supported);
 			vkRegisterDeviceEventEXT = isSupported(provider, "vkRegisterDeviceEventEXT", supported);
@@ -412,6 +503,14 @@ public class VKCapabilitiesDevice {
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
 		{
+			supported = ext.contains("VK_KHR_descriptor_update_template");
+			vkCreateDescriptorUpdateTemplateKHR = isSupported(provider, "vkCreateDescriptorUpdateTemplateKHR", supported);
+			vkDestroyDescriptorUpdateTemplateKHR = isSupported(provider, "vkDestroyDescriptorUpdateTemplateKHR", supported);
+			vkUpdateDescriptorSetWithTemplateKHR = isSupported(provider, "vkUpdateDescriptorSetWithTemplateKHR", supported);
+			vkCmdPushDescriptorSetWithTemplateKHR = isSupported(provider, "vkCmdPushDescriptorSetWithTemplateKHR", supported);
+			VK_KHR_descriptor_update_template = supported && VK.checkExtension("VK_KHR_descriptor_update_template", KHRDescriptorUpdateTemplate.isAvailable(this));
+		}
+		{
 			supported = ext.contains("VK_KHR_display_swapchain");
 			vkCreateSharedSwapchainsKHR = isSupported(provider, "vkCreateSharedSwapchainsKHR", supported);
 			VK_KHR_display_swapchain = supported && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
@@ -420,6 +519,11 @@ public class VKCapabilitiesDevice {
 			supported = ext.contains("VK_KHR_maintenance1");
 			vkTrimCommandPoolKHR = isSupported(provider, "vkTrimCommandPoolKHR", supported);
 			VK_KHR_maintenance1 = supported && VK.checkExtension("VK_KHR_maintenance1", KHRMaintenance1.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHR_push_descriptor");
+			vkCmdPushDescriptorSetKHR = isSupported(provider, "vkCmdPushDescriptorSetKHR", supported);
+			VK_KHR_push_descriptor = supported && VK.checkExtension("VK_KHR_push_descriptor", KHRPushDescriptor.isAvailable(this));
 		}
 		VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
 		VK_KHR_shader_draw_parameters = ext.contains("VK_KHR_shader_draw_parameters");
@@ -432,6 +536,51 @@ public class VKCapabilitiesDevice {
 			vkQueuePresentKHR = isSupported(provider, "vkQueuePresentKHR", supported);
 			VK_KHR_swapchain = supported && VK.checkExtension("VK_KHR_swapchain", KHRSwapchain.isAvailable(this));
 		}
+		{
+			supported = ext.contains("VK_KHX_device_group");
+			vkGetDeviceGroupPeerMemoryFeaturesKHX = isSupported(provider, "vkGetDeviceGroupPeerMemoryFeaturesKHX", supported);
+			vkBindBufferMemory2KHX = isSupported(provider, "vkBindBufferMemory2KHX", supported);
+			vkBindImageMemory2KHX = isSupported(provider, "vkBindImageMemory2KHX", supported);
+			vkCmdSetDeviceMaskKHX = isSupported(provider, "vkCmdSetDeviceMaskKHX", supported);
+			vkGetDeviceGroupPresentCapabilitiesKHX = isSupported(provider, "vkGetDeviceGroupPresentCapabilitiesKHX", supported);
+			vkGetDeviceGroupSurfacePresentModesKHX = isSupported(provider, "vkGetDeviceGroupSurfacePresentModesKHX", supported);
+			vkAcquireNextImage2KHX = isSupported(provider, "vkAcquireNextImage2KHX", supported);
+			vkCmdDispatchBaseKHX = isSupported(provider, "vkCmdDispatchBaseKHX", supported);
+			VK_KHX_device_group = supported && VK.checkExtension("VK_KHX_device_group", KHXDeviceGroup.isAvailable(capsInstance, this));
+		}
+		VK_KHX_external_memory = ext.contains("VK_KHX_external_memory");
+		{
+			supported = ext.contains("VK_KHX_external_memory_fd");
+			vkGetMemoryFdKHX = isSupported(provider, "vkGetMemoryFdKHX", supported);
+			vkGetMemoryFdPropertiesKHX = isSupported(provider, "vkGetMemoryFdPropertiesKHX", supported);
+			VK_KHX_external_memory_fd = supported && VK.checkExtension("VK_KHX_external_memory_fd", KHXExternalMemoryFd.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHX_external_memory_win32");
+			vkGetMemoryWin32HandleKHX = isSupported(provider, "vkGetMemoryWin32HandleKHX", supported);
+			vkGetMemoryWin32HandlePropertiesKHX = isSupported(provider, "vkGetMemoryWin32HandlePropertiesKHX", supported);
+			VK_KHX_external_memory_win32 = supported && VK.checkExtension("VK_KHX_external_memory_win32", KHXExternalMemoryWin32.isAvailable(this));
+		}
+		VK_KHX_external_semaphore = ext.contains("VK_KHX_external_semaphore");
+		{
+			supported = ext.contains("VK_KHX_external_semaphore_fd");
+			vkImportSemaphoreFdKHX = isSupported(provider, "vkImportSemaphoreFdKHX", supported);
+			vkGetSemaphoreFdKHX = isSupported(provider, "vkGetSemaphoreFdKHX", supported);
+			VK_KHX_external_semaphore_fd = supported && VK.checkExtension("VK_KHX_external_semaphore_fd", KHXExternalSemaphoreFd.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHX_external_semaphore_win32");
+			vkImportSemaphoreWin32HandleKHX = isSupported(provider, "vkImportSemaphoreWin32HandleKHX", supported);
+			vkGetSemaphoreWin32HandleKHX = isSupported(provider, "vkGetSemaphoreWin32HandleKHX", supported);
+			VK_KHX_external_semaphore_win32 = supported && VK.checkExtension("VK_KHX_external_semaphore_win32", KHXExternalSemaphoreWin32.isAvailable(this));
+		}
+		VK_KHX_multiview = ext.contains("VK_KHX_multiview");
+		VK_KHX_win32_keyed_mutex = ext.contains("VK_KHX_win32_keyed_mutex");
+		{
+			supported = ext.contains("VK_NV_clip_space_w_scaling");
+			vkCmdSetViewportWScalingNV = isSupported(provider, "vkCmdSetViewportWScalingNV", supported);
+			VK_NV_clip_space_w_scaling = supported && VK.checkExtension("VK_NV_clip_space_w_scaling", NVClipSpaceWScaling.isAvailable(this));
+		}
 		VK_NV_dedicated_allocation = ext.contains("VK_NV_dedicated_allocation");
 		VK_NV_external_memory = ext.contains("VK_NV_external_memory");
 		{
@@ -439,7 +588,11 @@ public class VKCapabilitiesDevice {
 			vkGetMemoryWin32HandleNV = isSupported(provider, "vkGetMemoryWin32HandleNV", supported);
 			VK_NV_external_memory_win32 = supported && VK.checkExtension("VK_NV_external_memory_win32", NVExternalMemoryWin32.isAvailable(this));
 		}
+		VK_NV_geometry_shader_passthrough = ext.contains("VK_NV_geometry_shader_passthrough");
 		VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
+		VK_NV_sample_mask_override_coverage = ext.contains("VK_NV_sample_mask_override_coverage");
+		VK_NV_viewport_array2 = ext.contains("VK_NV_viewport_array2");
+		VK_NV_viewport_swizzle = ext.contains("VK_NV_viewport_swizzle");
 		VK_NV_win32_keyed_mutex = ext.contains("VK_NV_win32_keyed_mutex");
 		{
 			supported = ext.contains("VK_NVX_device_generated_commands");
@@ -453,6 +606,7 @@ public class VKCapabilitiesDevice {
 			vkUnregisterObjectsNVX = isSupported(provider, "vkUnregisterObjectsNVX", supported);
 			VK_NVX_device_generated_commands = supported && VK.checkExtension("VK_NVX_device_generated_commands", NVXDeviceGeneratedCommands.isAvailable(capsInstance, this));
 		}
+		VK_NVX_multiview_per_view_attributes = ext.contains("VK_NVX_multiview_per_view_attributes");
 	}
 
 }

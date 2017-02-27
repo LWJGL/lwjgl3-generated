@@ -22,10 +22,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>typedef enum VkMemoryHeapFlagBits {
     VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
+    VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX = 0x00000002,
 } VkMemoryHeapFlagBits;</code></pre>
  * 
  * <ul>
  * <li>if {@code flags} contains {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}, it means the heap corresponds to device local memory. Device local memory <b>may</b> have different performance characteristics than host local memory, and <b>may</b> support different memory property flags.</li>
+ * <li>if {@code flags} contains {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX}, then in a logical device representing more than one physical device there is a per-physical device instance of the heap memory. By default, an allocation from such a heap will be replicated to each physical device&#8217;s instance of the heap.</li>
  * </ul></li>
  * </ul>
  * 

@@ -44,12 +44,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>The {@code attachment} member of any element of {@code pPreserveAttachments} <b>must</b> not be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
  * <li>Any given element of {@code pPreserveAttachments} <b>must</b> not also be an element of any other member of the subpass description</li>
  * <li>If any attachment is used as both an input attachment and a color or depth/stencil attachment, then each use <b>must</b> use the same {@code layout}</li>
+ * <li>If {@code flags} includes {@link NVXMultiviewPerViewAttributes#VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX}, it <b>must</b> also include {@link NVXMultiviewPerViewAttributes#VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
- * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSubpassDescriptionFlagBits} values</li>
  * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
  * <li>If {@code inputAttachmentCount} is not 0, {@code pInputAttachments} <b>must</b> be a pointer to an array of {@code inputAttachmentCount} valid {@link VkAttachmentReference} structures</li>
  * <li>If {@code colorAttachmentCount} is not 0, {@code pColorAttachments} <b>must</b> be a pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
@@ -65,7 +66,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code flags} &ndash; a bitmask indicating usage of the subpass. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkSubpassDescriptionFlagBits {
+    VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX = 0x00000001,
+    VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX = 0x00000002,
+} VkSubpassDescriptionFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>{@link NVXMultiviewPerViewAttributes#VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX} indicates that shaders compiled for this subpass write the attributes for all views in a single invocation of each vertex processing stage. All pipelines compiled against a subpass that includes this bit <b>must</b> write per-view attributes to the *PerViewNV[] shader outputs, in addition to the non-per-view (e.g. {@code Position}) outputs.</li>
+ * <li>{@link NVXMultiviewPerViewAttributes#VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX} indicates that shaders compiled for this subpass use per-view positions which only differ in value in the x component. Per-view viewport mask <b>can</b> also be used.</li>
+ * </ul></li>
  * <li>{@code pipelineBindPoint} &ndash; a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported.</li>
  * <li>{@code inputAttachmentCount} &ndash; the number of input attachments.</li>
  * <li>{@code pInputAttachments} &ndash; an array of {@link VkAttachmentReference} structures (defined below) that lists which of the render pass&#8217;s attachments <b>can</b> be read in the shader during the subpass, and what layout each attachment will be in during the subpass. Each element of the array corresponds to an input attachment unit number in the shader, i.e. if the shader declares an input variable {@code layout(input_attachment_index=X, set=Y, binding=Z)} then it uses the attachment provided in {@code pInputAttachments}[X]. Input attachments <b>must</b> also be bound to the pipeline with a descriptor set, with the input attachment descriptor written in the location (set=Y, binding=Z).</li>

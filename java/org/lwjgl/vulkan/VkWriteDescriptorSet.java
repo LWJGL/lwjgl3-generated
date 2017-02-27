@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkDescriptorBufferInfo}, {@link VkDescriptorImageInfo}, {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets}</p>
+ * <p>{@link VkDescriptorBufferInfo}, {@link VkDescriptorImageInfo}, {@link KHRPushDescriptor#vkCmdPushDescriptorSetKHR CmdPushDescriptorSetKHR}, {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets}</p>
  * 
  * <h3>Member documentation</h3>
  * 

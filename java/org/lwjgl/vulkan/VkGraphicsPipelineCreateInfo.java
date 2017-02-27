@@ -29,12 +29,16 @@ import static org.lwjgl.system.MemoryStack.*;
     VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x00000001,
     VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x00000002,
     VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x00000004,
+    VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX = 0x00000008,
+    VK_PIPELINE_CREATE_DISPATCH_BASE_KHX = 0x00000010,
 } VkPipelineCreateFlagBits;</code></pre>
  * 
  * <ul>
  * <li>{@link VK10#VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT} specifies that the created pipeline will not be optimized. Using this flag <b>may</b> reduce the time taken to create the pipeline.</li>
  * <li>{@link VK10#VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT} specifies that the pipeline to be created is allowed to be the parent of a pipeline that will be created in a subsequent call to {@link VK10#vkCreateGraphicsPipelines CreateGraphicsPipelines}.</li>
  * <li>{@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} specifies that the pipeline to be created will be a child of a previously created parent pipeline.</li>
+ * <li>{@link KHXDeviceGroup#VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX} specifies that any shader input variables decorated as {@code DeviceIndex} will be assigned values as if they were decorated as {@code ViewIndex}.</li>
+ * <li>{@link KHXDeviceGroup#VK_PIPELINE_CREATE_DISPATCH_BASE_KHX PIPELINE_CREATE_DISPATCH_BASE_KHX} specifies that a compute pipeline <b>can</b> be used with {@link KHXDeviceGroup#vkCmdDispatchBaseKHX CmdDispatchBaseKHX} with a non-zero base workgroup.</li>
  * </ul>
  * 
  * <p>It is valid to set both {@link VK10#VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT} and {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT}. This allows a pipeline to be both a parent and possibly a child in a pipeline hierarchy. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#pipelines-pipeline-derivatives">Pipeline Derivatives</a> for more information.</p>
@@ -84,6 +88,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code subpass} uses color and/or depth/stencil attachments, then the {@code rasterizationSamples} member of {@code pMultisampleState} <b>must</b> be the same as the sample count for those subpass attachments</li>
  * <li>If {@code subpass} does not use any color and/or depth/stencil attachments, then the {@code rasterizationSamples} member of {@code pMultisampleState} <b>must</b> follow the rules for a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-noattachments">zero-attachment subpass</a></li>
  * <li>{@code subpass} <b>must</b> be a valid subpass within {@code renderpass}</li>
+ * <li>If the {@code renderPass} has multiview enabled and {@code subpass} has more than one bit set in the view mask and {@code multiviewTessellationShader} is not enabled, then {@code pStages} <b>must</b> not include tessellation shaders.</li>
+ * <li>If the {@code renderPass} has multiview enabled and {@code subpass} has more than one bit set in the view mask and {@code multiviewGeometryShader} is not enabled, then {@code pStages} <b>must</b> not include a geometry shader.</li>
+ * <li>If the {@code renderPass} has multiview enabled and {@code subpass} has more than one bit set in the view mask, shaders in the pipeline <b>must</b> not write to the {@code Layer} built-in output</li>
+ * <li>If the {@code renderPass} has multiview enabled, then all shaders <b>must</b> not include variables decorated with the {@code Layer} built-in decoration in their interfaces.</li>
+ * <li>{@code flags} <b>must</b> not contain the {@link KHXDeviceGroup#VK_PIPELINE_CREATE_DISPATCH_BASE_KHX PIPELINE_CREATE_DISPATCH_BASE_KHX} flag.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

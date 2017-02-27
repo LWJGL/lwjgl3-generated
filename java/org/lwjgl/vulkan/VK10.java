@@ -86,8 +86,9 @@ public class VK10 {
 	 * <li>{@link KHRSurface#VK_ERROR_NATIVE_WINDOW_IN_USE_KHR ERROR_NATIVE_WINDOW_IN_USE_KHR} The requested window is already in use by Vulkan or another API in a manner which prevents it from being used again.</li>
 	 * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR} A surface has changed in such a way that it is no longer compatible with the swapchain, and further presentation requests using the swapchain will fail. Applications <b>must</b> query the new surface properties and recreate their swapchain if they wish to continue presenting to the surface.</li>
 	 * <li>{@link KHRDisplaySwapchain#VK_ERROR_INCOMPATIBLE_DISPLAY_KHR ERROR_INCOMPATIBLE_DISPLAY_KHR} The display used by a swapchain does not use the same presentable image layout, or is incompatible in a way that prevents sharing an image.</li>
-	 * <li>{@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} One or more shaders failed to compile or link. More details are reported back to the application via {@code VK_EXT_debug_report} if enabled.</li>
+	 * <li>{@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} One or more shaders failed to compile or link. More details are reported back to the application via VK_EXT_debug_report if enabled.</li>
 	 * <li>{@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} There is no more memory in the descriptor set pool.</li>
+	 * <li>{@link KHXExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHX ERROR_INVALID_EXTERNAL_HANDLE_KHX} An external handle is not a valid handle of the specified type.</li>
 	 * </ul>
 	 * 
 	 * <p>If a command returns a run time error, it will leave any result pointers unmodified, unless other behavior is explicitly defined in the specification.</p>
@@ -125,7 +126,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkFenceCreateInfo}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageFormatProperties2KHR}, {@link VkImageMemoryBarrier}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPresentInfoKHR}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
+	 * <p>{@link VkAcquireNextImageInfoKHX}, {@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindBufferMemoryInfoKHX}, {@link VkBindImageMemoryInfoKHX}, {@link VkBindImageMemorySwapchainInfoKHX}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkD3D12FenceSubmitInfoKHX}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceGroupBindSparseInfoKHX}, {@link VkDeviceGroupCommandBufferBeginInfoKHX}, {@link VkDeviceGroupDeviceCreateInfoKHX}, {@link VkDeviceGroupPresentCapabilitiesKHX}, {@link VkDeviceGroupPresentInfoKHX}, {@link VkDeviceGroupRenderPassBeginInfoKHX}, {@link VkDeviceGroupSubmitInfoKHX}, {@link VkDeviceGroupSwapchainCreateInfoKHX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoKHX}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoKHX}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExportSemaphoreCreateInfoKHX}, {@link VkExportSemaphoreWin32HandleInfoKHX}, {@link VkExternalBufferPropertiesKHX}, {@link VkExternalImageFormatPropertiesKHX}, {@link VkExternalMemoryBufferCreateInfoKHX}, {@link VkExternalMemoryImageCreateInfoKHX}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkExternalSemaphorePropertiesKHX}, {@link VkFenceCreateInfo}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkIOSSurfaceCreateInfoMVK}, {@link VkImageCreateInfo}, {@link VkImageFormatProperties2KHR}, {@link VkImageFormatProperties2KHX}, {@link VkImageMemoryBarrier}, {@link VkImageSwapchainCreateInfoKHX}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryFdInfoKHX}, {@link VkImportMemoryWin32HandleInfoKHX}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkImportSemaphoreFdInfoKHX}, {@link VkImportSemaphoreWin32HandleInfoKHX}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMacOSSurfaceCreateInfoMVK}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateFlagsInfoKHX}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMemoryFdPropertiesKHX}, {@link VkMemoryWin32HandlePropertiesKHX}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}, {@link VkPhysicalDeviceExternalBufferInfoKHX}, {@link VkPhysicalDeviceExternalImageFormatInfoKHX}, {@link VkPhysicalDeviceExternalSemaphoreInfoKHX}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceGroupPropertiesKHX}, {@link VkPhysicalDeviceIDPropertiesKHX}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHX}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceMultiviewFeaturesKHX}, {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX}, {@link VkPhysicalDeviceMultiviewPropertiesKHX}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDeviceProperties2KHX}, {@link VkPhysicalDevicePushDescriptorPropertiesKHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDiscardRectangleStateCreateInfoEXT}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPipelineViewportSwizzleStateCreateInfoNV}, {@link VkPipelineViewportWScalingStateCreateInfoNV}, {@link VkPresentInfoKHR}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkRenderPassMultiviewCreateInfoKHX}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHX}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -664,7 +665,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHX}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_FORMAT_UNDEFINED                  = 0,
@@ -912,7 +913,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHX}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -936,7 +937,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHX}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_IMAGE_TILING_OPTIMAL = 0,
@@ -988,6 +989,7 @@ public class VK10 {
 	 * <li>{@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image.</li>
 	 * <li>{@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}.</li>
 	 * <li>{@link KHRMaintenance1#VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR} indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D} or {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}.</li>
+	 * <li>{@link KHXDeviceGroup#VK_IMAGE_CREATE_BIND_SFR_BIT_KHX IMAGE_CREATE_BIND_SFR_BIT_KHX} indicates that the image <b>can</b> be used with a non-zero value of the {@code SFRRectCount} member of the {@link VkBindImageMemoryInfoKHX} structure passed into {@link KHXDeviceGroup#vkBindImageMemory2KHX BindImageMemory2KHX}. This flag also has the effect of making the image use the standard sparse image block dimensions.</li>
 	 * </ul>
 	 * 
 	 * <p>If any of the bits {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, or {@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} are set, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} <b>must</b> not also be set.</p>
@@ -2126,6 +2128,8 @@ public class VK10 {
 	 * <li>{@link #VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK DYNAMIC_STATE_STENCIL_COMPARE_MASK} indicates that the {@code compareMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
 	 * <li>{@link #VK_DYNAMIC_STATE_STENCIL_WRITE_MASK DYNAMIC_STATE_STENCIL_WRITE_MASK} indicates that the {@code writeMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilWriteMask CmdSetStencilWriteMask} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
 	 * <li>{@link #VK_DYNAMIC_STATE_STENCIL_REFERENCE DYNAMIC_STATE_STENCIL_REFERENCE} indicates that the {@code reference} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilReference CmdSetStencilReference} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
+	 * <li>{@link #VK_DYANMIC_STATE_VIEWPORT_W_SCALING_NV DYANMIC_STATE_VIEWPORT_W_SCALING_NV} indicates that the {@code pViewportScalings} state in {@link VkPipelineViewportWScalingStateCreateInfoNV} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetViewportWScaling CmdSetViewportWScaling} before any draws are performed with a pipeline state with {@code VkPipelineViewportWScalingStateCreateInfo} member {@code viewportScalingEnable} set to {@link #VK_TRUE TRUE}</li>
+	 * <li>{@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLES_EXT DYNAMIC_STATE_DISCARD_RECTANGLES_EXT} indicates that the {@code pDiscardRectangles} state in {@link VkPipelineDiscardRectangleStateCreateInfoEXT} will be ignored and <b>must</b> be set dynamically with {@link EXTDiscardRectangles#vkCmdSetDiscardRectangleEXT CmdSetDiscardRectangleEXT} before any draw or clear commands. The {@code VkDiscardRectangleModeEXT} and the number of active discard rectangles is still specified by the {@code discardRectangleMode} and {@code discardRectangleCount} members of {@link VkPipelineDiscardRectangleStateCreateInfoEXT}.</li>
 	 * </ul>
 	 * 
 	 * <h5>See Also</h5>
@@ -2280,7 +2284,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkDescriptorPoolSize}, {@link VkDescriptorSetLayoutBinding}, {@link VkWriteDescriptorSet}</p>
+	 * <p>{@link VkDescriptorPoolSize}, {@link VkDescriptorSetLayoutBinding}, {@link VkDescriptorUpdateTemplateEntryKHR}, {@link VkWriteDescriptorSet}</p>
 	 */
 	public static final int
 		VK_DESCRIPTOR_TYPE_SAMPLER                = 0,
@@ -2406,7 +2410,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkSubpassDescription}, {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}, {@link #vkCmdBindPipeline CmdBindPipeline}</p>
+	 * <p>{@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkSubpassDescription}, {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}, {@link #vkCmdBindPipeline CmdBindPipeline}, {@link KHRPushDescriptor#vkCmdPushDescriptorSetKHR CmdPushDescriptorSetKHR}</p>
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -2927,7 +2931,7 @@ public class VK10 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>If {@code pPhysicalDevices} is {@code NULL}, then the number of physical devices available is returned in {@code pPhysicalDeviceCount}. Otherwise, {@code pPhysicalDeviceCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPhysicalDevices} array, and on return the variable is overwritten with the number of structures actually written to {@code pPhysicalDevices}. If {@code pPhysicalDeviceCount} is less than the number of physical devices available, at most {@code pPhysicalDeviceCount} structures will be written. If {@code pPhysicalDeviceCount} is smaller than the number of physical devices available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available physical devices were returned.</p>
+	 * <p>If {@code pPhysicalDevices} is {@code NULL}, then the number of physical devices available is returned in {@code pPhysicalDeviceCount}. Otherwise, {@code pPhysicalDeviceCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPhysicalDevices} array, and on return the variable is overwritten with the number of handles actually written to {@code pPhysicalDevices}. If {@code pPhysicalDeviceCount} is less than the number of physical devices available, at most {@code pPhysicalDeviceCount} structures will be written. If {@code pPhysicalDeviceCount} is smaller than the number of physical devices available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available physical devices were returned.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
@@ -3293,7 +3297,7 @@ public class VK10 {
 	 * <dt>1</dt>
 	 * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code instance} or a child of {@code instance}. e.g. {@code VkInstance}, {@code VkPhysicalDevice}, {@code VkDevice}, {@code VkQueue}, or {@code VkCommandBuffer}.</dd>
 	 * <dt>2</dt>
-	 * <dd>An "{@code available extension}" is an extension function supported by any of the loader, driver or layer.</dd>
+	 * <dd>An “available extension” is an extension function supported by any of the loader, driver or layer.</dd>
 	 * </dl>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -3357,7 +3361,7 @@ public class VK10 {
 	 * <dt>1</dt>
 	 * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code instance} or a child of {@code instance}. e.g. {@code VkInstance}, {@code VkPhysicalDevice}, {@code VkDevice}, {@code VkQueue}, or {@code VkCommandBuffer}.</dd>
 	 * <dt>2</dt>
-	 * <dd>An "{@code available extension}" is an extension function supported by any of the loader, driver or layer.</dd>
+	 * <dd>An “available extension” is an extension function supported by any of the loader, driver or layer.</dd>
 	 * </dl>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -4480,6 +4484,7 @@ public class VK10 {
 	 * <li>{@link #VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
 	 * <li>{@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
 	 * <li>{@link #VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}</li>
+	 * <li>{@link KHXExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHX ERROR_INVALID_EXTERNAL_HANDLE_KHX}</li>
 	 * </ul></dd>
 	 * </dl>
 	 * 
@@ -4610,6 +4615,7 @@ public class VK10 {
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be less than or equal to the size of the {@code memory} minus {@code offset}</li>
 	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT}</li>
+	 * <li>{@code memory} <b>must</b> not have been allocated with multiple instances.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -4723,7 +4729,7 @@ public class VK10 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} <b>must</b> be used to guarantee that host writes to non-coherent memory are visible to the device. It <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read or write any of those memory locations are submitted to a queue.</p>
+	 * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} guarantees that host writes to the memory ranges described by {@code pMemoryRanges} <b>can</b> be made available to device access, via <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible"> availability operations</a> from the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -4777,7 +4783,7 @@ public class VK10 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} <b>must</b> be used to guarantee that host writes to non-coherent memory are visible to the device. It <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read or write any of those memory locations are submitted to a queue.</p>
+	 * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} guarantees that host writes to the memory ranges described by {@code pMemoryRanges} <b>can</b> be made available to device access, via <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible"> availability operations</a> from the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -4842,7 +4848,7 @@ public class VK10 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} <b>must</b> be used to guarantee that device writes to non-coherent memory are visible to the host. It <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have completed, and before the host will read or write any of those locations. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
+	 * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} guarantees that device writes to the memory ranges described by {@code pMemoryRanges}, which have been made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types"> access types</a>, are made visible to the host. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -4896,7 +4902,7 @@ public class VK10 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} <b>must</b> be used to guarantee that device writes to non-coherent memory are visible to the host. It <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have completed, and before the host will read or write any of those locations. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
+	 * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} guarantees that device writes to the memory ranges described by {@code pMemoryRanges}, which have been made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types"> access types</a>, are made visible to the host. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -5001,6 +5007,10 @@ public class VK10 {
     VkDeviceMemory                              memory,
     VkDeviceSize                                memoryOffset);</code></pre>
 	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@link #vkBindBufferMemory BindBufferMemory} is equivalent to passing the same parameters through {@link VkBindBufferMemoryInfoKHX} to {@link KHXDeviceGroup#vkBindBufferMemory2KHX BindBufferMemory2KHX}, with {@code deviceIndexCount} equal to zero.</p>
+	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
@@ -5048,7 +5058,7 @@ public class VK10 {
 	 * </dl>
 	 *
 	 * @param device       the logical device that owns the buffer and memory.
-	 * @param buffer       the buffer.
+	 * @param buffer       the buffer to be attached to memory.
 	 * @param memory       a {@code VkDeviceMemory} object describing the device memory to attach.
 	 * @param memoryOffset the start offset of the region of {@code memory} which is to be bound to the buffer. The number of bytes returned in the {@link VkMemoryRequirements}{@code ::size} member in {@code memory}, starting from {@code memoryOffset} bytes, will be bound to the specified buffer.
 	 */
@@ -5071,6 +5081,10 @@ public class VK10 {
     VkImage                                     image,
     VkDeviceMemory                              memory,
     VkDeviceSize                                memoryOffset);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@link #vkBindImageMemory BindImageMemory} is equivalent to passing the same parameters through {@link VkBindImageMemoryInfoKHX} to {@link KHXDeviceGroup#vkBindImageMemory2KHX BindImageMemory2KHX}, with {@code deviceIndexCount} and {@code SFRRectCount} equal to zero.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -8713,6 +8727,7 @@ public class VK10 {
 	 * <li>{@link #VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
 	 * <li>{@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
 	 * <li>{@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL}</li>
+	 * <li>{@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR}</li>
 	 * </ul></dd>
 	 * </dl>
 	 * 
@@ -10704,6 +10719,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
+	 * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index must be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -10787,6 +10803,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
+	 * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index must be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -10872,6 +10889,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
+	 * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index must be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -10958,6 +10976,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
+	 * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index must be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -11007,20 +11026,20 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <pre><code>void vkCmdDispatch(
     VkCommandBuffer                             commandBuffer,
-    uint32_t                                    x,
-    uint32_t                                    y,
-    uint32_t                                    z);</code></pre>
+    uint32_t                                    groupCountX,
+    uint32_t                                    groupCountY,
+    uint32_t                                    groupCountZ);</code></pre>
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>When the command is executed, a global workgroup consisting of <code>x {times} y {times} z</code> local workgroups is assembled.</p>
+	 * <p>When the command is executed, a global workgroup consisting of <code>groupCountX {times} groupCountY {times} groupCountZ</code> local workgroups is assembled.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
-	 * <li>{@code x} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[0]</li>
-	 * <li>{@code y} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[1]</li>
-	 * <li>{@code z} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2]</li>
+	 * <li>{@code groupCountX} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[0]</li>
+	 * <li>{@code groupCountY} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[1]</li>
+	 * <li>{@code groupCountZ} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2]</li>
 	 * <li>For each set <em>n</em> that is statically used by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, a descriptor set <b>must</b> have been bound to <em>n</em> at {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, with a {@code VkPipelineLayout} that is compatible for set <em>n</em>, with the {@code VkPipelineLayout} used to create the current {@code VkPipeline}, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-compatibility">the “Pipeline Layout Compatibility” section</a></li>
 	 * <li>Descriptors in each bound descriptor set, specified via {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}, <b>must</b> be valid if they are statically used by the currently bound {@code VkPipeline} object, specified via {@link #vkCmdBindPipeline CmdBindPipeline}</li>
 	 * <li>A valid compute pipeline <b>must</b> be bound to the current command buffer with {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
@@ -11059,13 +11078,13 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * </table>
 	 *
 	 * @param commandBuffer the command buffer into which the command will be recorded.
-	 * @param x             the number of local workgroups to dispatch in the X dimension.
-	 * @param y             the number of local workgroups to dispatch in the Y dimension.
-	 * @param z             the number of local workgroups to dispatch in the Z dimension.
+	 * @param groupCountX   the number of local workgroups to dispatch in the X dimension.
+	 * @param groupCountY   the number of local workgroups to dispatch in the Y dimension.
+	 * @param groupCountZ   the number of local workgroups to dispatch in the Z dimension.
 	 */
-	public static void vkCmdDispatch(VkCommandBuffer commandBuffer, int x, int y, int z) {
+	public static void vkCmdDispatch(VkCommandBuffer commandBuffer, int groupCountX, int groupCountY, int groupCountZ) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatch;
-		callPV(__functionAddress, commandBuffer.address(), x, y, z);
+		callPV(__functionAddress, commandBuffer.address(), groupCountX, groupCountY, groupCountZ);
 	}
 
 	// --- [ vkCmdDispatchIndirect ] ---
@@ -12553,6 +12572,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>If the {@code aspectMask} member of any given element of {@code pAttachments} contains {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, the {@code colorAttachment} member of those elements <b>must</b> refer to a valid color attachment in the current subpass</li>
 	 * <li>The rectangular region specified by a given element of {@code pRects} <b>must</b> be contained within the render area of the current render pass instance</li>
 	 * <li>The layers specified by a given element of {@code pRects} <b>must</b> be contained within every attachment that {@code pAttachments} refers to</li>
+	 * <li>If the render pass instance this is recorded in uses multiview, then {@code baseArrayLayer} <b>must</b> be zero and {@code layerCount} <b>must</b> be one.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -12809,6 +12829,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>{@code stageMask} <b>must</b> not include {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}</li>
 	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-geometryShader">geometry shaders</a> feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-tessellationShader">tessellation shaders</a> feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * <li>{@code commandBuffer}&#8217;s current device mask <b>must</b> include exactly one physical device.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -12878,6 +12899,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-geometryShader">geometry shaders</a> feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-tessellationShader">tessellation shaders</a> feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>When this command executes, {@code event} <b>must</b> not be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
+	 * <li>{@code commandBuffer}&#8217;s current device mask <b>must</b> include exactly one physical device.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -12985,6 +13007,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>Any pipeline stage included in {@code srcStageMask} or {@code dstStageMask} <b>must</b> be supported by the capabilities of the queue family specified by the {@code queueFamilyIndex} member of the {@link VkCommandPoolCreateInfo} structure that was used to create the {@code VkCommandPool} that {@code commandBuffer} was allocated from, as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-supported">table of supported pipeline stages</a>.</li>
 	 * <li>Any given element of {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} or {@code pImageMemoryBarriers} <b>must</b> not have any access flag included in its {@code srcAccessMask} member if that bit is not supported by any of the pipeline stages in {@code srcStageMask}, as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types-supported">table of supported access types</a>.</li>
 	 * <li>Any given element of {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} or {@code pImageMemoryBarriers} <b>must</b> not have any access flag included in its {@code dstAccessMask} member if that bit is not supported by any of the pipeline stages in {@code dstStageMask}, as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types-supported">table of supported access types</a>.</li>
+	 * <li>{@code commandBuffer}&#8217;s current device mask <b>must</b> include exactly one physical device.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -13110,6 +13133,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>Any pipeline stage included in {@code srcStageMask} or {@code dstStageMask} <b>must</b> be supported by the capabilities of the queue family specified by the {@code queueFamilyIndex} member of the {@link VkCommandPoolCreateInfo} structure that was used to create the {@code VkCommandPool} that {@code commandBuffer} was allocated from, as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-supported">table of supported pipeline stages</a>.</li>
 	 * <li>Any given element of {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} or {@code pImageMemoryBarriers} <b>must</b> not have any access flag included in its {@code srcAccessMask} member if that bit is not supported by any of the pipeline stages in {@code srcStageMask}, as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types-supported">table of supported access types</a>.</li>
 	 * <li>Any given element of {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} or {@code pImageMemoryBarriers} <b>must</b> not have any access flag included in its {@code dstAccessMask} member if that bit is not supported by any of the pipeline stages in {@code dstStageMask}, as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types-supported">table of supported access types</a>.</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called outside of a render pass instance, {@code dependencyFlags} <b>must</b> not include {@link KHXMultiview#VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX DEPENDENCY_VIEW_LOCAL_BIT_KHX}</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -13153,6 +13177,8 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 *                              
 	 *                              <pre><code>typedef enum VkDependencyFlagBits {
     VK_DEPENDENCY_BY_REGION_BIT = 0x00000001,
+    VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX = 0x00000002,
+    VK_DEPENDENCY_DEVICE_GROUP_BIT_KHX = 0x00000004,
 } VkDependencyFlagBits;</code></pre>
 	 *                              
 	 *                              <ul>
@@ -13198,6 +13224,9 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION}, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} and any of the {@code pipelineStatistics} indicate graphics operations, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} and any of the {@code pipelineStatistics} indicate compute operations, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support compute operations</li>
+	 * <li>All queries used by the command <b>must</b> not be active</li>
+	 * <li>All queries used by the command <b>must</b> be unavailable</li>
+	 * <li>If {@link #vkCmdBeginQuery CmdBeginQuery} is called within a render pass instance, the sum of {@code query} and the number of bits set in the current subpass&#8217;s view mask <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -13260,6 +13289,8 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * <ul>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> currently be <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-operation-active">active</a></li>
 	 * <li>{@code query} <b>must</b> be less than the number of queries in {@code queryPool}</li>
+	 * <li>All queries used by the command <b>must</b> be active</li>
+	 * <li>If {@link #vkCmdEndQuery CmdEndQuery} is called within a render pass instance, the sum of {@code query} and the number of bits set in the current subpass&#8217;s view mask <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -13384,11 +13415,22 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <p>While {@link #vkCmdWriteTimestamp CmdWriteTimestamp} <b>can</b> be called inside or outside of a render pass instance, {@link #vkCmdCopyQueryPoolResults CmdCopyQueryPoolResults} <b>must</b> only be called outside of a render pass instance.</p>
 	 * 
+	 * <p>If {@link #vkCmdWriteTimestamp CmdWriteTimestamp} is called while executing a render pass instance that has multiview enabled, the timestamp uses <code>N</code> consecutive query indices in the query pool (starting at {@code query}) where <code>N</code> is the number of bits set in the view mask of the subpass the command is executed in. The resulting query values are determined by an implementation-dependent choice of one of the following behaviors:</p>
+	 * 
+	 * <ul>
+	 * <li>The first query is a timestamp value and (if more than one bit is set in the view mask) zero is written to the remaining queries. If two timestamps are written in the same subpass, the sum of the execution time of all views between those commands is the difference between the first query written by each command.</li>
+	 * <li>All <code>N</code> queries are timestamp values. If two timestamps are written in the same subpass, the sum of the execution time of all views between those commands is the sum of the difference between corresponding queries written by each command. The difference between corresponding queries <b>may</b> be the execution time of a single view.</li>
+	 * </ul>
+	 * 
+	 * <p>In either case, the application <b>can</b> sum the differences between all <code>N</code> queries to determine the total execution time.</p>
+	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> be <em>unavailable</em></li>
 	 * <li>The command pool&#8217;s queue family <b>must</b> support a non-zero {@code timestampValidBits}</li>
+	 * <li>All queries used by the command <b>must</b> be unavailable</li>
+	 * <li>If {@link #vkCmdWriteTimestamp CmdWriteTimestamp} is called within a render pass instance, the sum of {@code query} and the number of bits set in the current subpass&#8217;s view mask <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>

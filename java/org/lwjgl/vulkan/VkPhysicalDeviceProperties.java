@@ -25,13 +25,13 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <ul>
  * <li>For purposes of physical device identification, the <em>vendor</em> of a physical device is the entity responsible for the most salient characteristics of the hardware represented by the physical device handle. In the case of a discrete GPU, this <b>should</b> be the GPU chipset vendor. In the case of a GPU or other accelerator integrated into a system-on-chip (SoC), this <b>should</b> be the supplier of the silicon IP used to create the GPU or other accelerator.</li>
- * <li>If the vendor of the physical device has a valid PCI vendor ID issued by <a href="https://pcisig.com/">PCI-SIG</a>, that ID <b>should</b> be used to construct {@code vendorID} as described above for PCI-based implementations. Implementations that do not return a PCI vendor ID in {@code vendorID} <b>must</b> return a valid Khronos vendor ID, obtained as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vulkan-styleguide">Vulkan Documentation and Extensions</a> document in the section "{@code Registering a Vendor ID with Khronos}". Khronos vendor IDs are allocated starting at 0x10000, to distinguish them from the PCI vendor ID namespace.</li>
+ * <li>If the vendor of the physical device has a valid PCI vendor ID issued by <a href="https://pcisig.com/">PCI-SIG</a>, that ID <b>should</b> be used to construct {@code vendorID} as described above for PCI-based implementations. Implementations that do not return a PCI vendor ID in {@code vendorID} <b>must</b> return a valid Khronos vendor ID, obtained as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vulkan-styleguide">Vulkan Documentation and Extensions</a> document in the section “Registering a Vendor ID with Khronos”. Khronos vendor IDs are allocated starting at 0x10000, to distinguish them from the PCI vendor ID namespace.</li>
  * <li>The vendor of the physical device is responsible for selecting {@code deviceID}. The value selected <b>should</b> uniquely identify both the device version and any major configuration options (for example, core count in the case of multicore devices). The same device ID <b>should</b> be used for all physical implementations of that device version and configuration. For example, all uses of a specific silicon IP GPU version and configuration <b>should</b> use the same device ID, even if those uses occur in different SoCs.</li>
  * </ul>
  * 
  * <h5>See Also</h5>
  * 
- * <p>{@link VkPhysicalDeviceLimits}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDeviceSparseProperties}, {@link VK10#vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}</p>
+ * <p>{@link VkPhysicalDeviceLimits}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDeviceProperties2KHX}, {@link VkPhysicalDeviceSparseProperties}, {@link VK10#vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 
