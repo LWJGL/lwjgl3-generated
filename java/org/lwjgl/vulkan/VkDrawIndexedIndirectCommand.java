@@ -142,12 +142,6 @@ public class VkDrawIndexedIndirectCommand extends Struct implements NativeResour
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDrawIndexedIndirectCommand) set}. */
-	public VkDrawIndexedIndirectCommand nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -156,7 +150,8 @@ public class VkDrawIndexedIndirectCommand extends Struct implements NativeResour
 	 * @return this struct
 	 */
 	public VkDrawIndexedIndirectCommand set(VkDrawIndexedIndirectCommand src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

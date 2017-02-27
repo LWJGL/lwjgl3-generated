@@ -162,12 +162,6 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(OVRLayerEyeFov) set}. */
-	public OVRLayerEyeFov nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -176,7 +170,8 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public OVRLayerEyeFov set(OVRLayerEyeFov src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

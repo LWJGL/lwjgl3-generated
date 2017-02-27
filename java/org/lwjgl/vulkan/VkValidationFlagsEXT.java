@@ -129,12 +129,6 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkValidationFlagsEXT) set}. */
-	public VkValidationFlagsEXT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -143,7 +137,8 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkValidationFlagsEXT set(VkValidationFlagsEXT src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

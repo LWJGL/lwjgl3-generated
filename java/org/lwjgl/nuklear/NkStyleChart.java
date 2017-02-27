@@ -134,12 +134,6 @@ public class NkStyleChart extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(NkStyleChart) set}. */
-	public NkStyleChart nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -148,7 +142,8 @@ public class NkStyleChart extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public NkStyleChart set(NkStyleChart src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

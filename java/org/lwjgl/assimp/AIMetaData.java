@@ -103,12 +103,6 @@ public class AIMetaData extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(AIMetaData) set}. */
-	public AIMetaData nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -117,7 +111,8 @@ public class AIMetaData extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public AIMetaData set(AIMetaData src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

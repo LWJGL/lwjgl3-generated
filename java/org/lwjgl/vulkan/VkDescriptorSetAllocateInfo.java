@@ -145,12 +145,6 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDescriptorSetAllocateInfo) set}. */
-	public VkDescriptorSetAllocateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -159,7 +153,8 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
 	 * @return this struct
 	 */
 	public VkDescriptorSetAllocateInfo set(VkDescriptorSetAllocateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

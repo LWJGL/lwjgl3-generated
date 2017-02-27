@@ -200,12 +200,6 @@ public class AIImporterDesc extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(AIImporterDesc) set}. */
-	public AIImporterDesc nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -214,7 +208,8 @@ public class AIImporterDesc extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public AIImporterDesc set(AIImporterDesc src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

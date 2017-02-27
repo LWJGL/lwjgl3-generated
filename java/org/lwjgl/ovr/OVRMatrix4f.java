@@ -78,12 +78,6 @@ public class OVRMatrix4f extends Struct implements NativeResource {
 	/** Sets the specified value at the specified index of the {@code M} field. */
 	public OVRMatrix4f M(int index, float value) { nM(address(), index, value); return this; }
 
-	/** Unsafe version of {@link #set(OVRMatrix4f) set}. */
-	public OVRMatrix4f nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -92,7 +86,8 @@ public class OVRMatrix4f extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public OVRMatrix4f set(OVRMatrix4f src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

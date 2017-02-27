@@ -146,12 +146,6 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDebugMarkerObjectNameInfoEXT) set}. */
-	public VkDebugMarkerObjectNameInfoEXT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -160,7 +154,8 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
 	 * @return this struct
 	 */
 	public VkDebugMarkerObjectNameInfoEXT set(VkDebugMarkerObjectNameInfoEXT src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

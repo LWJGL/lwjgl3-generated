@@ -77,12 +77,6 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
 	/** Sets the address of the specified {@link HmdVector2.Buffer} to the {@code pVertexData} field. */
 	public HiddenAreaMesh pVertexData(HmdVector2.Buffer value) { npVertexData(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(HiddenAreaMesh) set}. */
-	public HiddenAreaMesh nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -91,7 +85,8 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public HiddenAreaMesh set(HiddenAreaMesh src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

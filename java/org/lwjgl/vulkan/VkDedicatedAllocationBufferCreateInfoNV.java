@@ -117,12 +117,6 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDedicatedAllocationBufferCreateInfoNV) set}. */
-	public VkDedicatedAllocationBufferCreateInfoNV nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -131,7 +125,8 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 	 * @return this struct
 	 */
 	public VkDedicatedAllocationBufferCreateInfoNV set(VkDedicatedAllocationBufferCreateInfoNV src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

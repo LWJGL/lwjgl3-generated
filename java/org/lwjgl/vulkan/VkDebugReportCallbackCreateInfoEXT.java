@@ -160,12 +160,6 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct implements Native
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDebugReportCallbackCreateInfoEXT) set}. */
-	public VkDebugReportCallbackCreateInfoEXT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -174,7 +168,8 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct implements Native
 	 * @return this struct
 	 */
 	public VkDebugReportCallbackCreateInfoEXT set(VkDebugReportCallbackCreateInfoEXT src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

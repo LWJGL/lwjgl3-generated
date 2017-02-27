@@ -148,12 +148,6 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkWin32SurfaceCreateInfoKHR) set}. */
-	public VkWin32SurfaceCreateInfoKHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -162,7 +156,8 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
 	 * @return this struct
 	 */
 	public VkWin32SurfaceCreateInfoKHR set(VkWin32SurfaceCreateInfoKHR src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

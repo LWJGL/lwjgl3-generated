@@ -184,12 +184,6 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineColorBlendAttachmentState) set}. */
-	public VkPipelineColorBlendAttachmentState nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -198,7 +192,8 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 	 * @return this struct
 	 */
 	public VkPipelineColorBlendAttachmentState set(VkPipelineColorBlendAttachmentState src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

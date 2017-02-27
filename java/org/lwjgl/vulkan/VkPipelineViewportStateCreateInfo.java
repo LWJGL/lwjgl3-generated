@@ -172,12 +172,6 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineViewportStateCreateInfo) set}. */
-	public VkPipelineViewportStateCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -186,7 +180,8 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
 	 * @return this struct
 	 */
 	public VkPipelineViewportStateCreateInfo set(VkPipelineViewportStateCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

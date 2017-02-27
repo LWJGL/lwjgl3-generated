@@ -115,12 +115,6 @@ public class VkDeviceGeneratedCommandsFeaturesNVX extends Struct implements Nati
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDeviceGeneratedCommandsFeaturesNVX) set}. */
-	public VkDeviceGeneratedCommandsFeaturesNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -129,7 +123,8 @@ public class VkDeviceGeneratedCommandsFeaturesNVX extends Struct implements Nati
 	 * @return this struct
 	 */
 	public VkDeviceGeneratedCommandsFeaturesNVX set(VkDeviceGeneratedCommandsFeaturesNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

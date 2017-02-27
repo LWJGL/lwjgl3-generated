@@ -117,12 +117,6 @@ public class VkPhysicalDeviceFeatures2KHR extends Struct implements NativeResour
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPhysicalDeviceFeatures2KHR) set}. */
-	public VkPhysicalDeviceFeatures2KHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -131,7 +125,8 @@ public class VkPhysicalDeviceFeatures2KHR extends Struct implements NativeResour
 	 * @return this struct
 	 */
 	public VkPhysicalDeviceFeatures2KHR set(VkPhysicalDeviceFeatures2KHR src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

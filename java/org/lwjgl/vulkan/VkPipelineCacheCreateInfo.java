@@ -143,12 +143,6 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineCacheCreateInfo) set}. */
-	public VkPipelineCacheCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -157,7 +151,8 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
 	 * @return this struct
 	 */
 	public VkPipelineCacheCreateInfo set(VkPipelineCacheCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

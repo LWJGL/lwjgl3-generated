@@ -153,12 +153,6 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDescriptorSetLayoutBinding) set}. */
-	public VkDescriptorSetLayoutBinding nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -167,7 +161,8 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
 	 * @return this struct
 	 */
 	public VkDescriptorSetLayoutBinding set(VkDescriptorSetLayoutBinding src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

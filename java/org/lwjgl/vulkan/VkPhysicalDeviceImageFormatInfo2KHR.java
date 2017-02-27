@@ -169,12 +169,6 @@ public class VkPhysicalDeviceImageFormatInfo2KHR extends Struct implements Nativ
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPhysicalDeviceImageFormatInfo2KHR) set}. */
-	public VkPhysicalDeviceImageFormatInfo2KHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -183,7 +177,8 @@ public class VkPhysicalDeviceImageFormatInfo2KHR extends Struct implements Nativ
 	 * @return this struct
 	 */
 	public VkPhysicalDeviceImageFormatInfo2KHR set(VkPhysicalDeviceImageFormatInfo2KHR src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

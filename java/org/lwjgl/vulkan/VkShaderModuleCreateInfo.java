@@ -148,12 +148,6 @@ public class VkShaderModuleCreateInfo extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkShaderModuleCreateInfo) set}. */
-	public VkShaderModuleCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -162,7 +156,8 @@ public class VkShaderModuleCreateInfo extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkShaderModuleCreateInfo set(VkShaderModuleCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

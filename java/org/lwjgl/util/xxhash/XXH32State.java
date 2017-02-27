@@ -161,12 +161,6 @@ public class XXH32State extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(XXH32State) set}. */
-	public XXH32State nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -175,7 +169,8 @@ public class XXH32State extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public XXH32State set(XXH32State src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -74,12 +74,6 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code realloc} field. */
 	public BGFXAllocatorVtbl realloc(BGFXReallocCallbackI value) { nrealloc(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(BGFXAllocatorVtbl) set}. */
-	public BGFXAllocatorVtbl nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -88,7 +82,8 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public BGFXAllocatorVtbl set(BGFXAllocatorVtbl src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

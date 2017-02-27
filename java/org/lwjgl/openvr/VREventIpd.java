@@ -65,12 +65,6 @@ public class VREventIpd extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code ipdMeters} field. */
 	public VREventIpd ipdMeters(float value) { nipdMeters(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(VREventIpd) set}. */
-	public VREventIpd nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -79,7 +73,8 @@ public class VREventIpd extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VREventIpd set(VREventIpd src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

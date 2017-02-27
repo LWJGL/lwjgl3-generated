@@ -224,12 +224,6 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineDepthStencilStateCreateInfo) set}. */
-	public VkPipelineDepthStencilStateCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -238,7 +232,8 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 	 * @return this struct
 	 */
 	public VkPipelineDepthStencilStateCreateInfo set(VkPipelineDepthStencilStateCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -91,12 +91,6 @@ public class NkDrawNullTexture extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(NkDrawNullTexture) set}. */
-	public NkDrawNullTexture nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -105,7 +99,8 @@ public class NkDrawNullTexture extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public NkDrawNullTexture set(NkDrawNullTexture src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

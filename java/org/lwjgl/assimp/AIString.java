@@ -83,12 +83,6 @@ public class AIString extends Struct implements NativeResource {
 	/** Copies the specified encoded string to the {@code data} field. */
 	public AIString data(ByteBuffer value) { ndata(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(AIString) set}. */
-	public AIString nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -97,7 +91,8 @@ public class AIString extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public AIString set(AIString src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -78,12 +78,6 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
 	/** Sets the address of the specified {@link BGFXCallbackVtbl} to the {@code vtbl} field. */
 	public BGFXCallbackInterface vtbl(BGFXCallbackVtbl value) { nvtbl(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(BGFXCallbackInterface) set}. */
-	public BGFXCallbackInterface nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -92,7 +86,8 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public BGFXCallbackInterface set(BGFXCallbackInterface src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

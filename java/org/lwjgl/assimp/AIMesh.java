@@ -295,12 +295,6 @@ public class AIMesh extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(AIMesh) set}. */
-	public AIMesh nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -309,7 +303,8 @@ public class AIMesh extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public AIMesh set(AIMesh src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

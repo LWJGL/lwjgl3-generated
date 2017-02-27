@@ -67,12 +67,6 @@ public class VREventStatus extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code statusState} field. */
 	public VREventStatus statusState(int value) { nstatusState(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(VREventStatus) set}. */
-	public VREventStatus nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -81,7 +75,8 @@ public class VREventStatus extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VREventStatus set(VREventStatus src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

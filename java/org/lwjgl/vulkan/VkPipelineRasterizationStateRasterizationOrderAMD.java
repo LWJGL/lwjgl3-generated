@@ -112,12 +112,6 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct im
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineRasterizationStateRasterizationOrderAMD) set}. */
-	public VkPipelineRasterizationStateRasterizationOrderAMD nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -126,7 +120,8 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct im
 	 * @return this struct
 	 */
 	public VkPipelineRasterizationStateRasterizationOrderAMD set(VkPipelineRasterizationStateRasterizationOrderAMD src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

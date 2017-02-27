@@ -122,12 +122,6 @@ public class VkFenceCreateInfo extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkFenceCreateInfo) set}. */
-	public VkFenceCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -136,7 +130,8 @@ public class VkFenceCreateInfo extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkFenceCreateInfo set(VkFenceCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

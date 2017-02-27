@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct AIMaterialProperty {
+ * <pre><code>struct aiMaterialProperty {
     {@link AIString struct aiString} mKey;
     unsigned int mSemantic;
     unsigned int mIndex;

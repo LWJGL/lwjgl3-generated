@@ -135,12 +135,6 @@ public class VkImageSubresourceLayers extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkImageSubresourceLayers) set}. */
-	public VkImageSubresourceLayers nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -149,7 +143,8 @@ public class VkImageSubresourceLayers extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkImageSubresourceLayers set(VkImageSubresourceLayers src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

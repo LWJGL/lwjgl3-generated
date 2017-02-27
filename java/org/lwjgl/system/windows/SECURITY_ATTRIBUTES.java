@@ -111,12 +111,6 @@ public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(SECURITY_ATTRIBUTES) set}. */
-	public SECURITY_ATTRIBUTES nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -125,7 +119,8 @@ public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public SECURITY_ATTRIBUTES set(SECURITY_ATTRIBUTES src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

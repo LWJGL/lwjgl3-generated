@@ -182,12 +182,6 @@ public class VkImageCopy extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkImageCopy) set}. */
-	public VkImageCopy nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -196,7 +190,8 @@ public class VkImageCopy extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkImageCopy set(VkImageCopy src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

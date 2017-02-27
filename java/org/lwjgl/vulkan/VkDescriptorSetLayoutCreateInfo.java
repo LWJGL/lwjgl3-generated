@@ -142,12 +142,6 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDescriptorSetLayoutCreateInfo) set}. */
-	public VkDescriptorSetLayoutCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -156,7 +150,8 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
 	 * @return this struct
 	 */
 	public VkDescriptorSetLayoutCreateInfo set(VkDescriptorSetLayoutCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

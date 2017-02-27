@@ -73,12 +73,6 @@ public class VREventOverlay extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code overlayHandle} field. */
 	public VREventOverlay overlayHandle(long value) { noverlayHandle(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(VREventOverlay) set}. */
-	public VREventOverlay nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -87,7 +81,8 @@ public class VREventOverlay extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VREventOverlay set(VREventOverlay src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

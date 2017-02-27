@@ -230,12 +230,6 @@ public class VkImageMemoryBarrier extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkImageMemoryBarrier) set}. */
-	public VkImageMemoryBarrier nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -244,7 +238,8 @@ public class VkImageMemoryBarrier extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkImageMemoryBarrier set(VkImageMemoryBarrier src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

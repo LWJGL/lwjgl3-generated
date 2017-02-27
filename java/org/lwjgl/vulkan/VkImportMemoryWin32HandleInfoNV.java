@@ -150,12 +150,6 @@ public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkImportMemoryWin32HandleInfoNV) set}. */
-	public VkImportMemoryWin32HandleInfoNV nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -164,7 +158,8 @@ public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 	 * @return this struct
 	 */
 	public VkImportMemoryWin32HandleInfoNV set(VkImportMemoryWin32HandleInfoNV src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

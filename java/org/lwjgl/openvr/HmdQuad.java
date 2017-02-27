@@ -70,12 +70,6 @@ public class HmdQuad extends Struct implements NativeResource {
 	/** Copies the specified {@link HmdVector3} at the specified index of the {@code vCorners} field. */
 	public HmdQuad vCorners(int index, HmdVector3 value) { nvCorners(address(), index, value); return this; }
 
-	/** Unsafe version of {@link #set(HmdQuad) set}. */
-	public HmdQuad nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -84,7 +78,8 @@ public class HmdQuad extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public HmdQuad set(HmdQuad src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

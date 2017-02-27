@@ -113,12 +113,6 @@ public class VkSparseBufferMemoryBindInfo extends Struct implements NativeResour
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkSparseBufferMemoryBindInfo) set}. */
-	public VkSparseBufferMemoryBindInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -127,7 +121,8 @@ public class VkSparseBufferMemoryBindInfo extends Struct implements NativeResour
 	 * @return this struct
 	 */
 	public VkSparseBufferMemoryBindInfo set(VkSparseBufferMemoryBindInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

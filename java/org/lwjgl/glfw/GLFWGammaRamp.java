@@ -116,12 +116,6 @@ public class GLFWGammaRamp extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(GLFWGammaRamp) set}. */
-	public GLFWGammaRamp nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -130,7 +124,8 @@ public class GLFWGammaRamp extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public GLFWGammaRamp set(GLFWGammaRamp src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -132,12 +132,6 @@ public class VkIndirectCommandsLayoutTokenNVX extends Struct implements NativeRe
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkIndirectCommandsLayoutTokenNVX) set}. */
-	public VkIndirectCommandsLayoutTokenNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -146,7 +140,8 @@ public class VkIndirectCommandsLayoutTokenNVX extends Struct implements NativeRe
 	 * @return this struct
 	 */
 	public VkIndirectCommandsLayoutTokenNVX set(VkIndirectCommandsLayoutTokenNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

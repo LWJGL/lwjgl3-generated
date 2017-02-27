@@ -89,12 +89,6 @@ public class OVRLayerUnion extends Struct implements NativeResource {
 	/** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */
 	public OVRLayerUnion Quad(OVRLayerQuad value) { nQuad(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(OVRLayerUnion) set}. */
-	public OVRLayerUnion nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -103,7 +97,8 @@ public class OVRLayerUnion extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public OVRLayerUnion set(OVRLayerUnion src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct AIUVTransform {
+ * <pre><code>struct aiUVTransform {
     {@link AIVector2D struct aiVector2D} mTranslation;
     {@link AIVector2D struct aiVector2D} mScaling;
     float mRotation;

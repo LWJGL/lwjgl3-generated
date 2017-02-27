@@ -70,12 +70,6 @@ public class HmdVector3d extends Struct implements NativeResource {
 	/** Sets the specified value at the specified index of the {@code v} field. */
 	public HmdVector3d v(int index, double value) { nv(address(), index, value); return this; }
 
-	/** Unsafe version of {@link #set(HmdVector3d) set}. */
-	public HmdVector3d nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -84,7 +78,8 @@ public class HmdVector3d extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public HmdVector3d set(HmdVector3d src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

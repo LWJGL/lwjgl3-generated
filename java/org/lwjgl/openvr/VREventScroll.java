@@ -102,12 +102,6 @@ public class VREventScroll extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VREventScroll) set}. */
-	public VREventScroll nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -116,7 +110,8 @@ public class VREventScroll extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VREventScroll set(VREventScroll src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

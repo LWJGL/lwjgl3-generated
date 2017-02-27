@@ -212,12 +212,6 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDisplaySurfaceCreateInfoKHR) set}. */
-	public VkDisplaySurfaceCreateInfoKHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -226,7 +220,8 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
 	 * @return this struct
 	 */
 	public VkDisplaySurfaceCreateInfoKHR set(VkDisplaySurfaceCreateInfoKHR src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

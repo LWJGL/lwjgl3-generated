@@ -112,12 +112,6 @@ public class VkExportMemoryAllocateInfoNV extends Struct implements NativeResour
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkExportMemoryAllocateInfoNV) set}. */
-	public VkExportMemoryAllocateInfoNV nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -126,7 +120,8 @@ public class VkExportMemoryAllocateInfoNV extends Struct implements NativeResour
 	 * @return this struct
 	 */
 	public VkExportMemoryAllocateInfoNV set(VkExportMemoryAllocateInfoNV src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

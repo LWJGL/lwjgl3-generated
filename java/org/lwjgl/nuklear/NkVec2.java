@@ -84,12 +84,6 @@ public class NkVec2 extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(NkVec2) set}. */
-	public NkVec2 nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -98,7 +92,8 @@ public class NkVec2 extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public NkVec2 set(NkVec2 src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

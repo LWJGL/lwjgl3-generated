@@ -71,12 +71,6 @@ public class RenderModelControllerModeState extends Struct implements NativeReso
 	/** Sets the specified value to the {@code bScrollWheelVisible} field. */
 	public RenderModelControllerModeState bScrollWheelVisible(boolean value) { nbScrollWheelVisible(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(RenderModelControllerModeState) set}. */
-	public RenderModelControllerModeState nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -85,7 +79,8 @@ public class RenderModelControllerModeState extends Struct implements NativeReso
 	 * @return this struct
 	 */
 	public RenderModelControllerModeState set(RenderModelControllerModeState src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -104,12 +104,6 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VROverlayIntersectionResults) set}. */
-	public VROverlayIntersectionResults nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -118,7 +112,8 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
 	 * @return this struct
 	 */
 	public VROverlayIntersectionResults set(VROverlayIntersectionResults src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

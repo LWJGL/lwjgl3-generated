@@ -163,12 +163,6 @@ public class VkDebugMarkerObjectTagInfoEXT extends Struct implements NativeResou
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDebugMarkerObjectTagInfoEXT) set}. */
-	public VkDebugMarkerObjectTagInfoEXT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -177,7 +171,8 @@ public class VkDebugMarkerObjectTagInfoEXT extends Struct implements NativeResou
 	 * @return this struct
 	 */
 	public VkDebugMarkerObjectTagInfoEXT set(VkDebugMarkerObjectTagInfoEXT src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

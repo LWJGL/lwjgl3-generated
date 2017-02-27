@@ -117,12 +117,6 @@ public class OVRFovPort extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(OVRFovPort) set}. */
-	public OVRFovPort nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -131,7 +125,8 @@ public class OVRFovPort extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public OVRFovPort set(OVRFovPort src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

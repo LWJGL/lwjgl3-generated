@@ -86,12 +86,6 @@ public class VREventNotification extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VREventNotification) set}. */
-	public VREventNotification nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -100,7 +94,8 @@ public class VREventNotification extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VREventNotification set(VREventNotification src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

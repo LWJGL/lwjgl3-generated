@@ -70,12 +70,6 @@ public class HmdMatrix34 extends Struct implements NativeResource {
 	/** Sets the specified value at the specified index of the {@code m} field. */
 	public HmdMatrix34 m(int index, float value) { nm(address(), index, value); return this; }
 
-	/** Unsafe version of {@link #set(HmdMatrix34) set}. */
-	public HmdMatrix34 nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -84,7 +78,8 @@ public class HmdMatrix34 extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public HmdMatrix34 set(HmdMatrix34 src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

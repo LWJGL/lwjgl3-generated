@@ -181,12 +181,6 @@ public class VkComputePipelineCreateInfo extends Struct implements NativeResourc
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkComputePipelineCreateInfo) set}. */
-	public VkComputePipelineCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -195,7 +189,8 @@ public class VkComputePipelineCreateInfo extends Struct implements NativeResourc
 	 * @return this struct
 	 */
 	public VkComputePipelineCreateInfo set(VkComputePipelineCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

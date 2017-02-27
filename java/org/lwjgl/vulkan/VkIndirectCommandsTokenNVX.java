@@ -122,12 +122,6 @@ public class VkIndirectCommandsTokenNVX extends Struct implements NativeResource
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkIndirectCommandsTokenNVX) set}. */
-	public VkIndirectCommandsTokenNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -136,7 +130,8 @@ public class VkIndirectCommandsTokenNVX extends Struct implements NativeResource
 	 * @return this struct
 	 */
 	public VkIndirectCommandsTokenNVX set(VkIndirectCommandsTokenNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

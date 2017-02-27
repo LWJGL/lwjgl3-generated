@@ -74,12 +74,6 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
 	/** Sets the address of the specified {@link BGFXAllocatorVtbl} to the {@code vtbl} field. */
 	public BGFXAllocatorInterface vtbl(BGFXAllocatorVtbl value) { nvtbl(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(BGFXAllocatorInterface) set}. */
-	public BGFXAllocatorInterface nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -88,7 +82,8 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public BGFXAllocatorInterface set(BGFXAllocatorInterface src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -134,12 +134,6 @@ public class VkVertexInputAttributeDescription extends Struct implements NativeR
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkVertexInputAttributeDescription) set}. */
-	public VkVertexInputAttributeDescription nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -148,7 +142,8 @@ public class VkVertexInputAttributeDescription extends Struct implements NativeR
 	 * @return this struct
 	 */
 	public VkVertexInputAttributeDescription set(VkVertexInputAttributeDescription src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

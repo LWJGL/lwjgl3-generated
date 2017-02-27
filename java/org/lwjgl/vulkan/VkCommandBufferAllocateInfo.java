@@ -150,12 +150,6 @@ public class VkCommandBufferAllocateInfo extends Struct implements NativeResourc
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkCommandBufferAllocateInfo) set}. */
-	public VkCommandBufferAllocateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -164,7 +158,8 @@ public class VkCommandBufferAllocateInfo extends Struct implements NativeResourc
 	 * @return this struct
 	 */
 	public VkCommandBufferAllocateInfo set(VkCommandBufferAllocateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

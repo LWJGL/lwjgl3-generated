@@ -129,12 +129,6 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkObjectTableIndexBufferEntryNVX) set}. */
-	public VkObjectTableIndexBufferEntryNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -143,7 +137,8 @@ public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeRe
 	 * @return this struct
 	 */
 	public VkObjectTableIndexBufferEntryNVX set(VkObjectTableIndexBufferEntryNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

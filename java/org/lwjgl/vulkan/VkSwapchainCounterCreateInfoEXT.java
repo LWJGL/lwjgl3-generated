@@ -118,12 +118,6 @@ public class VkSwapchainCounterCreateInfoEXT extends Struct implements NativeRes
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkSwapchainCounterCreateInfoEXT) set}. */
-	public VkSwapchainCounterCreateInfoEXT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -132,7 +126,8 @@ public class VkSwapchainCounterCreateInfoEXT extends Struct implements NativeRes
 	 * @return this struct
 	 */
 	public VkSwapchainCounterCreateInfoEXT set(VkSwapchainCounterCreateInfoEXT src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -212,12 +212,6 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(CompositorOverlaySettings) set}. */
-	public CompositorOverlaySettings nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -226,7 +220,8 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
 	 * @return this struct
 	 */
 	public CompositorOverlaySettings set(CompositorOverlaySettings src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

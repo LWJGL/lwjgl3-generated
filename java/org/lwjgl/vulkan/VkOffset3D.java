@@ -96,12 +96,6 @@ public class VkOffset3D extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkOffset3D) set}. */
-	public VkOffset3D nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -110,7 +104,8 @@ public class VkOffset3D extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkOffset3D set(VkOffset3D src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

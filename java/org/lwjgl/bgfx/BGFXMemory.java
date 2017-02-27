@@ -81,12 +81,6 @@ public class BGFXMemory extends Struct implements NativeResource {
 	/** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
 	public BGFXMemory data(ByteBuffer value) { ndata(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(BGFXMemory) set}. */
-	public BGFXMemory nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -95,7 +89,8 @@ public class BGFXMemory extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public BGFXMemory set(BGFXMemory src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

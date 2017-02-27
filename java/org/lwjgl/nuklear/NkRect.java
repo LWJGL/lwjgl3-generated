@@ -104,12 +104,6 @@ public class NkRect extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(NkRect) set}. */
-	public NkRect nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -118,7 +112,8 @@ public class NkRect extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public NkRect set(NkRect src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

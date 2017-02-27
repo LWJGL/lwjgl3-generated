@@ -104,12 +104,6 @@ public class OVRVector3f extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(OVRVector3f) set}. */
-	public OVRVector3f nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -118,7 +112,8 @@ public class OVRVector3f extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public OVRVector3f set(OVRVector3f src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

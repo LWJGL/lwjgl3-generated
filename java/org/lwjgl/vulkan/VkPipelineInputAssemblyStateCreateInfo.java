@@ -151,12 +151,6 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineInputAssemblyStateCreateInfo) set}. */
-	public VkPipelineInputAssemblyStateCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -165,7 +159,8 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
 	 * @return this struct
 	 */
 	public VkPipelineInputAssemblyStateCreateInfo set(VkPipelineInputAssemblyStateCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

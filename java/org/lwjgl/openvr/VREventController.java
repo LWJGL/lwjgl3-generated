@@ -73,12 +73,6 @@ public class VREventController extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code button} field. */
 	public VREventController button(int value) { nbutton(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(VREventController) set}. */
-	public VREventController nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -87,7 +81,8 @@ public class VREventController extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VREventController set(VREventController src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

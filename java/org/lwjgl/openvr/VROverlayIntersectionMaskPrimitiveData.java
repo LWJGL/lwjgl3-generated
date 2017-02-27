@@ -73,12 +73,6 @@ public class VROverlayIntersectionMaskPrimitiveData extends Struct implements Na
 	/** Copies the specified {@link IntersectionMaskCircle} to the {@code m_Circle} field. */
 	public VROverlayIntersectionMaskPrimitiveData m_Circle(IntersectionMaskCircle value) { nm_Circle(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(VROverlayIntersectionMaskPrimitiveData) set}. */
-	public VROverlayIntersectionMaskPrimitiveData nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -87,7 +81,8 @@ public class VROverlayIntersectionMaskPrimitiveData extends Struct implements Na
 	 * @return this struct
 	 */
 	public VROverlayIntersectionMaskPrimitiveData set(VROverlayIntersectionMaskPrimitiveData src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

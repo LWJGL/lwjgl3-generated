@@ -125,12 +125,6 @@ public class VkPushConstantRange extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPushConstantRange) set}. */
-	public VkPushConstantRange nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -139,7 +133,8 @@ public class VkPushConstantRange extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkPushConstantRange set(VkPushConstantRange src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

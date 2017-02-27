@@ -117,12 +117,6 @@ public class VkObjectTablePipelineEntryNVX extends Struct implements NativeResou
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkObjectTablePipelineEntryNVX) set}. */
-	public VkObjectTablePipelineEntryNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -131,7 +125,8 @@ public class VkObjectTablePipelineEntryNVX extends Struct implements NativeResou
 	 * @return this struct
 	 */
 	public VkObjectTablePipelineEntryNVX set(VkObjectTablePipelineEntryNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

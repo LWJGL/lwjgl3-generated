@@ -74,12 +74,6 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
 	/** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
 	public STBVorbisAlloc alloc_buffer(ByteBuffer value) { nalloc_buffer(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(STBVorbisAlloc) set}. */
-	public STBVorbisAlloc nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -88,7 +82,8 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public STBVorbisAlloc set(STBVorbisAlloc src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

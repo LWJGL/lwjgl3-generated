@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct aiMaterial {
-    {@link AIMaterialProperty AIMaterialProperty} ** mProperties;
+    {@link AIMaterialProperty struct aiMaterialProperty} ** mProperties;
     unsigned int mNumProperties;
     unsigned int mStorageAllocated;
 }</code></pre>
@@ -105,12 +105,6 @@ public class AIMaterial extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(AIMaterial) set}. */
-	public AIMaterial nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -119,7 +113,8 @@ public class AIMaterial extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public AIMaterial set(AIMaterial src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

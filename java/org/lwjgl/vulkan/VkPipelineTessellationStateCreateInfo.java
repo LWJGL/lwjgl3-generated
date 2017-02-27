@@ -133,12 +133,6 @@ public class VkPipelineTessellationStateCreateInfo extends Struct implements Nat
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPipelineTessellationStateCreateInfo) set}. */
-	public VkPipelineTessellationStateCreateInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -147,7 +141,8 @@ public class VkPipelineTessellationStateCreateInfo extends Struct implements Nat
 	 * @return this struct
 	 */
 	public VkPipelineTessellationStateCreateInfo set(VkPipelineTessellationStateCreateInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

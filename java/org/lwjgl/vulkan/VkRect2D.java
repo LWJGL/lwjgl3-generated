@@ -86,12 +86,6 @@ public class VkRect2D extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkRect2D) set}. */
-	public VkRect2D nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -100,7 +94,8 @@ public class VkRect2D extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkRect2D set(VkRect2D src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

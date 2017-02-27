@@ -171,12 +171,6 @@ public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkPhysicalDeviceSparseImageFormatInfo2KHR) set}. */
-	public VkPhysicalDeviceSparseImageFormatInfo2KHR nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -185,7 +179,8 @@ public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements
 	 * @return this struct
 	 */
 	public VkPhysicalDeviceSparseImageFormatInfo2KHR set(VkPhysicalDeviceSparseImageFormatInfo2KHR src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

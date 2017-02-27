@@ -184,12 +184,6 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkCommandBufferInheritanceInfo) set}. */
-	public VkCommandBufferInheritanceInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -198,7 +192,8 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 	 * @return this struct
 	 */
 	public VkCommandBufferInheritanceInfo set(VkCommandBufferInheritanceInfo src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -96,12 +96,6 @@ public class VkClearValue extends Struct implements NativeResource {
 	/** Copies the specified {@link VkClearDepthStencilValue} to the {@code depthStencil} field. */
 	public VkClearValue depthStencil(VkClearDepthStencilValue value) { ndepthStencil(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(VkClearValue) set}. */
-	public VkClearValue nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -110,7 +104,8 @@ public class VkClearValue extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkClearValue set(VkClearValue src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

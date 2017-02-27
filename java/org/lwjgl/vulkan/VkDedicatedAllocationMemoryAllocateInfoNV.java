@@ -135,12 +135,6 @@ public class VkDedicatedAllocationMemoryAllocateInfoNV extends Struct implements
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkDedicatedAllocationMemoryAllocateInfoNV) set}. */
-	public VkDedicatedAllocationMemoryAllocateInfoNV nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -149,7 +143,8 @@ public class VkDedicatedAllocationMemoryAllocateInfoNV extends Struct implements
 	 * @return this struct
 	 */
 	public VkDedicatedAllocationMemoryAllocateInfoNV set(VkDedicatedAllocationMemoryAllocateInfoNV src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

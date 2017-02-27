@@ -117,12 +117,6 @@ public class VkObjectTableVertexBufferEntryNVX extends Struct implements NativeR
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkObjectTableVertexBufferEntryNVX) set}. */
-	public VkObjectTableVertexBufferEntryNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -131,7 +125,8 @@ public class VkObjectTableVertexBufferEntryNVX extends Struct implements NativeR
 	 * @return this struct
 	 */
 	public VkObjectTableVertexBufferEntryNVX set(VkObjectTableVertexBufferEntryNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

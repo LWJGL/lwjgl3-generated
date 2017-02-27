@@ -242,12 +242,6 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkCmdProcessCommandsInfoNVX) set}. */
-	public VkCmdProcessCommandsInfoNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -256,7 +250,8 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
 	 * @return this struct
 	 */
 	public VkCmdProcessCommandsInfoNVX set(VkCmdProcessCommandsInfoNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

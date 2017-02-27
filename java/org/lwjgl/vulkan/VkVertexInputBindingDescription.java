@@ -131,12 +131,6 @@ public class VkVertexInputBindingDescription extends Struct implements NativeRes
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkVertexInputBindingDescription) set}. */
-	public VkVertexInputBindingDescription nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -145,7 +139,8 @@ public class VkVertexInputBindingDescription extends Struct implements NativeRes
 	 * @return this struct
 	 */
 	public VkVertexInputBindingDescription set(VkVertexInputBindingDescription src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

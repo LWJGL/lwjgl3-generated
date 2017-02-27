@@ -129,12 +129,6 @@ public class VkObjectTableDescriptorSetEntryNVX extends Struct implements Native
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkObjectTableDescriptorSetEntryNVX) set}. */
-	public VkObjectTableDescriptorSetEntryNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -143,7 +137,8 @@ public class VkObjectTableDescriptorSetEntryNVX extends Struct implements Native
 	 * @return this struct
 	 */
 	public VkObjectTableDescriptorSetEntryNVX set(VkObjectTableDescriptorSetEntryNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

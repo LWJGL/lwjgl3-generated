@@ -98,12 +98,6 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(ObjCPropertyAttribute) set}. */
-	public ObjCPropertyAttribute nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -112,7 +106,8 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public ObjCPropertyAttribute set(ObjCPropertyAttribute src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -129,12 +129,6 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(NkUserFontGlyph) set}. */
-	public NkUserFontGlyph nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -143,7 +137,8 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public NkUserFontGlyph set(NkUserFontGlyph src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

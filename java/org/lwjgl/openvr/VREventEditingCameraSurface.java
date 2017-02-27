@@ -84,12 +84,6 @@ public class VREventEditingCameraSurface extends Struct implements NativeResourc
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VREventEditingCameraSurface) set}. */
-	public VREventEditingCameraSurface nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -98,7 +92,8 @@ public class VREventEditingCameraSurface extends Struct implements NativeResourc
 	 * @return this struct
 	 */
 	public VREventEditingCameraSurface set(VREventEditingCameraSurface src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

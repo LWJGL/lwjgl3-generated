@@ -182,12 +182,6 @@ public class VkWin32KeyedMutexAcquireReleaseInfoNV extends Struct implements Nat
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkWin32KeyedMutexAcquireReleaseInfoNV) set}. */
-	public VkWin32KeyedMutexAcquireReleaseInfoNV nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -196,7 +190,8 @@ public class VkWin32KeyedMutexAcquireReleaseInfoNV extends Struct implements Nat
 	 * @return this struct
 	 */
 	public VkWin32KeyedMutexAcquireReleaseInfoNV set(VkWin32KeyedMutexAcquireReleaseInfoNV src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

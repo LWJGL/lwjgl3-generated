@@ -104,12 +104,6 @@ public class VkBufferCopy extends Struct implements NativeResource {
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkBufferCopy) set}. */
-	public VkBufferCopy nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -118,7 +112,8 @@ public class VkBufferCopy extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public VkBufferCopy set(VkBufferCopy src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

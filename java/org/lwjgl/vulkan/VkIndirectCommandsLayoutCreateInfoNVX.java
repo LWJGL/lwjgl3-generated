@@ -197,12 +197,6 @@ public class VkIndirectCommandsLayoutCreateInfoNVX extends Struct implements Nat
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkIndirectCommandsLayoutCreateInfoNVX) set}. */
-	public VkIndirectCommandsLayoutCreateInfoNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -211,7 +205,8 @@ public class VkIndirectCommandsLayoutCreateInfoNVX extends Struct implements Nat
 	 * @return this struct
 	 */
 	public VkIndirectCommandsLayoutCreateInfoNVX set(VkIndirectCommandsLayoutCreateInfoNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -122,12 +122,6 @@ public class NVGColor extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code a} field. */
 	public NVGColor a(float value) { na(address(), value); return this; }
 
-	/** Unsafe version of {@link #set(NVGColor) set}. */
-	public NVGColor nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -136,7 +130,8 @@ public class NVGColor extends Struct implements NativeResource {
 	 * @return this struct
 	 */
 	public NVGColor set(NVGColor src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------

@@ -146,12 +146,6 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
 		return this;
 	}
 
-	/** Unsafe version of {@link #set(VkCmdReserveSpaceForCommandsInfoNVX) set}. */
-	public VkCmdReserveSpaceForCommandsInfoNVX nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
 	/**
 	 * Copies the specified struct data to this struct.
 	 *
@@ -160,7 +154,8 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
 	 * @return this struct
 	 */
 	public VkCmdReserveSpaceForCommandsInfoNVX set(VkCmdReserveSpaceForCommandsInfoNVX src) {
-		return nset(src.address());
+		memCopy(src.address(), address(), SIZEOF);
+		return this;
 	}
 
 	// -----------------------------------
