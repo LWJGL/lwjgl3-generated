@@ -630,6 +630,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGLog(JNIEnv *__env, jclas
 	YGLog(level, message);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_YGSetPointScaleFactor(JNIEnv *__env, jclass clazz, jfloat pixelsInPoint) {
+	UNUSED_PARAMS(__env, clazz)
+	YGSetPointScaleFactor(pixelsInPoint);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_YGSetExperimentalFeatureEnabled(JNIEnv *__env, jclass clazz, jint feature, jboolean enabled) {
 	UNUSED_PARAMS(__env, clazz)
 	YGSetExperimentalFeatureEnabled(feature, enabled);

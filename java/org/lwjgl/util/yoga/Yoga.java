@@ -1630,6 +1630,15 @@ public class Yoga {
 		}
 	}
 
+	// --- [ YGSetPointScaleFactor ] ---
+
+	/**
+	 * Set this to number of pixels in 1 point to round calculation results. If you want to avoid rounding set {@code PointScaleFactor} to 0.
+	 *
+	 * @param pixelsInPoint 
+	 */
+	public static native void YGSetPointScaleFactor(float pixelsInPoint);
+
 	// --- [ YGSetExperimentalFeatureEnabled ] ---
 
 	/**
