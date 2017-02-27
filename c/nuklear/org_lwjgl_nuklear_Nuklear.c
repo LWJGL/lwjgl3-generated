@@ -2772,13 +2772,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1fill_1polygon__JJIJ(J
 	nk_fill_polygon(b, points, point_count, *color);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1push_1scissor(JNIEnv *__env, jclass clazz, jlong bAddress, jlong rectAddress) {
-	struct nk_command_buffer *b = (struct nk_command_buffer *)(intptr_t)bAddress;
-	struct nk_rect *rect = (struct nk_rect *)(intptr_t)rectAddress;
-	UNUSED_PARAMS(__env, clazz)
-	nk_push_scissor(b, *rect);
-}
-
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1draw_1image(JNIEnv *__env, jclass clazz, jlong bAddress, jlong rectAddress, jlong imgAddress, jlong colorAddress) {
 	struct nk_command_buffer *b = (struct nk_command_buffer *)(intptr_t)bAddress;
 	struct nk_rect *rect = (struct nk_rect *)(intptr_t)rectAddress;
@@ -2797,6 +2790,22 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1draw_1text(JNIEnv *__
 	struct nk_color *fg = (struct nk_color *)(intptr_t)fgAddress;
 	UNUSED_PARAMS(__env, clazz)
 	nk_draw_text(b, *rect, string, length, font, *bg, *fg);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1push_1scissor(JNIEnv *__env, jclass clazz, jlong bAddress, jlong rectAddress) {
+	struct nk_command_buffer *b = (struct nk_command_buffer *)(intptr_t)bAddress;
+	struct nk_rect *rect = (struct nk_rect *)(intptr_t)rectAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_push_scissor(b, *rect);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1push_1custom(JNIEnv *__env, jclass clazz, jlong bAddress, jlong rectAddress, jlong callbackAddress, jlong usrAddress) {
+	struct nk_command_buffer *b = (struct nk_command_buffer *)(intptr_t)bAddress;
+	struct nk_rect *rect = (struct nk_rect *)(intptr_t)rectAddress;
+	nk_command_custom_callback callback = (nk_command_custom_callback)(intptr_t)callbackAddress;
+	nk_handle *usr = (nk_handle *)(intptr_t)usrAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_push_custom(b, *rect, callback, *usr);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1_1next(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong cmdAddress) {

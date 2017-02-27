@@ -941,6 +941,7 @@ public class Nuklear {
 	 * <li>{@link #NK_COMMAND_POLYLINE COMMAND_POLYLINE}</li>
 	 * <li>{@link #NK_COMMAND_TEXT COMMAND_TEXT}</li>
 	 * <li>{@link #NK_COMMAND_IMAGE COMMAND_IMAGE}</li>
+	 * <li>{@link #NK_COMMAND_CUSTOM COMMAND_CUSTOM}</li>
 	 * </ul>
 	 */
 	public static final int
@@ -961,7 +962,8 @@ public class Nuklear {
 		NK_COMMAND_POLYGON_FILLED   = 14,
 		NK_COMMAND_POLYLINE         = 15,
 		NK_COMMAND_TEXT             = 16,
-		NK_COMMAND_IMAGE            = 17;
+		NK_COMMAND_IMAGE            = 17,
+		NK_COMMAND_CUSTOM           = 18;
 
 	/**
 	 * nk_command_clipping
@@ -8952,14 +8954,6 @@ public class Nuklear {
 		nnk_fill_polygon(b.address(), memAddress(points), points.remaining(), color.address());
 	}
 
-	// --- [ nk_push_scissor ] ---
-
-	public static native void nnk_push_scissor(long b, long rect);
-
-	public static void nk_push_scissor(NkCommandBuffer b, NkRect rect) {
-		nnk_push_scissor(b.address(), rect.address());
-	}
-
 	// --- [ nk_draw_image ] ---
 
 	public static native void nnk_draw_image(long b, long rect, long img, long color);
@@ -8984,6 +8978,22 @@ public class Nuklear {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	// --- [ nk_push_scissor ] ---
+
+	public static native void nnk_push_scissor(long b, long rect);
+
+	public static void nk_push_scissor(NkCommandBuffer b, NkRect rect) {
+		nnk_push_scissor(b.address(), rect.address());
+	}
+
+	// --- [ nk_push_custom ] ---
+
+	public static native void nnk_push_custom(long b, long rect, long callback, long usr);
+
+	public static void nk_push_custom(NkCommandBuffer b, NkRect rect, NkCommandCustomCallbackI callback, NkHandle usr) {
+		nnk_push_custom(b.address(), rect.address(), callback.address(), usr.address());
 	}
 
 	// --- [ nk__next ] ---
