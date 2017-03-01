@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/compute_variable_group_size.txt">ARB_compute_variable_group_size</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/compute_variable_group_size.txt">ARB_compute_variable_group_size</a> extension.
  * 
  * <p>This extension allows applications to write generic compute shaders that operate on work groups with arbitrary dimensions. Instead of specifying a fixed
  * work group size in the compute shader, an application can use a compute shader using the {@code local_size_variable} layout qualifer to indicate a

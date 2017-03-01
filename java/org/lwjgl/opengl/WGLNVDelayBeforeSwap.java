@@ -11,7 +11,7 @@ import static org.lwjgl.system.JNI.*;
 import org.lwjgl.system.windows.WinBase;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/wgl_delay_before_swap.txt">WGL_NV_delay_before_swap</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/wgl_delay_before_swap.txt">WGL_NV_delay_before_swap</a> extension.
  * 
  * <p>For most interactive applications, the standard rendering loop responding to input events on a frame granularity is sufficient. Some more demanding
  * applications may want to exchange performance for the ability to sample input closer to the final frame swap and adjust rendering accordingly. This

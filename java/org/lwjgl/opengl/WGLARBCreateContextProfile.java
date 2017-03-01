@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_create_context.txt">WGL_ARB_create_context_profile</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/wgl_create_context.txt">WGL_ARB_create_context_profile</a> extension.
  * 
  * <p>Adds an attribute to {@link WGLARBCreateContext}, specifying the GL profile requested for a context of OpenGL 3.2 or later.</p>
  * 

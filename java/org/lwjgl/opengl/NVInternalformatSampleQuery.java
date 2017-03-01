@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/internalformat_sample_query.txt">NV_internalformat_sample_query</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/internalformat_sample_query.txt">NV_internalformat_sample_query</a> extension.
  * 
  * <p>Some OpenGL implementations support modes of multisampling which have
  * properties which are non-obvious to applications and/or which may not be

@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@link VK10#VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}: the component is set to the identity swizzle.</li>
  * <li>{@link VK10#VK_COMPONENT_SWIZZLE_ZERO COMPONENT_SWIZZLE_ZERO}: the component is set to zero.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE}: the component is set to either 1 or 1.0 depending on whether the type of the image view format is integer or floating-point respectively, as determined by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-definition">Format Definition</a> section for each {@code VkFormat}.</li>
+ * <li>{@link VK10#VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE}: the component is set to either 1 or 1.0 depending on whether the type of the image view format is integer or floating-point respectively, as determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-definition">Format Definition</a> section for each {@code VkFormat}.</li>
  * <li>{@link VK10#VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}: the component is set to the value of the R component of the image.</li>
  * <li>{@link VK10#VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}: the component is set to the value of the G component of the image.</li>
  * <li>{@link VK10#VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}: the component is set to the value of the B component of the image.</li>

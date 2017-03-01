@@ -40,7 +40,7 @@ public class EGL11 {
 
 	// --- [ eglBindTexImage ] ---
 
-	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglBindTexImage.xhtml">Reference Page</a> */
+	/** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglBindTexImage.xhtml">Reference Page</a> */
 	public static boolean eglBindTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = EGL.getCapabilities().eglBindTexImage;
 		if ( CHECKS ) {
@@ -53,7 +53,7 @@ public class EGL11 {
 
 	// --- [ eglReleaseTexImage ] ---
 
-	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglReleaseTexImage.xhtml">Reference Page</a> */
+	/** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglReleaseTexImage.xhtml">Reference Page</a> */
 	public static boolean eglReleaseTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = EGL.getCapabilities().eglReleaseTexImage;
 		if ( CHECKS ) {
@@ -66,7 +66,7 @@ public class EGL11 {
 
 	// --- [ eglSurfaceAttrib ] ---
 
-	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglSurfaceAttrib.xhtml">Reference Page</a> */
+	/** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglSurfaceAttrib.xhtml">Reference Page</a> */
 	public static boolean eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
 		long __functionAddress = EGL.getCapabilities().eglSurfaceAttrib;
 		if ( CHECKS ) {
@@ -79,7 +79,7 @@ public class EGL11 {
 
 	// --- [ eglSwapInterval ] ---
 
-	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglSwapInterval.xhtml">Reference Page</a> */
+	/** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglSwapInterval.xhtml">Reference Page</a> */
 	public static boolean eglSwapInterval(long dpy, int interval) {
 		long __functionAddress = EGL.getCapabilities().eglSwapInterval;
 		if ( CHECKS ) {

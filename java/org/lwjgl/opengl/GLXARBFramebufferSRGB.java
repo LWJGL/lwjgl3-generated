@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/framebuffer_sRGB.txt">GLX_ARB_framebuffer_sRGB</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/framebuffer_sRGB.txt">GLX_ARB_framebuffer_sRGB</a> extension.
  * 
  * <p>GLX functionality for {@link ARBFramebufferSRGB ARB_framebuffer_sRGB}.</p>
  */

@@ -531,7 +531,7 @@ public class JEmalloc {
 	/**
 	 * Provides a general interface for introspecting the memory allocator, as well as setting modifiable parameters and triggering actions. The
 	 * period-separated {@code name} argument specifies a location in a tree-structured namespace; see the
-	 * <a href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> section for
+	 * <a target="_blank" href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> section for
 	 * documentation on the tree contents. To read a value, pass a pointer via {@code oldp} to adequate space to contain the value, and a pointer to its
 	 * length via {@code oldlenp}; otherwise pass {@code NULL} and {@code NULL}. Similarly, to write a value, pass a pointer to the value via {@code newp}, and its length
 	 * via {@code newlen}; otherwise pass {@code NULL} and {@code 0}.
@@ -552,7 +552,7 @@ public class JEmalloc {
 	/**
 	 * Provides a general interface for introspecting the memory allocator, as well as setting modifiable parameters and triggering actions. The
 	 * period-separated {@code name} argument specifies a location in a tree-structured namespace; see the
-	 * <a href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> section for
+	 * <a target="_blank" href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> section for
 	 * documentation on the tree contents. To read a value, pass a pointer via {@code oldp} to adequate space to contain the value, and a pointer to its
 	 * length via {@code oldlenp}; otherwise pass {@code NULL} and {@code NULL}. Similarly, to write a value, pass a pointer to the value via {@code newp}, and its length
 	 * via {@code newlen}; otherwise pass {@code NULL} and {@code 0}.

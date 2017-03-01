@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>There are no Vulkan filter modes that directly correspond to OpenGL minification filters of {@code GL_LINEAR} or {@code GL_NEAREST}, but they <b>can</b> be emulated using {@link VK10#VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST}, {@code minLod} = 0, and {@code maxLod} = 0.25, and using {@code minFilter} = {@link VK10#VK_FILTER_LINEAR FILTER_LINEAR} or {@code minFilter} = {@link VK10#VK_FILTER_NEAREST FILTER_NEAREST}, respectively.</p>
  * 
- * <p>Note that using a {@code maxLod} of zero would cause <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">magnification</a> to always be performed, and the {@code magFilter} to always be used. This is valid, just not an exact match for OpenGL behavior. Clamping the maximum LOD to 0.25 allows the <code>{lambda}</code> value to be non-zero and minification to be performed, while still always rounding down to the base level. If the {@code minFilter} and {@code magFilter} are equal, then using a {@code maxLod} of zero also works.</p>
+ * <p>Note that using a {@code maxLod} of zero would cause <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">magnification</a> to always be performed, and the {@code magFilter} to always be used. This is valid, just not an exact match for OpenGL behavior. Clamping the maximum LOD to 0.25 allows the <code>{lambda}</code> value to be non-zero and minification to be performed, while still always rounding down to the base level. If the {@code minFilter} and {@code magFilter} are equal, then using a {@code maxLod} of zero also works.</p>
  * </div>
  * 
  * <p>{@code addressModeU}, {@code addressModeV}, and {@code addressModeW} <b>must</b> each have one of the following values:</p>
@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
 } VkSamplerAddressMode;</code></pre>
  * 
- * <p>These values control the behavior of sampling with coordinates outside the range <code>[0,1]</code> for the respective u, v, or w coordinate as defined in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-wrapping-operation"> Wrapping Operation</a> section.</p>
+ * <p>These values control the behavior of sampling with coordinates outside the range <code>[0,1]</code> for the respective u, v, or w coordinate as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-wrapping-operation"> Wrapping Operation</a> section.</p>
  * 
  * <ul>
  * <li>{@link VK10#VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT} indicates that the repeat wrap mode will be used.</li>
@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE} indicates that the mirror clamp to edge wrap mode will be used. This is only valid if the VK_KHR_mirror_clamp_to_edge extension is enabled.</li>
  * </ul>
  * 
- * <p>The maximum number of sampler objects which <b>can</b> be simultaneously created on a device is implementation-dependent and specified by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxSamplerAllocationCount">{@code maxSamplerAllocationCount}</a> member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxSamplerAllocationCount} is exceeded, {@link VK10#vkCreateSampler CreateSampler} will return {@link VK10#VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
+ * <p>The maximum number of sampler objects which <b>can</b> be simultaneously created on a device is implementation-dependent and specified by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxSamplerAllocationCount">{@code maxSamplerAllocationCount}</a> member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxSamplerAllocationCount} is exceeded, {@link VK10#vkCreateSampler CreateSampler} will return {@link VK10#VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
  * 
  * <p>Since {@code VkSampler} is a non-dispatchable handle type, implementations <b>may</b> return the same handle for sampler state vectors that are identical. In such cases, all such objects would only count once against the {@code maxSamplerAllocationCount} limit.</p>
  * 
@@ -55,7 +55,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>The absolute value of {@code mipLodBias} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxSamplerLodBias}</li>
- * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-samplerAnisotropy">anisotropic sampling</a> feature is not enabled, {@code anisotropyEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-samplerAnisotropy">anisotropic sampling</a> feature is not enabled, {@code anisotropyEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * <li>If {@code anisotropyEnable} is {@link VK10#VK_TRUE TRUE}, {@code maxAnisotropy} <b>must</b> be between {@code 1.0} and {@link VkPhysicalDeviceLimits}{@code ::maxSamplerAnisotropy}, inclusive</li>
  * <li>If {@code unnormalizedCoordinates} is {@link VK10#VK_TRUE TRUE}, {@code minFilter} and {@code magFilter} <b>must</b> be equal</li>
  * <li>If {@code unnormalizedCoordinates} is {@link VK10#VK_TRUE TRUE}, {@code mipmapMode} <b>must</b> be {@link VK10#VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST}</li>
@@ -101,7 +101,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VK_FILTER_CUBIC_IMG = 1000015000,
 } VkFilter;</code></pre></li>
  * <li>{@code minFilter} &ndash; the minification filter to apply to lookups, and is of type {@code VkFilter}.</li>
- * <li>{@code mipmapMode} &ndash; the mipmap filter to apply to lookups as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">Texel Filtering</a> section, and is of type:
+ * <li>{@code mipmapMode} &ndash; the mipmap filter to apply to lookups as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">Texel Filtering</a> section, and is of type:
  * 
  * <pre><code>typedef enum VkSamplerMipmapMode {
     VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
@@ -110,18 +110,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code addressModeU} &ndash; the addressing mode for outside [0..1] range for U coordinate. See {@code VkSamplerAddressMode}.</li>
  * <li>{@code addressModeV} &ndash; the addressing mode for outside [0..1] range for V coordinate. See {@code VkSamplerAddressMode}.</li>
  * <li>{@code addressModeW} &ndash; the addressing mode for outside [0..1] range for W coordinate. See {@code VkSamplerAddressMode}.</li>
- * <li>{@code mipLodBias} &ndash; the bias to be added to mipmap LOD calculation and bias provided by image sampling functions in SPIR-V, as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-level-of-detail-operation">Level-of-Detail Operation</a> section.</li>
- * <li>{@code anisotropyEnable} &ndash; {@link VK10#VK_TRUE TRUE} to enable anisotropic filtering, as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-anisotropic-filtering">Texel Anisotropic Filtering</a> section, or {@link VK10#VK_FALSE FALSE} otherwise.</li>
+ * <li>{@code mipLodBias} &ndash; the bias to be added to mipmap LOD calculation and bias provided by image sampling functions in SPIR-V, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-level-of-detail-operation">Level-of-Detail Operation</a> section.</li>
+ * <li>{@code anisotropyEnable} &ndash; {@link VK10#VK_TRUE TRUE} to enable anisotropic filtering, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-anisotropic-filtering">Texel Anisotropic Filtering</a> section, or {@link VK10#VK_FALSE FALSE} otherwise.</li>
  * <li>{@code maxAnisotropy} &ndash; the anisotropy value clamp.</li>
  * <li>{@code compareEnable} &ndash; {@link VK10#VK_TRUE TRUE} to enable comparison against a reference value during lookups, or {@link VK10#VK_FALSE FALSE} otherwise.
  * 
  * <ul>
  * <li>Note: Some implementations will default to shader state if this member does not match.</li>
  * </ul></li>
- * <li>{@code compareOp} &ndash; the comparison function to apply to fetched data before filtering as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-depth-compare-operation">Depth Compare Operation</a> section. See {@code VkCompareOp}.</li>
- * <li>{@code minLod} &ndash; {@code minLod} and {@code maxLod} are the values used to clamp the computed level-of-detail value, as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-level-of-detail-operation">Level-of-Detail Operation</a> section. {@code maxLod} <b>must</b> be greater than or equal to {@code minLod}.</li>
+ * <li>{@code compareOp} &ndash; the comparison function to apply to fetched data before filtering as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-depth-compare-operation">Depth Compare Operation</a> section. See {@code VkCompareOp}.</li>
+ * <li>{@code minLod} &ndash; {@code minLod} and {@code maxLod} are the values used to clamp the computed level-of-detail value, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-level-of-detail-operation">Level-of-Detail Operation</a> section. {@code maxLod} <b>must</b> be greater than or equal to {@code minLod}.</li>
  * <li>{@code maxLod} &ndash; see {@code minLod}</li>
- * <li>{@code borderColor} &ndash; the predefined border color to use, as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-replacement">Texel Replacement</a> section, and is of type:
+ * <li>{@code borderColor} &ndash; the predefined border color to use, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-replacement">Texel Replacement</a> section, and is of type:
  * 
  * <pre><code>typedef enum VkBorderColor {
     VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,

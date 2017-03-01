@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/WGL/NV_float_buffer.txt">WGL_NV_float_buffer</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/WGL/NV_float_buffer.txt">WGL_NV_float_buffer</a> extension.
  * 
  * <p>WGL functionality for {@link NVFloatBuffer NV_float_buffer}.</p>
  */

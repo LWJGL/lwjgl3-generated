@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/performance_monitor.txt">AMD_performance_monitor</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/performance_monitor.txt">AMD_performance_monitor</a> extension.
  * 
  * <p>This extension enables the capture and reporting of performance monitors. Performance monitors contain groups of counters which hold arbitrary counted
  * data. Typically, the counters hold information on performance-related counters in the underlying hardware. The extension is general enough to allow the

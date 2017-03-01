@@ -10,7 +10,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_extensions_string.txt">WGL_ARB_extensions_string</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/wgl_extensions_string.txt">WGL_ARB_extensions_string</a> extension.
  * 
  * <p>This extension provides a way for applications to determine which WGL extensions are supported by a device. This is the foundation upon which other WGL
  * extensions are built.</p>

@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled and {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}, {@code viewportCount} <b>must</b> be 1</li>
+ * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled and {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}, {@code viewportCount} <b>must</b> be 1</li>
  * <li>{@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive if {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}</li>
  * <li>{@code viewportCount} and {@link VkPipelineViewportStateCreateInfo}{@code ::viewportCount} <b>must</b> be identical if {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}</li>
  * </ul>

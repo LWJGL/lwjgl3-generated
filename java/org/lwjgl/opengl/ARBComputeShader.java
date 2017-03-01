@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a> extension.
  * 
  * <p>Recent graphics hardware has become extremely powerful and a strong desire to harness this power for work (both graphics and non-graphics) that does not
  * fit the traditional graphics pipeline well has emerged. To address this, this extension adds a new single-stage program type known as a compute program.

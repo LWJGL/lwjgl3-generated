@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a> extension.
  * 
  * <p>OpenGL currently supports (at least) 16 vertex attributes and 16 vertex buffer bindings, with a fixed mapping between vertex attributes and vertex
  * buffer bindings. This extension allows the application to change the mapping between attributes and bindings, which can make it more efficient to update

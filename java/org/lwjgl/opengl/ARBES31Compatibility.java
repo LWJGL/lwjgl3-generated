@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a> extension.
  * 
  * <p>This extension adds support for features of OpenGL ES 3.1 that are missing from OpenGL 4.4. Enabling these features will ease the process of porting
  * applications from OpenGL ES 3.1 to OpenGL. Enabling these features will ease the process of porting applications from OpenGL ES 3.1 to OpenGL.</p>
@@ -32,7 +32,7 @@ import static org.lwjgl.system.Checks.*;
  * <li></li>
  * </ul>
  * 
- * <p>Requires {@link GL44 OpenGL 4.4}, <a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a>, <a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a>. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
+ * <p>Requires {@link GL44 OpenGL 4.4}, <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a>, <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a>. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public class ARBES31Compatibility {
 

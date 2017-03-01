@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/context_flush_control.txt">KHR_context_flush_control</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/KHR/context_flush_control.txt">KHR_context_flush_control</a> extension.
  * 
  * <p>OpenGL and OpenGL ES have long supported multiple contexts. The semantics of switching contexts is generally left to window system binding APIs such as
  * WGL, GLX and EGL. Most of these APIs (if not all) specify that when the current context for a thread is changed, the outgoing context performs an

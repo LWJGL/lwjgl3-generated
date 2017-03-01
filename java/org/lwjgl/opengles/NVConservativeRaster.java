@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/conservative_raster.txt">NV_conservative_raster</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/NV/conservative_raster.txt">NV_conservative_raster</a> extension.
  * 
  * <p>This extension adds a "conservative" rasterization mode where any pixel that is partially covered, even if no sample location is covered, is treated as
  * fully covered and a corresponding fragment will be shaded.</p>

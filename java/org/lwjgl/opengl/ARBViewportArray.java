@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a> extension.
  * 
  * <p>OpenGL is modeled on a pipeline of operations. The final stage in this pipeline before rasterization is the viewport transformation. This stage
  * transforms vertices from view space into window coordinates and allows the application to specify a rectangular region of screen space into which OpenGL
@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * rectangle to be selected for each. This extension also exposes a separate scissor rectangle for each viewport. Finally, the viewport bounds are now
  * floating point quantities allowing fractional pixel offsets to be applied during the viewport transform.</p>
  * 
- * <p>Requires {@link GL32 OpenGL 3.2} or <a href="http://www.opengl.org/registry/specs/EXT/geometry_shader4.txt">EXT_geometry_shader4</a> or {@link ARBGeometryShader4 ARB_geometry_shader4}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>
+ * <p>Requires {@link GL32 OpenGL 3.2} or <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/geometry_shader4.txt">EXT_geometry_shader4</a> or {@link ARBGeometryShader4 ARB_geometry_shader4}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>
  */
 public class ARBViewportArray {
 

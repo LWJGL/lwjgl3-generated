@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>if {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} is set, then the queues in this queue family support graphics operations.</li>
  * <li>if {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} is set, then the queues in this queue family support compute operations.</li>
  * <li>if {@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} is set, then the queues in this queue family support transfer operations.</li>
- * <li>if {@link VK10#VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT} is set, then the queues in this queue family support sparse memory management operations (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory">Sparse Resources</a>). If any of the sparse resource features are enabled, then at least one queue family <b>must</b> support this bit.</li>
+ * <li>if {@link VK10#VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT} is set, then the queues in this queue family support sparse memory management operations (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory">Sparse Resources</a>). If any of the sparse resource features are enabled, then at least one queue family <b>must</b> support this bit.</li>
  * </ul>
  * 
  * <p>If an implementation exposes any queue family that supports graphics operations, at least one queue family of at least one physical device exposed by the implementation <b>must</b> support both graphics and compute operations.</p>
@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <p>All commands that are allowed on a queue that supports transfer operations are also allowed on a queue that supports either graphics or compute operations thus if the capabilities of a queue family include {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} or {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} then reporting the {@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} capability separately for that queue family is optional:.</p>
  * </div>
  * 
- * <p>For further details see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queues">Queues</a>.</p>
+ * <p>For further details see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queues">Queues</a>.</p>
  * 
  * <p>The value returned in {@code minImageTransferGranularity} has a unit of compressed texel blocks for images having a block-compressed format, and a unit of texels otherwise.</p>
  * 

@@ -19,14 +19,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/clear_texture.txt">ARB_clear_texture</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/enhanced_layouts.txt">ARB_enhanced_layouts</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/multi_bind.txt">ARB_multi_bind</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/query_buffer_object.txt">ARB_query_buffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_stencil8.txt">ARB_texture_stencil8</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/clear_texture.txt">ARB_clear_texture</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/enhanced_layouts.txt">ARB_enhanced_layouts</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/multi_bind.txt">ARB_multi_bind</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/query_buffer_object.txt">ARB_query_buffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_stencil8.txt">ARB_texture_stencil8</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a></li>
  * </ul>
  */
 public class GL44 {
@@ -118,7 +118,7 @@ public class GL44 {
 	public static native void nglBufferStorage(int target, long size, long data, int flags);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Creates the data store of a buffer object.
 	 * 
@@ -173,7 +173,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Creates the data store of a buffer object.
 	 * 
@@ -229,7 +229,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Creates the data store of a buffer object.
 	 * 
@@ -285,7 +285,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Creates the data store of a buffer object.
 	 * 
@@ -341,7 +341,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Creates the data store of a buffer object.
 	 * 
@@ -397,7 +397,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Creates the data store of a buffer object.
 	 * 
@@ -458,7 +458,7 @@ public class GL44 {
 	public static native void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
 	 * 
 	 * Fills all or part of a texture image with a constant value.
 	 * 
@@ -492,7 +492,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
 	 * 
 	 * Fills all or part of a texture image with a constant value.
 	 * 
@@ -526,7 +526,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
 	 * 
 	 * Fills all or part of a texture image with a constant value.
 	 * 
@@ -560,7 +560,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
 	 * 
 	 * Fills all or part of a texture image with a constant value.
 	 * 
@@ -594,7 +594,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexSubImage">Reference Page</a></p>
 	 * 
 	 * Fills all or part of a texture image with a constant value.
 	 * 
@@ -633,7 +633,7 @@ public class GL44 {
 	public static native void nglClearTexImage(int texture, int level, int format, int type, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
 	 * 
 	 * Is equivalent to calling {@link #glClearTexSubImage ClearTexSubImage} with {@code xoffset}, {@code yoffset}, and {@code zoffset} equal to -{@code b} and {@code width},
 	 * {@code height}, and {@code depth} equal to the dimensions of the texture image plus {@code 2xb} (or zero and one for dimensions the texture doesn't
@@ -652,7 +652,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
 	 * 
 	 * Is equivalent to calling {@link #glClearTexSubImage ClearTexSubImage} with {@code xoffset}, {@code yoffset}, and {@code zoffset} equal to -{@code b} and {@code width},
 	 * {@code height}, and {@code depth} equal to the dimensions of the texture image plus {@code 2xb} (or zero and one for dimensions the texture doesn't
@@ -671,7 +671,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
 	 * 
 	 * Is equivalent to calling {@link #glClearTexSubImage ClearTexSubImage} with {@code xoffset}, {@code yoffset}, and {@code zoffset} equal to -{@code b} and {@code width},
 	 * {@code height}, and {@code depth} equal to the dimensions of the texture image plus {@code 2xb} (or zero and one for dimensions the texture doesn't
@@ -690,7 +690,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
 	 * 
 	 * Is equivalent to calling {@link #glClearTexSubImage ClearTexSubImage} with {@code xoffset}, {@code yoffset}, and {@code zoffset} equal to -{@code b} and {@code width},
 	 * {@code height}, and {@code depth} equal to the dimensions of the texture image plus {@code 2xb} (or zero and one for dimensions the texture doesn't
@@ -709,7 +709,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearTexImage">Reference Page</a></p>
 	 * 
 	 * Is equivalent to calling {@link #glClearTexSubImage ClearTexSubImage} with {@code xoffset}, {@code yoffset}, and {@code zoffset} equal to -{@code b} and {@code width},
 	 * {@code height}, and {@code depth} equal to the dimensions of the texture image plus {@code 2xb} (or zero and one for dimensions the texture doesn't
@@ -737,7 +737,7 @@ public class GL44 {
 	public static native void nglBindBuffersBase(int target, int first, int count, long buffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBuffersBase">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBuffersBase">Reference Page</a></p>
 	 * 
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
 	 * corresponding to {@code target}. If {@code buffers} is not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name
@@ -771,7 +771,7 @@ public class GL44 {
 	public static native void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBuffersRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBuffersRange">Reference Page</a></p>
 	 * 
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
 	 * corresponding to {@code target}. {@code offsets} and {@code sizes} specify arrays of {@code count} values indicating the range of each buffer to bind.
@@ -817,7 +817,7 @@ public class GL44 {
 	public static native void nglBindTextures(int first, int count, long textures);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindTextures">Reference Page</a></p>
 	 * 
 	 * Binds {@code count} existing texture objects to texture image units numbered {@code first} through {@code first+count-1}. If {@code textures} is not
 	 * {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name of an existing texture object. When an entry in
@@ -870,7 +870,7 @@ public class GL44 {
 	public static native void nglBindSamplers(int first, int count, long samplers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindSamplers">Reference Page</a></p>
 	 * 
 	 * Binds {@code count} existing sampler objects to texture image units numbered {@code first} through {@code first+count-1}. If {@code samplers} is not
 	 * {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name of an existing sampler object. If {@code samplers} is {@code NULL},
@@ -907,7 +907,7 @@ public class GL44 {
 	public static native void nglBindImageTextures(int first, int count, long textures);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindImageTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindImageTextures">Reference Page</a></p>
 	 * 
 	 * Binds {@code count} existing texture objects to image units numbered {@code first} through {@code first+count-1}. If {@code textures} is not {@code NULL}, it
 	 * specifies an array of {@code count} values, each of which must be zero or the name of an existing texture object. If {@code textures} is {@code NULL}, each
@@ -955,7 +955,7 @@ public class GL44 {
 	public static native void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindVertexBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindVertexBuffers">Reference Page</a></p>
 	 * 
 	 * Binds {@code count} existing buffer objects to vertex buffer binding points numbered {@code first} through {@code first+count-1}. If {@code buffers} is
 	 * not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name of an existing buffer object. {@code offsets} and
@@ -994,7 +994,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
@@ -1006,7 +1006,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
@@ -1018,7 +1018,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
@@ -1030,7 +1030,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferStorage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferStorage BufferStorage}
 	 */
@@ -1042,7 +1042,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBuffersBase">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBuffersBase">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBindBuffersBase BindBuffersBase}
 	 */
@@ -1054,7 +1054,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBuffersRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBuffersRange">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBindBuffersRange BindBuffersRange}
 	 */
@@ -1069,7 +1069,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindTextures">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBindTextures BindTextures}
 	 */
@@ -1081,7 +1081,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindSamplers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBindSamplers BindSamplers}
 	 */
@@ -1093,7 +1093,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindImageTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindImageTextures">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBindImageTextures BindImageTextures}
 	 */
@@ -1105,7 +1105,7 @@ public class GL44 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindVertexBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindVertexBuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBindVertexBuffers BindVertexBuffers}
 	 */

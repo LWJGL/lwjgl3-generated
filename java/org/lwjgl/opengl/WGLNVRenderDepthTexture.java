@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/WGL/NV_render_depth_texture.txt">WGL_NV_render_depth_texture</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/WGL/NV_render_depth_texture.txt">WGL_NV_render_depth_texture</a> extension.
  * 
  * <p>This extension allows a depth buffer to be used for both rendering and texturing. It is built upon the ARB_render_texture extension; the only addition
  * in this extension is the ability to use a depth buffer as a DEPTH_COMPONENT texture map.</p>

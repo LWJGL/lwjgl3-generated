@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/separate_shader_objects.txt">ARB_separate_shader_objects</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/separate_shader_objects.txt">ARB_separate_shader_objects</a> extension.
  * 
  * <p>Conventional GLSL requires multiple shader stages (vertex, fragment, geometry, tessellation control, and tessellation evaluation) to be linked into a
  * single monolithic program object to specify a GLSL shader for each stage.</p>
@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>While {@link #glActiveShaderProgram ActiveShaderProgram} allows the use of conventional Uniform* commands to update uniform variable values for separable program objects, this
  * extension provides a preferrable interface in a set of ProgramUniform* commands that update the same uniform variables but take a parameter indicating
  * the program object to be updated, rather than updating the currently active program object. These commands mirror those introduced in
- * <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a>.</p>
+ * <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a>.</p>
  * 
  * <p>While {@link #glActiveShaderProgram ActiveShaderProgram} provides a selector for setting and querying uniform values of a program object, the glProgramUniform* commands provide a
  * selector-free way to modify uniforms of a GLSL program object without an explicit bind. This selector-free model reduces API overhead and provides a
@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * case, the output varyings are simply ignored. It is also possible input varyings from a shader may not be written as output varyings of a preceding
  * shader. In this case, the unwritten input varying values are undefined.</p>
  * 
- * <p>This extension builds on the proof-of-concept provided by <a href="http://www.opengl.org/registry/specs/EXT/separate_shader_objects.txt">EXT_separate_shader_objects</a> which demonstrated that separate shader
+ * <p>This extension builds on the proof-of-concept provided by <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/separate_shader_objects.txt">EXT_separate_shader_objects</a> which demonstrated that separate shader
  * objects can work for GLSL. EXT_separate_shader_objects was a response to repeated requests for this functionality from 3D developers.</p>
  * 
  * <p>This ARB version addresses several "loose ends" in the prior EXT extension. In particular, it allows user-defined varyings with explicitly defined

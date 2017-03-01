@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_array_bgra.txt">ARB_vertex_array_bgra</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_array_bgra.txt">ARB_vertex_array_bgra</a> extension.
  * 
  * <p>This extension provides a single new component format for vertex arrays to read 4-component unsigned byte vertex attributes with a BGRA component
  * ordering.</p>
@@ -42,7 +42,7 @@ package org.lwjgl.opengl;
  * <p>Rather than force a re-ordering of either vertex array components in memory or a vertex array format-dependent re-ordering of vertex shader inputs,
  * OpenGL can simply provide a vertex array format that matches the Direct3D color component ordering.</p>
  * 
- * <p>This approach mimics that of the <a href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a> extension for pixel and texel formats except for vertex instead of image data.</p>
+ * <p>This approach mimics that of the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a> extension for pixel and texel formats except for vertex instead of image data.</p>
  * 
  * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */

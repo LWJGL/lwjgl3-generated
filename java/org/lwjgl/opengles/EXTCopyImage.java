@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_copy_image.txt">EXT_copy_image</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_copy_image.txt">EXT_copy_image</a> extension.
  * 
  * <p>This extension enables efficient image data transfer between image objects (i.e. textures and renderbuffers) without the need to bind the objects or
  * otherwise configure the rendering pipeline.</p>

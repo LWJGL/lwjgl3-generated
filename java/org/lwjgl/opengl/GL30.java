@@ -24,22 +24,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/NV/conditional_render.txt">NV_conditional_render</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/APPLE/flush_buffer_range.txt">APPLE_flush_buffer_range</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">ARB_color_buffer_float</a>, <a href="http://www.opengl.org/registry/specs/NV/depth_buffer_float.txt">NV_depth_buffer_float</a>, <a href="http://www.opengl.org/registry/specs/ARB/texture_float.txt">ARB_texture_float</a>,
- * <a href="http://www.opengl.org/registry/specs/EXT/packed_float.txt">EXT_packed_float</a> and <a href="http://www.opengl.org/registry/specs/EXT/texture_shared_exponent.txt">EXT_texture_shared_exponent</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/NV/half_float.txt">NV_half_float</a> and <a href="http://www.opengl.org/registry/specs/ARB/half_float_pixel.txt">ARB_half_float_pixel</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a> and <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_integer.txt">EXT_texture_integer</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_array.txt">EXT_texture_array</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/packed_depth_stencil.txt">EXT_packed_depth_stencil</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/draw_buffers2.txt">EXT_draw_buffers2</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_compression_rgtc.txt">EXT_texture_compression_rgtc</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/APPLE/vertex_array_object.txt">APPLE_vertex_array_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_sRGB.txt">EXT_framebuffer_sRGB</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/NV/conditional_render.txt">NV_conditional_render</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/APPLE/flush_buffer_range.txt">APPLE_flush_buffer_range</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">ARB_color_buffer_float</a>, <a target="_blank" href="http://www.opengl.org/registry/specs/NV/depth_buffer_float.txt">NV_depth_buffer_float</a>, <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_float.txt">ARB_texture_float</a>,
+ * <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/packed_float.txt">EXT_packed_float</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_shared_exponent.txt">EXT_texture_shared_exponent</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/NV/half_float.txt">NV_half_float</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/half_float_pixel.txt">ARB_half_float_pixel</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_integer.txt">EXT_texture_integer</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_array.txt">EXT_texture_array</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/packed_depth_stencil.txt">EXT_packed_depth_stencil</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/draw_buffers2.txt">EXT_draw_buffers2</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_compression_rgtc.txt">EXT_texture_compression_rgtc</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/APPLE/vertex_array_object.txt">APPLE_vertex_array_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_sRGB.txt">EXT_framebuffer_sRGB</a></li>
  * </ul>
  */
 public class GL30 {
@@ -509,7 +509,7 @@ public class GL30 {
 	public static native long nglGetStringi(int name, int index);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetStringi">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetStringi">Reference Page</a></p>
 	 * 
 	 * Queries indexed string state.
 	 *
@@ -527,7 +527,7 @@ public class GL30 {
 	public static native void nglClearBufferiv(int buffer, int drawbuffer, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
 	 * 
 	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
 	 *
@@ -548,7 +548,7 @@ public class GL30 {
 	public static native void nglClearBufferuiv(int buffer, int drawbuffer, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
 	 * 
 	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
 	 *
@@ -568,7 +568,7 @@ public class GL30 {
 	public static native void nglClearBufferfv(int buffer, int drawbuffer, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
 	 * 
 	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
 	 *
@@ -586,7 +586,7 @@ public class GL30 {
 	// --- [ glClearBufferfi ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferfi">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferfi">Reference Page</a></p>
 	 * 
 	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
 	 *
@@ -600,7 +600,7 @@ public class GL30 {
 	// --- [ glVertexAttribI1i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
@@ -612,7 +612,7 @@ public class GL30 {
 	// --- [ glVertexAttribI2i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
@@ -625,7 +625,7 @@ public class GL30 {
 	// --- [ glVertexAttribI3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
@@ -639,7 +639,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a pure integer generic vertex attribute.
 	 *
@@ -654,7 +654,7 @@ public class GL30 {
 	// --- [ glVertexAttribI1ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
@@ -666,7 +666,7 @@ public class GL30 {
 	// --- [ glVertexAttribI2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
@@ -679,7 +679,7 @@ public class GL30 {
 	// --- [ glVertexAttribI3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
@@ -693,7 +693,7 @@ public class GL30 {
 	// --- [ glVertexAttribI4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an unsigned pure integer generic vertex attribute.
 	 *
@@ -711,7 +711,7 @@ public class GL30 {
 	public static native void nglVertexAttribI1iv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI1i VertexAttribI1i}.
 	 *
@@ -730,7 +730,7 @@ public class GL30 {
 	public static native void nglVertexAttribI2iv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI2i VertexAttribI2i}.
 	 *
@@ -749,7 +749,7 @@ public class GL30 {
 	public static native void nglVertexAttribI3iv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI3i VertexAttribI3i}.
 	 *
@@ -768,7 +768,7 @@ public class GL30 {
 	public static native void nglVertexAttribI4iv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI4i VertexAttribI4i}.
 	 *
@@ -787,7 +787,7 @@ public class GL30 {
 	public static native void nglVertexAttribI1uiv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI1ui VertexAttribI1ui}.
 	 *
@@ -806,7 +806,7 @@ public class GL30 {
 	public static native void nglVertexAttribI2uiv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI2ui VertexAttribI2ui}.
 	 *
@@ -825,7 +825,7 @@ public class GL30 {
 	public static native void nglVertexAttribI3uiv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI3ui VertexAttribI3ui}.
 	 *
@@ -844,7 +844,7 @@ public class GL30 {
 	public static native void nglVertexAttribI4uiv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribI4ui VertexAttribI4ui}.
 	 *
@@ -863,7 +863,7 @@ public class GL30 {
 	public static native void nglVertexAttribI4bv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Byte version of {@link #glVertexAttribI4iv VertexAttribI4iv}.
 	 *
@@ -882,7 +882,7 @@ public class GL30 {
 	public static native void nglVertexAttribI4sv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Short version of {@link #glVertexAttribI4iv VertexAttribI4iv}.
 	 *
@@ -901,7 +901,7 @@ public class GL30 {
 	public static native void nglVertexAttribI4ubv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Byte version of {@link #glVertexAttribI4uiv VertexAttribI4uiv}.
 	 *
@@ -920,7 +920,7 @@ public class GL30 {
 	public static native void nglVertexAttribI4usv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Short version of {@link #glVertexAttribI4uiv VertexAttribI4uiv}.
 	 *
@@ -939,7 +939,7 @@ public class GL30 {
 	public static native void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a pure integer vertex attribute array.
 	 *
@@ -956,7 +956,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a pure integer vertex attribute array.
 	 *
@@ -973,7 +973,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a pure integer vertex attribute array.
 	 *
@@ -990,7 +990,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribIPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a pure integer vertex attribute array.
 	 *
@@ -1012,7 +1012,7 @@ public class GL30 {
 	public static native void nglGetVertexAttribIiv(int index, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Returns the value of a pure integer generic vertex attribute parameter.
 	 *
@@ -1027,7 +1027,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Returns the value of a pure integer generic vertex attribute parameter.
 	 *
@@ -1051,7 +1051,7 @@ public class GL30 {
 	public static native void nglGetVertexAttribIuiv(int index, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetVertexAttribIiv GetVertexAttribIiv}.
 	 *
@@ -1066,7 +1066,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetVertexAttribIiv GetVertexAttribIiv}.
 	 *
@@ -1087,7 +1087,7 @@ public class GL30 {
 	// --- [ glUniform1ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uint uniform variable for the current program object.
 	 *
@@ -1099,7 +1099,7 @@ public class GL30 {
 	// --- [ glUniform2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uvec2 uniform variable for the current program object.
 	 *
@@ -1112,7 +1112,7 @@ public class GL30 {
 	// --- [ glUniform3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uvec3 uniform variable for the current program object.
 	 *
@@ -1126,7 +1126,7 @@ public class GL30 {
 	// --- [ glUniform4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uvec4 uniform variable for the current program object.
 	 *
@@ -1148,7 +1148,7 @@ public class GL30 {
 	public static native void nglUniform1uiv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for the current program object.
 	 *
@@ -1169,7 +1169,7 @@ public class GL30 {
 	public static native void nglUniform2uiv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for the current program object.
 	 *
@@ -1190,7 +1190,7 @@ public class GL30 {
 	public static native void nglUniform3uiv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for the current program object.
 	 *
@@ -1211,7 +1211,7 @@ public class GL30 {
 	public static native void nglUniform4uiv(int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for the current program object.
 	 *
@@ -1228,7 +1228,7 @@ public class GL30 {
 	public static native void nglGetUniformuiv(int program, int location, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the uint value(s) of a uniform variable.
 	 *
@@ -1243,7 +1243,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the uint value(s) of a uniform variable.
 	 *
@@ -1267,7 +1267,7 @@ public class GL30 {
 	public static native void nglBindFragDataLocation(int program, int colorNumber, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindFragDataLocation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindFragDataLocation">Reference Page</a></p>
 	 * 
 	 * Binds a user-defined varying out variable to a fragment shader color number.
 	 *
@@ -1282,7 +1282,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindFragDataLocation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindFragDataLocation">Reference Page</a></p>
 	 * 
 	 * Binds a user-defined varying out variable to a fragment shader color number.
 	 *
@@ -1306,7 +1306,7 @@ public class GL30 {
 	public static native int nglGetFragDataLocation(int program, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFragDataLocation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFragDataLocation">Reference Page</a></p>
 	 * 
 	 * Queries the bindings of color numbers to user-defined varying out variables.
 	 *
@@ -1320,7 +1320,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFragDataLocation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFragDataLocation">Reference Page</a></p>
 	 * 
 	 * Queries the bindings of color numbers to user-defined varying out variables.
 	 *
@@ -1340,7 +1340,7 @@ public class GL30 {
 	// --- [ glBeginConditionalRender ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBeginConditionalRender">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBeginConditionalRender">Reference Page</a></p>
 	 * 
 	 * Starts conditional rendering.
 	 *
@@ -1352,7 +1352,7 @@ public class GL30 {
 	// --- [ glEndConditionalRender ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glEndConditionalRender">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glEndConditionalRender">Reference Page</a></p>
 	 * 
 	 * Ends conditional rendering.
 	 */
@@ -1364,7 +1364,7 @@ public class GL30 {
 	public static native long nglMapBufferRange(int target, long offset, long length, int access);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMapBufferRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMapBufferRange">Reference Page</a></p>
 	 * 
 	 * Maps a section of a buffer object's data store.
 	 * 
@@ -1386,7 +1386,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMapBufferRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMapBufferRange">Reference Page</a></p>
 	 * 
 	 * Maps a section of a buffer object's data store.
 	 * 
@@ -1410,7 +1410,7 @@ public class GL30 {
 	// --- [ glFlushMappedBufferRange ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFlushMappedBufferRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFlushMappedBufferRange">Reference Page</a></p>
 	 * 
 	 * Indicates modifications to a range of a mapped buffer.
 	 *
@@ -1423,7 +1423,7 @@ public class GL30 {
 	// --- [ glClampColor ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClampColor">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClampColor">Reference Page</a></p>
 	 * 
 	 * Controls color clamping.
 	 *
@@ -1435,7 +1435,7 @@ public class GL30 {
 	// --- [ glIsRenderbuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsRenderbuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsRenderbuffer">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a renderbuffer object.
 	 *
@@ -1446,7 +1446,7 @@ public class GL30 {
 	// --- [ glBindRenderbuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindRenderbuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindRenderbuffer">Reference Page</a></p>
 	 * 
 	 * Binds a renderbuffer to a renderbuffer target.
 	 *
@@ -1465,7 +1465,7 @@ public class GL30 {
 	public static native void nglDeleteRenderbuffers(int n, long renderbuffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteRenderbuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Deletes renderbuffer objects.
 	 *
@@ -1476,7 +1476,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteRenderbuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Deletes renderbuffer objects.
 	 */
@@ -1500,7 +1500,7 @@ public class GL30 {
 	public static native void nglGenRenderbuffers(int n, long renderbuffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenRenderbuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Generates renderbuffer object names.
 	 *
@@ -1511,7 +1511,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenRenderbuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Generates renderbuffer object names.
 	 */
@@ -1529,7 +1529,7 @@ public class GL30 {
 	// --- [ glRenderbufferStorage ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glRenderbufferStorage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glRenderbufferStorage">Reference Page</a></p>
 	 * 
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
 	 *
@@ -1543,7 +1543,7 @@ public class GL30 {
 	// --- [ glRenderbufferStorageMultisample ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glRenderbufferStorageMultisample">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glRenderbufferStorageMultisample">Reference Page</a></p>
 	 * 
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
 	 * 
@@ -1563,7 +1563,7 @@ public class GL30 {
 	public static native void nglGetRenderbufferParameteriv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
 	 * 
 	 * Retrieves information about a bound renderbuffer object.
 	 *
@@ -1578,7 +1578,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
 	 * 
 	 * Retrieves information about a bound renderbuffer object.
 	 *
@@ -1599,7 +1599,7 @@ public class GL30 {
 	// --- [ glIsFramebuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsFramebuffer">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a framebuffer object.
 	 *
@@ -1610,7 +1610,7 @@ public class GL30 {
 	// --- [ glBindFramebuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindFramebuffer">Reference Page</a></p>
 	 * 
 	 * Binds a framebuffer to a framebuffer target.
 	 *
@@ -1629,7 +1629,7 @@ public class GL30 {
 	public static native void nglDeleteFramebuffers(int n, long framebuffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteFramebuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteFramebuffers">Reference Page</a></p>
 	 * 
 	 * Deletes framebuffer objects.
 	 *
@@ -1640,7 +1640,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteFramebuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteFramebuffers">Reference Page</a></p>
 	 * 
 	 * Deletes framebuffer objects.
 	 */
@@ -1664,7 +1664,7 @@ public class GL30 {
 	public static native void nglGenFramebuffers(int n, long framebuffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenFramebuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenFramebuffers">Reference Page</a></p>
 	 * 
 	 * Generates framebuffer object names.
 	 *
@@ -1675,7 +1675,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenFramebuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenFramebuffers">Reference Page</a></p>
 	 * 
 	 * Generates framebuffer object names.
 	 */
@@ -1693,7 +1693,7 @@ public class GL30 {
 	// --- [ glCheckFramebufferStatus ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCheckFramebufferStatus">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCheckFramebufferStatus">Reference Page</a></p>
 	 * 
 	 * Checks the completeness status of a framebuffer.
 	 *
@@ -1704,7 +1704,7 @@ public class GL30 {
 	// --- [ glFramebufferTexture1D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFramebufferTexture1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFramebufferTexture1D">Reference Page</a></p>
 	 * 
 	 * Attaches a level of a 1D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -1719,7 +1719,7 @@ public class GL30 {
 	// --- [ glFramebufferTexture2D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFramebufferTexture2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFramebufferTexture2D">Reference Page</a></p>
 	 * 
 	 * Attaches a level of a 2D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -1734,7 +1734,7 @@ public class GL30 {
 	// --- [ glFramebufferTexture3D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFramebufferTexture3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFramebufferTexture3D">Reference Page</a></p>
 	 * 
 	 * Attaches a layer of a 3D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -1750,7 +1750,7 @@ public class GL30 {
 	// --- [ glFramebufferTextureLayer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFramebufferTextureLayer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFramebufferTextureLayer">Reference Page</a></p>
 	 * 
 	 * Attaches a single layer of a texture to a framebuffer
 	 *
@@ -1765,7 +1765,7 @@ public class GL30 {
 	// --- [ glFramebufferRenderbuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFramebufferRenderbuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFramebufferRenderbuffer">Reference Page</a></p>
 	 * 
 	 * Attaches a renderbuffer as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -1782,7 +1782,7 @@ public class GL30 {
 	public static native void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
 	 * 
 	 * Retrievees information about attachments of a bound framebuffer object.
 	 *
@@ -1798,7 +1798,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
 	 * 
 	 * Retrievees information about attachments of a bound framebuffer object.
 	 *
@@ -1820,7 +1820,7 @@ public class GL30 {
 	// --- [ glBlitFramebuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBlitFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBlitFramebuffer">Reference Page</a></p>
 	 * 
 	 * Copies a block of pixels from the read framebuffer to the draw framebuffer.
 	 *
@@ -1840,7 +1840,7 @@ public class GL30 {
 	// --- [ glGenerateMipmap ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenerateMipmap">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenerateMipmap">Reference Page</a></p>
 	 * 
 	 * Generate mipmaps for a specified texture target.
 	 *
@@ -1854,7 +1854,7 @@ public class GL30 {
 	public static native void nglTexParameterIiv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Sets the integer value of a texture parameter.
 	 *
@@ -1869,7 +1869,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Sets the integer value of a texture parameter.
 	 *
@@ -1892,7 +1892,7 @@ public class GL30 {
 	public static native void nglTexParameterIuiv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Sets the unsigned integer value of a texture parameter.
 	 *
@@ -1907,7 +1907,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Sets the unsigned integer value of a texture parameter.
 	 *
@@ -1930,7 +1930,7 @@ public class GL30 {
 	public static native void nglGetTexParameterIiv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Returns the integer value of a texture parameter.
 	 *
@@ -1945,7 +1945,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Returns the integer value of a texture parameter.
 	 *
@@ -1969,7 +1969,7 @@ public class GL30 {
 	public static native void nglGetTexParameterIuiv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Returns the unsigned integer value of a texture parameter.
 	 *
@@ -1984,7 +1984,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Returns the unsigned integer value of a texture parameter.
 	 *
@@ -2005,7 +2005,7 @@ public class GL30 {
 	// --- [ glColorMaski ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glColorMaski">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glColorMaski">Reference Page</a></p>
 	 * 
 	 * Enables and disables writing of frame buffer color components.
 	 *
@@ -2023,7 +2023,7 @@ public class GL30 {
 	public static native void nglGetBooleani_v(int target, int index, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBooleani_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBooleani_v">Reference Page</a></p>
 	 * 
 	 * Queries the boolean value of an indexed state variable.
 	 *
@@ -2038,7 +2038,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBooleani_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBooleani_v">Reference Page</a></p>
 	 * 
 	 * Queries the boolean value of an indexed state variable.
 	 *
@@ -2062,7 +2062,7 @@ public class GL30 {
 	public static native void nglGetIntegeri_v(int target, int index, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetIntegeri_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetIntegeri_v">Reference Page</a></p>
 	 * 
 	 * Queries the integer value of an indexed state variable.
 	 *
@@ -2077,7 +2077,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetIntegeri_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetIntegeri_v">Reference Page</a></p>
 	 * 
 	 * Queries the integer value of an indexed state variable.
 	 *
@@ -2098,7 +2098,7 @@ public class GL30 {
 	// --- [ glEnablei ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glEnablei">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glEnablei">Reference Page</a></p>
 	 * 
 	 * Enables an indexed capability.
 	 *
@@ -2110,7 +2110,7 @@ public class GL30 {
 	// --- [ glDisablei ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDisablei">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDisablei">Reference Page</a></p>
 	 * 
 	 * Disables an indexed capability.
 	 *
@@ -2122,7 +2122,7 @@ public class GL30 {
 	// --- [ glIsEnabledi ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsEnabledi">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsEnabledi">Reference Page</a></p>
 	 * 
 	 * Tests whether an indexed capability is enabled.
 	 *
@@ -2134,7 +2134,7 @@ public class GL30 {
 	// --- [ glBindBufferRange ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBufferRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBufferRange">Reference Page</a></p>
 	 * 
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
@@ -2149,7 +2149,7 @@ public class GL30 {
 	// --- [ glBindBufferBase ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBufferBase">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBufferBase">Reference Page</a></p>
 	 * 
 	 * Binds a buffer object to an indexed buffer target.
 	 *
@@ -2162,7 +2162,7 @@ public class GL30 {
 	// --- [ glBeginTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBeginTransformFeedback">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBeginTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Starts transform feedback operation.
 	 *
@@ -2173,7 +2173,7 @@ public class GL30 {
 	// --- [ glEndTransformFeedback ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glEndTransformFeedback">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glEndTransformFeedback">Reference Page</a></p>
 	 * 
 	 * Ends transform feedback operation.
 	 */
@@ -2189,7 +2189,7 @@ public class GL30 {
 	public static native void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTransformFeedbackVaryings">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTransformFeedbackVaryings">Reference Page</a></p>
 	 * 
 	 * Specifies values to record in transform feedback buffers.
 	 *
@@ -2202,7 +2202,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTransformFeedbackVaryings">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTransformFeedbackVaryings">Reference Page</a></p>
 	 * 
 	 * Specifies values to record in transform feedback buffers.
 	 *
@@ -2222,7 +2222,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTransformFeedbackVaryings">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTransformFeedbackVaryings">Reference Page</a></p>
 	 * 
 	 * Specifies values to record in transform feedback buffers.
 	 *
@@ -2250,7 +2250,7 @@ public class GL30 {
 	public static native void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
 	 * 
 	 * Retrieves information about varying variables selected for transform feedback.
 	 *
@@ -2271,7 +2271,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
 	 * 
 	 * Retrieves information about varying variables selected for transform feedback.
 	 *
@@ -2298,7 +2298,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
 	 * 
 	 * Retrieves information about varying variables selected for transform feedback.
 	 *
@@ -2314,7 +2314,7 @@ public class GL30 {
 	// --- [ glBindVertexArray ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindVertexArray">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindVertexArray">Reference Page</a></p>
 	 * 
 	 * Binds a vertex array object
 	 *
@@ -2332,7 +2332,7 @@ public class GL30 {
 	public static native void nglDeleteVertexArrays(int n, long arrays);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteVertexArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteVertexArrays">Reference Page</a></p>
 	 * 
 	 * Deletes vertex array objects.
 	 *
@@ -2343,7 +2343,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteVertexArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteVertexArrays">Reference Page</a></p>
 	 * 
 	 * Deletes vertex array objects.
 	 */
@@ -2367,7 +2367,7 @@ public class GL30 {
 	public static native void nglGenVertexArrays(int n, long arrays);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenVertexArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenVertexArrays">Reference Page</a></p>
 	 * 
 	 * Generates vertex array object names.
 	 *
@@ -2378,7 +2378,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenVertexArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenVertexArrays">Reference Page</a></p>
 	 * 
 	 * Generates vertex array object names.
 	 */
@@ -2396,7 +2396,7 @@ public class GL30 {
 	// --- [ glIsVertexArray ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsVertexArray">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsVertexArray">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a vertex array object.
 	 *
@@ -2405,7 +2405,7 @@ public class GL30 {
 	public static native boolean glIsVertexArray(int array);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClearBufferiv ClearBufferiv}
 	 */
@@ -2419,7 +2419,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClearBufferuiv ClearBufferuiv}
 	 */
@@ -2433,7 +2433,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClearBufferfv ClearBufferfv}
 	 */
@@ -2447,7 +2447,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI1iv VertexAttribI1iv}
 	 */
@@ -2461,7 +2461,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI2iv VertexAttribI2iv}
 	 */
@@ -2475,7 +2475,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI3iv VertexAttribI3iv}
 	 */
@@ -2489,7 +2489,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI4iv VertexAttribI4iv}
 	 */
@@ -2503,7 +2503,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv}
 	 */
@@ -2517,7 +2517,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv}
 	 */
@@ -2531,7 +2531,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv}
 	 */
@@ -2545,7 +2545,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv}
 	 */
@@ -2559,7 +2559,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI4sv VertexAttribI4sv}
 	 */
@@ -2573,7 +2573,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribI4usv VertexAttribI4usv}
 	 */
@@ -2587,7 +2587,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv}
 	 */
@@ -2601,7 +2601,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv}
 	 */
@@ -2615,7 +2615,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform1uiv Uniform1uiv}
 	 */
@@ -2627,7 +2627,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform2uiv Uniform2uiv}
 	 */
@@ -2639,7 +2639,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform3uiv Uniform3uiv}
 	 */
@@ -2651,7 +2651,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniform4uiv Uniform4uiv}
 	 */
@@ -2663,7 +2663,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetUniformuiv GetUniformuiv}
 	 */
@@ -2677,7 +2677,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteRenderbuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers}
 	 */
@@ -2689,7 +2689,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenRenderbuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenRenderbuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenRenderbuffers GenRenderbuffers}
 	 */
@@ -2701,7 +2701,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetRenderbufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv}
 	 */
@@ -2715,7 +2715,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteFramebuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteFramebuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers}
 	 */
@@ -2727,7 +2727,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenFramebuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenFramebuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenFramebuffers GenFramebuffers}
 	 */
@@ -2739,7 +2739,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFramebufferAttachmentParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}
 	 */
@@ -2753,7 +2753,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexParameterIiv TexParameterIiv}
 	 */
@@ -2767,7 +2767,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexParameterIuiv TexParameterIuiv}
 	 */
@@ -2781,7 +2781,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexParameterIiv GetTexParameterIiv}
 	 */
@@ -2795,7 +2795,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv}
 	 */
@@ -2809,7 +2809,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetIntegeri_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetIntegeri_v">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetIntegeri_v GetIntegeri_v}
 	 */
@@ -2823,7 +2823,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTransformFeedbackVarying">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying}
 	 */
@@ -2839,7 +2839,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteVertexArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteVertexArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
 	 */
@@ -2851,7 +2851,7 @@ public class GL30 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenVertexArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenVertexArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenVertexArrays GenVertexArrays}
 	 */

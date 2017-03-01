@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">GLX_ARB_multisample</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/multisample.txt">GLX_ARB_multisample</a> extension.
  * 
  * <p>See {@link ARBMultisample} for details.</p>
  */

@@ -44,7 +44,7 @@ public class CL12GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLTexture.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLTexture.html">Reference Page</a></p>
 	 * 
 	 * Creates one of the following:
 	 * 
@@ -100,7 +100,7 @@ public class CL12GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLTexture.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLTexture.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateFromGLTexture CreateFromGLTexture}
 	 */

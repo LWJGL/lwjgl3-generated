@@ -37,7 +37,7 @@ import org.lwjgl.system.windows.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code handleType} <b>must</b> be a value included in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-handletypes-win32">Handle Type Permanence for VkImportSemaphoreWin32HandleInfoKHX</a> table.</li>
+ * <li>{@code handleType} <b>must</b> be a value included in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-handletypes-win32">Handle Type Permanence for VkImportSemaphoreWin32HandleInfoKHX</a> table.</li>
  * <li>The semaphore from which {@code handleType} was exported <b>must</b> have been created on the same underlying physical device as {@code semaphore}.</li>
  * </ul>
  * 

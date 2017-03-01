@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.opengl.GL11.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/path_rendering.txt">NV_path_rendering</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/path_rendering.txt">NV_path_rendering</a> extension.
  * 
  * <p>Conventional OpenGL supports rendering images (pixel rectangles and bitmaps) and simple geometric primitives (points, lines, polygons).</p>
  * 

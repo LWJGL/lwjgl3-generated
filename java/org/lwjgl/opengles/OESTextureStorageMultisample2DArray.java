@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_storage_multisample_2d_array.txt">OES_texture_storage_multisample_2d_array</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_storage_multisample_2d_array.txt">OES_texture_storage_multisample_2d_array</a> extension.
  * 
  * <p>This extension provides support for a new type of immutable texture, two-dimensional multisample array textures. It depends on functionality introduced
  * in OpenGL ES 3.1 to support two-dimensional multisample (non-array) textures.</p>

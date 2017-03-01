@@ -45,9 +45,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <dl>
  * <dt>{@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}</dt>
- * <dd>{@code VkImageView} <b>can</b> be sampled from. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-sampledimage">sampled images</a> section.</dd>
+ * <dd>{@code VkImageView} <b>can</b> be sampled from. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-sampledimage">sampled images</a> section.</dd>
  * <dt>{@link VK10#VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT FORMAT_FEATURE_STORAGE_IMAGE_BIT}</dt>
- * <dd>{@code VkImageView} <b>can</b> be used as storage image. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storageimage">storage images</a> section.</dd>
+ * <dd>{@code VkImageView} <b>can</b> be used as storage image. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storageimage">storage images</a> section.</dd>
  * <dt>{@link VK10#VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT}</dt>
  * <dd>{@code VkImageView} <b>can</b> be used as storage image that supports atomic operations.</dd>
  * <dt>{@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT}</dt>
@@ -63,9 +63,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <dt>{@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT}</dt>
  * <dd>If the format being queried is a depth/stencil format, this bit only     indicates that the depth aspect (not the stencil aspect) of an image of     this format supports linear filtering, and that linear filtering of the     depth aspect is supported whether depth compare is enabled in the     sampler or not.     If this bit is not present, linear filtering with depth compare disabled     is unsupported and linear filtering with depth compare enabled is     supported, but <b>may</b> compute the filtered value in an     implementation-dependent manner which differs from the normal rules of     linear filtering.     The resulting value <b>must</b> be in the range <code>[0,1]</code> and <b>should</b> be     proportional to, or a weighted average of, the number of comparison     passes or failures.</dd>
  * <dt>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR}</dt>
- * <dd>{@code VkImage} <b>can</b> be used as a source image for <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a>.</dd>
+ * <dd>{@code VkImage} <b>can</b> be used as a source image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a>.</dd>
  * <dt>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}</dt>
- * <dd>{@code VkImage} <b>can</b> be used as a destination image for <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a> and <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear commands</a>.</dd>
+ * <dd>{@code VkImage} <b>can</b> be used as a destination image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear commands</a>.</dd>
  * <dt>{@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG}</dt>
  * <dd>{@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, or be the source image for a blit with {@code filter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}. This bit <b>must</b> only be exposed for formats that also support the {@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}. If the format being queried is a depth/stencil format, this only indicates that the depth aspect is cubic filterable.</dd>
  * </dl>

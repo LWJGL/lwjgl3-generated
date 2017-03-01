@@ -9,7 +9,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/glx_copy_buffer.txt">GLX_NV_copy_buffer</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/glx_copy_buffer.txt">GLX_NV_copy_buffer</a> extension.
  * 
  * <p>Extends {@link ARBCopyBuffer ARB_copy_buffer} to have GLX bindings.</p>
  */

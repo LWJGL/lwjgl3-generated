@@ -20,16 +20,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_compression_bptc.txt">ARB_texture_compression_bptc</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/compressed_texture_pixel_storage.txt">ARB_compressed_texture_pixel_storage</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_atomic_counters.txt">ARB_shader_atomic_counters</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_storage.txt">ARB_texture_storage</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/base_instance.txt">ARB_base_instance</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt">ARB_shader_image_load_store</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/conservative_depth.txt">ARB_conservative_depth</a> and <a href="http://www.opengl.org/registry/specs/ARB/shading_language_420pack.txt">ARB_shading_language_420pack</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/internalformat_query.txt">ARB_internalformat_query</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/map_buffer_alignment.txt">ARB_map_buffer_alignment</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_compression_bptc.txt">ARB_texture_compression_bptc</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/compressed_texture_pixel_storage.txt">ARB_compressed_texture_pixel_storage</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_atomic_counters.txt">ARB_shader_atomic_counters</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_storage.txt">ARB_texture_storage</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/base_instance.txt">ARB_base_instance</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt">ARB_shader_image_load_store</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/conservative_depth.txt">ARB_conservative_depth</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shading_language_420pack.txt">ARB_shading_language_420pack</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/internalformat_query.txt">ARB_internalformat_query</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/map_buffer_alignment.txt">ARB_map_buffer_alignment</a></li>
  * </ul>
  */
 public class GL42 {
@@ -226,7 +226,7 @@ public class GL42 {
 	public static native void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
 	 * 
 	 * Obtains information about the set of active atomic counter buffers for a program.
 	 *
@@ -242,7 +242,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
 	 * 
 	 * Obtains information about the set of active atomic counter buffers for a program.
 	 *
@@ -264,7 +264,7 @@ public class GL42 {
 	// --- [ glTexStorage1D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexStorage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexStorage1D">Reference Page</a></p>
 	 * 
 	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
 	 *
@@ -278,7 +278,7 @@ public class GL42 {
 	// --- [ glTexStorage2D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexStorage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexStorage2D">Reference Page</a></p>
 	 * 
 	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
 	 *
@@ -293,7 +293,7 @@ public class GL42 {
 	// --- [ glTexStorage3D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexStorage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexStorage3D">Reference Page</a></p>
 	 * 
 	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
 	 *
@@ -309,7 +309,7 @@ public class GL42 {
 	// --- [ glDrawTransformFeedbackInstanced ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawTransformFeedbackInstanced">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawTransformFeedbackInstanced">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of primitives using a count derived from a transform feedback object.
 	 *
@@ -322,7 +322,7 @@ public class GL42 {
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawTransformFeedbackStreamInstanced">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawTransformFeedbackStreamInstanced">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -336,7 +336,7 @@ public class GL42 {
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawArraysInstancedBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawArraysInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
@@ -359,7 +359,7 @@ public class GL42 {
 	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -375,7 +375,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -390,7 +390,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -404,7 +404,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -418,7 +418,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseInstance">Reference Page</a></p>
 	 * 
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -442,7 +442,7 @@ public class GL42 {
 	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -459,7 +459,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -475,7 +475,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -490,7 +490,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -505,7 +505,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElementsInstancedBaseVertexBaseInstance">Reference Page</a></p>
 	 * 
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -522,7 +522,7 @@ public class GL42 {
 	// --- [ glBindImageTexture ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindImageTexture">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindImageTexture">Reference Page</a></p>
 	 * 
 	 * Binds a level of a texture to an image unit.
 	 *
@@ -539,7 +539,7 @@ public class GL42 {
 	// --- [ glMemoryBarrier ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMemoryBarrier">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMemoryBarrier">Reference Page</a></p>
 	 * 
 	 * Defines a barrier ordering memory transactions.
 	 *
@@ -557,7 +557,7 @@ public class GL42 {
 	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -571,7 +571,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -591,7 +591,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetActiveAtomicCounterBuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv}
 	 */
@@ -605,7 +605,7 @@ public class GL42 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetInternalformativ GetInternalformativ}
 	 */

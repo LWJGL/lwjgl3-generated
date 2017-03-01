@@ -8,7 +8,7 @@ package org.lwjgl.bgfx;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.JNI.*;
 
-/** Native bindings to the C platform API of the <a href="https://github.com/bkaradzic/bgfx">bgfx</a> library. */
+/** Native bindings to the C platform API of the <a target="_blank" href="https://github.com/bkaradzic/bgfx">bgfx</a> library. */
 public class BGFXPlatform {
 
 	/**

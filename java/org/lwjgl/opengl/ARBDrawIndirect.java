@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/draw_indirect.txt">ARB_draw_indirect</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_indirect.txt">ARB_draw_indirect</a> extension.
  * 
  * <p>This extension provides a mechanism for supplying the arguments to a
  * DrawArraysInstanced or DrawElementsInstancedBaseVertex from buffer object

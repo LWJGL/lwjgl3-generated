@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/invalidate_subdata.txt">ARB_invalidate_subdata</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/invalidate_subdata.txt">ARB_invalidate_subdata</a> extension.
  * 
  * <p>This extension adds a mechanism for an application to tell the GL that the previous contents of a subregion of an image or a range of a buffer may be
  * invalidated.</p>
@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * be implementation-dependent. The first three examples may show benefit on tiled renderers where some data won't need to be copied into or out of on-chip
  * memory. The fourth example may show a benefit in multi-GPU systems where some data won't need to be copied between GPUs.</p>
  * 
- * <p>This extension is a superset of the <a href="http://www.opengl.org/registry/specs/EXT/discard_framebuffer.txt">EXT_discard_framebuffer</a> extension with the following additions:</p>
+ * <p>This extension is a superset of the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/discard_framebuffer.txt">EXT_discard_framebuffer</a> extension with the following additions:</p>
  * 
  * <ul>
  * <li>The parameters to InvalidateFramebufferEXT are extended for MRT support and Desktop-GL-only buffer enums.</li>

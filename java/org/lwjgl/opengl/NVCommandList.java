@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/command_list.txt">NV_command_list</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/command_list.txt">NV_command_list</a> extension.
  * 
  * <p>This extension adds a few new features designed to provide very low overhead batching and replay of rendering commands and state changes:</p>
  * 

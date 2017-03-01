@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_primitive_bounding_box.txt">EXT_primitive_bounding_box</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_primitive_bounding_box.txt">EXT_primitive_bounding_box</a> extension.
  * 
  * <p>On tile-based architectures, transformed primitives are generally written out to memory before rasterization, and then read back from memory for each
  * tile they intersect. When geometry expands during transformation due to tessellation or one-to-many geometry shaders, the external bandwidth required

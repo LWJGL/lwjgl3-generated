@@ -35,7 +35,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <p>If this function fails and {@code pOriginal} is non-{@code NULL} the application <b>must</b> not free the old allocation.</p>
  * 
- * <p>{@code pfnReallocation} <b>must</b> follow the same <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkAllocationFunction_return_rules"> rules for return values as tname:PFN_vkAllocationFunction</a>.</p>
+ * <p>{@code pfnReallocation} <b>must</b> follow the same <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkAllocationFunction_return_rules"> rules for return values as tname:PFN_vkAllocationFunction</a>.</p>
  * 
  * <h5>See Also</h5>
  * 
@@ -67,7 +67,7 @@ public interface VkReallocationFunctionI extends CallbackI.P {
 	 * @param pOriginal       <b>must</b> be either {@code NULL} or a pointer previously returned by {@code pfnReallocation} or {@code pfnAllocation} of the same allocator.
 	 * @param size            the size in bytes of the requested allocation.
 	 * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two.
-	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
+	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
 	 */
 	long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope);
 

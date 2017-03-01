@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> extension.
  * 
  * <p>Blending capability is extended by respecifying the entire blend equation. While this document defines only two new equations, the {@link #glBlendEquationEXT BlendEquationEXT}
  * procedure that it defines will be used by subsequent extensions to define additional blending equations.</p>

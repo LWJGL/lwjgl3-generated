@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/debug_marker.txt">EXT_debug_marker</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/debug_marker.txt">EXT_debug_marker</a> extension.
  * 
  * <p>This extension defines a mechanism for OpenGL and OpenGL ES applications to annotate their command stream with markers for discrete events and groups
  * of commands using descriptive text markers.</p>

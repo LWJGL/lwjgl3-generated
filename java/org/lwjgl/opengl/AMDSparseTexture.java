@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/sparse_texture.txt">AMD_sparse_texture</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/sparse_texture.txt">AMD_sparse_texture</a> extension.
  * 
  * <p>Recent advances in application complexity and a desire for higher resolutions have pushed texture sizes up considerably. Often, the amount of physical
  * memory available to a graphics processor is a limiting factor in the performance of texture-heavy applications. Once the available physical memory is

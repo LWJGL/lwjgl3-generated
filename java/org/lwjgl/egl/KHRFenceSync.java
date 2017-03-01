@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_fence_sync.txt">KHR_fence_sync</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_fence_sync.txt">KHR_fence_sync</a> extension.
  * 
  * <p>This extension introduces the concept of "sync objects" into EGL. Sync objects are a synchronization primitive, representing events whose completion
  * can be tested or waited upon. This extension borrows heavily from the GL_ARB_sync extension and introduces a type of sync object known as a "fence sync

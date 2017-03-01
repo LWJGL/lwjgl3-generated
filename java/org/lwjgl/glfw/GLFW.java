@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.glfw.org/docs/latest/">GLFW</a> library.
+ * Native bindings to the <a target="_blank" href="http://www.glfw.org/docs/latest/">GLFW</a> library.
  * 
  * <p>GLFW is a free, Open Source, multi-platform library for opening a window, creating an OpenGL context and managing input. It is easy to integrate into
  * existing applications and does not lay claim to the main loop.</p>
@@ -190,7 +190,7 @@ public class GLFW {
 	/** If this bit is set one or more Super keys were held down. */
 	public static final int GLFW_MOD_SUPER = 0x8;
 
-	/** Mouse buttons. See <a href="http://www.glfw.org/docs/latest/input.html#input_mouse_button">mouse button input</a> for how these are used. */
+	/** Mouse buttons. See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#input_mouse_button">mouse button input</a> for how these are used. */
 	public static final int
 		GLFW_MOUSE_BUTTON_1      = 0,
 		GLFW_MOUSE_BUTTON_2      = 1,
@@ -205,7 +205,7 @@ public class GLFW {
 		GLFW_MOUSE_BUTTON_RIGHT  = GLFW_MOUSE_BUTTON_2,
 		GLFW_MOUSE_BUTTON_MIDDLE = GLFW_MOUSE_BUTTON_3;
 
-	/** Joysticks. See <a href="http://www.glfw.org/docs/latest/input.html#joystick">joystick input</a> for how these are used. */
+	/** Joysticks. See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#joystick">joystick input</a> for how these are used. */
 	public static final int
 		GLFW_JOYSTICK_1    = 0,
 		GLFW_JOYSTICK_2    = 1,
@@ -259,7 +259,7 @@ public class GLFW {
 	/**
 	 * A memory allocation failed.
 	 * 
-	 * <p>A bug in GLFW or the underlying operating system. Report the bug to our <a href="https://github.com/glfw/glfw/issues">issue tracker</a>.</p>
+	 * <p>A bug in GLFW or the underlying operating system. Report the bug to our <a target="_blank" href="https://github.com/glfw/glfw/issues">issue tracker</a>.</p>
 	 */
 	public static final int GLFW_OUT_OF_MEMORY = 0x10005;
 
@@ -290,7 +290,7 @@ public class GLFW {
 	 * A platform-specific error occurred that does not match any of the more specific categories.
 	 * 
 	 * <p>A bug or configuration error in GLFW, the underlying operating system or its drivers, or a lack of required resources. Report the issue to our
-	 * <a href="https://github.com/glfw/glfw/issues">issue tracker</a>.</p>
+	 * <a target="_blank" href="https://github.com/glfw/glfw/issues">issue tracker</a>.</p>
 	 */
 	public static final int GLFW_PLATFORM_ERROR = 0x10008;
 
@@ -390,7 +390,7 @@ public class GLFW {
 		GLFW_CURSOR_HIDDEN   = 0x34002,
 		GLFW_CURSOR_DISABLED = 0x34003;
 
-	/** Standard cursor shapes. See <a href="http://www.glfw.org/docs/latest/input.html#cursor_standard">standard cursor creation</a> for how these are used. */
+	/** Standard cursor shapes. See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#cursor_standard">standard cursor creation</a> for how these are used. */
 	public static final int
 		GLFW_ARROW_CURSOR     = 0x36001,
 		GLFW_IBEAM_CURSOR     = 0x36002,
@@ -942,7 +942,7 @@ public class GLFW {
 	 * Returns the size, in millimetres, of the display area of the specified monitor.
 	 * 
 	 * <p>Some systems do not provide accurate monitor size information, either because the monitor
-	 * <a href="https://en.wikipedia.org/wiki/Extended_display_identification_data">EDID</a> data is incorrect or because the driver does not report it
+	 * <a target="_blank" href="https://en.wikipedia.org/wiki/Extended_display_identification_data">EDID</a> data is incorrect or because the driver does not report it
 	 * accurately.</p>
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
@@ -1274,7 +1274,7 @@ public class GLFW {
 	 * specified with window hints.
 	 * 
 	 * <p>Successful creation does not change which context is current. Before you can use the newly created context, you need to make it current. For information
-	 * about the {@code share} parameter, see <a href="http://www.glfw.org/docs/latest/context.html#context_sharing">context sharing</a>.</p>
+	 * about the {@code share} parameter, see <a target="_blank" href="http://www.glfw.org/docs/latest/context.html#context_sharing">context sharing</a>.</p>
 	 * 
 	 * <p>The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
 	 * size of the window, especially for full screen windows. To query the actual attributes of the created window, framebuffer and context, use queries like
@@ -1282,26 +1282,26 @@ public class GLFW {
 	 * 
 	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, the window will be windowed mode.
 	 * Unless you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to
-	 * query connected monitors, see <a href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
+	 * query connected monitors, see <a target="_blank" href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
 	 * 
 	 * <p>For full screen windows, the specified size becomes the resolution of the window's <i>desired video mode</i>. As long as a full screen window is not
 	 * iconified, the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full
 	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
-	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
 	 * 
 	 * <p>Once you have created the window, you can switch it between windowed and full screen mode with {@link #glfwSetWindowMonitor SetWindowMonitor}. If the window has an OpenGL or
 	 * OpenGL ES context, it will be unaffected.</p>
 	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
-	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
-	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
+	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
 	 * 
 	 * <p>As long as at least one full screen window is not iconified, the screensaver is prohibited from starting.</p>
 	 * 
 	 * <p>Window systems put limits on window sizes. Very large or very small window dimensions may be overridden by the window system on creation. Check the
-	 * actual <a href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
+	 * actual <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
 	 * 
-	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
+	 * <p>The <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
 	 * depending on driver settings and defaults.</p>
 	 * 
 	 * <p>Notes:</p>
@@ -1318,16 +1318,14 @@ public class GLFW {
 	 * macOS.</li>
 	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For
 	 * more information on bundles, see the
-	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+	 * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
 	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
 	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
-	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
 	 * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
 	 * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
-	 * more information, see
-	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
-	 * Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
+	 * more information, see <a target="_blank" href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
 	 * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1356,7 +1354,7 @@ public class GLFW {
 	 * specified with window hints.
 	 * 
 	 * <p>Successful creation does not change which context is current. Before you can use the newly created context, you need to make it current. For information
-	 * about the {@code share} parameter, see <a href="http://www.glfw.org/docs/latest/context.html#context_sharing">context sharing</a>.</p>
+	 * about the {@code share} parameter, see <a target="_blank" href="http://www.glfw.org/docs/latest/context.html#context_sharing">context sharing</a>.</p>
 	 * 
 	 * <p>The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
 	 * size of the window, especially for full screen windows. To query the actual attributes of the created window, framebuffer and context, use queries like
@@ -1364,26 +1362,26 @@ public class GLFW {
 	 * 
 	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, the window will be windowed mode.
 	 * Unless you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to
-	 * query connected monitors, see <a href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
+	 * query connected monitors, see <a target="_blank" href="http://www.glfw.org/docs/latest/monitor.html#monitor_monitors">monitors</a>.</p>
 	 * 
 	 * <p>For full screen windows, the specified size becomes the resolution of the window's <i>desired video mode</i>. As long as a full screen window is not
 	 * iconified, the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full
 	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
-	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
 	 * 
 	 * <p>Once you have created the window, you can switch it between windowed and full screen mode with {@link #glfwSetWindowMonitor SetWindowMonitor}. If the window has an OpenGL or
 	 * OpenGL ES context, it will be unaffected.</p>
 	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
-	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
-	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
+	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
 	 * 
 	 * <p>As long as at least one full screen window is not iconified, the screensaver is prohibited from starting.</p>
 	 * 
 	 * <p>Window systems put limits on window sizes. Very large or very small window dimensions may be overridden by the window system on creation. Check the
-	 * actual <a href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
+	 * actual <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
 	 * 
-	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
+	 * <p>The <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
 	 * depending on driver settings and defaults.</p>
 	 * 
 	 * <p>Notes:</p>
@@ -1400,16 +1398,14 @@ public class GLFW {
 	 * macOS.</li>
 	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For
 	 * more information on bundles, see the
-	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+	 * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
 	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
 	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
-	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
 	 * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
 	 * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
-	 * more information, see
-	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
-	 * Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
+	 * more information, see <a target="_blank" href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
 	 * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1580,7 +1576,7 @@ public class GLFW {
 	 * 
 	 * <p><b>macOS</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
 	 * application bundle's icon. For more information on bundles, see the
-	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer
+	 * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer
 	 * Library.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
@@ -1809,7 +1805,7 @@ public class GLFW {
 
 	/**
 	 * Retrieves the size, in screen coordinates, of each edge of the frame of the specified window. This size includes the title bar, if the window has one.
-	 * The size of the frame may vary depending on the <a href="http://www.glfw.org/docs/latest/window.html#window-hints_wnd">window-related hints</a> used to
+	 * The size of the frame may vary depending on the <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window-hints_wnd">window-related hints</a> used to
 	 * create it.
 	 * 
 	 * <p>Because this function retrieves the size of each window frame edge and not the offset along a particular coordinate axis, the retrieved values will
@@ -2123,7 +2119,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 1.0
 	 */
@@ -2151,7 +2147,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 1.0
 	 */
@@ -2188,7 +2184,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 2.5
 	 */
@@ -2219,7 +2215,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 2.5
 	 */
@@ -2249,7 +2245,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 3.0
 	 */
@@ -2276,7 +2272,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 3.0
 	 */
@@ -2303,7 +2299,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 3.3
 	 */
@@ -2330,7 +2326,7 @@ public class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since version 3.0
 	 */
@@ -2347,7 +2343,7 @@ public class GLFW {
 	 * input callbacks associated with those events to be called.</p>
 	 * 
 	 * <p>On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on
-	 * those platforms. You can use the <a href="http://www.glfw.org/docs/latest/window.html#window_refresh">window refresh callback</a> to redraw the
+	 * those platforms. You can use the <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_refresh">window refresh callback</a> to redraw the
 	 * contents of your window when necessary during such operations.</p>
 	 * 
 	 * <p>On some platforms, certain events are sent directly to the application without going through the event queue, causing callbacks to be called outside of
@@ -2381,7 +2377,7 @@ public class GLFW {
 	 * callbacks.</p>
 	 * 
 	 * <p>On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on
-	 * those platforms. You can use the <a href="http://www.glfw.org/docs/latest/window.html#window_refresh">window refresh callback</a> to redraw the
+	 * those platforms. You can use the <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_refresh">window refresh callback</a> to redraw the
 	 * contents of your window when necessary during such operations.</p>
 	 * 
 	 * <p>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</p>
@@ -2612,7 +2608,7 @@ public class GLFW {
 	 * 
 	 * <p>The modifier key bit masks are not key tokens and cannot be used with this function.</p>
 	 * 
-	 * <p><b>Do not use this function</b> to implement <a href="http://www.glfw.org/docs/latest/input.html#input_char">text input</a>.</p>
+	 * <p><b>Do not use this function</b> to implement <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#input_char">text input</a>.</p>
 	 * 
 	 * <p>Notes:</p>
 	 * 
@@ -2814,7 +2810,7 @@ public class GLFW {
 
 	/**
 	 * Sets the cursor image to be used when the cursor is over the client area of the specified window. The set cursor will only be visible when the
-	 * <a href="http://www.glfw.org/docs/latest/input.html#cursor_mode">cursor mode</a> of the window is {@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL}.
+	 * <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#cursor_mode">cursor mode</a> of the window is {@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL}.
 	 * 
 	 * <p>On some platforms, the set cursor may not be visible unless the window also has input focus.</p>
 	 * 
@@ -3396,8 +3392,8 @@ public class GLFW {
 	 * time and each thread can have only a single current context at a time.
 	 * 
 	 * <p>By default, making a context non-current implicitly forces a pipeline flush. On machines that support
-	 * <a href="https://www.opengl.org/registry/specs/KHR/context_flush_control.txt">GL_KHR_context_flush_control</a>, you can control whether a context
-	 * performs this flush by setting the {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR} <a href="http://www.glfw.org/docs/latest/window.html#window_hints_ctx">window hint</a>.</p>
+	 * <a target="_blank" href="https://www.opengl.org/registry/specs/KHR/context_flush_control.txt">GL_KHR_context_flush_control</a>, you can control whether a context
+	 * performs this flush by setting the {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR} <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_hints_ctx">window hint</a>.</p>
 	 * 
 	 * <p>The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a {@link #GLFW_NO_WINDOW_CONTEXT NO_WINDOW_CONTEXT} error.</p>
 	 * 
@@ -3460,8 +3456,8 @@ public class GLFW {
 	 * before swapping the buffers and returning. This is sometimes called <i>vertical synchronization</i>, <i>vertical retrace synchronization</i> or just
 	 * <i>vsync</i>.
 	 * 
-	 * <p>Contexts that support either of the <a href="https://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> and
-	 * <a href="https://www.opengl.org/registry/specs/EXT/glx_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accept negative swap
+	 * <p>Contexts that support either of the <a target="_blank" href="https://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> and
+	 * <a target="_blank" href="https://www.opengl.org/registry/specs/EXT/glx_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accept negative swap
 	 * intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions using
 	 * {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.</p>
 	 * 
@@ -3497,7 +3493,7 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
+	 * Returns whether the specified <a target="_blank" href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
 	 * OpenGL or OpenGL ES context. It searches both for client API extension and context creation API extensions.
 	 * 
 	 * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
@@ -3523,7 +3519,7 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
+	 * Returns whether the specified <a target="_blank" href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
 	 * OpenGL or OpenGL ES context. It searches both for client API extension and context creation API extensions.
 	 * 
 	 * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
@@ -3561,8 +3557,7 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns the address of the specified OpenGL or OpenGL ES <a href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension
-	 * function</a>, if it is supported by the current context.
+	 * Returns the address of the specified OpenGL or OpenGL ES <a target="_blank" href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension function</a>, if it is supported by the current context.
 	 * 
 	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
@@ -3592,8 +3587,7 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns the address of the specified OpenGL or OpenGL ES <a href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension
-	 * function</a>, if it is supported by the current context.
+	 * Returns the address of the specified OpenGL or OpenGL ES <a target="_blank" href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension function</a>, if it is supported by the current context.
 	 * 
 	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 

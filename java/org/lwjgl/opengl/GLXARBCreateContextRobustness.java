@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/glx_create_context_robustness.txt">GLX_ARB_create_context_robustness</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/glx_create_context_robustness.txt">GLX_ARB_create_context_robustness</a> extension.
  * 
  * <p>This extension allows creating an OpenGL context supporting robust buffer access behavior and a specified graphics reset notification behavior.</p>
  * 

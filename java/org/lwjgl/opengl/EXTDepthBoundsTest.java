@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/depth_bounds_test.txt">EXT_depth_bounds_test</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/depth_bounds_test.txt">EXT_depth_bounds_test</a> extension.
  * 
  * <p>This extension adds a new per-fragment test that is, logically, after the scissor test and before the alpha test. The depth bounds test compares the
  * depth value stored at the location given by the incoming fragment's (xw,yw) coordinates to a user-defined minimum and maximum depth value. If the stored

@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/point_sprite.txt">NV_point_sprite</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/point_sprite.txt">NV_point_sprite</a> extension.
  * 
  * <p>Applications such as particle systems usually must use OpenGL quads rather than points to render their geometry, since they would like to use a
  * custom-drawn texture for each particle, rather than the traditional OpenGL round antialiased points, and each fragment in a point has the same texture
@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * coordinate can either be zero, the input S coordinate, or the input R coordinate. This allows applications to use a 3D texture to represent a point
  * sprite that goes through an animation, with filtering between frames, for example.</p>
  * 
- * <p>Requires <a href="http://www.opengl.org/registry/specs/EXT/point_parameters.txt">EXT_point_parameters</a></p>
+ * <p>Requires <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/point_parameters.txt">EXT_point_parameters</a></p>
  */
 public class NVPointSprite {
 

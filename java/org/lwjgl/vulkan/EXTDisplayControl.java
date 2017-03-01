@@ -252,7 +252,7 @@ public class EXTDisplayControl {
 	 *
 	 * @param device           a logical device on which the event <b>may</b> occur.
 	 * @param pDeviceEventInfo a pointer to an instance of the {@link VkDeviceEventInfoEXT} structure describing the event of interest to the application.
-	 * @param pAllocator       controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+	 * @param pAllocator       controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 * @param pFence           points to a handle in which the resulting fence object is returned.
 	 */
 	public static int vkRegisterDeviceEventEXT(VkDevice device, VkDeviceEventInfoEXT pDeviceEventInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
@@ -313,7 +313,7 @@ public class EXTDisplayControl {
 	 * @param device            a logical device associated with {@code display}
 	 * @param display           the display on which the event <b>may</b> occur.
 	 * @param pDisplayEventInfo a pointer to an instance of the {@link VkDisplayEventInfoEXT} structure describing the event of interest to the application.
-	 * @param pAllocator        controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+	 * @param pAllocator        controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 * @param pFence            points to a handle in which the resulting fence object is returned.
 	 */
 	public static int vkRegisterDisplayEventEXT(VkDevice device, long display, VkDisplayEventInfoEXT pDisplayEventInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {

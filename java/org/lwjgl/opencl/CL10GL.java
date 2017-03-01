@@ -96,7 +96,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLBuffer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLBuffer.html">Reference Page</a></p>
 	 * 
 	 * Creates an OpenCL buffer object from an OpenGL buffer object.
 	 * 
@@ -143,7 +143,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
 	 * 
 	 * Creates an OpenCL 2D image object from an OpenGL 2D texture object, or a single face of an OpenGL cubemap texture object.
 	 * 
@@ -201,7 +201,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
 	 * 
 	 * Creates an OpenCL 3D image object from an OpenGL 3D texture object.
 	 * 
@@ -258,7 +258,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLRenderbuffer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLRenderbuffer.html">Reference Page</a></p>
 	 * 
 	 * Creates an OpenCL 2D image object from an OpenGL renderbuffer object.
 	 * 
@@ -307,7 +307,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLObjectInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLObjectInfo.html">Reference Page</a></p>
 	 * 
 	 * Queries the OpenGL object used to create the OpenCL memory object and information about the object type i.e. whether it is a texture, renderbuffer or
 	 * buffer object.
@@ -350,7 +350,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
 	 * 
 	 * Returns additional information about the GL texture object associated with {@code memobj}.
 	 *
@@ -377,7 +377,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
 	 * 
 	 * Returns additional information about the GL texture object associated with {@code memobj}.
 	 *
@@ -421,7 +421,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueAcquireGLObjects.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueAcquireGLObjects.html">Reference Page</a></p>
 	 * 
 	 * Acquire OpenCL memory objects that have been created from OpenGL objects. These objects need to be acquired before they can be used by any OpenCL
 	 * commands queued to a command-queue. The OpenGL objects are acquired by the OpenCL context associated with command_queue and can therefore be used by all
@@ -468,7 +468,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueAcquireGLObjects.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueAcquireGLObjects.html">Reference Page</a></p>
 	 * 
 	 * Acquire OpenCL memory objects that have been created from OpenGL objects. These objects need to be acquired before they can be used by any OpenCL
 	 * commands queued to a command-queue. The OpenGL objects are acquired by the OpenCL context associated with command_queue and can therefore be used by all
@@ -537,7 +537,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReleaseGLObjects.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReleaseGLObjects.html">Reference Page</a></p>
 	 * 
 	 * Releases OpenCL memory objects that have been created from OpenGL objects. These objects need to be released before they can be used by OpenGL. The
 	 * OpenGL objects are released by the OpenCL context associated with {@code command_queue}.
@@ -580,7 +580,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReleaseGLObjects.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReleaseGLObjects.html">Reference Page</a></p>
 	 * 
 	 * Releases OpenCL memory objects that have been created from OpenGL objects. These objects need to be released before they can be used by OpenGL. The
 	 * OpenGL objects are released by the OpenCL context associated with {@code command_queue}.
@@ -628,7 +628,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLBuffer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLBuffer.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer}
 	 */
@@ -643,7 +643,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture2D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
 	 * 
 	 * Array version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D}
 	 */
@@ -658,7 +658,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/clCreateFromGLTexture3D.html">Reference Page</a> - <em>This function is deprecated after OpenCL 1.1</em></p>
 	 * 
 	 * Array version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D}
 	 */
@@ -673,7 +673,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLRenderbuffer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateFromGLRenderbuffer.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer}
 	 */
@@ -688,7 +688,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLObjectInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLObjectInfo.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clGetGLObjectInfo GetGLObjectInfo}
 	 */
@@ -704,7 +704,7 @@ public class CL10GL {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetGLTextureInfo.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clGetGLTextureInfo GetGLTextureInfo}
 	 */

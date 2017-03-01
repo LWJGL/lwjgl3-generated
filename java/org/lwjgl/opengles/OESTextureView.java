@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_view.txt">OES_texture_view</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_view.txt">OES_texture_view</a> extension.
  * 
  * <p>This extension allows a texture's data store to be "viewed" in multiple ways, either reinterpreting the data format/type as a different format/ type
  * with the same element size, or by clamping the mipmap level range or array slice range.</p>

@@ -382,7 +382,7 @@ public class NVXDeviceGeneratedCommands {
 	 * <h5>Command Properties</h5>
 	 * 
 	 * <table class="lwjgl">
-	 * <thead><tr><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
+	 * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
 	 * <tbody><tr><td>Primary Secondary</td><td>Inside</td><td>Graphics compute</td><td></td></tr></tbody>
 	 * </table>
 	 * 
@@ -446,7 +446,7 @@ public class NVXDeviceGeneratedCommands {
 	 * <h5>Command Properties</h5>
 	 * 
 	 * <table class="lwjgl">
-	 * <thead><tr><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
+	 * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
 	 * <tbody><tr><td>Secondary</td><td>Inside</td><td>Graphics compute</td><td></td></tr></tbody>
 	 * </table>
 	 * 
@@ -516,7 +516,7 @@ public class NVXDeviceGeneratedCommands {
 	 *
 	 * @param device                  the logical device that creates the object table.
 	 * @param pCreateInfo             a pointer to an instance of the {@link VkObjectTableCreateInfoNVX} structure containing parameters affecting creation of the table.
-	 * @param pAllocator              controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+	 * @param pAllocator              controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 * @param pIndirectCommandsLayout points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
 	 */
 	public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pIndirectCommandsLayout) {
@@ -572,7 +572,7 @@ public class NVXDeviceGeneratedCommands {
 	 *
 	 * @param device                 the logical device that destroys the layout.
 	 * @param indirectCommandsLayout the table to destroy.
-	 * @param pAllocator             controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+	 * @param pAllocator             controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 */
 	public static void vkDestroyIndirectCommandsLayoutNVX(VkDevice device, long indirectCommandsLayout, VkAllocationCallbacks pAllocator) {
 		nvkDestroyIndirectCommandsLayoutNVX(device, indirectCommandsLayout, memAddressSafe(pAllocator));
@@ -633,7 +633,7 @@ public class NVXDeviceGeneratedCommands {
 	 *
 	 * @param device       the logical device that creates the object table.
 	 * @param pCreateInfo  a pointer to an instance of the {@link VkObjectTableCreateInfoNVX} structure containing parameters affecting creation of the table.
-	 * @param pAllocator   controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+	 * @param pAllocator   controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 * @param pObjectTable points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
 	 */
 	public static int vkCreateObjectTableNVX(VkDevice device, VkObjectTableCreateInfoNVX pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pObjectTable) {
@@ -695,7 +695,7 @@ public class NVXDeviceGeneratedCommands {
 	 *
 	 * @param device      the logical device that destroys the table.
 	 * @param objectTable the table to destroy.
-	 * @param pAllocator  controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+	 * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 */
 	public static void vkDestroyObjectTableNVX(VkDevice device, long objectTable, VkAllocationCallbacks pAllocator) {
 		nvkDestroyObjectTableNVX(device, objectTable, memAddressSafe(pAllocator));

@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/422_pixels.txt">EXT_422_pixels</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/422_pixels.txt">EXT_422_pixels</a> extension.
  * 
  * <p>This extension provides support for converting 422 pixels in host memory to 444 pixels as part of the pixel storage operation.</p>
  * 

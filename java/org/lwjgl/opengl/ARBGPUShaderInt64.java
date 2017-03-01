@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/gpu_shader_int64.txt">ARB_gpu_shader_int64</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/gpu_shader_int64.txt">ARB_gpu_shader_int64</a> extension.
  * 
  * <p>The extension introduces the following features for all shader types:</p>
  * 

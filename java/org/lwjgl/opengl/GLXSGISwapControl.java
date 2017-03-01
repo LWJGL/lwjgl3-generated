@@ -9,7 +9,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGI/swap_control.txt">GLX_SGI_swap_control</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/SGI/swap_control.txt">GLX_SGI_swap_control</a> extension.
  * 
  * <p>This extension allows an application to specify a minimum periodicity of color buffer swaps, measured in video frame periods.</p>
  */

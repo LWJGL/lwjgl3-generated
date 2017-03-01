@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/point_parameters.txt">ARB_point_parameters</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/point_parameters.txt">ARB_point_parameters</a> extension.
  * 
  * <p>This extension supports additional geometric characteristics of points. It can be used to render particles or tiny light sources, commonly referred to
  * as "Light points".</p>

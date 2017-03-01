@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/conditional_render.txt">NV_conditional_render</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/NV/conditional_render.txt">NV_conditional_render</a> extension.
  * 
  * <p>This extension provides support for conditional rendering based on the results of an occlusion query. This mechanism allows an application to
  * potentially reduce the latency between the completion of an occlusion query and the rendering commands depending on its result. It additionally allows

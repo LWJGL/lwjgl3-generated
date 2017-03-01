@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sample_shading.txt">ARB_sample_shading</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/sample_shading.txt">ARB_sample_shading</a> extension.
  * 
  * <p>In standard multisample rendering, an implementation is allowed to assign the same color and texture coordinate values to each sample, which then allows
  * the optimization where the shader is only evaluated once and then distributed to the samples that have been determined to be covered by the primitive

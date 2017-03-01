@@ -39,7 +39,7 @@ import org.lwjgl.system.windows.*;
  * 
  * <dl>
  * <dt>1</dt>
- * <dd><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686670.aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms686670.aspx</a></dd>
+ * <dd><a target="_blank" href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686670.aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms686670.aspx</a></dd>
  * </dl>
  * 
  * <h5>Valid Usage</h5>

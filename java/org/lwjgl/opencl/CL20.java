@@ -137,7 +137,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateCommandQueueWithProperties.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateCommandQueueWithProperties.html">Reference Page</a></p>
 	 * 
 	 * Creates a host or device command-queue on a specific device.
 	 * 
@@ -187,7 +187,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreatePipe.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreatePipe.html">Reference Page</a></p>
 	 * 
 	 * Creates a pipe object.
 	 *
@@ -239,7 +239,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
 	 * 
 	 * Queries information specific to a pipe object.
 	 *
@@ -265,7 +265,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
 	 * 
 	 * Queries information specific to a pipe object.
 	 *
@@ -303,7 +303,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSVMAlloc.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSVMAlloc.html">Reference Page</a></p>
 	 * 
 	 * Allocates a shared virtual memory buffer (referred to as a SVM buffer) that can be shared by the host and all devices in an OpenCL context that support
 	 * shared virtual memory.
@@ -369,7 +369,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSVMFree.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSVMFree.html">Reference Page</a></p>
 	 * 
 	 * Frees a shared virtual memory buffer allocated using {@link #clSVMAlloc SVMAlloc}.
 	 * 
@@ -407,7 +407,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMFree.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMFree.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to free the shared virtual memory buffer allocated using {@link #clSVMAlloc SVMAlloc} or a shared system memory pointer.
 	 *
@@ -464,7 +464,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMemcpy.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMemcpy.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to do a {@code memcpy} operation.
 	 * 
@@ -534,7 +534,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMemFill.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMemFill.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to fill a region in memory with a pattern of a given pattern size.
 	 *
@@ -595,7 +595,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMap.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMMap.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command that will allow the host to update a region of a SVM buffer. Note that since we are enqueuing a command with a SVM buffer, the region
 	 * is already mapped in the host address space.
@@ -658,7 +658,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMUnmap.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueSVMUnmap.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to indicate that the host has completed updating the region given by {@code svm_ptr} and which was specified in a previous call to
 	 * {@link #clEnqueueSVMMap EnqueueSVMMap}.
@@ -705,7 +705,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArgSVMPointer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelArgSVMPointer.html">Reference Page</a></p>
 	 * 
 	 * Set a SVM pointer as the argument value for a specific argument of a kernel.
 	 *
@@ -750,7 +750,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
 	 * 
 	 * Can be used to pass additional information other than argument values to a kernel.
 	 * 
@@ -802,7 +802,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
 	 * 
 	 * Can be used to pass additional information other than argument values to a kernel.
 	 * 
@@ -854,7 +854,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
 	 * 
 	 * Can be used to pass additional information other than argument values to a kernel.
 	 * 
@@ -918,7 +918,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSamplerWithProperties.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSamplerWithProperties.html">Reference Page</a></p>
 	 * 
 	 * Creates a sampler object.
 	 *
@@ -949,7 +949,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateCommandQueueWithProperties.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateCommandQueueWithProperties.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties}
 	 */
@@ -966,7 +966,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreatePipe.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreatePipe.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreatePipe CreatePipe}
 	 */
@@ -982,7 +982,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clGetPipeInfo.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clGetPipeInfo GetPipeInfo}
 	 */
@@ -997,7 +997,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetKernelExecInfo.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clSetKernelExecInfo SetKernelExecInfo}
 	 */
@@ -1011,7 +1011,7 @@ public class CL20 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSamplerWithProperties.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSamplerWithProperties.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties}
 	 */

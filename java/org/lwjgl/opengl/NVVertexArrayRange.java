@@ -11,7 +11,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/vertex_array_range.txt">NV_vertex_array_range</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/vertex_array_range.txt">NV_vertex_array_range</a> extension.
  * 
  * <p>The goal of this extension is to permit extremely high vertex processing rates via OpenGL vertex arrays even when the CPU lacks the necessary data
  * movement bandwidth to keep up with the rate at which the vertex engine can consume vertices.</p>

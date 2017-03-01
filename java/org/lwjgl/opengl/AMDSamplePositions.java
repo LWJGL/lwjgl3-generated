@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/sample_positions.txt">AMD_sample_positions</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/sample_positions.txt">AMD_sample_positions</a> extension.
  * 
  * <p>This extension provides a mechanism to explicitly set sample positions for a FBO with multi-sampled attachments. The FBO will use identical sample
  * locations for all pixels in each attachment. This forces TEXTURE_FIXED_SAMPLE_LOCATIONS to TRUE if a multi-sampled texture is specified using

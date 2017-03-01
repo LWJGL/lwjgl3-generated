@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/interleaved_elements.txt">AMD_interleaved_elements</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/interleaved_elements.txt">AMD_interleaved_elements</a> extension.
  * 
  * <p>The glDrawElements function and its variants (instanced and indirect, for example) allow OpenGL to draw indexed arrays of vertices. Since its
  * inception, OpenGL has supported unsigned bytes, unsigned shorts and unsigned integers as index types. However, all enabled vertex arrays may be

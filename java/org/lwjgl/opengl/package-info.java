@@ -5,10 +5,10 @@
  */
 
 /**
- * Contains bindings to the <a href="https://www.opengl.org/">OpenGL</a> cross-platform 2D and 3D rendering API.
+ * Contains bindings to the <a target="_blank" href="https://www.opengl.org/">OpenGL</a> cross-platform 2D and 3D rendering API.
  * 
- * <p>The <a href="https://www.opengl.org/registry/">OpenGL registry</a> is a useful online resource that contains the OpenGL and OpenGL Shading Language
- * specifications, as well as specifications of OpenGL extensions. The <a href="https://www.opengl.org/sdk/docs/">OpenGL Reference Pages</a> is another
+ * <p>The <a target="_blank" href="https://www.opengl.org/registry/">OpenGL registry</a> is a useful online resource that contains the OpenGL and OpenGL Shading Language
+ * specifications, as well as specifications of OpenGL extensions. The <a target="_blank" href="https://www.opengl.org/sdk/docs/">OpenGL Reference Pages</a> is another
  * convenient source of documentation.</p>
  */
 package org.lwjgl.opengl;

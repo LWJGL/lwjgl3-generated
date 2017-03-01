@@ -36,7 +36,7 @@ public class EGL14 {
 
 	// --- [ eglGetCurrentContext ] ---
 
-	/** <a href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetCurrentContext.xhtml">Reference Page</a> */
+	/** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetCurrentContext.xhtml">Reference Page</a> */
 	public static long eglGetCurrentContext() {
 		long __functionAddress = EGL.getCapabilities().eglGetCurrentContext;
 		if ( CHECKS )

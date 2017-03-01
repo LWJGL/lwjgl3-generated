@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a> extension.
  * 
  * <p>Several recent trends in how OpenGL ES integrates into modern computer systems have created new requirements for robustness and security for GL
  * rendering contexts.</p>

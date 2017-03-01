@@ -10,7 +10,7 @@ import java.nio.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to <a href="https://github.com/Cyan4973/xxHash">xxhash</a>.
+ * Native bindings to <a target="_blank" href="https://github.com/Cyan4973/xxHash">xxhash</a>.
  * 
  * <p>xxHash is an extremely fast Hash algorithm, running at RAM speed limits. It also successfully passes all tests from the SMHasher suite.</p>
  */

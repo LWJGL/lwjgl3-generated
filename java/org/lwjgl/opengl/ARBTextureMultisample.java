@@ -15,12 +15,12 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_multisample.txt">ARB_texture_multisample</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_multisample.txt">ARB_texture_multisample</a> extension.
  * 
  * <p>This extension provides support for two new types of "multisample textures" - two-dimensional and two-dimensional array - as well as mechanisms to
  * fetch a specific sample from such a texture in a shader, and to attach such textures to FBOs for rendering.</p>
  * 
- * <p>This extension also includes the following functionality, first described in <a href="http://www.opengl.org/registry/specs/NV/explicit_multisample.txt">NV_explicit_multisample</a>:</p>
+ * <p>This extension also includes the following functionality, first described in <a target="_blank" href="http://www.opengl.org/registry/specs/NV/explicit_multisample.txt">NV_explicit_multisample</a>:</p>
  * 
  * <ul>
  * <li>A query in the API to query the location of samples within the pixel</li>

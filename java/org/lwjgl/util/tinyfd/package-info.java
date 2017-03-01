@@ -4,6 +4,6 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 
-/** Contains bindings to <a href="https://sourceforge.net/projects/tinyfiledialogs/">tiny file dialogs</a>. */
+/** Contains bindings to <a target="_blank" href="https://sourceforge.net/projects/tinyfiledialogs/">tiny file dialogs</a>. */
 package org.lwjgl.util.tinyfd;
 

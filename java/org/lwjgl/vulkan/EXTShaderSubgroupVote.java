@@ -25,8 +25,8 @@ package org.lwjgl.vulkan;
  * <dd><ul>
  * <li>This extension is written against version 1.0 of the Vulkan API.</li>
  * <li>This extension requires Vulkan 1.0.</li>
- * <li>This extension requires the <a href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_subgroup_vote.html">SPV_KHR_subgroup_vote</a> SPIR-V extension.</li>
- * <li>This extension requires the <a href="https://www.opengl.org/registry/specs/ARB/shader_group_vote.txt">GL_ARB_shader_group_vote</a> extension for GLSL source languages.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_subgroup_vote.html">SPV_KHR_subgroup_vote</a> SPIR-V extension.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/ARB/shader_group_vote.txt">GL_ARB_shader_group_vote</a> extension for GLSL source languages.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>

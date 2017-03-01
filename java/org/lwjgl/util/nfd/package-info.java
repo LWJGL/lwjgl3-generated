@@ -5,7 +5,7 @@
  */
 
 /**
- * Contains bindings to <a href="https://github.com/mlabbe/nativefiledialog">Native File Dialog</a>, a tiny, neat C library that portably invokes native
+ * Contains bindings to <a target="_blank" href="https://github.com/mlabbe/nativefiledialog">Native File Dialog</a>, a tiny, neat C library that portably invokes native
  * file open and save dialogs. Write dialog code once and have it popup native dialogs on all supported platforms.
  */
 package org.lwjgl.util.nfd;

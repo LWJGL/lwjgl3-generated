@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/raster_multisample.txt">EXT_raster_multisample</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/raster_multisample.txt">EXT_raster_multisample</a> extension.
  * 
  * <p>This extension allows rendering to a non-multisample color buffer while rasterizing with more than one sample. The result of rasterization (coverage)
  * is available in the {@code gl_SampleMaskIn[]} fragment shader input, multisample rasterization is enabled for all primitives, and several per- fragment

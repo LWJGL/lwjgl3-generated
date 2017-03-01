@@ -22,13 +22,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/vertex_array.txt">EXT_vertex_array</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/polygon_offset.txt">EXT_polygon_offset</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_logic_op.txt">EXT_blend_logic_op</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture.txt">EXT_texture</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/copy_texture.txt">EXT_copy_texture</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/subtexture.txt">EXT_subtexture</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_object.txt">EXT_texture_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/vertex_array.txt">EXT_vertex_array</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/polygon_offset.txt">EXT_polygon_offset</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_logic_op.txt">EXT_blend_logic_op</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture.txt">EXT_texture</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/copy_texture.txt">EXT_copy_texture</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/subtexture.txt">EXT_subtexture</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_object.txt">EXT_texture_object</a></li>
  * </ul>
  */
 public class GL11 {
@@ -764,7 +764,7 @@ public class GL11 {
 	// --- [ glEnable ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glEnable">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glEnable">Reference Page</a></p>
 	 * 
 	 * Enables the specified OpenGL state.
 	 *
@@ -775,7 +775,7 @@ public class GL11 {
 	// --- [ glDisable ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDisable">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDisable">Reference Page</a></p>
 	 * 
 	 * Disables the specified OpenGL state.
 	 *
@@ -786,7 +786,7 @@ public class GL11 {
 	// --- [ glAccum ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glAccum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glAccum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Each portion of a pixel in the accumulation buffer consists of four values: one for each of R, G, B, and A. The accumulation buffer is controlled
 	 * exclusively through the use of this method (except for clearing it).
@@ -799,7 +799,7 @@ public class GL11 {
 	// --- [ glAlphaFunc ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glAlphaFunc">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glAlphaFunc">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * The alpha test discards a fragment conditionally based on the outcome of a comparison between the incoming fragment’s alpha value and a constant value.
 	 * The comparison is enabled or disabled with the generic {@link #glEnable Enable} and {@link #glDisable Disable} commands using the symbolic constant {@link #GL_ALPHA_TEST ALPHA_TEST}.
@@ -820,7 +820,7 @@ public class GL11 {
 	public static native boolean nglAreTexturesResident(int n, long textures, long residences);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glAreTexturesResident">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glAreTexturesResident">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns {@link #GL_TRUE TRUE} if all of the texture objects named in textures are resident, or if the implementation does not distinguish a working set. If
 	 * at least one of the texture objects named in textures is not resident, then {@link #GL_FALSE FALSE} is returned, and the residence of each texture object is
@@ -836,7 +836,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glAreTexturesResident">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glAreTexturesResident">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns {@link #GL_TRUE TRUE} if all of the texture objects named in textures are resident, or if the implementation does not distinguish a working set. If
 	 * at least one of the texture objects named in textures is not resident, then {@link #GL_FALSE FALSE} is returned, and the residence of each texture object is
@@ -859,7 +859,7 @@ public class GL11 {
 	// --- [ glArrayElement ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glArrayElement">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glArrayElement">Reference Page</a></p>
 	 * 
 	 * Transfers the ith element of every enabled, non-instanced array, and the first element of every enabled, instanced array to the GL.
 	 *
@@ -870,7 +870,7 @@ public class GL11 {
 	// --- [ glBegin ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glBegin">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glBegin">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Begins the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 *
@@ -881,7 +881,7 @@ public class GL11 {
 	// --- [ glBindTexture ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindTexture">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindTexture">Reference Page</a></p>
 	 * 
 	 * Binds the a texture to a texture target.
 	 * 
@@ -900,7 +900,7 @@ public class GL11 {
 	public static native void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glBitmap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glBitmap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sents a bitmap to the GL. Bitmaps are rectangles of zeros and ones specifying a particular pattern of fragments to be produced. Each of these fragments
 	 * has the same associated data. These data are those associated with the current raster position.
@@ -920,7 +920,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glBitmap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glBitmap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sents a bitmap to the GL. Bitmaps are rectangles of zeros and ones specifying a particular pattern of fragments to be produced. Each of these fragments
 	 * has the same associated data. These data are those associated with the current raster position.
@@ -940,7 +940,7 @@ public class GL11 {
 	// --- [ glBlendFunc ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBlendFunc">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBlendFunc">Reference Page</a></p>
 	 * 
 	 * Specifies the weighting factors used by the blend equation, for both RGB and alpha functions and for all draw buffers.
 	 *
@@ -952,7 +952,7 @@ public class GL11 {
 	// --- [ glCallList ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glCallList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glCallList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Executes a display list. Causes the commands saved in the display list to be executed, in order, just as if they were issued without using a display list.
 	 *
@@ -971,7 +971,7 @@ public class GL11 {
 	public static native void nglCallLists(int n, int type, long lists);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Provides an efficient means for executing a number of display lists.
 	 *
@@ -983,7 +983,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Provides an efficient means for executing a number of display lists.
 	 *
@@ -994,7 +994,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Provides an efficient means for executing a number of display lists.
 	 *
@@ -1005,7 +1005,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glCallLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Provides an efficient means for executing a number of display lists.
 	 *
@@ -1018,7 +1018,7 @@ public class GL11 {
 	// --- [ glClear ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClear">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClear">Reference Page</a></p>
 	 * 
 	 * Sets portions of every pixel in a particular buffer to the same value. The value to which each buffer is cleared depends on the setting of the clear
 	 * value for that buffer.
@@ -1030,7 +1030,7 @@ public class GL11 {
 	// --- [ glClearAccum ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glClearAccum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glClearAccum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the clear values for the accumulation buffer. These values are clamped to the range [-1,1] when they are specified.
 	 *
@@ -1044,7 +1044,7 @@ public class GL11 {
 	// --- [ glClearColor ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearColor">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearColor">Reference Page</a></p>
 	 * 
 	 * Sets the clear value for fixed-point and floating-point color buffers in RGBA mode. The specified components are stored as floating-point values.
 	 *
@@ -1058,7 +1058,7 @@ public class GL11 {
 	// --- [ glClearDepth ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearDepth">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearDepth">Reference Page</a></p>
 	 * 
 	 * Sets the depth value used when clearing the depth buffer. When clearing a fixedpoint depth buffer, {@code depth} is clamped to the range [0,1] and
 	 * converted to fixed-point. No conversion is applied when clearing a floating-point depth buffer.
@@ -1070,7 +1070,7 @@ public class GL11 {
 	// --- [ glClearIndex ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glClearIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glClearIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * sets the clear color index. index is converted to a fixed-point value with unspecified precision to the left of the binary point; the integer part of
 	 * this value is then masked with <code>2<sup>m</sup> &ndash; 1</code>, where {@code m} is the number of bits in a color index value stored in the
@@ -1083,7 +1083,7 @@ public class GL11 {
 	// --- [ glClearStencil ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearStencil">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearStencil">Reference Page</a></p>
 	 * 
 	 * Sets the value to which to clear the stencil buffer. {@code s} is masked to the number of bitplanes in the stencil buffer.
 	 *
@@ -1097,7 +1097,7 @@ public class GL11 {
 	public static native void nglClipPlane(int plane, long equation);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClipPlane">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClipPlane">Reference Page</a></p>
 	 * 
 	 * Specifies a client-defined clip plane.
 	 * 
@@ -1117,7 +1117,7 @@ public class GL11 {
 	// --- [ glColor3b ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the R, G, and B components of the current color. The alpha component is set to 1.0.
 	 *
@@ -1130,7 +1130,7 @@ public class GL11 {
 	// --- [ glColor3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glColor3b Color3b}
 	 *
@@ -1143,7 +1143,7 @@ public class GL11 {
 	// --- [ glColor3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glColor3b Color3b}
 	 *
@@ -1156,7 +1156,7 @@ public class GL11 {
 	// --- [ glColor3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glColor3b Color3b}
 	 *
@@ -1169,7 +1169,7 @@ public class GL11 {
 	// --- [ glColor3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glColor3b Color3b}
 	 *
@@ -1182,7 +1182,7 @@ public class GL11 {
 	// --- [ glColor3ub ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned version of {@link #glColor3b Color3b}
 	 *
@@ -1195,7 +1195,7 @@ public class GL11 {
 	// --- [ glColor3us ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glColor3b Color3b}
 	 *
@@ -1208,7 +1208,7 @@ public class GL11 {
 	// --- [ glColor3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned int version of {@link #glColor3b Color3b}
 	 *
@@ -1224,7 +1224,7 @@ public class GL11 {
 	public static native void nglColor3bv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Byte pointer version of {@link #glColor3b Color3b}.
 	 *
@@ -1242,7 +1242,7 @@ public class GL11 {
 	public static native void nglColor3sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3s Color3s}.
 	 *
@@ -1260,7 +1260,7 @@ public class GL11 {
 	public static native void nglColor3iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3i Color3i}.
 	 *
@@ -1278,7 +1278,7 @@ public class GL11 {
 	public static native void nglColor3fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3f Color3f}.
 	 *
@@ -1296,7 +1296,7 @@ public class GL11 {
 	public static native void nglColor3dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3d Color3d}.
 	 *
@@ -1314,7 +1314,7 @@ public class GL11 {
 	public static native void nglColor3ubv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3ub Color3ub}.
 	 *
@@ -1332,7 +1332,7 @@ public class GL11 {
 	public static native void nglColor3usv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3us Color3us}.
 	 *
@@ -1350,7 +1350,7 @@ public class GL11 {
 	public static native void nglColor3uiv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor3ui Color3ui}.
 	 *
@@ -1365,7 +1365,7 @@ public class GL11 {
 	// --- [ glColor4b ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current color.
 	 *
@@ -1379,7 +1379,7 @@ public class GL11 {
 	// --- [ glColor4s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glColor4b Color4b}
 	 *
@@ -1393,7 +1393,7 @@ public class GL11 {
 	// --- [ glColor4i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glColor4b Color4b}
 	 *
@@ -1407,7 +1407,7 @@ public class GL11 {
 	// --- [ glColor4f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glColor4b Color4b}
 	 *
@@ -1421,7 +1421,7 @@ public class GL11 {
 	// --- [ glColor4d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glColor4b Color4b}
 	 *
@@ -1435,7 +1435,7 @@ public class GL11 {
 	// --- [ glColor4ub ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned version of {@link #glColor4b Color4b}
 	 *
@@ -1449,7 +1449,7 @@ public class GL11 {
 	// --- [ glColor4us ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glColor4b Color4b}
 	 *
@@ -1463,7 +1463,7 @@ public class GL11 {
 	// --- [ glColor4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned int version of {@link #glColor4b Color4b}
 	 *
@@ -1480,7 +1480,7 @@ public class GL11 {
 	public static native void nglColor4bv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4b Color4b}.
 	 *
@@ -1498,7 +1498,7 @@ public class GL11 {
 	public static native void nglColor4sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4s Color4s}.
 	 *
@@ -1516,7 +1516,7 @@ public class GL11 {
 	public static native void nglColor4iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4i Color4i}.
 	 *
@@ -1534,7 +1534,7 @@ public class GL11 {
 	public static native void nglColor4fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4f Color4f}.
 	 *
@@ -1552,7 +1552,7 @@ public class GL11 {
 	public static native void nglColor4dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4d Color4d}.
 	 *
@@ -1570,7 +1570,7 @@ public class GL11 {
 	public static native void nglColor4ubv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4ub Color4ub}.
 	 *
@@ -1588,7 +1588,7 @@ public class GL11 {
 	public static native void nglColor4usv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4us Color4us}.
 	 *
@@ -1606,7 +1606,7 @@ public class GL11 {
 	public static native void nglColor4uiv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColor4ui Color4ui}.
 	 *
@@ -1621,7 +1621,7 @@ public class GL11 {
 	// --- [ glColorMask ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glColorMask">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glColorMask">Reference Page</a></p>
 	 * 
 	 * Masks the writing of R, G, B and A values to all draw buffers. In the initial state, all color values are enabled for writing for all draw buffers.
 	 *
@@ -1635,7 +1635,7 @@ public class GL11 {
 	// --- [ glColorMaterial ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColorMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * It is possible to attach one or more material properties to the current color, so that they continuously track its component values. This behavior is
 	 * enabled and disabled by calling {@link #glEnable Enable} or {@link #glDisable Disable} with the symbolic value {@link #GL_COLOR_MATERIAL COLOR_MATERIAL}. This function controls which
@@ -1652,7 +1652,7 @@ public class GL11 {
 	public static native void nglColorPointer(int size, int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color array.
 	 *
@@ -1666,7 +1666,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color array.
 	 *
@@ -1680,7 +1680,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color array.
 	 *
@@ -1694,7 +1694,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color array.
 	 *
@@ -1708,7 +1708,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color array.
 	 *
@@ -1724,7 +1724,7 @@ public class GL11 {
 	// --- [ glCopyPixels ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyPixels">Reference Page</a></p>
 	 * 
 	 * Transfers a rectangle of pixel values from one region of the read framebuffer to another in the draw framebuffer
 	 *
@@ -1739,7 +1739,7 @@ public class GL11 {
 	// --- [ glCullFace ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCullFace">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCullFace">Reference Page</a></p>
 	 * 
 	 * Specifies which polygon faces are culled if {@link #GL_CULL_FACE CULL_FACE} is enabled. Front-facing polygons are rasterized if either culling is disabled or the
 	 * CullFace mode is {@link #GL_BACK BACK} while back-facing polygons are rasterized only if either culling is disabled or the CullFace mode is
@@ -1752,7 +1752,7 @@ public class GL11 {
 	// --- [ glDeleteLists ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDeleteLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDeleteLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Deletes a contiguous group of display lists. All information about the display lists is lost, and the indices become unused. Indices to which no display
 	 * list corresponds are ignored. If {@code range} is zero, nothing happens.
@@ -1765,7 +1765,7 @@ public class GL11 {
 	// --- [ glDepthFunc ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthFunc">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthFunc">Reference Page</a></p>
 	 * 
 	 * Specifies the comparison that takes place during the depth buffer test (when {@link #GL_DEPTH_TEST DEPTH_TEST} is enabled).
 	 *
@@ -1776,7 +1776,7 @@ public class GL11 {
 	// --- [ glDepthMask ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthMask">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthMask">Reference Page</a></p>
 	 * 
 	 * Masks the writing of depth values to the depth buffer. In the initial state, the depth buffer is enabled for writing.
 	 *
@@ -1787,7 +1787,7 @@ public class GL11 {
 	// --- [ glDepthRange ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthRange">Reference Page</a></p>
 	 * 
 	 * Sets the depth range for all viewports to the same values.
 	 *
@@ -1799,7 +1799,7 @@ public class GL11 {
 	// --- [ glDisableClientState ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDisableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDisableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Disables the specified fixed-function attribute array.
 	 *
@@ -1810,7 +1810,7 @@ public class GL11 {
 	// --- [ glDrawArrays ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawArrays">Reference Page</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices. Elements {@code first} through
 	 * <code>first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
@@ -1827,7 +1827,7 @@ public class GL11 {
 	// --- [ glDrawBuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawBuffer">Reference Page</a></p>
 	 * 
 	 * Defines the color buffer to which fragment color zero is written.
 	 * 
@@ -1849,7 +1849,7 @@ public class GL11 {
 	public static native void nglDrawElements(int mode, int count, int type, long indices);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
 	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
@@ -1865,7 +1865,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
 	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
@@ -1880,7 +1880,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
 	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
@@ -1894,7 +1894,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
 	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
@@ -1908,7 +1908,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawElements">Reference Page</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
 	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
@@ -1927,7 +1927,7 @@ public class GL11 {
 	public static native void nglDrawPixels(int width, int height, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Draws a pixel rectangle to the active draw buffers.
 	 *
@@ -1942,7 +1942,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Draws a pixel rectangle to the active draw buffers.
 	 *
@@ -1957,7 +1957,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Draws a pixel rectangle to the active draw buffers.
 	 *
@@ -1972,7 +1972,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Draws a pixel rectangle to the active draw buffers.
 	 *
@@ -1987,7 +1987,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Draws a pixel rectangle to the active draw buffers.
 	 *
@@ -2004,7 +2004,7 @@ public class GL11 {
 	// --- [ glEdgeFlag ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEdgeFlag">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEdgeFlag">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Each edge of each polygon primitive generated is flagged as either boundary or non-boundary. These classifications are used during polygon
 	 * rasterization; some modes affect the interpretation of polygon boundary edges. By default, all edges are boundary edges, but the flagging of polygons,
@@ -2024,7 +2024,7 @@ public class GL11 {
 	public static native void nglEdgeFlagv(long flag);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEdgeFlagv">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEdgeFlagv">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glEdgeFlag EdgeFlag}.
 	 *
@@ -2042,7 +2042,7 @@ public class GL11 {
 	public static native void nglEdgeFlagPointer(int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEdgeFlagPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEdgeFlagPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of an edge flag array.
 	 *
@@ -2054,7 +2054,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEdgeFlagPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEdgeFlagPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of an edge flag array.
 	 *
@@ -2068,7 +2068,7 @@ public class GL11 {
 	// --- [ glEnableClientState ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEnableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEnableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Enables the specified fixed-function attribute array.
 	 *
@@ -2079,7 +2079,7 @@ public class GL11 {
 	// --- [ glEnd ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEnd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEnd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Ends the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 */
@@ -2088,7 +2088,7 @@ public class GL11 {
 	// --- [ glEvalCoord1f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Causes evaluation of the enabled one-dimensional evaluator maps.
 	 *
@@ -2102,7 +2102,7 @@ public class GL11 {
 	public static native void nglEvalCoord1fv(long u);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
@@ -2117,7 +2117,7 @@ public class GL11 {
 	// --- [ glEvalCoord1d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
@@ -2131,7 +2131,7 @@ public class GL11 {
 	public static native void nglEvalCoord1dv(long u);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glEvalCoord1d EvalCoord1d}.
 	 *
@@ -2146,7 +2146,7 @@ public class GL11 {
 	// --- [ glEvalCoord2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Causes evaluation of the enabled two-dimensional evaluator maps.
 	 *
@@ -2161,7 +2161,7 @@ public class GL11 {
 	public static native void nglEvalCoord2fv(long u);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
@@ -2176,7 +2176,7 @@ public class GL11 {
 	// --- [ glEvalCoord2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
@@ -2191,7 +2191,7 @@ public class GL11 {
 	public static native void nglEvalCoord2dv(long u);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glEvalCoord2d EvalCoord2d}.
 	 *
@@ -2206,7 +2206,7 @@ public class GL11 {
 	// --- [ glEvalMesh1 ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalMesh1">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalMesh1">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Carries out an evaluation on a subset of the one-dimensional map grid.
 	 *
@@ -2219,7 +2219,7 @@ public class GL11 {
 	// --- [ glEvalMesh2 ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalMesh2">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalMesh2">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Carries out an evaluation on a rectangular subset of the two-dimensional map grid.
 	 *
@@ -2234,7 +2234,7 @@ public class GL11 {
 	// --- [ glEvalPoint1 ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalPoint1">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalPoint1">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Carries out an evalutation of a single point on the one-dimensional map grid.
 	 *
@@ -2245,7 +2245,7 @@ public class GL11 {
 	// --- [ glEvalPoint2 ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalPoint2">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalPoint2">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Carries out an evalutation of a single point on the two-dimensional map grid.
 	 *
@@ -2264,7 +2264,7 @@ public class GL11 {
 	public static native void nglFeedbackBuffer(int size, int type, long buffer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFeedbackBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFeedbackBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns information about primitives when the GL is in feedback mode.
 	 *
@@ -2278,7 +2278,7 @@ public class GL11 {
 	// --- [ glFinish ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFinish">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFinish">Reference Page</a></p>
 	 * 
 	 * Forces all previously issued GL commands to complete. {@code Finish} does not return until all effects from such commands on GL client and server
 	 * state and the framebuffer are fully realized.
@@ -2288,7 +2288,7 @@ public class GL11 {
 	// --- [ glFlush ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFlush">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFlush">Reference Page</a></p>
 	 * 
 	 * Causes all previously issued GL commands to complete in finite time (although such commands may still be executing when {@code Flush} returns).
 	 */
@@ -2297,7 +2297,7 @@ public class GL11 {
 	// --- [ glFogi ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogi">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogi">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the integer value of a fog parameter.
 	 *
@@ -2312,7 +2312,7 @@ public class GL11 {
 	public static native void nglFogiv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glFogi Fogi}.
 	 *
@@ -2328,7 +2328,7 @@ public class GL11 {
 	// --- [ glFogf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the float value of a fog parameter.
 	 *
@@ -2343,7 +2343,7 @@ public class GL11 {
 	public static native void nglFogfv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glFogf Fogf}.
 	 *
@@ -2359,7 +2359,7 @@ public class GL11 {
 	// --- [ glFrontFace ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFrontFace">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFrontFace">Reference Page</a></p>
 	 * 
 	 * The first step of polygon rasterization is to determine if the polygon is back-facing or front-facing. This determination is made based on the sign of
 	 * the (clipped or unclipped) polygon's area computed in window coordinates. The interpretation of the sign of this value is controlled with this function.
@@ -2372,7 +2372,7 @@ public class GL11 {
 	// --- [ glGenLists ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGenLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGenLists">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns an integer n such that the indices {@code n,..., n + s - 1} are previously unused (i.e. there are {@code s} previously unused display list
 	 * indices starting at n). {@code GenLists} also has the effect of creating an empty display list for each of the indices {@code n,..., n + s - 1}, so
@@ -2393,7 +2393,7 @@ public class GL11 {
 	public static native void nglGenTextures(int n, long textures);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenTextures">Reference Page</a></p>
 	 * 
 	 * Returns n previously unused texture names in textures. These names are marked as used, for the purposes of GenTextures only, but they acquire texture
 	 * state and a dimensionality only when they are first bound, just as if they were unused.
@@ -2405,7 +2405,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenTextures">Reference Page</a></p>
 	 * 
 	 * Returns n previously unused texture names in textures. These names are marked as used, for the purposes of GenTextures only, but they acquire texture
 	 * state and a dimensionality only when they are first bound, just as if they were unused.
@@ -2431,7 +2431,7 @@ public class GL11 {
 	public static native void nglDeleteTextures(int n, long textures);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteTextures">Reference Page</a></p>
 	 * 
 	 * Deletes texture objects. After a texture object is deleted, it has no contents or dimensionality, and its name is again unused. If a texture that is
 	 * currently bound to any of the target bindings of {@link #glBindTexture BindTexture} is deleted, it is as though {@link #glBindTexture BindTexture} had been executed with the
@@ -2448,7 +2448,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteTextures">Reference Page</a></p>
 	 * 
 	 * Deletes texture objects. After a texture object is deleted, it has no contents or dimensionality, and its name is again unused. If a texture that is
 	 * currently bound to any of the target bindings of {@link #glBindTexture BindTexture} is deleted, it is as though {@link #glBindTexture BindTexture} had been executed with the
@@ -2474,7 +2474,7 @@ public class GL11 {
 	public static native void nglGetClipPlane(int plane, long equation);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetClipPlane">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetClipPlane">Reference Page</a></p>
 	 * 
 	 * Returns four double-precision values in {@code equation}; these are the coefficients of the plane equation of plane in eye coordinates (these
 	 * coordinates are those that were computed when the plane was specified).
@@ -2494,7 +2494,7 @@ public class GL11 {
 	public static native void nglGetBooleanv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBooleanv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBooleanv">Reference Page</a></p>
 	 * 
 	 * Returns the current boolean value of the specified state variable.
 	 * 
@@ -2512,7 +2512,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBooleanv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBooleanv">Reference Page</a></p>
 	 * 
 	 * Returns the current boolean value of the specified state variable.
 	 * 
@@ -2539,7 +2539,7 @@ public class GL11 {
 	public static native void nglGetFloatv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFloatv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFloatv">Reference Page</a></p>
 	 * 
 	 * Returns the current float value of the specified state variable.
 	 * 
@@ -2557,7 +2557,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFloatv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFloatv">Reference Page</a></p>
 	 * 
 	 * Returns the current float value of the specified state variable.
 	 * 
@@ -2584,7 +2584,7 @@ public class GL11 {
 	public static native void nglGetIntegerv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetIntegerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetIntegerv">Reference Page</a></p>
 	 * 
 	 * Returns the current integer value of the specified state variable.
 	 * 
@@ -2602,7 +2602,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetIntegerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetIntegerv">Reference Page</a></p>
 	 * 
 	 * Returns the current integer value of the specified state variable.
 	 * 
@@ -2629,7 +2629,7 @@ public class GL11 {
 	public static native void nglGetDoublev(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDoublev">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDoublev">Reference Page</a></p>
 	 * 
 	 * Returns the current double value of the specified state variable.
 	 * 
@@ -2647,7 +2647,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDoublev">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDoublev">Reference Page</a></p>
 	 * 
 	 * Returns the current double value of the specified state variable.
 	 * 
@@ -2671,7 +2671,7 @@ public class GL11 {
 	// --- [ glGetError ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetError">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetError">Reference Page</a></p>
 	 * 
 	 * Returns error information. Each detectable error is assigned a numeric code. When an error is detected, a flag is set and the code is recorded. Further
 	 * errors, if they occur, do not affect this recorded code. When {@code GetError} is called, the code is returned and the flag is cleared, so that a
@@ -2686,7 +2686,7 @@ public class GL11 {
 	public static native void nglGetLightiv(int light, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about light parameter {@code pname} for {@code light} in {@code data}.
 	 *
@@ -2701,7 +2701,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about light parameter {@code pname} for {@code light} in {@code data}.
 	 *
@@ -2725,7 +2725,7 @@ public class GL11 {
 	public static native void nglGetLightfv(int light, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetLightiv GetLightiv}.
 	 *
@@ -2740,7 +2740,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetLightiv GetLightiv}.
 	 *
@@ -2764,7 +2764,7 @@ public class GL11 {
 	public static native void nglGetMapiv(int target, int query, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about {@code query} for evaluator map {@code target} in {@code data}.
 	 *
@@ -2779,7 +2779,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about {@code query} for evaluator map {@code target} in {@code data}.
 	 *
@@ -2803,7 +2803,7 @@ public class GL11 {
 	public static native void nglGetMapfv(int target, int query, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetMapiv GetMapiv}.
 	 *
@@ -2818,7 +2818,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetMapiv GetMapiv}.
 	 *
@@ -2842,7 +2842,7 @@ public class GL11 {
 	public static native void nglGetMapdv(int target, int query, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glGetMapiv GetMapiv}.
 	 *
@@ -2857,7 +2857,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glGetMapiv GetMapiv}.
 	 *
@@ -2881,7 +2881,7 @@ public class GL11 {
 	public static native void nglGetMaterialiv(int face, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about material property {@code pname} for {@code face} in {@code data}.
 	 *
@@ -2901,7 +2901,7 @@ public class GL11 {
 	public static native void nglGetMaterialfv(int face, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetMaterialiv GetMaterialiv}.
 	 *
@@ -2921,7 +2921,7 @@ public class GL11 {
 	public static native void nglGetPixelMapfv(int map, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns all float values in the pixel map {@code map} in {@code data}.
 	 *
@@ -2935,7 +2935,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns all float values in the pixel map {@code map} in {@code data}.
 	 *
@@ -2952,7 +2952,7 @@ public class GL11 {
 	public static native void nglGetPixelMapusv(int map, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glGetPixelMapfv GetPixelMapfv}.
 	 *
@@ -2966,7 +2966,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glGetPixelMapfv GetPixelMapfv}.
 	 *
@@ -2983,7 +2983,7 @@ public class GL11 {
 	public static native void nglGetPixelMapuiv(int map, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned integer version of {@link #glGetPixelMapfv GetPixelMapfv}.
 	 *
@@ -2997,7 +2997,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned integer version of {@link #glGetPixelMapfv GetPixelMapfv}.
 	 *
@@ -3014,7 +3014,7 @@ public class GL11 {
 	public static native void nglGetPointerv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetPointerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetPointerv">Reference Page</a></p>
 	 * 
 	 * Returns a pointer in the current GL context.
 	 *
@@ -3028,7 +3028,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetPointerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetPointerv">Reference Page</a></p>
 	 * 
 	 * Returns a pointer in the current GL context.
 	 *
@@ -3051,7 +3051,7 @@ public class GL11 {
 	public static native void nglGetPolygonStipple(long pattern);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Obtains the polygon stipple.
 	 *
@@ -3064,7 +3064,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Obtains the polygon stipple.
 	 *
@@ -3080,7 +3080,7 @@ public class GL11 {
 	public static native long nglGetString(int name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetString">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetString">Reference Page</a></p>
 	 * 
 	 * Return strings describing properties of the current GL context.
 	 *
@@ -3097,7 +3097,7 @@ public class GL11 {
 	public static native void nglGetTexEnviv(int env, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
 	 * 
 	 * Returns integer information about {@code pname} for {@code env} in {@code data}.
 	 *
@@ -3112,7 +3112,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
 	 * 
 	 * Returns integer information about {@code pname} for {@code env} in {@code data}.
 	 *
@@ -3136,7 +3136,7 @@ public class GL11 {
 	public static native void nglGetTexEnvfv(int env, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetTexEnviv GetTexEnviv}.
 	 *
@@ -3151,7 +3151,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetTexEnviv GetTexEnviv}.
 	 *
@@ -3175,7 +3175,7 @@ public class GL11 {
 	public static native void nglGetTexGeniv(int coord, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about {@code pname} for {@code coord} in {@code data}.
 	 *
@@ -3190,7 +3190,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns integer information about {@code pname} for {@code coord} in {@code data}.
 	 *
@@ -3214,7 +3214,7 @@ public class GL11 {
 	public static native void nglGetTexGenfv(int coord, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetTexGeniv GetTexGeniv}.
 	 *
@@ -3229,7 +3229,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glGetTexGeniv GetTexGeniv}.
 	 *
@@ -3253,7 +3253,7 @@ public class GL11 {
 	public static native void nglGetTexGendv(int coord, int pname, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glGetTexGeniv GetTexGeniv}.
 	 *
@@ -3268,7 +3268,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glGetTexGeniv GetTexGeniv}.
 	 *
@@ -3292,7 +3292,7 @@ public class GL11 {
 	public static native void nglGetTexImage(int tex, int level, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Obtains texture images.
 	 *
@@ -3307,7 +3307,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Obtains texture images.
 	 *
@@ -3322,7 +3322,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Obtains texture images.
 	 *
@@ -3337,7 +3337,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Obtains texture images.
 	 *
@@ -3352,7 +3352,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Obtains texture images.
 	 *
@@ -3367,7 +3367,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Obtains texture images.
 	 *
@@ -3387,7 +3387,7 @@ public class GL11 {
 	public static native void nglGetTexLevelParameteriv(int target, int level, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
 	 * 
 	 * Places integer information about texture image parameter {@code pname} for level-of-detail {@code level} of the specified {@code target} into {@code params}.
 	 *
@@ -3403,7 +3403,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
 	 * 
 	 * Places integer information about texture image parameter {@code pname} for level-of-detail {@code level} of the specified {@code target} into {@code params}.
 	 *
@@ -3428,7 +3428,7 @@ public class GL11 {
 	public static native void nglGetTexLevelParameterfv(int target, int level, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv}.
 	 *
@@ -3444,7 +3444,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv}.
 	 *
@@ -3469,7 +3469,7 @@ public class GL11 {
 	public static native void nglGetTexParameteriv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Place integer information about texture parameter {@code pname} for the specified {@code target} into {@code params}.
 	 *
@@ -3484,7 +3484,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Place integer information about texture parameter {@code pname} for the specified {@code target} into {@code params}.
 	 *
@@ -3508,7 +3508,7 @@ public class GL11 {
 	public static native void nglGetTexParameterfv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetTexParameteriv GetTexParameteriv}.
 	 *
@@ -3523,7 +3523,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetTexParameteriv GetTexParameteriv}.
 	 *
@@ -3544,7 +3544,7 @@ public class GL11 {
 	// --- [ glHint ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glHint">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glHint">Reference Page</a></p>
 	 * 
 	 * Certain aspects of GL behavior, when there is room for variation, may be controlled with this function. The initial value for all hints is
 	 * {@link #GL_DONT_CARE DONT_CARE}.
@@ -3557,7 +3557,7 @@ public class GL11 {
 	// --- [ glIndexi ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexi">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexi">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Updates the current (single-valued) color index.
 	 *
@@ -3568,7 +3568,7 @@ public class GL11 {
 	// --- [ glIndexub ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexub">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexub">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned byte version of {@link #glIndexi Indexi}.
 	 *
@@ -3579,7 +3579,7 @@ public class GL11 {
 	// --- [ glIndexs ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexs">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexs">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glIndexi Indexi}.
 	 *
@@ -3590,7 +3590,7 @@ public class GL11 {
 	// --- [ glIndexf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glIndexi Indexi}.
 	 *
@@ -3601,7 +3601,7 @@ public class GL11 {
 	// --- [ glIndexd ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glIndexi Indexi}.
 	 *
@@ -3615,7 +3615,7 @@ public class GL11 {
 	public static native void nglIndexiv(long index);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glIndexi Indexi}
 	 *
@@ -3633,7 +3633,7 @@ public class GL11 {
 	public static native void nglIndexubv(long index);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glIndexub Indexub}.
 	 *
@@ -3651,7 +3651,7 @@ public class GL11 {
 	public static native void nglIndexsv(long index);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glIndexs Indexs}.
 	 *
@@ -3669,7 +3669,7 @@ public class GL11 {
 	public static native void nglIndexfv(long index);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glIndexf Indexf}.
 	 *
@@ -3687,7 +3687,7 @@ public class GL11 {
 	public static native void nglIndexdv(long index);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glIndexd Indexd}.
 	 *
@@ -3702,7 +3702,7 @@ public class GL11 {
 	// --- [ glIndexMask ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexMask">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexMask">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * The least significant n bits of mask, where n is the number of bits in a color index buffer, specify a mask. Where a 1 appears in this mask, the
 	 * corresponding bit in the color index buffer (or buffers) is written; where a 0 appears, the bit is not written. This mask applies only in color index
@@ -3722,7 +3722,7 @@ public class GL11 {
 	public static native void nglIndexPointer(int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color index array.
 	 *
@@ -3735,7 +3735,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color index array.
 	 *
@@ -3748,7 +3748,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color index array.
 	 *
@@ -3760,7 +3760,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color index array.
 	 *
@@ -3772,7 +3772,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a color index array.
 	 *
@@ -3786,7 +3786,7 @@ public class GL11 {
 	// --- [ glInitNames ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glInitNames">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glInitNames">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Clears the selection name stack.
 	 */
@@ -3798,7 +3798,7 @@ public class GL11 {
 	public static native void nglInterleavedArrays(int format, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -3811,7 +3811,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -3824,7 +3824,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -3837,7 +3837,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -3850,7 +3850,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -3863,7 +3863,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -3878,7 +3878,7 @@ public class GL11 {
 	// --- [ glIsEnabled ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsEnabled">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsEnabled">Reference Page</a></p>
 	 * 
 	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable Enable}) or disabled.
 	 *
@@ -3889,7 +3889,7 @@ public class GL11 {
 	// --- [ glIsList ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIsList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIsList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Returns true if the {@code list} is the index of some display list.
 	 *
@@ -3900,7 +3900,7 @@ public class GL11 {
 	// --- [ glIsTexture ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsTexture">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsTexture">Reference Page</a></p>
 	 * 
 	 * Returns true if {@code texture} is the name of a texture object.
 	 *
@@ -3911,7 +3911,7 @@ public class GL11 {
 	// --- [ glLightModeli ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightModeli">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightModeli">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Set the integer value of a lighting model parameter.
 	 *
@@ -3923,7 +3923,7 @@ public class GL11 {
 	// --- [ glLightModelf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightModelf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightModelf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glLightModeli LightModeli}.
 	 *
@@ -3938,7 +3938,7 @@ public class GL11 {
 	public static native void nglLightModeliv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glLightModeli LightModeli}.
 	 *
@@ -3957,7 +3957,7 @@ public class GL11 {
 	public static native void nglLightModelfv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glLightModelf LightModelf}.
 	 *
@@ -3973,7 +3973,7 @@ public class GL11 {
 	// --- [ glLighti ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLighti">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLighti">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the integer value of a light parameter.
 	 *
@@ -3986,7 +3986,7 @@ public class GL11 {
 	// --- [ glLightf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glLighti Lighti}.
 	 *
@@ -4002,7 +4002,7 @@ public class GL11 {
 	public static native void nglLightiv(int light, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glLighti Lighti}.
 	 *
@@ -4022,7 +4022,7 @@ public class GL11 {
 	public static native void nglLightfv(int light, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glLightf Lightf}.
 	 *
@@ -4039,7 +4039,7 @@ public class GL11 {
 	// --- [ glLineStipple ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLineStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLineStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Defines a line stipple. It determines those fragments that are to be drawn when the line is rasterized. Line stippling may be enabled or disabled using
 	 * {@link #glEnable Enable} or {@link #glDisable Disable} with the constant {@link #GL_LINE_STIPPLE LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
@@ -4053,7 +4053,7 @@ public class GL11 {
 	// --- [ glLineWidth ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glLineWidth">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glLineWidth">Reference Page</a></p>
 	 * 
 	 * Sets the width of rasterized line segments. The default width is 1.0.
 	 *
@@ -4064,7 +4064,7 @@ public class GL11 {
 	// --- [ glListBase ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glListBase">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glListBase">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the display list base.
 	 *
@@ -4078,7 +4078,7 @@ public class GL11 {
 	public static native void nglLoadMatrixf(long m);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLoadMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLoadMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current matrix to a 4 &times; 4 matrix in column-major order.
 	 * 
@@ -4108,7 +4108,7 @@ public class GL11 {
 	public static native void nglLoadMatrixd(long m);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLoadMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLoadMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glLoadMatrixf LoadMatrixf}.
 	 *
@@ -4123,7 +4123,7 @@ public class GL11 {
 	// --- [ glLoadIdentity ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLoadIdentity">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLoadIdentity">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current matrix to the identity matrix.
 	 * 
@@ -4141,7 +4141,7 @@ public class GL11 {
 	// --- [ glLoadName ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLoadName">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLoadName">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Replaces the value on the top of the selection stack with {@code name}.
 	 *
@@ -4152,7 +4152,7 @@ public class GL11 {
 	// --- [ glLogicOp ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glLogicOp">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glLogicOp">Reference Page</a></p>
 	 * 
 	 * Sets the logical framebuffer operation.
 	 *
@@ -4166,7 +4166,7 @@ public class GL11 {
 	public static native void nglMap1f(int target, float u1, float u2, int stride, int order, long points);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Defines a polynomial or rational polynomial mapping to produce vertex, normal, texture coordinates and colors. The values so produced are sent on to
 	 * further stages of the GL as if they had been provided directly by the client.
@@ -4190,7 +4190,7 @@ public class GL11 {
 	public static native void nglMap1d(int target, double u1, double u2, int stride, int order, long points);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glMap1f Map1f}.
 	 *
@@ -4213,7 +4213,7 @@ public class GL11 {
 	public static native void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Bivariate version of {@link #glMap1f Map1f}.
 	 *
@@ -4240,7 +4240,7 @@ public class GL11 {
 	public static native void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glMap2f Map2f}.
 	 *
@@ -4264,7 +4264,7 @@ public class GL11 {
 	// --- [ glMapGrid1f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Defines a one-dimensional grid in the map evaluator domain.
 	 *
@@ -4277,7 +4277,7 @@ public class GL11 {
 	// --- [ glMapGrid1d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glMapGrid1f MapGrid1f}.
 	 *
@@ -4290,7 +4290,7 @@ public class GL11 {
 	// --- [ glMapGrid2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Defines a two-dimensional grid in the map evaluator domain.
 	 *
@@ -4306,7 +4306,7 @@ public class GL11 {
 	// --- [ glMapGrid2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMapGrid">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glMapGrid2f MapGrid2f}.
 	 *
@@ -4322,7 +4322,7 @@ public class GL11 {
 	// --- [ glMateriali ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMateriali">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMateriali">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the integer value of a material parameter.
 	 *
@@ -4335,7 +4335,7 @@ public class GL11 {
 	// --- [ glMaterialf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMaterialf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMaterialf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glMateriali Materiali}.
 	 *
@@ -4351,7 +4351,7 @@ public class GL11 {
 	public static native void nglMaterialiv(int face, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMateriali Materiali}.
 	 *
@@ -4371,7 +4371,7 @@ public class GL11 {
 	public static native void nglMaterialfv(int face, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMaterialf Materialf}.
 	 *
@@ -4388,7 +4388,7 @@ public class GL11 {
 	// --- [ glMatrixMode ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMatrixMode">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMatrixMode">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Set the current matrix mode.
 	 *
@@ -4402,7 +4402,7 @@ public class GL11 {
 	public static native void nglMultMatrixf(long m);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf LoadMatrixf} for details.
 	 *
@@ -4420,7 +4420,7 @@ public class GL11 {
 	public static native void nglMultMatrixd(long m);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glMultMatrixf MultMatrixf}.
 	 *
@@ -4435,7 +4435,7 @@ public class GL11 {
 	// --- [ glFrustum ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFrustum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFrustum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
 	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
@@ -4463,7 +4463,7 @@ public class GL11 {
 	// --- [ glNewList ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNewList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNewList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Begins the definition of a display list.
 	 *
@@ -4475,7 +4475,7 @@ public class GL11 {
 	// --- [ glEndList ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEndList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEndList">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Ends the definition of GL commands to be placed in a display list. It is only when {@code EndList} occurs that the specified display list is actually
 	 * associated with the index indicated with {@link #glNewList NewList}.
@@ -4485,7 +4485,7 @@ public class GL11 {
 	// --- [ glNormal3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current normal.
 	 *
@@ -4498,7 +4498,7 @@ public class GL11 {
 	// --- [ glNormal3b ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Byte version of {@link #glNormal3f Normal3f}.
 	 *
@@ -4511,7 +4511,7 @@ public class GL11 {
 	// --- [ glNormal3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glNormal3f Normal3f}.
 	 *
@@ -4524,7 +4524,7 @@ public class GL11 {
 	// --- [ glNormal3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glNormal3f Normal3f}.
 	 *
@@ -4537,7 +4537,7 @@ public class GL11 {
 	// --- [ glNormal3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glNormal3f Normal3f}.
 	 *
@@ -4553,7 +4553,7 @@ public class GL11 {
 	public static native void nglNormal3fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glNormal3f Normal3f}.
 	 *
@@ -4571,7 +4571,7 @@ public class GL11 {
 	public static native void nglNormal3bv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glNormal3b Normal3b}.
 	 *
@@ -4589,7 +4589,7 @@ public class GL11 {
 	public static native void nglNormal3sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glNormal3s Normal3s}.
 	 *
@@ -4607,7 +4607,7 @@ public class GL11 {
 	public static native void nglNormal3iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glNormal3i Normal3i}.
 	 *
@@ -4625,7 +4625,7 @@ public class GL11 {
 	public static native void nglNormal3dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glNormal3d Normal3d}.
 	 *
@@ -4643,7 +4643,7 @@ public class GL11 {
 	public static native void nglNormalPointer(int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a normal array.
 	 *
@@ -4656,7 +4656,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a normal array.
 	 *
@@ -4669,7 +4669,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a normal array.
 	 *
@@ -4682,7 +4682,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a normal array.
 	 *
@@ -4695,7 +4695,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormalPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a normal array.
 	 *
@@ -4710,7 +4710,7 @@ public class GL11 {
 	// --- [ glOrtho ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glOrtho">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glOrtho">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
 	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
@@ -4738,7 +4738,7 @@ public class GL11 {
 	// --- [ glPassThrough ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPassThrough">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPassThrough">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Inserts a marker when the GL is in feeback mode. {@code token} is returned as if it were a primitive; it is indicated with its own unique identifying
 	 * value. The ordering of any {@code PassThrough} commands with respect to primitive specification is maintained by feedback. {@code PassThrough} may
@@ -4758,7 +4758,7 @@ public class GL11 {
 	public static native void nglPixelMapfv(int map, int size, long values);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets a pixel map lookup table.
 	 *
@@ -4771,7 +4771,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets a pixel map lookup table.
 	 *
@@ -4792,7 +4792,7 @@ public class GL11 {
 	public static native void nglPixelMapusv(int map, int size, long values);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glPixelMapfv PixelMapfv}.
 	 *
@@ -4805,7 +4805,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glPixelMapfv PixelMapfv}.
 	 *
@@ -4826,7 +4826,7 @@ public class GL11 {
 	public static native void nglPixelMapuiv(int map, int size, long values);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned integer version of {@link #glPixelMapfv PixelMapfv}.
 	 *
@@ -4839,7 +4839,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned integer version of {@link #glPixelMapfv PixelMapfv}.
 	 *
@@ -4853,7 +4853,7 @@ public class GL11 {
 	// --- [ glPixelStorei ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPixelStorei">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPixelStorei">Reference Page</a></p>
 	 * 
 	 * Sets the integer value of a pixel store parameter.
 	 *
@@ -4865,7 +4865,7 @@ public class GL11 {
 	// --- [ glPixelStoref ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPixelStoref">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPixelStoref">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glPixelStorei PixelStorei}.
 	 *
@@ -4877,7 +4877,7 @@ public class GL11 {
 	// --- [ glPixelTransferi ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelTransferi">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelTransferi">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the integer value of a pixel transfer parameter.
 	 *
@@ -4889,7 +4889,7 @@ public class GL11 {
 	// --- [ glPixelTransferf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelTransferf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelTransferf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glPixelTransferi PixelTransferi}.
 	 *
@@ -4901,7 +4901,7 @@ public class GL11 {
 	// --- [ glPixelZoom ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelZoom">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelZoom">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Controls the conversion of a group of fragments.
 	 * 
@@ -4921,7 +4921,7 @@ public class GL11 {
 	// --- [ glPointSize ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointSize">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointSize">Reference Page</a></p>
 	 * 
 	 * Controls the rasterization of points if no vertex, tessellation control, tessellation evaluation, or geometry shader is active. The default point size is 1.0.
 	 *
@@ -4932,7 +4932,7 @@ public class GL11 {
 	// --- [ glPolygonMode ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPolygonMode">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPolygonMode">Reference Page</a></p>
 	 * 
 	 * Controls the interpretation of polygons for rasterization.
 	 * 
@@ -4948,7 +4948,7 @@ public class GL11 {
 	// --- [ glPolygonOffset ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPolygonOffset">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPolygonOffset">Reference Page</a></p>
 	 * 
 	 * The depth values of all fragments generated by the rasterization of a polygon may be offset by a single value that is computed for that polygon. This
 	 * function determines that value.
@@ -4967,7 +4967,7 @@ public class GL11 {
 	public static native void nglPolygonStipple(long pattern);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple LineStipple}, masking out certain fragments produced by rasterization so that they
 	 * are not sent to the next stage of the GL. This is the case regardless of the state of polygon antialiasing.
@@ -4987,7 +4987,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPolygonStipple">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple LineStipple}, masking out certain fragments produced by rasterization so that they
 	 * are not sent to the next stage of the GL. This is the case regardless of the state of polygon antialiasing.
@@ -5007,7 +5007,7 @@ public class GL11 {
 	// --- [ glPushAttrib ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPushAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPushAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Takes a bitwise OR of symbolic constants indicating which groups of state variables to push onto the server attribute stack. Each constant refers to a
 	 * group of state variables.
@@ -5025,7 +5025,7 @@ public class GL11 {
 	// --- [ glPushClientAttrib ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPushClientAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPushClientAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Takes a bitwise OR of symbolic constants indicating which groups of state variables to push onto the client attribute stack. Each constant refers to a
 	 * group of state variables.
@@ -5043,7 +5043,7 @@ public class GL11 {
 	// --- [ glPopAttrib ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPopAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPopAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib PushAttrib}. Those not saved remain unchanged.
 	 */
@@ -5052,7 +5052,7 @@ public class GL11 {
 	// --- [ glPopClientAttrib ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPopClientAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPopClientAttrib">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib PushClientAttrib}. Those not saved remain unchanged.
 	 */
@@ -5061,7 +5061,7 @@ public class GL11 {
 	// --- [ glPopMatrix ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPopMatrix">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPopMatrix">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pops the top entry off the current matrix stack, replacing the current matrix with the matrix that was the second entry in the stack.
 	 */
@@ -5070,7 +5070,7 @@ public class GL11 {
 	// --- [ glPopName ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPopName">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPopName">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pops one name off the top of the selection name stack.
 	 */
@@ -5086,7 +5086,7 @@ public class GL11 {
 	public static native void nglPrioritizeTextures(int n, long textures, long priorities);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPrioritizeTextures">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPrioritizeTextures">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the priority of texture objects. Each priority value is clamped to the range [0, 1] before it is assigned. Zero indicates the lowest priority, with
 	 * the least likelihood of being resident. One indicates the highest priority, with the greatest likelihood of being resident.
@@ -5103,7 +5103,7 @@ public class GL11 {
 	// --- [ glPushMatrix ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPushMatrix">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPushMatrix">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pushes the current matrix stack down by one, duplicating the current matrix in both the top of the stack and the entry below it.
 	 */
@@ -5112,7 +5112,7 @@ public class GL11 {
 	// --- [ glPushName ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPushName">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPushName">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Causes {@code name} to be pushed onto the selection name stack.
 	 *
@@ -5123,7 +5123,7 @@ public class GL11 {
 	// --- [ glRasterPos2i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the two-dimensional current raster position. {@code z} is implicitly set to 0 and {@code w} implicitly set to 1.
 	 * 
@@ -5141,7 +5141,7 @@ public class GL11 {
 	// --- [ glRasterPos2s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -5153,7 +5153,7 @@ public class GL11 {
 	// --- [ glRasterPos2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -5165,7 +5165,7 @@ public class GL11 {
 	// --- [ glRasterPos2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -5180,7 +5180,7 @@ public class GL11 {
 	public static native void nglRasterPos2iv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -5198,7 +5198,7 @@ public class GL11 {
 	public static native void nglRasterPos2sv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos2s RasterPos2s}.
 	 *
@@ -5216,7 +5216,7 @@ public class GL11 {
 	public static native void nglRasterPos2fv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos2f RasterPos2f}.
 	 *
@@ -5234,7 +5234,7 @@ public class GL11 {
 	public static native void nglRasterPos2dv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos2d RasterPos2d}.
 	 *
@@ -5249,7 +5249,7 @@ public class GL11 {
 	// --- [ glRasterPos3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
@@ -5262,7 +5262,7 @@ public class GL11 {
 	// --- [ glRasterPos3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -5275,7 +5275,7 @@ public class GL11 {
 	// --- [ glRasterPos3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -5288,7 +5288,7 @@ public class GL11 {
 	// --- [ glRasterPos3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -5304,7 +5304,7 @@ public class GL11 {
 	public static native void nglRasterPos3iv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -5322,7 +5322,7 @@ public class GL11 {
 	public static native void nglRasterPos3sv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos3s RasterPos3s}.
 	 *
@@ -5340,7 +5340,7 @@ public class GL11 {
 	public static native void nglRasterPos3fv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos3f RasterPos3f}.
 	 *
@@ -5358,7 +5358,7 @@ public class GL11 {
 	public static native void nglRasterPos3dv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos3d RasterPos3d}.
 	 *
@@ -5373,7 +5373,7 @@ public class GL11 {
 	// --- [ glRasterPos4i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
@@ -5387,7 +5387,7 @@ public class GL11 {
 	// --- [ glRasterPos4s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glRasterPos4i RasterPos4i}.
 	 *
@@ -5401,7 +5401,7 @@ public class GL11 {
 	// --- [ glRasterPos4f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of RasterPos4i.
 	 *
@@ -5415,7 +5415,7 @@ public class GL11 {
 	// --- [ glRasterPos4d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glRasterPos4i RasterPos4i}.
 	 *
@@ -5432,7 +5432,7 @@ public class GL11 {
 	public static native void nglRasterPos4iv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos4i RasterPos4i}.
 	 *
@@ -5450,7 +5450,7 @@ public class GL11 {
 	public static native void nglRasterPos4sv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos4s RasterPos4s}.
 	 *
@@ -5468,7 +5468,7 @@ public class GL11 {
 	public static native void nglRasterPos4fv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos4f RasterPos4f}.
 	 *
@@ -5486,7 +5486,7 @@ public class GL11 {
 	public static native void nglRasterPos4dv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRasterPos4d RasterPos4d}.
 	 *
@@ -5501,7 +5501,7 @@ public class GL11 {
 	// --- [ glReadBuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadBuffer">Reference Page</a></p>
 	 * 
 	 * Defines the color buffer from which values are obtained.
 	 * 
@@ -5518,7 +5518,7 @@ public class GL11 {
 	public static native void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
 	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
@@ -5539,7 +5539,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
 	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
@@ -5560,7 +5560,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
 	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
@@ -5581,7 +5581,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
 	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
@@ -5602,7 +5602,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
 	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
@@ -5625,7 +5625,7 @@ public class GL11 {
 	// --- [ glRecti ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRecti">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRecti">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies a rectangle as two corner vertices. The effect of the Rect command
 	 * 
@@ -5652,7 +5652,7 @@ public class GL11 {
 	// --- [ glRects ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRects">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRects">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glRecti Recti}.
 	 *
@@ -5666,7 +5666,7 @@ public class GL11 {
 	// --- [ glRectf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRectf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRectf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glRecti Recti}.
 	 *
@@ -5680,7 +5680,7 @@ public class GL11 {
 	// --- [ glRectd ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRectd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRectd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glRecti Recti}.
 	 *
@@ -5697,7 +5697,7 @@ public class GL11 {
 	public static native void nglRectiv(long v1, long v2);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRecti Recti}.
 	 *
@@ -5718,7 +5718,7 @@ public class GL11 {
 	public static native void nglRectsv(long v1, long v2);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRects Rects}.
 	 *
@@ -5739,7 +5739,7 @@ public class GL11 {
 	public static native void nglRectfv(long v1, long v2);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRectf Rectf}.
 	 *
@@ -5760,7 +5760,7 @@ public class GL11 {
 	public static native void nglRectdv(long v1, long v2);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glRectd Rectd}.
 	 *
@@ -5778,7 +5778,7 @@ public class GL11 {
 	// --- [ glRenderMode ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRenderMode">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRenderMode">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current render mode. The default is {@link #GL_RENDER RENDER}.
 	 *
@@ -5789,7 +5789,7 @@ public class GL11 {
 	// --- [ glRotatef ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRotatef">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRotatef">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Manipulates the current matrix with a rotation matrix.
 	 * 
@@ -5824,7 +5824,7 @@ public class GL11 {
 	// --- [ glRotated ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRotated">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRotated">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glRotatef Rotatef}.
 	 *
@@ -5838,7 +5838,7 @@ public class GL11 {
 	// --- [ glScalef ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glScalef">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glScalef">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * 
@@ -5860,7 +5860,7 @@ public class GL11 {
 	// --- [ glScaled ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glScaled">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glScaled">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glScalef Scalef}.
 	 *
@@ -5873,7 +5873,7 @@ public class GL11 {
 	// --- [ glScissor ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glScissor">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glScissor">Reference Page</a></p>
 	 * 
 	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
@@ -5897,7 +5897,7 @@ public class GL11 {
 	public static native void nglSelectBuffer(int size, long buffer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSelectBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSelectBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the selection array.
 	 *
@@ -5910,7 +5910,7 @@ public class GL11 {
 	// --- [ glShadeModel ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glShadeModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glShadeModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current shade mode. The initial value of the shade mode is {@link #GL_SMOOTH SMOOTH}.
 	 * 
@@ -5925,7 +5925,7 @@ public class GL11 {
 	// --- [ glStencilFunc ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glStencilFunc">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glStencilFunc">Reference Page</a></p>
 	 * 
 	 * Controls the stencil test.
 	 * 
@@ -5943,7 +5943,7 @@ public class GL11 {
 	// --- [ glStencilMask ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glStencilMask">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glStencilMask">Reference Page</a></p>
 	 * 
 	 * Masks the writing of particular bits into the stencil plans.
 	 * 
@@ -5957,7 +5957,7 @@ public class GL11 {
 	// --- [ glStencilOp ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glStencilOp">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glStencilOp">Reference Page</a></p>
 	 * 
 	 * Indicates what happens to the stored stencil value if this or certain subsequent tests fail or pass.
 	 * 
@@ -5978,7 +5978,7 @@ public class GL11 {
 	// --- [ glTexCoord1f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current one-dimensional texture coordinate. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
@@ -5989,7 +5989,7 @@ public class GL11 {
 	// --- [ glTexCoord1s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -6000,7 +6000,7 @@ public class GL11 {
 	// --- [ glTexCoord1i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -6011,7 +6011,7 @@ public class GL11 {
 	// --- [ glTexCoord1d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -6025,7 +6025,7 @@ public class GL11 {
 	public static native void nglTexCoord1fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -6043,7 +6043,7 @@ public class GL11 {
 	public static native void nglTexCoord1sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord1s TexCoord1s}.
 	 *
@@ -6061,7 +6061,7 @@ public class GL11 {
 	public static native void nglTexCoord1iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord1i TexCoord1i}.
 	 *
@@ -6079,7 +6079,7 @@ public class GL11 {
 	public static native void nglTexCoord1dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord1d TexCoord1d}.
 	 *
@@ -6094,7 +6094,7 @@ public class GL11 {
 	// --- [ glTexCoord2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current two-dimensional texture coordinate. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
@@ -6106,7 +6106,7 @@ public class GL11 {
 	// --- [ glTexCoord2s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -6118,7 +6118,7 @@ public class GL11 {
 	// --- [ glTexCoord2i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -6130,7 +6130,7 @@ public class GL11 {
 	// --- [ glTexCoord2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -6145,7 +6145,7 @@ public class GL11 {
 	public static native void nglTexCoord2fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -6163,7 +6163,7 @@ public class GL11 {
 	public static native void nglTexCoord2sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord2s TexCoord2s}.
 	 *
@@ -6181,7 +6181,7 @@ public class GL11 {
 	public static native void nglTexCoord2iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord2i TexCoord2i}.
 	 *
@@ -6199,7 +6199,7 @@ public class GL11 {
 	public static native void nglTexCoord2dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord2d TexCoord2d}.
 	 *
@@ -6214,7 +6214,7 @@ public class GL11 {
 	// --- [ glTexCoord3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current three-dimensional texture coordinate. {@code q} is implicitly set to 1.
 	 *
@@ -6227,7 +6227,7 @@ public class GL11 {
 	// --- [ glTexCoord3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -6240,7 +6240,7 @@ public class GL11 {
 	// --- [ glTexCoord3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -6253,7 +6253,7 @@ public class GL11 {
 	// --- [ glTexCoord3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -6269,7 +6269,7 @@ public class GL11 {
 	public static native void nglTexCoord3fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -6287,7 +6287,7 @@ public class GL11 {
 	public static native void nglTexCoord3sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord3s TexCoord3s}.
 	 *
@@ -6305,7 +6305,7 @@ public class GL11 {
 	public static native void nglTexCoord3iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord3i TexCoord3i}.
 	 *
@@ -6323,7 +6323,7 @@ public class GL11 {
 	public static native void nglTexCoord3dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord3d TexCoord3d}.
 	 *
@@ -6338,7 +6338,7 @@ public class GL11 {
 	// --- [ glTexCoord4f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current four-dimensional texture coordinate.
 	 *
@@ -6352,7 +6352,7 @@ public class GL11 {
 	// --- [ glTexCoord4s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -6366,7 +6366,7 @@ public class GL11 {
 	// --- [ glTexCoord4i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -6380,7 +6380,7 @@ public class GL11 {
 	// --- [ glTexCoord4d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -6397,7 +6397,7 @@ public class GL11 {
 	public static native void nglTexCoord4fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -6415,7 +6415,7 @@ public class GL11 {
 	public static native void nglTexCoord4sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord4s TexCoord4s}.
 	 *
@@ -6433,7 +6433,7 @@ public class GL11 {
 	public static native void nglTexCoord4iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord4i TexCoord4i}.
 	 *
@@ -6451,7 +6451,7 @@ public class GL11 {
 	public static native void nglTexCoord4dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoord4d TexCoord4d}.
 	 *
@@ -6469,7 +6469,7 @@ public class GL11 {
 	public static native void nglTexCoordPointer(int size, int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a texture coordinate array.
 	 *
@@ -6483,7 +6483,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a texture coordinate array.
 	 *
@@ -6497,7 +6497,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a texture coordinate array.
 	 *
@@ -6511,7 +6511,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a texture coordinate array.
 	 *
@@ -6525,7 +6525,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a texture coordinate array.
 	 *
@@ -6541,7 +6541,7 @@ public class GL11 {
 	// --- [ glTexEnvi ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexEnvi">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexEnvi">Reference Page</a></p>
 	 * 
 	 * Sets parameters of the texture environment that specifies how texture values are interpreted when texturing a fragment, or sets per-texture-unit
 	 * filtering parameters.
@@ -6558,7 +6558,7 @@ public class GL11 {
 	public static native void nglTexEnviv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glTexEnvi TexEnvi}.
 	 *
@@ -6575,7 +6575,7 @@ public class GL11 {
 	// --- [ glTexEnvf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexEnvf">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexEnvf">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glTexEnvi TexEnvi}.
 	 *
@@ -6591,7 +6591,7 @@ public class GL11 {
 	public static native void nglTexEnvfv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glTexEnvf TexEnvf}.
 	 *
@@ -6608,7 +6608,7 @@ public class GL11 {
 	// --- [ glTexGeni ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGeni">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGeni">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets an integer texture coordinate generation parameter.
 	 * 
@@ -6632,7 +6632,7 @@ public class GL11 {
 	public static native void nglTexGeniv(int coord, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexGeni TexGeni}.
 	 *
@@ -6649,7 +6649,7 @@ public class GL11 {
 	// --- [ glTexGenf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGenf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGenf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glTexGeni TexGeni}.
 	 *
@@ -6665,7 +6665,7 @@ public class GL11 {
 	public static native void nglTexGenfv(int coord, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexGenf TexGenf}.
 	 *
@@ -6682,7 +6682,7 @@ public class GL11 {
 	// --- [ glTexGend ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGend">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGend">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glTexGeni TexGeni}.
 	 *
@@ -6698,7 +6698,7 @@ public class GL11 {
 	public static native void nglTexGendv(int coord, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexGend TexGend}.
 	 *
@@ -6718,7 +6718,7 @@ public class GL11 {
 	public static native void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -6737,7 +6737,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -6756,7 +6756,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -6775,7 +6775,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -6794,7 +6794,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -6813,7 +6813,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -6837,7 +6837,7 @@ public class GL11 {
 	public static native void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -6855,7 +6855,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -6873,7 +6873,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -6891,7 +6891,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -6909,7 +6909,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -6927,7 +6927,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -6947,7 +6947,7 @@ public class GL11 {
 	// --- [ glCopyTexImage2D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyTexImage2D">Reference Page</a></p>
 	 * 
 	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D TexImage2D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory.
@@ -6979,7 +6979,7 @@ public class GL11 {
 	// --- [ glCopyTexImage1D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyTexImage1D">Reference Page</a></p>
 	 * 
 	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D TexImage1D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D CopyTexImage2D}
@@ -7000,7 +7000,7 @@ public class GL11 {
 	// --- [ glCopyTexSubImage1D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width} or {@code border}
 	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D CopyTexImage1D} for more
@@ -7018,7 +7018,7 @@ public class GL11 {
 	// --- [ glCopyTexSubImage2D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width}, {@code height},
 	 * or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
@@ -7038,7 +7038,7 @@ public class GL11 {
 	// --- [ glTexParameteri ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameteri">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameteri">Reference Page</a></p>
 	 * 
 	 * Sets the integer value of a texture parameter, which controls how the texel array is treated when specified or changed, and when applied to a fragment.
 	 *
@@ -7054,7 +7054,7 @@ public class GL11 {
 	public static native void nglTexParameteriv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glTexParameteri TexParameteri}.
 	 *
@@ -7071,7 +7071,7 @@ public class GL11 {
 	// --- [ glTexParameterf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameterf">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameterf">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glTexParameteri TexParameteri}.
 	 *
@@ -7087,7 +7087,7 @@ public class GL11 {
 	public static native void nglTexParameterfv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glTexParameterf TexParameterf}.
 	 *
@@ -7107,7 +7107,7 @@ public class GL11 {
 	public static native void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -7124,7 +7124,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -7141,7 +7141,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -7158,7 +7158,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -7175,7 +7175,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -7192,7 +7192,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -7214,7 +7214,7 @@ public class GL11 {
 	public static native void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -7234,7 +7234,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -7254,7 +7254,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -7274,7 +7274,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -7294,7 +7294,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -7314,7 +7314,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -7336,7 +7336,7 @@ public class GL11 {
 	// --- [ glTranslatef ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTranslatef">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTranslatef">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * 
@@ -7358,7 +7358,7 @@ public class GL11 {
 	// --- [ glTranslated ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTranslated">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTranslated">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glTranslatef Translatef}.
 	 *
@@ -7371,7 +7371,7 @@ public class GL11 {
 	// --- [ glVertex2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in two dimensions. The z coordinate is implicitly set
 	 * to zero and the w coordinate to one.
@@ -7384,7 +7384,7 @@ public class GL11 {
 	// --- [ glVertex2s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -7396,7 +7396,7 @@ public class GL11 {
 	// --- [ glVertex2i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -7408,7 +7408,7 @@ public class GL11 {
 	// --- [ glVertex2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -7423,7 +7423,7 @@ public class GL11 {
 	public static native void nglVertex2fv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -7441,7 +7441,7 @@ public class GL11 {
 	public static native void nglVertex2sv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex2s Vertex2s}.
 	 *
@@ -7459,7 +7459,7 @@ public class GL11 {
 	public static native void nglVertex2iv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex2i Vertex2i}.
 	 *
@@ -7477,7 +7477,7 @@ public class GL11 {
 	public static native void nglVertex2dv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex2d Vertex2d}.
 	 *
@@ -7492,7 +7492,7 @@ public class GL11 {
 	// --- [ glVertex3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in three dimensions. The w coordinate is implicitly set
 	 * to one.
@@ -7506,7 +7506,7 @@ public class GL11 {
 	// --- [ glVertex3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -7519,7 +7519,7 @@ public class GL11 {
 	// --- [ glVertex3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -7532,7 +7532,7 @@ public class GL11 {
 	// --- [ glVertex3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -7548,7 +7548,7 @@ public class GL11 {
 	public static native void nglVertex3fv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -7566,7 +7566,7 @@ public class GL11 {
 	public static native void nglVertex3sv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex3s Vertex3s}.
 	 *
@@ -7584,7 +7584,7 @@ public class GL11 {
 	public static native void nglVertex3iv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex3i Vertex3i}.
 	 *
@@ -7602,7 +7602,7 @@ public class GL11 {
 	public static native void nglVertex3dv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex3d Vertex3d}.
 	 *
@@ -7617,7 +7617,7 @@ public class GL11 {
 	// --- [ glVertex4f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in four dimensions.
 	 *
@@ -7631,7 +7631,7 @@ public class GL11 {
 	// --- [ glVertex4s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -7645,7 +7645,7 @@ public class GL11 {
 	// --- [ glVertex4i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -7659,7 +7659,7 @@ public class GL11 {
 	// --- [ glVertex4d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -7676,7 +7676,7 @@ public class GL11 {
 	public static native void nglVertex4fv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -7694,7 +7694,7 @@ public class GL11 {
 	public static native void nglVertex4sv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex4s Vertex4s}.
 	 *
@@ -7712,7 +7712,7 @@ public class GL11 {
 	public static native void nglVertex4iv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex4i Vertex4i}.
 	 *
@@ -7730,7 +7730,7 @@ public class GL11 {
 	public static native void nglVertex4dv(long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertex4d Vertex4d}.
 	 *
@@ -7748,7 +7748,7 @@ public class GL11 {
 	public static native void nglVertexPointer(int size, int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a vertex array.
 	 *
@@ -7762,7 +7762,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a vertex array.
 	 *
@@ -7776,7 +7776,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a vertex array.
 	 *
@@ -7790,7 +7790,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a vertex array.
 	 *
@@ -7804,7 +7804,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertexPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a vertex array.
 	 *
@@ -7820,7 +7820,7 @@ public class GL11 {
 	// --- [ glViewport ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glViewport">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glViewport">Reference Page</a></p>
 	 * 
 	 * Specifies the viewport transformation parameters for all viewports.
 	 * 
@@ -7843,7 +7843,7 @@ public class GL11 {
 	public static native void glViewport(int x, int y, int w, int h);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glAreTexturesResident">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glAreTexturesResident">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glAreTexturesResident AreTexturesResident}
 	 */
@@ -7857,7 +7857,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClipPlane">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClipPlane">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glClipPlane ClipPlane}
 	 */
@@ -7869,7 +7869,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor3sv Color3sv}
 	 */
@@ -7883,7 +7883,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor3iv Color3iv}
 	 */
@@ -7897,7 +7897,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor3fv Color3fv}
 	 */
@@ -7911,7 +7911,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor3dv Color3dv}
 	 */
@@ -7925,7 +7925,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor3usv Color3usv}
 	 */
@@ -7939,7 +7939,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor3uiv Color3uiv}
 	 */
@@ -7953,7 +7953,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor4sv Color4sv}
 	 */
@@ -7967,7 +7967,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor4iv Color4iv}
 	 */
@@ -7981,7 +7981,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor4fv Color4fv}
 	 */
@@ -7995,7 +7995,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor4dv Color4dv}
 	 */
@@ -8009,7 +8009,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor4usv Color4usv}
 	 */
@@ -8023,7 +8023,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColor4uiv Color4uiv}
 	 */
@@ -8037,7 +8037,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glDrawPixels DrawPixels}
 	 */
@@ -8049,7 +8049,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glDrawPixels DrawPixels}
 	 */
@@ -8061,7 +8061,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glDrawPixels">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glDrawPixels DrawPixels}
 	 */
@@ -8073,7 +8073,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glEvalCoord1fv EvalCoord1fv}
 	 */
@@ -8087,7 +8087,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glEvalCoord1dv EvalCoord1dv}
 	 */
@@ -8101,7 +8101,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glEvalCoord2fv EvalCoord2fv}
 	 */
@@ -8115,7 +8115,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glEvalCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glEvalCoord2dv EvalCoord2dv}
 	 */
@@ -8129,7 +8129,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFeedbackBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFeedbackBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glFeedbackBuffer FeedbackBuffer}
 	 */
@@ -8141,7 +8141,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glFogiv Fogiv}
 	 */
@@ -8155,7 +8155,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFog">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glFogfv Fogfv}
 	 */
@@ -8169,7 +8169,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenTextures">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenTextures GenTextures}
 	 */
@@ -8179,7 +8179,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteTextures">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteTextures">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteTextures DeleteTextures}
 	 */
@@ -8189,7 +8189,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetClipPlane">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetClipPlane">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetClipPlane GetClipPlane}
 	 */
@@ -8201,7 +8201,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFloatv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFloatv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetFloatv GetFloatv}
 	 */
@@ -8213,7 +8213,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetIntegerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetIntegerv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetIntegerv GetIntegerv}
 	 */
@@ -8225,7 +8225,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDoublev">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDoublev">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetDoublev GetDoublev}
 	 */
@@ -8237,7 +8237,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetLightiv GetLightiv}
 	 */
@@ -8251,7 +8251,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetLightfv GetLightfv}
 	 */
@@ -8265,7 +8265,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetMapiv GetMapiv}
 	 */
@@ -8279,7 +8279,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetMapfv GetMapfv}
 	 */
@@ -8293,7 +8293,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetMapdv GetMapdv}
 	 */
@@ -8307,7 +8307,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetMaterialiv GetMaterialiv}
 	 */
@@ -8321,7 +8321,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetMaterialfv GetMaterialfv}
 	 */
@@ -8335,7 +8335,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetPixelMapfv GetPixelMapfv}
 	 */
@@ -8349,7 +8349,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetPixelMapusv GetPixelMapusv}
 	 */
@@ -8363,7 +8363,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetPixelMapuiv GetPixelMapuiv}
 	 */
@@ -8377,7 +8377,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexEnviv GetTexEnviv}
 	 */
@@ -8389,7 +8389,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexEnv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexEnvfv GetTexEnvfv}
 	 */
@@ -8401,7 +8401,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetTexGeniv GetTexGeniv}
 	 */
@@ -8415,7 +8415,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetTexGenfv GetTexGenfv}
 	 */
@@ -8429,7 +8429,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glGetTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glGetTexGendv GetTexGendv}
 	 */
@@ -8443,7 +8443,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexImage GetTexImage}
 	 */
@@ -8453,7 +8453,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexImage GetTexImage}
 	 */
@@ -8463,7 +8463,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexImage GetTexImage}
 	 */
@@ -8473,7 +8473,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexImage">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexImage GetTexImage}
 	 */
@@ -8483,7 +8483,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv}
 	 */
@@ -8495,7 +8495,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexLevelParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv}
 	 */
@@ -8507,7 +8507,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexParameteriv GetTexParameteriv}
 	 */
@@ -8519,7 +8519,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexParameterfv GetTexParameterfv}
 	 */
@@ -8531,7 +8531,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glIndexiv Indexiv}
 	 */
@@ -8545,7 +8545,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glIndexsv Indexsv}
 	 */
@@ -8559,7 +8559,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glIndexfv Indexfv}
 	 */
@@ -8573,7 +8573,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glIndexdv Indexdv}
 	 */
@@ -8587,7 +8587,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
@@ -8597,7 +8597,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
@@ -8607,7 +8607,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
@@ -8617,7 +8617,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInterleavedArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
@@ -8627,7 +8627,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glLightModeliv LightModeliv}
 	 */
@@ -8641,7 +8641,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLightModel">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glLightModelfv LightModelfv}
 	 */
@@ -8655,7 +8655,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glLightiv Lightiv}
 	 */
@@ -8669,7 +8669,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLight">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glLightfv Lightfv}
 	 */
@@ -8683,7 +8683,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLoadMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLoadMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glLoadMatrixf LoadMatrixf}
 	 */
@@ -8697,7 +8697,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glLoadMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glLoadMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glLoadMatrixd LoadMatrixd}
 	 */
@@ -8711,7 +8711,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMap1f Map1f}
 	 */
@@ -8725,7 +8725,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMap1d Map1d}
 	 */
@@ -8739,7 +8739,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMap2f Map2f}
 	 */
@@ -8753,7 +8753,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMap2d Map2d}
 	 */
@@ -8767,7 +8767,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMaterialiv Materialiv}
 	 */
@@ -8781,7 +8781,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMaterial">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMaterialfv Materialfv}
 	 */
@@ -8795,7 +8795,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultMatrixf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMultMatrixf MultMatrixf}
 	 */
@@ -8809,7 +8809,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultMatrixd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMultMatrixd MultMatrixd}
 	 */
@@ -8823,7 +8823,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glNormal3fv Normal3fv}
 	 */
@@ -8837,7 +8837,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glNormal3sv Normal3sv}
 	 */
@@ -8851,7 +8851,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glNormal3iv Normal3iv}
 	 */
@@ -8865,7 +8865,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glNormal3dv Normal3dv}
 	 */
@@ -8879,7 +8879,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glPixelMapfv PixelMapfv}
 	 */
@@ -8891,7 +8891,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glPixelMapusv PixelMapusv}
 	 */
@@ -8903,7 +8903,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPixelMap">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glPixelMapuiv PixelMapuiv}
 	 */
@@ -8915,7 +8915,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glPrioritizeTextures">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glPrioritizeTextures">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glPrioritizeTextures PrioritizeTextures}
 	 */
@@ -8929,7 +8929,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos2iv RasterPos2iv}
 	 */
@@ -8943,7 +8943,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos2sv RasterPos2sv}
 	 */
@@ -8957,7 +8957,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos2fv RasterPos2fv}
 	 */
@@ -8971,7 +8971,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos2dv RasterPos2dv}
 	 */
@@ -8985,7 +8985,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos3iv RasterPos3iv}
 	 */
@@ -8999,7 +8999,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos3sv RasterPos3sv}
 	 */
@@ -9013,7 +9013,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos3fv RasterPos3fv}
 	 */
@@ -9027,7 +9027,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos3dv RasterPos3dv}
 	 */
@@ -9041,7 +9041,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos4iv RasterPos4iv}
 	 */
@@ -9055,7 +9055,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos4sv RasterPos4sv}
 	 */
@@ -9069,7 +9069,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos4fv RasterPos4fv}
 	 */
@@ -9083,7 +9083,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRasterPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRasterPos4dv RasterPos4dv}
 	 */
@@ -9097,7 +9097,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadPixels ReadPixels}
 	 */
@@ -9107,7 +9107,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadPixels ReadPixels}
 	 */
@@ -9117,7 +9117,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReadPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadPixels ReadPixels}
 	 */
@@ -9127,7 +9127,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRectiv Rectiv}
 	 */
@@ -9142,7 +9142,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRectsv Rectsv}
 	 */
@@ -9157,7 +9157,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRectfv Rectfv}
 	 */
@@ -9172,7 +9172,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glRect">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glRectdv Rectdv}
 	 */
@@ -9187,7 +9187,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSelectBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSelectBuffer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSelectBuffer SelectBuffer}
 	 */
@@ -9199,7 +9199,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord1fv TexCoord1fv}
 	 */
@@ -9213,7 +9213,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord1sv TexCoord1sv}
 	 */
@@ -9227,7 +9227,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord1iv TexCoord1iv}
 	 */
@@ -9241,7 +9241,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord1dv TexCoord1dv}
 	 */
@@ -9255,7 +9255,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord2fv TexCoord2fv}
 	 */
@@ -9269,7 +9269,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord2sv TexCoord2sv}
 	 */
@@ -9283,7 +9283,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord2iv TexCoord2iv}
 	 */
@@ -9297,7 +9297,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord2dv TexCoord2dv}
 	 */
@@ -9311,7 +9311,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord3fv TexCoord3fv}
 	 */
@@ -9325,7 +9325,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord3sv TexCoord3sv}
 	 */
@@ -9339,7 +9339,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord3iv TexCoord3iv}
 	 */
@@ -9353,7 +9353,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord3dv TexCoord3dv}
 	 */
@@ -9367,7 +9367,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord4fv TexCoord4fv}
 	 */
@@ -9381,7 +9381,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord4sv TexCoord4sv}
 	 */
@@ -9395,7 +9395,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord4iv TexCoord4iv}
 	 */
@@ -9409,7 +9409,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoord4dv TexCoord4dv}
 	 */
@@ -9423,7 +9423,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexEnviv TexEnviv}
 	 */
@@ -9435,7 +9435,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexEnv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexEnvfv TexEnvfv}
 	 */
@@ -9447,7 +9447,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexGeniv TexGeniv}
 	 */
@@ -9461,7 +9461,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexGenfv TexGenfv}
 	 */
@@ -9475,7 +9475,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexGen">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexGendv TexGendv}
 	 */
@@ -9489,7 +9489,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage2D TexImage2D}
 	 */
@@ -9499,7 +9499,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage2D TexImage2D}
 	 */
@@ -9509,7 +9509,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage2D TexImage2D}
 	 */
@@ -9519,7 +9519,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage2D TexImage2D}
 	 */
@@ -9529,7 +9529,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage1D TexImage1D}
 	 */
@@ -9539,7 +9539,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage1D TexImage1D}
 	 */
@@ -9549,7 +9549,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage1D TexImage1D}
 	 */
@@ -9559,7 +9559,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage1D TexImage1D}
 	 */
@@ -9569,7 +9569,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexParameteriv TexParameteriv}
 	 */
@@ -9581,7 +9581,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexParameterfv TexParameterfv}
 	 */
@@ -9593,7 +9593,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
@@ -9603,7 +9603,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
@@ -9613,7 +9613,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
@@ -9623,7 +9623,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage1D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
@@ -9633,7 +9633,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
@@ -9643,7 +9643,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
@@ -9653,7 +9653,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
@@ -9663,7 +9663,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage2D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
@@ -9673,7 +9673,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex2fv Vertex2fv}
 	 */
@@ -9687,7 +9687,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex2sv Vertex2sv}
 	 */
@@ -9701,7 +9701,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex2iv Vertex2iv}
 	 */
@@ -9715,7 +9715,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex2dv Vertex2dv}
 	 */
@@ -9729,7 +9729,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex3fv Vertex3fv}
 	 */
@@ -9743,7 +9743,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex3sv Vertex3sv}
 	 */
@@ -9757,7 +9757,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex3iv Vertex3iv}
 	 */
@@ -9771,7 +9771,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex3dv Vertex3dv}
 	 */
@@ -9785,7 +9785,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex4fv Vertex4fv}
 	 */
@@ -9799,7 +9799,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex4sv Vertex4sv}
 	 */
@@ -9813,7 +9813,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex4iv Vertex4iv}
 	 */
@@ -9827,7 +9827,7 @@ public class GL11 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertex4dv Vertex4dv}
 	 */

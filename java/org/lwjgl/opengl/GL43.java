@@ -20,31 +20,31 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/arrays_of_arrays.txt">ARB_arrays_of_arrays</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/clear_buffer_object.txt">ARB_clear_buffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/copy_image.txt">ARB_copy_image</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/debug_group.txt">ARB_debug_group</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/debug_label.txt">ARB_debug_label</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/debug_output2.txt">ARB_debug_output2</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/debug_output.txt">ARB_debug_output</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/explicit_uniform_location.txt">ARB_explicit_uniform_location</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/fragment_layer_viewport.txt">ARB_fragment_layer_viewport</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/framebuffer_no_attachments.txt">ARB_framebuffer_no_attachments</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/internalformat_query2.txt">ARB_internalformat_query2</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/invalidate_subdata.txt">ARB_invalidate_subdata</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/multi_draw_indirect.txt">ARB_multi_draw_indirect</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/program_interface_query.txt">ARB_program_interface_query</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/robust_buffer_access_behavior.txt">ARB_robust_buffer_access_behavior</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_image_size.txt">ARB_shader_image_size</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_storage_buffer_object.txt">ARB_shader_storage_buffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/stencil_texturing.txt">ARB_stencil_texturing</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_range.txt">ARB_texture_buffer_range</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_query_levels.txt">ARB_texture_query_levels</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_view.txt">ARB_texture_view</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/arrays_of_arrays.txt">ARB_arrays_of_arrays</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/clear_buffer_object.txt">ARB_clear_buffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/copy_image.txt">ARB_copy_image</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_group.txt">ARB_debug_group</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_label.txt">ARB_debug_label</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_output2.txt">ARB_debug_output2</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_output.txt">ARB_debug_output</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/explicit_uniform_location.txt">ARB_explicit_uniform_location</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/fragment_layer_viewport.txt">ARB_fragment_layer_viewport</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/framebuffer_no_attachments.txt">ARB_framebuffer_no_attachments</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/internalformat_query2.txt">ARB_internalformat_query2</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/invalidate_subdata.txt">ARB_invalidate_subdata</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/multi_draw_indirect.txt">ARB_multi_draw_indirect</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/program_interface_query.txt">ARB_program_interface_query</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/robust_buffer_access_behavior.txt">ARB_robust_buffer_access_behavior</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_image_size.txt">ARB_shader_image_size</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_storage_buffer_object.txt">ARB_shader_storage_buffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/stencil_texturing.txt">ARB_stencil_texturing</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_buffer_range.txt">ARB_texture_buffer_range</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_query_levels.txt">ARB_texture_query_levels</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_view.txt">ARB_texture_view</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a></li>
  * </ul>
  */
 public class GL43 {
@@ -470,7 +470,7 @@ public class GL43 {
 	public static native void nglClearBufferData(int target, int internalformat, int format, int type, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * Fills a buffer object's data store with a fixed value.
 	 *
@@ -487,7 +487,7 @@ public class GL43 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * Fills a buffer object's data store with a fixed value.
 	 *
@@ -504,7 +504,7 @@ public class GL43 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * Fills a buffer object's data store with a fixed value.
 	 *
@@ -521,7 +521,7 @@ public class GL43 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferData">Reference Page</a></p>
 	 * 
 	 * Fills a buffer object's data store with a fixed value.
 	 *
@@ -543,7 +543,7 @@ public class GL43 {
 	public static native void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * Fills all or part of buffer object's data store with a fixed value.
 	 *
@@ -562,7 +562,7 @@ public class GL43 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * Fills all or part of buffer object's data store with a fixed value.
 	 *
@@ -581,7 +581,7 @@ public class GL43 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * Fills all or part of buffer object's data store with a fixed value.
 	 *
@@ -600,7 +600,7 @@ public class GL43 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearBufferSubData">Reference Page</a></p>
 	 * 
 	 * Fills all or part of buffer object's data store with a fixed value.
 	 *
@@ -621,7 +621,7 @@ public class GL43 {
 	// --- [ glDispatchCompute ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDispatchCompute">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDispatchCompute">Reference Page</a></p>
 	 * 
 	 * Launches one or more compute work groups.
 	 *
@@ -637,7 +637,7 @@ public class GL43 {
 	public static native void nglDispatchComputeIndirect(long indirect);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDispatchComputeIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDispatchComputeIndirect">Reference Page</a></p>
 	 * 
 	 * Launches one or more compute work groups using parameters stored in a buffer.
 	 * 
@@ -664,7 +664,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glCopyImageSubData ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyImageSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyImageSubData">Reference Page</a></p>
 	 * 
 	 * Performs a raw data copy between two images.
 	 *
@@ -696,7 +696,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDebugMessageControl">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDebugMessageControl">Reference Page</a></p>
 	 * 
 	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
 	 * 
@@ -734,7 +734,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDebugMessageControl">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDebugMessageControl">Reference Page</a></p>
 	 * 
 	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
 	 * 
@@ -786,7 +786,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDebugMessageInsert">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDebugMessageInsert">Reference Page</a></p>
 	 * 
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
 	 * signals about specific render system events.
@@ -810,7 +810,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDebugMessageInsert">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDebugMessageInsert">Reference Page</a></p>
 	 * 
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
 	 * signals about specific render system events.
@@ -845,7 +845,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglDebugMessageCallback(long callback, long userParam);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDebugMessageCallback">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDebugMessageCallback">Reference Page</a></p>
 	 * 
 	 * Specifies a callback to receive debugging messages from the GL.
 	 * 
@@ -891,7 +891,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDebugMessageLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDebugMessageLog">Reference Page</a></p>
 	 * 
 	 * Retrieves messages from the debug message log.
 	 * 
@@ -946,7 +946,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglPushDebugGroup(int source, int id, int length, long message);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPushDebugGroup">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPushDebugGroup">Reference Page</a></p>
 	 * 
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
 	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
@@ -968,7 +968,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPushDebugGroup">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPushDebugGroup">Reference Page</a></p>
 	 * 
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
 	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
@@ -998,7 +998,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glPopDebugGroup ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPopDebugGroup">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPopDebugGroup">Reference Page</a></p>
 	 * 
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command. {@link #GL_DEBUG_TYPE_PUSH_GROUP DEBUG_TYPE_PUSH_GROUP}
@@ -1020,7 +1020,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglObjectLabel(int identifier, int name, int length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glObjectLabel">Reference Page</a></p>
 	 * 
 	 * Labels a named object identified within a namespace.
 	 *
@@ -1033,7 +1033,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glObjectLabel">Reference Page</a></p>
 	 * 
 	 * Labels a named object identified within a namespace.
 	 *
@@ -1061,7 +1061,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -1077,7 +1077,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -1098,7 +1098,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -1119,7 +1119,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglObjectPtrLabel(long ptr, int length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Labels a sync object identified by a pointer.
 	 *
@@ -1133,7 +1133,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Labels a sync object identified by a pointer.
 	 *
@@ -1162,7 +1162,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -1179,7 +1179,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -1201,7 +1201,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -1214,7 +1214,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glFramebufferParameteri ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glFramebufferParameteri">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glFramebufferParameteri">Reference Page</a></p>
 	 * 
 	 * Sets a named parameter of a framebuffer.
 	 *
@@ -1230,7 +1230,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglGetFramebufferParameteriv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
 	 * 
 	 * Retrieves a named parameter from a framebuffer.
 	 *
@@ -1245,7 +1245,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
 	 * 
 	 * Retrieves a named parameter from a framebuffer.
 	 *
@@ -1273,7 +1273,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -1287,7 +1287,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -1309,7 +1309,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateTexSubImage ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateTexSubImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateTexSubImage">Reference Page</a></p>
 	 * 
 	 * Invalidates a region of a texture image.
 	 *
@@ -1327,7 +1327,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateTexImage ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateTexImage">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateTexImage">Reference Page</a></p>
 	 * 
 	 * Invalidates the entirety of a texture image.
 	 *
@@ -1339,7 +1339,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateBufferSubData ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateBufferSubData">Reference Page</a></p>
 	 * 
 	 * Invalidates a region of a buffer object's data store.
 	 *
@@ -1352,7 +1352,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	// --- [ glInvalidateBufferData ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateBufferData">Reference Page</a></p>
 	 * 
 	 * Invalidates the content of a buffer object's data store.
 	 *
@@ -1370,7 +1370,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateFramebuffer">Reference Page</a></p>
 	 * 
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
@@ -1382,7 +1382,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateFramebuffer">Reference Page</a></p>
 	 * 
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
@@ -1408,7 +1408,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateSubFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateSubFramebuffer">Reference Page</a></p>
 	 * 
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
@@ -1424,7 +1424,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateSubFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateSubFramebuffer">Reference Page</a></p>
 	 * 
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
@@ -1450,7 +1450,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static native void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * 
@@ -1486,7 +1486,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * 
@@ -1520,7 +1520,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * 
@@ -1561,7 +1561,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * 
@@ -1599,7 +1599,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * 
@@ -1635,7 +1635,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * 
@@ -1678,7 +1678,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramInterface">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramInterface">Reference Page</a></p>
 	 * 
 	 * Queries a property of an interface in a program.
 	 *
@@ -1694,7 +1694,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramInterface">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramInterface">Reference Page</a></p>
 	 * 
 	 * Queries a property of an interface in a program.
 	 *
@@ -1719,7 +1719,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native int nglGetProgramResourceIndex(int program, int programInterface, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceIndex">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceIndex">Reference Page</a></p>
 	 * 
 	 * Queries the index of a named resource within a program.
 	 *
@@ -1734,7 +1734,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceIndex">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceIndex">Reference Page</a></p>
 	 * 
 	 * Queries the index of a named resource within a program.
 	 *
@@ -1762,7 +1762,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an indexed resource within a program.
 	 *
@@ -1779,7 +1779,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an indexed resource within a program.
 	 *
@@ -1801,7 +1801,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
 	 * 
 	 * Queries the name of an indexed resource within a program.
 	 *
@@ -1824,7 +1824,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResource">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResource">Reference Page</a></p>
 	 * 
 	 * Retrieves values for multiple properties of a single active resource within a program object.
 	 *
@@ -1847,7 +1847,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native int nglGetProgramResourceLocation(int program, int programInterface, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceLocation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceLocation">Reference Page</a></p>
 	 * 
 	 * Queries the location of a named resource within a program.
 	 *
@@ -1862,7 +1862,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceLocation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceLocation">Reference Page</a></p>
 	 * 
 	 * Queries the location of a named resource within a program.
 	 *
@@ -1886,7 +1886,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native int nglGetProgramResourceLocationIndex(int program, int programInterface, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceLocationIndex">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceLocationIndex">Reference Page</a></p>
 	 * 
 	 * Queries the fragment color index of a named variable within a program.
 	 *
@@ -1901,7 +1901,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceLocationIndex">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceLocationIndex">Reference Page</a></p>
 	 * 
 	 * Queries the fragment color index of a named variable within a program.
 	 *
@@ -1922,7 +1922,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glShaderStorageBlockBinding ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glShaderStorageBlockBinding">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glShaderStorageBlockBinding">Reference Page</a></p>
 	 * 
 	 * Changes an active shader storage block binding.
 	 *
@@ -1935,7 +1935,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTexBufferRange ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexBufferRange">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexBufferRange">Reference Page</a></p>
 	 * 
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
@@ -1950,7 +1950,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTexStorage2DMultisample ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexStorage2DMultisample">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexStorage2DMultisample">Reference Page</a></p>
 	 * 
 	 * Specifies storage for a two-dimensional multisample texture.
 	 *
@@ -1967,7 +1967,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTexStorage3DMultisample ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexStorage3DMultisample">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexStorage3DMultisample">Reference Page</a></p>
 	 * 
 	 * Specifies storage for a two-dimensional multisample array texture.
 	 *
@@ -1985,7 +1985,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glTextureView ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTextureView">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTextureView">Reference Page</a></p>
 	 * 
 	 * Initializes a texture as a data alias of another texture's data store.
 	 *
@@ -2003,7 +2003,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glBindVertexBuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindVertexBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindVertexBuffer">Reference Page</a></p>
 	 * 
 	 * Binds a buffer to a vertex buffer bind point.
 	 *
@@ -2017,7 +2017,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribFormat ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribFormat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribFormat">Reference Page</a></p>
 	 * 
 	 * Specifies the organization of data in vertex arrays.
 	 *
@@ -2033,7 +2033,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribIFormat ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribIFormat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribIFormat">Reference Page</a></p>
 	 * 
 	 * Specifies the organization of pure integer data in vertex arrays.
 	 *
@@ -2047,7 +2047,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribLFormat ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribLFormat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribLFormat">Reference Page</a></p>
 	 * 
 	 * Specifies the organization of 64-bit double data in vertex arrays.
 	 *
@@ -2061,7 +2061,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexAttribBinding ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribBinding">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribBinding">Reference Page</a></p>
 	 * 
 	 * Associate a vertex attribute and a vertex buffer binding.
 	 *
@@ -2073,7 +2073,7 @@ for ( i = 0; i < primcount; i++ ) {
 	// --- [ glVertexBindingDivisor ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexBindingDivisor">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexBindingDivisor">Reference Page</a></p>
 	 * 
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
@@ -2083,7 +2083,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static native void glVertexBindingDivisor(int bindingindex, int divisor);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDebugMessageControl">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDebugMessageControl">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDebugMessageControl DebugMessageControl}
 	 */
@@ -2095,7 +2095,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDebugMessageLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDebugMessageLog">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetDebugMessageLog GetDebugMessageLog}
 	 */
@@ -2113,7 +2113,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetObjectLabel GetObjectLabel}
 	 */
@@ -2127,7 +2127,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel}
 	 */
@@ -2142,7 +2142,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFramebufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv}
 	 */
@@ -2156,7 +2156,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetInternalformat">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetInternalformati64v GetInternalformati64v}
 	 */
@@ -2168,7 +2168,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateFramebuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer}
 	 */
@@ -2180,7 +2180,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glInvalidateSubFramebuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glInvalidateSubFramebuffer">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer}
 	 */
@@ -2192,7 +2192,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawArraysIndirect">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect}
 	 */
@@ -2206,7 +2206,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawElementsIndirect">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect}
 	 */
@@ -2220,7 +2220,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramInterface">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramInterface">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv}
 	 */
@@ -2234,7 +2234,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResourceName">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramResourceName GetProgramResourceName}
 	 */
@@ -2248,7 +2248,7 @@ for ( i = 0; i < primcount; i++ ) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramResource">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramResource">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramResourceiv GetProgramResourceiv}
 	 */

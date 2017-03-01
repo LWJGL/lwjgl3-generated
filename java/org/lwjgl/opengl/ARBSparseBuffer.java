@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sparse_buffer.txt">ARB_sparse_buffer</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/sparse_buffer.txt">ARB_sparse_buffer</a> extension.
  * 
  * <p>This extension adds to GL a mechanism to decouple the virtual and physical storage requirements of textures and allows an application
  * to create partially populated textures that would over-subscribe available graphics memory if made fully resident. This extension provides like

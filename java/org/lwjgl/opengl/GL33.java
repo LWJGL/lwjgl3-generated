@@ -20,16 +20,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_bit_encoding.txt">ARB_shader_bit_encoding</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/blend_func_extended.txt">ARB_blend_func_extended</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/explicit_attrib_location.txt">ARB_explicit_attrib_location</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/occlusion_query2.txt">ARB_occlusion_query2</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/sampler_objects.txt">ARB_sampler_objects</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_rgb10_a2ui.txt">ARB_texture_rgb10_a2ui</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_swizzle.txt">ARB_texture_swizzle</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/timer_query.txt">ARB_timer_query</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/instanced_arrays.txt">ARB_instanced_arrays</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_type_2_10_10_10_rev.txt">ARB_vertex_type_2_10_10_10_rev</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_bit_encoding.txt">ARB_shader_bit_encoding</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/blend_func_extended.txt">ARB_blend_func_extended</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/explicit_attrib_location.txt">ARB_explicit_attrib_location</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/occlusion_query2.txt">ARB_occlusion_query2</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/sampler_objects.txt">ARB_sampler_objects</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_rgb10_a2ui.txt">ARB_texture_rgb10_a2ui</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_swizzle.txt">ARB_texture_swizzle</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/timer_query.txt">ARB_timer_query</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/instanced_arrays.txt">ARB_instanced_arrays</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_type_2_10_10_10_rev.txt">ARB_vertex_type_2_10_10_10_rev</a></li>
  * </ul>
  */
 public class GL33 {
@@ -115,7 +115,7 @@ public class GL33 {
 	public static native void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindFragDataLocationIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindFragDataLocationIndexed">Reference Page</a></p>
 	 * 
 	 * Binds a user-defined varying out variable to a fragment shader color number and index.
 	 *
@@ -131,7 +131,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindFragDataLocationIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindFragDataLocationIndexed">Reference Page</a></p>
 	 * 
 	 * Binds a user-defined varying out variable to a fragment shader color number and index.
 	 *
@@ -156,7 +156,7 @@ public class GL33 {
 	public static native int nglGetFragDataIndex(int program, long name);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFragDataIndex">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFragDataIndex">Reference Page</a></p>
 	 * 
 	 * Queries the bindings of color indices to user-defined varying out variables.
 	 *
@@ -170,7 +170,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFragDataIndex">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFragDataIndex">Reference Page</a></p>
 	 * 
 	 * Queries the bindings of color indices to user-defined varying out variables.
 	 *
@@ -197,7 +197,7 @@ public class GL33 {
 	public static native void nglGenSamplers(int count, long samplers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenSamplers">Reference Page</a></p>
 	 * 
 	 * Generates sampler object names.
 	 *
@@ -208,7 +208,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenSamplers">Reference Page</a></p>
 	 * 
 	 * Generates sampler object names.
 	 */
@@ -233,7 +233,7 @@ public class GL33 {
 	public static native void nglDeleteSamplers(int count, long samplers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteSamplers">Reference Page</a></p>
 	 * 
 	 * Deletes named sampler objects.
 	 *
@@ -244,7 +244,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteSamplers">Reference Page</a></p>
 	 * 
 	 * Deletes named sampler objects.
 	 */
@@ -261,7 +261,7 @@ public class GL33 {
 	// --- [ glIsSampler ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsSampler">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsSampler">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a sampler object.
 	 *
@@ -272,7 +272,7 @@ public class GL33 {
 	// --- [ glBindSampler ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindSampler">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindSampler">Reference Page</a></p>
 	 * 
 	 * Binds a named sampler to a texturing target.
 	 *
@@ -284,7 +284,7 @@ public class GL33 {
 	// --- [ glSamplerParameteri ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameteri">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameteri">Reference Page</a></p>
 	 * 
 	 * Set the integer value of a sampler parameter.
 	 *
@@ -297,7 +297,7 @@ public class GL33 {
 	// --- [ glSamplerParameterf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameterf">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameterf">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
@@ -313,7 +313,7 @@ public class GL33 {
 	public static native void nglSamplerParameteriv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
@@ -333,7 +333,7 @@ public class GL33 {
 	public static native void nglSamplerParameterfv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glSamplerParameteriv SamplerParameteriv}.
 	 *
@@ -353,7 +353,7 @@ public class GL33 {
 	public static native void nglSamplerParameterIiv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
 	 *
@@ -373,7 +373,7 @@ public class GL33 {
 	public static native void nglSamplerParameterIuiv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Unsigned pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
 	 *
@@ -393,7 +393,7 @@ public class GL33 {
 	public static native void nglGetSamplerParameteriv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Return the integer value(s) of a sampler parameter.
 	 *
@@ -408,7 +408,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Return the integer value(s) of a sampler parameter.
 	 *
@@ -432,7 +432,7 @@ public class GL33 {
 	public static native void nglGetSamplerParameterfv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
@@ -447,7 +447,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
@@ -471,7 +471,7 @@ public class GL33 {
 	public static native void nglGetSamplerParameterIiv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
@@ -486,7 +486,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
@@ -510,7 +510,7 @@ public class GL33 {
 	public static native void nglGetSamplerParameterIuiv(int sampler, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
@@ -525,7 +525,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
@@ -546,7 +546,7 @@ public class GL33 {
 	// --- [ glQueryCounter ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glQueryCounter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glQueryCounter">Reference Page</a></p>
 	 * 
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
@@ -561,7 +561,7 @@ public class GL33 {
 	public static native void nglGetQueryObjecti64v(int id, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Returns the 64bit integer value of query object parameter.
 	 *
@@ -576,7 +576,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Returns the 64bit integer value of query object parameter.
 	 *
@@ -600,7 +600,7 @@ public class GL33 {
 	public static native void nglGetQueryObjectui64v(int id, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
 	 *
@@ -615,7 +615,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
 	 *
@@ -636,7 +636,7 @@ public class GL33 {
 	// --- [ glVertexAttribDivisor ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribDivisor">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribDivisor">Reference Page</a></p>
 	 * 
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
@@ -648,7 +648,7 @@ public class GL33 {
 	// --- [ glVertexP2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glVertex2f Vertex2f}.
 	 *
@@ -660,7 +660,7 @@ public class GL33 {
 	// --- [ glVertexP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glVertex3f Vertex3f}.
 	 *
@@ -672,7 +672,7 @@ public class GL33 {
 	// --- [ glVertexP4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glVertex4f Vertex4f}.
 	 *
@@ -687,7 +687,7 @@ public class GL33 {
 	public static native void nglVertexP2uiv(int type, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertexP2ui VertexP2ui}.
 	 *
@@ -706,7 +706,7 @@ public class GL33 {
 	public static native void nglVertexP3uiv(int type, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertexP3ui VertexP3ui}.
 	 *
@@ -725,7 +725,7 @@ public class GL33 {
 	public static native void nglVertexP4uiv(int type, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertexP4ui VertexP4ui}.
 	 *
@@ -741,7 +741,7 @@ public class GL33 {
 	// --- [ glTexCoordP1ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glTexCoord1f TexCoord1f}.
 	 *
@@ -753,7 +753,7 @@ public class GL33 {
 	// --- [ glTexCoordP2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glTexCoord2f TexCoord2f}.
 	 *
@@ -765,7 +765,7 @@ public class GL33 {
 	// --- [ glTexCoordP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glTexCoord3f TexCoord3f}.
 	 *
@@ -777,7 +777,7 @@ public class GL33 {
 	// --- [ glTexCoordP4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glTexCoord4f TexCoord4f}.
 	 *
@@ -792,7 +792,7 @@ public class GL33 {
 	public static native void nglTexCoordP1uiv(int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP1ui TexCoordP1ui}.
 	 *
@@ -811,7 +811,7 @@ public class GL33 {
 	public static native void nglTexCoordP2uiv(int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP2ui TexCoordP2ui}.
 	 *
@@ -830,7 +830,7 @@ public class GL33 {
 	public static native void nglTexCoordP3uiv(int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP3ui TexCoordP3ui}.
 	 *
@@ -849,7 +849,7 @@ public class GL33 {
 	public static native void nglTexCoordP4uiv(int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP4ui TexCoordP4ui}.
 	 *
@@ -865,7 +865,7 @@ public class GL33 {
 	// --- [ glMultiTexCoordP1ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord1f MultiTexCoord1f}.
 	 *
@@ -878,7 +878,7 @@ public class GL33 {
 	// --- [ glMultiTexCoordP2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord2f MultiTexCoord2f}.
 	 *
@@ -891,7 +891,7 @@ public class GL33 {
 	// --- [ glMultiTexCoordP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord3f MultiTexCoord3f}.
 	 *
@@ -904,7 +904,7 @@ public class GL33 {
 	// --- [ glMultiTexCoordP4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL13#glMultiTexCoord4f MultiTexCoord4f}.
 	 *
@@ -920,7 +920,7 @@ public class GL33 {
 	public static native void nglMultiTexCoordP1uiv(int texture, int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP1ui MultiTexCoordP1ui}.
 	 *
@@ -940,7 +940,7 @@ public class GL33 {
 	public static native void nglMultiTexCoordP2uiv(int texture, int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP2ui MultiTexCoordP2ui}.
 	 *
@@ -960,7 +960,7 @@ public class GL33 {
 	public static native void nglMultiTexCoordP3uiv(int texture, int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP3ui MultiTexCoordP3ui}.
 	 *
@@ -980,7 +980,7 @@ public class GL33 {
 	public static native void nglMultiTexCoordP4uiv(int texture, int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP4ui MultiTexCoordP4ui}.
 	 *
@@ -997,7 +997,7 @@ public class GL33 {
 	// --- [ glNormalP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glNormal3f Normal3f}.
 	 *
@@ -1012,7 +1012,7 @@ public class GL33 {
 	public static native void nglNormalP3uiv(int type, long coords);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version {@link #glNormalP3ui NormalP3ui}.
 	 *
@@ -1028,7 +1028,7 @@ public class GL33 {
 	// --- [ glColorP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glColor3f Color3f}.
 	 *
@@ -1040,7 +1040,7 @@ public class GL33 {
 	// --- [ glColorP4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glColor4f Color4f}.
 	 *
@@ -1055,7 +1055,7 @@ public class GL33 {
 	public static native void nglColorP3uiv(int type, long color);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColorP3ui ColorP3ui}.
 	 *
@@ -1074,7 +1074,7 @@ public class GL33 {
 	public static native void nglColorP4uiv(int type, long color);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColorP4ui ColorP4ui}.
 	 *
@@ -1090,7 +1090,7 @@ public class GL33 {
 	// --- [ glSecondaryColorP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL14#glSecondaryColor3f SecondaryColor3f}.
 	 *
@@ -1105,7 +1105,7 @@ public class GL33 {
 	public static native void nglSecondaryColorP3uiv(int type, long color);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColorP3ui SecondaryColorP3ui}.
 	 *
@@ -1121,7 +1121,7 @@ public class GL33 {
 	// --- [ glVertexAttribP1ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib1f VertexAttrib1f}.
 	 *
@@ -1135,7 +1135,7 @@ public class GL33 {
 	// --- [ glVertexAttribP2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib2f VertexAttrib2f}.
 	 *
@@ -1149,7 +1149,7 @@ public class GL33 {
 	// --- [ glVertexAttribP3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib3f VertexAttrib3f}.
 	 *
@@ -1163,7 +1163,7 @@ public class GL33 {
 	// --- [ glVertexAttribP4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Packed component version of {@link GL20#glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -1180,7 +1180,7 @@ public class GL33 {
 	public static native void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribP1ui VertexAttribP1ui}.
 	 *
@@ -1201,7 +1201,7 @@ public class GL33 {
 	public static native void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribP2ui VertexAttribP2ui}.
 	 *
@@ -1222,7 +1222,7 @@ public class GL33 {
 	public static native void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribP3ui VertexAttribP3ui}.
 	 *
@@ -1243,7 +1243,7 @@ public class GL33 {
 	public static native void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribP4ui VertexAttribP4ui}.
 	 *
@@ -1259,7 +1259,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenSamplers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenSamplers GenSamplers}
 	 */
@@ -1271,7 +1271,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteSamplers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteSamplers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteSamplers DeleteSamplers}
 	 */
@@ -1283,7 +1283,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glSamplerParameteriv SamplerParameteriv}
 	 */
@@ -1297,7 +1297,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glSamplerParameterfv SamplerParameterfv}
 	 */
@@ -1311,7 +1311,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glSamplerParameterIiv SamplerParameterIiv}
 	 */
@@ -1325,7 +1325,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv}
 	 */
@@ -1339,7 +1339,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv}
 	 */
@@ -1353,7 +1353,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv}
 	 */
@@ -1367,7 +1367,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv}
 	 */
@@ -1381,7 +1381,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv}
 	 */
@@ -1395,7 +1395,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v}
 	 */
@@ -1409,7 +1409,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v}
 	 */
@@ -1423,7 +1423,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertexP2uiv VertexP2uiv}
 	 */
@@ -1437,7 +1437,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertexP3uiv VertexP3uiv}
 	 */
@@ -1451,7 +1451,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glVertex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glVertexP4uiv VertexP4uiv}
 	 */
@@ -1465,7 +1465,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoordP1uiv TexCoordP1uiv}
 	 */
@@ -1479,7 +1479,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoordP2uiv TexCoordP2uiv}
 	 */
@@ -1493,7 +1493,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoordP3uiv TexCoordP3uiv}
 	 */
@@ -1507,7 +1507,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glTexCoordP4uiv TexCoordP4uiv}
 	 */
@@ -1521,7 +1521,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv}
 	 */
@@ -1535,7 +1535,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv}
 	 */
@@ -1549,7 +1549,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv}
 	 */
@@ -1563,7 +1563,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glMultiTexCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv}
 	 */
@@ -1577,7 +1577,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glNormal">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glNormalP3uiv NormalP3uiv}
 	 */
@@ -1591,7 +1591,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColorP3uiv ColorP3uiv}
 	 */
@@ -1605,7 +1605,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glColorP4uiv ColorP4uiv}
 	 */
@@ -1619,7 +1619,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColorP3uiv SecondaryColorP3uiv}
 	 */
@@ -1633,7 +1633,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribP1uiv VertexAttribP1uiv}
 	 */
@@ -1647,7 +1647,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribP2uiv VertexAttribP2uiv}
 	 */
@@ -1661,7 +1661,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribP3uiv VertexAttribP3uiv}
 	 */
@@ -1675,7 +1675,7 @@ public class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribP4uiv VertexAttribP4uiv}
 	 */

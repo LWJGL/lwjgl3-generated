@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">WGL_ARB_pixel_format_float</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">WGL_ARB_pixel_format_float</a> extension.
  * 
  * <p>This extension adds pixel formats with floating-point RGBA color components.</p>
  * 

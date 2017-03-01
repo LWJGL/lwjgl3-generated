@@ -12,7 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/bindless_texture.txt">NV_bindless_texture</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/bindless_texture.txt">NV_bindless_texture</a> extension.
  * 
  * <p>This extension allows OpenGL applications to access texture objects in
  * shaders without first binding each texture to one of a limited number of

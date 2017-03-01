@@ -11,7 +11,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/draw_instanced.txt">ARB_draw_instanced</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_instanced.txt">ARB_draw_instanced</a> extension.
  * 
  * <p>A common use case in GL for some applications is to be able to draw the same object, or groups of similar objects that share vertex data, primitive
  * count and type, multiple times. This extension provides a means of accelerating such use cases while restricting the number of API calls, and keeping
@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>By using the instance ID or multiples thereof as an index into a uniform array containing transform data, vertex shaders can draw multiple instances of
  * an object with a single draw call.</p>
  * 
- * <p>Requires {@link GL30 OpenGL 3.0} or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a> or <a href="http://www.opengl.org/registry/specs/NV/vertex_program4.txt">NV_vertex_program4</a>. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
+ * <p>Requires {@link GL30 OpenGL 3.0} or <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a> or <a target="_blank" href="http://www.opengl.org/registry/specs/NV/vertex_program4.txt">NV_vertex_program4</a>. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
 public class ARBDrawInstanced {
 

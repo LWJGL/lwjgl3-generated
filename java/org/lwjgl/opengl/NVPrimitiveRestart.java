@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/primitive_restart.txt">NV_primitive_restart</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/primitive_restart.txt">NV_primitive_restart</a> extension.
  * 
  * <p>This extension allows applications to easily and inexpensively restart a primitive in its middle. A "primitive restart" is simply the same as an End
  * command, followed by another Begin command with the same mode as the original. The typical expected use of this feature is to draw a mesh with many

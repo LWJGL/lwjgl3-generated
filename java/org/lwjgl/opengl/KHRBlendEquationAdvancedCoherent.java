@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/blend_equation_advanced.txt">KHR_blend_equation_advanced_coherent</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/KHR/blend_equation_advanced.txt">KHR_blend_equation_advanced_coherent</a> extension.
  * 
  * <p>This extension guarantees that blending is done coherently and in API primitive order. An enable is provided to allow implementations to opt out of
  * fully coherent blending and instead behave as though only {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced} were supported.</p>

@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/framebuffer_object.txt">ARB_framebuffer_object</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/framebuffer_object.txt">ARB_framebuffer_object</a> extension.
  * 
  * <p>ARB_framebuffer_object is an extension intended to address the following goals:</p>
  * 
@@ -24,10 +24,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Integrate multiple disjoint extensions into a single ARB extension. These extensions are:
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/packed_depth_stencil.txt">EXT_packed_depth_stencil</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/packed_depth_stencil.txt">EXT_packed_depth_stencil</a></li>
  * </ul></li>
  * <li>Where appropriate, relax some of the constraints expressed by previous FBO-related extensions. In particular the requirement of matching attachment
  * dimensions and component sizes has been relaxed, to allow implementations the freedom to support more flexible usages where possible.</li>

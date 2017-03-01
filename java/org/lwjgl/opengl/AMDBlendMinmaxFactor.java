@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/blend_minmax_factor.txt">AMD_blend_minmax_factor</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/blend_minmax_factor.txt">AMD_blend_minmax_factor</a> extension.
  * 
  * <p>The EXT_blend_minmax extension extended the GL's blending functionality to allow the blending equation to be specified by the application. That
  * extension introduced the MIN_EXT and MAX_EXT blend equations, which caused the result of the blend equation to become the minimum or maximum of the

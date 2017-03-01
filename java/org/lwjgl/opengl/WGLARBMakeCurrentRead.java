@@ -9,7 +9,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_make_current_read.txt">WGL_ARB_make_current_read</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/wgl_make_current_read.txt">WGL_ARB_make_current_read</a> extension.
  * 
  * <p>The association of a separate "read" and "draw" DC with the current context allows for preprocessing of image data in an "off screen" DC which is then
  * read into a visible DC for final display.</p>

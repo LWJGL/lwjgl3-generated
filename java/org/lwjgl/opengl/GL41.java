@@ -22,12 +22,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/get_program_binary.txt">ARB_get_program_binary</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/separate_shader_objects.txt">ARB_separate_shader_objects</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_precision.txt">ARB_shader_precision</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_64bit.txt">ARB_vertex_attrib_64bit</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/get_program_binary.txt">ARB_get_program_binary</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/separate_shader_objects.txt">ARB_separate_shader_objects</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_precision.txt">ARB_shader_precision</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_64bit.txt">ARB_vertex_attrib_64bit</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a></li>
  * </ul>
  */
 public class GL41 {
@@ -130,7 +130,7 @@ public class GL41 {
 	// --- [ glReleaseShaderCompiler ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glReleaseShaderCompiler">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glReleaseShaderCompiler">Reference Page</a></p>
 	 * 
 	 * Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler.
 	 */
@@ -147,7 +147,7 @@ public class GL41 {
 	public static native void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glShaderBinary">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glShaderBinary">Reference Page</a></p>
 	 * 
 	 * Loads pre-compiled shader binaries.
 	 *
@@ -165,7 +165,7 @@ public class GL41 {
 	public static native void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetShaderPrecisionFormat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetShaderPrecisionFormat">Reference Page</a></p>
 	 * 
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
 	 *
@@ -183,7 +183,7 @@ public class GL41 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetShaderPrecisionFormat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetShaderPrecisionFormat">Reference Page</a></p>
 	 * 
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
 	 *
@@ -207,7 +207,7 @@ public class GL41 {
 	// --- [ glDepthRangef ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthRangef">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthRangef">Reference Page</a></p>
 	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates
 	 *
@@ -219,7 +219,7 @@ public class GL41 {
 	// --- [ glClearDepthf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glClearDepthf">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glClearDepthf">Reference Page</a></p>
 	 * 
 	 * Specifies the clear value for the depth buffer
 	 *
@@ -237,7 +237,7 @@ public class GL41 {
 	public static native void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramBinary">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramBinary">Reference Page</a></p>
 	 * 
 	 * Returns a binary representation of a program object's compiled and linked executable source.
 	 *
@@ -264,7 +264,7 @@ public class GL41 {
 	public static native void nglProgramBinary(int program, int binaryFormat, long binary, int length);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramBinary">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramBinary">Reference Page</a></p>
 	 * 
 	 * Loads a program object with a program binary.
 	 *
@@ -279,7 +279,7 @@ public class GL41 {
 	// --- [ glProgramParameteri ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramParameteri">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramParameteri">Reference Page</a></p>
 	 * 
 	 * Specifies the integer value of a program object parameter.
 	 *
@@ -292,7 +292,7 @@ public class GL41 {
 	// --- [ glUseProgramStages ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUseProgramStages">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUseProgramStages">Reference Page</a></p>
 	 * 
 	 * Binds stages of a program object to a program pipeline.
 	 *
@@ -305,7 +305,7 @@ public class GL41 {
 	// --- [ glActiveShaderProgram ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glActiveShaderProgram">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glActiveShaderProgram">Reference Page</a></p>
 	 * 
 	 * Sets the active program object for a program pipeline object.
 	 *
@@ -324,7 +324,7 @@ public class GL41 {
 	public static native int nglCreateShaderProgramv(int type, int count, long strings);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCreateShaderProgramv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCreateShaderProgramv">Reference Page</a></p>
 	 * 
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * 
@@ -362,7 +362,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCreateShaderProgramv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCreateShaderProgramv">Reference Page</a></p>
 	 * 
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * 
@@ -408,7 +408,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCreateShaderProgramv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCreateShaderProgramv">Reference Page</a></p>
 	 * 
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * 
@@ -455,7 +455,7 @@ if (shader) {
 	// --- [ glBindProgramPipeline ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindProgramPipeline">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindProgramPipeline">Reference Page</a></p>
 	 * 
 	 * Binds a program pipeline to the current context.
 	 *
@@ -473,7 +473,7 @@ if (shader) {
 	public static native void nglDeleteProgramPipelines(int n, long pipelines);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteProgramPipelines">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Deletes program pipeline objects.
 	 *
@@ -484,7 +484,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteProgramPipelines">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Deletes program pipeline objects.
 	 */
@@ -508,7 +508,7 @@ if (shader) {
 	public static native void nglGenProgramPipelines(int n, long pipelines);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenProgramPipelines">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Reserves program pipeline object names.
 	 *
@@ -519,7 +519,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenProgramPipelines">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Reserves program pipeline object names.
 	 */
@@ -537,7 +537,7 @@ if (shader) {
 	// --- [ glIsProgramPipeline ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsProgramPipeline">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsProgramPipeline">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a program pipeline object.
 	 *
@@ -551,7 +551,7 @@ if (shader) {
 	public static native void nglGetProgramPipelineiv(int pipeline, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipeline">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipeline">Reference Page</a></p>
 	 * 
 	 * Retrieves properties of a program pipeline object.
 	 *
@@ -566,7 +566,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipeline">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipeline">Reference Page</a></p>
 	 * 
 	 * Retrieves properties of a program pipeline object.
 	 *
@@ -587,7 +587,7 @@ if (shader) {
 	// --- [ glProgramUniform1i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an int uniform variable for a specified program object.
 	 *
@@ -600,7 +600,7 @@ if (shader) {
 	// --- [ glProgramUniform2i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an ivec2 uniform variable for a specified program object.
 	 *
@@ -614,7 +614,7 @@ if (shader) {
 	// --- [ glProgramUniform3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an ivec3 uniform variable for a specified program object.
 	 *
@@ -629,7 +629,7 @@ if (shader) {
 	// --- [ glProgramUniform4i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of an ivec4 uniform variable for a specified program object.
 	 *
@@ -645,7 +645,7 @@ if (shader) {
 	// --- [ glProgramUniform1ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uint uniform variable for a specified program object.
 	 *
@@ -658,7 +658,7 @@ if (shader) {
 	// --- [ glProgramUniform2ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uvec2 uniform variable for a specified program object.
 	 *
@@ -672,7 +672,7 @@ if (shader) {
 	// --- [ glProgramUniform3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uvec3 uniform variable for a specified program object.
 	 *
@@ -687,7 +687,7 @@ if (shader) {
 	// --- [ glProgramUniform4ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a uvec4 uniform variable for a specified program object.
 	 *
@@ -703,7 +703,7 @@ if (shader) {
 	// --- [ glProgramUniform1f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a float uniform variable for a specified program object.
 	 *
@@ -716,7 +716,7 @@ if (shader) {
 	// --- [ glProgramUniform2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a vec2 uniform variable for a specified program object.
 	 *
@@ -730,7 +730,7 @@ if (shader) {
 	// --- [ glProgramUniform3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a vec3 uniform variable for a specified program object.
 	 *
@@ -745,7 +745,7 @@ if (shader) {
 	// --- [ glProgramUniform4f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a vec4 uniform variable for a specified program object.
 	 *
@@ -761,7 +761,7 @@ if (shader) {
 	// --- [ glProgramUniform1d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a double uniform variable for a specified program object.
 	 *
@@ -774,7 +774,7 @@ if (shader) {
 	// --- [ glProgramUniform2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a dvec2 uniform variable for a specified program object.
 	 *
@@ -788,7 +788,7 @@ if (shader) {
 	// --- [ glProgramUniform3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a dvec3 uniform variable for a specified program object.
 	 *
@@ -803,7 +803,7 @@ if (shader) {
 	// --- [ glProgramUniform4d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a dvec4 uniform variable for a specified program object.
 	 *
@@ -826,7 +826,7 @@ if (shader) {
 	public static native void nglProgramUniform1iv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single float uniform variable or a float uniform variable array for a specified program object.
 	 *
@@ -848,7 +848,7 @@ if (shader) {
 	public static native void nglProgramUniform2iv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for a specified program object.
 	 *
@@ -870,7 +870,7 @@ if (shader) {
 	public static native void nglProgramUniform3iv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for a specified program object.
 	 *
@@ -892,7 +892,7 @@ if (shader) {
 	public static native void nglProgramUniform4iv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for a specified program object.
 	 *
@@ -914,7 +914,7 @@ if (shader) {
 	public static native void nglProgramUniform1uiv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for a specified program object.
 	 *
@@ -936,7 +936,7 @@ if (shader) {
 	public static native void nglProgramUniform2uiv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for a specified program object.
 	 *
@@ -958,7 +958,7 @@ if (shader) {
 	public static native void nglProgramUniform3uiv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for a specified program object.
 	 *
@@ -980,7 +980,7 @@ if (shader) {
 	public static native void nglProgramUniform4uiv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for a specified program object.
 	 *
@@ -1002,7 +1002,7 @@ if (shader) {
 	public static native void nglProgramUniform1fv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single float uniform variable or a float uniform variable array for a specified program object.
 	 *
@@ -1024,7 +1024,7 @@ if (shader) {
 	public static native void nglProgramUniform2fv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for a specified program object.
 	 *
@@ -1046,7 +1046,7 @@ if (shader) {
 	public static native void nglProgramUniform3fv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for a specified program object.
 	 *
@@ -1068,7 +1068,7 @@ if (shader) {
 	public static native void nglProgramUniform4fv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for a specified program object.
 	 *
@@ -1090,7 +1090,7 @@ if (shader) {
 	public static native void nglProgramUniform1dv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for a specified program object.
 	 *
@@ -1112,7 +1112,7 @@ if (shader) {
 	public static native void nglProgramUniform2dv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for a specified program object.
 	 *
@@ -1134,7 +1134,7 @@ if (shader) {
 	public static native void nglProgramUniform3dv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for a specified program object.
 	 *
@@ -1156,7 +1156,7 @@ if (shader) {
 	public static native void nglProgramUniform4dv(int program, int location, int count, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for a specified program object.
 	 *
@@ -1178,7 +1178,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
 	 *
@@ -1201,7 +1201,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
 	 *
@@ -1224,7 +1224,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
 	 *
@@ -1247,7 +1247,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
 	 *
@@ -1270,7 +1270,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
 	 *
@@ -1293,7 +1293,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
 	 *
@@ -1316,7 +1316,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
 	 *
@@ -1339,7 +1339,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
 	 *
@@ -1362,7 +1362,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
 	 *
@@ -1385,7 +1385,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
 	 *
@@ -1408,7 +1408,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
 	 *
@@ -1431,7 +1431,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
 	 *
@@ -1454,7 +1454,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
 	 *
@@ -1477,7 +1477,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
 	 *
@@ -1500,7 +1500,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
 	 *
@@ -1523,7 +1523,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
 	 *
@@ -1546,7 +1546,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
 	 *
@@ -1569,7 +1569,7 @@ if (shader) {
 	public static native void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
 	 *
@@ -1585,7 +1585,7 @@ if (shader) {
 	// --- [ glValidateProgramPipeline ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glValidateProgramPipeline">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glValidateProgramPipeline">Reference Page</a></p>
 	 * 
 	 * Validates a program pipeline object against current GL state.
 	 *
@@ -1603,7 +1603,7 @@ if (shader) {
 	public static native void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
 	 * 
 	 * Retrieves the info log string from a program pipeline object.
 	 *
@@ -1618,7 +1618,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
 	 * 
 	 * Retrieves the info log string from a program pipeline object.
 	 *
@@ -1639,7 +1639,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
 	 * 
 	 * Retrieves the info log string from a program pipeline object.
 	 *
@@ -1652,7 +1652,7 @@ if (shader) {
 	// --- [ glVertexAttribL1d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
 	 *
@@ -1664,7 +1664,7 @@ if (shader) {
 	// --- [ glVertexAttribL2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
 	 *
@@ -1677,7 +1677,7 @@ if (shader) {
 	// --- [ glVertexAttribL3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
 	 *
@@ -1691,7 +1691,7 @@ if (shader) {
 	// --- [ glVertexAttribL4d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a generic vertex attribute.
 	 *
@@ -1709,7 +1709,7 @@ if (shader) {
 	public static native void nglVertexAttribL1dv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribL1d VertexAttribL1d}.
 	 *
@@ -1728,7 +1728,7 @@ if (shader) {
 	public static native void nglVertexAttribL2dv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribL2d VertexAttribL2d}.
 	 *
@@ -1747,7 +1747,7 @@ if (shader) {
 	public static native void nglVertexAttribL3dv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribL3d VertexAttribL3d}.
 	 *
@@ -1766,7 +1766,7 @@ if (shader) {
 	public static native void nglVertexAttribL4dv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glVertexAttribL4d VertexAttribL4d}.
 	 *
@@ -1789,7 +1789,7 @@ if (shader) {
 	public static native void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribLPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribLPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a 64-bit vertex attribute array.
 	 *
@@ -1806,7 +1806,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribLPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribLPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a 64-bit vertex attribute array.
 	 *
@@ -1823,7 +1823,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttribLPointer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttribLPointer">Reference Page</a></p>
 	 * 
 	 * Specifies the location and organization of a 64-bit vertex attribute array.
 	 *
@@ -1844,7 +1844,7 @@ if (shader) {
 	public static native void nglGetVertexAttribLdv(int index, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Double version of {@link GL20#glGetVertexAttribiv GetVertexAttribiv}.
 	 *
@@ -1868,7 +1868,7 @@ if (shader) {
 	public static native void nglViewportArrayv(int first, int count, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glViewportArrayv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glViewportArrayv">Reference Page</a></p>
 	 * 
 	 * Sets multiple viewports.
 	 *
@@ -1882,7 +1882,7 @@ if (shader) {
 	// --- [ glViewportIndexedf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glViewportIndexedf">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glViewportIndexedf">Reference Page</a></p>
 	 * 
 	 * Sets a specified viewport.
 	 *
@@ -1900,7 +1900,7 @@ if (shader) {
 	public static native void nglViewportIndexedfv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glViewportIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glViewportIndexed">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glViewportIndexedf ViewportIndexedf}.
 	 *
@@ -1923,7 +1923,7 @@ if (shader) {
 	public static native void nglScissorArrayv(int first, int count, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glScissorArrayv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glScissorArrayv">Reference Page</a></p>
 	 * 
 	 * Defines the scissor box for multiple viewports.
 	 *
@@ -1937,7 +1937,7 @@ if (shader) {
 	// --- [ glScissorIndexed ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glScissorIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glScissorIndexed">Reference Page</a></p>
 	 * 
 	 * Defines the scissor box for a specific viewport.
 	 *
@@ -1955,7 +1955,7 @@ if (shader) {
 	public static native void nglScissorIndexedv(int index, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glScissorIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glScissorIndexed">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glScissorIndexed ScissorIndexed}.
 	 *
@@ -1978,7 +1978,7 @@ if (shader) {
 	public static native void nglDepthRangeArrayv(int first, int count, long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthRangeArrayv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthRangeArrayv">Reference Page</a></p>
 	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified set of viewports.
 	 *
@@ -1992,7 +1992,7 @@ if (shader) {
 	// --- [ glDepthRangeIndexed ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthRangeIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthRangeIndexed">Reference Page</a></p>
 	 * 
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified viewport.
 	 *
@@ -2008,7 +2008,7 @@ if (shader) {
 	public static native void nglGetFloati_v(int target, int index, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFloati_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFloati_v">Reference Page</a></p>
 	 * 
 	 * Queries the float value of an indexed state variable.
 	 *
@@ -2023,7 +2023,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFloati_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFloati_v">Reference Page</a></p>
 	 * 
 	 * Queries the float value of an indexed state variable.
 	 *
@@ -2047,7 +2047,7 @@ if (shader) {
 	public static native void nglGetDoublei_v(int target, int index, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDoublei_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDoublei_v">Reference Page</a></p>
 	 * 
 	 * Queries the double value of an indexed state variable.
 	 *
@@ -2062,7 +2062,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDoublei_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDoublei_v">Reference Page</a></p>
 	 * 
 	 * Queries the double value of an indexed state variable.
 	 *
@@ -2081,7 +2081,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glShaderBinary">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glShaderBinary">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glShaderBinary ShaderBinary}
 	 */
@@ -2093,7 +2093,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetShaderPrecisionFormat">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetShaderPrecisionFormat">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat}
 	 */
@@ -2108,7 +2108,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramBinary">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramBinary">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramBinary GetProgramBinary}
 	 */
@@ -2123,7 +2123,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteProgramPipelines">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines}
 	 */
@@ -2135,7 +2135,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenProgramPipelines">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenProgramPipelines">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenProgramPipelines GenProgramPipelines}
 	 */
@@ -2147,7 +2147,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipeline">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipeline">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv}
 	 */
@@ -2161,7 +2161,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform1iv ProgramUniform1iv}
 	 */
@@ -2173,7 +2173,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform2iv ProgramUniform2iv}
 	 */
@@ -2185,7 +2185,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform3iv ProgramUniform3iv}
 	 */
@@ -2197,7 +2197,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform4iv ProgramUniform4iv}
 	 */
@@ -2209,7 +2209,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform1uiv ProgramUniform1uiv}
 	 */
@@ -2221,7 +2221,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform2uiv ProgramUniform2uiv}
 	 */
@@ -2233,7 +2233,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform3uiv ProgramUniform3uiv}
 	 */
@@ -2245,7 +2245,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform4uiv ProgramUniform4uiv}
 	 */
@@ -2257,7 +2257,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform1fv ProgramUniform1fv}
 	 */
@@ -2269,7 +2269,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform2fv ProgramUniform2fv}
 	 */
@@ -2281,7 +2281,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform3fv ProgramUniform3fv}
 	 */
@@ -2293,7 +2293,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform4fv ProgramUniform4fv}
 	 */
@@ -2305,7 +2305,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform1dv ProgramUniform1dv}
 	 */
@@ -2317,7 +2317,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform2dv ProgramUniform2dv}
 	 */
@@ -2329,7 +2329,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform3dv ProgramUniform3dv}
 	 */
@@ -2341,7 +2341,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniform4dv ProgramUniform4dv}
 	 */
@@ -2353,7 +2353,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv}
 	 */
@@ -2365,7 +2365,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv}
 	 */
@@ -2377,7 +2377,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv}
 	 */
@@ -2389,7 +2389,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv}
 	 */
@@ -2401,7 +2401,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv}
 	 */
@@ -2413,7 +2413,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv}
 	 */
@@ -2425,7 +2425,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv}
 	 */
@@ -2437,7 +2437,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv}
 	 */
@@ -2449,7 +2449,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv}
 	 */
@@ -2461,7 +2461,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv}
 	 */
@@ -2473,7 +2473,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv}
 	 */
@@ -2485,7 +2485,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv}
 	 */
@@ -2497,7 +2497,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv}
 	 */
@@ -2509,7 +2509,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv}
 	 */
@@ -2521,7 +2521,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv}
 	 */
@@ -2533,7 +2533,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv}
 	 */
@@ -2545,7 +2545,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv}
 	 */
@@ -2557,7 +2557,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glProgramUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv}
 	 */
@@ -2569,7 +2569,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetProgramPipelineInfoLog">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog}
 	 */
@@ -2583,7 +2583,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv}
 	 */
@@ -2597,7 +2597,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribL2dv VertexAttribL2dv}
 	 */
@@ -2611,7 +2611,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribL3dv VertexAttribL3dv}
 	 */
@@ -2625,7 +2625,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glVertexAttribL4dv VertexAttribL4dv}
 	 */
@@ -2639,7 +2639,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetVertexAttrib">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv}
 	 */
@@ -2653,7 +2653,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glViewportArrayv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glViewportArrayv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glViewportArrayv ViewportArrayv}
 	 */
@@ -2665,7 +2665,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glViewportIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glViewportIndexed">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glViewportIndexedfv ViewportIndexedfv}
 	 */
@@ -2679,7 +2679,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glScissorArrayv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glScissorArrayv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glScissorArrayv ScissorArrayv}
 	 */
@@ -2691,7 +2691,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glScissorIndexed">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glScissorIndexed">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glScissorIndexedv ScissorIndexedv}
 	 */
@@ -2705,7 +2705,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDepthRangeArrayv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDepthRangeArrayv">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDepthRangeArrayv DepthRangeArrayv}
 	 */
@@ -2717,7 +2717,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetFloati_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetFloati_v">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetFloati_v GetFloati_v}
 	 */
@@ -2731,7 +2731,7 @@ if (shader) {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetDoublei_v">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetDoublei_v">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetDoublei_v GetDoublei_v}
 	 */

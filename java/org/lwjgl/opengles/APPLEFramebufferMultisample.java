@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_framebuffer_multisample.txt">APPLE_framebuffer_multisample</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_framebuffer_multisample.txt">APPLE_framebuffer_multisample</a> extension.
  * 
  * <p>This extension extends the framebuffer object framework to enable multisample rendering.</p>
  * 

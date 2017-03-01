@@ -100,7 +100,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSubBuffer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSubBuffer.html">Reference Page</a></p>
 	 * 
 	 * Creates a new buffer object (referred to as a sub-buffer object) from an existing buffer object.
 	 * 
@@ -164,7 +164,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetMemObjectDestructorCallback.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetMemObjectDestructorCallback.html">Reference Page</a></p>
 	 * 
 	 * Registers a user callback function with a memory object. Each call to {@code clSetMemObjectDestructorCallback} registers the specified user callback
 	 * function on a callback stack associated with {@code memobj}. The registered user callback functions are called in the reverse order in which they were
@@ -208,7 +208,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
@@ -294,7 +294,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
@@ -380,7 +380,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
@@ -466,7 +466,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
@@ -552,7 +552,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
 	 * 
@@ -655,7 +655,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
@@ -741,7 +741,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
@@ -827,7 +827,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
@@ -913,7 +913,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
@@ -999,7 +999,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
 	 * 
@@ -1103,7 +1103,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueCopyBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Enqueues a command to copy a 2D or 3D rectangular region from the buffer object identified by {@code src_buffer} to a 2D or 3D region in the buffer
 	 * object identified by {@code dst_buffer}. Copying begins at the source offset and destination offset which are computed as described below in the
@@ -1194,7 +1194,7 @@ public class CL11 {
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateUserEvent.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateUserEvent.html">Reference Page</a></p>
 	 * 
 	 * Creates a user event object. User events allow applications to enqueue commands that wait on a user event to finish before the command is executed by
 	 * the device.
@@ -1222,7 +1222,7 @@ public class CL11 {
 	// --- [ clSetUserEventStatus ] ---
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetUserEventStatus.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetUserEventStatus.html">Reference Page</a></p>
 	 * 
 	 * Sets the execution status of a user event object.
 	 * 
@@ -1283,7 +1283,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetEventCallback.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clSetEventCallback.html">Reference Page</a></p>
 	 * 
 	 * Registers a user callback function for a specific command execution status. The registered callback function will be called when the execution status of
 	 * command associated with event changes to an execution status equal to or past the status specified by {@code command_exec_status}.
@@ -1336,7 +1336,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSubBuffer.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateSubBuffer.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateSubBuffer CreateSubBuffer}
 	 */
@@ -1351,7 +1351,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
 	 */
@@ -1370,7 +1370,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
 	 */
@@ -1389,7 +1389,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
 	 */
@@ -1408,7 +1408,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueReadBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
 	 */
@@ -1427,7 +1427,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
 	 */
@@ -1446,7 +1446,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
 	 */
@@ -1465,7 +1465,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
 	 */
@@ -1484,7 +1484,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clEnqueueWriteBufferRect.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
 	 */
@@ -1503,7 +1503,7 @@ clReleaseMemObject(buf2);</code></pre>
 	}
 
 	/**
-	 * <p><a href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateUserEvent.html">Reference Page</a></p>
+	 * <p><a target="_blank" href="https://www.khronos.org/registry/OpenCL/sdk/2.1/docs/man/xhtml/clCreateUserEvent.html">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #clCreateUserEvent CreateUserEvent}
 	 */

@@ -113,7 +113,7 @@ public final class GLXCapabilities {
 	/** When true, {@link GLXARBRobustnessApplicationIsolation} is supported. */
 	public final boolean GLX_ARB_robustness_application_isolation;
 	/**
-	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/glx_robustness_isolation.txt">GLX_ARB_robustness_share_group_isolation</a> extension is supported.
+	 * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/glx_robustness_isolation.txt">GLX_ARB_robustness_share_group_isolation</a> extension is supported.
 	 * 
 	 * <p>GL_ARB_robustness and GLX_ARB_create_context_robustness allow creating an OpenGL context supporting graphics reset notification behavior.
 	 * GLX_ARB_robustness_share_group_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>

@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/INTEL/INTEL_framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/INTEL/INTEL_framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
  * 
  * <p>Multisampling is a mechanism to antialias all GL primitives and is part of the GL specification.</p>
  * 
@@ -20,7 +20,7 @@ import static org.lwjgl.system.Checks.*;
  * 
  * <p>This extension incorporates an optimized CMAA algorithm implementation into the GL implementation.</p>
  * 
- * <p>For more information on CMAA refer to <a href="http://software.intel.com">http://software.intel.com</a>.</p>
+ * <p>For more information on CMAA refer to <a target="_blank" href="http://software.intel.com">http://software.intel.com</a>.</p>
  */
 public class INTELFramebufferCMAA {
 

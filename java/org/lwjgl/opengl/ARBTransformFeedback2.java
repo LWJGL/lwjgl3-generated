@@ -15,9 +15,9 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/transform_feedback2.txt">ARB_transform_feedback2</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback2.txt">ARB_transform_feedback2</a> extension.
  * 
- * <p>The <a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a> extension allows applications to capture primitives to one or more buffer objects when transformed by
+ * <p>The <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a> extension allows applications to capture primitives to one or more buffer objects when transformed by
  * the GL. This extension provides a few additional capabilities to these extensions, making transform feedback mode more useful.</p>
  * 
  * <p>First, it provides transform feedback objects which encapsulate transform feedback-related state, allowing applications to replace the entire transform
@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * only provides a vertex count -- it does not automatically set up vertex array state or vertex buffer object bindings, which must be done separately by
  * the application.</p>
  * 
- * <p>Requires {@link GL20 GL20} or {@link ARBShaderObjects ARB_shader_objects} and <a href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a> or <a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a>.
+ * <p>Requires {@link GL20 GL20} or {@link ARBShaderObjects ARB_shader_objects} and <a target="_blank" href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a> or <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a>.
  * Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
 public class ARBTransformFeedback2 {

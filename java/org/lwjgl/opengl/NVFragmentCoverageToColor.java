@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/fragment_coverage_to_color.txt">NV_fragment_coverage_to_color</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/fragment_coverage_to_color.txt">NV_fragment_coverage_to_color</a> extension.
  * 
  * <p>This extension allows the fragment coverage value, represented as an
  * integer bitfield, to be substituted for a color output being written to a

@@ -18,10 +18,10 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Contains bindings to the <a href="http://www.assimp.org/">Assimp</a> library.
+ * Contains bindings to the <a target="_blank" href="http://www.assimp.org/">Assimp</a> library.
  * 
- * <p>Assimp comes with fairly outdated documentation, which you can read online <a href="http://www.assimp.org/lib_html/">here</a>. The
- * <a href="http://www.assimp.org/FAQ.html">Frequently Asked Questions</a> are also useful.</p>
+ * <p>Assimp comes with fairly outdated documentation, which you can read online <a target="_blank" href="http://www.assimp.org/lib_html/">here</a>. The
+ * <a target="_blank" href="http://www.assimp.org/FAQ.html">Frequently Asked Questions</a> are also useful.</p>
  * 
  * <p>The bindings only consist of the C API of the Assimp model import library.</p>
  */
@@ -31,7 +31,7 @@ public class Assimp {
 	 * Enables time measurements.
 	 * 
 	 * <p>If enabled, measures the time needed for each part of the loading process (i.e. IO time, importing, postprocessing, ..) and dumps these timings to the
-	 * DefaultLogger. See the <a href="http://assimp.org/lib_html/perf.html">Performance Page</a> for more information on this topic.</p>
+	 * DefaultLogger. See the <a target="_blank" href="http://assimp.org/lib_html/perf.html">Performance Page</a> for more information on this topic.</p>
 	 * 
 	 * <p>Property type: bool. Default value: false.</p>
 	 */
@@ -1294,7 +1294,7 @@ public class Assimp {
 	 * Reorders triangles for better vertex cache locality.
 	 * 
 	 * <p>The step tries to improve the ACMR (average post-transform vertex cache miss ratio) for all meshes. The implementation runs in O(n) and is roughly
-	 * based on the 'tipsify' algorithm (see <a href="http://www.cs.princeton.edu/gfx/pubs/Sander_2007_%3ETR/tipsy.pdf">this paper</a>).</p>
+	 * based on the 'tipsify' algorithm (see <a target="_blank" href="http://www.cs.princeton.edu/gfx/pubs/Sander_2007_%3ETR/tipsy.pdf">this paper</a>).</p>
 	 * 
 	 * <p>If you intend to render huge models in hardware, this step might be of interest to you. The {@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE} importer property
 	 * can be used to fine-tune the cache optimization.</p>

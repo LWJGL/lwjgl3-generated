@@ -429,7 +429,7 @@ public class GLES32 {
 	// --- [ glBlendBarrier ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glBlendBarrier">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glBlendBarrier">Reference Page</a></p>
 	 * 
 	 * Specifies a boundary between passes when using advanced blend equations.
 	 * 
@@ -442,7 +442,7 @@ public class GLES32 {
 
 	// --- [ glCopyImageSubData ] ---
 
-	/** <a href="http://docs.gl/es3/glCopyImageSubData">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glCopyImageSubData">Reference Page</a> */
 	public static native void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 	// --- [ glDebugMessageControl ] ---
@@ -455,7 +455,7 @@ public class GLES32 {
 	public static native void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glDebugMessageControl">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glDebugMessageControl">Reference Page</a></p>
 	 * 
 	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
 	 * 
@@ -494,7 +494,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glDebugMessageControl">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glDebugMessageControl">Reference Page</a></p>
 	 * 
 	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
 	 * 
@@ -547,7 +547,7 @@ public class GLES32 {
 	public static native void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glDebugMessageInsert">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glDebugMessageInsert">Reference Page</a></p>
 	 * 
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
 	 * signals about specific render system events.
@@ -571,7 +571,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glDebugMessageInsert">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glDebugMessageInsert">Reference Page</a></p>
 	 * 
 	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
 	 * signals about specific render system events.
@@ -606,7 +606,7 @@ public class GLES32 {
 	public static native void nglDebugMessageCallback(long callback, long userParam);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glDebugMessageCallback">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glDebugMessageCallback">Reference Page</a></p>
 	 * 
 	 * Specifies a callback to receive debugging messages from the GL.
 	 * 
@@ -652,7 +652,7 @@ public class GLES32 {
 	public static native int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetDebugMessageLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetDebugMessageLog">Reference Page</a></p>
 	 * 
 	 * Retrieves messages from the debug message log.
 	 * 
@@ -700,14 +700,14 @@ public class GLES32 {
 
 	public static native void nglGetPointerv(int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glGetPointerv">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetPointerv">Reference Page</a> */
 	public static void glGetPointerv(int pname, PointerBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glGetPointerv">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetPointerv">Reference Page</a> */
 	public static long glGetPointer(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -729,7 +729,7 @@ public class GLES32 {
 	public static native void nglPushDebugGroup(int source, int id, int length, long message);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glPushDebugGroup">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glPushDebugGroup">Reference Page</a></p>
 	 * 
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
 	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
@@ -752,7 +752,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glPushDebugGroup">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glPushDebugGroup">Reference Page</a></p>
 	 * 
 	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
 	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
@@ -783,7 +783,7 @@ public class GLES32 {
 	// --- [ glPopDebugGroup ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glPopDebugGroup">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glPopDebugGroup">Reference Page</a></p>
 	 * 
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroup PushDebugGroup} command.
@@ -806,7 +806,7 @@ public class GLES32 {
 	public static native void nglObjectLabel(int identifier, int name, int length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glObjectLabel">Reference Page</a></p>
 	 * 
 	 * Labels a named object identified within a namespace.
 	 *
@@ -819,7 +819,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glObjectLabel">Reference Page</a></p>
 	 * 
 	 * Labels a named object identified within a namespace.
 	 *
@@ -847,7 +847,7 @@ public class GLES32 {
 	public static native void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -863,7 +863,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -884,7 +884,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -905,7 +905,7 @@ public class GLES32 {
 	public static native void nglObjectPtrLabel(long ptr, int length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Labels a sync object identified by a pointer.
 	 *
@@ -919,7 +919,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Labels a sync object identified by a pointer.
 	 *
@@ -948,7 +948,7 @@ public class GLES32 {
 	public static native void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -965,7 +965,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -987,7 +987,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -999,69 +999,69 @@ public class GLES32 {
 
 	// --- [ glEnablei ] ---
 
-	/** <a href="http://docs.gl/es3/glEnablei">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glEnablei">Reference Page</a> */
 	public static native void glEnablei(int target, int index);
 
 	// --- [ glDisablei ] ---
 
-	/** <a href="http://docs.gl/es3/glDisablei">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDisablei">Reference Page</a> */
 	public static native void glDisablei(int target, int index);
 
 	// --- [ glBlendEquationi ] ---
 
-	/** <a href="http://docs.gl/es3/glBlendEquationi">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glBlendEquationi">Reference Page</a> */
 	public static native void glBlendEquationi(int buf, int mode);
 
 	// --- [ glBlendEquationSeparatei ] ---
 
-	/** <a href="http://docs.gl/es3/glBlendEquationSeparatei">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glBlendEquationSeparatei">Reference Page</a> */
 	public static native void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha);
 
 	// --- [ glBlendFunci ] ---
 
-	/** <a href="http://docs.gl/es3/glBlendFunci">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glBlendFunci">Reference Page</a> */
 	public static native void glBlendFunci(int buf, int src, int dst);
 
 	// --- [ glBlendFuncSeparatei ] ---
 
-	/** <a href="http://docs.gl/es3/glBlendFuncSeparatei">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glBlendFuncSeparatei">Reference Page</a> */
 	public static native void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	// --- [ glColorMaski ] ---
 
-	/** <a href="http://docs.gl/es3/glColorMaski">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glColorMaski">Reference Page</a> */
 	public static native void glColorMaski(int index, boolean r, boolean g, boolean b, boolean a);
 
 	// --- [ glIsEnabledi ] ---
 
-	/** <a href="http://docs.gl/es3/glIsEnabledi">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glIsEnabledi">Reference Page</a> */
 	public static native boolean glIsEnabledi(int target, int index);
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	public static native void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex);
 
-	/** <a href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsBaseVertex">Reference Page</a> */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
@@ -1070,27 +1070,27 @@ public class GLES32 {
 
 	public static native void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex);
 
-	/** <a href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElementsBaseVertex">Reference Page</a> */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
@@ -1099,40 +1099,40 @@ public class GLES32 {
 
 	public static native void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex);
 
-	/** <a href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int instancecount, int basevertex) {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int instancecount, int basevertex) {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
 	}
 
-	/** <a href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstancedBaseVertex">Reference Page</a> */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int instancecount, int basevertex) {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex);
 	}
 
 	// --- [ glFramebufferTexture ] ---
 
-	/** <a href="http://docs.gl/es3/glFramebufferTexture">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glFramebufferTexture">Reference Page</a> */
 	public static native void glFramebufferTexture(int target, int attachment, int texture, int level);
 
 	// --- [ glPrimitiveBoundingBox ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glPrimitiveBoundingBox">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glPrimitiveBoundingBox">Reference Page</a></p>
 	 * 
 	 * Specifies the primitive bounding box.
 	 * 
@@ -1154,7 +1154,7 @@ public class GLES32 {
 	// --- [ glGetGraphicsResetStatus ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetGraphicsResetStatus">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetGraphicsResetStatus">Reference Page</a></p>
 	 * 
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * 
@@ -1202,7 +1202,7 @@ public class GLES32 {
 	public static native void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -1220,7 +1220,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -1237,7 +1237,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -1254,7 +1254,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -1271,7 +1271,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
 	 *
@@ -1297,7 +1297,7 @@ public class GLES32 {
 	public static native void nglGetnUniformfv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the value or values of a uniform of the default uniform block.
 	 *
@@ -1310,7 +1310,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Returns the value or values of a uniform of the default uniform block.
 	 *
@@ -1338,7 +1338,7 @@ public class GLES32 {
 	public static native void nglGetnUniformiv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
@@ -1351,7 +1351,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
@@ -1379,7 +1379,7 @@ public class GLES32 {
 	public static native void nglGetnUniformuiv(int program, int location, int bufSize, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
 	 *
@@ -1392,7 +1392,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
 	 *
@@ -1412,26 +1412,26 @@ public class GLES32 {
 
 	// --- [ glMinSampleShading ] ---
 
-	/** <a href="http://docs.gl/es3/glMinSampleShading">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glMinSampleShading">Reference Page</a> */
 	public static native void glMinSampleShading(float value);
 
 	// --- [ glPatchParameteri ] ---
 
-	/** <a href="http://docs.gl/es3/glPatchParameteri">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glPatchParameteri">Reference Page</a> */
 	public static native void glPatchParameteri(int pname, int value);
 
 	// --- [ glTexParameterIiv ] ---
 
 	public static native void nglTexParameterIiv(int target, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
 	public static void glTexParameterIiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
 	public static void glTexParameterIi(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1446,14 +1446,14 @@ public class GLES32 {
 
 	public static native void nglTexParameterIuiv(int target, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
 	public static void glTexParameterIuiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexParameter">Reference Page</a> */
 	public static void glTexParameterIui(int target, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1468,14 +1468,14 @@ public class GLES32 {
 
 	public static native void nglGetTexParameterIiv(int target, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
 	public static void glGetTexParameterIiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
 	public static int glGetTexParameterIi(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1491,14 +1491,14 @@ public class GLES32 {
 
 	public static native void nglGetTexParameterIuiv(int target, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
 	public static void glGetTexParameterIuiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetTexParameter">Reference Page</a> */
 	public static int glGetTexParameterIui(int target, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1514,14 +1514,14 @@ public class GLES32 {
 
 	public static native void nglSamplerParameterIiv(int sampler, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
 	public static void glSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
 	public static void glSamplerParameterIi(int sampler, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1536,14 +1536,14 @@ public class GLES32 {
 
 	public static native void nglSamplerParameterIuiv(int sampler, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
 	public static void glSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
 	public static void glSamplerParameterIui(int sampler, int pname, int param) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1558,14 +1558,14 @@ public class GLES32 {
 
 	public static native void nglGetSamplerParameterIiv(int sampler, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1581,14 +1581,14 @@ public class GLES32 {
 
 	public static native void nglGetSamplerParameterIuiv(int sampler, int pname, long params);
 
-	/** <a href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
 			check(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** <a href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1602,21 +1602,21 @@ public class GLES32 {
 
 	// --- [ glTexBuffer ] ---
 
-	/** <a href="http://docs.gl/es3/glTexBuffer">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexBuffer">Reference Page</a> */
 	public static native void glTexBuffer(int target, int internalformat, int buffer);
 
 	// --- [ glTexBufferRange ] ---
 
-	/** <a href="http://docs.gl/es3/glTexBufferRange">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexBufferRange">Reference Page</a> */
 	public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
 
 	// --- [ glTexStorage3DMultisample ] ---
 
-	/** <a href="http://docs.gl/es3/glTexStorage3DMultisample">Reference Page</a> */
+	/** <a target="_blank" href="http://docs.gl/es3/glTexStorage3DMultisample">Reference Page</a> */
 	public static native void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glDebugMessageControl">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glDebugMessageControl">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDebugMessageControl DebugMessageControl}
 	 */
@@ -1628,7 +1628,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetDebugMessageLog">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetDebugMessageLog">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetDebugMessageLog GetDebugMessageLog}
 	 */
@@ -1646,7 +1646,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectLabel">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetObjectLabel GetObjectLabel}
 	 */
@@ -1660,7 +1660,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetObjectPtrLabel">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel}
 	 */
@@ -1675,7 +1675,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadnPixels ReadnPixels}
 	 */
@@ -1687,7 +1687,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadnPixels ReadnPixels}
 	 */
@@ -1699,7 +1699,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glReadnPixels">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glReadnPixels ReadnPixels}
 	 */
@@ -1711,7 +1711,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformfv GetnUniformfv}
 	 */
@@ -1723,7 +1723,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformiv GetnUniformiv}
 	 */
@@ -1735,7 +1735,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetnUniformuiv GetnUniformuiv}
 	 */
@@ -1747,7 +1747,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexParameterIiv TexParameterIiv}
 	 */
@@ -1761,7 +1761,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexParameterIuiv TexParameterIuiv}
 	 */
@@ -1775,7 +1775,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexParameterIiv GetTexParameterIiv}
 	 */
@@ -1789,7 +1789,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetTexParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetTexParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv}
 	 */
@@ -1803,7 +1803,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glSamplerParameterIiv SamplerParameterIiv}
 	 */
@@ -1817,7 +1817,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv}
 	 */
@@ -1831,7 +1831,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv}
 	 */
@@ -1845,7 +1845,7 @@ public class GLES32 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv}
 	 */

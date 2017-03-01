@@ -17,8 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/pixel_buffer_object.txt">ARB_pixel_buffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_sRGB.txt">EXT_texture_sRGB</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/pixel_buffer_object.txt">ARB_pixel_buffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_sRGB.txt">EXT_texture_sRGB</a></li>
  * </ul>
  */
 public class GL21 {
@@ -86,7 +86,7 @@ public class GL21 {
 	public static native void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
 	 *
@@ -108,7 +108,7 @@ public class GL21 {
 	public static native void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
 	 *
@@ -130,7 +130,7 @@ public class GL21 {
 	public static native void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
 	 *
@@ -152,7 +152,7 @@ public class GL21 {
 	public static native void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
 	 *
@@ -174,7 +174,7 @@ public class GL21 {
 	public static native void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
 	 *
@@ -196,7 +196,7 @@ public class GL21 {
 	public static native void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
 	 *
@@ -209,7 +209,7 @@ public class GL21 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix2x3fv UniformMatrix2x3fv}
 	 */
@@ -221,7 +221,7 @@ public class GL21 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix3x2fv UniformMatrix3x2fv}
 	 */
@@ -233,7 +233,7 @@ public class GL21 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix2x4fv UniformMatrix2x4fv}
 	 */
@@ -245,7 +245,7 @@ public class GL21 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix4x2fv UniformMatrix4x2fv}
 	 */
@@ -257,7 +257,7 @@ public class GL21 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix3x4fv UniformMatrix3x4fv}
 	 */
@@ -269,7 +269,7 @@ public class GL21 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUniform">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glUniformMatrix4x3fv UniformMatrix4x3fv}
 	 */

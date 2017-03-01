@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/path_rendering_shared_edge.txt">NV_path_rendering_shared_edge</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/path_rendering_shared_edge.txt">NV_path_rendering_shared_edge</a> extension.
  * 
  * <p>This extension introduces a new path command modifier to the NV_path_rendering extension to indicate that a path command represents an edge (either
  * straight or curved) that is shared with another path.</p>
@@ -15,7 +15,7 @@ package org.lwjgl.opengl;
  * rasterization rules in order to ensure that groups of raster samples associated with a given coverage sample will all produce consistent coverage
  * results, in order to avoid artifacts described further in the issues section at the end of this document.</p>
  * 
- * <p>Requires <a href="http://www.opengl.org/registry/specs/NV/path_rendering.txt">NV_path_rendering</a>.</p>
+ * <p>Requires <a target="_blank" href="http://www.opengl.org/registry/specs/NV/path_rendering.txt">NV_path_rendering</a>.</p>
  */
 public final class NVPathRenderingSharedEdge {
 

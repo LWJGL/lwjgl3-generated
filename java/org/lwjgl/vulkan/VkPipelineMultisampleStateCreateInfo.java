@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sampleRateShading">sample rate shading</a> feature is not enabled, {@code sampleShadingEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
- * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-alphaToOne">alpha to one</a> feature is not enabled, {@code alphaToOneEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sampleRateShading">sample rate shading</a> feature is not enabled, {@code sampleShadingEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-alphaToOne">alpha to one</a> feature is not enabled, {@code alphaToOneEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * <li>{@code minSampleShading} <b>must</b> be in the range <code>[0,1]</code></li>
  * </ul>
  * 
@@ -45,11 +45,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; reserved for future use.</li>
  * <li>{@code rasterizationSamples} &ndash; a {@code VkSampleCountFlagBits} specifying the number of samples per pixel used in rasterization.</li>
- * <li>{@code sampleShadingEnable} &ndash; specifies that fragment shading executes per-sample if {@link VK10#VK_TRUE TRUE}, or per-fragment if {@link VK10#VK_FALSE FALSE}, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast-sampleshading">Sample Shading</a>.</li>
- * <li>{@code minSampleShading} &ndash; the minimum fraction of sample shading, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast-sampleshading">Sample Shading</a>.</li>
- * <li>{@code pSampleMask} &ndash; a bitmask of static coverage information that is ANDed with the coverage information generated during rasterization, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-samplemask">Sample Mask</a>.</li>
- * <li>{@code alphaToCoverageEnable} &ndash; controls whether a temporary coverage value is generated based on the alpha component of the fragment&#8217;s first color output as specified in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-covg">Multisample Coverage</a> section.</li>
- * <li>{@code alphaToOneEnable} &ndash; controls whether the alpha component of the fragment&#8217;s first color output is replaced with one as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-covg">Multisample Coverage</a>.</li>
+ * <li>{@code sampleShadingEnable} &ndash; specifies that fragment shading executes per-sample if {@link VK10#VK_TRUE TRUE}, or per-fragment if {@link VK10#VK_FALSE FALSE}, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast-sampleshading">Sample Shading</a>.</li>
+ * <li>{@code minSampleShading} &ndash; the minimum fraction of sample shading, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast-sampleshading">Sample Shading</a>.</li>
+ * <li>{@code pSampleMask} &ndash; a bitmask of static coverage information that is ANDed with the coverage information generated during rasterization, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-samplemask">Sample Mask</a>.</li>
+ * <li>{@code alphaToCoverageEnable} &ndash; controls whether a temporary coverage value is generated based on the alpha component of the fragment&#8217;s first color output as specified in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-covg">Multisample Coverage</a> section.</li>
+ * <li>{@code alphaToOneEnable} &ndash; controls whether the alpha component of the fragment&#8217;s first color output is replaced with one as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-covg">Multisample Coverage</a>.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

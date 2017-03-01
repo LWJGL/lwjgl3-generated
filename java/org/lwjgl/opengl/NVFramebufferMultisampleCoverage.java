@@ -8,7 +8,7 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/framebuffer_multisample_coverage.txt">NV_framebuffer_multisample_coverage</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/framebuffer_multisample_coverage.txt">NV_framebuffer_multisample_coverage</a> extension.
  * 
  * <p>This extension extends the EXT_framebuffer_multisample specification by providing a new function, RenderBufferStorageMultisampleCoverageNV, that
  * distinguishes between color samples and coverage samples.</p>

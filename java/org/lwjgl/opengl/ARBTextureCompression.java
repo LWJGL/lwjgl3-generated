@@ -11,7 +11,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_compression.txt">ARB_texture_compression</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_compression.txt">ARB_texture_compression</a> extension.
  * 
  * <p>Compressing texture images can reduce texture memory utilization and improve performance when rendering textured primitives. This extension allows
  * OpenGL applications to use compressed texture images by providing:</p>

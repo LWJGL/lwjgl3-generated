@@ -23,9 +23,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_buffer_object.txt">ARB_vertex_buffer_object</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/occlusion_query.txt">ARB_occlusion_query</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_buffer_object.txt">ARB_vertex_buffer_object</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/occlusion_query.txt">ARB_occlusion_query</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a></li>
  * </ul>
  */
 public class GL15 {
@@ -130,7 +130,7 @@ public class GL15 {
 	// --- [ glBindBuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBindBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBindBuffer">Reference Page</a></p>
 	 * 
 	 * Binds a named buffer object.
 	 *
@@ -149,7 +149,7 @@ public class GL15 {
 	public static native void nglDeleteBuffers(int n, long buffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteBuffers">Reference Page</a></p>
 	 * 
 	 * Deletes named buffer objects.
 	 *
@@ -160,7 +160,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteBuffers">Reference Page</a></p>
 	 * 
 	 * Deletes named buffer objects.
 	 */
@@ -184,7 +184,7 @@ public class GL15 {
 	public static native void nglGenBuffers(int n, long buffers);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenBuffers">Reference Page</a></p>
 	 * 
 	 * Generates buffer object names.
 	 *
@@ -195,7 +195,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenBuffers">Reference Page</a></p>
 	 * 
 	 * Generates buffer object names.
 	 */
@@ -213,7 +213,7 @@ public class GL15 {
 	// --- [ glIsBuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsBuffer">Reference Page</a></p>
 	 * 
 	 * Determines if a name corresponds to a buffer object.
 	 *
@@ -231,7 +231,7 @@ public class GL15 {
 	public static native void nglBufferData(int target, long size, long data, int usage);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Creates and initializes a buffer object's data store.
 	 * 
@@ -263,7 +263,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Creates and initializes a buffer object's data store.
 	 * 
@@ -295,7 +295,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Creates and initializes a buffer object's data store.
 	 * 
@@ -327,7 +327,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Creates and initializes a buffer object's data store.
 	 * 
@@ -359,7 +359,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Creates and initializes a buffer object's data store.
 	 * 
@@ -391,7 +391,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Creates and initializes a buffer object's data store.
 	 * 
@@ -432,7 +432,7 @@ public class GL15 {
 	public static native void nglBufferSubData(int target, long offset, long size, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Updates a subset of a buffer object's data store.
 	 *
@@ -445,7 +445,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Updates a subset of a buffer object's data store.
 	 *
@@ -458,7 +458,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Updates a subset of a buffer object's data store.
 	 *
@@ -471,7 +471,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Updates a subset of a buffer object's data store.
 	 *
@@ -484,7 +484,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Updates a subset of a buffer object's data store.
 	 *
@@ -506,7 +506,7 @@ public class GL15 {
 	public static native void nglGetBufferSubData(int target, long offset, long size, long data);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Returns a subset of a buffer object's data store.
 	 *
@@ -519,7 +519,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Returns a subset of a buffer object's data store.
 	 *
@@ -532,7 +532,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Returns a subset of a buffer object's data store.
 	 *
@@ -545,7 +545,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Returns a subset of a buffer object's data store.
 	 *
@@ -558,7 +558,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Returns a subset of a buffer object's data store.
 	 *
@@ -576,7 +576,7 @@ public class GL15 {
 	public static native long nglMapBuffer(int target, int access);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
 	 * 
 	 * Maps a buffer object's data store.
 	 * 
@@ -597,7 +597,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
 	 * 
 	 * Maps a buffer object's data store.
 	 * 
@@ -619,7 +619,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMapBuffer">Reference Page</a></p>
 	 * 
 	 * Maps a buffer object's data store.
 	 * 
@@ -642,7 +642,7 @@ public class GL15 {
 	// --- [ glUnmapBuffer ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glUnmapBuffer">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glUnmapBuffer">Reference Page</a></p>
 	 * 
 	 * Relinquishes the mapping of a buffer object and invalidates the pointer to its data store.
 	 * 
@@ -661,7 +661,7 @@ public class GL15 {
 	public static native void nglGetBufferParameteriv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Returns the value of a buffer object parameter.
 	 *
@@ -676,7 +676,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Returns the value of a buffer object parameter.
 	 *
@@ -700,7 +700,7 @@ public class GL15 {
 	public static native void nglGetBufferPointerv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferPointerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferPointerv">Reference Page</a></p>
 	 * 
 	 * Returns the pointer to a mapped buffer object's data store.
 	 *
@@ -715,7 +715,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferPointerv">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferPointerv">Reference Page</a></p>
 	 * 
 	 * Returns the pointer to a mapped buffer object's data store.
 	 *
@@ -743,7 +743,7 @@ public class GL15 {
 	public static native void nglGenQueries(int n, long ids);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenQueries">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenQueries">Reference Page</a></p>
 	 * 
 	 * Generates query object names.
 	 *
@@ -754,7 +754,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenQueries">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenQueries">Reference Page</a></p>
 	 * 
 	 * Generates query object names.
 	 */
@@ -779,7 +779,7 @@ public class GL15 {
 	public static native void nglDeleteQueries(int n, long ids);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteQueries">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteQueries">Reference Page</a></p>
 	 * 
 	 * Deletes named query objects.
 	 *
@@ -790,7 +790,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteQueries">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteQueries">Reference Page</a></p>
 	 * 
 	 * Deletes named query objects.
 	 */
@@ -807,7 +807,7 @@ public class GL15 {
 	// --- [ glIsQuery ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glIsQuery">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glIsQuery">Reference Page</a></p>
 	 * 
 	 * Determine if a name corresponds to a query object.
 	 *
@@ -818,7 +818,7 @@ public class GL15 {
 	// --- [ glBeginQuery ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBeginQuery">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBeginQuery">Reference Page</a></p>
 	 * 
 	 * Creates a query object and makes it active.
 	 *
@@ -830,7 +830,7 @@ public class GL15 {
 	// --- [ glEndQuery ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glEndQuery">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glEndQuery">Reference Page</a></p>
 	 * 
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
 	 *
@@ -844,7 +844,7 @@ public class GL15 {
 	public static native void nglGetQueryiv(int target, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQuery">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQuery">Reference Page</a></p>
 	 * 
 	 * Returns parameters of a query object target.
 	 *
@@ -859,7 +859,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQuery">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQuery">Reference Page</a></p>
 	 * 
 	 * Returns parameters of a query object target.
 	 *
@@ -883,7 +883,7 @@ public class GL15 {
 	public static native void nglGetQueryObjectiv(int id, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Returns the integer value of a query object parameter.
 	 *
@@ -898,7 +898,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Returns the integer value of a query object parameter.
 	 *
@@ -922,7 +922,7 @@ public class GL15 {
 	public static native void nglGetQueryObjectuiv(int id, int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetQueryObjectiv GetQueryObjectiv}.
 	 *
@@ -937,7 +937,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Unsigned version of {@link #glGetQueryObjectiv GetQueryObjectiv}.
 	 *
@@ -956,7 +956,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteBuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteBuffers DeleteBuffers}
 	 */
@@ -968,7 +968,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenBuffers">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenBuffers">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenBuffers GenBuffers}
 	 */
@@ -980,7 +980,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferData BufferData}
 	 */
@@ -992,7 +992,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferData BufferData}
 	 */
@@ -1004,7 +1004,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferData BufferData}
 	 */
@@ -1016,7 +1016,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferData BufferData}
 	 */
@@ -1028,7 +1028,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferSubData BufferSubData}
 	 */
@@ -1040,7 +1040,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferSubData BufferSubData}
 	 */
@@ -1052,7 +1052,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferSubData BufferSubData}
 	 */
@@ -1064,7 +1064,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glBufferSubData BufferSubData}
 	 */
@@ -1076,7 +1076,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetBufferSubData GetBufferSubData}
 	 */
@@ -1088,7 +1088,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetBufferSubData GetBufferSubData}
 	 */
@@ -1100,7 +1100,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetBufferSubData GetBufferSubData}
 	 */
@@ -1112,7 +1112,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetBufferSubData GetBufferSubData}
 	 */
@@ -1124,7 +1124,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetBufferParameteriv GetBufferParameteriv}
 	 */
@@ -1138,7 +1138,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGenQueries">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGenQueries">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGenQueries GenQueries}
 	 */
@@ -1150,7 +1150,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDeleteQueries">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDeleteQueries">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glDeleteQueries DeleteQueries}
 	 */
@@ -1162,7 +1162,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQuery">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQuery">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetQueryiv GetQueryiv}
 	 */
@@ -1176,7 +1176,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetQueryObjectiv GetQueryObjectiv}
 	 */
@@ -1190,7 +1190,7 @@ public class GL15 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glGetQueryObject">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv}
 	 */

@@ -17,25 +17,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture3D.txt">EXT_texture3D</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/packed_pixels.txt">EXT_packed_pixels</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/rescale_normal.txt">EXT_rescale_normal</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/separate_specular_color.txt">EXT_separate_specular_color</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/SGIS/texture_edge_clamp.txt">SGIS_texture_edge_clamp</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/SGIS/texture_lod.txt">SGIS_texture_lod</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/draw_range_elements.txt">EXT_draw_range_elements</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture3D.txt">EXT_texture3D</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/packed_pixels.txt">EXT_packed_pixels</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/rescale_normal.txt">EXT_rescale_normal</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/separate_specular_color.txt">EXT_separate_specular_color</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGIS/texture_edge_clamp.txt">SGIS_texture_edge_clamp</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGIS/texture_lod.txt">SGIS_texture_lod</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/draw_range_elements.txt">EXT_draw_range_elements</a></li>
  * </ul>
  * 
  * <p>Extensions part of the <em>imaging subset</em>:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/color_table.txt">EXT_color_table</a> and <a href="http://www.opengl.org/registry/specs/EXT/color_subtable.txt">EXT_color_subtable</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/convolution.txt">EXT_convolution</a> and <a href="http://www.opengl.org/registry/specs/HP/convolution_border_modes.txt">HP_convolution_border_modes</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/SGI/color_matrix.txt">SGI_color_matrix</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/histogram.txt">EXT_histogram</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> and <a href="http://www.opengl.org/registry/specs/EXT/EXT_blend_subtract.txt">EXT_EXT_blend_subtract</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/color_table.txt">EXT_color_table</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/color_subtable.txt">EXT_color_subtable</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/convolution.txt">EXT_convolution</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/HP/convolution_border_modes.txt">HP_convolution_border_modes</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGI/color_matrix.txt">SGI_color_matrix</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/histogram.txt">EXT_histogram</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/EXT_blend_subtract.txt">EXT_EXT_blend_subtract</a></li>
  * </ul>
  */
 public class GL12 {
@@ -152,7 +152,7 @@ public class GL12 {
 	public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -172,7 +172,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -192,7 +192,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -212,7 +212,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -232,7 +232,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -252,7 +252,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Specifies a three-dimensional texture image.
 	 *
@@ -277,7 +277,7 @@ public class GL12 {
 	public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -299,7 +299,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -321,7 +321,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -343,7 +343,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -365,7 +365,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -387,7 +387,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a cubic subregion of an existing 3D texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -411,7 +411,7 @@ public class GL12 {
 	// --- [ glCopyTexSubImage3D ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glCopyTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glCopyTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Respecifies a rectangular subregion of a slice of an existing 3D texel array. No change is made to the {@code internalformat}, {@code width},
 	 * {@code height}, or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
@@ -440,7 +440,7 @@ public class GL12 {
 	public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -485,7 +485,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -529,7 +529,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -572,7 +572,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -615,7 +615,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDrawRangeElements">Reference Page</a></p>
 	 * 
 	 * A restricted form of {@link GL11#glDrawElements DrawElements}. mode, start, end, and count match the corresponding arguments to glDrawElements, with the additional
 	 * constraint that all values in the arrays count must lie between start and end, inclusive.
@@ -658,7 +658,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -670,7 +670,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -682,7 +682,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -694,7 +694,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexImage3D TexImage3D}
 	 */
@@ -706,7 +706,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
@@ -718,7 +718,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
@@ -730,7 +730,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */
@@ -742,7 +742,7 @@ public class GL12 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glTexSubImage3D">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glTexSubImage3D TexSubImage3D}
 	 */

@@ -19,19 +19,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/depth_texture.txt">ARB_depth_texture</a> and <a href="http://www.opengl.org/registry/specs/ARB/shadow.txt">ARB_shadow</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/fog_coord.txt">EXT_fog_coord</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/multi_draw_arrays.txt">EXT_multi_draw_arrays</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/point_parameters.txt">ARB_point_parameters</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/secondary_color.txt">EXT_secondary_color</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_func_separate.txt">EXT_blend_func_separate</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/stencil_wrap.txt">EXT_stencil_wrap</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_env_crossbar.txt">ARB_texture_env_crossbar</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_lod_bias.txt">EXT_texture_lod_bias</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_mirrored_repeat.txt">ARB_texture_mirrored_repeat</a></li>
- * <li><a href="http://www.opengl.org/registry/specs/ARB/window_pos.txt">ARB_window_pos</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/depth_texture.txt">ARB_depth_texture</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shadow.txt">ARB_shadow</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/fog_coord.txt">EXT_fog_coord</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/multi_draw_arrays.txt">EXT_multi_draw_arrays</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/point_parameters.txt">ARB_point_parameters</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/secondary_color.txt">EXT_secondary_color</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_func_separate.txt">EXT_blend_func_separate</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/stencil_wrap.txt">EXT_stencil_wrap</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_env_crossbar.txt">ARB_texture_env_crossbar</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_lod_bias.txt">EXT_texture_lod_bias</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_mirrored_repeat.txt">ARB_texture_mirrored_repeat</a></li>
+ * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/window_pos.txt">ARB_window_pos</a></li>
  * </ul>
  */
 public class GL14 {
@@ -183,7 +183,7 @@ public class GL14 {
 	// --- [ glBlendColor ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBlendColor">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBlendColor">Reference Page</a></p>
 	 * 
 	 * Specifies the constant color C<sub>c</sub> to be used in blending.
 	 *
@@ -197,7 +197,7 @@ public class GL14 {
 	// --- [ glBlendEquation ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBlendEquation">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBlendEquation">Reference Page</a></p>
 	 * 
 	 * Controls the blend equations used for per-fragment blending.
 	 *
@@ -208,7 +208,7 @@ public class GL14 {
 	// --- [ glFogCoordf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoordf">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the current fog coordinate.
 	 *
@@ -219,7 +219,7 @@ public class GL14 {
 	// --- [ glFogCoordd ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoordd">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glFogCoordf FogCoordf}.
 	 *
@@ -233,7 +233,7 @@ public class GL14 {
 	public static native void nglFogCoordfv(long coord);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glFogCoordf FogCoordf}.
 	 *
@@ -251,7 +251,7 @@ public class GL14 {
 	public static native void nglFogCoorddv(long coord);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glFogCoordd FogCoordd}.
 	 *
@@ -269,7 +269,7 @@ public class GL14 {
 	public static native void nglFogCoordPointer(int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a fog coordinate array.
 	 *
@@ -282,7 +282,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a fog coordinate array.
 	 *
@@ -295,7 +295,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a fog coordinate array.
 	 *
@@ -308,7 +308,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoordPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a fog coordinate array.
 	 *
@@ -330,7 +330,7 @@ public class GL14 {
 	public static native void nglMultiDrawArrays(int mode, long first, long count, int primcount);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawArrays">Reference Page</a></p>
 	 * 
 	 * Renders multiple sets of primitives from array data.
 	 *
@@ -354,7 +354,7 @@ public class GL14 {
 	public static native void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawElements">Reference Page</a></p>
 	 * 
 	 * Renders multiple sets of primitives by specifying indices of array data elements.
 	 * 
@@ -374,7 +374,7 @@ public class GL14 {
 	// --- [ glPointParameterf ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointParameterf">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointParameterf">Reference Page</a></p>
 	 * 
 	 * Sets the float value of a pointer parameter.
 	 *
@@ -386,7 +386,7 @@ public class GL14 {
 	// --- [ glPointParameteri ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointParameteri">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointParameteri">Reference Page</a></p>
 	 * 
 	 * Integer version of {@link #glPointParameterf PointParameterf}.
 	 *
@@ -401,7 +401,7 @@ public class GL14 {
 	public static native void nglPointParameterfv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glPointParameterf PointParameterf}.
 	 *
@@ -420,7 +420,7 @@ public class GL14 {
 	public static native void nglPointParameteriv(int pname, long params);
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
 	 * 
 	 * Pointer version of {@link #glPointParameteri PointParameteri}.
 	 *
@@ -436,7 +436,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3b ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Sets the R, G, and B components of the current secondary color. The alpha component is set to 1.0.
 	 *
@@ -449,7 +449,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -462,7 +462,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Integer version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -475,7 +475,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -488,7 +488,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -501,7 +501,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3ub ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -514,7 +514,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3us ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -527,7 +527,7 @@ public class GL14 {
 	// --- [ glSecondaryColor3ui ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Unsigned int version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -543,7 +543,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3bv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Byte pointer version of {@link #glSecondaryColor3b SecondaryColor3b}.
 	 *
@@ -561,7 +561,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3sv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3s SecondaryColor3s}.
 	 *
@@ -579,7 +579,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3iv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3i SecondaryColor3i}.
 	 *
@@ -597,7 +597,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3fv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3f SecondaryColor3f}.
 	 *
@@ -615,7 +615,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3dv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3d SecondaryColor3d}.
 	 *
@@ -633,7 +633,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3ubv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3ub SecondaryColor3ub}.
 	 *
@@ -651,7 +651,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3usv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3us SecondaryColor3us}.
 	 *
@@ -669,7 +669,7 @@ public class GL14 {
 	public static native void nglSecondaryColor3uiv(long v);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColor3ui SecondaryColor3ui}.
 	 *
@@ -687,7 +687,7 @@ public class GL14 {
 	public static native void nglSecondaryColorPointer(int size, int type, int stride, long pointer);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a secondary color array.
 	 *
@@ -701,7 +701,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a secondary color array.
 	 *
@@ -715,7 +715,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a secondary color array.
 	 *
@@ -729,7 +729,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a secondary color array.
 	 *
@@ -743,7 +743,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColorPointer">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Specifies the location and organization of a secondary color array.
 	 *
@@ -759,7 +759,7 @@ public class GL14 {
 	// --- [ glBlendFuncSeparate ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glBlendFuncSeparate">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glBlendFuncSeparate">Reference Page</a></p>
 	 * 
 	 * Specifies pixel arithmetic for RGB and alpha components separately.
 	 *
@@ -773,7 +773,7 @@ public class GL14 {
 	// --- [ glWindowPos2i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Alternate way to set the current raster position. {@code z} is implictly set to 0.
 	 *
@@ -785,7 +785,7 @@ public class GL14 {
 	// --- [ glWindowPos2s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -797,7 +797,7 @@ public class GL14 {
 	// --- [ glWindowPos2f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -809,7 +809,7 @@ public class GL14 {
 	// --- [ glWindowPos2d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -824,7 +824,7 @@ public class GL14 {
 	public static native void nglWindowPos2iv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -842,7 +842,7 @@ public class GL14 {
 	public static native void nglWindowPos2sv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos2s WindowPos2s}.
 	 *
@@ -860,7 +860,7 @@ public class GL14 {
 	public static native void nglWindowPos2fv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos2f WindowPos2f}.
 	 *
@@ -878,7 +878,7 @@ public class GL14 {
 	public static native void nglWindowPos2dv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos2d WindowPos2d}.
 	 *
@@ -893,7 +893,7 @@ public class GL14 {
 	// --- [ glWindowPos3i ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Alternate way to set the current raster position.
 	 *
@@ -906,7 +906,7 @@ public class GL14 {
 	// --- [ glWindowPos3s ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Short version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -919,7 +919,7 @@ public class GL14 {
 	// --- [ glWindowPos3f ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Float version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -932,7 +932,7 @@ public class GL14 {
 	// --- [ glWindowPos3d ] ---
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Double version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -948,7 +948,7 @@ public class GL14 {
 	public static native void nglWindowPos3iv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -966,7 +966,7 @@ public class GL14 {
 	public static native void nglWindowPos3sv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos3s WindowPos3s}.
 	 *
@@ -984,7 +984,7 @@ public class GL14 {
 	public static native void nglWindowPos3fv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos3f WindowPos3f}.
 	 *
@@ -1002,7 +1002,7 @@ public class GL14 {
 	public static native void nglWindowPos3dv(long p);
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glWindowPos3d WindowPos3d}.
 	 *
@@ -1015,7 +1015,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glFogCoordfv FogCoordfv}
 	 */
@@ -1029,7 +1029,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glFogCoord">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glFogCoorddv FogCoorddv}
 	 */
@@ -1043,7 +1043,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawArrays">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawArrays">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glMultiDrawArrays MultiDrawArrays}
 	 */
@@ -1057,7 +1057,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glMultiDrawElements">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glMultiDrawElements">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glMultiDrawElements MultiDrawElements}
 	 */
@@ -1071,7 +1071,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glPointParameterfv PointParameterfv}
 	 */
@@ -1085,7 +1085,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glPointParameter">Reference Page</a></p>
 	 * 
 	 * Array version of: {@link #glPointParameteriv PointParameteriv}
 	 */
@@ -1099,7 +1099,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColor3sv SecondaryColor3sv}
 	 */
@@ -1113,7 +1113,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColor3iv SecondaryColor3iv}
 	 */
@@ -1127,7 +1127,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColor3fv SecondaryColor3fv}
 	 */
@@ -1141,7 +1141,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColor3dv SecondaryColor3dv}
 	 */
@@ -1155,7 +1155,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColor3usv SecondaryColor3usv}
 	 */
@@ -1169,7 +1169,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glSecondaryColor">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv}
 	 */
@@ -1183,7 +1183,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos2iv WindowPos2iv}
 	 */
@@ -1197,7 +1197,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos2sv WindowPos2sv}
 	 */
@@ -1211,7 +1211,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos2fv WindowPos2fv}
 	 */
@@ -1225,7 +1225,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos2dv WindowPos2dv}
 	 */
@@ -1239,7 +1239,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos3iv WindowPos3iv}
 	 */
@@ -1253,7 +1253,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos3sv WindowPos3sv}
 	 */
@@ -1267,7 +1267,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos3fv WindowPos3fv}
 	 */
@@ -1281,7 +1281,7 @@ public class GL14 {
 	}
 
 	/**
-	 * <p><a href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl3/glWindowPos">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Array version of: {@link #glWindowPos3dv WindowPos3dv}
 	 */

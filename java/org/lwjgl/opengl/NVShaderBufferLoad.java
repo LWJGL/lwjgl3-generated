@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/shader_buffer_load.txt">NV_shader_buffer_load</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/shader_buffer_load.txt">NV_shader_buffer_load</a> extension.
  * 
  * <p>At a very coarse level, GL has evolved in a way that allows applications to replace many of the original state machine variables with blocks of
  * user-defined data. For example, the current vertex state has been augmented by vertex buffer objects, fixed-function shading state and parameters have
@@ -82,7 +82,7 @@ MakeBufferResidentNV(target, READ_ONLY);
 vec4 **ptrToBuffers = pointerBufferAddr;
 vec4 *ptrToBufferI = ptrToBuffers[i];</code></pre>
  * 
- * <p>This allows simultaneous access to more buffers than <a href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> (MAX_VERTEX_BINDABLE_UNIFORMS, etc.) and each can be
+ * <p>This allows simultaneous access to more buffers than <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> (MAX_VERTEX_BINDABLE_UNIFORMS, etc.) and each can be
  * larger than MAX_BINDABLE_UNIFORM_SIZE.</p>
  */
 public class NVShaderBufferLoad {

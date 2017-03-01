@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
-/** Native bindings to the C API of the <a href="https://github.com/bkaradzic/bgfx">bgfx</a> library. */
+/** Native bindings to the C API of the <a target="_blank" href="https://github.com/bkaradzic/bgfx">bgfx</a> library. */
 public class BGFX {
 
 	/** API version */

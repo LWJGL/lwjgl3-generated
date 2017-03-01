@@ -6,7 +6,7 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shading_language_100.txt">ARB_shading_language_100</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shading_language_100.txt">ARB_shading_language_100</a> extension.
  * 
  * <p>This extension indicates that the OpenGL Shading Language is supported.</p>
  * 
