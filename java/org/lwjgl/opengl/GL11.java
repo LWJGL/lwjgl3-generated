@@ -716,36 +716,36 @@ public class GL11 {
 			caps.glColor3ui, caps.glColor3bv, caps.glColor3sv, caps.glColor3iv, caps.glColor3fv, caps.glColor3dv, caps.glColor3ubv, caps.glColor3usv, 
 			caps.glColor3uiv, caps.glColor4b, caps.glColor4s, caps.glColor4i, caps.glColor4f, caps.glColor4d, caps.glColor4ub, caps.glColor4us, caps.glColor4ui, 
 			caps.glColor4bv, caps.glColor4sv, caps.glColor4iv, caps.glColor4fv, caps.glColor4dv, caps.glColor4ubv, caps.glColor4usv, caps.glColor4uiv, 
-			caps.glColorMaterial, caps.glColorPointer, caps.glDeleteLists, caps.glDisableClientState, caps.glDrawPixels, caps.glEdgeFlag, caps.glEdgeFlagv, 
-			caps.glEdgeFlagPointer, caps.glEnableClientState, caps.glEnd, caps.glEvalCoord1f, caps.glEvalCoord1fv, caps.glEvalCoord1d, caps.glEvalCoord1dv, 
-			caps.glEvalCoord2f, caps.glEvalCoord2fv, caps.glEvalCoord2d, caps.glEvalCoord2dv, caps.glEvalMesh1, caps.glEvalMesh2, caps.glEvalPoint1, 
-			caps.glEvalPoint2, caps.glFeedbackBuffer, caps.glFogi, caps.glFogiv, caps.glFogf, caps.glFogfv, caps.glGenLists, caps.glGetLightiv, 
-			caps.glGetLightfv, caps.glGetMapiv, caps.glGetMapfv, caps.glGetMapdv, caps.glGetMaterialiv, caps.glGetMaterialfv, caps.glGetPixelMapfv, 
-			caps.glGetPixelMapusv, caps.glGetPixelMapuiv, caps.glGetPolygonStipple, caps.glGetTexGeniv, caps.glGetTexGenfv, caps.glGetTexGendv, caps.glIndexi, 
-			caps.glIndexub, caps.glIndexs, caps.glIndexf, caps.glIndexd, caps.glIndexiv, caps.glIndexubv, caps.glIndexsv, caps.glIndexfv, caps.glIndexdv, 
-			caps.glIndexMask, caps.glIndexPointer, caps.glInitNames, caps.glIsList, caps.glLightModeli, caps.glLightModelf, caps.glLightModeliv, 
-			caps.glLightModelfv, caps.glLighti, caps.glLightf, caps.glLightiv, caps.glLightfv, caps.glLineStipple, caps.glListBase, caps.glLoadMatrixf, 
-			caps.glLoadMatrixd, caps.glLoadIdentity, caps.glLoadName, caps.glMap1f, caps.glMap1d, caps.glMap2f, caps.glMap2d, caps.glMapGrid1f, 
-			caps.glMapGrid1d, caps.glMapGrid2f, caps.glMapGrid2d, caps.glMateriali, caps.glMaterialf, caps.glMaterialiv, caps.glMaterialfv, caps.glMatrixMode, 
-			caps.glMultMatrixf, caps.glMultMatrixd, caps.glFrustum, caps.glNewList, caps.glEndList, caps.glNormal3f, caps.glNormal3b, caps.glNormal3s, 
-			caps.glNormal3i, caps.glNormal3d, caps.glNormal3fv, caps.glNormal3bv, caps.glNormal3sv, caps.glNormal3iv, caps.glNormal3dv, caps.glNormalPointer, 
-			caps.glOrtho, caps.glPassThrough, caps.glPixelMapfv, caps.glPixelMapusv, caps.glPixelMapuiv, caps.glPixelTransferi, caps.glPixelTransferf, 
-			caps.glPixelZoom, caps.glPolygonStipple, caps.glPushAttrib, caps.glPushClientAttrib, caps.glPopAttrib, caps.glPopClientAttrib, caps.glPopMatrix, 
-			caps.glPopName, caps.glPrioritizeTextures, caps.glPushMatrix, caps.glPushName, caps.glRasterPos2i, caps.glRasterPos2s, caps.glRasterPos2f, 
-			caps.glRasterPos2d, caps.glRasterPos2iv, caps.glRasterPos2sv, caps.glRasterPos2fv, caps.glRasterPos2dv, caps.glRasterPos3i, caps.glRasterPos3s, 
-			caps.glRasterPos3f, caps.glRasterPos3d, caps.glRasterPos3iv, caps.glRasterPos3sv, caps.glRasterPos3fv, caps.glRasterPos3dv, caps.glRasterPos4i, 
-			caps.glRasterPos4s, caps.glRasterPos4f, caps.glRasterPos4d, caps.glRasterPos4iv, caps.glRasterPos4sv, caps.glRasterPos4fv, caps.glRasterPos4dv, 
-			caps.glRecti, caps.glRects, caps.glRectf, caps.glRectd, caps.glRectiv, caps.glRectsv, caps.glRectfv, caps.glRectdv, caps.glRenderMode, 
-			caps.glRotatef, caps.glRotated, caps.glScalef, caps.glScaled, caps.glSelectBuffer, caps.glShadeModel, caps.glTexCoord1f, caps.glTexCoord1s, 
-			caps.glTexCoord1i, caps.glTexCoord1d, caps.glTexCoord1fv, caps.glTexCoord1sv, caps.glTexCoord1iv, caps.glTexCoord1dv, caps.glTexCoord2f, 
-			caps.glTexCoord2s, caps.glTexCoord2i, caps.glTexCoord2d, caps.glTexCoord2fv, caps.glTexCoord2sv, caps.glTexCoord2iv, caps.glTexCoord2dv, 
-			caps.glTexCoord3f, caps.glTexCoord3s, caps.glTexCoord3i, caps.glTexCoord3d, caps.glTexCoord3fv, caps.glTexCoord3sv, caps.glTexCoord3iv, 
-			caps.glTexCoord3dv, caps.glTexCoord4f, caps.glTexCoord4s, caps.glTexCoord4i, caps.glTexCoord4d, caps.glTexCoord4fv, caps.glTexCoord4sv, 
-			caps.glTexCoord4iv, caps.glTexCoord4dv, caps.glTexCoordPointer, caps.glTexGeni, caps.glTexGeniv, caps.glTexGenf, caps.glTexGenfv, caps.glTexGend, 
-			caps.glTexGendv, caps.glTranslatef, caps.glTranslated, caps.glVertex2f, caps.glVertex2s, caps.glVertex2i, caps.glVertex2d, caps.glVertex2fv, 
-			caps.glVertex2sv, caps.glVertex2iv, caps.glVertex2dv, caps.glVertex3f, caps.glVertex3s, caps.glVertex3i, caps.glVertex3d, caps.glVertex3fv, 
-			caps.glVertex3sv, caps.glVertex3iv, caps.glVertex3dv, caps.glVertex4f, caps.glVertex4s, caps.glVertex4i, caps.glVertex4d, caps.glVertex4fv, 
-			caps.glVertex4sv, caps.glVertex4iv, caps.glVertex4dv, caps.glVertexPointer
+			caps.glColorMaterial, caps.glColorPointer, caps.glDeleteLists, caps.glDrawPixels, caps.glEdgeFlag, caps.glEdgeFlagv, caps.glEdgeFlagPointer, 
+			caps.glEnd, caps.glEvalCoord1f, caps.glEvalCoord1fv, caps.glEvalCoord1d, caps.glEvalCoord1dv, caps.glEvalCoord2f, caps.glEvalCoord2fv, 
+			caps.glEvalCoord2d, caps.glEvalCoord2dv, caps.glEvalMesh1, caps.glEvalMesh2, caps.glEvalPoint1, caps.glEvalPoint2, caps.glFeedbackBuffer, 
+			caps.glFogi, caps.glFogiv, caps.glFogf, caps.glFogfv, caps.glGenLists, caps.glGetLightiv, caps.glGetLightfv, caps.glGetMapiv, caps.glGetMapfv, 
+			caps.glGetMapdv, caps.glGetMaterialiv, caps.glGetMaterialfv, caps.glGetPixelMapfv, caps.glGetPixelMapusv, caps.glGetPixelMapuiv, 
+			caps.glGetPolygonStipple, caps.glGetTexGeniv, caps.glGetTexGenfv, caps.glGetTexGendv, caps.glIndexi, caps.glIndexub, caps.glIndexs, caps.glIndexf, 
+			caps.glIndexd, caps.glIndexiv, caps.glIndexubv, caps.glIndexsv, caps.glIndexfv, caps.glIndexdv, caps.glIndexMask, caps.glIndexPointer, 
+			caps.glInitNames, caps.glIsList, caps.glLightModeli, caps.glLightModelf, caps.glLightModeliv, caps.glLightModelfv, caps.glLighti, caps.glLightf, 
+			caps.glLightiv, caps.glLightfv, caps.glLineStipple, caps.glListBase, caps.glLoadMatrixf, caps.glLoadMatrixd, caps.glLoadIdentity, caps.glLoadName, 
+			caps.glMap1f, caps.glMap1d, caps.glMap2f, caps.glMap2d, caps.glMapGrid1f, caps.glMapGrid1d, caps.glMapGrid2f, caps.glMapGrid2d, caps.glMateriali, 
+			caps.glMaterialf, caps.glMaterialiv, caps.glMaterialfv, caps.glMatrixMode, caps.glMultMatrixf, caps.glMultMatrixd, caps.glFrustum, caps.glNewList, 
+			caps.glEndList, caps.glNormal3f, caps.glNormal3b, caps.glNormal3s, caps.glNormal3i, caps.glNormal3d, caps.glNormal3fv, caps.glNormal3bv, 
+			caps.glNormal3sv, caps.glNormal3iv, caps.glNormal3dv, caps.glNormalPointer, caps.glOrtho, caps.glPassThrough, caps.glPixelMapfv, caps.glPixelMapusv, 
+			caps.glPixelMapuiv, caps.glPixelTransferi, caps.glPixelTransferf, caps.glPixelZoom, caps.glPolygonStipple, caps.glPushAttrib, 
+			caps.glPushClientAttrib, caps.glPopAttrib, caps.glPopClientAttrib, caps.glPopMatrix, caps.glPopName, caps.glPrioritizeTextures, caps.glPushMatrix, 
+			caps.glPushName, caps.glRasterPos2i, caps.glRasterPos2s, caps.glRasterPos2f, caps.glRasterPos2d, caps.glRasterPos2iv, caps.glRasterPos2sv, 
+			caps.glRasterPos2fv, caps.glRasterPos2dv, caps.glRasterPos3i, caps.glRasterPos3s, caps.glRasterPos3f, caps.glRasterPos3d, caps.glRasterPos3iv, 
+			caps.glRasterPos3sv, caps.glRasterPos3fv, caps.glRasterPos3dv, caps.glRasterPos4i, caps.glRasterPos4s, caps.glRasterPos4f, caps.glRasterPos4d, 
+			caps.glRasterPos4iv, caps.glRasterPos4sv, caps.glRasterPos4fv, caps.glRasterPos4dv, caps.glRecti, caps.glRects, caps.glRectf, caps.glRectd, 
+			caps.glRectiv, caps.glRectsv, caps.glRectfv, caps.glRectdv, caps.glRenderMode, caps.glRotatef, caps.glRotated, caps.glScalef, caps.glScaled, 
+			caps.glSelectBuffer, caps.glShadeModel, caps.glTexCoord1f, caps.glTexCoord1s, caps.glTexCoord1i, caps.glTexCoord1d, caps.glTexCoord1fv, 
+			caps.glTexCoord1sv, caps.glTexCoord1iv, caps.glTexCoord1dv, caps.glTexCoord2f, caps.glTexCoord2s, caps.glTexCoord2i, caps.glTexCoord2d, 
+			caps.glTexCoord2fv, caps.glTexCoord2sv, caps.glTexCoord2iv, caps.glTexCoord2dv, caps.glTexCoord3f, caps.glTexCoord3s, caps.glTexCoord3i, 
+			caps.glTexCoord3d, caps.glTexCoord3fv, caps.glTexCoord3sv, caps.glTexCoord3iv, caps.glTexCoord3dv, caps.glTexCoord4f, caps.glTexCoord4s, 
+			caps.glTexCoord4i, caps.glTexCoord4d, caps.glTexCoord4fv, caps.glTexCoord4sv, caps.glTexCoord4iv, caps.glTexCoord4dv, caps.glTexCoordPointer, 
+			caps.glTexGeni, caps.glTexGeniv, caps.glTexGenf, caps.glTexGenfv, caps.glTexGend, caps.glTexGendv, caps.glTranslatef, caps.glTranslated, 
+			caps.glVertex2f, caps.glVertex2s, caps.glVertex2i, caps.glVertex2d, caps.glVertex2fv, caps.glVertex2sv, caps.glVertex2iv, caps.glVertex2dv, 
+			caps.glVertex3f, caps.glVertex3s, caps.glVertex3i, caps.glVertex3d, caps.glVertex3fv, caps.glVertex3sv, caps.glVertex3iv, caps.glVertex3dv, 
+			caps.glVertex4f, caps.glVertex4s, caps.glVertex4i, caps.glVertex4d, caps.glVertex4fv, caps.glVertex4sv, caps.glVertex4iv, caps.glVertex4dv, 
+			caps.glVertexPointer
 		)) && checkFunctions(
 			caps.glEnable, caps.glDisable, caps.glArrayElement, caps.glBindTexture, caps.glBlendFunc, caps.glClear, caps.glClearColor, caps.glClearDepth, 
 			caps.glClearStencil, caps.glClipPlane, caps.glColorMask, caps.glCopyPixels, caps.glCullFace, caps.glDepthFunc, caps.glDepthMask, caps.glDepthRange, 
@@ -1799,7 +1799,7 @@ public class GL11 {
 	// --- [ glDisableClientState ] ---
 
 	/**
-	 * <p><a target="_blank" href="http://docs.gl/gl3/glDisableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glDisableClientState">Reference Page</a></p>
 	 * 
 	 * Disables the specified fixed-function attribute array.
 	 *
@@ -2068,7 +2068,7 @@ public class GL11 {
 	// --- [ glEnableClientState ] ---
 
 	/**
-	 * <p><a target="_blank" href="http://docs.gl/gl3/glEnableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * <p><a target="_blank" href="http://docs.gl/gl4/glEnableClientState">Reference Page</a></p>
 	 * 
 	 * Enables the specified fixed-function attribute array.
 	 *

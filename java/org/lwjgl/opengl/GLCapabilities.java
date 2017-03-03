@@ -4169,7 +4169,7 @@ shadow2DRectProjGradARB(
 		glDetachObjectARB = provider.getFunctionAddress("glDetachObjectARB");
 		glDetachShader = provider.getFunctionAddress("glDetachShader");
 		glDisable = provider.getFunctionAddress("glDisable");
-		glDisableClientState = getFunctionAddress(fc, provider, "glDisableClientState");
+		glDisableClientState = provider.getFunctionAddress("glDisableClientState");
 		glDisableClientStateIndexedEXT = provider.getFunctionAddress("glDisableClientStateIndexedEXT");
 		glDisableClientStateiEXT = provider.getFunctionAddress("glDisableClientStateiEXT");
 		glDisableIndexedEXT = provider.getFunctionAddress("glDisableIndexedEXT");
@@ -4219,7 +4219,7 @@ shadow2DRectProjGradARB(
 		glEdgeFlagPointer = getFunctionAddress(fc, provider, "glEdgeFlagPointer");
 		glEdgeFlagv = getFunctionAddress(fc, provider, "glEdgeFlagv");
 		glEnable = provider.getFunctionAddress("glEnable");
-		glEnableClientState = getFunctionAddress(fc, provider, "glEnableClientState");
+		glEnableClientState = provider.getFunctionAddress("glEnableClientState");
 		glEnableClientStateIndexedEXT = provider.getFunctionAddress("glEnableClientStateIndexedEXT");
 		glEnableClientStateiEXT = provider.getFunctionAddress("glEnableClientStateiEXT");
 		glEnableIndexedEXT = provider.getFunctionAddress("glEnableIndexedEXT");
