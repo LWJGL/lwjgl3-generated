@@ -16,10 +16,10 @@
  * <ul>
  * <li>--with-jemalloc-prefix=je_</li>
  * <li>--with-malloc-conf=purge:decay</li>
+ * <li>--enable-tls</li>
  * <li>--disable-stats</li>
  * <li>--disable-fill</li>
  * <li>--disable-zone-allocator (MacOS)</li>
- * <li>--enable-lazy-lock=no (Windows)</li>
  * </ul>
  * 
  * <p>The shared library may be replaced with a custom build that has more features enabled.</p>
