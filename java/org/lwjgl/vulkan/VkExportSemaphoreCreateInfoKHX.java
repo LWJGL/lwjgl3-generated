@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>The bits in {@code handleTypes} must be supported and compatible, as reported by {@link VkExternalSemaphorePropertiesKHX}.</li>
+ * <li>The bits in {@code handleTypes} <b>must</b> be supported and compatible, as reported by {@link VkExternalSemaphorePropertiesKHX}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

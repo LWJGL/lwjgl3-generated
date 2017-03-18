@@ -43,20 +43,7 @@ import org.lwjgl.system.windows.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code handleType} &ndash; 0 or a flag specifying the type of memory handle in {@code handle}. Flags which <b>may</b> be specified are:
- * 
- * <pre><code>typedef enum VkExternalMemoryHandleTypeFlagBitsNV {
-    VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV = 0x00000001,
-    VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV = 0x00000002,
-    VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV = 0x00000004,
-    VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV = 0x00000008,
-} VkExternalMemoryHandleTypeFlagBitsNV;</code></pre>
- * 
- * <ul>
- * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} or {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV}, the handle is one returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV} or, in the case of {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV}, one duplicated from such a handle using {@code DuplicateHandle()}.</li>
- * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV}, the handle is a valid NT handle returned by {@code IDXGIResource1::ftext:CreateSharedHandle()}, or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
- * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV}, the handle is one returned by {@code IDXGIResource::GetSharedHandle()}.</li>
- * </ul></li>
+ * <li>{@code handleType} &ndash; 0 or a bit specifying the type of memory handle in {@code handle}. See {@code VkExternalMemoryHandleTypeFlagBitsNV} below for a description of the supported bits.</li>
  * <li>{@code handle} &ndash; a Windows {@code HANDLE} referring to the memory.</li>
  * </ul>
  * 

@@ -330,7 +330,7 @@ public class EXTDebugMarker {
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
-	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 * 
@@ -374,20 +374,18 @@ public class EXTDebugMarker {
 	 * 
 	 * <p>An application <b>may</b> open a marker region in one command buffer and close it in another, or otherwise split marker regions across multiple command buffers or multiple queue submissions. When viewed from the linear series of submissions to a single queue, the calls to {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} and {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} <b>must</b> be matched and balanced.</p>
 	 * 
-	 * <p>Any calls to {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} within a secondary command buffer must have a matching {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} in that same command buffer, and marker regions begun outside of the secondary command buffer must not be ended inside it.</p>
-	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
 	 * <li>There <b>must</b> be an outstanding {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command prior to the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} on the queue that {@code commandBuffer} is submitted to</li>
-	 * <li>If the matching {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command was in a secondary command buffer, the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} must be in the same {@code commandBuffer}</li>
+	 * <li>If {@code commandBuffer} is a secondary command buffer, there <b>must</b> be an outstanding {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command recorded to {@code commandBuffer} that has not previously been ended by a call to {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 * 
@@ -441,7 +439,7 @@ public class EXTDebugMarker {
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
-	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 * 

@@ -147,7 +147,7 @@ public class KHRDescriptorUpdateTemplate {
 	 * <p>{@link VkAllocationCallbacks}, {@link VkDescriptorUpdateTemplateCreateInfoKHR}</p>
 	 *
 	 * @param device                    the logical device that creates the descriptor update template.
-	 * @param pCreateInfo               a pointer to an instance of the {@link VkDescriptorUpdateTemplateCreateInfoKHR} structure specifying the set of descriptors to update with a single call to {@link #vkUpdateDescriptorSetWithTemplateKHR UpdateDescriptorSetWithTemplateKHR} or {@link #vkCmdPushDescriptorSetWithTemplateKHR CmdPushDescriptorSetWithTemplateKHR} .
+	 * @param pCreateInfo               a pointer to an instance of the {@link VkDescriptorUpdateTemplateCreateInfoKHR} structure specifying the set of descriptors to update with a single call to {@link #vkCmdPushDescriptorSetWithTemplateKHR CmdPushDescriptorSetWithTemplateKHR} or {@link #vkUpdateDescriptorSetWithTemplateKHR UpdateDescriptorSetWithTemplateKHR}.
 	 * @param pAllocator                controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 * @param pDescriptorUpdateTemplate points to a {@code VkDescriptorUpdateTemplateKHR} handle in which the resulting descriptor update template object is returned.
 	 */
@@ -364,7 +364,7 @@ vkUpdateDescriptorSetWithTemplateKHR(myDevice, myDescriptorSet, myDescriptorUpda
 	 * <li>{@code descriptorUpdateTemplate} <b>must</b> be a valid {@code VkDescriptorUpdateTemplateKHR} handle</li>
 	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
 	 * <li>{@code pData} <b>must</b> be a pointer</li>
-	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>Each of {@code commandBuffer}, {@code descriptorUpdateTemplate}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * </ul>

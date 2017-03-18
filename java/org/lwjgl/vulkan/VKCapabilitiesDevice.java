@@ -161,6 +161,15 @@ public class VKCapabilitiesDevice {
 		vkRegisterDisplayEventEXT,
 		vkGetSwapchainCounterEXT;
 
+	// EXT_hdr_metadata
+	public final long
+		vkSetHdrMetadataEXT;
+
+	// GOOGLE_display_timing
+	public final long
+		vkGetRefreshCycleDurationGOOGLE,
+		vkGetPastPresentationTimingGOOGLE;
+
 	// KHR_descriptor_update_template
 	public final long
 		vkCreateDescriptorUpdateTemplateKHR,
@@ -265,12 +274,14 @@ public class VKCapabilitiesDevice {
 	public final boolean VK_EXT_discard_rectangles;
 	/** When true, {@link EXTDisplayControl} is supported. */
 	public final boolean VK_EXT_display_control;
+	/** When true, {@link EXTHdrMetadata} is supported. */
+	public final boolean VK_EXT_hdr_metadata;
 	/** When true, {@link EXTShaderSubgroupBallot} is supported. */
 	public final boolean VK_EXT_shader_subgroup_ballot;
 	/** When true, {@link EXTShaderSubgroupVote} is supported. */
 	public final boolean VK_EXT_shader_subgroup_vote;
-	/** When true, {@link EXTSwapchainColorspace} is supported. */
-	public final boolean VK_EXT_swapchain_colorspace;
+	/** When true, {@link GOOGLEDisplayTiming} is supported. */
+	public final boolean VK_GOOGLE_display_timing;
 	/** When true, {@link IMGFilterCubic} is supported. */
 	public final boolean VK_IMG_filter_cubic;
 	/** When true, {@link IMGFormatPVRTC} is supported. */
@@ -497,9 +508,19 @@ public class VKCapabilitiesDevice {
 			vkGetSwapchainCounterEXT = isSupported(provider, "vkGetSwapchainCounterEXT", supported);
 			VK_EXT_display_control = supported && VK.checkExtension("VK_EXT_display_control", EXTDisplayControl.isAvailable(this));
 		}
+		{
+			supported = ext.contains("VK_EXT_hdr_metadata");
+			vkSetHdrMetadataEXT = isSupported(provider, "vkSetHdrMetadataEXT", supported);
+			VK_EXT_hdr_metadata = supported && VK.checkExtension("VK_EXT_hdr_metadata", EXTHdrMetadata.isAvailable(this));
+		}
 		VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
 		VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
-		VK_EXT_swapchain_colorspace = ext.contains("VK_EXT_swapchain_colorspace");
+		{
+			supported = ext.contains("VK_GOOGLE_display_timing");
+			vkGetRefreshCycleDurationGOOGLE = isSupported(provider, "vkGetRefreshCycleDurationGOOGLE", supported);
+			vkGetPastPresentationTimingGOOGLE = isSupported(provider, "vkGetPastPresentationTimingGOOGLE", supported);
+			VK_GOOGLE_display_timing = supported && VK.checkExtension("VK_GOOGLE_display_timing", GOOGLEDisplayTiming.isAvailable(this));
+		}
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
 		{

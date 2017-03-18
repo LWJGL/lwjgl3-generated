@@ -19,9 +19,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code bindingUnit} must stay within device supported limits for the appropriate commands.</li>
- * <li>{@code dynamicCount} must stay within device supported limits for the appropriate commands.</li>
- * <li>{@code divisor} must greater '0' and power of two.</li>
+ * <li>{@code bindingUnit} <b>must</b> stay within device supported limits for the appropriate commands.</li>
+ * <li>{@code dynamicCount} <b>must</b> stay within device supported limits for the appropriate commands.</li>
+ * <li>{@code divisor} <b>must</b> be greater than 0 and a power of two.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

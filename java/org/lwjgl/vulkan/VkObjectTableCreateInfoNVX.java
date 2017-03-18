@@ -53,11 +53,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>If the {@link VkDeviceGeneratedCommandsFeaturesNVX}{@code ::computeBindingPointSupport} feature is not enabled, {@code pObjectEntryUsageFlags} <b>must</b> not contain {@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX}</li>
- * <li>Any value within {@code pObjectEntryCounts} must not exceed {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::maxObjectEntryCounts}</li>
- * <li>{@code maxUniformBuffersPerDescriptor} must be within the limits supported by the device.</li>
- * <li>{@code maxStorageBuffersPerDescriptor} must be within the limits supported by the device.</li>
- * <li>{@code maxStorageImagesPerDescriptor} must be within the limits supported by the device.</li>
- * <li>{@code maxSampledImagesPerDescriptor} must be within the limits supported by the device.</li>
+ * <li>Any value within {@code pObjectEntryCounts} <b>must</b> not exceed {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::maxObjectEntryCounts}</li>
+ * <li>{@code maxUniformBuffersPerDescriptor} <b>must</b> be within the limits supported by the device.</li>
+ * <li>{@code maxStorageBuffersPerDescriptor} <b>must</b> be within the limits supported by the device.</li>
+ * <li>{@code maxStorageImagesPerDescriptor} <b>must</b> be within the limits supported by the device.</li>
+ * <li>{@code maxSampledImagesPerDescriptor} <b>must</b> be within the limits supported by the device.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -81,7 +81,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code objectCount} &ndash; the number of entry configurations that the object table supports. The following array parameters must match the size provided here.</li>
+ * <li>{@code objectCount} &ndash; the number of entry configurations that the object table supports.</li>
  * <li>{@code pObjectEntryTypes} &ndash; an array of {@code VkObjectEntryTypeNVX} providing the entry type of a given configuration.</li>
  * <li>{@code pObjectEntryCounts} &ndash; an array of counts how many objects can be registered in the table.</li>
  * <li>{@code pObjectEntryUsageFlags} &ndash; an array of bitmasks describing the binding usage of the entry. See {@code VkObjectEntryUsageFlagBitsNVX} below for a description of the supported bits.</li>

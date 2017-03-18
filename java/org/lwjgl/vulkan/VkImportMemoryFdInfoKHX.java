@@ -23,10 +23,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@code handleType} is not 0, it must be supported for import, as reported by {@link VkExternalImageFormatPropertiesKHX} or {@link VkExternalBufferPropertiesKHX}.</li>
+ * <li>If {@code handleType} is not 0, it <b>must</b> be supported for import, as reported by {@link VkExternalImageFormatPropertiesKHX} or {@link VkExternalBufferPropertiesKHX}.</li>
  * <li>The memory from which {@code fd} was exported <b>must</b> have been created on the same underlying physical device as {@code device}.</li>
  * <li>If {@code handleType} is not 0, it <b>must</b> be defined as a POSIX file descriptor handle.</li>
- * <li>If {@code handleType} is not 0, {@code fd} must be a valid handle of the type specified by {@code handleType}.</li>
+ * <li>If {@code handleType} is not 0, {@code fd} <b>must</b> be a valid handle of the type specified by {@code handleType}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

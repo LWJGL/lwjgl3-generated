@@ -51,7 +51,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code srcAlphaBlendFactor} &ndash; selects which blend factor is used to determine the source factor <code>S<sub>a</sub></code>.</li>
  * <li>{@code dstAlphaBlendFactor} &ndash; selects which blend factor is used to determine the destination factor <code>D<sub>a</sub></code>.</li>
  * <li>{@code alphaBlendOp} &ndash; selects which blend operation is use to calculate the alpha values to write to the color attachment.</li>
- * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing, as described later in this chapter.</li>
+ * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-color-write-mask">Color Write Mask</a> section.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

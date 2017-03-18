@@ -16,12 +16,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Specify that a buffer may be backed by external memory.
  * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>The bits in {@code handleTypes} <b>must</b> be compatible with each other and the other buffer creation parameters, as reported in {@link VkExternalBufferPropertiesKHX}.</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>

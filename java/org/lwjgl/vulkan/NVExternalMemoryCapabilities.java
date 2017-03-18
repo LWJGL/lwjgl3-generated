@@ -48,30 +48,19 @@ public class NVExternalMemoryCapabilities {
 	public static final String VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME = "VK_NV_external_memory_capabilities";
 
 	/**
-	 * VkExternalMemoryHandleTypeFlagBitsNV - Bitmask specifying memory handle types
+	 * VkExternalMemoryHandleTypeFlagBitsNV - Bitmask specifying external memory handle types
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>For more information, see:</p>
-	 * 
 	 * <ul>
-	 * <li>The reference page for {@link VkImportMemoryWin32HandleInfoNV}, where this interface is defined.</li>
-	 * <li>The See Also section for other reference pages using this type.</li>
-	 * <li>The Vulkan Specification.</li>
+	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} or {@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV} indicate a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV} or, in the case of {@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV}, one duplicated from such a handle using {@code DuplicateHandle()}.</li>
+	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV} indicates a valid NT handle to memory returned by {@code IDXGIResource1::ftext:CreateSharedHandle()}, or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
+	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV} indicates a handle to memory returned by {@code IDXGIResource::GetSharedHandle()}.</li>
 	 * </ul>
 	 * 
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkExternalMemoryHandleTypeFlagsNV}</p>
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV}</li>
-	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV}</li>
-	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV}</li>
-	 * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV}</li>
-	 * </ul>
 	 */
 	public static final int
 		VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV     = 0x1,

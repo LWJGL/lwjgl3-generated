@@ -41,7 +41,7 @@ import static org.lwjgl.system.JNI.*;
  * </ul></dd>
  * </dl>
  * 
- * <p>This is extension defines a vertical blanking period counter associated with display surfaces. It provides a mechanism to query support for such a counter from a {@code VkSurface} object.</p>
+ * <p>This is extension defines a vertical blanking period counter associated with display surfaces. It provides a mechanism to query support for such a counter from a {@code VkSurfaceKHR} object.</p>
  */
 public class EXTDisplaySurfaceCounter {
 

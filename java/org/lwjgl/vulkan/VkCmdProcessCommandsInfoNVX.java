@@ -21,16 +21,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>The provided {@code objectTable} <b>must</b> include all objects referenced by the generation process.</li>
- * <li>{@code indirectCommandsTokenCount} must match the {@code indirectCommandsLayout}&#8217;s tokenCount.</li>
- * <li>The {@code tokenType} member of each entry in the {@code pIndirectCommandsTokens} array must match the values used at creation time of {@code indirectCommandsLayout}</li>
- * <li>If {@code targetCommandBuffer} is provided, it must have reserved command space.</li>
+ * <li>{@code indirectCommandsTokenCount} <b>must</b> match the {@code indirectCommandsLayout}&#8217;s {@code tokenCount}.</li>
+ * <li>The {@code tokenType} member of each entry in the {@code pIndirectCommandsTokens} array <b>must</b> match the values used at creation time of {@code indirectCommandsLayout}</li>
+ * <li>If {@code targetCommandBuffer} is provided, it <b>must</b> have reserved command space.</li>
  * <li>If {@code targetCommandBuffer} is provided, the {@code objectTable} <b>must</b> match the reservation&#8217;s objectTable and <b>must</b> have had all referenced objects registered at reservation time.</li>
  * <li>If {@code targetCommandBuffer} is provided, the {@code indirectCommandsLayout} <b>must</b> match the reservation&#8217;s indirectCommandsLayout.</li>
  * <li>If {@code targetCommandBuffer} is provided, the {@code maxSequencesCount} <b>must</b> not exceed the reservation&#8217;s maxSequencesCount.</li>
  * <li>If {@code sequencesCountBuffer} is used, its usage flag <b>must</b> have {@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} bit set.</li>
- * <li>If {@code sequencesCountBuffer} is used, {@code sequencesCountOffset} must be aligned to {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::minSequenceCountBufferOffsetAlignment}.</li>
+ * <li>If {@code sequencesCountBuffer} is used, {@code sequencesCountOffset} <b>must</b> be aligned to {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::minSequenceCountBufferOffsetAlignment}.</li>
  * <li>If {@code sequencesIndexBuffer} is used, its usage flag <b>must</b> have {@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} bit set.</li>
- * <li>If {@code sequencesIndexBuffer} is used, {@code sequencesIndexOffset} must be aligned to {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::minSequenceIndexBufferOffsetAlignment}.</li>
+ * <li>If {@code sequencesIndexBuffer} is used, {@code sequencesIndexOffset} <b>must</b> be aligned to {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::minSequenceIndexBufferOffsetAlignment}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

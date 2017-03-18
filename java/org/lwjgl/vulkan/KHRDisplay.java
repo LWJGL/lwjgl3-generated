@@ -22,9 +22,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Status</b></dt>
  * <dd>Draft.</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2015-12-18</dd>
+ * <dd>2017-03-13</dd>
  * <dt><b>Revision</b></dt>
- * <dd>21</dd>
+ * <dd>23</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Dependencies</b></dt>
@@ -50,172 +50,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h5>Examples</h5>
  * 
- * <p><b>Example 1</b></p>
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>Enumerating displays, display modes, and planes, and creating a VkSurfaceKHR</p>
- * 
- * <pre><code>    extern VkBool32 ModeMatchesMyCriteria(const VkDisplayModePropertiesKHR *m);
-    extern VkInstance instance;
-    extern VkPhysicalDevice physDevice;
-    extern VkSurfaceKHR surface;
-
-    uint32_t displayCount, planeCount, i, j, k;
-    VkDisplayPropertiesKHR* pDisplayProps;
-    VkDisplayPlanePropertiesKHR* pPlaneProps;
-    VkDisplayModeKHR myMode = VK_NULL_HANDLE;
-    VkDisplayKHR myDisplay = VK_NULL_HANDLE;
-    uint32_t bestPlane = UINT32_MAX;
-    VkDisplayPlaneAlphaFlagBitsKHR alphaMode = 0;
-    PFN_vkGetPhysicalDeviceDisplayPropertiesKHR pfnGetPhysicalDeviceDisplayPropertiesKHR;
-    PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR pfnGetPhysicalDeviceDisplayPlanePropertiesKHR;
-    PFN_vkGetDisplayModePropertiesKHR pfnGetDisplayModePropertiesKHR;
-    PFN_vkGetDisplayPlaneCapabilitiesKHR pfnGetDisplayPlaneCapabilitiesKHR;
-    PFN_vkGetDisplayPlaneSupportedDisplaysKHR pfnGetDisplayPlaneSupportedDisplaysKHR;
-    PFN_vkCreateDisplayPlaneSurfaceKHR pfnCreateDisplayPlaneSurfaceKHR;
-
-    pfnGetPhysicalDeviceDisplayPropertiesKHR =
-        (PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)
-        vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceDisplayPropertiesKHR");
-    pfnGetPhysicalDeviceDisplayPlanePropertiesKHR =
-        (PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)
-        vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
-    pfnGetDisplayModePropertiesKHR =
-        (PFN_vkGetDisplayModePropertiesKHR)
-        vkGetInstanceProcAddr(instance, "vkGetDisplayModePropertiesKHR");
-    pfnGetDisplayPlaneCapabilitiesKHR =
-        (PFN_vkGetDisplayPlaneCapabilitiesKHR)
-        vkGetInstanceProcAddr(instance, "vkGetDisplayPlaneCapabilitiesKHR");
-    pfnGetDisplayPlaneSupportedDisplaysKHR =
-        (PFN_vkGetDisplayPlaneSupportedDisplaysKHR)
-        vkGetInstanceProcAddr(instance, "vkGetDisplayPlaneSupportedDisplaysKHR");
-    pfnCreateDisplayPlaneSurfaceKHR =
-        (PFN_vkCreateDisplayPlaneSurfaceKHR)
-        vkGetInstanceProcAddr(instance, "vkCreateDisplayPlaneSurfaceKHR");
-
-    // Get a list of displays on a physical device
-    displayCount = 0;
-    pfnGetPhysicalDeviceDisplayPropertiesKHR(physDevice, &displayCount, NULL);
-
-    pDisplayProps = (VkDisplayPropertiesKHR*)malloc(sizeof(VkDisplayPropertiesKHR) * displayCount);
-    pfnGetPhysicalDeviceDisplayPropertiesKHR(physDevice, &displayCount, pDisplayProps);
-
-    // Get a list of display planes on a physical device
-    planeCount = 0;
-    pfnGetPhysicalDeviceDisplayPlanePropertiesKHR(physDevice, &planeCount, NULL);
-    pPlaneProps = (VkDisplayPlanePropertiesKHR*)malloc(sizeof(VkDisplayPlanePropertiesKHR) * planeCount);
-    pfnGetPhysicalDeviceDisplayPlanePropertiesKHR(physDevice, &planeCount, pPlaneProps);
-
-    // Get the list of pModes each display supports
-    for (i = 0; i < displayCount; ++i)
-    {
-        VkDisplayKHR display = pDisplayProps[i].display;
-        VkDisplayModePropertiesKHR* pModes;
-        uint32_t modeCount;
-
-        vkGetDisplayModePropertiesKHR(physDevice, display, &modeCount, NULL);
-
-        pModes = (VkDisplayModePropertiesKHR*)malloc(sizeof(VkDisplayModePropertiesKHR) * modeCount);
-        vkGetDisplayModePropertiesKHR(physDevice, display, &modeCount, pModes);
-
-        myMode = VK_NULL_HANDLE;
-        for (j = 0; j < modeCount; ++j)
-        {
-            const VkDisplayModePropertiesKHR* mode = &pModes[i];
-
-            if (ModeMatchesMyCriteria(mode))
-            {
-                myMode = mode->displayMode;
-                break;
-            }
-        }
-
-        free(pModes);
-
-        // If there are no usable pModes found then check the next display.
-        if (myMode == VK_NULL_HANDLE)
-            continue;
-
-        // Find a plane that matches these criteria, in order of preference:
-        // -Is compatible with the chosen display + mode.
-        // -Is not currently bound to another display.
-        // -Supports per-pixel alpha, if possible.
-        for (j = 0; j < planeCount; ++j)
-        {
-            uint32_t supportedCount = 0;
-            VkDisplayKHR* pSupportedDisplays;
-            VkDisplayPlaneCapabilitiesKHR planeCaps;
-            // See if the plane is compatible with the current display.
-            pfnGetDisplayPlaneSupportedDisplaysKHR(physDevice, j, &supportedCount, NULL);
-
-            // Plane does not support any displays.  This might happen on a card
-            // that has a fixed mapping between planes and connectors when no
-            // displays are currently attached to this plane's connector, for
-            // example.
-            if (supportedCount == 0)
-                continue;
-
-            pSupportedDisplays = (VkDisplayKHR*)malloc(sizeof(VkDisplayKHR) * supportedCount);
-            pfnGetDisplayPlaneSupportedDisplaysKHR(physDevice, j, &supportedCount, pSupportedDisplays);
-
-            for (k = 0; k < supportedCount; ++k)
-                if (pSupportedDisplays[k] == display) {
-                    // If no supported plane has yet been found, this is
-                    // currently the best available plane.
-                    if (bestPlane == UINT32_MAX)
-                        bestPlane = j;
-                    break;
-                }
-
-            // If the plane cannot be used with the chosen display, keep looking.
-            // Each display must have at least one compatible plane.
-            if (k == supportedCount)
-                continue;
-
-            // If the plane passed the above test and is currently bound to the
-            // desired display, or is not in use, it is the best plane found so
-            // far.
-            if ((pPlaneProps[j].currentDisplay == VK_NULL_HANDLE) &&
-                (pPlaneProps[j].currentDisplay == display))
-                bestPlane = j;
-            else
-                continue;
-
-            pfnGetDisplayPlaneCapabilitiesKHR(physDevice, myMode, j, &planeCaps);
-
-            // Prefer a plane that supports per-pixel alpha.
-            if (planeCaps.supportedAlpha & VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR)
-            {
-                // This is the perfect plane for the given criteria.  Use it.
-                bestPlane = j;
-                alphaMode = VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR;
-                break;
-            }
-        }
-    }
-
-    free(pDisplayProps);
-
-    if (myDisplay == VK_NULL_HANDLE || myMode == VK_NULL_HANDLE) {
-        // No suitable display + mode could be found.  Abort.
-        abort();
-    } else {
-        // Success.  Create a VkSurfaceKHR object for this plane.
-        const VkDisplaySurfaceCreateInfoKHR createInfo =
-        {
-            VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR,  // sType
-            NULL,                                               // pNext
-            0,                                                  // flags
-            myMode,                                             // displayMode
-            bestPlane,                                          // planeIndex
-            pPlaneProps[bestPlane].currentStackIndex,           // planeStackIndex
-            VK_SURFACE_TRANSFORM_IDENTITY_KHR,                  // transform
-            1.0f,                                               // globalAlpha
-            alphaMode,                                          // alphaMode
-            ...
-        }
-
-        pfnCreateDisplayPlaneSurfaceKHR(instance, &createInfo, NULL, &surface);
-    }</code></pre>
+ * <p>The example code for the {@code VK_KHR_display} and {@code VK_KHR_display_swapchain} extensions was removed from the appendix after revision 1.0.43. The display enumeration example code was ported to the cube demo that is shipped with the official Khronos SDK, and is being kept up-to-date in that location (see: https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers/blob/master/demos/cube.c).</p>
+ * </div>
  */
 public class KHRDisplay {
 
@@ -240,7 +78,7 @@ public class KHRDisplay {
 		VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001;
 
 	/**
-	 * VkDisplayPlaneAlphaFlagBitsKHR - alpha blending type
+	 * VkDisplayPlaneAlphaFlagBitsKHR - Alpha blending type
 	 * 
 	 * <h5>Description</h5>
 	 * 
@@ -417,7 +255,7 @@ public class KHRDisplay {
 	/**
 	 * Unsafe version of: {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR}
 	 *
-	 * @param pDisplayCount a pointer to an integer related to the number of display planes available or queried, as described below.
+	 * @param pDisplayCount a pointer to an integer related to the number of displays available or queried, as described below.
 	 */
 	public static int nvkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, long pDisplayCount, long pDisplays) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayPlaneSupportedDisplaysKHR;
@@ -441,7 +279,7 @@ public class KHRDisplay {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>If {@code pDisplays} is {@code NULL}, then the number of displays usable with the specified {@code planeIndex} for {@code physicalDevice} is returned in {@code pDisplayCount}. Otherwise, {@code pDisplayCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pDisplays} array, and on return the variable is overwritten with the number of structures actually written to {@code pDisplays}. If the value of {@code pDisplayCount} is less than the number of display planes for {@code physicalDevice}, at most {@code pDisplayCount} structures will be written. If {@code pDisplayCount} is smaller than the number of displays usable with the specified {@code planeIndex} for {@code physicalDevice}, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link VK10#VK_SUCCESS SUCCESS} to indicate that not all the available values were returned.</p>
+	 * <p>If {@code pDisplays} is {@code NULL}, then the number of displays usable with the specified {@code planeIndex} for {@code physicalDevice} is returned in {@code pDisplayCount}. Otherwise, {@code pDisplayCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pDisplays} array, and on return the variable is overwritten with the number of handles actually written to {@code pDisplays}. If the value of {@code pDisplayCount} is less than the number of display planes for {@code physicalDevice}, at most {@code pDisplayCount} handles will be written. If {@code pDisplayCount} is smaller than the number of displays usable with the specified {@code planeIndex} for {@code physicalDevice}, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link VK10#VK_SUCCESS SUCCESS} to indicate that not all the available values were returned.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -474,8 +312,8 @@ public class KHRDisplay {
 	 *
 	 * @param physicalDevice a physical device.
 	 * @param planeIndex     the plane which the application wishes to use, and <b>must</b> be in the range <code>[0, physical device plane count - 1]</code>.
-	 * @param pDisplayCount  a pointer to an integer related to the number of display planes available or queried, as described below.
-	 * @param pDisplays      either {@code NULL} or a pointer to an array of {@code VkDisplayKHR} structures.
+	 * @param pDisplayCount  a pointer to an integer related to the number of displays available or queried, as described below.
+	 * @param pDisplays      either {@code NULL} or a pointer to an array of {@code VkDisplayKHR} handles.
 	 */
 	public static int vkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, IntBuffer pDisplayCount, LongBuffer pDisplays) {
 		if ( CHECKS ) {
@@ -621,7 +459,7 @@ public class KHRDisplay {
 	 * @param physicalDevice the physical device associated with {@code display}.
 	 * @param display        the display to create an additional mode for.
 	 * @param pCreateInfo    a {@link VkDisplayModeCreateInfoKHR} structure describing the new mode to create.
-	 * @param pAllocator     the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
+	 * @param pAllocator     the allocator used for host memory allocated for the display mode object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
 	 * @param pMode          returns the handle of the mode created.
 	 */
 	public static int vkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMode) {

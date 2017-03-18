@@ -60,6 +60,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code transform} &ndash; the transform to apply to the images as part of the scanout operation.</li>
  * <li>{@code globalAlpha} &ndash; the global alpha value. This value is ignored if {@code alphaMode} is not {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}.</li>
  * <li>{@code alphaMode} &ndash; the type of alpha blending to use.</li>
+ * <li>{@code imageExtent} &ndash; The size of the presentable images to use with the surface.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

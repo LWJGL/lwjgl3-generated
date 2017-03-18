@@ -151,21 +151,21 @@ public class KHRSurface {
 	 * <li>{@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR}: The presentation engine supports the sRGB color space.
 	 * 
 	 * <ul>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_SCRGB_LINEAR_EXT COLOR_SPACE_SCRGB_LINEAR_EXT} - supports the scRGB color space and applies a linear OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_SCRGB_NONLINEAR_EXT COLOR_SPACE_SCRGB_NONLINEAR_EXT} - supports the scRGB color space and applies the scRGB OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_DCI_P3_LINEAR_EXT COLOR_SPACE_DCI_P3_LINEAR_EXT} - supports the DCI-P3 color space and applies a linear OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT COLOR_SPACE_DCI_P3_NONLINEAR_EXT} - supports the DCI-P3 color space and applies the Gamma 2.6 OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_BT709_LINEAR_EXT COLOR_SPACE_BT709_LINEAR_EXT} - supports the BT709 color space and applies a linear OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_BT709_NONLINEAR_EXT COLOR_SPACE_BT709_NONLINEAR_EXT} - supports the BT709 color space and applies the SMPTE 170M OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_BT2020_LINEAR_EXT COLOR_SPACE_BT2020_LINEAR_EXT} - supports the BT2020 color space and applies a linear OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_BT2020_NONLINEAR_EXT COLOR_SPACE_BT2020_NONLINEAR_EXT} - supports the BT2020 color space and applies the SMPTE 170M OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT COLOR_SPACE_ADOBERGB_LINEAR_EXT} - supports the AdobeRGB color space and applies a linear OETF.</li>
-	 * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_ADOBERGB_NONLINEAR_EXT COLOR_SPACE_ADOBERGB_NONLINEAR_EXT} - supports the AdobeRGB color space and applies the Gamma 2.2 OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_SCRGB_LINEAR_EXT COLOR_SPACE_SCRGB_LINEAR_EXT} - supports the scRGB color space and applies a linear OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_SCRGB_NONLINEAR_EXT COLOR_SPACE_SCRGB_NONLINEAR_EXT} - supports the scRGB color space and applies the scRGB OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_DCI_P3_LINEAR_EXT COLOR_SPACE_DCI_P3_LINEAR_EXT} - supports the DCI-P3 color space and applies a linear OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT COLOR_SPACE_DCI_P3_NONLINEAR_EXT} - supports the DCI-P3 color space and applies the Gamma 2.6 OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_BT709_LINEAR_EXT COLOR_SPACE_BT709_LINEAR_EXT} - supports the BT709 color space and applies a linear OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_BT709_NONLINEAR_EXT COLOR_SPACE_BT709_NONLINEAR_EXT} - supports the BT709 color space and applies the SMPTE 170M OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_BT2020_LINEAR_EXT COLOR_SPACE_BT2020_LINEAR_EXT} - supports the BT2020 color space and applies a linear OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_BT2020_NONLINEAR_EXT COLOR_SPACE_BT2020_NONLINEAR_EXT} - supports the BT2020 color space and applies the SMPTE 170M OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT COLOR_SPACE_ADOBERGB_LINEAR_EXT} - supports the AdobeRGB color space and applies a linear OETF.</li>
+	 * <li>{@link #VK_COLOR_SPACE_ADOBERGB_NONLINEAR_EXT COLOR_SPACE_ADOBERGB_NONLINEAR_EXT} - supports the AdobeRGB color space and applies the Gamma 2.2 OETF.</li>
 	 * </ul>
 	 * </li>
 	 * </ul>
 	 * 
-	 * <p>The color components of Non-linear color space swap chain images have had the appropriate transfer function applied. Vulkan requires that all implementations support the sRGB OETF and EOTF transfer functions when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M, must not: be performed by the implementation, but <b>can</b> be performed by the application shader.</p>
+	 * <p>The color components of Non-linear color space swap chain images have had the appropriate transfer function applied. Vulkan requires that all implementations support the sRGB OETF and EOTF transfer functions when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M, <b>must</b> not be performed by the implementation, but <b>can</b> be performed by the application shader.</p>
 	 * 
 	 * <p>If {@code pSurfaceFormats} includes an entry whose value for {@code colorSpace} is {@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR} and whose value for {@code format} is a UNORM (or SRGB) format and the corresponding SRGB (or UNORM) format is a color renderable format for {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, then {@code pSurfaceFormats} <b>must</b> also contain an entry with the same value for {@code colorSpace} and {@code format} equal to the corresponding SRGB (or UNORM) format.</p>
 	 * 

@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code type} must be {@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX OBJECT_ENTRY_PUSH_CONSTANT_NVX}</li>
+ * <li>{@code type} <b>must</b> be {@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX OBJECT_ENTRY_PUSH_CONSTANT_NVX}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

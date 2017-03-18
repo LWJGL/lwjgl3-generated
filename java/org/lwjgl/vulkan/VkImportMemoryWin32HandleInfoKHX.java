@@ -26,10 +26,10 @@ import org.lwjgl.system.windows.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@code handleType} is not 0, it must be supported for import, as reported by {@link VkExternalImageFormatPropertiesKHX} or {@link VkExternalBufferPropertiesKHX}.</li>
+ * <li>If {@code handleType} is not 0, it <b>must</b> be supported for import, as reported by {@link VkExternalImageFormatPropertiesKHX} or {@link VkExternalBufferPropertiesKHX}.</li>
  * <li>The memory from which {@code handle} was exported <b>must</b> have been created on the same underlying physical device as {@code device}.</li>
  * <li>If {@code handleType} is not 0, it <b>must</b> be defined as an NT handle or a global share handle.</li>
- * <li>If {@code handleType} is not 0, {@code handle} must be a valid handle of the type specified by {@code handleType}.</li>
+ * <li>If {@code handleType} is not 0, {@code handle} <b>must</b> be a valid handle of the type specified by {@code handleType}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

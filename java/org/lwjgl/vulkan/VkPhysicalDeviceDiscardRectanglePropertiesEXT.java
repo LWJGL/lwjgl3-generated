@@ -14,6 +14,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * Structure describing discard rectangle limits that can be supported by an implementation.
+ * 
+ * <h5>Description</h5>
+ * 
+ * <ul>
+ * <li>{@code maxDiscardRectangles} is the maximum number of discard rectangles that can be specified.</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link EXTDiscardRectangles#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
+ * <p>If the {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT} structure is included in the {@code pNext} chain of flink:VkPhysicalDeviceProperties2KHR, it is filled with the implementation-dependent limits.</p>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {

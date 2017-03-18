@@ -61,9 +61,6 @@ public class KHXExternalMemoryCapabilities {
 	 * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHX}</li>
 	 * <li>{@link #VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHX STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHX}</li>
 	 * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHX STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHX}</li>
 	 * </ul>
 	 */
 	public static final int
@@ -71,10 +68,7 @@ public class KHXExternalMemoryCapabilities {
 		VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES_KHX           = 1000071001,
 		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHX       = 1000071002,
 		VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES_KHX                 = 1000071003,
-		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX              = 1000071004,
-		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHX               = 1000071005,
-		VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHX                  = 1000071006,
-		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2_KHX        = 1000071007;
+		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES_KHX              = 1000071004;
 
 	/** VK_LUID_SIZE_KHX */
 	public static final int VK_LUID_SIZE_KHX = 8;
@@ -159,7 +153,7 @@ public class KHXExternalMemoryCapabilities {
 
 	static boolean isAvailable(VKCapabilitiesInstance caps) {
 		return checkFunctions(
-			caps.vkGetPhysicalDeviceExternalBufferPropertiesKHX, caps.vkGetPhysicalDeviceProperties2KHX, caps.vkGetPhysicalDeviceImageFormatProperties2KHX
+			caps.vkGetPhysicalDeviceExternalBufferPropertiesKHX
 		);
 	}
 
@@ -203,32 +197,6 @@ public class KHXExternalMemoryCapabilities {
 	 */
 	public static void vkGetPhysicalDeviceExternalBufferPropertiesKHX(VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalBufferInfoKHX pExternalBufferInfo, VkExternalBufferPropertiesKHX pExternalBufferProperties) {
 		nvkGetPhysicalDeviceExternalBufferPropertiesKHX(physicalDevice, pExternalBufferInfo.address(), pExternalBufferProperties.address());
-	}
-
-	// --- [ vkGetPhysicalDeviceProperties2KHX ] ---
-
-	public static void nvkGetPhysicalDeviceProperties2KHX(VkPhysicalDevice physicalDevice, long pProperties) {
-		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceProperties2KHX;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, physicalDevice.address(), pProperties);
-	}
-
-	public static void vkGetPhysicalDeviceProperties2KHX(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties2KHX pProperties) {
-		nvkGetPhysicalDeviceProperties2KHX(physicalDevice, pProperties.address());
-	}
-
-	// --- [ vkGetPhysicalDeviceImageFormatProperties2KHX ] ---
-
-	public static int nvkGetPhysicalDeviceImageFormatProperties2KHX(VkPhysicalDevice physicalDevice, long pImageFormatInfo, long pImageFormatProperties) {
-		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceImageFormatProperties2KHX;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPPI(__functionAddress, physicalDevice.address(), pImageFormatInfo, pImageFormatProperties);
-	}
-
-	public static int vkGetPhysicalDeviceImageFormatProperties2KHX(VkPhysicalDevice physicalDevice, VkPhysicalDeviceImageFormatInfo2KHX pImageFormatInfo, VkImageFormatProperties2KHX pImageFormatProperties) {
-		return nvkGetPhysicalDeviceImageFormatProperties2KHX(physicalDevice, pImageFormatInfo.address(), pImageFormatProperties.address());
 	}
 
 }

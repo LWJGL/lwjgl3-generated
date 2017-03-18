@@ -193,7 +193,7 @@ public class NVClipSpaceWScaling {
 	 * 
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
 	 * </ul>

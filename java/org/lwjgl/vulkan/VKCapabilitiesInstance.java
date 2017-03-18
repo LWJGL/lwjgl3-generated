@@ -95,9 +95,7 @@ public class VKCapabilitiesInstance {
 
 	// KHX_external_memory_capabilities
 	public final long
-		vkGetPhysicalDeviceExternalBufferPropertiesKHX,
-		vkGetPhysicalDeviceProperties2KHX,
-		vkGetPhysicalDeviceImageFormatProperties2KHX;
+		vkGetPhysicalDeviceExternalBufferPropertiesKHX;
 
 	// KHX_external_semaphore_capabilities
 	public final long
@@ -256,8 +254,6 @@ public class VKCapabilitiesInstance {
 		{
 			supported = ext.contains("VK_KHX_external_memory_capabilities");
 			vkGetPhysicalDeviceExternalBufferPropertiesKHX = isSupported(provider, "vkGetPhysicalDeviceExternalBufferPropertiesKHX", supported);
-			vkGetPhysicalDeviceProperties2KHX = isSupported(provider, "vkGetPhysicalDeviceProperties2KHX", supported);
-			vkGetPhysicalDeviceImageFormatProperties2KHX = isSupported(provider, "vkGetPhysicalDeviceImageFormatProperties2KHX", supported);
 			VK_KHX_external_memory_capabilities = supported && VK.checkExtension("VK_KHX_external_memory_capabilities", KHXExternalMemoryCapabilities.isAvailable(this));
 		}
 		{
