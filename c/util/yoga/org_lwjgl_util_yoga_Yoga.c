@@ -20,6 +20,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_YGNodeNew(JNIEnv *__env, j
 	return (jlong)(intptr_t)YGNodeNew();
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeNewWithConfig(JNIEnv *__env, jclass clazz, jlong configAddress) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGNodeNewWithConfig(config);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeFree(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -304,6 +310,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetFlex(JNIEnv 
 	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
 	UNUSED_PARAMS(__env, clazz)
 	YGNodeStyleSetFlex(node, flex);
+}
+
+JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleGetFlex(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+	const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jfloat)YGNodeStyleGetFlex(node);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetFlexGrow(JNIEnv *__env, jclass clazz, jlong nodeAddress, jfloat flexGrow) {
@@ -630,19 +642,45 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGLog(JNIEnv *__env, jclas
 	YGLog(level, message);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_YGSetPointScaleFactor(JNIEnv *__env, jclass clazz, jfloat pixelsInPoint) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_YGConfigNew(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
-	YGSetPointScaleFactor(pixelsInPoint);
+	return (jlong)(intptr_t)YGConfigNew();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_YGSetExperimentalFeatureEnabled(JNIEnv *__env, jclass clazz, jint feature, jboolean enabled) {
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigFree(JNIEnv *__env, jclass clazz, jlong configAddress) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
 	UNUSED_PARAMS(__env, clazz)
-	YGSetExperimentalFeatureEnabled(feature, enabled);
+	YGConfigFree(config);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_YGIsExperimentalFeatureEnabled(JNIEnv *__env, jclass clazz, jint feature) {
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetPointScaleFactor(JNIEnv *__env, jclass clazz, jlong configAddress, jfloat pixelsInPoint) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jboolean)YGIsExperimentalFeatureEnabled(feature);
+	YGConfigSetPointScaleFactor(config, pixelsInPoint);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetExperimentalFeatureEnabled(JNIEnv *__env, jclass clazz, jlong configAddress, jint feature, jboolean enabled) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGConfigSetExperimentalFeatureEnabled(config, feature, enabled);
+}
+
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigIsExperimentalFeatureEnabled(JNIEnv *__env, jclass clazz, jlong configAddress, jint feature) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jboolean)YGConfigIsExperimentalFeatureEnabled(config, feature);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetUseWebDefaults(JNIEnv *__env, jclass clazz, jlong configAddress, jboolean enabled) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGConfigSetUseWebDefaults(config, enabled);
+}
+
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigGetUseWebDefaults(JNIEnv *__env, jclass clazz, jlong configAddress) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jboolean)YGConfigGetUseWebDefaults(config);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGSetMemoryFuncs(JNIEnv *__env, jclass clazz, jlong ygmallocAddress, jlong yccallocAddress, jlong ygreallocAddress, jlong ygfreeAddress) {

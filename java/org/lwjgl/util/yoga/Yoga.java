@@ -168,11 +168,13 @@ public class Yoga {
 	 * <ul>
 	 * <li>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</li>
 	 * <li>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</li>
+	 * <li>{@link #YGExperimentalFeatureMinFlexFix ExperimentalFeatureMinFlexFix}</li>
 	 * </ul>
 	 */
 	public static final int
 		YGExperimentalFeatureRounding     = 0,
-		YGExperimentalFeatureWebFlexBasis = 1;
+		YGExperimentalFeatureWebFlexBasis = 1,
+		YGExperimentalFeatureMinFlexFix   = 2;
 
 	/**
 	 * YGFlexDirection
@@ -337,6 +339,16 @@ public class Yoga {
 	// --- [ YGNodeNew ] ---
 
 	public static native long YGNodeNew();
+
+	// --- [ YGNodeNewWithConfig ] ---
+
+	public static native long nYGNodeNewWithConfig(long config);
+
+	public static long YGNodeNewWithConfig(long config) {
+		if ( CHECKS )
+			check(config);
+		return nYGNodeNewWithConfig(config);
+	}
 
 	// --- [ YGNodeFree ] ---
 
@@ -907,6 +919,16 @@ public class Yoga {
 		if ( CHECKS )
 			check(node);
 		nYGNodeStyleSetFlex(node, flex);
+	}
+
+	// --- [ YGNodeStyleGetFlex ] ---
+
+	public static native float nYGNodeStyleGetFlex(long node);
+
+	public static float YGNodeStyleGetFlex(long node) {
+		if ( CHECKS )
+			check(node);
+		return nYGNodeStyleGetFlex(node);
 	}
 
 	// --- [ YGNodeStyleSetFlexGrow ] ---
@@ -1630,33 +1652,98 @@ public class Yoga {
 		}
 	}
 
-	// --- [ YGSetPointScaleFactor ] ---
+	// --- [ YGConfigNew ] ---
+
+	public static native long YGConfigNew();
+
+	// --- [ YGConfigFree ] ---
+
+	public static native void nYGConfigFree(long config);
+
+	public static void YGConfigFree(long config) {
+		if ( CHECKS )
+			check(config);
+		nYGConfigFree(config);
+	}
+
+	// --- [ YGConfigSetPointScaleFactor ] ---
+
+	/** Unsafe version of: {@link #YGConfigSetPointScaleFactor ConfigSetPointScaleFactor} */
+	public static native void nYGConfigSetPointScaleFactor(long config, float pixelsInPoint);
 
 	/**
 	 * Set this to number of pixels in 1 point to round calculation results. If you want to avoid rounding set {@code PointScaleFactor} to 0.
 	 *
+	 * @param config        
 	 * @param pixelsInPoint 
 	 */
-	public static native void YGSetPointScaleFactor(float pixelsInPoint);
+	public static void YGConfigSetPointScaleFactor(long config, float pixelsInPoint) {
+		if ( CHECKS )
+			check(config);
+		nYGConfigSetPointScaleFactor(config, pixelsInPoint);
+	}
 
-	// --- [ YGSetExperimentalFeatureEnabled ] ---
+	// --- [ YGConfigSetExperimentalFeatureEnabled ] ---
+
+	/** Unsafe version of: {@link #YGConfigSetExperimentalFeatureEnabled ConfigSetExperimentalFeatureEnabled} */
+	public static native void nYGConfigSetExperimentalFeatureEnabled(long config, int feature, boolean enabled);
 
 	/**
 	 * 
 	 *
-	 * @param feature one of:<br><table><tr><td>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</td><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
+	 * @param config  
+	 * @param feature one of:<br><table><tr><td>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</td><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr><tr><td>{@link #YGExperimentalFeatureMinFlexFix ExperimentalFeatureMinFlexFix}</td></tr></table>
 	 * @param enabled 
 	 */
-	public static native void YGSetExperimentalFeatureEnabled(int feature, boolean enabled);
+	public static void YGConfigSetExperimentalFeatureEnabled(long config, int feature, boolean enabled) {
+		if ( CHECKS )
+			check(config);
+		nYGConfigSetExperimentalFeatureEnabled(config, feature, enabled);
+	}
 
-	// --- [ YGIsExperimentalFeatureEnabled ] ---
+	// --- [ YGConfigIsExperimentalFeatureEnabled ] ---
+
+	/** Unsafe version of: {@link #YGConfigIsExperimentalFeatureEnabled ConfigIsExperimentalFeatureEnabled} */
+	public static native boolean nYGConfigIsExperimentalFeatureEnabled(long config, int feature);
 
 	/**
 	 * 
 	 *
-	 * @param feature one of:<br><table><tr><td>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</td><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
+	 * @param config  
+	 * @param feature one of:<br><table><tr><td>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</td><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr><tr><td>{@link #YGExperimentalFeatureMinFlexFix ExperimentalFeatureMinFlexFix}</td></tr></table>
 	 */
-	public static native boolean YGIsExperimentalFeatureEnabled(int feature);
+	public static boolean YGConfigIsExperimentalFeatureEnabled(long config, int feature) {
+		if ( CHECKS )
+			check(config);
+		return nYGConfigIsExperimentalFeatureEnabled(config, feature);
+	}
+
+	// --- [ YGConfigSetUseWebDefaults ] ---
+
+	/** Unsafe version of: {@link #YGConfigSetUseWebDefaults ConfigSetUseWebDefaults} */
+	public static native void nYGConfigSetUseWebDefaults(long config, boolean enabled);
+
+	/**
+	 * Using the web defaults is the prefered configuration for new projects. Usage of non web defaults should be considered as legacy.
+	 *
+	 * @param config  
+	 * @param enabled 
+	 */
+	public static void YGConfigSetUseWebDefaults(long config, boolean enabled) {
+		if ( CHECKS )
+			check(config);
+		nYGConfigSetUseWebDefaults(config, enabled);
+	}
+
+	// --- [ YGConfigGetUseWebDefaults ] ---
+
+	public static native boolean nYGConfigGetUseWebDefaults(long config);
+
+	public static boolean YGConfigGetUseWebDefaults(long config) {
+		if ( CHECKS )
+			check(config);
+		return nYGConfigGetUseWebDefaults(config);
+	}
 
 	// --- [ YGSetMemoryFuncs ] ---
 
