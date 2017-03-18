@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
 	/** API version */
-	public static final int BGFX_API_VERSION = 35;
+	public static final int BGFX_API_VERSION = 39;
 
 	/** Invalid handle */
 	public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -987,7 +987,7 @@ public class BGFX {
 			dispatch_indirect                            = apiGetFunctionAddress(BGFX, "bgfx_dispatch_indirect"),
 			discard                                      = apiGetFunctionAddress(BGFX, "bgfx_discard"),
 			blit                                         = apiGetFunctionAddress(BGFX, "bgfx_blit"),
-			save_screen_shot                             = apiGetFunctionAddress(BGFX, "bgfx_save_screen_shot");
+			request_screen_shot                          = apiGetFunctionAddress(BGFX, "bgfx_request_screen_shot");
 
 	}
 
@@ -1187,7 +1187,7 @@ public class BGFX {
 	 * Converts index buffer for use with different primitive topologies.
 	 *
 	 * @param _conversion conversion type. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST}</td></tr></table>
-	 * @param _dst        destination index buffer. If this argument it {@code NULL} function will return number of indices after conversion
+	 * @param _dst        destination index buffer. If this argument is {@code NULL} function will return number of indices after conversion
 	 * @param _indices    source indices
 	 * @param _index32    set to `true` if input indices are 32-bit
 	 *
@@ -1201,7 +1201,7 @@ public class BGFX {
 	 * Converts index buffer for use with different primitive topologies.
 	 *
 	 * @param _conversion conversion type. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST}</td></tr></table>
-	 * @param _dst        destination index buffer. If this argument it {@code NULL} function will return number of indices after conversion
+	 * @param _dst        destination index buffer. If this argument is {@code NULL} function will return number of indices after conversion
 	 * @param _indices    source indices
 	 * @param _index32    set to `true` if input indices are 32-bit
 	 *
@@ -1215,7 +1215,7 @@ public class BGFX {
 	 * Converts index buffer for use with different primitive topologies.
 	 *
 	 * @param _conversion conversion type. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST}</td></tr></table>
-	 * @param _dst        destination index buffer. If this argument it {@code NULL} function will return number of indices after conversion
+	 * @param _dst        destination index buffer. If this argument is {@code NULL} function will return number of indices after conversion
 	 * @param _indices    source indices
 	 * @param _index32    set to `true` if input indices are 32-bit
 	 *
@@ -3079,16 +3079,24 @@ public class BGFX {
 
 	// --- [ bgfx_get_result ] ---
 
+	/** Unsafe version of: {@link #bgfx_get_result get_result} */
+	public static int nbgfx_get_result(short _handle, long _result) {
+		long __functionAddress = Functions.get_result;
+		return invokePI(__functionAddress, _handle, _result);
+	}
+
 	/**
 	 * Retrieves occlusion query result from previous frame.
 	 *
 	 * @param _handle handle to occlusion query object
+	 * @param _result number of pixels that passed test. This argument can be {@code NULL} if result of occlusion query is not needed.
 	 *
 	 * @return occlusion query result
 	 */
-	public static int bgfx_get_result(short _handle) {
-		long __functionAddress = Functions.get_result;
-		return invokeI(__functionAddress, _handle);
+	public static int bgfx_get_result(short _handle, IntBuffer _result) {
+		if ( CHECKS )
+			checkSafe(_result, 1);
+		return nbgfx_get_result(_handle, memAddressSafe(_result));
 	}
 
 	// --- [ bgfx_destroy_occlusion_query ] ---
@@ -4170,35 +4178,37 @@ public class BGFX {
 		nbgfx_blit((byte)_id, _dst, (byte)_dstMip, (short)_dstX, (short)_dstY, (short)_dstZ, _src, (byte)_srcMip, (short)_srcX, (short)_srcY, (short)_srcZ, (short)_width, (short)_height, (short)_depth);
 	}
 
-	// --- [ bgfx_save_screen_shot ] ---
+	// --- [ bgfx_request_screen_shot ] ---
 
-	/** Unsafe version of: {@link #bgfx_save_screen_shot save_screen_shot} */
-	public static void nbgfx_save_screen_shot(long _filePath) {
-		long __functionAddress = Functions.save_screen_shot;
-		invokePV(__functionAddress, _filePath);
+	/** Unsafe version of: {@link #bgfx_request_screen_shot request_screen_shot} */
+	public static void nbgfx_request_screen_shot(short _handle, long _filePath) {
+		long __functionAddress = Functions.request_screen_shot;
+		invokePV(__functionAddress, _handle, _filePath);
 	}
 
 	/**
 	 * Requests screen shot.
 	 *
+	 * @param _handle   frame buffer handle
 	 * @param _filePath will be passed to {@link BGFXScreenShotCallback}
 	 */
-	public static void bgfx_save_screen_shot(ByteBuffer _filePath) {
+	public static void bgfx_request_screen_shot(short _handle, ByteBuffer _filePath) {
 		if ( CHECKS )
 			checkNT1(_filePath);
-		nbgfx_save_screen_shot(memAddress(_filePath));
+		nbgfx_request_screen_shot(_handle, memAddress(_filePath));
 	}
 
 	/**
 	 * Requests screen shot.
 	 *
+	 * @param _handle   frame buffer handle
 	 * @param _filePath will be passed to {@link BGFXScreenShotCallback}
 	 */
-	public static void bgfx_save_screen_shot(CharSequence _filePath) {
+	public static void bgfx_request_screen_shot(short _handle, CharSequence _filePath) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer _filePathEncoded = stack.ASCII(_filePath);
-			nbgfx_save_screen_shot(memAddress(_filePathEncoded));
+			nbgfx_request_screen_shot(_handle, memAddress(_filePathEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4467,6 +4477,14 @@ public class BGFX {
 	public static short bgfx_create_frame_buffer_from_handles(short[] _handles, boolean _destroyTextures) {
 		long __functionAddress = Functions.create_frame_buffer_from_handles;
 		return invokePS(__functionAddress, (byte)_handles.length, _handles, _destroyTextures);
+	}
+
+	/** Array version of: {@link #bgfx_get_result get_result} */
+	public static int bgfx_get_result(short _handle, int[] _result) {
+		long __functionAddress = Functions.get_result;
+		if ( CHECKS )
+			checkSafe(_result, 1);
+		return invokePI(__functionAddress, _handle, _result);
 	}
 
 	/** Array version of: {@link #bgfx_set_palette_color set_palette_color} */

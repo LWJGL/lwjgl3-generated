@@ -19,6 +19,7 @@ public class BGFXPlatform {
 	 * <ul>
 	 * <li>{@link #BGFX_RENDER_FRAME_NO_CONTEXT RENDER_FRAME_NO_CONTEXT}</li>
 	 * <li>{@link #BGFX_RENDER_FRAME_RENDER RENDER_FRAME_RENDER}</li>
+	 * <li>{@link #BGFX_RENDER_FRAME_TIMEOUT RENDER_FRAME_TIMEOUT}</li>
 	 * <li>{@link #BGFX_RENDER_FRAME_EXITING RENDER_FRAME_EXITING}</li>
 	 * <li>{@link #BGFX_RENDER_FRAME_COUNT RENDER_FRAME_COUNT}</li>
 	 * </ul>
@@ -26,8 +27,9 @@ public class BGFXPlatform {
 	public static final int
 		BGFX_RENDER_FRAME_NO_CONTEXT = 0,
 		BGFX_RENDER_FRAME_RENDER     = 1,
-		BGFX_RENDER_FRAME_EXITING    = 2,
-		BGFX_RENDER_FRAME_COUNT      = 3;
+		BGFX_RENDER_FRAME_TIMEOUT    = 2,
+		BGFX_RENDER_FRAME_EXITING    = 3,
+		BGFX_RENDER_FRAME_COUNT      = 4;
 
 	protected BGFXPlatform() {
 		throw new UnsupportedOperationException();

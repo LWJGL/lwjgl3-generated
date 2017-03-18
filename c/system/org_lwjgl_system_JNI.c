@@ -53,7 +53,7 @@ ARITYn(jint, invokePPPPI__JJJJJI, return ((jint (*) (intptr_t, intptr_t, intptr_
 ARITYn(jint, invokePPPPPI__JJJJJJ, return ((jint (*) (intptr_t, intptr_t, intptr_t, intptr_t, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3, (intptr_t)param4), jlong param0, jlong param1, jlong param2, jlong param3, jlong param4)
 ARITYn(jint, invokePPPPPPI__JJJJJJJ, return ((jint (*) (intptr_t, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3, (intptr_t)param4, (intptr_t)param5), jlong param0, jlong param1, jlong param2, jlong param3, jlong param4, jlong param5)
 ARITYn(jint, invokePI__JJS, return ((jint (*) (intptr_t, jshort))(intptr_t)__functionAddress)((intptr_t)param0, param1), jlong param0, jshort param1)
-ARITYn(jint, invokeI__JS, return ((jint (*) (jshort))(intptr_t)__functionAddress)(param0), jshort param0)
+ARITYn(jint, invokePI__JSJ, return ((jint (*) (jshort, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1), jshort param0, jlong param1)
 ARITYn(jint, invokePI__JSJB, return ((jint (*) (jshort, intptr_t, jbyte))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2), jshort param0, jlong param1, jbyte param2)
 ARITYn(jint, invokeI__JZ, return ((jint (*) (jboolean))(intptr_t)__functionAddress)(param0), jboolean param0)
 ARITY0(jlong, invokeJ__J, return ((jlong (*) ())(intptr_t)__functionAddress)())
@@ -746,6 +746,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_JNI_invokePI__JS_3FB(JNIEnv *__env,
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_system_JNI_invokePI__JS_3FB(jlong __functionAddress, jshort param0, jint length1, jfloat* param1, jbyte param2) {
 	UNUSED_PARAM(length1)
 	return Java_org_lwjgl_system_JNI_invokePI__JSJB(NULL, NULL, __functionAddress, param0, (intptr_t)param1, param2);
+}
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_JNI_invokePI__JS_3I(JNIEnv *__env, jclass clazz, jlong __functionAddress, jshort param0, jintArray param1) {
+	UNUSED_PARAMS(__env, clazz)
+	void *paramArray1 = param1 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param1, 0);
+	jint __result = Java_org_lwjgl_system_JNI_invokePI__JSJ(NULL, NULL, __functionAddress, param0, (intptr_t)paramArray1);
+	if ( param1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, param1, paramArray1, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_system_JNI_invokePI__JS_3I(jlong __functionAddress, jshort param0, jint length1, jint* param1) {
+	UNUSED_PARAM(length1)
+	return Java_org_lwjgl_system_JNI_invokePI__JSJ(NULL, NULL, __functionAddress, param0, (intptr_t)param1);
 }
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_JNI_invokePI__JS_3IB(JNIEnv *__env, jclass clazz, jlong __functionAddress, jshort param0, jintArray param1, jbyte param2) {
 	UNUSED_PARAMS(__env, clazz)
