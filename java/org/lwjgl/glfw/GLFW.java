@@ -48,6 +48,18 @@ public class GLFW {
 	/** The key was held down until it repeated. */
 	public static final int GLFW_REPEAT = 2;
 
+	/** Joystick hat states. */
+	public static final int
+		GLFW_HAT_CENTERED   = 0,
+		GLFW_HAT_UP         = 1,
+		GLFW_HAT_RIGHT      = 2,
+		GLFW_HAT_DOWN       = 4,
+		GLFW_HAT_LEFT       = 8,
+		GLFW_HAT_RIGHT_UP   = (GLFW_HAT_RIGHT | GLFW_HAT_UP),
+		GLFW_HAT_RIGHT_DOWN = (GLFW_HAT_RIGHT | GLFW_HAT_DOWN),
+		GLFW_HAT_LEFT_UP    = (GLFW_HAT_LEFT  | GLFW_HAT_UP),
+		GLFW_HAT_LEFT_DOWN  = (GLFW_HAT_LEFT  | GLFW_HAT_DOWN);
+
 	/** The unknown key. */
 	public static final int GLFW_KEY_UNKNOWN = -1;
 
@@ -404,6 +416,12 @@ public class GLFW {
 		GLFW_CONNECTED    = 0x40001,
 		GLFW_DISCONNECTED = 0x40002;
 
+	/** Init hints. */
+	public static final int
+		GLFW_JOYSTICK_HAT_BUTTONS  = 0x50001,
+		GLFW_COCOA_CHDIR_RESOURCES = 0x51001,
+		GLFW_COCOA_MENUBAR         = 0x51002;
+
 	/** Don't care value. */
 	public static final int GLFW_DONT_CARE = -1;
 
@@ -572,7 +590,8 @@ public class GLFW {
 	/** Values for the {@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API} hint. */
 	public static final int
 		GLFW_NATIVE_CONTEXT_API = 0x36001,
-		GLFW_EGL_CONTEXT_API    = 0x36002;
+		GLFW_EGL_CONTEXT_API    = 0x36002,
+		GLFW_OSMESA_CONTEXT_API = 0x36003;
 
 	protected GLFW() {
 		throw new UnsupportedOperationException();
@@ -589,6 +608,7 @@ public class GLFW {
 		public static final long
 			Init                       = apiGetFunctionAddress(GLFW, "glfwInit"),
 			Terminate                  = apiGetFunctionAddress(GLFW, "glfwTerminate"),
+			InitHint                   = apiGetFunctionAddress(GLFW, "glfwInitHint"),
 			GetVersion                 = apiGetFunctionAddress(GLFW, "glfwGetVersion"),
 			GetVersionString           = apiGetFunctionAddress(GLFW, "glfwGetVersionString"),
 			SetErrorCallback           = apiGetFunctionAddress(GLFW, "glfwSetErrorCallback"),
@@ -666,6 +686,7 @@ public class GLFW {
 			JoystickPresent            = apiGetFunctionAddress(GLFW, "glfwJoystickPresent"),
 			GetJoystickAxes            = apiGetFunctionAddress(GLFW, "glfwGetJoystickAxes"),
 			GetJoystickButtons         = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
+			GetJoystickHats            = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
 			GetJoystickName            = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
 			SetJoystickCallback        = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
 			SetClipboardString         = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
@@ -703,7 +724,7 @@ public class GLFW {
 	 * <ul>
 	 * <li>This function must only be called from the main thread.</li>
 	 * <li><b>macOS</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
-	 * bundle, if present.</li>
+	 * bundle, if present. This can be disabled with the {@link #GLFW_COCOA_CHDIR_RESOURCES COCOA_CHDIR_RESOURCES} init hint.</li>
 	 * </ul>
 	 *
 	 * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occured.
@@ -736,6 +757,36 @@ public class GLFW {
 	public static void glfwTerminate() {
 		long __functionAddress = Functions.Terminate;
 		invokeV(__functionAddress);
+	}
+
+	// --- [ glfwInitHint ] ---
+
+	/**
+	 * Sets the specified init hint to the desired value.
+	 * 
+	 * <p>This function sets hints for the next initialization of GLFW.</p>
+	 * 
+	 * <p>The values you set are not affected by initialization or termination, but they are only read during initialization. Once GLFW has been initialized,
+	 * setting new hint values will not affect behavior until the next time the library is terminated and initialized.</p>
+	 * 
+	 * <p>Some hints are platform specific. These are always valid to set on any platform but they will only affect their specific platform. Other platforms will
+	 * simply ignore them. Setting these hints requires no platform specific headers or calls.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function may be called before {@link #glfwInit Init}.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * </ul>
+	 *
+	 * @param hint  the init hint to set. One of:<br><table><tr><td>{@link #GLFW_JOYSTICK_HAT_BUTTONS JOYSTICK_HAT_BUTTONS}</td><td>{@link #GLFW_COCOA_CHDIR_RESOURCES COCOA_CHDIR_RESOURCES}</td><td>{@link #GLFW_COCOA_MENUBAR COCOA_MENUBAR}</td></tr></table>
+	 * @param value the new value of the init hint
+	 *
+	 * @since version 3.3
+	 */
+	public static void glfwInitHint(int hint, int value) {
+		long __functionAddress = Functions.InitHint;
+		invokeV(__functionAddress, hint, value);
 	}
 
 	// --- [ glfwGetVersion ] ---
@@ -1235,7 +1286,7 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API}</td><td>{@link #GLFW_NO_API NO_API} {@link #GLFW_OPENGL_API OPENGL_API} {@link #GLFW_OPENGL_ES_API OPENGL_ES_API}</td></tr>
-	 * <tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}</td></tr>
+	 * <tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API} {@link #GLFW_OSMESA_CONTEXT_API OSMESA_CONTEXT_API}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>1</td><td>Any valid major version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>0</td><td>Any valid minor version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}</td></tr>
@@ -1320,9 +1371,9 @@ public class GLFW {
 	 * more information on bundles, see the
 	 * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
-	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
-	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
-	 * <a target="_blank" href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <li><b>macOS</b>: The first time a window is created the menu bar is created. If GLFW finds a {@code `MainMenu.nib`} it is loaded and assumed to
+	 * contain a menu bar. Otherwise a minimal menu bar is created manually with common commands like Hide, Quit and About. The About entry opens a
+	 * minimal about dialog with information from the application's bundle. Menu bar creation can be disabled entirely with the {@link #GLFW_COCOA_MENUBAR COCOA_MENUBAR} init hint.</li>
 	 * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
 	 * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
 	 * more information, see <a target="_blank" href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
@@ -1400,9 +1451,9 @@ public class GLFW {
 	 * more information on bundles, see the
 	 * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
-	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
-	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
-	 * <a target="_blank" href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <li><b>macOS</b>: The first time a window is created the menu bar is created. If GLFW finds a {@code `MainMenu.nib`} it is loaded and assumed to
+	 * contain a menu bar. Otherwise a minimal menu bar is created manually with common commands like Hide, Quit and About. The About entry opens a
+	 * minimal about dialog with information from the application's bundle. Menu bar creation can be disabled entirely with the {@link #GLFW_COCOA_MENUBAR COCOA_MENUBAR} init hint.</li>
 	 * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
 	 * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
 	 * more information, see <a target="_blank" href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
@@ -2524,10 +2575,16 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns the localized name of the specified printable key. This is intended for displaying key bindings to the user.
+	 * Returns the localized name of the specified printable key.
 	 * 
-	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, the scancode is used instead, otherwise the scancode is ignored. If a non-printable key or (if the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}) a
-	 * scancode that maps to a non-printable key is specified, this function returns {@code NULL}.</p>
+	 * <p>This function returns the name of the specified printable key. This is typically the character that key would produce without any modifier keys, intended for displaying key bindings to the user.</p>
+	 * 
+	 * <p><b>Do not use this function</b> for text input. You will break text input for many languages even if it happens to work for yours.</p>
+	 * 
+	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, the scancode is used to identify the key, otherwise the scancode is ignored. If you specify a non-printable key, or
+	 * {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} and a scancode that maps to a non-printable key, this function returns {@code NULL} but does not emit an error.</p>
+	 * 
+	 * <p>This behavior allows you to always pass in the arguments in the key callback without modification.</p>
 	 * 
 	 * <p>The printable keys are:</p>
 	 * 
@@ -2554,6 +2611,9 @@ public class GLFW {
 	 * <li>{@link #GLFW_KEY_KP_ADD KEY_KP_ADD}</li>
 	 * <li>{@link #GLFW_KEY_KP_EQUAL KEY_KP_EQUAL}</li>
 	 * </ul>
+	 * 
+	 * <p>Names for printable keys depend on keyboard layout, while names for non-printable keys are the same across layouts but depend on the application
+	 * language and should be localized along with other user interface text.</p>
 	 * 
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetKeyName GetKeyName}, or until the
 	 * library is terminated.</p>
@@ -3104,7 +3164,7 @@ public class GLFW {
 	/**
 	 * Returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
 	 * 
-	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
 	 * presence.</p>
 	 * 
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
@@ -3144,7 +3204,11 @@ public class GLFW {
 	/**
 	 * Returns the state of all buttons of the specified joystick. Each element in the array is either {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}.
 	 * 
-	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * <p>For backward compatibility with earlier versions that did not have {@link #glfwGetJoystickHats GetJoystickHats}, the button array also includes all hats, each represented as four
+	 * buttons. The hats are in the same order as returned by {@link #glfwGetJoystickHats GetJoystickHats} and are in the order up, right, down and left. To disable these extra
+	 * buttons, set the {@link #GLFW_JOYSTICK_HAT_BUTTONS JOYSTICK_HAT_BUTTONS} init hint before initialization.</p>
+	 * 
+	 * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
 	 * presence.</p>
 	 * 
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
@@ -3169,6 +3233,71 @@ public class GLFW {
 		}
 	}
 
+	// --- [ glfwGetJoystickHats ] ---
+
+	/**
+	 * Unsafe version of: {@link #glfwGetJoystickHats GetJoystickHats}
+	 *
+	 * @param count where to store the number of hat states in the returned array. This is set to zero if the joystick is not present or an error occurred.
+	 */
+	public static long nglfwGetJoystickHats(int jid, long count) {
+		long __functionAddress = Functions.GetJoystickHats;
+		return invokePP(__functionAddress, jid, count);
+	}
+
+	/**
+	 * Returns the state of all hats of the specified joystick.
+	 * 
+	 * <p>This function returns the state of all hats of the specified joystick. Each element in the array is one of the following values:</p>
+	 * 
+	 * <pre><code>Name                | Value
+------------------- | ------------------------------
+GLFW_HAT_CENTERED   | 0
+GLFW_HAT_UP         | 1
+GLFW_HAT_RIGHT      | 2
+GLFW_HAT_DOWN       | 4
+GLFW_HAT_LEFT       | 8
+GLFW_HAT_RIGHT_UP   | GLFW_HAT_RIGHT | GLFW_HAT_UP
+GLFW_HAT_RIGHT_DOWN | GLFW_HAT_RIGHT | GLFW_HAT_DOWN
+GLFW_HAT_LEFT_UP    | GLFW_HAT_LEFT  | GLFW_HAT_UP
+GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
+	 * 
+	 * <p>The diagonal directions are bitwise combinations of the primary (up, right, down and left) directions and you can test for these individually by ANDing
+	 * it with the corresponding direction.</p>
+	 * 
+	 * <pre><code>if (hats[2] & GLFW_HAT_RIGHT)
+{
+    // State of hat 2 could be right-up, right or right-down
+}</code></pre>
+	 * 
+	 * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * presence.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>Linux: Joystick hats are currently unimplemented.</li>
+	 * <li>The returned array is allocated and freed by GLFW.  You *  should not free it yourself.  It is valid until the specified joystick is *  disconnected, this function is called again for that joystick or the library *  is terminated.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * </ul>
+	 *
+	 * @param jid the joystick to query
+	 *
+	 * @return an array of hat states, or {@code NULL} if the joystick is not present or an error occurred
+	 *
+	 * @since version 3.3
+	 */
+	public static ByteBuffer glfwGetJoystickHats(int jid) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer count = stack.callocInt(1);
+		try {
+			long __result = nglfwGetJoystickHats(jid, memAddress(count));
+			return memByteBuffer(__result, count.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ glfwGetJoystickName ] ---
 
 	/** Unsafe version of: {@link #glfwGetJoystickName GetJoystickName} */
@@ -3180,7 +3309,7 @@ public class GLFW {
 	/**
 	 * Returns the name, encoded as UTF-8, of the specified joystick.
 	 * 
-	 * <p>Querying a joystick slot with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+	 * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
 	 * presence.</p>
 	 * 
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
