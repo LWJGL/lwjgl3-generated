@@ -45,7 +45,7 @@ public class STBRectPack {
 	 *
 	 * @param num_rects the number of structs in {@code rects}
 	 */
-	public static native void nstbrp_pack_rects(long context, long rects, int num_rects);
+	public static native int nstbrp_pack_rects(long context, long rects, int num_rects);
 
 	/**
 	 * Assigns packed locations to rectangles. The rectangles are of type {@link STBRPRect}, stored in the array {@code rects}, and there are {@code num_rects} many
@@ -64,9 +64,11 @@ public class STBRectPack {
 	 *
 	 * @param context an {@link STBRPContext} struct
 	 * @param rects   an array of {@link STBRPRect} structs
+	 *
+	 * @return 1 if all of the rectangles were successfully packed and 0 otherwise
 	 */
-	public static void stbrp_pack_rects(STBRPContext context, STBRPRect.Buffer rects) {
-		nstbrp_pack_rects(context.address(), rects.address(), rects.remaining());
+	public static int stbrp_pack_rects(STBRPContext context, STBRPRect.Buffer rects) {
+		return nstbrp_pack_rects(context.address(), rects.address(), rects.remaining());
 	}
 
 	// --- [ stbrp_init_target ] ---

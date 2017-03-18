@@ -35,23 +35,42 @@ public class STBDXT {
 	// --- [ stb_compress_dxt_block ] ---
 
 	/** Unsafe version of: {@link #stb_compress_dxt_block compress_dxt_block} */
-	public static native void nstb_compress_dxt_block(long dest, long src, int alpha, int mode);
+	public static native void nstb_compress_dxt_block(long dest, long src_rgba_four_bytes_per_pixel, int alpha, int mode);
 
 	/**
 	 * Call this function for every block (you must pad). The source should be a 4x4 block of RGBA data in row-major order; A is ignored if you specify
 	 * {@code alpha=0}; you can turn on dithering and "high quality" using {@code mode}.
 	 *
-	 * @param dest  a buffer in which to store the compressed block
-	 * @param src   the block to compress
-	 * @param alpha 1 to compress the alpha channel, 0 to ignore it
-	 * @param mode  the compression mode. One of:<br><table><tr><td>{@link #STB_DXT_NORMAL DXT_NORMAL}</td><td>{@link #STB_DXT_DITHER DXT_DITHER}</td><td>{@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}</td></tr></table>
+	 * @param dest                          a buffer in which to store the compressed block
+	 * @param src_rgba_four_bytes_per_pixel the block to compress
+	 * @param alpha                         1 to compress the alpha channel, 0 to ignore it
+	 * @param mode                          the compression mode. One of:<br><table><tr><td>{@link #STB_DXT_NORMAL DXT_NORMAL}</td><td>{@link #STB_DXT_DITHER DXT_DITHER}</td><td>{@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}</td></tr></table>
 	 */
-	public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src, boolean alpha, int mode) {
+	public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src_rgba_four_bytes_per_pixel, boolean alpha, int mode) {
 		if ( CHECKS ) {
 			check(dest, alpha ? 16 : 8);
-			check(src, 64);
+			check(src_rgba_four_bytes_per_pixel, 64);
 		}
-		nstb_compress_dxt_block(memAddress(dest), memAddress(src), alpha ? 1 : 0, mode);
+		nstb_compress_dxt_block(memAddress(dest), memAddress(src_rgba_four_bytes_per_pixel), alpha ? 1 : 0, mode);
+	}
+
+	// --- [ stb_compress_bc5_block ] ---
+
+	/** Unsafe version of: {@link #stb_compress_bc5_block compress_bc5_block} */
+	public static native void nstb_compress_bc5_block(long dest, long src_rg_two_byte_per_pixel);
+
+	/**
+	 * Call this function for every block (you must pad). The source should be a 4x4 block of RG data in row-major order.
+	 *
+	 * @param dest                      a buffer in which to store the compressed block
+	 * @param src_rg_two_byte_per_pixel the block to compress
+	 */
+	public static void stb_compress_bc5_block(ByteBuffer dest, ByteBuffer src_rg_two_byte_per_pixel) {
+		if ( CHECKS ) {
+			check(dest, 16);
+			check(src_rg_two_byte_per_pixel, 32);
+		}
+		nstb_compress_bc5_block(memAddress(dest), memAddress(src_rg_two_byte_per_pixel));
 	}
 
 }

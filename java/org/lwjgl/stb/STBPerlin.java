@@ -39,4 +39,56 @@ public class STBPerlin {
 	 */
 	public static native float stb_perlin_noise3(float x, float y, float z, int x_wrap, int y_wrap, int z_wrap);
 
+	// --- [ stb_perlin_ridge_noise3 ] ---
+
+	/**
+	 * Computes ridged noise. Calls {@link #stb_perlin_noise3 perlin_noise3} {@code octaves} times, so this parameter will affect runtime.
+	 *
+	 * @param x          the x coordinate
+	 * @param y          the y coordinate
+	 * @param z          the z coordinate
+	 * @param lacunarity 
+	 * @param gain       
+	 * @param offset     
+	 * @param octaves    
+	 * @param x_wrap     
+	 * @param y_wrap     
+	 * @param z_wrap     
+	 */
+	public static native float stb_perlin_ridge_noise3(float x, float y, float z, float lacunarity, float gain, float offset, int octaves, int x_wrap, int y_wrap, int z_wrap);
+
+	// --- [ stb_perlin_fbm_noise3 ] ---
+
+	/**
+	 * Computes Fractal Brownian Motion noise. Calls {@link #stb_perlin_noise3 perlin_noise3} {@code octaves} times, so this parameter will affect runtime.
+	 *
+	 * @param x          the x coordinate
+	 * @param y          the y coordinate
+	 * @param z          the z coordinate
+	 * @param lacunarity 
+	 * @param gain       
+	 * @param octaves    
+	 * @param x_wrap     
+	 * @param y_wrap     
+	 * @param z_wrap     
+	 */
+	public static native float stb_perlin_fbm_noise3(float x, float y, float z, float lacunarity, float gain, int octaves, int x_wrap, int y_wrap, int z_wrap);
+
+	// --- [ stb_perlin_turbulence_noise3 ] ---
+
+	/**
+	 * Computes turbulence noise. Calls {@link #stb_perlin_noise3 perlin_noise3} {@code octaves} times, so this parameter will affect runtime.
+	 *
+	 * @param x          the x coordinate
+	 * @param y          the y coordinate
+	 * @param z          the z coordinate
+	 * @param lacunarity 
+	 * @param gain       
+	 * @param octaves    
+	 * @param x_wrap     
+	 * @param y_wrap     
+	 * @param z_wrap     
+	 */
+	public static native float stb_perlin_turbulence_noise3(float x, float y, float z, float lacunarity, float gain, int octaves, int x_wrap, int y_wrap, int z_wrap);
+
 }

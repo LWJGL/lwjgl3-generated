@@ -29,7 +29,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1BakeFontBitmap(JNI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQuad__JIIIJJJI(JNIEnv *__env, jclass clazz, jlong chardataAddress, jint pw, jint ph, jint char_index, jlong xposAddress, jlong yposAddress, jlong qAddress, jint opengl_fillrule) {
-	stbtt_bakedchar *chardata = (stbtt_bakedchar *)(intptr_t)chardataAddress;
+	const stbtt_bakedchar *chardata = (const stbtt_bakedchar *)(intptr_t)chardataAddress;
 	float *xpos = (float *)(intptr_t)xposAddress;
 	float *ypos = (float *)(intptr_t)yposAddress;
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
@@ -74,7 +74,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackSetOversamplin
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JIIIJJJI(JNIEnv *__env, jclass clazz, jlong chardataAddress, jint pw, jint ph, jint char_index, jlong xposAddress, jlong yposAddress, jlong qAddress, jint align_to_integer) {
-	stbtt_packedchar *chardata = (stbtt_packedchar *)(intptr_t)chardataAddress;
+	const stbtt_packedchar *chardata = (const stbtt_packedchar *)(intptr_t)chardataAddress;
 	float *xpos = (float *)(intptr_t)xposAddress;
 	float *ypos = (float *)(intptr_t)yposAddress;
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
@@ -375,7 +375,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontNameString
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQuad__JIII_3F_3FJI(JNIEnv *__env, jclass clazz, jlong chardataAddress, jint pw, jint ph, jint char_index, jfloatArray xposAddress, jfloatArray yposAddress, jlong qAddress, jint opengl_fillrule) {
-	stbtt_bakedchar *chardata = (stbtt_bakedchar *)(intptr_t)chardataAddress;
+	const stbtt_bakedchar *chardata = (const stbtt_bakedchar *)(intptr_t)chardataAddress;
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	jfloat *xpos = (*__env)->GetPrimitiveArrayCritical(__env, xposAddress, 0);
 	jfloat *ypos = (*__env)->GetPrimitiveArrayCritical(__env, yposAddress, 0);
@@ -386,7 +386,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQuad__JIII
 }
 #ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQuad__JIII_3F_3FJI(jlong chardataAddress, jint pw, jint ph, jint char_index, jint xpos__length, jfloat* xpos, jint ypos__length, jfloat* ypos, jlong qAddress, jint opengl_fillrule) {
-	stbtt_bakedchar *chardata = (stbtt_bakedchar *)(intptr_t)chardataAddress;
+	const stbtt_bakedchar *chardata = (const stbtt_bakedchar *)(intptr_t)chardataAddress;
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	UNUSED_PARAM(xpos__length)
 	UNUSED_PARAM(ypos__length)
@@ -395,7 +395,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQu
 #endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JIII_3F_3FJI(JNIEnv *__env, jclass clazz, jlong chardataAddress, jint pw, jint ph, jint char_index, jfloatArray xposAddress, jfloatArray yposAddress, jlong qAddress, jint align_to_integer) {
-	stbtt_packedchar *chardata = (stbtt_packedchar *)(intptr_t)chardataAddress;
+	const stbtt_packedchar *chardata = (const stbtt_packedchar *)(intptr_t)chardataAddress;
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	jfloat *xpos = (*__env)->GetPrimitiveArrayCritical(__env, xposAddress, 0);
 	jfloat *ypos = (*__env)->GetPrimitiveArrayCritical(__env, yposAddress, 0);
@@ -406,7 +406,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JII
 }
 #ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JIII_3F_3FJI(jlong chardataAddress, jint pw, jint ph, jint char_index, jint xpos__length, jfloat* xpos, jint ypos__length, jfloat* ypos, jlong qAddress, jint align_to_integer) {
-	stbtt_packedchar *chardata = (stbtt_packedchar *)(intptr_t)chardataAddress;
+	const stbtt_packedchar *chardata = (const stbtt_packedchar *)(intptr_t)chardataAddress;
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	UNUSED_PARAM(xpos__length)
 	UNUSED_PARAM(ypos__length)

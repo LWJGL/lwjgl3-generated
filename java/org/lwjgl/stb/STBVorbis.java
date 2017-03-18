@@ -525,17 +525,17 @@ public class STBVorbis {
 	// --- [ stb_vorbis_seek_start ] ---
 
 	/** Unsafe version of: {@link #stb_vorbis_seek_start seek_start} */
-	public static native void nstb_vorbis_seek_start(long f);
+	public static native int nstb_vorbis_seek_start(long f);
 
 	/**
 	 * This function is equivalent to {@link #stb_vorbis_seek seek}(f,0).
 	 *
 	 * @param f an ogg vorbis file decoder
 	 */
-	public static void stb_vorbis_seek_start(long f) {
+	public static boolean stb_vorbis_seek_start(long f) {
 		if ( CHECKS )
 			check(f);
-		nstb_vorbis_seek_start(f);
+		return nstb_vorbis_seek_start(f) != 0;
 	}
 
 	// --- [ stb_vorbis_stream_length_in_samples ] ---

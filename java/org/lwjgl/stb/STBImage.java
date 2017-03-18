@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <ul>
  * <li>JPEG baseline & progressive (12 bpc/arithmetic not supported, same as stock IJG lib</li>
- * <li>PNG 1/2/4/8-bit-per-channel (16 bpc not supported)</li>
+ * <li>PNG 1/2/4/8/16-bit-per-channel</li>
  * <li>TGA (not sure what subset, if a subset)</li>
  * <li>BMP non-1bpp, non-RLE</li>
  * <li>PSD (composited view only, no extra channels, 8/16 bit-per-channel)</li>
