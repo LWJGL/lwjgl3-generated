@@ -45,7 +45,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkDisplayPresentInfoKHR}, or {@link VkPresentTimesInfoGOOGLE}</li>
  * <li>If {@code swapchainCount} is not 0, {@code pDeviceMasks} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code uint32_t} values</li>
  * <li>{@code mode} <b>must</b> be a valid {@code VkDeviceGroupPresentModeFlagBitsKHX} value</li>
  * </ul>

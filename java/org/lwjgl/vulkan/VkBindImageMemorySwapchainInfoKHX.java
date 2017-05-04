@@ -33,7 +33,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
  * </ul>
  * 

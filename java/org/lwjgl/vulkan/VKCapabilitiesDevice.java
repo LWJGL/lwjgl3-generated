@@ -290,6 +290,8 @@ public class VKCapabilitiesDevice {
 	public final boolean VK_KHR_descriptor_update_template;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
 	public final boolean VK_KHR_display_swapchain;
+	/** When true, {@link KHRIncrementalPresent} is supported. */
+	public final boolean VK_KHR_incremental_present;
 	/** When true, {@link KHRMaintenance1} is supported. */
 	public final boolean VK_KHR_maintenance1;
 	/** When true, {@link KHRPushDescriptor} is supported. */
@@ -536,6 +538,7 @@ public class VKCapabilitiesDevice {
 			vkCreateSharedSwapchainsKHR = isSupported(provider, "vkCreateSharedSwapchainsKHR", supported);
 			VK_KHR_display_swapchain = supported && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
 		}
+		VK_KHR_incremental_present = ext.contains("VK_KHR_incremental_present");
 		{
 			supported = ext.contains("VK_KHR_maintenance1");
 			vkTrimCommandPoolKHR = isSupported(provider, "vkTrimCommandPoolKHR", supported);

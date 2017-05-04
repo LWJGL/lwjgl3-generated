@@ -81,9 +81,9 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1
 	return (jlong)(intptr_t)par_shapes_create_dodecahedron();
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1octohedron(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1octahedron(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)par_shapes_create_octohedron();
+	return (jlong)(intptr_t)par_shapes_create_octahedron();
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1tetrahedron(JNIEnv *__env, jclass clazz) {

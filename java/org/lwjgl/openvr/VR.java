@@ -85,7 +85,7 @@ public class VR {
 		IVRChaperone_Version                                = "IVRChaperone_003",
 		IVRChaperoneSetup_Version                           = "IVRChaperoneSetup_005",
 		IVRCompositor_Version                               = "IVRCompositor_020",
-		IVROverlay_Version                                  = "IVROverlay_014",
+		IVROverlay_Version                                  = "IVROverlay_016",
 		k_pch_Controller_Component_GDC2015                  = "gdc2015",
 		k_pch_Controller_Component_Base                     = "base",
 		k_pch_Controller_Component_Tip                      = "tip",
@@ -100,7 +100,6 @@ public class VR {
 		k_pch_SteamVR_ForcedHmdKey_String                   = "forcedHmd",
 		k_pch_SteamVR_DisplayDebug_Bool                     = "displayDebug",
 		k_pch_SteamVR_DebugProcessPipe_String               = "debugProcessPipe",
-		k_pch_SteamVR_EnableDistortion_Bool                 = "enableDistortion",
 		k_pch_SteamVR_DisplayDebugX_Int32                   = "displayDebugX",
 		k_pch_SteamVR_DisplayDebugY_Int32                   = "displayDebugY",
 		k_pch_SteamVR_SendSystemButtonToAllApps_Bool        = "sendSystemButtonToAllApps",
@@ -241,7 +240,7 @@ public class VR {
 	 * <li>{@link #ETextureType_TextureType_DirectX ETextureType_TextureType_DirectX} - Handle is an ID3D11Texture.</li>
 	 * <li>{@link #ETextureType_TextureType_OpenGL ETextureType_TextureType_OpenGL} - Handle is an OpenGL texture name or an OpenGL render buffer name, depending on submit flags.</li>
 	 * <li>{@link #ETextureType_TextureType_Vulkan ETextureType_TextureType_Vulkan} - Handle is a pointer to a {@code VRVulkanTextureData_t} structure.</li>
-	 * <li>{@link #ETextureType_TextureType_IOSurface ETextureType_TextureType_IOSurface} - Handle is a macOS cross-process-sharable IOSurface.</li>
+	 * <li>{@link #ETextureType_TextureType_IOSurface ETextureType_TextureType_IOSurface} - Handle is a macOS cross-process-sharable {@code IOSurfaceRef}.</li>
 	 * <li>{@link #ETextureType_TextureType_DirectX12 ETextureType_TextureType_DirectX12} - Handle is a pointer to a {@code D3D12TextureData_t} structure.</li>
 	 * </ul>
 	 */
@@ -299,6 +298,7 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceClass_TrackedDeviceClass_Controller ETrackedDeviceClass_TrackedDeviceClass_Controller} - Tracked controllers.</li>
 	 * <li>{@link #ETrackedDeviceClass_TrackedDeviceClass_GenericTracker ETrackedDeviceClass_TrackedDeviceClass_GenericTracker} - Generic trackers, similar to controllers.</li>
 	 * <li>{@link #ETrackedDeviceClass_TrackedDeviceClass_TrackingReference ETrackedDeviceClass_TrackedDeviceClass_TrackingReference} - Camera and base stations that serve as tracking reference points.</li>
+	 * <li>{@link #ETrackedDeviceClass_TrackedDeviceClass_DisplayRedirect ETrackedDeviceClass_TrackedDeviceClass_DisplayRedirect} - Accessories that aren't necessarily tracked themselves, but may redirect video output from other tracked devices.</li>
 	 * </ul>
 	 */
 	public static final int
@@ -306,7 +306,8 @@ public class VR {
 		ETrackedDeviceClass_TrackedDeviceClass_HMD               = 1,
 		ETrackedDeviceClass_TrackedDeviceClass_Controller        = 2,
 		ETrackedDeviceClass_TrackedDeviceClass_GenericTracker    = 3,
-		ETrackedDeviceClass_TrackedDeviceClass_TrackingReference = 4;
+		ETrackedDeviceClass_TrackedDeviceClass_TrackingReference = 4,
+		ETrackedDeviceClass_TrackedDeviceClass_DisplayRedirect   = 5;
 
 	/**
 	 * {@code ETrackedControllerRole}: Describes what specific role associated with a tracked device.
@@ -386,6 +387,7 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_ParentDriver_Uint64 ETrackedDeviceProperty_Prop_ParentDriver_Uint64}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_ResourceRoot_String ETrackedDeviceProperty_Prop_ResourceRoot_String}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayFrequency_Float ETrackedDeviceProperty_Prop_DisplayFrequency_Float}</li>
@@ -428,7 +430,7 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32 ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32 ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary}</li>
-	 * <li>{@link #ETrackedDeviceProperty_Prop_UsesDriverDirectMode_Bool ETrackedDeviceProperty_Prop_UsesDriverDirectMode_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromPhotonsToVblank_Float ETrackedDeviceProperty_Prop_SecondsFromPhotonsToVblank_Float}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_AttachedDeviceId_String ETrackedDeviceProperty_Prop_AttachedDeviceId_String}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_SupportedButtons_Uint64 ETrackedDeviceProperty_Prop_SupportedButtons_Uint64}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_Axis0Type_Int32 ETrackedDeviceProperty_Prop_Axis0Type_Int32}</li>
@@ -457,6 +459,11 @@ public class VR {
 	 * <li>{@link #ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_UserConfigPath_String ETrackedDeviceProperty_Prop_UserConfigPath_String}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_InstallPath_String ETrackedDeviceProperty_Prop_InstallPath_String}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_HasControllerComponent_Bool ETrackedDeviceProperty_Prop_HasControllerComponent_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_HasCameraComponent_Bool ETrackedDeviceProperty_Prop_HasCameraComponent_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_HasDriverDirectModeComponent_Bool ETrackedDeviceProperty_Prop_HasDriverDirectModeComponent_Bool}</li>
+	 * <li>{@link #ETrackedDeviceProperty_Prop_HasVirtualDisplayComponent_Bool ETrackedDeviceProperty_Prop_HasVirtualDisplayComponent_Bool}</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
 	 * <li>{@link #ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
 	 * </ul>
@@ -498,6 +505,7 @@ public class VR {
 		ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool            = 1032,
 		ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool             = 1033,
 		ETrackedDeviceProperty_Prop_ParentDriver_Uint64                          = 1034,
+		ETrackedDeviceProperty_Prop_ResourceRoot_String                          = 1035,
 		ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool                   = 2000,
 		ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float              = 2001,
 		ETrackedDeviceProperty_Prop_DisplayFrequency_Float                       = 2002,
@@ -540,7 +548,7 @@ public class VR {
 		ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32                   = 2039,
 		ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32              = 2040,
 		ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary                    = 2041,
-		ETrackedDeviceProperty_Prop_UsesDriverDirectMode_Bool                    = 2042,
+		ETrackedDeviceProperty_Prop_SecondsFromPhotonsToVblank_Float             = 2042,
 		ETrackedDeviceProperty_Prop_AttachedDeviceId_String                      = 3000,
 		ETrackedDeviceProperty_Prop_SupportedButtons_Uint64                      = 3001,
 		ETrackedDeviceProperty_Prop_Axis0Type_Int32                              = 3002,
@@ -569,6 +577,11 @@ public class VR {
 		ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End                 = 5150,
 		ETrackedDeviceProperty_Prop_UserConfigPath_String                        = 6000,
 		ETrackedDeviceProperty_Prop_InstallPath_String                           = 6001,
+		ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool                     = 6002,
+		ETrackedDeviceProperty_Prop_HasControllerComponent_Bool                  = 6003,
+		ETrackedDeviceProperty_Prop_HasCameraComponent_Bool                      = 6004,
+		ETrackedDeviceProperty_Prop_HasDriverDirectModeComponent_Bool            = 6005,
+		ETrackedDeviceProperty_Prop_HasVirtualDisplayComponent_Bool              = 6006,
 		ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start                = 10000,
 		ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End                  = 10999;
 
@@ -756,6 +769,8 @@ public class VR {
 	 * <li>{@link #EVREventType_VREvent_ApplicationListUpdated EVREventType_VREvent_ApplicationListUpdated}</li>
 	 * <li>{@link #EVREventType_VREvent_ApplicationMimeTypeLoad EVREventType_VREvent_ApplicationMimeTypeLoad}</li>
 	 * <li>{@link #EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete}</li>
+	 * <li>{@link #EVREventType_VREvent_ProcessConnected EVREventType_VREvent_ProcessConnected}</li>
+	 * <li>{@link #EVREventType_VREvent_ProcessDisconnected EVREventType_VREvent_ProcessDisconnected}</li>
 	 * <li>{@link #EVREventType_VREvent_Compositor_MirrorWindowShown EVREventType_VREvent_Compositor_MirrorWindowShown}</li>
 	 * <li>{@link #EVREventType_VREvent_Compositor_MirrorWindowHidden EVREventType_VREvent_Compositor_MirrorWindowHidden}</li>
 	 * <li>{@link #EVREventType_VREvent_Compositor_ChaperoneBoundsShown EVREventType_VREvent_Compositor_ChaperoneBoundsShown}</li>
@@ -868,6 +883,8 @@ public class VR {
 		EVREventType_VREvent_ApplicationListUpdated                    = 1303,
 		EVREventType_VREvent_ApplicationMimeTypeLoad                   = 1304,
 		EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete = 1305,
+		EVREventType_VREvent_ProcessConnected                          = 1306,
+		EVREventType_VREvent_ProcessDisconnected                       = 1307,
 		EVREventType_VREvent_Compositor_MirrorWindowShown              = 1400,
 		EVREventType_VREvent_Compositor_MirrorWindowHidden             = 1401,
 		EVREventType_VREvent_Compositor_ChaperoneBoundsShown           = 1410,
@@ -891,10 +908,10 @@ public class VR {
 	 * 
 	 * <ul>
 	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_Unknown EDeviceActivityLevel_k_EDeviceActivityLevel_Unknown}</li>
-	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_Idle EDeviceActivityLevel_k_EDeviceActivityLevel_Idle}</li>
-	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction}</li>
-	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction_Timeout EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction_Timeout}</li>
-	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_Standby EDeviceActivityLevel_k_EDeviceActivityLevel_Standby}</li>
+	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_Idle EDeviceActivityLevel_k_EDeviceActivityLevel_Idle} - No activity for the last 10 seconds.</li>
+	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction} - Activity (movement or prox sensor) is happening now.</li>
+	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction_Timeout EDeviceActivityLevel_k_EDeviceActivityLevel_UserInteraction_Timeout} - No activity for the last 0.5 seconds.</li>
+	 * <li>{@link #EDeviceActivityLevel_k_EDeviceActivityLevel_Standby EDeviceActivityLevel_k_EDeviceActivityLevel_Standby} - Idle for at least 5 seconds (configurable in Settings -> Power Management).</li>
 	 * </ul>
 	 */
 	public static final int
@@ -1093,7 +1110,7 @@ public class VR {
 		EVROverlayError_VROverlayError_BadMaskPrimitive         = 30;
 
 	/**
-	 * {@Code EVRApplicationType}: enum values to pass in to {@link #VR_InitInternal InitInternal} to identify whether the application will draw a 3D scene.
+	 * {@code EVRApplicationType}: enum values to pass in to {@link #VR_InitInternal InitInternal} to identify whether the application will draw a 3D scene.
 	 * 
 	 * <h5>Enum values:</h5>
 	 * 
@@ -1108,6 +1125,7 @@ public class VR {
 	 * </li>
 	 * <li>{@link #EVRApplicationType_VRApplication_VRMonitor EVRApplicationType_VRApplication_VRMonitor} - Reserved for vrmonitor.</li>
 	 * <li>{@link #EVRApplicationType_VRApplication_SteamWatchdog EVRApplicationType_VRApplication_SteamWatchdog} - Reserved for Steam</li>
+	 * <li>{@link #EVRApplicationType_VRApplication_Bootstrapper EVRApplicationType_VRApplication_Bootstrapper} - Start up SteamVR</li>
 	 * <li>{@link #EVRApplicationType_VRApplication_Max EVRApplicationType_VRApplication_Max}</li>
 	 * </ul>
 	 */
@@ -1119,7 +1137,8 @@ public class VR {
 		EVRApplicationType_VRApplication_Utility       = 4,
 		EVRApplicationType_VRApplication_VRMonitor     = 5,
 		EVRApplicationType_VRApplication_SteamWatchdog = 6,
-		EVRApplicationType_VRApplication_Max           = 7;
+		EVRApplicationType_VRApplication_Bootstrapper  = 7,
+		EVRApplicationType_VRApplication_Max           = 8;
 
 	/**
 	 * {@code EVRFirmwareError}: error codes for firmware.
@@ -1967,7 +1986,7 @@ public class VR {
 	 * Initializes the connection to the VR hardware.
 	 *
 	 * @param peError a buffer in which to store the error code
-	 * @param eType   the application type. One of:<br><table><tr><td>{@link #EVRApplicationType_VRApplication_Other}</td><td>{@link #EVRApplicationType_VRApplication_Scene}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Overlay}</td><td>{@link #EVRApplicationType_VRApplication_Background}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Utility}</td><td>{@link #EVRApplicationType_VRApplication_VRMonitor}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_SteamWatchdog}</td><td>{@link #EVRApplicationType_VRApplication_Max}</td></tr></table>
+	 * @param eType   the application type. One of:<br><table><tr><td>{@link #EVRApplicationType_VRApplication_Other}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Scene}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Overlay}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Background}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Utility}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_VRMonitor}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_SteamWatchdog}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Bootstrapper}</td></tr><tr><td>{@link #EVRApplicationType_VRApplication_Max}</td></tr></table>
 	 *
 	 * @return a VR interface handles token
 	 */

@@ -39,7 +39,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkMenuState struct nk_menu_state} menu;
     {@link NkRowLayout struct nk_row_layout} row;
     {@link NkChart struct nk_chart} chart;
-    {@link NkPopupBuffer struct nk_popup_buffer} popup_buffer;
     {@link NkCommandBuffer struct nk_command_buffer} * buffer;
     {@link NkPanel struct nk_panel} * parent;
 }</code></pre>
@@ -69,7 +68,6 @@ public class NkPanel extends Struct implements NativeResource {
 		MENU,
 		ROW,
 		CHART,
-		POPUP_BUFFER,
 		BUFFER,
 		PARENT;
 
@@ -91,7 +89,6 @@ public class NkPanel extends Struct implements NativeResource {
 			__member(NkMenuState.SIZEOF, NkMenuState.ALIGNOF),
 			__member(NkRowLayout.SIZEOF, NkRowLayout.ALIGNOF),
 			__member(NkChart.SIZEOF, NkChart.ALIGNOF),
-			__member(NkPopupBuffer.SIZEOF, NkPopupBuffer.ALIGNOF),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE)
 		);
@@ -115,9 +112,8 @@ public class NkPanel extends Struct implements NativeResource {
 		MENU = layout.offsetof(13);
 		ROW = layout.offsetof(14);
 		CHART = layout.offsetof(15);
-		POPUP_BUFFER = layout.offsetof(16);
-		BUFFER = layout.offsetof(17);
-		PARENT = layout.offsetof(18);
+		BUFFER = layout.offsetof(16);
+		PARENT = layout.offsetof(17);
 	}
 
 	NkPanel(long address, ByteBuffer container) {
@@ -177,8 +173,6 @@ public class NkPanel extends Struct implements NativeResource {
 	public NkRowLayout row() { return nrow(address()); }
 	/** Returns a {@link NkChart} view of the {@code chart} field. */
 	public NkChart chart() { return nchart(address()); }
-	/** Returns a {@link NkPopupBuffer} view of the {@code popup_buffer} field. */
-	public NkPopupBuffer popup_buffer() { return npopup_buffer(address()); }
 	/** Returns a {@link NkCommandBuffer} view of the struct pointed to by the {@code buffer} field. */
 	public NkCommandBuffer buffer() { return nbuffer(address()); }
 	/** Returns a {@link NkPanel} view of the struct pointed to by the {@code parent} field. */
@@ -345,8 +339,6 @@ public class NkPanel extends Struct implements NativeResource {
 	public static NkRowLayout nrow(long struct) { return NkRowLayout.create(struct + NkPanel.ROW); }
 	/** Unsafe version of {@link #chart}. */
 	public static NkChart nchart(long struct) { return NkChart.create(struct + NkPanel.CHART); }
-	/** Unsafe version of {@link #popup_buffer}. */
-	public static NkPopupBuffer npopup_buffer(long struct) { return NkPopupBuffer.create(struct + NkPanel.POPUP_BUFFER); }
 	/** Unsafe version of {@link #buffer}. */
 	public static NkCommandBuffer nbuffer(long struct) { return NkCommandBuffer.create(memGetAddress(struct + NkPanel.BUFFER)); }
 	/** Unsafe version of {@link #parent}. */
@@ -434,8 +426,6 @@ public class NkPanel extends Struct implements NativeResource {
 		public NkRowLayout row() { return NkPanel.nrow(address()); }
 		/** Returns a {@link NkChart} view of the {@code chart} field. */
 		public NkChart chart() { return NkPanel.nchart(address()); }
-		/** Returns a {@link NkPopupBuffer} view of the {@code popup_buffer} field. */
-		public NkPopupBuffer popup_buffer() { return NkPanel.npopup_buffer(address()); }
 		/** Returns a {@link NkCommandBuffer} view of the struct pointed to by the {@code buffer} field. */
 		public NkCommandBuffer buffer() { return NkPanel.nbuffer(address()); }
 		/** Returns a {@link NkPanel} view of the struct pointed to by the {@code parent} field. */

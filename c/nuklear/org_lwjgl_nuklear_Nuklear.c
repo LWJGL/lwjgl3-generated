@@ -271,11 +271,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1collapse(JNIE
 	nk_window_collapse(ctx, name, c);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1collapse_1if(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jint c, jint cond) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *name = (const char *)(intptr_t)nameAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_window_collapse_if(ctx, name, c, cond);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1show(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jint s) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *name = (const char *)(intptr_t)nameAddress;
 	UNUSED_PARAMS(__env, clazz)
 	nk_window_show(ctx, name, s);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1show_1if(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jint s, jint cond) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *name = (const char *)(intptr_t)nameAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_window_show_if(ctx, name, s, cond);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1dynamic(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat height, jint cols) {
@@ -1501,14 +1515,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1menu_1end(JNIEnv *__e
 	nk_menu_end(ctx);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1convert(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong cmdsAddress, jlong verticesAddress, jlong elementsAddress, jlong configAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1convert(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong cmdsAddress, jlong verticesAddress, jlong elementsAddress, jlong configAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	struct nk_buffer *cmds = (struct nk_buffer *)(intptr_t)cmdsAddress;
 	struct nk_buffer *vertices = (struct nk_buffer *)(intptr_t)verticesAddress;
 	struct nk_buffer *elements = (struct nk_buffer *)(intptr_t)elementsAddress;
 	const struct nk_convert_config *config = (const struct nk_convert_config *)(intptr_t)configAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nk_convert(ctx, cmds, vertices, elements, config);
+	return (jint)nk_convert(ctx, cmds, vertices, elements, config);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1input_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
@@ -1535,10 +1549,17 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1input_1button(JNIEnv 
 	nk_input_button(ctx, id, x, y, down);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1input_1scroll(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat y) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1input_1scroll(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong valAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	struct nk_vec2 *val = (struct nk_vec2 *)(intptr_t)valAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_input_scroll(ctx, *val);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1input_1char(JNIEnv *__env, jclass clazz, jlong ctxAddress, jbyte c) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nk_input_scroll(ctx, y);
+	nk_input_char(ctx, c);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1input_1glyph(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong glyphAddress) {
@@ -2206,21 +2227,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1stricmpn(JNIEnv *__en
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1strtoi(JNIEnv *__env, jclass clazz, jlong strAddress, jlong endptrAddress) {
 	const char *str = (const char *)(intptr_t)strAddress;
-	char **endptr = (char **)(intptr_t)endptrAddress;
+	const char **endptr = (const char **)(intptr_t)endptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)nk_strtoi(str, endptr);
 }
 
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1strtof(JNIEnv *__env, jclass clazz, jlong strAddress, jlong endptrAddress) {
 	const char *str = (const char *)(intptr_t)strAddress;
-	char **endptr = (char **)(intptr_t)endptrAddress;
+	const char **endptr = (const char **)(intptr_t)endptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jfloat)nk_strtof(str, endptr);
 }
 
 JNIEXPORT jdouble JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1strtod(JNIEnv *__env, jclass clazz, jlong strAddress, jlong endptrAddress) {
 	const char *str = (const char *)(intptr_t)strAddress;
-	char **endptr = (char **)(intptr_t)endptrAddress;
+	const char **endptr = (const char **)(intptr_t)endptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jdouble)nk_strtod(str, endptr);
 }

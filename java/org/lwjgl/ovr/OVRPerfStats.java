@@ -19,35 +19,38 @@ import static org.lwjgl.ovr.OVR.ovrMaxProvidedFrameStats;
 /**
  * This is a complete descriptor of the performance stats provided by the SDK.
  * 
- * <p>{@code FrameStatsCount} will have a maximum value set by {@link OVR#ovrMaxProvidedFrameStats MaxProvidedFrameStats}.</p>
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code FrameStats} &ndash; 
+ * an array of performance stats.
+ * 
+ * <p>The performance entries will be ordered in reverse chronological order such that the first entry will be the most recent one.</p></li>
+ * <li>{@code FrameStatsCount} &ndash; 
+ * will have a maximum value set by {@link OVR#ovrMaxProvidedFrameStats MaxProvidedFrameStats}.
  * 
  * <p>If the application calls {@link OVR#ovr_GetPerfStats GetPerfStats} at the native refresh rate of the HMD then {@code FrameStatsCount} will be 1. If the app's workload happens to
  * force {@link OVR#ovr_GetPerfStats GetPerfStats} to be called at a lower rate, then {@code FrameStatsCount} will be 2 or more.</p>
  * 
  * <p>If the app does not want to miss any performance data for any frame, it needs to ensure that it is calling {@link OVR#ovr_SubmitFrame SubmitFrame} and {@link OVR#ovr_GetPerfStats GetPerfStats} at a rate
- * that is at least: {@code HMD_refresh_rate / ovrMaxProvidedFrameStats}. On the Oculus Rift CV1 HMD, this will be equal to 18 times per second.</p>
- * 
- * <p>If the app calls {@link OVR#ovr_SubmitFrame SubmitFrame} at a rate less than 18 fps, then when calling {@link OVR#ovr_GetPerfStats GetPerfStats}, expect {@code AnyFrameStatsDropped} to become {@link OVR#ovrTrue True} while
- * {@code FrameStatsCount} is equal to {@link OVR#ovrMaxProvidedFrameStats MaxProvidedFrameStats}.</p>
- * 
- * <p>The performance entries will be ordered in reverse chronological order such that the first entry will be the most recent one.</p>
- * 
- * <p>{@code AdaptiveGpuPerformanceScale} is an edge-filtered value that a caller can use to adjust the graphics quality of the application to keep the GPU
- * utilization in check. The value is calculated as: {@code (desired_GPU_utilization / current_GPU_utilization)}</p>
+ * that is at least: {@code HMD_refresh_rate / ovrMaxProvidedFrameStats}. On the Oculus Rift CV1 HMD, this will be equal to 18 times per second.</p></li>
+ * <li>{@code AnyFrameStatsDropped} &ndash; 
+ * If the app calls {@link OVR#ovr_SubmitFrame SubmitFrame} at a rate less than 18 fps, then when calling {@link OVR#ovr_GetPerfStats GetPerfStats}, expect {@code AnyFrameStatsDropped} to become {@link OVR#ovrTrue True}
+ * while {@code FrameStatsCount} is equal to {@link OVR#ovrMaxProvidedFrameStats MaxProvidedFrameStats}.</li>
+ * <li>{@code AdaptiveGpuPerformanceScale} &ndash; 
+ * an edge-filtered value that a caller can use to adjust the graphics quality of the application to keep the GPU utilization in check. The value is
+ * calculated as: {@code (desired_GPU_utilization / current_GPU_utilization)}
  * 
  * <p>As such, when this value is 1.0, the GPU is doing the right amount of work for the app. Lower values mean the app needs to pull back on the GPU
  * utilization. If the app is going to directly drive render-target resolution using this value, then be sure to take the square-root of the value before
- * scaling the resolution with it. Changing render target resolutions however is one of the many things an app can do increase or decrease the amount of GPU
- * utilization. Since {@code AdaptiveGpuPerformanceScale} is edge-filtered and does not change rapidly (i.e. reports non-1.0 values once every couple of
- * seconds) the app can make the necessary adjustments and then keep watching the value to see if it has been satisfied.</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code FrameStats} &ndash; an array of performance stats</li>
- * <li>{@code FrameStatsCount} &ndash; the number of performance stats available in {@code FrameStats}</li>
- * <li>{@code AnyFrameStatsDropped} &ndash; if performance stats have been dropped</li>
- * <li>{@code AdaptiveGpuPerformanceScale} &ndash; the GPU performance scale</li>
+ * scaling the resolution with it. Changing render target resolutions however is one of the many things an app can do increase or decrease the amount of
+ * GPU utilization. Since {@code AdaptiveGpuPerformanceScale} is edge-filtered and does not change rapidly (i.e. reports non-1.0 values once every couple
+ * of seconds) the app can make the necessary adjustments and then keep watching the value to see if it has been satisfied.</p></li>
+ * <li>{@code AswIsAvailable} &ndash; 
+ * Will be true if Async Spacewarp (ASW) is available for this system which is dependent on several factors such as choice of GPU, OS and debug overrides.</li>
+ * <li>{@code VisibleProcessId} &ndash; 
+ * Contains the Process ID of the VR application the stats are being polled for. If an app continues to grab perf stats even when it is not visible, then
+ * expect this value to point to the other VR app that has grabbed focus (i.e. became visible).</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -57,6 +60,8 @@ import static org.lwjgl.ovr.OVR.ovrMaxProvidedFrameStats;
     int FrameStatsCount;
     ovrBool AnyFrameStatsDropped;
     float AdaptiveGpuPerformanceScale;
+    ovrBool AswIsAvailable;
+    ovrProcessId VisibleProcessId;
 }</code></pre>
  */
 public class OVRPerfStats extends Struct implements NativeResource {
@@ -71,11 +76,15 @@ public class OVRPerfStats extends Struct implements NativeResource {
 		FRAMESTATS,
 		FRAMESTATSCOUNT,
 		ANYFRAMESTATSDROPPED,
-		ADAPTIVEGPUPERFORMANCESCALE;
+		ADAPTIVEGPUPERFORMANCESCALE,
+		ASWISAVAILABLE,
+		VISIBLEPROCESSID;
 
 	static {
 		Layout layout = __struct(
 			__array(OVRPerfStatsPerCompositorFrame.SIZEOF, OVRPerfStatsPerCompositorFrame.ALIGNOF, ovrMaxProvidedFrameStats),
+			__member(4),
+			__member(1),
 			__member(4),
 			__member(1),
 			__member(4)
@@ -88,6 +97,8 @@ public class OVRPerfStats extends Struct implements NativeResource {
 		FRAMESTATSCOUNT = layout.offsetof(1);
 		ANYFRAMESTATSDROPPED = layout.offsetof(2);
 		ADAPTIVEGPUPERFORMANCESCALE = layout.offsetof(3);
+		ASWISAVAILABLE = layout.offsetof(4);
+		VISIBLEPROCESSID = layout.offsetof(5);
 	}
 
 	OVRPerfStats(long address, ByteBuffer container) {
@@ -117,6 +128,10 @@ public class OVRPerfStats extends Struct implements NativeResource {
 	public boolean AnyFrameStatsDropped() { return nAnyFrameStatsDropped(address()); }
 	/** Returns the value of the {@code AdaptiveGpuPerformanceScale} field. */
 	public float AdaptiveGpuPerformanceScale() { return nAdaptiveGpuPerformanceScale(address()); }
+	/** Returns the value of the {@code AswIsAvailable} field. */
+	public boolean AswIsAvailable() { return nAswIsAvailable(address()); }
+	/** Returns the value of the {@code VisibleProcessId} field. */
+	public int VisibleProcessId() { return nVisibleProcessId(address()); }
 
 	// -----------------------------------
 
@@ -260,6 +275,10 @@ public class OVRPerfStats extends Struct implements NativeResource {
 	public static boolean nAnyFrameStatsDropped(long struct) { return memGetByte(struct + OVRPerfStats.ANYFRAMESTATSDROPPED) != 0; }
 	/** Unsafe version of {@link #AdaptiveGpuPerformanceScale}. */
 	public static float nAdaptiveGpuPerformanceScale(long struct) { return memGetFloat(struct + OVRPerfStats.ADAPTIVEGPUPERFORMANCESCALE); }
+	/** Unsafe version of {@link #AswIsAvailable}. */
+	public static boolean nAswIsAvailable(long struct) { return memGetByte(struct + OVRPerfStats.ASWISAVAILABLE) != 0; }
+	/** Unsafe version of {@link #VisibleProcessId}. */
+	public static int nVisibleProcessId(long struct) { return memGetInt(struct + OVRPerfStats.VISIBLEPROCESSID); }
 
 	// -----------------------------------
 
@@ -313,6 +332,10 @@ public class OVRPerfStats extends Struct implements NativeResource {
 		public boolean AnyFrameStatsDropped() { return OVRPerfStats.nAnyFrameStatsDropped(address()); }
 		/** Returns the value of the {@code AdaptiveGpuPerformanceScale} field. */
 		public float AdaptiveGpuPerformanceScale() { return OVRPerfStats.nAdaptiveGpuPerformanceScale(address()); }
+		/** Returns the value of the {@code AswIsAvailable} field. */
+		public boolean AswIsAvailable() { return OVRPerfStats.nAswIsAvailable(address()); }
+		/** Returns the value of the {@code VisibleProcessId} field. */
+		public int VisibleProcessId() { return OVRPerfStats.nVisibleProcessId(address()); }
 
 	}
 

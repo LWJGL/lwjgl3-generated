@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code>struct nk_popup_state {
     {@link NkWindow struct nk_window} * win;
     enum nk_panel_type type;
+    {@link NkPopupBuffer struct nk_popup_buffer} buf;
     nk_hash name;
     int active;
     unsigned combo_count;
@@ -43,6 +44,7 @@ public class NkPopupState extends Struct {
 	public static final int
 		WIN,
 		TYPE,
+		BUF,
 		NAME,
 		ACTIVE,
 		COMBO_COUNT,
@@ -55,6 +57,7 @@ public class NkPopupState extends Struct {
 		Layout layout = __struct(
 			__member(POINTER_SIZE),
 			__member(4),
+			__member(NkPopupBuffer.SIZEOF, NkPopupBuffer.ALIGNOF),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -69,13 +72,14 @@ public class NkPopupState extends Struct {
 
 		WIN = layout.offsetof(0);
 		TYPE = layout.offsetof(1);
-		NAME = layout.offsetof(2);
-		ACTIVE = layout.offsetof(3);
-		COMBO_COUNT = layout.offsetof(4);
-		CON_COUNT = layout.offsetof(5);
-		CON_OLD = layout.offsetof(6);
-		ACTIVE_CON = layout.offsetof(7);
-		HEADER = layout.offsetof(8);
+		BUF = layout.offsetof(2);
+		NAME = layout.offsetof(3);
+		ACTIVE = layout.offsetof(4);
+		COMBO_COUNT = layout.offsetof(5);
+		CON_COUNT = layout.offsetof(6);
+		CON_OLD = layout.offsetof(7);
+		ACTIVE_CON = layout.offsetof(8);
+		HEADER = layout.offsetof(9);
 	}
 
 	NkPopupState(long address, ByteBuffer container) {
@@ -99,6 +103,8 @@ public class NkPopupState extends Struct {
 	public NkWindow win() { return nwin(address()); }
 	/** Returns the value of the {@code type} field. */
 	public int type() { return ntype(address()); }
+	/** Returns a {@link NkPopupBuffer} view of the {@code buf} field. */
+	public NkPopupBuffer buf() { return nbuf(address()); }
 	/** Returns the value of the {@code name} field. */
 	public int name() { return nname(address()); }
 	/** Returns the value of the {@code active} field. */
@@ -137,6 +143,8 @@ public class NkPopupState extends Struct {
 	public static NkWindow nwin(long struct) { return NkWindow.create(memGetAddress(struct + NkPopupState.WIN)); }
 	/** Unsafe version of {@link #type}. */
 	public static int ntype(long struct) { return memGetInt(struct + NkPopupState.TYPE); }
+	/** Unsafe version of {@link #buf}. */
+	public static NkPopupBuffer nbuf(long struct) { return NkPopupBuffer.create(struct + NkPopupState.BUF); }
 	/** Unsafe version of {@link #name}. */
 	public static int nname(long struct) { return memGetInt(struct + NkPopupState.NAME); }
 	/** Unsafe version of {@link #active}. */
@@ -198,6 +206,8 @@ public class NkPopupState extends Struct {
 		public NkWindow win() { return NkPopupState.nwin(address()); }
 		/** Returns the value of the {@code type} field. */
 		public int type() { return NkPopupState.ntype(address()); }
+		/** Returns a {@link NkPopupBuffer} view of the {@code buf} field. */
+		public NkPopupBuffer buf() { return NkPopupState.nbuf(address()); }
 		/** Returns the value of the {@code name} field. */
 		public int name() { return NkPopupState.nname(address()); }
 		/** Returns the value of the {@code active} field. */

@@ -2575,9 +2575,10 @@ public class GLFW {
 	}
 
 	/**
-	 * Returns the localized name of the specified printable key.
+	 * Returns the layout-specific name of the specified printable key.
 	 * 
-	 * <p>This function returns the name of the specified printable key. This is typically the character that key would produce without any modifier keys, intended for displaying key bindings to the user.</p>
+	 * <p>This function returns the name of the specified printable key, encoded as UTF-8. This is typically the character that key would produce without any
+	 * modifier keys, intended for displaying key bindings to the user. For dead keys, it is typically the diacritic it would add to a character.</p>
 	 * 
 	 * <p><b>Do not use this function</b> for text input. You will break text input for many languages even if it happens to work for yours.</p>
 	 * 
@@ -2623,7 +2624,7 @@ public class GLFW {
 	 * @param key      the key to query, or {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}
 	 * @param scancode the scancode of the key to query
 	 *
-	 * @return the localized name of the key, or {@code NULL}
+	 * @return the UTF-8 encoded, layout-specific name of the key, or {@code NULL}
 	 *
 	 * @since version 3.2
 	 */

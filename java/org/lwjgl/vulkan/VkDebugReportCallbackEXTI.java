@@ -68,6 +68,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
     VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT = 30,
     VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT = 31,
     VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32,
+    VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT = 1000085000,
 } VkDebugReportObjectTypeEXT;</code></pre>
  * 
  * <ul>
@@ -104,6 +105,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT} is a {@code VkDisplayModeKHR}.</li>
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT} is a {@code VkObjectTableNVX}.</li>
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT} is a {@code VkIndirectCommandsLayoutNVX}.</li>
+ * <li>{@link KHRDescriptorUpdateTemplate#VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT} is a {@code VkDescriptorUpdateTemplateKHR}.</li>
  * </ul>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>

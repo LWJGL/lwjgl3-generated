@@ -23,6 +23,8 @@ import static org.lwjgl.nuklear.Nuklear.NK_MAX_NUMBER_BUFFER;
     char buffer[NK_MAX_NUMBER_BUFFER];
     int length;
     int cursor;
+    int select_start;
+    int select_end;
     nk_hash name;
     unsigned int seq;
     unsigned int old;
@@ -43,6 +45,8 @@ public class NkPropertyState extends Struct {
 		BUFFER,
 		LENGTH,
 		CURSOR,
+		SELECT_START,
+		SELECT_END,
 		NAME,
 		SEQ,
 		OLD,
@@ -53,6 +57,8 @@ public class NkPropertyState extends Struct {
 			__member(4),
 			__member(4),
 			__array(1, NK_MAX_NUMBER_BUFFER),
+			__member(4),
+			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -69,10 +75,12 @@ public class NkPropertyState extends Struct {
 		BUFFER = layout.offsetof(2);
 		LENGTH = layout.offsetof(3);
 		CURSOR = layout.offsetof(4);
-		NAME = layout.offsetof(5);
-		SEQ = layout.offsetof(6);
-		OLD = layout.offsetof(7);
-		STATE = layout.offsetof(8);
+		SELECT_START = layout.offsetof(5);
+		SELECT_END = layout.offsetof(6);
+		NAME = layout.offsetof(7);
+		SEQ = layout.offsetof(8);
+		OLD = layout.offsetof(9);
+		STATE = layout.offsetof(10);
 	}
 
 	NkPropertyState(long address, ByteBuffer container) {
@@ -104,6 +112,10 @@ public class NkPropertyState extends Struct {
 	public int length() { return nlength(address()); }
 	/** Returns the value of the {@code cursor} field. */
 	public int cursor() { return ncursor(address()); }
+	/** Returns the value of the {@code select_start} field. */
+	public int select_start() { return nselect_start(address()); }
+	/** Returns the value of the {@code select_end} field. */
+	public int select_end() { return nselect_end(address()); }
 	/** Returns the value of the {@code name} field. */
 	public int name() { return nname(address()); }
 	/** Returns the value of the {@code seq} field. */
@@ -147,6 +159,10 @@ public class NkPropertyState extends Struct {
 	public static int nlength(long struct) { return memGetInt(struct + NkPropertyState.LENGTH); }
 	/** Unsafe version of {@link #cursor}. */
 	public static int ncursor(long struct) { return memGetInt(struct + NkPropertyState.CURSOR); }
+	/** Unsafe version of {@link #select_start}. */
+	public static int nselect_start(long struct) { return memGetInt(struct + NkPropertyState.SELECT_START); }
+	/** Unsafe version of {@link #select_end}. */
+	public static int nselect_end(long struct) { return memGetInt(struct + NkPropertyState.SELECT_END); }
 	/** Unsafe version of {@link #name}. */
 	public static int nname(long struct) { return memGetInt(struct + NkPropertyState.NAME); }
 	/** Unsafe version of {@link #seq}. */
@@ -210,6 +226,10 @@ public class NkPropertyState extends Struct {
 		public int length() { return NkPropertyState.nlength(address()); }
 		/** Returns the value of the {@code cursor} field. */
 		public int cursor() { return NkPropertyState.ncursor(address()); }
+		/** Returns the value of the {@code select_start} field. */
+		public int select_start() { return NkPropertyState.nselect_start(address()); }
+		/** Returns the value of the {@code select_end} field. */
+		public int select_end() { return NkPropertyState.nselect_end(address()); }
 		/** Returns the value of the {@code name} field. */
 		public int name() { return NkPropertyState.nname(address()); }
 		/** Returns the value of the {@code seq} field. */

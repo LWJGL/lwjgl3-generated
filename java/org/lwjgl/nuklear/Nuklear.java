@@ -438,6 +438,26 @@ public class Nuklear {
 		NK_ANTI_ALIASING_ON  = 1;
 
 	/**
+	 * nk_convert_result
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_CONVERT_SUCCESS CONVERT_SUCCESS}</li>
+	 * <li>{@link #NK_CONVERT_INVALID_PARAM CONVERT_INVALID_PARAM}</li>
+	 * <li>{@link #NK_CONVERT_COMMAND_BUFFER_FULL CONVERT_COMMAND_BUFFER_FULL}</li>
+	 * <li>{@link #NK_CONVERT_VERTEX_BUFFER_FULL CONVERT_VERTEX_BUFFER_FULL}</li>
+	 * <li>{@link #NK_CONVERT_ELEMENT_BUFFER_FULL CONVERT_ELEMENT_BUFFER_FULL}</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_CONVERT_SUCCESS             = 0x0,
+		NK_CONVERT_INVALID_PARAM       = 0x1,
+		NK_CONVERT_COMMAND_BUFFER_FULL = 1 << 1,
+		NK_CONVERT_VERTEX_BUFFER_FULL  = 1 << 2,
+		NK_CONVERT_ELEMENT_BUFFER_FULL = 1 << 3;
+
+	/**
 	 * nk_symbol_type
 	 * 
 	 * <h5>Enum values:</h5>
@@ -772,8 +792,8 @@ public class Nuklear {
 		NK_EDIT_CTRL_ENTER_NEWLINE   = 1 << 7,
 		NK_EDIT_NO_HORIZONTAL_SCROLL = 1 << 8,
 		NK_EDIT_ALWAYS_INSERT_MODE   = 1 << 9,
-		NK_EDIT_MULTILINE            = 1 << 11,
-		NK_EDIT_GOTO_END_ON_ACTIVATE = 1 << 12;
+		NK_EDIT_MULTILINE            = 1 << 10,
+		NK_EDIT_GOTO_END_ON_ACTIVATE = 1 << 11;
 
 	/**
 	 * nk_edit_types
@@ -829,6 +849,7 @@ public class Nuklear {
 	 * <li>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE} - Automatically hides the window scrollbar if no user interaction: also requires delta time in {@code nk_context} to be set each frame</li>
 	 * <li>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND} - Always keep window in the background</li>
 	 * <li>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT} - Puts window scaler in the left-bottom corner instead right-bottom</li>
+	 * <li>{@link #NK_WINDOW_NO_INPUT WINDOW_NO_INPUT} - Prevents window of scaling, moving or getting focus</li>
 	 * </ul>
 	 */
 	public static final int
@@ -841,7 +862,8 @@ public class Nuklear {
 		NK_WINDOW_TITLE            = 1 << 6,
 		NK_WINDOW_SCROLL_AUTO_HIDE = 1 << 7,
 		NK_WINDOW_BACKGROUND       = 1 << 8,
-		NK_WINDOW_SCALE_LEFT       = 1 << 9;
+		NK_WINDOW_SCALE_LEFT       = 1 << 9,
+		NK_WINDOW_NO_INPUT         = 1 << 10;
 
 	/**
 	 * nk_allocation_type
@@ -1173,13 +1195,13 @@ public class Nuklear {
 	 * </ul>
 	 */
 	public static final int
-		NK_WINDOW_PRIVATE    = 1 << 10,
+		NK_WINDOW_PRIVATE    = 1 << 11,
 		NK_WINDOW_DYNAMIC    = NK_WINDOW_PRIVATE,
-		NK_WINDOW_ROM        = 1 << 11,
-		NK_WINDOW_HIDDEN     = 1 << 12,
-		NK_WINDOW_CLOSED     = 1 << 13,
-		NK_WINDOW_MINIMIZED  = 1 << 14,
-		NK_WINDOW_REMOVE_ROM = 1 << 15;
+		NK_WINDOW_ROM        = 1 << 12,
+		NK_WINDOW_HIDDEN     = 1 << 13,
+		NK_WINDOW_CLOSED     = 1 << 14,
+		NK_WINDOW_MINIMIZED  = 1 << 15,
+		NK_WINDOW_REMOVE_ROM = 1 << 16;
 
 	static { Library.loadSystem(System::load, System::loadLibrary, Nuklear.class, Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
 
@@ -1189,15 +1211,25 @@ public class Nuklear {
 
 	// --- [ nk_init_fixed ] ---
 
-	/** Unsafe version of: {@link #nk_init_fixed init_fixed} */
+	/**
+	 * Unsafe version of: {@link #nk_init_fixed init_fixed}
+	 *
+	 * @param size must contain the total size of {@code memory}
+	 */
 	public static native int nnk_init_fixed(long ctx, long memory, long size, long font);
 
 	/**
+	 * Initializes context from single fixed size memory block.
 	 * 
+	 * <p>Should be used if you want complete control over nuklears memory management. Especially recommended for system with little memory or systems with
+	 * virtual memory. For the later case you can just allocate for example 16MB of virtual memory and only the required amount of memory will actually be
+	 * commited.</p>
+	 * 
+	 * <p>IMPORTANT: make sure the passed memory block is aligned correctly for {@link NkDrawCommand}.</p>
 	 *
 	 * @param ctx    the nuklear context
-	 * @param memory 
-	 * @param font   
+	 * @param memory must point to a previously allocated memory block
+	 * @param font   must point to a previously initialized font handle
 	 */
 	public static boolean nk_init_fixed(NkContext ctx, ByteBuffer memory, NkUserFont font) {
 		return nnk_init_fixed(ctx.address(), memAddress(memory), memory.remaining(), memAddressSafe(font)) != 0;
@@ -1209,11 +1241,14 @@ public class Nuklear {
 	public static native int nnk_init(long ctx, long allocator, long font);
 
 	/**
+	 * Initializes context with memory allocator callbacks for alloc and free.
 	 * 
+	 * <p>Used internally for {@code nk_init_default} and provides a kitchen sink allocation interface to nuklear. Can be useful for cases like monitoring
+	 * memory consumption.</p>
 	 *
 	 * @param ctx       the nuklear context
-	 * @param allocator 
-	 * @param font      
+	 * @param allocator must point to a previously allocated memory allocator
+	 * @param font      must point to a previously initialized font handle
 	 */
 	public static boolean nk_init(NkContext ctx, NkAllocator allocator, NkUserFont font) {
 		return nnk_init(ctx.address(), allocator.address(), memAddressSafe(font)) != 0;
@@ -1225,12 +1260,12 @@ public class Nuklear {
 	public static native int nnk_init_custom(long ctx, long cmds, long pool, long font);
 
 	/**
-	 * 
+	 * Initializes context from two buffers. One for draw commands the other for window/panel/table allocations.
 	 *
 	 * @param ctx  the nuklear context
-	 * @param cmds 
-	 * @param pool 
-	 * @param font 
+	 * @param cmds must point to a previously initialized memory buffer either fixed or dynamic to store draw commands into
+	 * @param pool must point to a previously initialized memory buffer either fixed or dynamic to store windows, panels and tables
+	 * @param font must point to a previously initialized font handle
 	 */
 	public static boolean nk_init_custom(NkContext ctx, NkBuffer cmds, NkBuffer pool, NkUserFont font) {
 		return nnk_init_custom(ctx.address(), cmds.address(), pool.address(), memAddressSafe(font)) != 0;
@@ -1242,7 +1277,10 @@ public class Nuklear {
 	public static native void nnk_clear(long ctx);
 
 	/**
+	 * Called at the end of the frame to reset and prepare the context for the next frame.
 	 * 
+	 * <p>Resets the context state at the end of the frame. This includes mostly garbage collector tasks like removing windows or table not called and
+	 * therefore used anymore.</p>
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1256,7 +1294,9 @@ public class Nuklear {
 	public static native void nnk_free(long ctx);
 
 	/**
+	 * Shutdown and free all memory allocated inside the context.
 	 * 
+	 * <p>Frees all memory allocated by nuklear. Not needed if context was initialized with {@link #nk_init_fixed init_fixed}.</p>
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1270,10 +1310,10 @@ public class Nuklear {
 	public static native void nnk_set_user_data(long ctx, long handle);
 
 	/**
-	 * 
+	 * Utility function to pass user data to draw command.
 	 *
 	 * @param ctx    the nuklear context
-	 * @param handle 
+	 * @param handle handle with either pointer or index to be passed into every draw commands
 	 */
 	public static void nk_set_user_data(NkContext ctx, NkHandle handle) {
 		nnk_set_user_data(ctx.address(), handle.address());
@@ -1285,7 +1325,7 @@ public class Nuklear {
 	public static native int nnk_begin(long ctx, long title, long bounds, int flags);
 
 	/**
-	 * 
+	 * Starts a new window; needs to be called every frame for every window (unless hidden) or otherwise the window gets removed.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param title  
@@ -1299,7 +1339,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Starts a new window; needs to be called every frame for every window (unless hidden) or otherwise the window gets removed.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param title  
@@ -1322,7 +1362,7 @@ public class Nuklear {
 	public static native int nnk_begin_titled(long ctx, long name, long title, long bounds, int flags);
 
 	/**
-	 * 
+	 * Extended window start with seperated title and identifier to allow multiple windows with same name but not title.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param name   
@@ -1339,7 +1379,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Extended window start with seperated title and identifier to allow multiple windows with same name but not title.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param name   
@@ -1364,7 +1404,7 @@ public class Nuklear {
 	public static native void nnk_end(long ctx);
 
 	/**
-	 * 
+	 * Needs to be called at the end of the window building process to process scaling, scrollbars and general cleanup.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1378,7 +1418,7 @@ public class Nuklear {
 	public static native long nnk_window_find(long ctx, long name);
 
 	/**
-	 * 
+	 * Finds and returns the window with give name.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1391,7 +1431,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Finds and returns the window with give name.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1413,7 +1453,7 @@ public class Nuklear {
 	public static native void nnk_window_get_bounds(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns a rectangle with screen position and size of the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1428,7 +1468,7 @@ public class Nuklear {
 	public static native void nnk_window_get_position(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns the position of the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1443,7 +1483,7 @@ public class Nuklear {
 	public static native void nnk_window_get_size(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns the size with width and height of the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1458,7 +1498,7 @@ public class Nuklear {
 	public static native float nnk_window_get_width(long ctx);
 
 	/**
-	 * 
+	 * Returns the width of the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1472,7 +1512,7 @@ public class Nuklear {
 	public static native float nnk_window_get_height(long ctx);
 
 	/**
-	 * 
+	 * Returns the height of the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1486,7 +1526,7 @@ public class Nuklear {
 	public static native long nnk_window_get_panel(long ctx);
 
 	/**
-	 * 
+	 * Returns the underlying panel which contains all processing state of the currnet window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1501,7 +1541,7 @@ public class Nuklear {
 	public static native void nnk_window_get_content_region(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns the position and size of the currently visible and non-clipped space inside the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1516,7 +1556,7 @@ public class Nuklear {
 	public static native void nnk_window_get_content_region_min(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns the upper rectangle position of the currently visible and non-clipped space inside the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1531,7 +1571,7 @@ public class Nuklear {
 	public static native void nnk_window_get_content_region_max(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns the upper rectangle position of the currently visible and non-clipped space inside the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1546,7 +1586,7 @@ public class Nuklear {
 	public static native void nnk_window_get_content_region_size(long ctx, long __result);
 
 	/**
-	 * 
+	 * Returns the size of the currently visible and non-clipped space inside the currently processed window.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1561,7 +1601,7 @@ public class Nuklear {
 	public static native long nnk_window_get_canvas(long ctx);
 
 	/**
-	 * 
+	 * Returns the draw command buffer. Can be used to draw custom widgets.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1576,7 +1616,7 @@ public class Nuklear {
 	public static native int nnk_window_has_focus(long ctx);
 
 	/**
-	 * 
+	 * Returns if the currently processed window is currently active.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1590,7 +1630,7 @@ public class Nuklear {
 	public static native int nnk_window_is_collapsed(long ctx, long name);
 
 	/**
-	 * 
+	 * Returns if the window with given name is currently minimized/collapsed.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1602,7 +1642,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Returns if the window with given name is currently minimized/collapsed.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1623,7 +1663,7 @@ public class Nuklear {
 	public static native int nnk_window_is_closed(long ctx, long name);
 
 	/**
-	 * 
+	 * Returns if the currently processed window was closed.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1635,7 +1675,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Returns if the currently processed window was closed.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1656,7 +1696,7 @@ public class Nuklear {
 	public static native int nnk_window_is_hidden(long ctx, long name);
 
 	/**
-	 * 
+	 * Returns if the currently processed window was hidden.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1668,7 +1708,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Returns if the currently processed window was hidden.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1689,7 +1729,7 @@ public class Nuklear {
 	public static native int nnk_window_is_active(long ctx, long name);
 
 	/**
-	 * 
+	 * Same as {@link #nk_window_has_focus window_has_focus} for some reason.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1701,7 +1741,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Same as {@link #nk_window_has_focus window_has_focus} for some reason.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1722,7 +1762,7 @@ public class Nuklear {
 	public static native int nnk_window_is_hovered(long ctx);
 
 	/**
-	 * 
+	 * Returns if the currently processed window is currently being hovered by mouse.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1736,7 +1776,7 @@ public class Nuklear {
 	public static native int nnk_window_is_any_hovered(long ctx);
 
 	/**
-	 * 
+	 * Return if any window currently hovered.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1750,7 +1790,7 @@ public class Nuklear {
 	public static native int nnk_item_is_any_active(long ctx);
 
 	/**
-	 * 
+	 * Returns if any window or widgets is currently hovered or active.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -1764,7 +1804,7 @@ public class Nuklear {
 	public static native void nnk_window_set_bounds(long ctx, long bounds);
 
 	/**
-	 * 
+	 * Updates position and size of the currently processed window.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param bounds 
@@ -1779,7 +1819,7 @@ public class Nuklear {
 	public static native void nnk_window_set_position(long ctx, long position);
 
 	/**
-	 * 
+	 * Updates position of the currently process window.
 	 *
 	 * @param ctx      the nuklear context
 	 * @param position 
@@ -1794,7 +1834,7 @@ public class Nuklear {
 	public static native void nnk_window_set_size(long ctx, long size);
 
 	/**
-	 * 
+	 * Updates the size of the currently processed window.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param size 
@@ -1809,7 +1849,7 @@ public class Nuklear {
 	public static native void nnk_window_set_focus(long ctx, long name);
 
 	/**
-	 * 
+	 * Set the currently processed window as active window.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1821,7 +1861,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Set the currently processed window as active window.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1842,7 +1882,7 @@ public class Nuklear {
 	public static native void nnk_window_close(long ctx, long name);
 
 	/**
-	 * 
+	 * Closes the window with given window name which deletes the window at the end of the frame.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1854,7 +1894,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Closes the window with given window name which deletes the window at the end of the frame.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1875,7 +1915,7 @@ public class Nuklear {
 	public static native void nnk_window_collapse(long ctx, long name, int c);
 
 	/**
-	 * 
+	 * Collapses the window with given window name.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1888,7 +1928,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Collapses the window with given window name.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1904,13 +1944,50 @@ public class Nuklear {
 		}
 	}
 
+	// --- [ nk_window_collapse_if ] ---
+
+	/** Unsafe version of: {@link #nk_window_collapse_if window_collapse_if} */
+	public static native void nnk_window_collapse_if(long ctx, long name, int c, int cond);
+
+	/**
+	 * Collapses the window with given window name if the given condition was met.
+	 *
+	 * @param ctx  the nuklear context
+	 * @param name 
+	 * @param c    one of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
+	 * @param cond 
+	 */
+	public static void nk_window_collapse_if(NkContext ctx, ByteBuffer name, int c, boolean cond) {
+		if ( CHECKS )
+			checkNT1(name);
+		nnk_window_collapse_if(ctx.address(), memAddress(name), c, cond ? 1 : 0);
+	}
+
+	/**
+	 * Collapses the window with given window name if the given condition was met.
+	 *
+	 * @param ctx  the nuklear context
+	 * @param name 
+	 * @param c    one of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
+	 * @param cond 
+	 */
+	public static void nk_window_collapse_if(NkContext ctx, CharSequence name, int c, boolean cond) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			nnk_window_collapse_if(ctx.address(), memAddress(nameEncoded), c, cond ? 1 : 0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ nk_window_show ] ---
 
 	/** Unsafe version of: {@link #nk_window_show window_show} */
 	public static native void nnk_window_show(long ctx, long name, int s);
 
 	/**
-	 * 
+	 * Hides a visible or reshows a hidden window.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1923,7 +2000,7 @@ public class Nuklear {
 	}
 
 	/**
-	 * 
+	 * Hides a visible or reshows a hidden window.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param name 
@@ -1934,6 +2011,43 @@ public class Nuklear {
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
 			nnk_window_show(ctx.address(), memAddress(nameEncoded), s);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ nk_window_show_if ] ---
+
+	/** Unsafe version of: {@link #nk_window_show_if window_show_if} */
+	public static native void nnk_window_show_if(long ctx, long name, int s, int cond);
+
+	/**
+	 * Hides/shows a window depending on condition.
+	 *
+	 * @param ctx  the nuklear context
+	 * @param name 
+	 * @param s    one of:<br><table><tr><td>{@link #NK_HIDDEN HIDDEN}</td><td>{@link #NK_SHOWN SHOWN}</td></tr></table>
+	 * @param cond 
+	 */
+	public static void nk_window_show_if(NkContext ctx, ByteBuffer name, int s, boolean cond) {
+		if ( CHECKS )
+			checkNT1(name);
+		nnk_window_show_if(ctx.address(), memAddress(name), s, cond ? 1 : 0);
+	}
+
+	/**
+	 * Hides/shows a window depending on condition.
+	 *
+	 * @param ctx  the nuklear context
+	 * @param name 
+	 * @param s    one of:<br><table><tr><td>{@link #NK_HIDDEN HIDDEN}</td><td>{@link #NK_SHOWN SHOWN}</td></tr></table>
+	 * @param cond 
+	 */
+	public static void nk_window_show_if(NkContext ctx, CharSequence name, int s, boolean cond) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.UTF8(name);
+			nnk_window_show_if(ctx.address(), memAddress(nameEncoded), s, cond ? 1 : 0);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4952,7 +5066,7 @@ public class Nuklear {
 	 * @param ctx   the nuklear context
 	 * @param type  one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title 
-	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td><td>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT}</td></tr></table>
+	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td><td>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT}</td></tr><tr><td>{@link #NK_WINDOW_NO_INPUT WINDOW_NO_INPUT}</td></tr></table>
 	 * @param rect  
 	 */
 	public static boolean nk_popup_begin(NkContext ctx, int type, ByteBuffer title, int flags, NkRect rect) {
@@ -4967,7 +5081,7 @@ public class Nuklear {
 	 * @param ctx   the nuklear context
 	 * @param type  one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title 
-	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td><td>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT}</td></tr></table>
+	 * @param flags one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td><td>{@link #NK_WINDOW_SCALE_LEFT WINDOW_SCALE_LEFT}</td></tr><tr><td>{@link #NK_WINDOW_NO_INPUT WINDOW_NO_INPUT}</td></tr></table>
 	 * @param rect  
 	 */
 	public static boolean nk_popup_begin(NkContext ctx, int type, CharSequence title, int flags, NkRect rect) {
@@ -6656,10 +6770,10 @@ public class Nuklear {
 	// --- [ nk_convert ] ---
 
 	/** Unsafe version of: {@link #nk_convert convert} */
-	public static native void nnk_convert(long ctx, long cmds, long vertices, long elements, long config);
+	public static native int nnk_convert(long ctx, long cmds, long vertices, long elements, long config);
 
 	/**
-	 * 
+	 * Converts from the abstract draw commands list into a hardware accessable vertex format.
 	 *
 	 * @param ctx      the nuklear context
 	 * @param cmds     
@@ -6667,10 +6781,10 @@ public class Nuklear {
 	 * @param elements 
 	 * @param config   
 	 */
-	public static void nk_convert(NkContext ctx, NkBuffer cmds, NkBuffer vertices, NkBuffer elements, NkConvertConfig config) {
+	public static int nk_convert(NkContext ctx, NkBuffer cmds, NkBuffer vertices, NkBuffer elements, NkConvertConfig config) {
 		if ( CHECKS )
 			NkConvertConfig.validate(config.address());
-		nnk_convert(ctx.address(), cmds.address(), vertices.address(), elements.address(), config.address());
+		return nnk_convert(ctx.address(), cmds.address(), vertices.address(), elements.address(), config.address());
 	}
 
 	// --- [ nk_input_begin ] ---
@@ -6679,7 +6793,7 @@ public class Nuklear {
 	public static native void nnk_input_begin(long ctx);
 
 	/**
-	 * 
+	 * Begins the input mirroring process. Needs to be called before all other {@code nk_input_xxx} calls
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -6693,7 +6807,7 @@ public class Nuklear {
 	public static native void nnk_input_motion(long ctx, int x, int y);
 
 	/**
-	 * 
+	 * Mirrors mouse cursor position.
 	 *
 	 * @param ctx the nuklear context
 	 * @param x   
@@ -6709,7 +6823,7 @@ public class Nuklear {
 	public static native void nnk_input_key(long ctx, int key, int down);
 
 	/**
-	 * 
+	 * Mirrors key state with either pressed or released.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param key  one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
@@ -6725,7 +6839,7 @@ public class Nuklear {
 	public static native void nnk_input_button(long ctx, int id, int x, int y, int down);
 
 	/**
-	 * 
+	 * Mirrors mouse button state with either pressed or released.
 	 *
 	 * @param ctx  the nuklear context
 	 * @param id   one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td></tr></table>
@@ -6740,16 +6854,31 @@ public class Nuklear {
 	// --- [ nk_input_scroll ] ---
 
 	/** Unsafe version of: {@link #nk_input_scroll input_scroll} */
-	public static native void nnk_input_scroll(long ctx, float y);
+	public static native void nnk_input_scroll(long ctx, long val);
 
 	/**
-	 * 
+	 * Mirrors mouse scroll values.
 	 *
 	 * @param ctx the nuklear context
-	 * @param y   
+	 * @param val 
 	 */
-	public static void nk_input_scroll(NkContext ctx, float y) {
-		nnk_input_scroll(ctx.address(), y);
+	public static void nk_input_scroll(NkContext ctx, NkVec2 val) {
+		nnk_input_scroll(ctx.address(), val.address());
+	}
+
+	// --- [ nk_input_char ] ---
+
+	/** Unsafe version of: {@link #nk_input_char input_char} */
+	public static native void nnk_input_char(long ctx, byte c);
+
+	/**
+	 * Adds a single ASCII text character into an internal text buffer.
+	 *
+	 * @param ctx the nuklear context
+	 * @param c   
+	 */
+	public static void nk_input_char(NkContext ctx, byte c) {
+		nnk_input_char(ctx.address(), c);
 	}
 
 	// --- [ nk_input_glyph ] ---
@@ -6758,7 +6887,7 @@ public class Nuklear {
 	public static native void nnk_input_glyph(long ctx, long glyph);
 
 	/**
-	 * 
+	 * Adds a single multi-byte UTF-8 character into an internal text buffer.
 	 *
 	 * @param ctx   the nuklear context
 	 * @param glyph 
@@ -6775,7 +6904,7 @@ public class Nuklear {
 	public static native void nnk_input_unicode(long ctx, int unicode);
 
 	/**
-	 * 
+	 * Adds a single unicode rune into an internal text buffer.
 	 *
 	 * @param ctx     the nuklear context
 	 * @param unicode 
@@ -6790,7 +6919,7 @@ public class Nuklear {
 	public static native void nnk_input_end(long ctx);
 
 	/**
-	 * 
+	 * Ends the input mirroring process by calculating state changes. Don't call any {@code nk_input_xxx} function referenced above after this call.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -8180,8 +8309,8 @@ public class Nuklear {
 	public static native int nnk_strmatch_fuzzy_string(long str, long pattern, long out_score);
 
 	/**
-	 * Returns true if each character in {@code pattern} is found sequentially within {@code str} if found then {@code out_score} is also set. Score value has no
-	 * intrinsic meaning. Range varies with {@code pattern}. Can only compare scores with same search pattern.
+	 * Returns true if each character in {@code pattern} is found sequentially within {@code str} if found then {@code out_score} is also set. Score value
+	 * has no intrinsic meaning. Range varies with {@code pattern}. Can only compare scores with same search pattern.
 	 *
 	 * @param str       
 	 * @param pattern   
@@ -8197,8 +8326,8 @@ public class Nuklear {
 	}
 
 	/**
-	 * Returns true if each character in {@code pattern} is found sequentially within {@code str} if found then {@code out_score} is also set. Score value has no
-	 * intrinsic meaning. Range varies with {@code pattern}. Can only compare scores with same search pattern.
+	 * Returns true if each character in {@code pattern} is found sequentially within {@code str} if found then {@code out_score} is also set. Score value
+	 * has no intrinsic meaning. Range varies with {@code pattern}. Can only compare scores with same search pattern.
 	 *
 	 * @param str       
 	 * @param pattern   
@@ -9002,7 +9131,7 @@ public class Nuklear {
 	public static native long nnk__next(long ctx, long cmd);
 
 	/**
-	 * 
+	 * Increments the draw command iterator to the next command inside the context draw command list.
 	 *
 	 * @param ctx the nuklear context
 	 * @param cmd 
@@ -9018,7 +9147,7 @@ public class Nuklear {
 	public static native long nnk__begin(long ctx);
 
 	/**
-	 * 
+	 * Returns the first draw command in the context draw command list to be drawn.
 	 *
 	 * @param ctx the nuklear context
 	 */
@@ -9288,7 +9417,7 @@ public class Nuklear {
 	public static native long nnk__draw_begin(long ctx, long buffer);
 
 	/**
-	 * 
+	 * Returns the first vertex command in the context vertex draw list to be executed.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param buffer 
@@ -9304,7 +9433,7 @@ public class Nuklear {
 	public static native long nnk__draw_end(long ctx, long buffer);
 
 	/**
-	 * 
+	 * Returns the end of the vertex draw list.
 	 *
 	 * @param ctx    the nuklear context
 	 * @param buffer 
@@ -9320,7 +9449,7 @@ public class Nuklear {
 	public static native long nnk__draw_next(long cmd, long buffer, long ctx);
 
 	/**
-	 * 
+	 * Increments the vertex command iterator to the next command inside the context vertex command list.
 	 *
 	 * @param cmd    
 	 * @param buffer 

@@ -38,7 +38,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkMemoryAllocateFlagBitsKHX} values</li>
  * </ul>
  * 

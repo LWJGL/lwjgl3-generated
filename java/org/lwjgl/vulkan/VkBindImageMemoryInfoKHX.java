@@ -41,10 +41,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>For each element of {@code pSFRRects}:
  * 
  * <ul>
- * <li>{@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of the image</li>
- * <li>{@code extent.width} <b>must</b> either be a multiple of the sparse image block width of the image, or else {@code extent.width} + {@code offset.x} <b>must</b> equal the width of the image subresource</li>
- * <li>{@code offset.y} <b>must</b> be a multiple of the sparse image block height ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.height) of the image</li>
- * <li>{@code extent.height} <b>must</b> either be a multiple of the sparse image block height of the image, or else {@code extent.height} + {@code offset.y} <b>must</b> equal the height of the image subresource</li>
+ * <li>{@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of all non-metadata aspects of the image</li>
+ * <li>{@code extent.width} <b>must</b> either be a multiple of the sparse image block width of all non-metadata aspects of the image, or else {@code extent.width} + {@code offset.x} <b>must</b> equal the width of the image subresource</li>
+ * <li>{@code offset.y} <b>must</b> be a multiple of the sparse image block height ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.height) of all non-metadata aspects of the image</li>
+ * <li>{@code extent.height} <b>must</b> either be a multiple of the sparse image block height of all non-metadata aspects of the image, or else {@code extent.height} + {@code offset.y} <b>must</b> equal the height of the image subresource</li>
  * </ul>
  * </li>
  * <li>All instances of memory that are bound <b>must</b> have been allocated</li>
@@ -55,7 +55,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkBindImageMemorySwapchainInfoKHX}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL} or a pointer to a valid instance of {@link VkBindImageMemorySwapchainInfoKHX}</li>
  * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
  * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
  * <li>If {@code deviceIndexCount} is not 0, {@code pDeviceIndices} <b>must</b> be a pointer to an array of {@code deviceIndexCount} {@code uint32_t} values</li>

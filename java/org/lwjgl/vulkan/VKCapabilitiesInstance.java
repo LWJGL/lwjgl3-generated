@@ -130,6 +130,8 @@ public class VKCapabilitiesInstance {
 	public final boolean VK_EXT_direct_mode_display;
 	/** When true, {@link EXTDisplaySurfaceCounter} is supported. */
 	public final boolean VK_EXT_display_surface_counter;
+	/** When true, {@link EXTSwapchainColorspace} is supported. */
+	public final boolean VK_EXT_swapchain_colorspace;
 	/** When true, {@link EXTValidationFlags} is supported. */
 	public final boolean VK_EXT_validation_flags;
 	/** When true, {@link KHRDisplay} is supported. */
@@ -199,6 +201,7 @@ public class VKCapabilitiesInstance {
 			vkGetPhysicalDeviceSurfaceCapabilities2EXT = isSupported(provider, "vkGetPhysicalDeviceSurfaceCapabilities2EXT", supported);
 			VK_EXT_display_surface_counter = supported && VK.checkExtension("VK_EXT_display_surface_counter", EXTDisplaySurfaceCounter.isAvailable(this));
 		}
+		VK_EXT_swapchain_colorspace = ext.contains("VK_EXT_swapchain_colorspace");
 		VK_EXT_validation_flags = ext.contains("VK_EXT_validation_flags");
 		{
 			supported = ext.contains("VK_KHR_display");

@@ -24,7 +24,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code modes} <b>must</b> be a valid combination of {@code VkDeviceGroupPresentModeFlagBitsKHX} values</li>
  * <li>{@code modes} <b>must</b> not be 0</li>
  * </ul>

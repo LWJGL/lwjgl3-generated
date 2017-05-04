@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * </ul></dd>
  * </dl>
  * 
- * <p>This extension provides new entry points to query device features, device properties, and format properties in a way that can be easily extended by other extensions, without introducing any further entry points. The Vulkan 1.0 feature/limit/formatproperty structures do not include an sType/pNext, this extension wraps them in new structures with sType/pNext so an application can query a chain of feature/limit/formatproperty structures by constructing the chain and letting the implementation fill them in. A new command is added for each ftext:vkGetPhysicalDevice* command in core Vulkan 1.0. The new feature structure (and a chain of extensions) can also be passed in to device creation to enable features.</p>
+ * <p>This extension provides new entry points to query device features, device properties, and format properties in a way that can be easily extended by other extensions, without introducing any further entry points. The Vulkan 1.0 feature/limit/formatproperty structures do not include {@code sType}/{@code pNext} members. This extension wraps them in new structures with {@code sType}/{@code pNext} members, so an application can query a chain of feature/limit/formatproperty structures by constructing the chain and letting the implementation fill them in. A new command is added for each ftext:vkGetPhysicalDevice* command in core Vulkan 1.0. The new feature structure (and a chain of extension structures) can also be passed in to device creation to enable features.</p>
  * 
  * <p>This extension also allows applications to use the physical-device components of device extensions before {@link VK10#vkCreateDevice CreateDevice} is called.</p>
  * 
@@ -251,7 +251,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, with the ability to return extended information via chained output structures.</p>
+	 * <p>{@link #vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
@@ -297,7 +297,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, with the ability to return extended information via chained output structures.</p>
+	 * <p>{@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
 	 * 
 	 * <p>If the loader implementation emulates {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} on a device that does not support the extension, and the query involves a structure the loader does not support, {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} returns {@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}.</p>
 	 * 
@@ -364,7 +364,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}, with the ability to return extended information via chained output structures.</p>
+	 * <p>{@link #vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
@@ -413,7 +413,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkGetPhysicalDeviceMemoryProperties2KHR GetPhysicalDeviceMemoryProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties}, with the ability to return extended information via chained output structures.</p>
+	 * <p>{@link #vkGetPhysicalDeviceMemoryProperties2KHR GetPhysicalDeviceMemoryProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
@@ -462,7 +462,7 @@ public class KHRGetPhysicalDeviceProperties2 {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} behaves identically to {@link VK10#vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}, with the ability to return extended information via chained output structures.</p>
+	 * <p>{@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} behaves identically to {@link VK10#vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}, with the ability to return extended information by adding extension structures to its {@code pNext} chain.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 

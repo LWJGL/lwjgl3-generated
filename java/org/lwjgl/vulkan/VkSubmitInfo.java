@@ -34,7 +34,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_SUBMIT_INFO STRUCTURE_TYPE_SUBMIT_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHX}, {@link VkD3D12FenceSubmitInfoKHX}, or {@link VkDeviceGroupSubmitInfoKHX}</li>
+ * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHX}, {@link VkD3D12FenceSubmitInfoKHX}, or {@link VkDeviceGroupSubmitInfoKHX}</li>
+ * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
  * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid {@code VkSemaphore} handles</li>
  * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitDstStageMask} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid combinations of {@code VkPipelineStageFlagBits} values</li>
  * <li>Each element of {@code pWaitDstStageMask} <b>must</b> not be 0</li>

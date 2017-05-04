@@ -653,10 +653,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigFree(JNIEnv *__env
 	YGConfigFree(config);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigCopy(JNIEnv *__env, jclass clazz, jlong destAddress, jlong srcAddress) {
+	const YGConfigRef dest = (const YGConfigRef)(intptr_t)destAddress;
+	const YGConfigRef src = (const YGConfigRef)(intptr_t)srcAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGConfigCopy(dest, src);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_YGConfigGetInstanceCount(JNIEnv *__env, jclass clazz) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)YGConfigGetInstanceCount();
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetPointScaleFactor(JNIEnv *__env, jclass clazz, jlong configAddress, jfloat pixelsInPoint) {
 	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
 	UNUSED_PARAMS(__env, clazz)
 	YGConfigSetPointScaleFactor(config, pixelsInPoint);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetUseLegacyStretchBehaviour(JNIEnv *__env, jclass clazz, jlong configAddress, jboolean useLegacyStretchBehaviour) {
+	const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+	UNUSED_PARAMS(__env, clazz)
+	YGConfigSetUseLegacyStretchBehaviour(config, useLegacyStretchBehaviour);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetExperimentalFeatureEnabled(JNIEnv *__env, jclass clazz, jlong configAddress, jint feature, jboolean enabled) {
@@ -690,6 +708,81 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGSetMemoryFuncs(JNIEnv *_
 	YGFree ygfree = (YGFree)(intptr_t)ygfreeAddress;
 	UNUSED_PARAMS(__env, clazz)
 	YGSetMemoryFuncs(ygmalloc, yccalloc, ygrealloc, ygfree);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGAlignToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGAlignToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGDimensionToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGDimensionToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGDirectionToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGDirectionToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGDisplayToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGDisplayToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGEdgeToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGEdgeToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGExperimentalFeatureToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGExperimentalFeatureToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGFlexDirectionToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGFlexDirectionToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGJustifyToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGJustifyToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGLogLevelToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGLogLevelToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGMeasureModeToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGMeasureModeToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGOverflowToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGOverflowToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGPositionTypeToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGPositionTypeToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGPrintOptionsToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGPrintOptionsToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGUnitToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGUnitToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGWrapToString(JNIEnv *__env, jclass clazz, jint value) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)YGWrapToString(value);
 }
 
 EXTERN_C_EXIT

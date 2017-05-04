@@ -18,8 +18,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code width} &ndash; framebuffer width</li>
- * <li>{@code height} &ndash; framebuffer height</li>
+ * <li>{@code width} &ndash; frame buffer width</li>
+ * <li>{@code height} &ndash; frame buffer height</li>
  * <li>{@code deviceWidth} &ndash; device resolution width</li>
  * <li>{@code deviceHeight} &ndash; device resolution height</li>
  * <li>{@code flags} &ndash; status flags</li>

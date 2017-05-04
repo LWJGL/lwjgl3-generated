@@ -209,14 +209,14 @@ public class ParShapes {
 		return ParShapesMesh.create(__result);
 	}
 
-	// --- [ par_shapes_create_octohedron ] ---
+	// --- [ par_shapes_create_octahedron ] ---
 
-	/** Unsafe version of: {@link #par_shapes_create_octohedron create_octohedron} */
-	public static native long npar_shapes_create_octohedron();
+	/** Unsafe version of: {@link #par_shapes_create_octahedron create_octahedron} */
+	public static native long npar_shapes_create_octahedron();
 
 	/** Generates points for an 8-sided polyhedron that fits in the unit sphere. Texture coordinates and normals are not generated. */
-	public static ParShapesMesh par_shapes_create_octohedron() {
-		long __result = npar_shapes_create_octohedron();
+	public static ParShapesMesh par_shapes_create_octahedron() {
+		long __result = npar_shapes_create_octahedron();
 		return ParShapesMesh.create(__result);
 	}
 

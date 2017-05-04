@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
     VkStructureType sType;
-    const void * pNext;
+    void * pNext;
     uint32_t maxDiscardRectangles;
 }</code></pre>
  */

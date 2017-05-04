@@ -37,7 +37,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXMultiview#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

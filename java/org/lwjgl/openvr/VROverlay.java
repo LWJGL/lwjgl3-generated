@@ -68,44 +68,44 @@ public class VROverlay {
 	// --- [ VROverlay_CreateOverlay ] ---
 
 	/** Unsafe version of: {@link #VROverlay_CreateOverlay CreateOverlay} */
-	public static int nVROverlay_CreateOverlay(long pchOverlayKey, long pchOverlayFriendlyName, long pOverlayHandle) {
+	public static int nVROverlay_CreateOverlay(long pchOverlayKey, long pchOverlayName, long pOverlayHandle) {
 		long __functionAddress = OpenVR.VROverlay.CreateOverlay;
 		if ( CHECKS )
 			check(__functionAddress);
-		return callPPPI(__functionAddress, pchOverlayKey, pchOverlayFriendlyName, pOverlayHandle);
+		return callPPPI(__functionAddress, pchOverlayKey, pchOverlayName, pOverlayHandle);
 	}
 
 	/**
 	 * Creates a new named overlay. All overlays start hidden and with default settings.
 	 *
-	 * @param pchOverlayKey          
-	 * @param pchOverlayFriendlyName 
-	 * @param pOverlayHandle         
+	 * @param pchOverlayKey  
+	 * @param pchOverlayName 
+	 * @param pOverlayHandle 
 	 */
-	public static int VROverlay_CreateOverlay(ByteBuffer pchOverlayKey, ByteBuffer pchOverlayFriendlyName, LongBuffer pOverlayHandle) {
+	public static int VROverlay_CreateOverlay(ByteBuffer pchOverlayKey, ByteBuffer pchOverlayName, LongBuffer pOverlayHandle) {
 		if ( CHECKS ) {
 			checkNT1(pchOverlayKey);
-			checkNT1(pchOverlayFriendlyName);
+			checkNT1(pchOverlayName);
 			check(pOverlayHandle, 1);
 		}
-		return nVROverlay_CreateOverlay(memAddress(pchOverlayKey), memAddress(pchOverlayFriendlyName), memAddress(pOverlayHandle));
+		return nVROverlay_CreateOverlay(memAddress(pchOverlayKey), memAddress(pchOverlayName), memAddress(pOverlayHandle));
 	}
 
 	/**
 	 * Creates a new named overlay. All overlays start hidden and with default settings.
 	 *
-	 * @param pchOverlayKey          
-	 * @param pchOverlayFriendlyName 
-	 * @param pOverlayHandle         
+	 * @param pchOverlayKey  
+	 * @param pchOverlayName 
+	 * @param pOverlayHandle 
 	 */
-	public static int VROverlay_CreateOverlay(CharSequence pchOverlayKey, CharSequence pchOverlayFriendlyName, LongBuffer pOverlayHandle) {
+	public static int VROverlay_CreateOverlay(CharSequence pchOverlayKey, CharSequence pchOverlayName, LongBuffer pOverlayHandle) {
 		if ( CHECKS )
 			check(pOverlayHandle, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pchOverlayKeyEncoded = stack.ASCII(pchOverlayKey);
-			ByteBuffer pchOverlayFriendlyNameEncoded = stack.ASCII(pchOverlayFriendlyName);
-			return nVROverlay_CreateOverlay(memAddress(pchOverlayKeyEncoded), memAddress(pchOverlayFriendlyNameEncoded), memAddress(pOverlayHandle));
+			ByteBuffer pchOverlayNameEncoded = stack.ASCII(pchOverlayName);
+			return nVROverlay_CreateOverlay(memAddress(pchOverlayKeyEncoded), memAddress(pchOverlayNameEncoded), memAddress(pOverlayHandle));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -242,6 +242,44 @@ public class VROverlay {
 			ByteBuffer pchValue = stack.malloc(unBufferSize);
 			int __result = nVROverlay_GetOverlayName(ulOverlayHandle, memAddress(pchValue), unBufferSize, memAddress(pError));
 			return memASCII(pchValue, __result - 1);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ VROverlay_SetOverlayName ] ---
+
+	/** Unsafe version of: {@link #VROverlay_SetOverlayName SetOverlayName} */
+	public static int nVROverlay_SetOverlayName(long ulOverlayHandle, long pchName) {
+		long __functionAddress = OpenVR.VROverlay.SetOverlayName;
+		if ( CHECKS )
+			check(__functionAddress);
+		return callJPI(__functionAddress, ulOverlayHandle, pchName);
+	}
+
+	/**
+	 * Sets the name to use for this overlay.
+	 *
+	 * @param ulOverlayHandle 
+	 * @param pchName         
+	 */
+	public static int VROverlay_SetOverlayName(long ulOverlayHandle, ByteBuffer pchName) {
+		if ( CHECKS )
+			checkNT1(pchName);
+		return nVROverlay_SetOverlayName(ulOverlayHandle, memAddress(pchName));
+	}
+
+	/**
+	 * Sets the name to use for this overlay.
+	 *
+	 * @param ulOverlayHandle 
+	 * @param pchName         
+	 */
+	public static int VROverlay_SetOverlayName(long ulOverlayHandle, CharSequence pchName) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer pchNameEncoded = stack.ASCII(pchName);
+			return nVROverlay_SetOverlayName(ulOverlayHandle, memAddress(pchNameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -688,6 +726,55 @@ public class VROverlay {
 		return nVROverlay_GetOverlayTextureBounds(ulOverlayHandle, pOverlayTextureBounds.address());
 	}
 
+	// --- [ VROverlay_GetOverlayRenderModel ] ---
+
+	/** Unsafe version of: {@link #VROverlay_GetOverlayRenderModel GetOverlayRenderModel} */
+	public static int nVROverlay_GetOverlayRenderModel(long ulOverlayHandle, long pchValue, int unBufferSize, long pColor, long pError) {
+		long __functionAddress = OpenVR.VROverlay.GetOverlayRenderModel;
+		if ( CHECKS )
+			check(__functionAddress);
+		return callJPPPI(__functionAddress, ulOverlayHandle, pchValue, unBufferSize, pColor, pError);
+	}
+
+	/**
+	 * Gets render model to draw behind this overlay.
+	 *
+	 * @param ulOverlayHandle 
+	 * @param pchValue        
+	 * @param pColor          
+	 * @param pError          
+	 */
+	public static int VROverlay_GetOverlayRenderModel(long ulOverlayHandle, ByteBuffer pchValue, HmdColor pColor, IntBuffer pError) {
+		if ( CHECKS )
+			check(pError, 1);
+		return nVROverlay_GetOverlayRenderModel(ulOverlayHandle, memAddress(pchValue), pchValue.remaining(), pColor.address(), memAddress(pError));
+	}
+
+	// --- [ VROverlay_SetOverlayRenderModel ] ---
+
+	public static int nVROverlay_SetOverlayRenderModel(long ulOverlayHandle, long pchRenderModel, long pColor) {
+		long __functionAddress = OpenVR.VROverlay.SetOverlayRenderModel;
+		if ( CHECKS )
+			check(__functionAddress);
+		return callJPPI(__functionAddress, ulOverlayHandle, pchRenderModel, pColor);
+	}
+
+	public static int VROverlay_SetOverlayRenderModel(long ulOverlayHandle, ByteBuffer pchRenderModel, HmdColor pColor) {
+		if ( CHECKS )
+			checkNT1(pchRenderModel);
+		return nVROverlay_SetOverlayRenderModel(ulOverlayHandle, memAddress(pchRenderModel), pColor.address());
+	}
+
+	public static int VROverlay_SetOverlayRenderModel(long ulOverlayHandle, CharSequence pchRenderModel, HmdColor pColor) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer pchRenderModelEncoded = stack.ASCII(pchRenderModel);
+			return nVROverlay_SetOverlayRenderModel(ulOverlayHandle, memAddress(pchRenderModelEncoded), pColor.address());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ VROverlay_GetOverlayTransformType ] ---
 
 	/** Unsafe version of: {@link #VROverlay_GetOverlayTransformType GetOverlayTransformType} */
@@ -861,6 +948,34 @@ public class VROverlay {
 		if ( CHECKS )
 			check(punDeviceIndex, 1);
 		return nVROverlay_GetOverlayTransformTrackedDeviceComponent(ulOverlayHandle, memAddress(punDeviceIndex), memAddress(pchComponentName), pchComponentName.remaining());
+	}
+
+	// --- [ VROverlay_GetOverlayTransformOverlayRelative ] ---
+
+	public static int nVROverlay_GetOverlayTransformOverlayRelative(long ulOverlayHandle, long ulOverlayHandleParent, long pmatParentOverlayToOverlayTransform) {
+		long __functionAddress = OpenVR.VROverlay.GetOverlayTransformOverlayRelative;
+		if ( CHECKS )
+			check(__functionAddress);
+		return callJPPI(__functionAddress, ulOverlayHandle, ulOverlayHandleParent, pmatParentOverlayToOverlayTransform);
+	}
+
+	public static int VROverlay_GetOverlayTransformOverlayRelative(long ulOverlayHandle, LongBuffer ulOverlayHandleParent, HmdMatrix34 pmatParentOverlayToOverlayTransform) {
+		if ( CHECKS )
+			check(ulOverlayHandleParent, 1);
+		return nVROverlay_GetOverlayTransformOverlayRelative(ulOverlayHandle, memAddress(ulOverlayHandleParent), pmatParentOverlayToOverlayTransform.address());
+	}
+
+	// --- [ VROverlay_SetOverlayTransformOverlayRelative ] ---
+
+	public static int nVROverlay_SetOverlayTransformOverlayRelative(long ulOverlayHandle, long ulOverlayHandleParent, long pmatParentOverlayToOverlayTransform) {
+		long __functionAddress = OpenVR.VROverlay.SetOverlayTransformOverlayRelative;
+		if ( CHECKS )
+			check(__functionAddress);
+		return callJJPI(__functionAddress, ulOverlayHandle, ulOverlayHandleParent, pmatParentOverlayToOverlayTransform);
+	}
+
+	public static int VROverlay_SetOverlayTransformOverlayRelative(long ulOverlayHandle, long ulOverlayHandleParent, HmdMatrix34 pmatParentOverlayToOverlayTransform) {
+		return nVROverlay_SetOverlayTransformOverlayRelative(ulOverlayHandle, ulOverlayHandleParent, pmatParentOverlayToOverlayTransform.address());
 	}
 
 	// --- [ VROverlay_ShowOverlay ] ---

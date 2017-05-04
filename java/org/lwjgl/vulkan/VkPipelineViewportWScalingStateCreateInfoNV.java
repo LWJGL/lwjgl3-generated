@@ -29,7 +29,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVClipSpaceWScaling#VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

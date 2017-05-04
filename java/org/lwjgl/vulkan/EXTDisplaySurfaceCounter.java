@@ -103,7 +103,7 @@ public class EXTDisplaySurfaceCounter {
 	 * 
 	 * <h5>Description</h5>
 	 * 
-	 * <p>{@link #vkGetPhysicalDeviceSurfaceCapabilities2EXT GetPhysicalDeviceSurfaceCapabilities2EXT} behaves similarly to {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}, with the ability to return extended information via chained output structures.</p>
+	 * <p>{@link #vkGetPhysicalDeviceSurfaceCapabilities2EXT GetPhysicalDeviceSurfaceCapabilities2EXT} behaves similarly to {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}, with the ability to return extended information by adding extension structures to its {@code pNext} chain.</p>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 

@@ -60,6 +60,9 @@ public class KHRDescriptorUpdateTemplate {
 	/** Extends {@code VkStructureType}. */
 	public static final int VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR = 1000085000;
 
+	/** Extends {@code VkDebugReportObjectTypeEXT}. */
+	public static final int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT = 1000085000;
+
 	/**
 	 * VkDescriptorUpdateTemplateTypeKHR - Indicates the valid usage of the descriptor update template
 	 * 

@@ -41,12 +41,16 @@ public class OVR {
 	 * {@code RequestedMinorVersion} is supported. Normally when you specify this flag you simply use {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} for
 	 * {@link OVRInitParams}{@code ::RequestedMinorVersion}, though you could use a lower version than {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} to specify previous version behavior.</p>
 	 * </li>
+	 * <li>{@link #ovrInit_Invisible Init_Invisible} - This client will not be visible in the HMD. Typically set by diagnostic or debugging utilities.</li>
+	 * <li>{@link #ovrInit_MixedRendering Init_MixedRendering} - This client will alternate between VR and 2D rendering. Typically set by game engine editors and VR-enabled web browsers.</li>
 	 * <li>{@link #ovrInit_WritableBits Init_WritableBits} - These bits are writable by user code.</li>
 	 * </ul>
 	 */
 	public static final int
 		ovrInit_Debug          = 0x1,
 		ovrInit_RequestVersion = 0x4,
+		ovrInit_Invisible      = 0x10,
+		ovrInit_MixedRendering = 0x20,
 		ovrInit_WritableBits   = 0xFFFFFF;
 
 	/**
@@ -431,17 +435,25 @@ public class OVR {
 	 * <li>{@link #ovrControllerType_Touch ControllerType_Touch}</li>
 	 * <li>{@link #ovrControllerType_Remote ControllerType_Remote}</li>
 	 * <li>{@link #ovrControllerType_XBox ControllerType_XBox}</li>
+	 * <li>{@link #ovrControllerType_Object0 ControllerType_Object0}</li>
+	 * <li>{@link #ovrControllerType_Object1 ControllerType_Object1}</li>
+	 * <li>{@link #ovrControllerType_Object2 ControllerType_Object2}</li>
+	 * <li>{@link #ovrControllerType_Object3 ControllerType_Object3}</li>
 	 * <li>{@link #ovrControllerType_Active ControllerType_Active} - Operate on or query whichever controller is active.</li>
 	 * </ul>
 	 */
 	public static final int
-		ovrControllerType_None   = 0x0,
-		ovrControllerType_LTouch = 0x1,
-		ovrControllerType_RTouch = 0x2,
-		ovrControllerType_Touch  = 0x3,
-		ovrControllerType_Remote = 0x4,
-		ovrControllerType_XBox   = 0x10,
-		ovrControllerType_Active = 0xFF;
+		ovrControllerType_None    = 0x0,
+		ovrControllerType_LTouch  = 0x1,
+		ovrControllerType_RTouch  = 0x2,
+		ovrControllerType_Touch   = (ovrControllerType_LTouch | ovrControllerType_RTouch),
+		ovrControllerType_Remote  = 0x4,
+		ovrControllerType_XBox    = 0x10,
+		ovrControllerType_Object0 = 0x100,
+		ovrControllerType_Object1 = 0x200,
+		ovrControllerType_Object2 = 0x400,
+		ovrControllerType_Object3 = 0x800,
+		ovrControllerType_Active  = 0xFFFFFFFF;
 
 	/**
 	 * Haptics buffer submit mode. ({@code ovrHapticsBufferSubmitMode})
@@ -464,15 +476,23 @@ public class OVR {
 	 * <li>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</li>
 	 * <li>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</li>
 	 * <li>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</li>
+	 * <li>{@link #ovrTrackedDevice_Object0 TrackedDevice_Object0}</li>
+	 * <li>{@link #ovrTrackedDevice_Object1 TrackedDevice_Object1}</li>
+	 * <li>{@link #ovrTrackedDevice_Object2 TrackedDevice_Object2}</li>
+	 * <li>{@link #ovrTrackedDevice_Object3 TrackedDevice_Object3}</li>
 	 * <li>{@link #ovrTrackedDevice_All TrackedDevice_All}</li>
 	 * </ul>
 	 */
 	public static final int
-		ovrTrackedDevice_HMD    = 0x1,
-		ovrTrackedDevice_LTouch = 0x2,
-		ovrTrackedDevice_RTouch = 0x4,
-		ovrTrackedDevice_Touch  = 0x6,
-		ovrTrackedDevice_All    = 0xFFFF;
+		ovrTrackedDevice_HMD     = 0x1,
+		ovrTrackedDevice_LTouch  = 0x2,
+		ovrTrackedDevice_RTouch  = 0x4,
+		ovrTrackedDevice_Touch   = (ovrTrackedDevice_LTouch | ovrTrackedDevice_RTouch),
+		ovrTrackedDevice_Object0 = 0x10,
+		ovrTrackedDevice_Object1 = 0x20,
+		ovrTrackedDevice_Object2 = 0x40,
+		ovrTrackedDevice_Object3 = 0x80,
+		ovrTrackedDevice_All     = 0xFFFF;
 
 	/**
 	 * Boundary types that specified while using the boundary system. ({@code ovrBoundaryType})
@@ -578,6 +598,7 @@ ovr_SetInt(session, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 	 * <li>{@link #ovrPerfHud_LatencyTiming PerfHud_LatencyTiming} - Shows latency related timing info</li>
 	 * <li>{@link #ovrPerfHud_AppRenderTiming PerfHud_AppRenderTiming} - Shows render timing info for application</li>
 	 * <li>{@link #ovrPerfHud_CompRenderTiming PerfHud_CompRenderTiming} - Shows render timing info for OVR compositor</li>
+	 * <li>{@link #ovrPerfHud_AwsStats PerfHud_AwsStats} - Shows Async Spacewarp-specific info</li>
 	 * <li>{@link #ovrPerfHud_VersionInfo PerfHud_VersionInfo} - Shows SDK & HMD version Info</li>
 	 * </ul>
 	 */
@@ -587,7 +608,8 @@ ovr_SetInt(session, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 		ovrPerfHud_LatencyTiming    = 2,
 		ovrPerfHud_AppRenderTiming  = 3,
 		ovrPerfHud_CompRenderTiming = 4,
-		ovrPerfHud_VersionInfo      = 5;
+		ovrPerfHud_AwsStats         = 0x6,
+		ovrPerfHud_VersionInfo      = 0x5;
 
 	/**
 	 * Layer HUD enables the HMD user to see information about a layer.
@@ -913,7 +935,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	// --- [ ovr_Create ] ---
 
 	/** Unsafe version of: {@link #ovr_Create Create} */
-	public static native int novr_Create(long pSession, long luid);
+	public static native int novr_Create(long pSession, long pLuid);
 
 	/**
 	 * Creates a handle to a VR session.
@@ -922,16 +944,16 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * in an error return value if the previous session has not been destroyed.</p>
 	 *
 	 * @param pSession a pointer to an {@code ovrSession} which will be written to upon success
-	 * @param luid     a system specific graphics adapter identifier that locates which graphics adapter has the HMD attached. This must match the adapter used by the
+	 * @param pLuid    a system specific graphics adapter identifier that locates which graphics adapter has the HMD attached. This must match the adapter used by the
 	 *                 application or no rendering output will be possible. This is important for stability on multi-adapter systems. An application that simply chooses
 	 *                 the default adapter will not run reliably on multi-adapter systems.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code ovrSession} will be {@code NULL}.
 	 */
-	public static int ovr_Create(PointerBuffer pSession, OVRGraphicsLuid luid) {
+	public static int ovr_Create(PointerBuffer pSession, OVRGraphicsLuid pLuid) {
 		if ( CHECKS )
 			check(pSession, 1);
-		return novr_Create(memAddress(pSession), luid.address());
+		return novr_Create(memAddress(pSession), pLuid.address());
 	}
 
 	// --- [ ovr_Destroy ] ---
@@ -1010,9 +1032,12 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	/**
 	 * Re-centers the sensor position and orientation.
 	 * 
-	 * <p>This resets the (x,y,z) positional components and the yaw orientation component. The Roll and pitch orientation components are always determined by
-	 * gravity and cannot be redefined. All future tracking will report values relative to this new reference position. If you are using {@link OVRTrackerPose} then
-	 * you will need to call {@link #ovr_GetTrackerPose GetTrackerPose} after this, because the sensor position(s) will change as a result of this.</p>
+	 * <p>This resets the (x,y,z) positional components and the yaw orientation component of the tracking space for the HMD and controllers using the HMD's
+	 * current tracking pose. If the caller requires some tweaks on top of the HMD's current tracking pose, consider using {@link #ovr_SpecifyTrackingOrigin SpecifyTrackingOrigin} instead.</p>
+	 * 
+	 * <p>The roll and pitch orientation components are always determined by gravity and cannot be redefined. All future tracking will report values relative to
+	 * this new reference position. If you are using {@code ovrTrackerPoses} then you will need to call {@link #ovr_GetTrackerPose GetTrackerPose} after this, because the sensor
+	 * position(s) will change as a result of this.</p>
 	 * 
 	 * <p>The headset cannot be facing vertically upward or downward but rather must be roughly level otherwise this function will fail with
 	 * {@link OVRErrorCode#ovrError_InvalidHeadsetOrientation Error_InvalidHeadsetOrientation}.</p>
@@ -1028,16 +1053,56 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 		return novr_RecenterTrackingOrigin(session);
 	}
 
+	// --- [ ovr_SpecifyTrackingOrigin ] ---
+
+	/** Unsafe version of: {@link #ovr_SpecifyTrackingOrigin SpecifyTrackingOrigin} */
+	public static native int novr_SpecifyTrackingOrigin(long session, long originPose);
+
+	/**
+	 * Allows manually tweaking the sensor position and orientation.
+	 * 
+	 * <p>This function is similar to {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin} in that it modifies the (x,y,z) positional components and the yaw orientation component of the
+	 * tracking space for the HMD and controllers.</p>
+	 * 
+	 * <p>While {@code ovr_RecenterTrackingOrigin} resets the tracking origin in reference to the HMD's current pose, {@code ovr_SpecifyTrackingOrigin} allows
+	 * the caller to explicitly specify a transform for the tracking origin. This transform is expected to be an offset to the most recent recentered origin,
+	 * so calling this function repeatedly with the same originPose will keep nudging the recentered origin in that direction.</p>
+	 * 
+	 * <p>There are several use cases for this function. For example, if the application decides to limit the yaw, or translation of the recentered pose instead
+	 * of directly using the HMD pose the application can query the current tracking state via {@link #ovr_GetTrackingState GetTrackingState}, and apply some limitations to the HMD pose
+	 * because feeding this pose back into this function. Similarly, this can be used to "adjust the seating position" incrementally in apps that feature
+	 * seated experiences such as cockpit-based games.</p>
+	 * 
+	 * <p>This function can emulate ovr_RecenterTrackingOrigin as such:</p>
+	 * 
+	 * <pre><code>ovrTrackingState ts = ovr_GetTrackingState(session, 0.0, ovrFalse);
+ovr_SpecifyTrackingOrigin(session, ts.HeadPose.ThePose);</code></pre>
+	 * 
+	 * <p>The roll and pitch orientation components are determined by gravity and cannot be redefined. If you are using {@code ovrTrackerPoses} then you will
+	 * need to call {@link #ovr_GetTrackerPose GetTrackerPose} after this, because the sensor position(s) will change as a result of this.</p>
+	 * 
+	 * <p>For more info, see the notes on each {@code ovrTrackingOrigin} enumeration to understand how recenter will vary slightly in its behavior based on the
+	 * current {@code ovrTrackingOrigin} setting.</p>
+	 *
+	 * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param originPose specifies a pose that will be used to transform the current tracking origin
+	 */
+	public static int ovr_SpecifyTrackingOrigin(long session, OVRPosef originPose) {
+		if ( CHECKS )
+			check(session);
+		return novr_SpecifyTrackingOrigin(session, originPose.address());
+	}
+
 	// --- [ ovr_ClearShouldRecenterFlag ] ---
 
 	/** Unsafe version of: {@link #ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag} */
 	public static native void novr_ClearShouldRecenterFlag(long session);
 
 	/**
-	 * Clears the ShouldRecenter status bit in ovrSessionStatus.
+	 * Clears the {@code ShouldRecenter} status bit in {@link OVRSessionStatus}.
 	 * 
 	 * <p>Clears the {@code ShouldRecenter} status bit in {@link OVRSessionStatus}, allowing further recenter requests to be detected. Since this is automatically done
-	 * by {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, this is only needs to be called when application is doing its own re-centering.</p>
+	 * by {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin} and {@link #ovr_SpecifyTrackingOrigin SpecifyTrackingOrigin}, this function only needs to be called when application is doing its own re-centering logic.</p>
 	 *
 	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 */
@@ -1244,7 +1309,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * <p>Note: this method is similar to {@link #ovr_TestBoundaryPoint TestBoundaryPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
 	 *
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
+	 * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_Object0 TrackedDevice_Object0}</td><td>{@link #ovrTrackedDevice_Object1 TrackedDevice_Object1}</td><td>{@link #ovrTrackedDevice_Object2 TrackedDevice_Object2}</td><td>{@link #ovrTrackedDevice_Object3 TrackedDevice_Object3}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
 	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
 	 * @param outTestResult result of collision/proximity test, contains information such as distance and closest point
 	 *
@@ -1642,9 +1707,10 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 *         
 	 *         <ul>
 	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently
-	 *         has ownership of the HMD. Applications receiving this result should stop rendering new content, but continue to call {@code ovr_SubmitFrame}
-	 *         periodically until it returns a value other than {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently has ownership
+	 *         of the HMD. Applications receiving this result should stop rendering new content, but continue to call {@code ovr_SubmitFrame} periodically until
+	 *         it returns a value other than {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}. Applications should not loop on calls to {@code ovr_SubmitFrame} in order to detect visibility;
+	 *         instead {@link #ovr_GetSessionStatus GetSessionStatus} should be used. Similarly, applications should not call {@code ovr_SubmitFrame} with zero layers to detect visibility.</li>
 	 *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
 	 *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
 	 *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
@@ -1667,9 +1733,21 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/**
 	 * Retrieves performance stats for the VR app as well as the SDK compositor.
 	 * 
-	 * <p>If the app calling this function is not the one in focus (i.e. not visible in the HMD), then {@code outStats} will be zero'd out. New stats are
-	 * populated after each successive call to {@link #ovr_SubmitFrame SubmitFrame}. So the app should call this function on the same thread it calls {@link #ovr_SubmitFrame SubmitFrame}, preferably
-	 * immediately afterwards.</p>
+	 * <p>This function will return stats for the VR app that is currently visible in the HMD regardless of what VR app is actually calling this function.</p>
+	 * 
+	 * <p>If the VR app is trying to make sure the stats returned belong to the same application,  the caller can compare the {@code VisibleProcessId} with their
+	 * own process ID. Normally this will be the case if the caller is only calling {@code ovr_GetPerfStats} when {@link #ovr_GetSessionStatus GetSessionStatus} has {@code IsVisible}
+	 * flag set to be true.</p>
+	 * 
+	 * <p>If the VR app calling {@code ovr_GetPerfStats} is actually the one visible in the HMD, then new perf stats will only be populated after a new call to
+	 * {@link #ovr_SubmitFrame SubmitFrame}. That means subsequent calls to {@code ovr_GetPerfStats} after the first one without calling {@code ovr_SubmitFrame} will receive a
+	 * {@code FrameStatsCount} of zero.</p>
+	 * 
+	 * <p>If the VR app is not visible, or was initially marked as {@link #ovrInit_Invisible Init_Invisible}, then each call to {@code ovr_GetPerfStats} will immediately fetch new perf
+	 * stats from the compositor without a need for the {@code ovr_SubmitFrame} call.</p>
+	 * 
+	 * <p>Even though invisible VR apps do not require {@code ovr_SubmitFrame} to be called to gather new perf stats, since stats are generated at the native
+	 * refresh rate of the HMD (i.e. 90 Hz for CV1), calling it at a higher rate than that would be unnecessary.</p>
 	 *
 	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param outStats contains the performance stats for the application and SDK compositor

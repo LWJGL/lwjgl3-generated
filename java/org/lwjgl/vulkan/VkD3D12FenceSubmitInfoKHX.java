@@ -23,15 +23,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code waitSemaphoreValuesCount} <b>must</b> be the same value as {@link VkSubmitInfo}{@code ::waitSemaphoreCount}, where {@code SubmitInfo} is in the pNext-chain of this {@link VkD3D12FenceSubmitInfoKHX} structure.</li>
- * <li>{@code signalSemaphoreValuesCount} <b>must</b> be the same value as {@link VkSubmitInfo}{@code ::signalSemaphoreCount}, where {@code SubmitInfo} is in the pNext-chain of this {@link VkD3D12FenceSubmitInfoKHX} structure.</li>
+ * <li>{@code waitSemaphoreValuesCount} <b>must</b> be the same value as {@link VkSubmitInfo}{@code ::waitSemaphoreCount}, where {@code SubmitInfo} is in the {@code pNext} chain of this {@link VkD3D12FenceSubmitInfoKHX} structure.</li>
+ * <li>{@code signalSemaphoreValuesCount} <b>must</b> be the same value as {@link VkSubmitInfo}{@code ::signalSemaphoreCount}, where {@code SubmitInfo} is in the {@code pNext} chain of this {@link VkD3D12FenceSubmitInfoKHX} structure.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXExternalSemaphoreWin32#VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHX STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>If {@code waitSemaphoreValuesCount} is not 0, and {@code pWaitSemaphoreValues} is not {@code NULL}, {@code pWaitSemaphoreValues} <b>must</b> be a pointer to an array of {@code waitSemaphoreValuesCount} {@code uint64_t} values</li>
  * <li>If {@code signalSemaphoreValuesCount} is not 0, and {@code pSignalSemaphoreValues} is not {@code NULL}, {@code pSignalSemaphoreValues} <b>must</b> be a pointer to an array of {@code signalSemaphoreValuesCount} {@code uint64_t} values</li>
  * </ul>

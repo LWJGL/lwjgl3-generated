@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRGetPhysicalDeviceProperties2#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkPhysicalDeviceMultiviewFeaturesKHX}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL} or a pointer to a valid instance of {@link VkPhysicalDeviceMultiviewFeaturesKHX}</li>
  * </ul>
  * 
  * <h5>See Also</h5>

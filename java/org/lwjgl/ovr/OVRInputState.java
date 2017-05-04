@@ -29,10 +29,13 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
  * <li>{@code IndexTrigger} &ndash; left and right finger trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f.</li>
  * <li>{@code HandTrigger} &ndash; left and right hand trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f.</li>
  * <li>{@code Thumbstick} &ndash; horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range -1.0f to 1.0f.</li>
- * <li>{@code ControllerType} &ndash; The type of the controller this state is for. One of:<br><table><tr><td>{@link OVR#ovrControllerType_None ControllerType_None}</td><td>{@link OVR#ovrControllerType_LTouch ControllerType_LTouch}</td><td>{@link OVR#ovrControllerType_RTouch ControllerType_RTouch}</td><td>{@link OVR#ovrControllerType_Touch ControllerType_Touch}</td></tr><tr><td>{@link OVR#ovrControllerType_Remote ControllerType_Remote}</td><td>{@link OVR#ovrControllerType_XBox ControllerType_XBox}</td><td>{@link OVR#ovrControllerType_Active ControllerType_Active}</td></tr></table></li>
+ * <li>{@code ControllerType} &ndash; The type of the controller this state is for. One of:<br><table><tr><td>{@link OVR#ovrControllerType_None ControllerType_None}</td><td>{@link OVR#ovrControllerType_LTouch ControllerType_LTouch}</td><td>{@link OVR#ovrControllerType_RTouch ControllerType_RTouch}</td></tr><tr><td>{@link OVR#ovrControllerType_Touch ControllerType_Touch}</td><td>{@link OVR#ovrControllerType_Remote ControllerType_Remote}</td><td>{@link OVR#ovrControllerType_XBox ControllerType_XBox}</td></tr><tr><td>{@link OVR#ovrControllerType_Object0 ControllerType_Object0}</td><td>{@link OVR#ovrControllerType_Object1 ControllerType_Object1}</td><td>{@link OVR#ovrControllerType_Object2 ControllerType_Object2}</td></tr><tr><td>{@link OVR#ovrControllerType_Object3 ControllerType_Object3}</td><td>{@link OVR#ovrControllerType_Active ControllerType_Active}</td></tr></table></li>
  * <li>{@code IndexTriggerNoDeadzone} &ndash; Left and right finger trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f. Does not apply a deadzone. Only touch applies a filter.</li>
  * <li>{@code HandTriggerNoDeadzone} &ndash; Left and right hand trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f. Does not apply a deadzone. Only touch applies a filter.</li>
  * <li>{@code ThumbstickNoDeadzone} &ndash; Horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range -1.0f to 1.0f. Does not apply a deadzone or filter.</li>
+ * <li>{@code IndexTriggerRaw} &ndash; Left and right finger trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f. No deadzone or filter.</li>
+ * <li>{@code HandTriggerRaw} &ndash; Left and right hand trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f. No deadzone or filter.</li>
+ * <li>{@code ThumbstickRaw} &ndash; Horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range -1.0f to 1.0f. No deadzone or filter.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -48,6 +51,9 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
     float IndexTriggerNoDeadzone[ovrHand_Count];
     float HandTriggerNoDeadzone[ovrHand_Count];
     {@link OVRVector2f ovrVector2f} ThumbstickNoDeadzone[ovrHand_Count];
+    float IndexTriggerRaw[ovrHand_Count];
+    float HandTriggerRaw[ovrHand_Count];
+    {@link OVRVector2f ovrVector2f} ThumbstickRaw[ovrHand_Count];
 }</code></pre>
  */
 public class OVRInputState extends Struct implements NativeResource {
@@ -68,7 +74,10 @@ public class OVRInputState extends Struct implements NativeResource {
 		CONTROLLERTYPE,
 		INDEXTRIGGERNODEADZONE,
 		HANDTRIGGERNODEADZONE,
-		THUMBSTICKNODEADZONE;
+		THUMBSTICKNODEADZONE,
+		INDEXTRIGGERRAW,
+		HANDTRIGGERRAW,
+		THUMBSTICKRAW;
 
 	static {
 		Layout layout = __struct(
@@ -79,6 +88,9 @@ public class OVRInputState extends Struct implements NativeResource {
 			__array(4, ovrHand_Count),
 			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, ovrHand_Count),
 			__member(4),
+			__array(4, ovrHand_Count),
+			__array(4, ovrHand_Count),
+			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, ovrHand_Count),
 			__array(4, ovrHand_Count),
 			__array(4, ovrHand_Count),
 			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, ovrHand_Count)
@@ -97,6 +109,9 @@ public class OVRInputState extends Struct implements NativeResource {
 		INDEXTRIGGERNODEADZONE = layout.offsetof(7);
 		HANDTRIGGERNODEADZONE = layout.offsetof(8);
 		THUMBSTICKNODEADZONE = layout.offsetof(9);
+		INDEXTRIGGERRAW = layout.offsetof(10);
+		HANDTRIGGERRAW = layout.offsetof(11);
+		THUMBSTICKRAW = layout.offsetof(12);
 	}
 
 	OVRInputState(long address, ByteBuffer container) {
@@ -148,6 +163,18 @@ public class OVRInputState extends Struct implements NativeResource {
 	public OVRVector2f.Buffer ThumbstickNoDeadzone() { return nThumbstickNoDeadzone(address()); }
 	/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickNoDeadzone} field. */
 	public OVRVector2f ThumbstickNoDeadzone(int index) { return nThumbstickNoDeadzone(address(), index); }
+	/** Returns a {@link FloatBuffer} view of the {@code IndexTriggerRaw} field. */
+	public FloatBuffer IndexTriggerRaw() { return nIndexTriggerRaw(address()); }
+	/** Returns the value at the specified index of the {@code IndexTriggerRaw} field. */
+	public float IndexTriggerRaw(int index) { return nIndexTriggerRaw(address(), index); }
+	/** Returns a {@link FloatBuffer} view of the {@code HandTriggerRaw} field. */
+	public FloatBuffer HandTriggerRaw() { return nHandTriggerRaw(address()); }
+	/** Returns the value at the specified index of the {@code HandTriggerRaw} field. */
+	public float HandTriggerRaw(int index) { return nHandTriggerRaw(address(), index); }
+	/** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickRaw} field. */
+	public OVRVector2f.Buffer ThumbstickRaw() { return nThumbstickRaw(address()); }
+	/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickRaw} field. */
+	public OVRVector2f ThumbstickRaw(int index) { return nThumbstickRaw(address(), index); }
 
 	// -----------------------------------
 
@@ -328,6 +355,27 @@ public class OVRInputState extends Struct implements NativeResource {
 		if ( CHECKS ) check(index, ovrHand_Count);
 		return OVRVector2f.create(struct + OVRInputState.THUMBSTICKNODEADZONE + index * OVRVector2f.SIZEOF);
 	}
+	/** Unsafe version of {@link #IndexTriggerRaw}. */
+	public static FloatBuffer nIndexTriggerRaw(long struct) { return memFloatBuffer(struct + OVRInputState.INDEXTRIGGERRAW, ovrHand_Count); }
+	/** Unsafe version of {@link #IndexTriggerRaw(int) IndexTriggerRaw}. */
+	public static float nIndexTriggerRaw(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.INDEXTRIGGERRAW + index * 4);
+	}
+	/** Unsafe version of {@link #HandTriggerRaw}. */
+	public static FloatBuffer nHandTriggerRaw(long struct) { return memFloatBuffer(struct + OVRInputState.HANDTRIGGERRAW, ovrHand_Count); }
+	/** Unsafe version of {@link #HandTriggerRaw(int) HandTriggerRaw}. */
+	public static float nHandTriggerRaw(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.HANDTRIGGERRAW + index * 4);
+	}
+	/** Unsafe version of {@link #ThumbstickRaw}. */
+	public static OVRVector2f.Buffer nThumbstickRaw(long struct) { return OVRVector2f.create(struct + OVRInputState.THUMBSTICKRAW, ovrHand_Count); }
+	/** Unsafe version of {@link #ThumbstickRaw(int) ThumbstickRaw}. */
+	public static OVRVector2f nThumbstickRaw(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return OVRVector2f.create(struct + OVRInputState.THUMBSTICKRAW + index * OVRVector2f.SIZEOF);
+	}
 
 	// -----------------------------------
 
@@ -403,6 +451,18 @@ public class OVRInputState extends Struct implements NativeResource {
 		public OVRVector2f.Buffer ThumbstickNoDeadzone() { return OVRInputState.nThumbstickNoDeadzone(address()); }
 		/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickNoDeadzone} field. */
 		public OVRVector2f ThumbstickNoDeadzone(int index) { return OVRInputState.nThumbstickNoDeadzone(address(), index); }
+		/** Returns a {@link FloatBuffer} view of the {@code IndexTriggerRaw} field. */
+		public FloatBuffer IndexTriggerRaw() { return OVRInputState.nIndexTriggerRaw(address()); }
+		/** Returns the value at the specified index of the {@code IndexTriggerRaw} field. */
+		public float IndexTriggerRaw(int index) { return OVRInputState.nIndexTriggerRaw(address(), index); }
+		/** Returns a {@link FloatBuffer} view of the {@code HandTriggerRaw} field. */
+		public FloatBuffer HandTriggerRaw() { return OVRInputState.nHandTriggerRaw(address()); }
+		/** Returns the value at the specified index of the {@code HandTriggerRaw} field. */
+		public float HandTriggerRaw(int index) { return OVRInputState.nHandTriggerRaw(address(), index); }
+		/** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickRaw} field. */
+		public OVRVector2f.Buffer ThumbstickRaw() { return OVRInputState.nThumbstickRaw(address()); }
+		/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickRaw} field. */
+		public OVRVector2f ThumbstickRaw(int index) { return OVRInputState.nThumbstickRaw(address(), index); }
 
 	}
 

@@ -19,14 +19,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code swapchainCount} <b>must</b> be the same value as {@link VkPresentInfoKHR}{@code ::swapchainCount}, where {@link VkPresentInfoKHR} is in the pNext-chain of this {@link VkPresentTimesInfoGOOGLE} structure.</li>
+ * <li>{@code swapchainCount} <b>must</b> be the same value as {@link VkPresentInfoKHR}{@code ::swapchainCount}, where {@link VkPresentInfoKHR} is in the {@code pNext} chain of this {@link VkPresentTimesInfoGOOGLE} structure.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link GOOGLEDisplayTiming#VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkDisplayPresentInfoKHR}, or {@link VkDeviceGroupPresentInfoKHX}</li>
  * <li>If {@code pTimes} is not {@code NULL}, {@code pTimes} <b>must</b> be a pointer to an array of {@code swapchainCount} {@link VkPresentTimeGOOGLE} structures</li>
  * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
  * </ul>

@@ -22,7 +22,7 @@ import static org.lwjgl.nuklear.Nuklear.NK_BUTTON_MAX;
     {@link NkVec2 struct nk_vec2} pos;
     {@link NkVec2 struct nk_vec2} prev;
     {@link NkVec2 struct nk_vec2} delta;
-    float scroll_delta;
+    {@link NkVec2 struct nk_vec2} scroll_delta;
     bool grab;
     bool grabbed;
     bool ungrab;
@@ -52,7 +52,7 @@ public class NkMouse extends Struct {
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
-			__member(4),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(1),
 			__member(1),
 			__member(1)
@@ -98,8 +98,8 @@ public class NkMouse extends Struct {
 	public NkVec2 prev() { return nprev(address()); }
 	/** Returns a {@link NkVec2} view of the {@code delta} field. */
 	public NkVec2 delta() { return ndelta(address()); }
-	/** Returns the value of the {@code scroll_delta} field. */
-	public float scroll_delta() { return nscroll_delta(address()); }
+	/** Returns a {@link NkVec2} view of the {@code scroll_delta} field. */
+	public NkVec2 scroll_delta() { return nscroll_delta(address()); }
 	/** Returns the value of the {@code grab} field. */
 	public boolean grab() { return ngrab(address()); }
 	/** Returns the value of the {@code grabbed} field. */
@@ -140,7 +140,7 @@ public class NkMouse extends Struct {
 	/** Unsafe version of {@link #delta}. */
 	public static NkVec2 ndelta(long struct) { return NkVec2.create(struct + NkMouse.DELTA); }
 	/** Unsafe version of {@link #scroll_delta}. */
-	public static float nscroll_delta(long struct) { return memGetFloat(struct + NkMouse.SCROLL_DELTA); }
+	public static NkVec2 nscroll_delta(long struct) { return NkVec2.create(struct + NkMouse.SCROLL_DELTA); }
 	/** Unsafe version of {@link #grab}. */
 	public static boolean ngrab(long struct) { return memGetByte(struct + NkMouse.GRAB) != 0; }
 	/** Unsafe version of {@link #grabbed}. */
@@ -200,8 +200,8 @@ public class NkMouse extends Struct {
 		public NkVec2 prev() { return NkMouse.nprev(address()); }
 		/** Returns a {@link NkVec2} view of the {@code delta} field. */
 		public NkVec2 delta() { return NkMouse.ndelta(address()); }
-		/** Returns the value of the {@code scroll_delta} field. */
-		public float scroll_delta() { return NkMouse.nscroll_delta(address()); }
+		/** Returns a {@link NkVec2} view of the {@code scroll_delta} field. */
+		public NkVec2 scroll_delta() { return NkMouse.nscroll_delta(address()); }
 		/** Returns the value of the {@code grab} field. */
 		public boolean grab() { return NkMouse.ngrab(address()); }
 		/** Returns the value of the {@code grabbed} field. */

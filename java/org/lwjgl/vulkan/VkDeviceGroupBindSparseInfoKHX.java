@@ -33,7 +33,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

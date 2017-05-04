@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code HmdMounted} &ndash; True if the HMD is on the user's head.</li>
  * <li>{@code DisplayLost} &ndash; True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame SubmitFrame}.</li>
  * <li>{@code ShouldQuit} &ndash; True if the application should initiate shutdown.</li>
- * <li>{@code ShouldRecenter} &ndash; True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag} or {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}.</li>
+ * <li>{@code ShouldRecenter} &ndash; True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag}, {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin} or {@link OVR#ovr_SpecifyTrackingOrigin SpecifyTrackingOrigin}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

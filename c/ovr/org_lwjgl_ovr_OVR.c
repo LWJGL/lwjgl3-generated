@@ -68,11 +68,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTrackerDesc(JNIEnv *__env
 	*((ovrTrackerDesc*)(intptr_t)__result) = ovr_GetTrackerDesc(session, trackerDescIndex);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1Create(JNIEnv *__env, jclass clazz, jlong pSessionAddress, jlong luidAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1Create(JNIEnv *__env, jclass clazz, jlong pSessionAddress, jlong pLuidAddress) {
 	ovrSession *pSession = (ovrSession *)(intptr_t)pSessionAddress;
-	ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+	ovrGraphicsLuid *pLuid = (ovrGraphicsLuid *)(intptr_t)pLuidAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)ovr_Create(pSession, luid);
+	return (jint)ovr_Create(pSession, pLuid);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVR_novr_1Destroy(JNIEnv *__env, jclass clazz, jlong sessionAddress) {
@@ -104,6 +104,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1RecenterTrackingOrigin(JNIEn
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)ovr_RecenterTrackingOrigin(session);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SpecifyTrackingOrigin(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong originPoseAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrPosef *originPose = (ovrPosef *)(intptr_t)originPoseAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_SpecifyTrackingOrigin(session, *originPose);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVR_novr_1ClearShouldRecenterFlag(JNIEnv *__env, jclass clazz, jlong sessionAddress) {

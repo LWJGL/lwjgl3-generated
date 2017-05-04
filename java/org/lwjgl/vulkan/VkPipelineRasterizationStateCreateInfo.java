@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The application <b>can</b> also chain a {@link VkPipelineRasterizationStateRasterizationOrderAMD} structure to the {@link VkPipelineRasterizationStateCreateInfo} structure through its {@code pNext} member. This structure enables selecting the rasterization order to use when rendering with the corresponding graphics pipeline as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primrast-order"> Rasterization Order</a>.</p>
+ * <p>The application <b>can</b> also add a {@link VkPipelineRasterizationStateRasterizationOrderAMD} structure to the {@code pNext} chain of a {@link VkPipelineRasterizationStateCreateInfo} structure. This structure enables selecting the rasterization order to use when rendering with the corresponding graphics pipeline as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primrast-order"> Rasterization Order</a>.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkPipelineRasterizationStateRasterizationOrderAMD}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL} or a pointer to a valid instance of {@link VkPipelineRasterizationStateRasterizationOrderAMD}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code polygonMode} <b>must</b> be a valid {@code VkPolygonMode} value</li>
  * <li>{@code cullMode} <b>must</b> be a valid combination of {@code VkCullModeFlagBits} values</li>

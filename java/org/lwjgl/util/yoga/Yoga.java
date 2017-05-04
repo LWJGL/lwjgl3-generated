@@ -160,21 +160,8 @@ public class Yoga {
 		YGEdgeVertical   = 7,
 		YGEdgeAll        = 8;
 
-	/**
-	 * YGExperimentalFeature
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</li>
-	 * <li>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</li>
-	 * <li>{@link #YGExperimentalFeatureMinFlexFix ExperimentalFeatureMinFlexFix}</li>
-	 * </ul>
-	 */
-	public static final int
-		YGExperimentalFeatureRounding     = 0,
-		YGExperimentalFeatureWebFlexBasis = 1,
-		YGExperimentalFeatureMinFlexFix   = 2;
+	/** YGExperimentalFeature */
+	public static final int YGExperimentalFeatureWebFlexBasis = 0;
 
 	/**
 	 * YGFlexDirection
@@ -1666,6 +1653,22 @@ public class Yoga {
 		nYGConfigFree(config);
 	}
 
+	// --- [ YGConfigCopy ] ---
+
+	public static native void nYGConfigCopy(long dest, long src);
+
+	public static void YGConfigCopy(long dest, long src) {
+		if ( CHECKS ) {
+			check(dest);
+			check(src);
+		}
+		nYGConfigCopy(dest, src);
+	}
+
+	// --- [ YGConfigGetInstanceCount ] ---
+
+	public static native int YGConfigGetInstanceCount();
+
 	// --- [ YGConfigSetPointScaleFactor ] ---
 
 	/** Unsafe version of: {@link #YGConfigSetPointScaleFactor ConfigSetPointScaleFactor} */
@@ -1683,6 +1686,25 @@ public class Yoga {
 		nYGConfigSetPointScaleFactor(config, pixelsInPoint);
 	}
 
+	// --- [ YGConfigSetUseLegacyStretchBehaviour ] ---
+
+	/** Unsafe version of: {@link #YGConfigSetUseLegacyStretchBehaviour ConfigSetUseLegacyStretchBehaviour} */
+	public static native void nYGConfigSetUseLegacyStretchBehaviour(long config, boolean useLegacyStretchBehaviour);
+
+	/**
+	 * Yoga previously had an error where containers would take the maximum space possible instead of the minimum like they are supposed to. In practice this
+	 * resulted in implicit behaviour similar to align-self: stretch; Because this was such a long-standing bug we must allow legacy users to switch back to
+	 * this behaviour.
+	 *
+	 * @param config                    
+	 * @param useLegacyStretchBehaviour 
+	 */
+	public static void YGConfigSetUseLegacyStretchBehaviour(long config, boolean useLegacyStretchBehaviour) {
+		if ( CHECKS )
+			check(config);
+		nYGConfigSetUseLegacyStretchBehaviour(config, useLegacyStretchBehaviour);
+	}
+
 	// --- [ YGConfigSetExperimentalFeatureEnabled ] ---
 
 	/** Unsafe version of: {@link #YGConfigSetExperimentalFeatureEnabled ConfigSetExperimentalFeatureEnabled} */
@@ -1692,7 +1714,7 @@ public class Yoga {
 	 * 
 	 *
 	 * @param config  
-	 * @param feature one of:<br><table><tr><td>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</td><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr><tr><td>{@link #YGExperimentalFeatureMinFlexFix ExperimentalFeatureMinFlexFix}</td></tr></table>
+	 * @param feature must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
 	 * @param enabled 
 	 */
 	public static void YGConfigSetExperimentalFeatureEnabled(long config, int feature, boolean enabled) {
@@ -1710,7 +1732,7 @@ public class Yoga {
 	 * 
 	 *
 	 * @param config  
-	 * @param feature one of:<br><table><tr><td>{@link #YGExperimentalFeatureRounding ExperimentalFeatureRounding}</td><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr><tr><td>{@link #YGExperimentalFeatureMinFlexFix ExperimentalFeatureMinFlexFix}</td></tr></table>
+	 * @param feature must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
 	 */
 	public static boolean YGConfigIsExperimentalFeatureEnabled(long config, int feature) {
 		if ( CHECKS )
@@ -1751,6 +1773,231 @@ public class Yoga {
 
 	public static void YGSetMemoryFuncs(YGMallocI ygmalloc, YGMallocI yccalloc, YGReallocI ygrealloc, YGFreeI ygfree) {
 		nYGSetMemoryFuncs(ygmalloc.address(), yccalloc.address(), ygrealloc.address(), ygfree.address());
+	}
+
+	// --- [ YGAlignToString ] ---
+
+	/** Unsafe version of: {@link #YGAlignToString AlignToString} */
+	public static native long nYGAlignToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
+	 */
+	public static String YGAlignToString(int value) {
+		long __result = nYGAlignToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGDimensionToString ] ---
+
+	/** Unsafe version of: {@link #YGDimensionToString DimensionToString} */
+	public static native long nYGDimensionToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGDimensionWidth DimensionWidth}</td><td>{@link #YGDimensionHeight DimensionHeight}</td></tr></table>
+	 */
+	public static String YGDimensionToString(int value) {
+		long __result = nYGDimensionToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGDirectionToString ] ---
+
+	/** Unsafe version of: {@link #YGDirectionToString DirectionToString} */
+	public static native long nYGDirectionToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGDirectionInherit DirectionInherit}</td><td>{@link #YGDirectionLTR DirectionLTR}</td><td>{@link #YGDirectionRTL DirectionRTL}</td></tr></table>
+	 */
+	public static String YGDirectionToString(int value) {
+		long __result = nYGDirectionToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGDisplayToString ] ---
+
+	/** Unsafe version of: {@link #YGDisplayToString DisplayToString} */
+	public static native long nYGDisplayToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGDisplayFlex DisplayFlex}</td><td>{@link #YGDisplayNone DisplayNone}</td></tr></table>
+	 */
+	public static String YGDisplayToString(int value) {
+		long __result = nYGDisplayToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGEdgeToString ] ---
+
+	/** Unsafe version of: {@link #YGEdgeToString EdgeToString} */
+	public static native long nYGEdgeToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
+	 */
+	public static String YGEdgeToString(int value) {
+		long __result = nYGEdgeToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGExperimentalFeatureToString ] ---
+
+	/** Unsafe version of: {@link #YGExperimentalFeatureToString ExperimentalFeatureToString} */
+	public static native long nYGExperimentalFeatureToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
+	 */
+	public static String YGExperimentalFeatureToString(int value) {
+		long __result = nYGExperimentalFeatureToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGFlexDirectionToString ] ---
+
+	/** Unsafe version of: {@link #YGFlexDirectionToString FlexDirectionToString} */
+	public static native long nYGFlexDirectionToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGFlexDirectionColumn FlexDirectionColumn}</td><td>{@link #YGFlexDirectionColumnReverse FlexDirectionColumnReverse}</td><td>{@link #YGFlexDirectionRow FlexDirectionRow}</td></tr><tr><td>{@link #YGFlexDirectionRowReverse FlexDirectionRowReverse}</td></tr></table>
+	 */
+	public static String YGFlexDirectionToString(int value) {
+		long __result = nYGFlexDirectionToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGJustifyToString ] ---
+
+	/** Unsafe version of: {@link #YGJustifyToString JustifyToString} */
+	public static native long nYGJustifyToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr></table>
+	 */
+	public static String YGJustifyToString(int value) {
+		long __result = nYGJustifyToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGLogLevelToString ] ---
+
+	/** Unsafe version of: {@link #YGLogLevelToString LogLevelToString} */
+	public static native long nYGLogLevelToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGLogLevelError LogLevelError}</td><td>{@link #YGLogLevelWarn LogLevelWarn}</td><td>{@link #YGLogLevelInfo LogLevelInfo}</td><td>{@link #YGLogLevelDebug LogLevelDebug}</td><td>{@link #YGLogLevelVerbose LogLevelVerbose}</td></tr></table>
+	 */
+	public static String YGLogLevelToString(int value) {
+		long __result = nYGLogLevelToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGMeasureModeToString ] ---
+
+	/** Unsafe version of: {@link #YGMeasureModeToString MeasureModeToString} */
+	public static native long nYGMeasureModeToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGMeasureModeUndefined MeasureModeUndefined}</td><td>{@link #YGMeasureModeExactly MeasureModeExactly}</td><td>{@link #YGMeasureModeAtMost MeasureModeAtMost}</td></tr></table>
+	 */
+	public static String YGMeasureModeToString(int value) {
+		long __result = nYGMeasureModeToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGOverflowToString ] ---
+
+	/** Unsafe version of: {@link #YGOverflowToString OverflowToString} */
+	public static native long nYGOverflowToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGOverflowVisible OverflowVisible}</td><td>{@link #YGOverflowHidden OverflowHidden}</td><td>{@link #YGOverflowScroll OverflowScroll}</td></tr></table>
+	 */
+	public static String YGOverflowToString(int value) {
+		long __result = nYGOverflowToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGPositionTypeToString ] ---
+
+	/** Unsafe version of: {@link #YGPositionTypeToString PositionTypeToString} */
+	public static native long nYGPositionTypeToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGPositionTypeRelative PositionTypeRelative}</td><td>{@link #YGPositionTypeAbsolute PositionTypeAbsolute}</td></tr></table>
+	 */
+	public static String YGPositionTypeToString(int value) {
+		long __result = nYGPositionTypeToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGPrintOptionsToString ] ---
+
+	/** Unsafe version of: {@link #YGPrintOptionsToString PrintOptionsToString} */
+	public static native long nYGPrintOptionsToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGPrintOptionsLayout PrintOptionsLayout}</td><td>{@link #YGPrintOptionsStyle PrintOptionsStyle}</td><td>{@link #YGPrintOptionsChildren PrintOptionsChildren}</td></tr></table>
+	 */
+	public static String YGPrintOptionsToString(int value) {
+		long __result = nYGPrintOptionsToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGUnitToString ] ---
+
+	/** Unsafe version of: {@link #YGUnitToString UnitToString} */
+	public static native long nYGUnitToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGUnitUndefined UnitUndefined}</td><td>{@link #YGUnitPoint UnitPoint}</td><td>{@link #YGUnitPercent UnitPercent}</td><td>{@link #YGUnitAuto UnitAuto}</td></tr></table>
+	 */
+	public static String YGUnitToString(int value) {
+		long __result = nYGUnitToString(value);
+		return memASCII(__result);
+	}
+
+	// --- [ YGWrapToString ] ---
+
+	/** Unsafe version of: {@link #YGWrapToString WrapToString} */
+	public static native long nYGWrapToString(int value);
+
+	/**
+	 * 
+	 *
+	 * @param value one of:<br><table><tr><td>{@link #YGWrapNoWrap WrapNoWrap}</td><td>{@link #YGWrapWrap WrapWrap}</td><td>{@link #YGWrapReverse WrapReverse}</td></tr></table>
+	 */
+	public static String YGWrapToString(int value) {
+		long __result = nYGWrapToString(value);
+		return memASCII(__result);
 	}
 
 }

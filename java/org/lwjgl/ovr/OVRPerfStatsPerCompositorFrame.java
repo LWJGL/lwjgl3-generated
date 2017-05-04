@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code CompositorDroppedFrameCount} &ndash; 
  * increments each time the SDK compositor fails to complete in time.
  * 
- * <p>This is not tied to the app's performance, but failure to complete can be tied to other factors such as OS capabilities, overall available hardware
+ * <p>This is not tied to the app's performance, but failure to complete can be related to other factors such as OS capabilities, overall available hardware
  * cycles to execute the compositor in time and other factors outside of the app's control.</p></li>
  * <li>{@code CompositorLatency} &ndash; 
  * motion-to-photon latency of the SDK compositor in seconds.
@@ -73,6 +73,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * the amount of time in seconds left after the compositor is done on the GPU to the associated V-Sync time.
  * 
  * <p>In the event the GPU time is not available, expect this value to be -1.0f.</p></li>
+ * <li>{@code AswIsActive} &ndash; 
+ * Will be true if ASW is active for the given frame such that the application is being forced into  half the frame-rate while the compositor continues to
+ * run at full frame-rate.</li>
+ * <li>{@code AswActivatedToggleCount} &ndash; Increments each time ASW it activated where the app was forced in and out of half-rate rendering.</li>
+ * <li>{@code AswPresentedFrameCount} &ndash; Accumulates the number of frames presented by the compositor which had extrapolated ASW frames presented</li>
+ * <li>{@code AswFailedFrameCount} &ndash; Accumulates the number of frames that the compositor tried to present when ASW is active but failed</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -92,6 +98,10 @@ import static org.lwjgl.system.MemoryUtil.*;
     float CompositorGpuElapsedTime;
     float CompositorCpuStartToGpuEndElapsedTime;
     float CompositorGpuEndToVsyncElapsedTime;
+    ovrBool AswIsActive;
+    int AswActivatedToggleCount;
+    int AswPresentedFrameCount;
+    int AswFailedFrameCount;
 }</code></pre>
  */
 public class OVRPerfStatsPerCompositorFrame extends Struct {
@@ -116,7 +126,11 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 		COMPOSITORCPUELAPSEDTIME,
 		COMPOSITORGPUELAPSEDTIME,
 		COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME,
-		COMPOSITORGPUENDTOVSYNCELAPSEDTIME;
+		COMPOSITORGPUENDTOVSYNCELAPSEDTIME,
+		ASWISACTIVE,
+		ASWACTIVATEDTOGGLECOUNT,
+		ASWPRESENTEDFRAMECOUNT,
+		ASWFAILEDFRAMECOUNT;
 
 	static {
 		Layout layout = __struct(
@@ -131,6 +145,10 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(1),
 			__member(4),
 			__member(4),
 			__member(4)
@@ -153,6 +171,10 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 		COMPOSITORGPUELAPSEDTIME = layout.offsetof(11);
 		COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME = layout.offsetof(12);
 		COMPOSITORGPUENDTOVSYNCELAPSEDTIME = layout.offsetof(13);
+		ASWISACTIVE = layout.offsetof(14);
+		ASWACTIVATEDTOGGLECOUNT = layout.offsetof(15);
+		ASWPRESENTEDFRAMECOUNT = layout.offsetof(16);
+		ASWFAILEDFRAMECOUNT = layout.offsetof(17);
 	}
 
 	OVRPerfStatsPerCompositorFrame(long address, ByteBuffer container) {
@@ -200,6 +222,14 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 	public float CompositorCpuStartToGpuEndElapsedTime() { return nCompositorCpuStartToGpuEndElapsedTime(address()); }
 	/** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
 	public float CompositorGpuEndToVsyncElapsedTime() { return nCompositorGpuEndToVsyncElapsedTime(address()); }
+	/** Returns the value of the {@code AswIsActive} field. */
+	public boolean AswIsActive() { return nAswIsActive(address()); }
+	/** Returns the value of the {@code AswActivatedToggleCount} field. */
+	public int AswActivatedToggleCount() { return nAswActivatedToggleCount(address()); }
+	/** Returns the value of the {@code AswPresentedFrameCount} field. */
+	public int AswPresentedFrameCount() { return nAswPresentedFrameCount(address()); }
+	/** Returns the value of the {@code AswFailedFrameCount} field. */
+	public int AswFailedFrameCount() { return nAswFailedFrameCount(address()); }
 
 	// -----------------------------------
 
@@ -248,6 +278,14 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 	public static float nCompositorCpuStartToGpuEndElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME); }
 	/** Unsafe version of {@link #CompositorGpuEndToVsyncElapsedTime}. */
 	public static float nCompositorGpuEndToVsyncElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORGPUENDTOVSYNCELAPSEDTIME); }
+	/** Unsafe version of {@link #AswIsActive}. */
+	public static boolean nAswIsActive(long struct) { return memGetByte(struct + OVRPerfStatsPerCompositorFrame.ASWISACTIVE) != 0; }
+	/** Unsafe version of {@link #AswActivatedToggleCount}. */
+	public static int nAswActivatedToggleCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWACTIVATEDTOGGLECOUNT); }
+	/** Unsafe version of {@link #AswPresentedFrameCount}. */
+	public static int nAswPresentedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWPRESENTEDFRAMECOUNT); }
+	/** Unsafe version of {@link #AswFailedFrameCount}. */
+	public static int nAswFailedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWFAILEDFRAMECOUNT); }
 
 	// -----------------------------------
 
@@ -319,6 +357,14 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 		public float CompositorCpuStartToGpuEndElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorCpuStartToGpuEndElapsedTime(address()); }
 		/** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
 		public float CompositorGpuEndToVsyncElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorGpuEndToVsyncElapsedTime(address()); }
+		/** Returns the value of the {@code AswIsActive} field. */
+		public boolean AswIsActive() { return OVRPerfStatsPerCompositorFrame.nAswIsActive(address()); }
+		/** Returns the value of the {@code AswActivatedToggleCount} field. */
+		public int AswActivatedToggleCount() { return OVRPerfStatsPerCompositorFrame.nAswActivatedToggleCount(address()); }
+		/** Returns the value of the {@code AswPresentedFrameCount} field. */
+		public int AswPresentedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAswPresentedFrameCount(address()); }
+		/** Returns the value of the {@code AswFailedFrameCount} field. */
+		public int AswFailedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAswFailedFrameCount(address()); }
 
 	}
 
