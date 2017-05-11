@@ -49,155 +49,157 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBInvalidateSubdata {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBInvalidateSubdata() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBInvalidateSubdata() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glInvalidateTexSubImage, caps.glInvalidateTexImage, caps.glInvalidateBufferSubData, caps.glInvalidateBufferData, caps.glInvalidateFramebuffer, 
-			caps.glInvalidateSubFramebuffer
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glInvalidateTexSubImage, caps.glInvalidateTexImage, caps.glInvalidateBufferSubData, caps.glInvalidateBufferData, caps.glInvalidateFramebuffer, 
+            caps.glInvalidateSubFramebuffer
+        );
+    }
 
-	// --- [ glInvalidateTexSubImage ] ---
+    // --- [ glInvalidateTexSubImage ] ---
 
-	/**
-	 * Invalidates a region of a texture image.
-	 *
-	 * @param texture the name of a texture object a subregion of which to invalidate
-	 * @param level   the level of detail of the texture object within which the region resides
-	 * @param xoffset the X offset of the region to be invalidated
-	 * @param yoffset the Y offset of the region to be invalidated
-	 * @param zoffset the Z offset of the region to be invalidated
-	 * @param width   the width of the region to be invalidated
-	 * @param height  the height of the region to be invalidated
-	 * @param depth   the depth of the region to be invalidated
-	 */
-	public static native void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
+    /**
+     * Invalidates a region of a texture image.
+     *
+     * @param texture the name of a texture object a subregion of which to invalidate
+     * @param level   the level of detail of the texture object within which the region resides
+     * @param xoffset the X offset of the region to be invalidated
+     * @param yoffset the Y offset of the region to be invalidated
+     * @param zoffset the Z offset of the region to be invalidated
+     * @param width   the width of the region to be invalidated
+     * @param height  the height of the region to be invalidated
+     * @param depth   the depth of the region to be invalidated
+     */
+    public static native void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
 
-	// --- [ glInvalidateTexImage ] ---
+    // --- [ glInvalidateTexImage ] ---
 
-	/**
-	 * Invalidates the entirety of a texture image.
-	 *
-	 * @param texture the name of a texture object to invalidate
-	 * @param level   the level of detail of the texture object to invalidate
-	 */
-	public static native void glInvalidateTexImage(int texture, int level);
+    /**
+     * Invalidates the entirety of a texture image.
+     *
+     * @param texture the name of a texture object to invalidate
+     * @param level   the level of detail of the texture object to invalidate
+     */
+    public static native void glInvalidateTexImage(int texture, int level);
 
-	// --- [ glInvalidateBufferSubData ] ---
+    // --- [ glInvalidateBufferSubData ] ---
 
-	/**
-	 * Invalidates a region of a buffer object's data store.
-	 *
-	 * @param buffer the name of a buffer object, a subrange of whose data store to invalidate
-	 * @param offset the offset within the buffer's data store of the start of the range to be invalidated
-	 * @param length the length of the range within the buffer's data store to be invalidated
-	 */
-	public static native void glInvalidateBufferSubData(int buffer, long offset, long length);
+    /**
+     * Invalidates a region of a buffer object's data store.
+     *
+     * @param buffer the name of a buffer object, a subrange of whose data store to invalidate
+     * @param offset the offset within the buffer's data store of the start of the range to be invalidated
+     * @param length the length of the range within the buffer's data store to be invalidated
+     */
+    public static native void glInvalidateBufferSubData(int buffer, long offset, long length);
 
-	// --- [ glInvalidateBufferData ] ---
+    // --- [ glInvalidateBufferData ] ---
 
-	/**
-	 * Invalidates the content of a buffer object's data store.
-	 *
-	 * @param buffer the name of a buffer object whose data store to invalidate
-	 */
-	public static native void glInvalidateBufferData(int buffer);
+    /**
+     * Invalidates the content of a buffer object's data store.
+     *
+     * @param buffer the name of a buffer object whose data store to invalidate
+     */
+    public static native void glInvalidateBufferData(int buffer);
 
-	// --- [ glInvalidateFramebuffer ] ---
+    // --- [ glInvalidateFramebuffer ] ---
 
-	/**
-	 * Unsafe version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer}
-	 *
-	 * @param numAttachments the number of entries in the {@code attachments} array
-	 */
-	public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments);
+    /**
+     * Unsafe version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer}
+     *
+     * @param numAttachments the number of entries in the {@code attachments} array
+     */
+    public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments);
 
-	/**
-	 * Invalidate the content some or all of a framebuffer object's attachments.
-	 *
-	 * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
-	 * @param attachments the address of an array identifying the attachments to be invalidated
-	 */
-	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
-		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
-	}
+    /**
+     * Invalidate the content some or all of a framebuffer object's attachments.
+     *
+     * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
+     * @param attachments the address of an array identifying the attachments to be invalidated
+     */
+    public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
+        nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
+    }
 
-	/**
-	 * Invalidate the content some or all of a framebuffer object's attachments.
-	 *
-	 * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
-	 */
-	public static void glInvalidateFramebuffer(int target, int attachment) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer attachments = stack.ints(attachment);
-			nglInvalidateFramebuffer(target, 1, memAddress(attachments));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Invalidate the content some or all of a framebuffer object's attachments.
+     *
+     * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
+     */
+    public static void glInvalidateFramebuffer(int target, int attachment) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer attachments = stack.ints(attachment);
+            nglInvalidateFramebuffer(target, 1, memAddress(attachments));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glInvalidateSubFramebuffer ] ---
+    // --- [ glInvalidateSubFramebuffer ] ---
 
-	/**
-	 * Unsafe version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer}
-	 *
-	 * @param numAttachments the number of entries in the {@code attachments} array
-	 */
-	public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height);
+    /**
+     * Unsafe version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer}
+     *
+     * @param numAttachments the number of entries in the {@code attachments} array
+     */
+    public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height);
 
-	/**
-	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
-	 *
-	 * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
-	 * @param attachments an array identifying the attachments to be invalidated
-	 * @param x           the X offset of the region to be invalidated
-	 * @param y           the Y offset of the region to be invalidated
-	 * @param width       the width of the region to be invalidated
-	 * @param height      the height of the region to be invalidated
-	 */
-	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
-		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
-	}
+    /**
+     * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+     *
+     * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
+     * @param attachments an array identifying the attachments to be invalidated
+     * @param x           the X offset of the region to be invalidated
+     * @param y           the Y offset of the region to be invalidated
+     * @param width       the width of the region to be invalidated
+     * @param height      the height of the region to be invalidated
+     */
+    public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
+        nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
+    }
 
-	/**
-	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
-	 *
-	 * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
-	 * @param x      the X offset of the region to be invalidated
-	 * @param y      the Y offset of the region to be invalidated
-	 * @param width  the width of the region to be invalidated
-	 * @param height the height of the region to be invalidated
-	 */
-	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer attachments = stack.ints(attachment);
-			nglInvalidateSubFramebuffer(target, 1, memAddress(attachments), x, y, width, height);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+     *
+     * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
+     * @param x      the X offset of the region to be invalidated
+     * @param y      the Y offset of the region to be invalidated
+     * @param width  the width of the region to be invalidated
+     * @param height the height of the region to be invalidated
+     */
+    public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer attachments = stack.ints(attachment);
+            nglInvalidateSubFramebuffer(target, 1, memAddress(attachments), x, y, width, height);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
-	public static void glInvalidateFramebuffer(int target, int[] attachments) {
-		long __functionAddress = GL.getICD().glInvalidateFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, attachments.length, attachments);
-	}
+    /** Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+    public static void glInvalidateFramebuffer(int target, int[] attachments) {
+        long __functionAddress = GL.getICD().glInvalidateFramebuffer;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, attachments.length, attachments);
+    }
 
-	/** Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
-	public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
-		long __functionAddress = GL.getICD().glInvalidateSubFramebuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, attachments.length, attachments, x, y, width, height);
-	}
+    /** Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+    public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
+        long __functionAddress = GL.getICD().glInvalidateSubFramebuffer;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, attachments.length, attachments, x, y, width, height);
+    }
 
 }

@@ -33,33 +33,33 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTTextureBufferObject {
 
-	/**
-	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBuffer, BindTexture, UnmapBuffer, GetBufferSubData,
-	 * GetBufferParameteriv, GetBufferPointerv, and TexBufferEXT, and the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv.
-	 */
-	public static final int GL_TEXTURE_BUFFER_EXT = 0x8C2A;
+    /**
+     * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBuffer, BindTexture, UnmapBuffer, GetBufferSubData,
+     * GetBufferParameteriv, GetBufferPointerv, and TexBufferEXT, and the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv.
+     */
+    public static final int GL_TEXTURE_BUFFER_EXT = 0x8C2A;
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv. */
-	public static final int
-		GL_MAX_TEXTURE_BUFFER_SIZE_EXT           = 0x8C2B,
-		GL_TEXTURE_BINDING_BUFFER_EXT            = 0x8C2C,
-		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D,
-		GL_TEXTURE_BUFFER_FORMAT_EXT             = 0x8C2E;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv. */
+    public static final int
+        GL_MAX_TEXTURE_BUFFER_SIZE_EXT           = 0x8C2B,
+        GL_TEXTURE_BINDING_BUFFER_EXT            = 0x8C2C,
+        GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D,
+        GL_TEXTURE_BUFFER_FORMAT_EXT             = 0x8C2E;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTTextureBufferObject() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTTextureBufferObject() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTexBufferEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTexBufferEXT
+        );
+    }
 
-	// --- [ glTexBufferEXT ] ---
+    // --- [ glTexBufferEXT ] ---
 
-	public static native void glTexBufferEXT(int target, int internalformat, int buffer);
+    public static native void glTexBufferEXT(int target, int internalformat, int buffer);
 
 }

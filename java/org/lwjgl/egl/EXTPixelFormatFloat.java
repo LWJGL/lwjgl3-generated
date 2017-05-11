@@ -15,14 +15,14 @@ package org.lwjgl.egl;
  */
 public final class EXTPixelFormatFloat {
 
-	/** Accepted as an attribute name in the {@code attrib_list} argument of {@link EGL10#eglChooseConfig ChooseConfig}, and the {@code attribute} argument of {@link EGL10#eglGetConfigAttrib GetConfigAttrib}. */
-	public static final int EGL_COLOR_COMPONENT_TYPE_EXT = 0x3339;
+    /** Accepted as an attribute name in the {@code attrib_list} argument of {@link EGL10#eglChooseConfig ChooseConfig}, and the {@code attribute} argument of {@link EGL10#eglGetConfigAttrib GetConfigAttrib}. */
+    public static final int EGL_COLOR_COMPONENT_TYPE_EXT = 0x3339;
 
-	/** Accepted as attribute values for the {@link #EGL_COLOR_COMPONENT_TYPE_EXT COLOR_COMPONENT_TYPE_EXT} attribute of {@link EGL10#eglChooseConfig ChooseConfig}. */
-	public static final int
-		EGL_COLOR_COMPONENT_TYPE_FIXED_EXT = 0x333A,
-		EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT = 0x333B;
+    /** Accepted as attribute values for the {@link #EGL_COLOR_COMPONENT_TYPE_EXT COLOR_COMPONENT_TYPE_EXT} attribute of {@link EGL10#eglChooseConfig ChooseConfig}. */
+    public static final int
+        EGL_COLOR_COMPONENT_TYPE_FIXED_EXT = 0x333A,
+        EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT = 0x333B;
 
-	private EXTPixelFormatFloat() {}
+    private EXTPixelFormatFloat() {}
 
 }

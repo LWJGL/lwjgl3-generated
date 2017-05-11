@@ -19,41 +19,41 @@ import static org.lwjgl.system.JNI.*;
  */
 public class APPLEContextLoggingFunctions {
 
-	/** Forwards on all log messages to the Apple System Logger. */
-	public static final long clLogMessagesToSystemLogAPPLE = CL.getICD().clLogMessagesToSystemLogAPPLE;
+    /** Forwards on all log messages to the Apple System Logger. */
+    public static final long clLogMessagesToSystemLogAPPLE = CL.getICD().clLogMessagesToSystemLogAPPLE;
 
-	/** Forwards on all log messages to the standard output stream. */
-	public static final long clLogMessagesToStdoutAPPLE = CL.getICD().clLogMessagesToStdoutAPPLE;
+    /** Forwards on all log messages to the standard output stream. */
+    public static final long clLogMessagesToStdoutAPPLE = CL.getICD().clLogMessagesToStdoutAPPLE;
 
-	/** Forwards on all log messages to the standard error stream. */
-	public static final long clLogMessagesToStderrAPPLE = CL.getICD().clLogMessagesToStderrAPPLE;
+    /** Forwards on all log messages to the standard error stream. */
+    public static final long clLogMessagesToStderrAPPLE = CL.getICD().clLogMessagesToStderrAPPLE;
 
-	protected APPLEContextLoggingFunctions() {
-		throw new UnsupportedOperationException();
-	}
+    protected APPLEContextLoggingFunctions() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(CLCapabilities caps) {
-		return checkFunctions(
-			caps.clLogMessagesToSystemLogAPPLE, caps.clLogMessagesToStdoutAPPLE, caps.clLogMessagesToStderrAPPLE
-		);
-	}
+    static boolean isAvailable(CLCapabilities caps) {
+        return checkFunctions(
+            caps.clLogMessagesToSystemLogAPPLE, caps.clLogMessagesToStdoutAPPLE, caps.clLogMessagesToStderrAPPLE
+        );
+    }
 
-	// --- [ clLogMessagesToSystemLogAPPLE ] ---
+    // --- [ clLogMessagesToSystemLogAPPLE ] ---
 
-	private static void clLogMessagesToSystemLogAPPLE() {
-		;
-	}
+    private static void clLogMessagesToSystemLogAPPLE() {
+        ;
+    }
 
-	// --- [ clLogMessagesToStdoutAPPLE ] ---
+    // --- [ clLogMessagesToStdoutAPPLE ] ---
 
-	private static void clLogMessagesToStdoutAPPLE() {
-		;
-	}
+    private static void clLogMessagesToStdoutAPPLE() {
+        ;
+    }
 
-	// --- [ clLogMessagesToStderrAPPLE ] ---
+    // --- [ clLogMessagesToStderrAPPLE ] ---
 
-	private static void clLogMessagesToStderrAPPLE() {
-		;
-	}
+    private static void clLogMessagesToStderrAPPLE() {
+        ;
+    }
 
 }

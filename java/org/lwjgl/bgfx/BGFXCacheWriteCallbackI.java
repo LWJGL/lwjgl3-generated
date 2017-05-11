@@ -13,29 +13,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface BGFXCacheWriteCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(plpi)v";
+    String SIGNATURE = "(plpi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgLong(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgLongLong(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Will be called to writes a cached item.
-	 *
-	 * @param _this the callback interface
-	 * @param _id   cache id
-	 * @param _data data to write
-	 * @param _size size of data to write
-	 */
-	void invoke(long _this, long _id, long _data, int _size);
+    /**
+     * Will be called to writes a cached item.
+     *
+     * @param _this the callback interface
+     * @param _id   cache id
+     * @param _data data to write
+     * @param _size size of data to write
+     */
+    void invoke(long _this, long _id, long _data, int _size);
 
 }

@@ -65,41 +65,41 @@ import static org.lwjgl.system.Checks.*;
  */
 public class AMDVertexShaderTessellator {
 
-	/** Returned by the {@code type} parameter of GetActiveUniform. */
-	public static final int
-		GL_SAMPLER_BUFFER_AMD              = 0x9001,
-		GL_INT_SAMPLER_BUFFER_AMD          = 0x9002,
-		GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD = 0x9003;
+    /** Returned by the {@code type} parameter of GetActiveUniform. */
+    public static final int
+        GL_SAMPLER_BUFFER_AMD              = 0x9001,
+        GL_INT_SAMPLER_BUFFER_AMD          = 0x9002,
+        GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD = 0x9003;
 
-	/** Accepted by TessellationModeAMD. */
-	public static final int
-		GL_DISCRETE_AMD   = 0x9006,
-		GL_CONTINUOUS_AMD = 0x9007;
+    /** Accepted by TessellationModeAMD. */
+    public static final int
+        GL_DISCRETE_AMD   = 0x9006,
+        GL_CONTINUOUS_AMD = 0x9007;
 
-	/** Accepted by GetIntegerv. */
-	public static final int GL_TESSELLATION_MODE_AMD = 0x9004;
+    /** Accepted by GetIntegerv. */
+    public static final int GL_TESSELLATION_MODE_AMD = 0x9004;
 
-	/** Accepted by GetFloatv. */
-	public static final int GL_TESSELLATION_FACTOR_AMD = 0x9005;
+    /** Accepted by GetFloatv. */
+    public static final int GL_TESSELLATION_FACTOR_AMD = 0x9005;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected AMDVertexShaderTessellator() {
-		throw new UnsupportedOperationException();
-	}
+    protected AMDVertexShaderTessellator() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTessellationFactorAMD, caps.glTessellationModeAMD
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTessellationFactorAMD, caps.glTessellationModeAMD
+        );
+    }
 
-	// --- [ glTessellationFactorAMD ] ---
+    // --- [ glTessellationFactorAMD ] ---
 
-	public static native void glTessellationFactorAMD(float factor);
+    public static native void glTessellationFactorAMD(float factor);
 
-	// --- [ glTessellationModeAMD ] ---
+    // --- [ glTessellationModeAMD ] ---
 
-	public static native void glTessellationModeAMD(int mode);
+    public static native void glTessellationModeAMD(int mode);
 
 }

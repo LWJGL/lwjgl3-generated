@@ -18,42 +18,42 @@ import static org.lwjgl.system.Checks.*;
  */
 public class AMDOcclusionQueryEvent {
 
-	/**
-	 * Accepted by the {@code pname} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}, {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv},
-	 * {@link GL33#glGetQueryObjecti64v GetQueryObjecti64v}, and {@link GL33#glGetQueryObjectui64v GetQueryObjectui64v}.
-	 */
-	public static final int GL_OCCLUSION_QUERY_EVENT_MASK_AMD = 0x874F;
+    /**
+     * Accepted by the {@code pname} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}, {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv},
+     * {@link GL33#glGetQueryObjecti64v GetQueryObjecti64v}, and {@link GL33#glGetQueryObjectui64v GetQueryObjectui64v}.
+     */
+    public static final int GL_OCCLUSION_QUERY_EVENT_MASK_AMD = 0x874F;
 
-	/** Accepted by the {@code param} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}. */
-	public static final int
-		GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD        = 0x1,
-		GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD        = 0x2,
-		GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD      = 0x4,
-		GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD = 0x8,
-		GL_QUERY_ALL_EVENT_BITS_AMD              = 0xFFFFFFFF;
+    /** Accepted by the {@code param} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}. */
+    public static final int
+        GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD        = 0x1,
+        GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD        = 0x2,
+        GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD      = 0x4,
+        GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD = 0x8,
+        GL_QUERY_ALL_EVENT_BITS_AMD              = 0xFFFFFFFF;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected AMDOcclusionQueryEvent() {
-		throw new UnsupportedOperationException();
-	}
+    protected AMDOcclusionQueryEvent() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glQueryObjectParameteruiAMD
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glQueryObjectParameteruiAMD
+        );
+    }
 
-	// --- [ glQueryObjectParameteruiAMD ] ---
+    // --- [ glQueryObjectParameteruiAMD ] ---
 
-	/**
-	 * Changes the value of a query object parameter.
-	 *
-	 * @param target a valid query target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
-	 * @param id     a value returned from a previous call to {@link GL15#glGenQueries GenQueries}
-	 * @param pname  the parameter to modify. Must be:<br><table><tr><td>{@link #GL_OCCLUSION_QUERY_EVENT_MASK_AMD OCCLUSION_QUERY_EVENT_MASK_AMD}</td></tr></table>
-	 * @param param  the new value. One of:<br><table><tr><td>{@link #GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD QUERY_DEPTH_PASS_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD QUERY_DEPTH_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD QUERY_STENCIL_FAIL_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_ALL_EVENT_BITS_AMD QUERY_ALL_EVENT_BITS_AMD}</td></tr></table>
-	 */
-	public static native void glQueryObjectParameteruiAMD(int target, int id, int pname, int param);
+    /**
+     * Changes the value of a query object parameter.
+     *
+     * @param target a valid query target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
+     * @param id     a value returned from a previous call to {@link GL15#glGenQueries GenQueries}
+     * @param pname  the parameter to modify. Must be:<br><table><tr><td>{@link #GL_OCCLUSION_QUERY_EVENT_MASK_AMD OCCLUSION_QUERY_EVENT_MASK_AMD}</td></tr></table>
+     * @param param  the new value. One of:<br><table><tr><td>{@link #GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD QUERY_DEPTH_PASS_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD QUERY_DEPTH_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD QUERY_STENCIL_FAIL_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_ALL_EVENT_BITS_AMD QUERY_ALL_EVENT_BITS_AMD}</td></tr></table>
+     */
+    public static native void glQueryObjectParameteruiAMD(int target, int id, int pname, int param);
 
 }

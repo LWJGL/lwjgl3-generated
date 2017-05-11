@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@code nk_style_*} structs. */
 public abstract class NkDrawBeginCallback extends Callback implements NkDrawBeginCallbackI {
 
-	/** Creates a {@code NkDrawBeginCallback} instance from the specified function pointer. */
-	public static NkDrawBeginCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code NkDrawBeginCallback} instance from the specified function pointer. */
+    public static NkDrawBeginCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		NkDrawBeginCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof NkDrawBeginCallback
-			? (NkDrawBeginCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        NkDrawBeginCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof NkDrawBeginCallback
+            ? (NkDrawBeginCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code NkDrawBeginCallback} instance that delegates to the specified {@code NkDrawBeginCallbackI} instance. */
-	public static NkDrawBeginCallback create(NkDrawBeginCallbackI instance) {
-		return instance instanceof NkDrawBeginCallback
-			? (NkDrawBeginCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code NkDrawBeginCallback} instance that delegates to the specified {@code NkDrawBeginCallbackI} instance. */
+    public static NkDrawBeginCallback create(NkDrawBeginCallbackI instance) {
+        return instance instanceof NkDrawBeginCallback
+            ? (NkDrawBeginCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected NkDrawBeginCallback() {
-		super(SIGNATURE);
-	}
+    protected NkDrawBeginCallback() {
+        super(SIGNATURE);
+    }
 
-	private NkDrawBeginCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private NkDrawBeginCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends NkDrawBeginCallback {
+    private static final class Container extends NkDrawBeginCallback {
 
-		private final NkDrawBeginCallbackI delegate;
+        private final NkDrawBeginCallbackI delegate;
 
-		Container(long functionPointer, NkDrawBeginCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, NkDrawBeginCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public float invoke(long buffer, long userdata) {
-			return delegate.invoke(buffer, userdata);
-		}
+        @Override
+        public float invoke(long buffer, long userdata) {
+            return delegate.invoke(buffer, userdata);
+        }
 
-	}
+    }
 
 }

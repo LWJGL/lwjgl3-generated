@@ -24,187 +24,188 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class GLXNVSwapGroup {
 
-	protected GLXNVSwapGroup() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXNVSwapGroup() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXJoinSwapGroupNV, caps.glXBindSwapBarrierNV, caps.glXQuerySwapGroupNV, caps.glXQueryMaxSwapGroupsNV, caps.glXQueryFrameCountNV, 
-			caps.glXResetFrameCountNV
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXJoinSwapGroupNV, caps.glXBindSwapBarrierNV, caps.glXQuerySwapGroupNV, caps.glXQueryMaxSwapGroupsNV, caps.glXQueryFrameCountNV, 
+            caps.glXResetFrameCountNV
+        );
+    }
 
-	// --- [ glXJoinSwapGroupNV ] ---
+    // --- [ glXJoinSwapGroupNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display  the connection to the X server
-	 * @param drawable 
-	 * @param group    
-	 */
-	public static boolean glXJoinSwapGroupNV(long display, long drawable, int group) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(drawable);
-		}
-		return callPPI(__functionAddress, display, drawable, group) != 0;
-	}
+    /**
+     * 
+     *
+     * @param display  the connection to the X server
+     * @param drawable 
+     * @param group    
+     */
+    public static boolean glXJoinSwapGroupNV(long display, long drawable, int group) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(drawable);
+        }
+        return callPPI(__functionAddress, display, drawable, group) != 0;
+    }
 
-	// --- [ glXBindSwapBarrierNV ] ---
+    // --- [ glXBindSwapBarrierNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display the connection to the X server
-	 * @param group   
-	 * @param barrier 
-	 */
-	public static boolean glXBindSwapBarrierNV(long display, int group, int barrier) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		return callPI(__functionAddress, display, group, barrier) != 0;
-	}
+    /**
+     * 
+     *
+     * @param display the connection to the X server
+     * @param group   
+     * @param barrier 
+     */
+    public static boolean glXBindSwapBarrierNV(long display, int group, int barrier) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        return callPI(__functionAddress, display, group, barrier) != 0;
+    }
 
-	// --- [ glXQuerySwapGroupNV ] ---
+    // --- [ glXQuerySwapGroupNV ] ---
 
-	/** Unsafe version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
-	public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(drawable);
-		}
-		return callPPPPI(__functionAddress, display, drawable, group, barrier);
-	}
+    /** Unsafe version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
+    public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(drawable);
+        }
+        return callPPPPI(__functionAddress, display, drawable, group, barrier);
+    }
 
-	/**
-	 * 
-	 *
-	 * @param display  the connection to the X server
-	 * @param drawable 
-	 * @param group    
-	 * @param barrier  
-	 */
-	public static boolean glXQuerySwapGroupNV(long display, long drawable, IntBuffer group, IntBuffer barrier) {
-		if ( CHECKS ) {
-			check(group, 1);
-			check(barrier, 1);
-		}
-		return nglXQuerySwapGroupNV(display, drawable, memAddress(group), memAddress(barrier)) != 0;
-	}
+    /**
+     * 
+     *
+     * @param display  the connection to the X server
+     * @param drawable 
+     * @param group    
+     * @param barrier  
+     */
+    public static boolean glXQuerySwapGroupNV(long display, long drawable, IntBuffer group, IntBuffer barrier) {
+        if (CHECKS) {
+            check(group, 1);
+            check(barrier, 1);
+        }
+        return nglXQuerySwapGroupNV(display, drawable, memAddress(group), memAddress(barrier)) != 0;
+    }
 
-	// --- [ glXQueryMaxSwapGroupsNV ] ---
+    // --- [ glXQueryMaxSwapGroupsNV ] ---
 
-	/** Unsafe version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		return callPPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
-	}
+    /** Unsafe version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
+    public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        return callPPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
+    }
 
-	/**
-	 * 
-	 *
-	 * @param display     the connection to the X server
-	 * @param screen      
-	 * @param maxGroups   
-	 * @param maxBarriers 
-	 */
-	public static boolean glXQueryMaxSwapGroupsNV(long display, int screen, IntBuffer maxGroups, IntBuffer maxBarriers) {
-		if ( CHECKS ) {
-			check(maxGroups, 1);
-			check(maxBarriers, 1);
-		}
-		return nglXQueryMaxSwapGroupsNV(display, screen, memAddress(maxGroups), memAddress(maxBarriers)) != 0;
-	}
+    /**
+     * 
+     *
+     * @param display     the connection to the X server
+     * @param screen      
+     * @param maxGroups   
+     * @param maxBarriers 
+     */
+    public static boolean glXQueryMaxSwapGroupsNV(long display, int screen, IntBuffer maxGroups, IntBuffer maxBarriers) {
+        if (CHECKS) {
+            check(maxGroups, 1);
+            check(maxBarriers, 1);
+        }
+        return nglXQueryMaxSwapGroupsNV(display, screen, memAddress(maxGroups), memAddress(maxBarriers)) != 0;
+    }
 
-	// --- [ glXQueryFrameCountNV ] ---
+    // --- [ glXQueryFrameCountNV ] ---
 
-	/** Unsafe version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
-	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		return callPPI(__functionAddress, display, screen, count);
-	}
+    /** Unsafe version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
+    public static int nglXQueryFrameCountNV(long display, int screen, long count) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        return callPPI(__functionAddress, display, screen, count);
+    }
 
-	/**
-	 * 
-	 *
-	 * @param display the connection to the X server
-	 * @param screen  
-	 * @param count   
-	 */
-	public static boolean glXQueryFrameCountNV(long display, int screen, IntBuffer count) {
-		if ( CHECKS )
-			check(count, 1);
-		return nglXQueryFrameCountNV(display, screen, memAddress(count)) != 0;
-	}
+    /**
+     * 
+     *
+     * @param display the connection to the X server
+     * @param screen  
+     * @param count   
+     */
+    public static boolean glXQueryFrameCountNV(long display, int screen, IntBuffer count) {
+        if (CHECKS) {
+            check(count, 1);
+        }
+        return nglXQueryFrameCountNV(display, screen, memAddress(count)) != 0;
+    }
 
-	// --- [ glXResetFrameCountNV ] ---
+    // --- [ glXResetFrameCountNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display the connection to the X server
-	 * @param screen  
-	 */
-	public static boolean glXResetFrameCountNV(long display, int screen) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXResetFrameCountNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		return callPI(__functionAddress, display, screen) != 0;
-	}
+    /**
+     * 
+     *
+     * @param display the connection to the X server
+     * @param screen  
+     */
+    public static boolean glXResetFrameCountNV(long display, int screen) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXResetFrameCountNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        return callPI(__functionAddress, display, screen) != 0;
+    }
 
-	/** Array version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
-	public static boolean glXQuerySwapGroupNV(long display, long drawable, int[] group, int[] barrier) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(drawable);
-			check(group, 1);
-			check(barrier, 1);
-		}
-		return callPPPPI(__functionAddress, display, drawable, group, barrier) != 0;
-	}
+    /** Array version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
+    public static boolean glXQuerySwapGroupNV(long display, long drawable, int[] group, int[] barrier) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(drawable);
+            check(group, 1);
+            check(barrier, 1);
+        }
+        return callPPPPI(__functionAddress, display, drawable, group, barrier) != 0;
+    }
 
-	/** Array version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	public static boolean glXQueryMaxSwapGroupsNV(long display, int screen, int[] maxGroups, int[] maxBarriers) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(maxGroups, 1);
-			check(maxBarriers, 1);
-		}
-		return callPPPI(__functionAddress, display, screen, maxGroups, maxBarriers) != 0;
-	}
+    /** Array version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
+    public static boolean glXQueryMaxSwapGroupsNV(long display, int screen, int[] maxGroups, int[] maxBarriers) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(maxGroups, 1);
+            check(maxBarriers, 1);
+        }
+        return callPPPI(__functionAddress, display, screen, maxGroups, maxBarriers) != 0;
+    }
 
-	/** Array version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
-	public static boolean glXQueryFrameCountNV(long display, int screen, int[] count) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(count, 1);
-		}
-		return callPPI(__functionAddress, display, screen, count) != 0;
-	}
+    /** Array version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
+    public static boolean glXQueryFrameCountNV(long display, int screen, int[] count) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(count, 1);
+        }
+        return callPPI(__functionAddress, display, screen, count) != 0;
+    }
 
 }

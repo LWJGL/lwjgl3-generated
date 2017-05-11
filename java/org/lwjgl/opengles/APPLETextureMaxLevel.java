@@ -13,9 +13,9 @@ package org.lwjgl.opengles;
  */
 public final class APPLETextureMaxLevel {
 
-	/** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, TexParameterfv, GetTexParameteriv, and GetTexParameterfv. */
-	public static final int GL_TEXTURE_MAX_LEVEL_APPLE = 0x813D;
+    /** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, TexParameterfv, GetTexParameteriv, and GetTexParameterfv. */
+    public static final int GL_TEXTURE_MAX_LEVEL_APPLE = 0x813D;
 
-	private APPLETextureMaxLevel() {}
+    private APPLETextureMaxLevel() {}
 
 }

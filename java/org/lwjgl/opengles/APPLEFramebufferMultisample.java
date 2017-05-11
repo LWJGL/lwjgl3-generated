@@ -30,46 +30,46 @@ import static org.lwjgl.system.Checks.*;
  */
 public class APPLEFramebufferMultisample {
 
-	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
-	public static final int GL_RENDERBUFFER_SAMPLES_APPLE = 0x8CAB;
+    /** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
+    public static final int GL_RENDERBUFFER_SAMPLES_APPLE = 0x8CAB;
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_APPLE = 0x8D56;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_APPLE = 0x8D56;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int GL_MAX_SAMPLES_APPLE = 0x8D57;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int GL_MAX_SAMPLES_APPLE = 0x8D57;
 
-	/**
-	 * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture2D, FramebufferRenderbuffer, and
-	 * GetFramebufferAttachmentParameteriv.
-	 */
-	public static final int
-		GL_READ_FRAMEBUFFER_APPLE = 0x8CA8,
-		GL_DRAW_FRAMEBUFFER_APPLE = 0x8CA9;
+    /**
+     * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture2D, FramebufferRenderbuffer, and
+     * GetFramebufferAttachmentParameteriv.
+     */
+    public static final int
+        GL_READ_FRAMEBUFFER_APPLE = 0x8CA8,
+        GL_DRAW_FRAMEBUFFER_APPLE = 0x8CA9;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_DRAW_FRAMEBUFFER_BINDING_APPLE = 0x8CA6,
-		GL_READ_FRAMEBUFFER_BINDING_APPLE = 0x8CAA;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_DRAW_FRAMEBUFFER_BINDING_APPLE = 0x8CA6,
+        GL_READ_FRAMEBUFFER_BINDING_APPLE = 0x8CAA;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected APPLEFramebufferMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected APPLEFramebufferMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glRenderbufferStorageMultisampleAPPLE, caps.glResolveMultisampleFramebufferAPPLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glRenderbufferStorageMultisampleAPPLE, caps.glResolveMultisampleFramebufferAPPLE
+        );
+    }
 
-	// --- [ glRenderbufferStorageMultisampleAPPLE ] ---
+    // --- [ glRenderbufferStorageMultisampleAPPLE ] ---
 
-	public static native void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
 
-	// --- [ glResolveMultisampleFramebufferAPPLE ] ---
+    // --- [ glResolveMultisampleFramebufferAPPLE ] ---
 
-	public static native void glResolveMultisampleFramebufferAPPLE();
+    public static native void glResolveMultisampleFramebufferAPPLE();
 
 }

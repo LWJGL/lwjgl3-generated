@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** A mutation handler. */
 public abstract class EnumerationMutationHandler extends Callback implements EnumerationMutationHandlerI {
 
-	/** Creates a {@code EnumerationMutationHandler} instance from the specified function pointer. */
-	public static EnumerationMutationHandler create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code EnumerationMutationHandler} instance from the specified function pointer. */
+    public static EnumerationMutationHandler create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		EnumerationMutationHandlerI instance = Callback.get(functionPointer);
-		return instance instanceof EnumerationMutationHandler
-			? (EnumerationMutationHandler)instance
-			: new Container(functionPointer, instance);
-	}
+        EnumerationMutationHandlerI instance = Callback.get(functionPointer);
+        return instance instanceof EnumerationMutationHandler
+            ? (EnumerationMutationHandler)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code EnumerationMutationHandler} instance that delegates to the specified {@code EnumerationMutationHandlerI} instance. */
-	public static EnumerationMutationHandler create(EnumerationMutationHandlerI instance) {
-		return instance instanceof EnumerationMutationHandler
-			? (EnumerationMutationHandler)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code EnumerationMutationHandler} instance that delegates to the specified {@code EnumerationMutationHandlerI} instance. */
+    public static EnumerationMutationHandler create(EnumerationMutationHandlerI instance) {
+        return instance instanceof EnumerationMutationHandler
+            ? (EnumerationMutationHandler)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected EnumerationMutationHandler() {
-		super(SIGNATURE);
-	}
+    protected EnumerationMutationHandler() {
+        super(SIGNATURE);
+    }
 
-	private EnumerationMutationHandler(long functionPointer) {
-		super(functionPointer);
-	}
+    private EnumerationMutationHandler(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends EnumerationMutationHandler {
+    private static final class Container extends EnumerationMutationHandler {
 
-		private final EnumerationMutationHandlerI delegate;
+        private final EnumerationMutationHandlerI delegate;
 
-		Container(long functionPointer, EnumerationMutationHandlerI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, EnumerationMutationHandlerI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long id) {
-			delegate.invoke(id);
-		}
+        @Override
+        public void invoke(long id) {
+            delegate.invoke(id);
+        }
 
-	}
+    }
 
 }

@@ -13,20 +13,20 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkDrawEndCallbackI extends CallbackI.F {
 
-	String SIGNATURE = "(pp)f";
+    String SIGNATURE = "(pp)f";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default float callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default float callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
 
-	float invoke(long buffer, long userdata);
+    float invoke(long buffer, long userdata);
 
 }

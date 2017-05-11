@@ -15,20 +15,20 @@ package org.lwjgl.opengles;
  */
 public final class EXTShadowSamplers {
 
-	/** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_COMPARE_MODE_EXT = 0x884C,
-		GL_TEXTURE_COMPARE_FUNC_EXT = 0x884D;
+    /** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
+    public static final int
+        GL_TEXTURE_COMPARE_MODE_EXT = 0x884C,
+        GL_TEXTURE_COMPARE_FUNC_EXT = 0x884D;
 
-	/**
-	 * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
-	 * TEXTURE_COMPARE_MODE_EXT.
-	 */
-	public static final int GL_COMPARE_REF_TO_TEXTURE_EXT = 0x884E;
+    /**
+     * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
+     * TEXTURE_COMPARE_MODE_EXT.
+     */
+    public static final int GL_COMPARE_REF_TO_TEXTURE_EXT = 0x884E;
 
-	/** Returned in {@code type} by glGetActiveUniform. */
-	public static final int GL_SAMPLER_2D_SHADOW_EXT = 0x8B62;
+    /** Returned in {@code type} by glGetActiveUniform. */
+    public static final int GL_SAMPLER_2D_SHADOW_EXT = 0x8B62;
 
-	private EXTShadowSamplers() {}
+    private EXTShadowSamplers() {}
 
 }

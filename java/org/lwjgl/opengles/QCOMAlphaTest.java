@@ -15,31 +15,31 @@ import static org.lwjgl.system.Checks.*;
  */
 public class QCOMAlphaTest {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable and Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and
-	 * GetFloatv.
-	 */
-	public static final int GL_ALPHA_TEST_QCOM = 0xBC0;
+    /**
+     * Accepted by the {@code cap} parameter of Enable and Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and
+     * GetFloatv.
+     */
+    public static final int GL_ALPHA_TEST_QCOM = 0xBC0;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_ALPHA_TEST_FUNC_QCOM = 0xBC1,
-		GL_ALPHA_TEST_REF_QCOM  = 0xBC2;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_ALPHA_TEST_FUNC_QCOM = 0xBC1,
+        GL_ALPHA_TEST_REF_QCOM  = 0xBC2;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected QCOMAlphaTest() {
-		throw new UnsupportedOperationException();
-	}
+    protected QCOMAlphaTest() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glAlphaFuncQCOM
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glAlphaFuncQCOM
+        );
+    }
 
-	// --- [ glAlphaFuncQCOM ] ---
+    // --- [ glAlphaFuncQCOM ] ---
 
-	public static native void glAlphaFuncQCOM(int func, float ref);
+    public static native void glAlphaFuncQCOM(int func, float ref);
 
 }

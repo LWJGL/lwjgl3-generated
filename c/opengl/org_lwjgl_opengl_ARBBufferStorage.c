@@ -12,17 +12,17 @@ typedef void (APIENTRY *glNamedBufferStorageEXTPROC) (jint, intptr_t, const intp
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBufferStorage_nglBufferStorage__IJJI(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint flags) {
-	glBufferStoragePROC glBufferStorage = (glBufferStoragePROC)tlsGetFunction(94);
-	const intptr_t data = (const intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glBufferStorage(target, (intptr_t)size, data, flags);
+    glBufferStoragePROC glBufferStorage = (glBufferStoragePROC)tlsGetFunction(94);
+    const intptr_t data = (const intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glBufferStorage(target, (intptr_t)size, data, flags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBufferStorage_nglNamedBufferStorageEXT__IJJI(JNIEnv *__env, jclass clazz, jint buffer, jlong size, jlong dataAddress, jint flags) {
-	glNamedBufferStorageEXTPROC glNamedBufferStorageEXT = (glNamedBufferStorageEXTPROC)tlsGetFunction(1121);
-	const intptr_t data = (const intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glNamedBufferStorageEXT(buffer, (intptr_t)size, data, flags);
+    glNamedBufferStorageEXTPROC glNamedBufferStorageEXT = (glNamedBufferStorageEXTPROC)tlsGetFunction(1121);
+    const intptr_t data = (const intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glNamedBufferStorageEXT(buffer, (intptr_t)size, data, flags);
 }
 
 EXTERN_C_EXIT

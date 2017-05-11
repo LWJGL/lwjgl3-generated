@@ -14,9 +14,9 @@ package org.lwjgl.opengles;
  */
 public final class NVShadowSamplersArray {
 
-	/** Returned in {@code type} by glGetActiveUniform. */
-	public static final int GL_SAMPLER_2D_ARRAY_SHADOW_NV = 0x8DC4;
+    /** Returned in {@code type} by glGetActiveUniform. */
+    public static final int GL_SAMPLER_2D_ARRAY_SHADOW_NV = 0x8DC4;
 
-	private NVShadowSamplersArray() {}
+    private NVShadowSamplersArray() {}
 
 }

@@ -18,27 +18,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface BGFXFatalCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pip)v";
+    String SIGNATURE = "(pip)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when a fatal error occurs.
-	 *
-	 * @param _this the callback interface
-	 * @param _code the error code
-	 * @param _str  the error message
-	 */
-	void invoke(long _this, int _code, long _str);
+    /**
+     * Will be called when a fatal error occurs.
+     *
+     * @param _this the callback interface
+     * @param _code the error code
+     * @param _str  the error message
+     */
+    void invoke(long _this, int _code, long _str);
 
 }

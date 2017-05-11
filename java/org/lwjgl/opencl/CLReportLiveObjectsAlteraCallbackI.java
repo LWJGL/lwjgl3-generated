@@ -13,29 +13,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
 
-	String SIGNATURE = Callback.__stdcall("(pppi)v");
+    String SIGNATURE = Callback.__stdcall("(pppi)v");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Reports a live OpenCL API object.
-	 *
-	 * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera}
-	 * @param obj_ptr   a pointer to the live object
-	 * @param type_name a C string corresponding to the OpenCL API object type. For example, a leaked {@code cl_mem} object will have "cl_mem" as its type string.
-	 * @param refcount  an instantaneous reference count for the object. Consider it to be immediately stale.
-	 */
-	void invoke(long user_data, long obj_ptr, long type_name, int refcount);
+    /**
+     * Reports a live OpenCL API object.
+     *
+     * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera}
+     * @param obj_ptr   a pointer to the live object
+     * @param type_name a C string corresponding to the OpenCL API object type. For example, a leaked {@code cl_mem} object will have "cl_mem" as its type string.
+     * @param refcount  an instantaneous reference count for the object. Consider it to be immediately stale.
+     */
+    void invoke(long user_data, long obj_ptr, long type_name, int refcount);
 
 }

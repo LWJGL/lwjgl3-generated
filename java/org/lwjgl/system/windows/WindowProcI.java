@@ -13,29 +13,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface WindowProcI extends CallbackI.P {
 
-	String SIGNATURE = Callback.__stdcall("(pipp)p");
+    String SIGNATURE = Callback.__stdcall("(pipp)p");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called for each message sent to the window.
-	 *
-	 * @param hwnd   a handle to the window procedure that received the message
-	 * @param uMsg   the message
-	 * @param wParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
-	 * @param lParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
-	 */
-	long invoke(long hwnd, int uMsg, long wParam, long lParam);
+    /**
+     * Will be called for each message sent to the window.
+     *
+     * @param hwnd   a handle to the window procedure that received the message
+     * @param uMsg   the message
+     * @param wParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
+     * @param lParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
+     */
+    long invoke(long hwnd, int uMsg, long wParam, long lParam);
 
 }

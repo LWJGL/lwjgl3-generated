@@ -52,15 +52,15 @@ package org.lwjgl.vulkan;
  */
 public final class KHRIncrementalPresent {
 
-	/** The extension specification version. */
-	public static final int VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME = "VK_KHR_incremental_present";
+    /** The extension name. */
+    public static final String VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME = "VK_KHR_incremental_present";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR = 1000084000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR = 1000084000;
 
-	private KHRIncrementalPresent() {}
+    private KHRIncrementalPresent() {}
 
 }

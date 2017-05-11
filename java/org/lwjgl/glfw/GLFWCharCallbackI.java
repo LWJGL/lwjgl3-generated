@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWCharCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pi)v";
+    String SIGNATURE = "(pi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Will be called when a Unicode character is input.
-	 *
-	 * @param window    the window that received the event
-	 * @param codepoint the Unicode code point of the character
-	 */
-	void invoke(long window, int codepoint);
+    /**
+     * Will be called when a Unicode character is input.
+     *
+     * @param window    the window that received the event
+     * @param codepoint the Unicode code point of the character
+     */
+    void invoke(long window, int codepoint);
 
 }

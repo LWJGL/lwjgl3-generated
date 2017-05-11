@@ -51,12 +51,12 @@ package org.lwjgl.vulkan;
  */
 public final class NVSampleMaskOverrideCoverage {
 
-	/** The extension specification version. */
-	public static final int VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_EXTENSION_NAME = "VK_NV_sample_mask_override_coverage";
+    /** The extension name. */
+    public static final String VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_EXTENSION_NAME = "VK_NV_sample_mask_override_coverage";
 
-	private NVSampleMaskOverrideCoverage() {}
+    private NVSampleMaskOverrideCoverage() {}
 
 }

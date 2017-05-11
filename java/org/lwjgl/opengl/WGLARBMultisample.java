@@ -14,15 +14,15 @@ package org.lwjgl.opengl;
  */
 public final class WGLARBMultisample {
 
-	/**
-	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB},
-	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB}, and the {@code attribIList} and {@code attribFList} of
-	 * {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}.
-	 */
-	public static final int
-		WGL_SAMPLE_BUFFERS_ARB = 0x2041,
-		WGL_SAMPLES_ARB        = 0x2042;
+    /**
+     * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB},
+     * {@link WGLARBPixelFormat#wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB}, and the {@code attribIList} and {@code attribFList} of
+     * {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}.
+     */
+    public static final int
+        WGL_SAMPLE_BUFFERS_ARB = 0x2041,
+        WGL_SAMPLES_ARB        = 0x2042;
 
-	private WGLARBMultisample() {}
+    private WGLARBMultisample() {}
 
 }

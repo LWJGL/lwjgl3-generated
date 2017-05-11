@@ -18,11 +18,11 @@ package org.lwjgl.opengles;
  */
 public final class IMGTextureCompressionPVRTC2 {
 
-	/** Accepted by the {@code internalformat} parameter of CompressedTexImage2D and the {@code format} parameter of CompressedTexSubImage2D. */
-	public static final int
-		GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG = 0x9137,
-		GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG = 0x9138;
+    /** Accepted by the {@code internalformat} parameter of CompressedTexImage2D and the {@code format} parameter of CompressedTexSubImage2D. */
+    public static final int
+        GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG = 0x9137,
+        GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG = 0x9138;
 
-	private IMGTextureCompressionPVRTC2() {}
+    private IMGTextureCompressionPVRTC2() {}
 
 }

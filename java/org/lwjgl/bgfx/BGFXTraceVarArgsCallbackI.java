@@ -17,31 +17,31 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface BGFXTraceVarArgsCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(ppspp)v";
+    String SIGNATURE = "(ppspp)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgShort(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgShort(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when a debug message is produced.
-	 *
-	 * @param _this     the callback interface
-	 * @param _filePath file path where debug message was generated
-	 * @param _line     line where debug message was generated
-	 * @param _format   {@code printf} style format
-	 * @param _argList  variable arguments list initialized with {@code va_start}
-	 */
-	void invoke(long _this, long _filePath, short _line, long _format, long _argList);
+    /**
+     * Will be called when a debug message is produced.
+     *
+     * @param _this     the callback interface
+     * @param _filePath file path where debug message was generated
+     * @param _line     line where debug message was generated
+     * @param _format   {@code printf} style format
+     * @param _argList  variable arguments list initialized with {@code va_start}
+     */
+    void invoke(long _this, long _filePath, short _line, long _format, long _argList);
 
 }

@@ -15,12 +15,12 @@ package org.lwjgl.opencl;
  */
 public final class INTELEGLImageYUV {
 
-	/**
-	 * Accepted as property in {@code properties} parameter of function {@link KHREGLImage#clCreateFromEGLImageKHR CreateFromEGLImageKHR} and as {@code param_name} parameter of function
-	 * {@link CL10#clGetImageInfo GetImageInfo}.
-	 */
-	public static final int CL_EGL_YUV_PLANE_INTEL = 0x4107;
+    /**
+     * Accepted as property in {@code properties} parameter of function {@link KHREGLImage#clCreateFromEGLImageKHR CreateFromEGLImageKHR} and as {@code param_name} parameter of function
+     * {@link CL10#clGetImageInfo GetImageInfo}.
+     */
+    public static final int CL_EGL_YUV_PLANE_INTEL = 0x4107;
 
-	private INTELEGLImageYUV() {}
+    private INTELEGLImageYUV() {}
 
 }

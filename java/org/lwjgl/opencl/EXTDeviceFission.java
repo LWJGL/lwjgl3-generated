@@ -30,118 +30,118 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDeviceFission {
 
-	/** Accepted as a property name in the {@code properties} parameter of clCreateSubDeviceEXT. */
-	public static final int
-		CL_DEVICE_PARTITION_EQUALLY_EXT            = 0x4050,
-		CL_DEVICE_PARTITION_BY_COUNTS_EXT          = 0x4051,
-		CL_DEVICE_PARTITION_BY_NAMES_EXT           = 0x4052,
-		CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN_EXT = 0x4053;
+    /** Accepted as a property name in the {@code properties} parameter of clCreateSubDeviceEXT. */
+    public static final int
+        CL_DEVICE_PARTITION_EQUALLY_EXT            = 0x4050,
+        CL_DEVICE_PARTITION_BY_COUNTS_EXT          = 0x4051,
+        CL_DEVICE_PARTITION_BY_NAMES_EXT           = 0x4052,
+        CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN_EXT = 0x4053;
 
-	/**
-	 * Accepted as a property name, when accompanying the CL_DEVICE_PARITION_BY_AFFINITY_DOMAIN_EXT property, in the {@code properties} parameter of
-	 * clCreateSubDeviceEXT.
-	 */
-	public static final int
-		CL_AFFINITY_DOMAIN_L1_CACHE_EXT         = 0x1,
-		CL_AFFINITY_DOMAIN_L2_CACHE_EXT         = 0x2,
-		CL_AFFINITY_DOMAIN_L3_CACHE_EXT         = 0x3,
-		CL_AFFINITY_DOMAIN_L4_CACHE_EXT         = 0x4,
-		CL_AFFINITY_DOMAIN_NUMA_EXT             = 0x10,
-		CL_AFFINITY_DOMAIN_NEXT_FISSIONABLE_EXT = 0x100;
+    /**
+     * Accepted as a property name, when accompanying the CL_DEVICE_PARITION_BY_AFFINITY_DOMAIN_EXT property, in the {@code properties} parameter of
+     * clCreateSubDeviceEXT.
+     */
+    public static final int
+        CL_AFFINITY_DOMAIN_L1_CACHE_EXT         = 0x1,
+        CL_AFFINITY_DOMAIN_L2_CACHE_EXT         = 0x2,
+        CL_AFFINITY_DOMAIN_L3_CACHE_EXT         = 0x3,
+        CL_AFFINITY_DOMAIN_L4_CACHE_EXT         = 0x4,
+        CL_AFFINITY_DOMAIN_NUMA_EXT             = 0x10,
+        CL_AFFINITY_DOMAIN_NEXT_FISSIONABLE_EXT = 0x100;
 
-	/** Accepted as a property being queried in the {@code param_name} argument of clGetDeviceInfo. */
-	public static final int
-		CL_DEVICE_PARENT_DEVICE_EXT    = 0x4054,
-		CL_DEVICE_PARITION_TYPES_EXT   = 0x4055,
-		CL_DEVICE_AFFINITY_DOMAINS_EXT = 0x4056,
-		CL_DEVICE_REFERENCE_COUNT_EXT  = 0x4057,
-		CL_DEVICE_PARTITION_STYLE_EXT  = 0x4058;
+    /** Accepted as a property being queried in the {@code param_name} argument of clGetDeviceInfo. */
+    public static final int
+        CL_DEVICE_PARENT_DEVICE_EXT    = 0x4054,
+        CL_DEVICE_PARITION_TYPES_EXT   = 0x4055,
+        CL_DEVICE_AFFINITY_DOMAINS_EXT = 0x4056,
+        CL_DEVICE_REFERENCE_COUNT_EXT  = 0x4057,
+        CL_DEVICE_PARTITION_STYLE_EXT  = 0x4058;
 
-	/** Accepted as the property list terminator in the {@code properties} parameter of clCreateSubDeviceEXT. */
-	public static final int CL_PROPERTIES_LIST_END_EXT = 0x0;
+    /** Accepted as the property list terminator in the {@code properties} parameter of clCreateSubDeviceEXT. */
+    public static final int CL_PROPERTIES_LIST_END_EXT = 0x0;
 
-	/** Accepted as the partition counts list terminator in the {@code properties} parameter of clCreateSubDeviceEXT. */
-	public static final int CL_PARTITION_BY_COUNTS_LIST_END_EXT = 0x0;
+    /** Accepted as the partition counts list terminator in the {@code properties} parameter of clCreateSubDeviceEXT. */
+    public static final int CL_PARTITION_BY_COUNTS_LIST_END_EXT = 0x0;
 
-	/** Accepted as the partition names list terminator in the {@code properties} parameter of clCreateSubDeviceEXT. */
-	public static final int CL_PARTITION_BY_NAMES_LIST_END_EXT = -1;
+    /** Accepted as the partition names list terminator in the {@code properties} parameter of clCreateSubDeviceEXT. */
+    public static final int CL_PARTITION_BY_NAMES_LIST_END_EXT = -1;
 
-	/**
-	 * Returned by clCreateSubDevicesEXT when the indicated partition scheme is supported by the implementation, but the implementation can not further
-	 * partition the device in this way.
-	 */
-	public static final int CL_DEVICE_PARTITION_FAILED_EXT = -1057;
+    /**
+     * Returned by clCreateSubDevicesEXT when the indicated partition scheme is supported by the implementation, but the implementation can not further
+     * partition the device in this way.
+     */
+    public static final int CL_DEVICE_PARTITION_FAILED_EXT = -1057;
 
-	/**
-	 * Returned by clCreateSubDevicesEXT when the total number of compute units requested exceeds CL_DEVICE_MAX_COMPUTE_UNITS, or the number of compute units
-	 * for any one sub-device is less than 1.
-	 */
-	public static final int CL_INVALID_PARTITION_COUNT_EXT = -1058;
+    /**
+     * Returned by clCreateSubDevicesEXT when the total number of compute units requested exceeds CL_DEVICE_MAX_COMPUTE_UNITS, or the number of compute units
+     * for any one sub-device is less than 1.
+     */
+    public static final int CL_INVALID_PARTITION_COUNT_EXT = -1058;
 
-	/** Returned by clCreateSubDevicesEXT when a compute unit name appearing in a name list following CL_DEVICE_PARTITION_BY_NAMES_EXT is not in range. */
-	public static final int CL_INVALID_PARTITION_NAME_EXT = -1059;
+    /** Returned by clCreateSubDevicesEXT when a compute unit name appearing in a name list following CL_DEVICE_PARTITION_BY_NAMES_EXT is not in range. */
+    public static final int CL_INVALID_PARTITION_NAME_EXT = -1059;
 
-	protected EXTDeviceFission() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDeviceFission() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(CLCapabilities caps) {
-		return checkFunctions(
-			caps.clReleaseDeviceEXT, caps.clRetainDeviceEXT, caps.clCreateSubDevicesEXT
-		);
-	}
+    static boolean isAvailable(CLCapabilities caps) {
+        return checkFunctions(
+            caps.clReleaseDeviceEXT, caps.clRetainDeviceEXT, caps.clCreateSubDevicesEXT
+        );
+    }
 
-	// --- [ clReleaseDeviceEXT ] ---
+    // --- [ clReleaseDeviceEXT ] ---
 
-	public static int clReleaseDeviceEXT(long device) {
-		long __functionAddress = CL.getICD().clReleaseDeviceEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(device);
-		}
-		return callPI(__functionAddress, device);
-	}
+    public static int clReleaseDeviceEXT(long device) {
+        long __functionAddress = CL.getICD().clReleaseDeviceEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(device);
+        }
+        return callPI(__functionAddress, device);
+    }
 
-	// --- [ clRetainDeviceEXT ] ---
+    // --- [ clRetainDeviceEXT ] ---
 
-	public static int clRetainDeviceEXT(long device) {
-		long __functionAddress = CL.getICD().clRetainDeviceEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(device);
-		}
-		return callPI(__functionAddress, device);
-	}
+    public static int clRetainDeviceEXT(long device) {
+        long __functionAddress = CL.getICD().clRetainDeviceEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(device);
+        }
+        return callPI(__functionAddress, device);
+    }
 
-	// --- [ clCreateSubDevicesEXT ] ---
+    // --- [ clCreateSubDevicesEXT ] ---
 
-	public static int nclCreateSubDevicesEXT(long in_device, long properties, int num_entries, long out_devices, long num_devices) {
-		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(in_device);
-		}
-		return callPPPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
-	}
+    public static int nclCreateSubDevicesEXT(long in_device, long properties, int num_entries, long out_devices, long num_devices) {
+        long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(in_device);
+        }
+        return callPPPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
+    }
 
-	public static int clCreateSubDevicesEXT(long in_device, LongBuffer properties, PointerBuffer out_devices, IntBuffer num_devices) {
-		if ( CHECKS ) {
-			checkNT(properties);
-			checkSafe(num_devices, 1);
-		}
-		return nclCreateSubDevicesEXT(in_device, memAddress(properties), remainingSafe(out_devices), memAddressSafe(out_devices), memAddressSafe(num_devices));
-	}
+    public static int clCreateSubDevicesEXT(long in_device, LongBuffer properties, PointerBuffer out_devices, IntBuffer num_devices) {
+        if (CHECKS) {
+            checkNT(properties);
+            checkSafe(num_devices, 1);
+        }
+        return nclCreateSubDevicesEXT(in_device, memAddress(properties), remainingSafe(out_devices), memAddressSafe(out_devices), memAddressSafe(num_devices));
+    }
 
-	/** Array version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
-	public static int clCreateSubDevicesEXT(long in_device, long[] properties, PointerBuffer out_devices, int[] num_devices) {
-		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(in_device);
-			checkNT(properties);
-			checkSafe(num_devices, 1);
-		}
-		return callPPPPI(__functionAddress, in_device, properties, remainingSafe(out_devices), memAddressSafe(out_devices), num_devices);
-	}
+    /** Array version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
+    public static int clCreateSubDevicesEXT(long in_device, long[] properties, PointerBuffer out_devices, int[] num_devices) {
+        long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(in_device);
+            checkNT(properties);
+            checkSafe(num_devices, 1);
+        }
+        return callPPPPI(__functionAddress, in_device, properties, remainingSafe(out_devices), memAddressSafe(out_devices), num_devices);
+    }
 
 }

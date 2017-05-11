@@ -17,32 +17,34 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVSystemTime {
 
-	protected NVSystemTime() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVSystemTime() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglGetSystemTimeFrequencyNV, caps.eglGetSystemTimeNV
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglGetSystemTimeFrequencyNV, caps.eglGetSystemTimeNV
+        );
+    }
 
-	// --- [ eglGetSystemTimeFrequencyNV ] ---
+    // --- [ eglGetSystemTimeFrequencyNV ] ---
 
-	public static long eglGetSystemTimeFrequencyNV() {
-		long __functionAddress = EGL.getCapabilities().eglGetSystemTimeFrequencyNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress);
-	}
+    public static long eglGetSystemTimeFrequencyNV() {
+        long __functionAddress = EGL.getCapabilities().eglGetSystemTimeFrequencyNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callJ(__functionAddress);
+    }
 
-	// --- [ eglGetSystemTimeNV ] ---
+    // --- [ eglGetSystemTimeNV ] ---
 
-	public static long eglGetSystemTimeNV() {
-		long __functionAddress = EGL.getCapabilities().eglGetSystemTimeNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callJ(__functionAddress);
-	}
+    public static long eglGetSystemTimeNV() {
+        long __functionAddress = EGL.getCapabilities().eglGetSystemTimeNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callJ(__functionAddress);
+    }
 
 }

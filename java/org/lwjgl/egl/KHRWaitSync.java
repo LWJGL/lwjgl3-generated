@@ -20,26 +20,26 @@ import static org.lwjgl.system.JNI.*;
  */
 public class KHRWaitSync {
 
-	protected KHRWaitSync() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRWaitSync() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglWaitSyncKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglWaitSyncKHR
+        );
+    }
 
-	// --- [ eglWaitSyncKHR ] ---
+    // --- [ eglWaitSyncKHR ] ---
 
-	public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
-		long __functionAddress = EGL.getCapabilities().eglWaitSyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(sync);
-		}
-		return callPPI(__functionAddress, dpy, sync, flags);
-	}
+    public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
+        long __functionAddress = EGL.getCapabilities().eglWaitSyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(sync);
+        }
+        return callPPI(__functionAddress, dpy, sync, flags);
+    }
 
 }

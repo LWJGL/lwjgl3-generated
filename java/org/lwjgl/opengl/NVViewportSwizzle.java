@@ -21,47 +21,47 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVViewportSwizzle {
 
-	/** Accepted by the {@code swizzlex}, {@code swizzley}, {@code swizzlez}, and {@code swizzlew} parameters of ViewportSwizzleNV. */
-	public static final int
-		GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV = 0x9350,
-		GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV = 0x9351,
-		GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV = 0x9352,
-		GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV = 0x9353,
-		GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV = 0x9354,
-		GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV = 0x9355,
-		GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV = 0x9356,
-		GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV = 0x9357;
+    /** Accepted by the {@code swizzlex}, {@code swizzley}, {@code swizzlez}, and {@code swizzlew} parameters of ViewportSwizzleNV. */
+    public static final int
+        GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV = 0x9350,
+        GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV = 0x9351,
+        GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV = 0x9352,
+        GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV = 0x9353,
+        GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV = 0x9354,
+        GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV = 0x9355,
+        GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV = 0x9356,
+        GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV = 0x9357;
 
-	/** Accepted by the {@code pname} parameter of GetBooleani_v, GetDoublei_v, GetIntegeri_v, GetFloati_v, and GetInteger64i_v. */
-	public static final int
-		GL_VIEWPORT_SWIZZLE_X_NV = 0x9358,
-		GL_VIEWPORT_SWIZZLE_Y_NV = 0x9359,
-		GL_VIEWPORT_SWIZZLE_Z_NV = 0x935A,
-		GL_VIEWPORT_SWIZZLE_W_NV = 0x935B;
+    /** Accepted by the {@code pname} parameter of GetBooleani_v, GetDoublei_v, GetIntegeri_v, GetFloati_v, and GetInteger64i_v. */
+    public static final int
+        GL_VIEWPORT_SWIZZLE_X_NV = 0x9358,
+        GL_VIEWPORT_SWIZZLE_Y_NV = 0x9359,
+        GL_VIEWPORT_SWIZZLE_Z_NV = 0x935A,
+        GL_VIEWPORT_SWIZZLE_W_NV = 0x935B;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVViewportSwizzle() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVViewportSwizzle() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glViewportSwizzleNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glViewportSwizzleNV
+        );
+    }
 
-	// --- [ glViewportSwizzleNV ] ---
+    // --- [ glViewportSwizzleNV ] ---
 
-	/**
-	 * Sets the swizzle state for the specified viewport.
-	 *
-	 * @param index    the viewport index
-	 * @param swizzlex the x swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
-	 * @param swizzley the y swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
-	 * @param swizzlez the z swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
-	 * @param swizzlew the w swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
-	 */
-	public static native void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
+    /**
+     * Sets the swizzle state for the specified viewport.
+     *
+     * @param index    the viewport index
+     * @param swizzlex the x swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
+     * @param swizzley the y swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
+     * @param swizzlez the z swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
+     * @param swizzlew the w swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
+     */
+    public static native void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
 
 }

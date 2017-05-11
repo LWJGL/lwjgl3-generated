@@ -23,9 +23,9 @@ package org.lwjgl.egl;
  */
 public final class EXTDeviceOpenWF {
 
-	/**  */
-	public static final int EGL_OPENWF_DEVICE_ID_EXT = 0x3237;
+    /**  */
+    public static final int EGL_OPENWF_DEVICE_ID_EXT = 0x3237;
 
-	private EXTDeviceOpenWF() {}
+    private EXTDeviceOpenWF() {}
 
 }

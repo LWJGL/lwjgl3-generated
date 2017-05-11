@@ -22,29 +22,29 @@ package org.lwjgl.opengl;
  */
 public final class EXTTextureSRGBDecode {
 
-	/**
-	 * Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, TexParameterIiv, TexParameterIuiv,
-	 * TexParameterIivEXT, TexParameterIuivEXT, TextureParameterfEXT, TextureParameterfvEXT, TextureParameteriEXT, TextureParameterivEXT,
-	 * TextureParameterIivEXT, TextureParameterIuivEXT, MultiTexParameterfEXT, MultiTexParameterfvEXT, MultiTexParameteriEXT, MultiTexParameterivEXT,
-	 * MultiTexParameterIivEXT, MultiTexParameterIuivEXT, GetTexParameterfv, GetTexParameteriv, GetTexParameterIiv, GetTexParameterIuiv, GetTexParameterIivEXT,
-	 * GetTexParameterIuivEXT, GetTextureParameterfEXT, GetTextureParameterfvEXT, GetTextureParameteriEXT, GetTextureParameterivEXT, GetTextureParameterIivEXT,
-	 * GetTextureParameterIuivEXT, GetMultiTexParameterfEXT, GetMultiTexParameterfvEXT, GetMultiTexParameteriEXT, GetMultiTexParameterivEXT,
-	 * GetMultiTexParameterIivEXT, GetMultiTexParameterIuivEXT, SamplerParameteri, SamplerParameterf, SamplerParameteriv, SamplerParameterfv,
-	 * SamplerParameterIiv, SamplerParameterIuiv, GetSamplerParameteriv, GetSamplerParameterfv, GetSamplerParameterIiv, and GetSamplerParameterIuiv.
-	 */
-	public static final int GL_TEXTURE_SRGB_DECODE_EXT = 0x8A48;
+    /**
+     * Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, TexParameterIiv, TexParameterIuiv,
+     * TexParameterIivEXT, TexParameterIuivEXT, TextureParameterfEXT, TextureParameterfvEXT, TextureParameteriEXT, TextureParameterivEXT,
+     * TextureParameterIivEXT, TextureParameterIuivEXT, MultiTexParameterfEXT, MultiTexParameterfvEXT, MultiTexParameteriEXT, MultiTexParameterivEXT,
+     * MultiTexParameterIivEXT, MultiTexParameterIuivEXT, GetTexParameterfv, GetTexParameteriv, GetTexParameterIiv, GetTexParameterIuiv, GetTexParameterIivEXT,
+     * GetTexParameterIuivEXT, GetTextureParameterfEXT, GetTextureParameterfvEXT, GetTextureParameteriEXT, GetTextureParameterivEXT, GetTextureParameterIivEXT,
+     * GetTextureParameterIuivEXT, GetMultiTexParameterfEXT, GetMultiTexParameterfvEXT, GetMultiTexParameteriEXT, GetMultiTexParameterivEXT,
+     * GetMultiTexParameterIivEXT, GetMultiTexParameterIuivEXT, SamplerParameteri, SamplerParameterf, SamplerParameteriv, SamplerParameterfv,
+     * SamplerParameterIiv, SamplerParameterIuiv, GetSamplerParameteriv, GetSamplerParameterfv, GetSamplerParameterIiv, and GetSamplerParameterIuiv.
+     */
+    public static final int GL_TEXTURE_SRGB_DECODE_EXT = 0x8A48;
 
-	/**
-	 * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, TexParameterIiv, TexParameterIuiv,
-	 * TexParameterIivEXT, TexParameterIuivEXT, TextureParameterfEXT, TextureParameterfvEXT, TextureParameteriEXT, TextureParameterivEXT,
-	 * TextureParameterIivEXT, TextureParameterIuivEXT, MultiTexParameterfEXT, MultiTexParameterfvEXT, MultiTexParameteriEXT, MultiTexParameterivEXT,
-	 * MultiTexParameterIivEXT, MultiTexParameterIuivEXT, SamplerParameteri, SamplerParameterf, SamplerParameteriv, SamplerParameterfv, SamplerParameterIiv,
-	 * and SamplerParameterIuiv.
-	 */
-	public static final int
-		GL_DECODE_EXT      = 0x8A49,
-		GL_SKIP_DECODE_EXT = 0x8A4A;
+    /**
+     * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, TexParameterIiv, TexParameterIuiv,
+     * TexParameterIivEXT, TexParameterIuivEXT, TextureParameterfEXT, TextureParameterfvEXT, TextureParameteriEXT, TextureParameterivEXT,
+     * TextureParameterIivEXT, TextureParameterIuivEXT, MultiTexParameterfEXT, MultiTexParameterfvEXT, MultiTexParameteriEXT, MultiTexParameterivEXT,
+     * MultiTexParameterIivEXT, MultiTexParameterIuivEXT, SamplerParameteri, SamplerParameterf, SamplerParameteriv, SamplerParameterfv, SamplerParameterIiv,
+     * and SamplerParameterIuiv.
+     */
+    public static final int
+        GL_DECODE_EXT      = 0x8A49,
+        GL_SKIP_DECODE_EXT = 0x8A4A;
 
-	private EXTTextureSRGBDecode() {}
+    private EXTTextureSRGBDecode() {}
 
 }

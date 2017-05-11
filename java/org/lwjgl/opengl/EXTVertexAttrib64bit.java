@@ -41,169 +41,174 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTVertexAttrib64bit {
 
-	/** Returned in the {@code type} parameter of GetActiveAttrib. */
-	public static final int
-		GL_DOUBLE_VEC2_EXT   = 0x8FFC,
-		GL_DOUBLE_VEC3_EXT   = 0x8FFD,
-		GL_DOUBLE_VEC4_EXT   = 0x8FFE,
-		GL_DOUBLE_MAT2_EXT   = 0x8F46,
-		GL_DOUBLE_MAT3_EXT   = 0x8F47,
-		GL_DOUBLE_MAT4_EXT   = 0x8F48,
-		GL_DOUBLE_MAT2x3_EXT = 0x8F49,
-		GL_DOUBLE_MAT2x4_EXT = 0x8F4A,
-		GL_DOUBLE_MAT3x2_EXT = 0x8F4B,
-		GL_DOUBLE_MAT3x4_EXT = 0x8F4C,
-		GL_DOUBLE_MAT4x2_EXT = 0x8F4D,
-		GL_DOUBLE_MAT4x3_EXT = 0x8F4E;
+    /** Returned in the {@code type} parameter of GetActiveAttrib. */
+    public static final int
+        GL_DOUBLE_VEC2_EXT   = 0x8FFC,
+        GL_DOUBLE_VEC3_EXT   = 0x8FFD,
+        GL_DOUBLE_VEC4_EXT   = 0x8FFE,
+        GL_DOUBLE_MAT2_EXT   = 0x8F46,
+        GL_DOUBLE_MAT3_EXT   = 0x8F47,
+        GL_DOUBLE_MAT4_EXT   = 0x8F48,
+        GL_DOUBLE_MAT2x3_EXT = 0x8F49,
+        GL_DOUBLE_MAT2x4_EXT = 0x8F4A,
+        GL_DOUBLE_MAT3x2_EXT = 0x8F4B,
+        GL_DOUBLE_MAT3x4_EXT = 0x8F4C,
+        GL_DOUBLE_MAT4x2_EXT = 0x8F4D,
+        GL_DOUBLE_MAT4x3_EXT = 0x8F4E;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTVertexAttrib64bit() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTVertexAttrib64bit() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
-		return checkFunctions(
-			caps.glVertexAttribL1dEXT, caps.glVertexAttribL2dEXT, caps.glVertexAttribL3dEXT, caps.glVertexAttribL4dEXT, caps.glVertexAttribL1dvEXT, 
-			caps.glVertexAttribL2dvEXT, caps.glVertexAttribL3dvEXT, caps.glVertexAttribL4dvEXT, caps.glVertexAttribLPointerEXT, caps.glGetVertexAttribLdvEXT, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glVertexArrayVertexAttribLOffsetEXT : -1L
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+        return checkFunctions(
+            caps.glVertexAttribL1dEXT, caps.glVertexAttribL2dEXT, caps.glVertexAttribL3dEXT, caps.glVertexAttribL4dEXT, caps.glVertexAttribL1dvEXT, 
+            caps.glVertexAttribL2dvEXT, caps.glVertexAttribL3dvEXT, caps.glVertexAttribL4dvEXT, caps.glVertexAttribLPointerEXT, caps.glGetVertexAttribLdvEXT, 
+            ext.contains("GL_EXT_direct_state_access") ? caps.glVertexArrayVertexAttribLOffsetEXT : -1L
+        );
+    }
 
-	// --- [ glVertexAttribL1dEXT ] ---
+    // --- [ glVertexAttribL1dEXT ] ---
 
-	public static native void glVertexAttribL1dEXT(int index, double x);
+    public static native void glVertexAttribL1dEXT(int index, double x);
 
-	// --- [ glVertexAttribL2dEXT ] ---
+    // --- [ glVertexAttribL2dEXT ] ---
 
-	public static native void glVertexAttribL2dEXT(int index, double x, double y);
+    public static native void glVertexAttribL2dEXT(int index, double x, double y);
 
-	// --- [ glVertexAttribL3dEXT ] ---
+    // --- [ glVertexAttribL3dEXT ] ---
 
-	public static native void glVertexAttribL3dEXT(int index, double x, double y, double z);
+    public static native void glVertexAttribL3dEXT(int index, double x, double y, double z);
 
-	// --- [ glVertexAttribL4dEXT ] ---
+    // --- [ glVertexAttribL4dEXT ] ---
 
-	public static native void glVertexAttribL4dEXT(int index, double x, double y, double z, double w);
+    public static native void glVertexAttribL4dEXT(int index, double x, double y, double z, double w);
 
-	// --- [ glVertexAttribL1dvEXT ] ---
+    // --- [ glVertexAttribL1dvEXT ] ---
 
-	public static native void nglVertexAttribL1dvEXT(int index, long v);
+    public static native void nglVertexAttribL1dvEXT(int index, long v);
 
-	public static void glVertexAttribL1dvEXT(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 1);
-		nglVertexAttribL1dvEXT(index, memAddress(v));
-	}
+    public static void glVertexAttribL1dvEXT(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 1);
+        }
+        nglVertexAttribL1dvEXT(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribL2dvEXT ] ---
+    // --- [ glVertexAttribL2dvEXT ] ---
 
-	public static native void nglVertexAttribL2dvEXT(int index, long v);
+    public static native void nglVertexAttribL2dvEXT(int index, long v);
 
-	public static void glVertexAttribL2dvEXT(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 2);
-		nglVertexAttribL2dvEXT(index, memAddress(v));
-	}
+    public static void glVertexAttribL2dvEXT(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 2);
+        }
+        nglVertexAttribL2dvEXT(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribL3dvEXT ] ---
+    // --- [ glVertexAttribL3dvEXT ] ---
 
-	public static native void nglVertexAttribL3dvEXT(int index, long v);
+    public static native void nglVertexAttribL3dvEXT(int index, long v);
 
-	public static void glVertexAttribL3dvEXT(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 3);
-		nglVertexAttribL3dvEXT(index, memAddress(v));
-	}
+    public static void glVertexAttribL3dvEXT(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 3);
+        }
+        nglVertexAttribL3dvEXT(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribL4dvEXT ] ---
+    // --- [ glVertexAttribL4dvEXT ] ---
 
-	public static native void nglVertexAttribL4dvEXT(int index, long v);
+    public static native void nglVertexAttribL4dvEXT(int index, long v);
 
-	public static void glVertexAttribL4dvEXT(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribL4dvEXT(index, memAddress(v));
-	}
+    public static void glVertexAttribL4dvEXT(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribL4dvEXT(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribLPointerEXT ] ---
+    // --- [ glVertexAttribLPointerEXT ] ---
 
-	public static native void nglVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer);
+    public static native void nglVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer);
 
-	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-		nglVertexAttribLPointerEXT(index, size, type, stride, memAddress(pointer));
-	}
+    public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
+        nglVertexAttribLPointerEXT(index, size, type, stride, memAddress(pointer));
+    }
 
-	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
-		nglVertexAttribLPointerEXT(index, size, type, stride, pointer);
-	}
+    public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
+        nglVertexAttribLPointerEXT(index, size, type, stride, pointer);
+    }
 
-	public static void glVertexAttribLPointerEXT(int index, int size, int stride, DoubleBuffer pointer) {
-		nglVertexAttribLPointerEXT(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
-	}
+    public static void glVertexAttribLPointerEXT(int index, int size, int stride, DoubleBuffer pointer) {
+        nglVertexAttribLPointerEXT(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
+    }
 
-	// --- [ glGetVertexAttribLdvEXT ] ---
+    // --- [ glGetVertexAttribLdvEXT ] ---
 
-	public static native void nglGetVertexAttribLdvEXT(int index, int pname, long params);
+    public static native void nglGetVertexAttribLdvEXT(int index, int pname, long params);
 
-	public static void glGetVertexAttribLdvEXT(int index, int pname, DoubleBuffer params) {
-		if ( CHECKS )
-			check(params, 4);
-		nglGetVertexAttribLdvEXT(index, pname, memAddress(params));
-	}
+    public static void glGetVertexAttribLdvEXT(int index, int pname, DoubleBuffer params) {
+        if (CHECKS) {
+            check(params, 4);
+        }
+        nglGetVertexAttribLdvEXT(index, pname, memAddress(params));
+    }
 
-	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
+    // --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
-	public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
+    public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
 
-	/** Array version of: {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
-	public static void glVertexAttribL1dvEXT(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL1dvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 1);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
+    public static void glVertexAttribL1dvEXT(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL1dvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 1);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
-	public static void glVertexAttribL2dvEXT(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL2dvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 2);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
+    public static void glVertexAttribL2dvEXT(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL2dvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 2);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
-	public static void glVertexAttribL3dvEXT(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL3dvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 3);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
+    public static void glVertexAttribL3dvEXT(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL3dvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 3);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
-	public static void glVertexAttribL4dvEXT(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL4dvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 4);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
+    public static void glVertexAttribL4dvEXT(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL4dvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 4);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
-	public static void glGetVertexAttribLdvEXT(int index, int pname, double[] params) {
-		long __functionAddress = GL.getICD().glGetVertexAttribLdvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 4);
-		}
-		callPV(__functionAddress, index, pname, params);
-	}
+    /** Array version of: {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
+    public static void glGetVertexAttribLdvEXT(int index, int pname, double[] params) {
+        long __functionAddress = GL.getICD().glGetVertexAttribLdvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 4);
+        }
+        callPV(__functionAddress, index, pname, params);
+    }
 
 }

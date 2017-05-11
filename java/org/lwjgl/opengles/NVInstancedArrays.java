@@ -29,23 +29,23 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVInstancedArrays {
 
-	/** Accepted by the {@code pname} parameters of GetVertexAttribfv, and GetVertexAttribiv. */
-	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV = 0x88FE;
+    /** Accepted by the {@code pname} parameters of GetVertexAttribfv, and GetVertexAttribiv. */
+    public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV = 0x88FE;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVInstancedArrays() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVInstancedArrays() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glVertexAttribDivisorNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glVertexAttribDivisorNV
+        );
+    }
 
-	// --- [ glVertexAttribDivisorNV ] ---
+    // --- [ glVertexAttribDivisorNV ] ---
 
-	public static native void glVertexAttribDivisorNV(int index, int divisor);
+    public static native void glVertexAttribDivisorNV(int index, int divisor);
 
 }

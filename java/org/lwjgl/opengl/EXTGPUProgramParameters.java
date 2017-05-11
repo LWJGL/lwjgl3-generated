@@ -23,48 +23,50 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTGPUProgramParameters {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTGPUProgramParameters() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTGPUProgramParameters() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glProgramEnvParameters4fvEXT, caps.glProgramLocalParameters4fvEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glProgramEnvParameters4fvEXT, caps.glProgramLocalParameters4fvEXT
+        );
+    }
 
-	// --- [ glProgramEnvParameters4fvEXT ] ---
+    // --- [ glProgramEnvParameters4fvEXT ] ---
 
-	public static native void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params);
+    public static native void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params);
 
-	public static void glProgramEnvParameters4fvEXT(int target, int index, FloatBuffer params) {
-		nglProgramEnvParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
-	}
+    public static void glProgramEnvParameters4fvEXT(int target, int index, FloatBuffer params) {
+        nglProgramEnvParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
+    }
 
-	// --- [ glProgramLocalParameters4fvEXT ] ---
+    // --- [ glProgramLocalParameters4fvEXT ] ---
 
-	public static native void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params);
+    public static native void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params);
 
-	public static void glProgramLocalParameters4fvEXT(int target, int index, FloatBuffer params) {
-		nglProgramLocalParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
-	}
+    public static void glProgramLocalParameters4fvEXT(int target, int index, FloatBuffer params) {
+        nglProgramLocalParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
+    }
 
-	/** Array version of: {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
-	public static void glProgramEnvParameters4fvEXT(int target, int index, float[] params) {
-		long __functionAddress = GL.getICD().glProgramEnvParameters4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params.length >> 2, params);
-	}
+    /** Array version of: {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
+    public static void glProgramEnvParameters4fvEXT(int target, int index, float[] params) {
+        long __functionAddress = GL.getICD().glProgramEnvParameters4fvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, index, params.length >> 2, params);
+    }
 
-	/** Array version of: {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
-	public static void glProgramLocalParameters4fvEXT(int target, int index, float[] params) {
-		long __functionAddress = GL.getICD().glProgramLocalParameters4fvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, index, params.length >> 2, params);
-	}
+    /** Array version of: {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
+    public static void glProgramLocalParameters4fvEXT(int target, int index, float[] params) {
+        long __functionAddress = GL.getICD().glProgramLocalParameters4fvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, index, params.length >> 2, params);
+    }
 
 }

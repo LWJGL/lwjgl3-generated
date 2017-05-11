@@ -23,9 +23,9 @@ package org.lwjgl.egl;
  */
 public final class EXTGLColorspaceSCRGBLinear {
 
-	/** Accepted as attribute values for {@link EGL15#EGL_GL_COLORSPACE GL_COLORSPACE} by {@link EGL10#eglCreateWindowSurface CreateWindowSurface}, {@link EGL10#eglCreatePbufferSurface CreatePbufferSurface} and {@link EGL10#eglCreatePixmapSurface CreatePixmapSurface}. */
-	public static final int EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT = 0x3350;
+    /** Accepted as attribute values for {@link EGL15#EGL_GL_COLORSPACE GL_COLORSPACE} by {@link EGL10#eglCreateWindowSurface CreateWindowSurface}, {@link EGL10#eglCreatePbufferSurface CreatePbufferSurface} and {@link EGL10#eglCreatePixmapSurface CreatePixmapSurface}. */
+    public static final int EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT = 0x3350;
 
-	private EXTGLColorspaceSCRGBLinear() {}
+    private EXTGLColorspaceSCRGBLinear() {}
 
 }

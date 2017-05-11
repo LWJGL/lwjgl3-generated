@@ -32,46 +32,47 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class VkInternalAllocationNotification extends Callback implements VkInternalAllocationNotificationI {
 
-	/** Creates a {@code VkInternalAllocationNotification} instance from the specified function pointer. */
-	public static VkInternalAllocationNotification create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code VkInternalAllocationNotification} instance from the specified function pointer. */
+    public static VkInternalAllocationNotification create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		VkInternalAllocationNotificationI instance = Callback.get(functionPointer);
-		return instance instanceof VkInternalAllocationNotification
-			? (VkInternalAllocationNotification)instance
-			: new Container(functionPointer, instance);
-	}
+        VkInternalAllocationNotificationI instance = Callback.get(functionPointer);
+        return instance instanceof VkInternalAllocationNotification
+            ? (VkInternalAllocationNotification)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code VkInternalAllocationNotification} instance that delegates to the specified {@code VkInternalAllocationNotificationI} instance. */
-	public static VkInternalAllocationNotification create(VkInternalAllocationNotificationI instance) {
-		return instance instanceof VkInternalAllocationNotification
-			? (VkInternalAllocationNotification)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code VkInternalAllocationNotification} instance that delegates to the specified {@code VkInternalAllocationNotificationI} instance. */
+    public static VkInternalAllocationNotification create(VkInternalAllocationNotificationI instance) {
+        return instance instanceof VkInternalAllocationNotification
+            ? (VkInternalAllocationNotification)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected VkInternalAllocationNotification() {
-		super(SIGNATURE);
-	}
+    protected VkInternalAllocationNotification() {
+        super(SIGNATURE);
+    }
 
-	private VkInternalAllocationNotification(long functionPointer) {
-		super(functionPointer);
-	}
+    private VkInternalAllocationNotification(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends VkInternalAllocationNotification {
+    private static final class Container extends VkInternalAllocationNotification {
 
-		private final VkInternalAllocationNotificationI delegate;
+        private final VkInternalAllocationNotificationI delegate;
 
-		Container(long functionPointer, VkInternalAllocationNotificationI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, VkInternalAllocationNotificationI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
-			delegate.invoke(pUserData, size, allocationType, allocationScope);
-		}
+        @Override
+        public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
+            delegate.invoke(pUserData, size, allocationType, allocationScope);
+        }
 
-	}
+    }
 
 }

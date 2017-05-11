@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkDalloc extends Callback implements ChunkDallocI {
 
-	/** Creates a {@code ChunkDalloc} instance from the specified function pointer. */
-	public static ChunkDalloc create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code ChunkDalloc} instance from the specified function pointer. */
+    public static ChunkDalloc create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		ChunkDallocI instance = Callback.get(functionPointer);
-		return instance instanceof ChunkDalloc
-			? (ChunkDalloc)instance
-			: new Container(functionPointer, instance);
-	}
+        ChunkDallocI instance = Callback.get(functionPointer);
+        return instance instanceof ChunkDalloc
+            ? (ChunkDalloc)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code ChunkDalloc} instance that delegates to the specified {@code ChunkDallocI} instance. */
-	public static ChunkDalloc create(ChunkDallocI instance) {
-		return instance instanceof ChunkDalloc
-			? (ChunkDalloc)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code ChunkDalloc} instance that delegates to the specified {@code ChunkDallocI} instance. */
+    public static ChunkDalloc create(ChunkDallocI instance) {
+        return instance instanceof ChunkDalloc
+            ? (ChunkDalloc)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected ChunkDalloc() {
-		super(SIGNATURE);
-	}
+    protected ChunkDalloc() {
+        super(SIGNATURE);
+    }
 
-	private ChunkDalloc(long functionPointer) {
-		super(functionPointer);
-	}
+    private ChunkDalloc(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends ChunkDalloc {
+    private static final class Container extends ChunkDalloc {
 
-		private final ChunkDallocI delegate;
+        private final ChunkDallocI delegate;
 
-		Container(long functionPointer, ChunkDallocI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, ChunkDallocI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
-			return delegate.invoke(chunk, size, committed, arena_ind);
-		}
+        @Override
+        public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
+            return delegate.invoke(chunk, size, committed, arena_ind);
+        }
 
-	}
+    }
 
 }

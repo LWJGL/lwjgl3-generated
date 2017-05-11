@@ -25,31 +25,31 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTRasterMultisample {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
-	public static final int GL_RASTER_MULTISAMPLE_EXT = 0x9327;
+    /** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
+    public static final int GL_RASTER_MULTISAMPLE_EXT = 0x9327;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_RASTER_SAMPLES_EXT                    = 0x9328,
-		GL_MAX_RASTER_SAMPLES_EXT                = 0x9329,
-		GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT     = 0x932A,
-		GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
-		GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_RASTER_SAMPLES_EXT                    = 0x9328,
+        GL_MAX_RASTER_SAMPLES_EXT                = 0x9329,
+        GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT     = 0x932A,
+        GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
+        GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTRasterMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTRasterMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glRasterSamplesEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glRasterSamplesEXT
+        );
+    }
 
-	// --- [ glRasterSamplesEXT ] ---
+    // --- [ glRasterSamplesEXT ] ---
 
-	public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+    public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
 
 }

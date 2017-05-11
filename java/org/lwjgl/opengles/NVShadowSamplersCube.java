@@ -14,9 +14,9 @@ package org.lwjgl.opengles;
  */
 public final class NVShadowSamplersCube {
 
-	/** Returned in {@code type} by glGetActiveUniform. */
-	public static final int GL_SAMPLER_CUBE_SHADOW_NV = 0x8DC5;
+    /** Returned in {@code type} by glGetActiveUniform. */
+    public static final int GL_SAMPLER_CUBE_SHADOW_NV = 0x8DC5;
 
-	private NVShadowSamplersCube() {}
+    private NVShadowSamplersCube() {}
 
 }

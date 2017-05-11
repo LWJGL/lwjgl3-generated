@@ -20,197 +20,204 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class DynLoad {
 
-	static { Library.initialize(); }
+    static { Library.initialize(); }
 
-	protected DynLoad() {
-		throw new UnsupportedOperationException();
-	}
+    protected DynLoad() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ dlLoadLibrary ] ---
+    // --- [ dlLoadLibrary ] ---
 
-	/** Unsafe version of: {@link #dlLoadLibrary LoadLibrary} */
-	public static native long ndlLoadLibrary(long libpath);
+    /** Unsafe version of: {@link #dlLoadLibrary LoadLibrary} */
+    public static native long ndlLoadLibrary(long libpath);
 
-	/**
-	 * Loads a dynamic library at {@code libpath} and returns a handle to it.
-	 *
-	 * @param libpath the dynamic library path
-	 */
-	public static long dlLoadLibrary(ByteBuffer libpath) {
-		if ( CHECKS )
-			checkNT1(libpath);
-		return ndlLoadLibrary(memAddress(libpath));
-	}
+    /**
+     * Loads a dynamic library at {@code libpath} and returns a handle to it.
+     *
+     * @param libpath the dynamic library path
+     */
+    public static long dlLoadLibrary(ByteBuffer libpath) {
+        if (CHECKS) {
+            checkNT1(libpath);
+        }
+        return ndlLoadLibrary(memAddress(libpath));
+    }
 
-	/**
-	 * Loads a dynamic library at {@code libpath} and returns a handle to it.
-	 *
-	 * @param libpath the dynamic library path
-	 */
-	public static long dlLoadLibrary(CharSequence libpath) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer libpathEncoded = stack.ASCII(libpath);
-			return ndlLoadLibrary(memAddress(libpathEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Loads a dynamic library at {@code libpath} and returns a handle to it.
+     *
+     * @param libpath the dynamic library path
+     */
+    public static long dlLoadLibrary(CharSequence libpath) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer libpathEncoded = stack.ASCII(libpath);
+            return ndlLoadLibrary(memAddress(libpathEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ dlFreeLibrary ] ---
+    // --- [ dlFreeLibrary ] ---
 
-	/** Unsafe version of: {@link #dlFreeLibrary FreeLibrary} */
-	public static native void ndlFreeLibrary(long pLib);
+    /** Unsafe version of: {@link #dlFreeLibrary FreeLibrary} */
+    public static native void ndlFreeLibrary(long pLib);
 
-	/**
-	 * Frees a loaded library.
-	 *
-	 * @param pLib the dynamic library to free
-	 */
-	public static void dlFreeLibrary(long pLib) {
-		if ( CHECKS )
-			check(pLib);
-		ndlFreeLibrary(pLib);
-	}
+    /**
+     * Frees a loaded library.
+     *
+     * @param pLib the dynamic library to free
+     */
+    public static void dlFreeLibrary(long pLib) {
+        if (CHECKS) {
+            check(pLib);
+        }
+        ndlFreeLibrary(pLib);
+    }
 
-	// --- [ dlFindSymbol ] ---
+    // --- [ dlFindSymbol ] ---
 
-	/** Unsafe version of: {@link #dlFindSymbol FindSymbol} */
-	public static native long ndlFindSymbol(long pLib, long pSymbolName);
+    /** Unsafe version of: {@link #dlFindSymbol FindSymbol} */
+    public static native long ndlFindSymbol(long pLib, long pSymbolName);
 
-	/**
-	 * Returns a pointer to a symbol with name {@code pSymbolName} in the library with handle {@code pLib}, or returns a null pointer if the symbol cannot be
-	 * found.
-	 *
-	 * @param pLib        the dynamic library
-	 * @param pSymbolName the symbol name
-	 */
-	public static long dlFindSymbol(long pLib, ByteBuffer pSymbolName) {
-		if ( CHECKS ) {
-			check(pLib);
-			checkNT1(pSymbolName);
-		}
-		return ndlFindSymbol(pLib, memAddress(pSymbolName));
-	}
+    /**
+     * Returns a pointer to a symbol with name {@code pSymbolName} in the library with handle {@code pLib}, or returns a null pointer if the symbol cannot be
+     * found.
+     *
+     * @param pLib        the dynamic library
+     * @param pSymbolName the symbol name
+     */
+    public static long dlFindSymbol(long pLib, ByteBuffer pSymbolName) {
+        if (CHECKS) {
+            check(pLib);
+            checkNT1(pSymbolName);
+        }
+        return ndlFindSymbol(pLib, memAddress(pSymbolName));
+    }
 
-	/**
-	 * Returns a pointer to a symbol with name {@code pSymbolName} in the library with handle {@code pLib}, or returns a null pointer if the symbol cannot be
-	 * found.
-	 *
-	 * @param pLib        the dynamic library
-	 * @param pSymbolName the symbol name
-	 */
-	public static long dlFindSymbol(long pLib, CharSequence pSymbolName) {
-		if ( CHECKS )
-			check(pLib);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pSymbolNameEncoded = stack.ASCII(pSymbolName);
-			return ndlFindSymbol(pLib, memAddress(pSymbolNameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns a pointer to a symbol with name {@code pSymbolName} in the library with handle {@code pLib}, or returns a null pointer if the symbol cannot be
+     * found.
+     *
+     * @param pLib        the dynamic library
+     * @param pSymbolName the symbol name
+     */
+    public static long dlFindSymbol(long pLib, CharSequence pSymbolName) {
+        if (CHECKS) {
+            check(pLib);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pSymbolNameEncoded = stack.ASCII(pSymbolName);
+            return ndlFindSymbol(pLib, memAddress(pSymbolNameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ dlSymsInit ] ---
+    // --- [ dlSymsInit ] ---
 
-	/** Unsafe version of: {@link #dlSymsInit SymsInit} */
-	public static native long ndlSymsInit(long libPath);
+    /** Unsafe version of: {@link #dlSymsInit SymsInit} */
+    public static native long ndlSymsInit(long libPath);
 
-	/**
-	 * Creates a new {@code DLSyms} object.
-	 *
-	 * @param libPath the dynamic library path
-	 */
-	public static long dlSymsInit(ByteBuffer libPath) {
-		if ( CHECKS )
-			checkNT1(libPath);
-		return ndlSymsInit(memAddress(libPath));
-	}
+    /**
+     * Creates a new {@code DLSyms} object.
+     *
+     * @param libPath the dynamic library path
+     */
+    public static long dlSymsInit(ByteBuffer libPath) {
+        if (CHECKS) {
+            checkNT1(libPath);
+        }
+        return ndlSymsInit(memAddress(libPath));
+    }
 
-	/**
-	 * Creates a new {@code DLSyms} object.
-	 *
-	 * @param libPath the dynamic library path
-	 */
-	public static long dlSymsInit(CharSequence libPath) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer libPathEncoded = stack.ASCII(libPath);
-			return ndlSymsInit(memAddress(libPathEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Creates a new {@code DLSyms} object.
+     *
+     * @param libPath the dynamic library path
+     */
+    public static long dlSymsInit(CharSequence libPath) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer libPathEncoded = stack.ASCII(libPath);
+            return ndlSymsInit(memAddress(libPathEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ dlSymsCleanup ] ---
+    // --- [ dlSymsCleanup ] ---
 
-	/** Unsafe version of: {@link #dlSymsCleanup SymsCleanup} */
-	public static native void ndlSymsCleanup(long pSyms);
+    /** Unsafe version of: {@link #dlSymsCleanup SymsCleanup} */
+    public static native void ndlSymsCleanup(long pSyms);
 
-	/**
-	 * Frees the specified {@code DLSyms} object.
-	 *
-	 * @param pSyms the {@code DLSyms} object to free
-	 */
-	public static void dlSymsCleanup(long pSyms) {
-		if ( CHECKS )
-			check(pSyms);
-		ndlSymsCleanup(pSyms);
-	}
+    /**
+     * Frees the specified {@code DLSyms} object.
+     *
+     * @param pSyms the {@code DLSyms} object to free
+     */
+    public static void dlSymsCleanup(long pSyms) {
+        if (CHECKS) {
+            check(pSyms);
+        }
+        ndlSymsCleanup(pSyms);
+    }
 
-	// --- [ dlSymsCount ] ---
+    // --- [ dlSymsCount ] ---
 
-	/** Unsafe version of: {@link #dlSymsCount SymsCount} */
-	public static native int ndlSymsCount(long pSyms);
+    /** Unsafe version of: {@link #dlSymsCount SymsCount} */
+    public static native int ndlSymsCount(long pSyms);
 
-	/**
-	 * Returns the number of symbols exported by the specified library.
-	 *
-	 * @param pSyms a {@code DLSyms} object
-	 */
-	public static int dlSymsCount(long pSyms) {
-		if ( CHECKS )
-			check(pSyms);
-		return ndlSymsCount(pSyms);
-	}
+    /**
+     * Returns the number of symbols exported by the specified library.
+     *
+     * @param pSyms a {@code DLSyms} object
+     */
+    public static int dlSymsCount(long pSyms) {
+        if (CHECKS) {
+            check(pSyms);
+        }
+        return ndlSymsCount(pSyms);
+    }
 
-	// --- [ dlSymsName ] ---
+    // --- [ dlSymsName ] ---
 
-	/** Unsafe version of: {@link #dlSymsName SymsName} */
-	public static native long ndlSymsName(long pSyms, int index);
+    /** Unsafe version of: {@link #dlSymsName SymsName} */
+    public static native long ndlSymsName(long pSyms, int index);
 
-	/**
-	 * Returns the symbol name exported by the specified library at the specified index.
-	 *
-	 * @param pSyms a {@code DLSyms} object
-	 * @param index 
-	 */
-	public static String dlSymsName(long pSyms, int index) {
-		if ( CHECKS )
-			check(pSyms);
-		long __result = ndlSymsName(pSyms, index);
-		return memASCII(__result);
-	}
+    /**
+     * Returns the symbol name exported by the specified library at the specified index.
+     *
+     * @param pSyms a {@code DLSyms} object
+     * @param index 
+     */
+    public static String dlSymsName(long pSyms, int index) {
+        if (CHECKS) {
+            check(pSyms);
+        }
+        long __result = ndlSymsName(pSyms, index);
+        return memASCII(__result);
+    }
 
-	// --- [ dlSymsNameFromValue ] ---
+    // --- [ dlSymsNameFromValue ] ---
 
-	/** Unsafe version of: {@link #dlSymsNameFromValue SymsNameFromValue} */
-	public static native long ndlSymsNameFromValue(long pSyms, long value);
+    /** Unsafe version of: {@link #dlSymsNameFromValue SymsNameFromValue} */
+    public static native long ndlSymsNameFromValue(long pSyms, long value);
 
-	/**
-	 * Returns the symbol name exported by the specified library at the specified address.
-	 *
-	 * @param pSyms a {@code DLSyms} object
-	 * @param value the symbol address
-	 */
-	public static String dlSymsNameFromValue(long pSyms, long value) {
-		if ( CHECKS ) {
-			check(pSyms);
-			check(value);
-		}
-		long __result = ndlSymsNameFromValue(pSyms, value);
-		return memASCII(__result);
-	}
+    /**
+     * Returns the symbol name exported by the specified library at the specified address.
+     *
+     * @param pSyms a {@code DLSyms} object
+     * @param value the symbol address
+     */
+    public static String dlSymsNameFromValue(long pSyms, long value) {
+        if (CHECKS) {
+            check(pSyms);
+            check(value);
+        }
+        long __result = ndlSymsNameFromValue(pSyms, value);
+        return memASCII(__result);
+    }
 
 }

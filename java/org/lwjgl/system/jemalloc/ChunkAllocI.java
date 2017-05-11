@@ -13,33 +13,33 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface ChunkAllocI extends CallbackI.P {
 
-	String SIGNATURE = "(pppppi)p";
+    String SIGNATURE = "(pppppi)p";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Chunk allocation hook.
-	 *
-	 * @param new_addr  
-	 * @param size      
-	 * @param alignment 
-	 * @param zero      
-	 * @param commit    
-	 * @param arena_ind 
-	 */
-	long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
+    /**
+     * Chunk allocation hook.
+     *
+     * @param new_addr  
+     * @param size      
+     * @param alignment 
+     * @param zero      
+     * @param commit    
+     * @param arena_ind 
+     */
+    long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
 
 }

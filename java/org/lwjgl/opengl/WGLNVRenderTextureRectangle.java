@@ -14,20 +14,20 @@ package org.lwjgl.opengl;
  */
 public final class WGLNVRenderTextureRectangle {
 
-	/**
-	 * Accepted by the {@code piAttributes} parameter of wglGetPixelFormatAttribivARB, wglGetPixelFormatAttribfvARB, and the {@code piAttribIList} and
-	 * {@code pfAttribIList} parameters of wglChoosePixelFormatARB.
-	 */
-	public static final int
-		WGL_BIND_TO_TEXTURE_RECTANGLE_RGB_NV  = 0x20A0,
-		WGL_BIND_TO_TEXTURE_RECTANGLE_RGBA_NV = 0x20A1;
+    /**
+     * Accepted by the {@code piAttributes} parameter of wglGetPixelFormatAttribivARB, wglGetPixelFormatAttribfvARB, and the {@code piAttribIList} and
+     * {@code pfAttribIList} parameters of wglChoosePixelFormatARB.
+     */
+    public static final int
+        WGL_BIND_TO_TEXTURE_RECTANGLE_RGB_NV  = 0x20A0,
+        WGL_BIND_TO_TEXTURE_RECTANGLE_RGBA_NV = 0x20A1;
 
-	/**
-	 * Accepted as a value in the {@code piAttribList} parameter of wglCreatePbufferARB and returned in the value parameter of wglQueryPbufferARB when
-	 * {@code iAttribute} is WGL_TEXTURE_TARGET_ARB.
-	 */
-	public static final int WGL_TEXTURE_RECTANGLE_NV = 0x20A2;
+    /**
+     * Accepted as a value in the {@code piAttribList} parameter of wglCreatePbufferARB and returned in the value parameter of wglQueryPbufferARB when
+     * {@code iAttribute} is WGL_TEXTURE_TARGET_ARB.
+     */
+    public static final int WGL_TEXTURE_RECTANGLE_NV = 0x20A2;
 
-	private WGLNVRenderTextureRectangle() {}
+    private WGLNVRenderTextureRectangle() {}
 
 }

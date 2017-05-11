@@ -11,24 +11,25 @@ import static org.lwjgl.system.JNI.*;
 /** Native bindings to GLX 1.2. */
 public class GLX12 {
 
-	protected GLX12() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLX12() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXGetCurrentDisplay
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXGetCurrentDisplay
+        );
+    }
 
-	// --- [ glXGetCurrentDisplay ] ---
+    // --- [ glXGetCurrentDisplay ] ---
 
-	/** Returns the display associated with the current context and drawable. */
-	public static long glXGetCurrentDisplay() {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplay;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress);
-	}
+    /** Returns the display associated with the current context and drawable. */
+    public static long glXGetCurrentDisplay() {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplay;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callP(__functionAddress);
+    }
 
 }

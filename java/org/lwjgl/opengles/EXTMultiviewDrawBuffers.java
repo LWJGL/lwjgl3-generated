@@ -36,84 +36,86 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTMultiviewDrawBuffers {
 
-	/** Accepted by the {@code location} parameter of DrawBuffersIndexedEXT. */
-	public static final int
-		GL_COLOR_ATTACHMENT_EXT = 0x90F0,
-		GL_MULTIVIEW_EXT        = 0x90F1;
+    /** Accepted by the {@code location} parameter of DrawBuffersIndexedEXT. */
+    public static final int
+        GL_COLOR_ATTACHMENT_EXT = 0x90F0,
+        GL_MULTIVIEW_EXT        = 0x90F1;
 
-	/** Accepted by the {@code target} parameter of GetIntegeri_EXT. */
-	public static final int
-		GL_DRAW_BUFFER_EXT = 0xC01,
-		GL_READ_BUFFER_EXT = 0xC02;
+    /** Accepted by the {@code target} parameter of GetIntegeri_EXT. */
+    public static final int
+        GL_DRAW_BUFFER_EXT = 0xC01,
+        GL_READ_BUFFER_EXT = 0xC02;
 
-	/** Accepted by the {@code target} parameter of GetInteger. */
-	public static final int GL_MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
+    /** Accepted by the {@code target} parameter of GetInteger. */
+    public static final int GL_MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTMultiviewDrawBuffers() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTMultiviewDrawBuffers() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glReadBufferIndexedEXT, caps.glDrawBuffersIndexedEXT, caps.glGetIntegeri_vEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glReadBufferIndexedEXT, caps.glDrawBuffersIndexedEXT, caps.glGetIntegeri_vEXT
+        );
+    }
 
-	// --- [ glReadBufferIndexedEXT ] ---
+    // --- [ glReadBufferIndexedEXT ] ---
 
-	public static native void glReadBufferIndexedEXT(int src, int index);
+    public static native void glReadBufferIndexedEXT(int src, int index);
 
-	// --- [ glDrawBuffersIndexedEXT ] ---
+    // --- [ glDrawBuffersIndexedEXT ] ---
 
-	public static native void nglDrawBuffersIndexedEXT(int n, long location, long indices);
+    public static native void nglDrawBuffersIndexedEXT(int n, long location, long indices);
 
-	public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
-		if ( CHECKS )
-			check(indices, location.remaining());
-		nglDrawBuffersIndexedEXT(location.remaining(), memAddress(location), memAddress(indices));
-	}
+    public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
+        if (CHECKS) {
+            check(indices, location.remaining());
+        }
+        nglDrawBuffersIndexedEXT(location.remaining(), memAddress(location), memAddress(indices));
+    }
 
-	// --- [ glGetIntegeri_vEXT ] ---
+    // --- [ glGetIntegeri_vEXT ] ---
 
-	public static native void nglGetIntegeri_vEXT(int target, int index, long data);
+    public static native void nglGetIntegeri_vEXT(int target, int index, long data);
 
-	public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
-		if ( CHECKS )
-			check(data, 1);
-		nglGetIntegeri_vEXT(target, index, memAddress(data));
-	}
+    public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
+        if (CHECKS) {
+            check(data, 1);
+        }
+        nglGetIntegeri_vEXT(target, index, memAddress(data));
+    }
 
-	public static int glGetIntegeriEXT(int target, int index) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer data = stack.callocInt(1);
-			nglGetIntegeri_vEXT(target, index, memAddress(data));
-			return data.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetIntegeriEXT(int target, int index) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer data = stack.callocInt(1);
+            nglGetIntegeri_vEXT(target, index, memAddress(data));
+            return data.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
-	public static void glDrawBuffersIndexedEXT(int[] location, int[] indices) {
-		long __functionAddress = GLES.getICD().glDrawBuffersIndexedEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(indices, location.length);
-		}
-		callPPV(__functionAddress, location.length, location, indices);
-	}
+    /** Array version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
+    public static void glDrawBuffersIndexedEXT(int[] location, int[] indices) {
+        long __functionAddress = GLES.getICD().glDrawBuffersIndexedEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(indices, location.length);
+        }
+        callPPV(__functionAddress, location.length, location, indices);
+    }
 
-	/** Array version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
-	public static void glGetIntegeri_vEXT(int target, int index, int[] data) {
-		long __functionAddress = GLES.getICD().glGetIntegeri_vEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(data, 1);
-		}
-		callPV(__functionAddress, target, index, data);
-	}
+    /** Array version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
+    public static void glGetIntegeri_vEXT(int target, int index, int[] data) {
+        long __functionAddress = GLES.getICD().glGetIntegeri_vEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(data, 1);
+        }
+        callPV(__functionAddress, target, index, data);
+    }
 
 }

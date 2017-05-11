@@ -17,48 +17,50 @@ import static org.lwjgl.system.JNI.*;
  */
 public class WGLEXTSwapControl {
 
-	protected WGLEXTSwapControl() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLEXTSwapControl() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglSwapIntervalEXT, caps.wglGetSwapIntervalEXT
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglSwapIntervalEXT, caps.wglGetSwapIntervalEXT
+        );
+    }
 
-	// --- [ wglSwapIntervalEXT ] ---
+    // --- [ wglSwapIntervalEXT ] ---
 
-	/**
-	 * Specifies the minimum number of video frame periods per buffer swap for the window associated with the current context. The interval takes effect when
-	 * {@link org.lwjgl.system.windows.GDI32#SwapBuffers} or wglSwapLayerBuffer is first called subsequent to the {@code wglSwapIntervalEXT} call.
-	 * 
-	 * <p>A video frame period is the time required by the monitor to display a full frame of video data.  In the case of an interlaced monitor, this is typically
-	 * the time required to display both the even and odd fields of a frame of video data.  An interval set to a value of 2 means that the color buffers will
-	 * be swapped at most every other video frame.</p>
-	 * 
-	 * <p>If {@code interval} is set to a value of 0, buffer swaps are not synchronized to a video frame.  The {@code interval} value is silently clamped to the
-	 * maximum implementation-dependent value supported before being stored.</p>
-	 * 
-	 * <p>The swap interval is not part of the render context state. It cannot be pushed or popped. The default swap interval is 1.</p>
-	 *
-	 * @param interval the minimum number of video frames that are displayed before a buffer swap will occur
-	 */
-	public static boolean wglSwapIntervalEXT(int interval) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglSwapIntervalEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, interval) != 0;
-	}
+    /**
+     * Specifies the minimum number of video frame periods per buffer swap for the window associated with the current context. The interval takes effect when
+     * {@link org.lwjgl.system.windows.GDI32#SwapBuffers} or wglSwapLayerBuffer is first called subsequent to the {@code wglSwapIntervalEXT} call.
+     * 
+     * <p>A video frame period is the time required by the monitor to display a full frame of video data.  In the case of an interlaced monitor, this is typically
+     * the time required to display both the even and odd fields of a frame of video data.  An interval set to a value of 2 means that the color buffers will
+     * be swapped at most every other video frame.</p>
+     * 
+     * <p>If {@code interval} is set to a value of 0, buffer swaps are not synchronized to a video frame.  The {@code interval} value is silently clamped to the
+     * maximum implementation-dependent value supported before being stored.</p>
+     * 
+     * <p>The swap interval is not part of the render context state. It cannot be pushed or popped. The default swap interval is 1.</p>
+     *
+     * @param interval the minimum number of video frames that are displayed before a buffer swap will occur
+     */
+    public static boolean wglSwapIntervalEXT(int interval) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglSwapIntervalEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress, interval) != 0;
+    }
 
-	// --- [ wglGetSwapIntervalEXT ] ---
+    // --- [ wglGetSwapIntervalEXT ] ---
 
-	/** Returns the current swap interval for the window associated with the current context. */
-	public static int wglGetSwapIntervalEXT() {
-		long __functionAddress = GL.getCapabilitiesWGL().wglGetSwapIntervalEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
-	}
+    /** Returns the current swap interval for the window associated with the current context. */
+    public static int wglGetSwapIntervalEXT() {
+        long __functionAddress = GL.getCapabilitiesWGL().wglGetSwapIntervalEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress);
+    }
 
 }

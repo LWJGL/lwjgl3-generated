@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWWindowSizeCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pii)v";
+    String SIGNATURE = "(pii)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Will be called when the specified window is resized.
-	 *
-	 * @param window the window that was resized
-	 * @param width  the new width, in screen coordinates, of the window
-	 * @param height the new height, in screen coordinates, of the window
-	 */
-	void invoke(long window, int width, int height);
+    /**
+     * Will be called when the specified window is resized.
+     *
+     * @param window the window that was resized
+     * @param width  the new width, in screen coordinates, of the window
+     * @param height the new height, in screen coordinates, of the window
+     */
+    void invoke(long window, int width, int height);
 
 }

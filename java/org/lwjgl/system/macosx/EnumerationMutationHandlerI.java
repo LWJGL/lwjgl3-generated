@@ -13,23 +13,23 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface EnumerationMutationHandlerI extends CallbackI.V {
 
-	String SIGNATURE = "(p)v";
+    String SIGNATURE = "(p)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when an object is mutated during a foreach iteration.
-	 *
-	 * @param id the object that was mutated
-	 */
-	void invoke(long id);
+    /**
+     * Will be called when an object is mutated during a foreach iteration.
+     *
+     * @param id the object that was mutated
+     */
+    void invoke(long id);
 
 }

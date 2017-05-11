@@ -24,53 +24,53 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTSparseTexture {
 
-	/**
-	 * Accepted by the {@code pname} parameter to TexParameter{if}{v}, GetTexParameter{if}v, TexParameterI{u}ivOES, GetTexParameterI{u}ivOES
-	 * TexParameterI{u}ivEXT, and GetTexParameterI{u}ivEXT.
-	 */
-	public static final int
-		GL_TEXTURE_SPARSE_EXT          = 0x91A6,
-		GL_VIRTUAL_PAGE_SIZE_INDEX_EXT = 0x91A7;
+    /**
+     * Accepted by the {@code pname} parameter to TexParameter{if}{v}, GetTexParameter{if}v, TexParameterI{u}ivOES, GetTexParameterI{u}ivOES
+     * TexParameterI{u}ivEXT, and GetTexParameterI{u}ivEXT.
+     */
+    public static final int
+        GL_TEXTURE_SPARSE_EXT          = 0x91A6,
+        GL_VIRTUAL_PAGE_SIZE_INDEX_EXT = 0x91A7;
 
-	/** Accepted by the {@code pname} parameter of GetTexParameter{if}v, GetTexParameterIi{u}vOES, and GetTexParameterIi{u}vEXT. */
-	public static final int GL_NUM_SPARSE_LEVELS_EXT = 0x91AA;
+    /** Accepted by the {@code pname} parameter of GetTexParameter{if}v, GetTexParameterIi{u}vOES, and GetTexParameterIi{u}vEXT. */
+    public static final int GL_NUM_SPARSE_LEVELS_EXT = 0x91AA;
 
-	/** Accepted by the {@code pname} parameter to GetInternalformativ. */
-	public static final int
-		GL_NUM_VIRTUAL_PAGE_SIZES_EXT = 0x91A8,
-		GL_VIRTUAL_PAGE_SIZE_X_EXT    = 0x9195,
-		GL_VIRTUAL_PAGE_SIZE_Y_EXT    = 0x9196,
-		GL_VIRTUAL_PAGE_SIZE_Z_EXT    = 0x9197;
+    /** Accepted by the {@code pname} parameter to GetInternalformativ. */
+    public static final int
+        GL_NUM_VIRTUAL_PAGE_SIZES_EXT = 0x91A8,
+        GL_VIRTUAL_PAGE_SIZE_X_EXT    = 0x9195,
+        GL_VIRTUAL_PAGE_SIZE_Y_EXT    = 0x9196,
+        GL_VIRTUAL_PAGE_SIZE_Z_EXT    = 0x9197;
 
-	/** Accepted by the {@code target} parameter to GetInternalformativ. */
-	public static final int
-		GL_TEXTURE_2D                 = 0xDE1,
-		GL_TEXTURE_2D_ARRAY           = 0x8C1A,
-		GL_TEXTURE_CUBE_MAP           = 0x8513,
-		GL_TEXTURE_CUBE_MAP_ARRAY_OES = 0x9009,
-		GL_TEXTURE_3D                 = 0x806F;
+    /** Accepted by the {@code target} parameter to GetInternalformativ. */
+    public static final int
+        GL_TEXTURE_2D                 = 0xDE1,
+        GL_TEXTURE_2D_ARRAY           = 0x8C1A,
+        GL_TEXTURE_CUBE_MAP           = 0x8513,
+        GL_TEXTURE_CUBE_MAP_ARRAY_OES = 0x9009,
+        GL_TEXTURE_3D                 = 0x806F;
 
-	/** Accepted by the {@code pname} parameter to GetIntegerv, GetFloatv, GetInteger64v, and GetBooleanv. */
-	public static final int
-		GL_MAX_SPARSE_TEXTURE_SIZE_EXT                = 0x9198,
-		GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT             = 0x9199,
-		GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT        = 0x919A,
-		GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT = 0x91A9;
+    /** Accepted by the {@code pname} parameter to GetIntegerv, GetFloatv, GetInteger64v, and GetBooleanv. */
+    public static final int
+        GL_MAX_SPARSE_TEXTURE_SIZE_EXT                = 0x9198,
+        GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT             = 0x9199,
+        GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT        = 0x919A,
+        GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT = 0x91A9;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTSparseTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTSparseTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glTexPageCommitmentARB
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glTexPageCommitmentARB
+        );
+    }
 
-	// --- [ glTexPageCommitmentARB ] ---
+    // --- [ glTexPageCommitmentARB ] ---
 
-	public static native void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
+    public static native void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit);
 
 }

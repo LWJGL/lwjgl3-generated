@@ -14,12 +14,12 @@ package org.lwjgl.opengles;
  */
 public final class QCOMPerfmonGlobalMode {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable and Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and
-	 * GetFloatv.
-	 */
-	public static final int GL_PERFMON_GLOBAL_MODE_QCOM = 0x8FA0;
+    /**
+     * Accepted by the {@code cap} parameter of Enable and Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and
+     * GetFloatv.
+     */
+    public static final int GL_PERFMON_GLOBAL_MODE_QCOM = 0x8FA0;
 
-	private QCOMPerfmonGlobalMode() {}
+    private QCOMPerfmonGlobalMode() {}
 
 }

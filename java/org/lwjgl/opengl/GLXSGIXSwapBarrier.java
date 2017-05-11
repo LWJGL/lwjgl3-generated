@@ -20,70 +20,71 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class GLXSGIXSwapBarrier {
 
-	protected GLXSGIXSwapBarrier() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXSGIXSwapBarrier() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXBindSwapBarrierSGIX, caps.glXQueryMaxSwapBarriersSGIX
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXBindSwapBarrierSGIX, caps.glXQueryMaxSwapBarriersSGIX
+        );
+    }
 
-	// --- [ glXBindSwapBarrierSGIX ] ---
+    // --- [ glXBindSwapBarrierSGIX ] ---
 
-	/**
-	 * Binds the swap group that contains {@code drawable} to {@code barrier}. Subsequent buffer swaps for that group will be subject to this binding, until
-	 * the group is unbound from {@code barrier}. If {@code barrier} is zero, the group is unbound from its current barrier, if any.
-	 *
-	 * @param display  the connection to the X server
-	 * @param drawable the swap group GLXDrawable
-	 * @param barrier  the swap barrier
-	 */
-	public static void glXBindSwapBarrierSGIX(long display, long drawable, int barrier) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierSGIX;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(drawable);
-		}
-		callPPV(__functionAddress, display, drawable, barrier);
-	}
+    /**
+     * Binds the swap group that contains {@code drawable} to {@code barrier}. Subsequent buffer swaps for that group will be subject to this binding, until
+     * the group is unbound from {@code barrier}. If {@code barrier} is zero, the group is unbound from its current barrier, if any.
+     *
+     * @param display  the connection to the X server
+     * @param drawable the swap group GLXDrawable
+     * @param barrier  the swap barrier
+     */
+    public static void glXBindSwapBarrierSGIX(long display, long drawable, int barrier) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierSGIX;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(drawable);
+        }
+        callPPV(__functionAddress, display, drawable, barrier);
+    }
 
-	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
+    // --- [ glXQueryMaxSwapBarriersSGIX ] ---
 
-	/** Unsafe version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
-	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		return callPPI(__functionAddress, display, screen, max);
-	}
+    /** Unsafe version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
+    public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        return callPPI(__functionAddress, display, screen, max);
+    }
 
-	/**
-	 * Returns in {@code max} the maximum number of barriers supported by an implementation on {@code screen}.
-	 *
-	 * @param display the connection to the X server
-	 * @param screen  the screen
-	 * @param max     returns the maximum number of barriers
-	 */
-	public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
-		if ( CHECKS )
-			check(max, 1);
-		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max)) != 0;
-	}
+    /**
+     * Returns in {@code max} the maximum number of barriers supported by an implementation on {@code screen}.
+     *
+     * @param display the connection to the X server
+     * @param screen  the screen
+     * @param max     returns the maximum number of barriers
+     */
+    public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
+        if (CHECKS) {
+            check(max, 1);
+        }
+        return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max)) != 0;
+    }
 
-	/** Array version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
-	public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(max, 1);
-		}
-		return callPPI(__functionAddress, display, screen, max) != 0;
-	}
+    /** Array version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
+    public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(max, 1);
+        }
+        return callPPI(__functionAddress, display, screen, max) != 0;
+    }
 
 }

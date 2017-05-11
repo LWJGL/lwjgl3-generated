@@ -21,367 +21,383 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class DynCallback {
 
-	/** Callback signatures. */
-	public static final char
-		DCB_SIGCHAR_CC_PREFIX       = '_',
-		DCB_SIGCHAR_CC_ELLIPSIS     = 'e',
-		DCB_SIGCHAR_CC_STDCALL      = 's',
-		DCB_SIGCHAR_CC_FASTCALL_GNU = 'f',
-		DCB_SIGCHAR_CC_FASTCALL_MS  = 'F',
-		DCB_SIGCHAR_CC_THISCALL_MS  = '+';
+    /** Callback signatures. */
+    public static final char
+        DCB_SIGCHAR_CC_PREFIX       = '_',
+        DCB_SIGCHAR_CC_ELLIPSIS     = 'e',
+        DCB_SIGCHAR_CC_STDCALL      = 's',
+        DCB_SIGCHAR_CC_FASTCALL_GNU = 'f',
+        DCB_SIGCHAR_CC_FASTCALL_MS  = 'F',
+        DCB_SIGCHAR_CC_THISCALL_MS  = '+';
 
-	static { Library.initialize(); }
+    static { Library.initialize(); }
 
-	protected DynCallback() {
-		throw new UnsupportedOperationException();
-	}
+    protected DynCallback() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ dcbNewCallback ] ---
+    // --- [ dcbNewCallback ] ---
 
-	/** Unsafe version of: {@link #dcbNewCallback NewCallback} */
-	public static native long ndcbNewCallback(long signature, long funcptr, long userdata);
+    /** Unsafe version of: {@link #dcbNewCallback NewCallback} */
+    public static native long ndcbNewCallback(long signature, long funcptr, long userdata);
 
-	/**
-	 * Creates and initializes a new {@code Callback} object.
-	 * 
-	 * <p>Use {@link #dcbFreeCallback FreeCallback} to destroy the {@code Callback} object.</p>
-	 *
-	 * @param signature the function signature of the function to mimic
-	 * @param funcptr   a pointer to a callback handler
-	 * @param userdata  a pointer to custom data that might be useful in the handler
-	 */
-	public static long dcbNewCallback(ByteBuffer signature, long funcptr, long userdata) {
-		if ( CHECKS ) {
-			checkNT1(signature);
-			check(funcptr);
-			check(userdata);
-		}
-		return ndcbNewCallback(memAddress(signature), funcptr, userdata);
-	}
+    /**
+     * Creates and initializes a new {@code Callback} object.
+     * 
+     * <p>Use {@link #dcbFreeCallback FreeCallback} to destroy the {@code Callback} object.</p>
+     *
+     * @param signature the function signature of the function to mimic
+     * @param funcptr   a pointer to a callback handler
+     * @param userdata  a pointer to custom data that might be useful in the handler
+     */
+    public static long dcbNewCallback(ByteBuffer signature, long funcptr, long userdata) {
+        if (CHECKS) {
+            checkNT1(signature);
+            check(funcptr);
+            check(userdata);
+        }
+        return ndcbNewCallback(memAddress(signature), funcptr, userdata);
+    }
 
-	/**
-	 * Creates and initializes a new {@code Callback} object.
-	 * 
-	 * <p>Use {@link #dcbFreeCallback FreeCallback} to destroy the {@code Callback} object.</p>
-	 *
-	 * @param signature the function signature of the function to mimic
-	 * @param funcptr   a pointer to a callback handler
-	 * @param userdata  a pointer to custom data that might be useful in the handler
-	 */
-	public static long dcbNewCallback(CharSequence signature, long funcptr, long userdata) {
-		if ( CHECKS ) {
-			check(funcptr);
-			check(userdata);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer signatureEncoded = stack.ASCII(signature);
-			return ndcbNewCallback(memAddress(signatureEncoded), funcptr, userdata);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Creates and initializes a new {@code Callback} object.
+     * 
+     * <p>Use {@link #dcbFreeCallback FreeCallback} to destroy the {@code Callback} object.</p>
+     *
+     * @param signature the function signature of the function to mimic
+     * @param funcptr   a pointer to a callback handler
+     * @param userdata  a pointer to custom data that might be useful in the handler
+     */
+    public static long dcbNewCallback(CharSequence signature, long funcptr, long userdata) {
+        if (CHECKS) {
+            check(funcptr);
+            check(userdata);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer signatureEncoded = stack.ASCII(signature);
+            return ndcbNewCallback(memAddress(signatureEncoded), funcptr, userdata);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ dcbInitCallback ] ---
+    // --- [ dcbInitCallback ] ---
 
-	/** Unsafe version of: {@link #dcbInitCallback InitCallback} */
-	public static native void ndcbInitCallback(long pcb, long signature, long handler, long userdata);
+    /** Unsafe version of: {@link #dcbInitCallback InitCallback} */
+    public static native void ndcbInitCallback(long pcb, long signature, long handler, long userdata);
 
-	/**
-	 * (Re)initializes a callback object.
-	 *
-	 * @param pcb       the callback object
-	 * @param signature the function signature of the function to mimic
-	 * @param handler   a pointer to a callback handler
-	 * @param userdata  a pointer to custom data that might be useful in the handler
-	 */
-	public static void dcbInitCallback(long pcb, ByteBuffer signature, long handler, long userdata) {
-		if ( CHECKS ) {
-			check(pcb);
-			checkNT1(signature);
-			check(handler);
-			check(userdata);
-		}
-		ndcbInitCallback(pcb, memAddress(signature), handler, userdata);
-	}
+    /**
+     * (Re)initializes a callback object.
+     *
+     * @param pcb       the callback object
+     * @param signature the function signature of the function to mimic
+     * @param handler   a pointer to a callback handler
+     * @param userdata  a pointer to custom data that might be useful in the handler
+     */
+    public static void dcbInitCallback(long pcb, ByteBuffer signature, long handler, long userdata) {
+        if (CHECKS) {
+            check(pcb);
+            checkNT1(signature);
+            check(handler);
+            check(userdata);
+        }
+        ndcbInitCallback(pcb, memAddress(signature), handler, userdata);
+    }
 
-	/**
-	 * (Re)initializes a callback object.
-	 *
-	 * @param pcb       the callback object
-	 * @param signature the function signature of the function to mimic
-	 * @param handler   a pointer to a callback handler
-	 * @param userdata  a pointer to custom data that might be useful in the handler
-	 */
-	public static void dcbInitCallback(long pcb, CharSequence signature, long handler, long userdata) {
-		if ( CHECKS ) {
-			check(pcb);
-			check(handler);
-			check(userdata);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer signatureEncoded = stack.ASCII(signature);
-			ndcbInitCallback(pcb, memAddress(signatureEncoded), handler, userdata);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * (Re)initializes a callback object.
+     *
+     * @param pcb       the callback object
+     * @param signature the function signature of the function to mimic
+     * @param handler   a pointer to a callback handler
+     * @param userdata  a pointer to custom data that might be useful in the handler
+     */
+    public static void dcbInitCallback(long pcb, CharSequence signature, long handler, long userdata) {
+        if (CHECKS) {
+            check(pcb);
+            check(handler);
+            check(userdata);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer signatureEncoded = stack.ASCII(signature);
+            ndcbInitCallback(pcb, memAddress(signatureEncoded), handler, userdata);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ dcbFreeCallback ] ---
+    // --- [ dcbFreeCallback ] ---
 
-	/** Unsafe version of: {@link #dcbFreeCallback FreeCallback} */
-	public static native void ndcbFreeCallback(long pcb);
+    /** Unsafe version of: {@link #dcbFreeCallback FreeCallback} */
+    public static native void ndcbFreeCallback(long pcb);
 
-	/**
-	 * Destroys and frees the callback object.
-	 *
-	 * @param pcb the callback object
-	 */
-	public static void dcbFreeCallback(long pcb) {
-		if ( CHECKS )
-			check(pcb);
-		ndcbFreeCallback(pcb);
-	}
+    /**
+     * Destroys and frees the callback object.
+     *
+     * @param pcb the callback object
+     */
+    public static void dcbFreeCallback(long pcb) {
+        if (CHECKS) {
+            check(pcb);
+        }
+        ndcbFreeCallback(pcb);
+    }
 
-	// --- [ dcbGetUserData ] ---
+    // --- [ dcbGetUserData ] ---
 
-	/** Unsafe version of: {@link #dcbGetUserData GetUserData} */
-	public static native long ndcbGetUserData(long pcb);
+    /** Unsafe version of: {@link #dcbGetUserData GetUserData} */
+    public static native long ndcbGetUserData(long pcb);
 
-	/**
-	 * Returns a pointer to the {@code userdata} passed to the callback object on creation or initialization.
-	 *
-	 * @param pcb the callback object
-	 */
-	public static long dcbGetUserData(long pcb) {
-		if ( CHECKS )
-			check(pcb);
-		return ndcbGetUserData(pcb);
-	}
+    /**
+     * Returns a pointer to the {@code userdata} passed to the callback object on creation or initialization.
+     *
+     * @param pcb the callback object
+     */
+    public static long dcbGetUserData(long pcb) {
+        if (CHECKS) {
+            check(pcb);
+        }
+        return ndcbGetUserData(pcb);
+    }
 
-	// --- [ dcbArgBool ] ---
+    // --- [ dcbArgBool ] ---
 
-	/** Unsafe version of: {@link #dcbArgBool ArgBool} */
-	public static native int ndcbArgBool(long args);
+    /** Unsafe version of: {@link #dcbArgBool ArgBool} */
+    public static native int ndcbArgBool(long args);
 
-	/**
-	 * Returns the next {@code bool} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static boolean dcbArgBool(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgBool(args) != 0;
-	}
+    /**
+     * Returns the next {@code bool} argument.
+     *
+     * @param args the function arguments
+     */
+    public static boolean dcbArgBool(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgBool(args) != 0;
+    }
 
-	// --- [ dcbArgChar ] ---
+    // --- [ dcbArgChar ] ---
 
-	/** Unsafe version of: {@link #dcbArgChar ArgChar} */
-	public static native byte ndcbArgChar(long args);
+    /** Unsafe version of: {@link #dcbArgChar ArgChar} */
+    public static native byte ndcbArgChar(long args);
 
-	/**
-	 * Returns the next {@code char} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static byte dcbArgChar(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgChar(args);
-	}
+    /**
+     * Returns the next {@code char} argument.
+     *
+     * @param args the function arguments
+     */
+    public static byte dcbArgChar(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgChar(args);
+    }
 
-	// --- [ dcbArgShort ] ---
+    // --- [ dcbArgShort ] ---
 
-	/** Unsafe version of: {@link #dcbArgShort ArgShort} */
-	public static native short ndcbArgShort(long args);
+    /** Unsafe version of: {@link #dcbArgShort ArgShort} */
+    public static native short ndcbArgShort(long args);
 
-	/**
-	 * Returns the next {@code short} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static short dcbArgShort(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgShort(args);
-	}
+    /**
+     * Returns the next {@code short} argument.
+     *
+     * @param args the function arguments
+     */
+    public static short dcbArgShort(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgShort(args);
+    }
 
-	// --- [ dcbArgInt ] ---
+    // --- [ dcbArgInt ] ---
 
-	/** Unsafe version of: {@link #dcbArgInt ArgInt} */
-	public static native int ndcbArgInt(long args);
+    /** Unsafe version of: {@link #dcbArgInt ArgInt} */
+    public static native int ndcbArgInt(long args);
 
-	/**
-	 * Returns the next {@code int} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static int dcbArgInt(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgInt(args);
-	}
+    /**
+     * Returns the next {@code int} argument.
+     *
+     * @param args the function arguments
+     */
+    public static int dcbArgInt(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgInt(args);
+    }
 
-	// --- [ dcbArgLong ] ---
+    // --- [ dcbArgLong ] ---
 
-	/** Unsafe version of: {@link #dcbArgLong ArgLong} */
-	public static native int ndcbArgLong(long args);
+    /** Unsafe version of: {@link #dcbArgLong ArgLong} */
+    public static native int ndcbArgLong(long args);
 
-	/**
-	 * Returns the next {@code long} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static int dcbArgLong(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgLong(args);
-	}
+    /**
+     * Returns the next {@code long} argument.
+     *
+     * @param args the function arguments
+     */
+    public static int dcbArgLong(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgLong(args);
+    }
 
-	// --- [ dcbArgLongLong ] ---
+    // --- [ dcbArgLongLong ] ---
 
-	/** Unsafe version of: {@link #dcbArgLongLong ArgLongLong} */
-	public static native long ndcbArgLongLong(long args);
+    /** Unsafe version of: {@link #dcbArgLongLong ArgLongLong} */
+    public static native long ndcbArgLongLong(long args);
 
-	/**
-	 * Returns the next {@code long long} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static long dcbArgLongLong(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgLongLong(args);
-	}
+    /**
+     * Returns the next {@code long long} argument.
+     *
+     * @param args the function arguments
+     */
+    public static long dcbArgLongLong(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgLongLong(args);
+    }
 
-	// --- [ dcbArgUChar ] ---
+    // --- [ dcbArgUChar ] ---
 
-	/** Unsafe version of: {@link #dcbArgUChar ArgUChar} */
-	public static native byte ndcbArgUChar(long args);
+    /** Unsafe version of: {@link #dcbArgUChar ArgUChar} */
+    public static native byte ndcbArgUChar(long args);
 
-	/**
-	 * Returns the next {@code unsigned char} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static byte dcbArgUChar(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgUChar(args);
-	}
+    /**
+     * Returns the next {@code unsigned char} argument.
+     *
+     * @param args the function arguments
+     */
+    public static byte dcbArgUChar(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgUChar(args);
+    }
 
-	// --- [ dcbArgUShort ] ---
+    // --- [ dcbArgUShort ] ---
 
-	/** Unsafe version of: {@link #dcbArgUShort ArgUShort} */
-	public static native short ndcbArgUShort(long args);
+    /** Unsafe version of: {@link #dcbArgUShort ArgUShort} */
+    public static native short ndcbArgUShort(long args);
 
-	/**
-	 * Returns the next {@code unsigned short} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static short dcbArgUShort(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgUShort(args);
-	}
+    /**
+     * Returns the next {@code unsigned short} argument.
+     *
+     * @param args the function arguments
+     */
+    public static short dcbArgUShort(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgUShort(args);
+    }
 
-	// --- [ dcbArgUInt ] ---
+    // --- [ dcbArgUInt ] ---
 
-	/** Unsafe version of: {@link #dcbArgUInt ArgUInt} */
-	public static native int ndcbArgUInt(long args);
+    /** Unsafe version of: {@link #dcbArgUInt ArgUInt} */
+    public static native int ndcbArgUInt(long args);
 
-	/**
-	 * Returns the next {@code unsigned int} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static int dcbArgUInt(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgUInt(args);
-	}
+    /**
+     * Returns the next {@code unsigned int} argument.
+     *
+     * @param args the function arguments
+     */
+    public static int dcbArgUInt(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgUInt(args);
+    }
 
-	// --- [ dcbArgULong ] ---
+    // --- [ dcbArgULong ] ---
 
-	/** Unsafe version of: {@link #dcbArgULong ArgULong} */
-	public static native int ndcbArgULong(long args);
+    /** Unsafe version of: {@link #dcbArgULong ArgULong} */
+    public static native int ndcbArgULong(long args);
 
-	/**
-	 * Returns the next {@code unsigned long} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static int dcbArgULong(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgULong(args);
-	}
+    /**
+     * Returns the next {@code unsigned long} argument.
+     *
+     * @param args the function arguments
+     */
+    public static int dcbArgULong(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgULong(args);
+    }
 
-	// --- [ dcbArgULongLong ] ---
+    // --- [ dcbArgULongLong ] ---
 
-	/** Unsafe version of: {@link #dcbArgULongLong ArgULongLong} */
-	public static native long ndcbArgULongLong(long args);
+    /** Unsafe version of: {@link #dcbArgULongLong ArgULongLong} */
+    public static native long ndcbArgULongLong(long args);
 
-	/**
-	 * Returns the next {@code unsigned long long} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static long dcbArgULongLong(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgULongLong(args);
-	}
+    /**
+     * Returns the next {@code unsigned long long} argument.
+     *
+     * @param args the function arguments
+     */
+    public static long dcbArgULongLong(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgULongLong(args);
+    }
 
-	// --- [ dcbArgFloat ] ---
+    // --- [ dcbArgFloat ] ---
 
-	/** Unsafe version of: {@link #dcbArgFloat ArgFloat} */
-	public static native float ndcbArgFloat(long args);
+    /** Unsafe version of: {@link #dcbArgFloat ArgFloat} */
+    public static native float ndcbArgFloat(long args);
 
-	/**
-	 * Returns the next {@code float} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static float dcbArgFloat(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgFloat(args);
-	}
+    /**
+     * Returns the next {@code float} argument.
+     *
+     * @param args the function arguments
+     */
+    public static float dcbArgFloat(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgFloat(args);
+    }
 
-	// --- [ dcbArgDouble ] ---
+    // --- [ dcbArgDouble ] ---
 
-	/** Unsafe version of: {@link #dcbArgDouble ArgDouble} */
-	public static native double ndcbArgDouble(long args);
+    /** Unsafe version of: {@link #dcbArgDouble ArgDouble} */
+    public static native double ndcbArgDouble(long args);
 
-	/**
-	 * Returns the next {@code double} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static double dcbArgDouble(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgDouble(args);
-	}
+    /**
+     * Returns the next {@code double} argument.
+     *
+     * @param args the function arguments
+     */
+    public static double dcbArgDouble(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgDouble(args);
+    }
 
-	// --- [ dcbArgPointer ] ---
+    // --- [ dcbArgPointer ] ---
 
-	/** Unsafe version of: {@link #dcbArgPointer ArgPointer} */
-	public static native long ndcbArgPointer(long args);
+    /** Unsafe version of: {@link #dcbArgPointer ArgPointer} */
+    public static native long ndcbArgPointer(long args);
 
-	/**
-	 * Returns the next {@code pointer} argument.
-	 *
-	 * @param args the function arguments
-	 */
-	public static long dcbArgPointer(long args) {
-		if ( CHECKS )
-			check(args);
-		return ndcbArgPointer(args);
-	}
+    /**
+     * Returns the next {@code pointer} argument.
+     *
+     * @param args the function arguments
+     */
+    public static long dcbArgPointer(long args) {
+        if (CHECKS) {
+            check(args);
+        }
+        return ndcbArgPointer(args);
+    }
 
 }

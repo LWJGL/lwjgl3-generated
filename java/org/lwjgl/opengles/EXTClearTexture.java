@@ -33,56 +33,56 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTClearTexture {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTClearTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTClearTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glClearTexImageEXT, caps.glClearTexSubImageEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glClearTexImageEXT, caps.glClearTexSubImageEXT
+        );
+    }
 
-	// --- [ glClearTexImageEXT ] ---
+    // --- [ glClearTexImageEXT ] ---
 
-	public static native void nglClearTexImageEXT(int texture, int level, int format, int type, long data);
+    public static native void nglClearTexImageEXT(int texture, int level, int format, int type, long data);
 
-	public static void glClearTexImageEXT(int texture, int level, int format, int type, ByteBuffer data) {
-		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexImageEXT(int texture, int level, int format, int type, ByteBuffer data) {
+        nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
+    }
 
-	public static void glClearTexImageEXT(int texture, int level, int format, int type, ShortBuffer data) {
-		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexImageEXT(int texture, int level, int format, int type, ShortBuffer data) {
+        nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
+    }
 
-	public static void glClearTexImageEXT(int texture, int level, int format, int type, IntBuffer data) {
-		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexImageEXT(int texture, int level, int format, int type, IntBuffer data) {
+        nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
+    }
 
-	public static void glClearTexImageEXT(int texture, int level, int format, int type, FloatBuffer data) {
-		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexImageEXT(int texture, int level, int format, int type, FloatBuffer data) {
+        nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
+    }
 
-	// --- [ glClearTexSubImageEXT ] ---
+    // --- [ glClearTexSubImageEXT ] ---
 
-	public static native void nglClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data);
+    public static native void nglClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data);
 
-	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer data) {
-		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer data) {
+        nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+    }
 
-	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
-		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
+        nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+    }
 
-	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
-		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
+        nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+    }
 
-	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
-		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
-	}
+    public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
+        nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+    }
 
 }

@@ -12,35 +12,35 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Initializes the nfd shared library. */
 final class LibNFD {
 
-	static {
-		String libName = Platform.mapLibraryNameBundled("lwjgl_nfd");
-		Library.loadSystem(System::load, System::loadLibrary, LibNFD.class, libName);
+    static {
+        String libName = Platform.mapLibraryNameBundled("lwjgl_nfd");
+        Library.loadSystem(System::load, System::loadLibrary, LibNFD.class, libName);
 
-		MemoryAllocator allocator = getAllocator();
-		setupMalloc(
-			allocator.getMalloc(),
-			allocator.getCalloc(),
-			allocator.getRealloc(),
-			allocator.getFree(),
-			allocator.getAlignedAlloc(),
-			allocator.getAlignedFree()
-		);
-	}
+        MemoryAllocator allocator = getAllocator();
+        setupMalloc(
+            allocator.getMalloc(),
+            allocator.getCalloc(),
+            allocator.getRealloc(),
+            allocator.getFree(),
+            allocator.getAlignedAlloc(),
+            allocator.getAlignedFree()
+        );
+    }
 
-	private LibNFD() {
-	}
+    private LibNFD() {
+    }
 
-	static void initialize() {
-		// intentionally empty to trigger static initializer
-	}
+    static void initialize() {
+        // intentionally empty to trigger static initializer
+    }
 
-	private static native void setupMalloc(
-		long malloc,
-		long calloc,
-		long realloc,
-		long free,
-		long aligned_alloc,
-		long aligned_free
-	);
+    private static native void setupMalloc(
+        long malloc,
+        long calloc,
+        long realloc,
+        long free,
+        long aligned_alloc,
+        long aligned_free
+    );
 
 }

@@ -69,776 +69,799 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTGPUShader4 {
 
-	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, GetVertexAttribiv, GetVertexAttribIuivEXT and GetVertexAttribIivEXT. */
-	public static final int GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT = 0x88FD;
-
-	/** Returned by the {@code type} parameter of GetActiveUniform. */
-	public static final int
-		GL_SAMPLER_1D_ARRAY_EXT              = 0x8DC0,
-		GL_SAMPLER_2D_ARRAY_EXT              = 0x8DC1,
-		GL_SAMPLER_BUFFER_EXT                = 0x8DC2,
-		GL_SAMPLER_1D_ARRAY_SHADOW_EXT       = 0x8DC3,
-		GL_SAMPLER_2D_ARRAY_SHADOW_EXT       = 0x8DC4,
-		GL_SAMPLER_CUBE_SHADOW_EXT           = 0x8DC5,
-		GL_UNSIGNED_INT_VEC2_EXT             = 0x8DC6,
-		GL_UNSIGNED_INT_VEC3_EXT             = 0x8DC7,
-		GL_UNSIGNED_INT_VEC4_EXT             = 0x8DC8,
-		GL_INT_SAMPLER_1D_EXT                = 0x8DC9,
-		GL_INT_SAMPLER_2D_EXT                = 0x8DCA,
-		GL_INT_SAMPLER_3D_EXT                = 0x8DCB,
-		GL_INT_SAMPLER_CUBE_EXT              = 0x8DCC,
-		GL_INT_SAMPLER_2D_RECT_EXT           = 0x8DCD,
-		GL_INT_SAMPLER_1D_ARRAY_EXT          = 0x8DCE,
-		GL_INT_SAMPLER_2D_ARRAY_EXT          = 0x8DCF,
-		GL_INT_SAMPLER_BUFFER_EXT            = 0x8DD0,
-		GL_UNSIGNED_INT_SAMPLER_1D_EXT       = 0x8DD1,
-		GL_UNSIGNED_INT_SAMPLER_2D_EXT       = 0x8DD2,
-		GL_UNSIGNED_INT_SAMPLER_3D_EXT       = 0x8DD3,
-		GL_UNSIGNED_INT_SAMPLER_CUBE_EXT     = 0x8DD4,
-		GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT  = 0x8DD5,
-		GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT = 0x8DD6,
-		GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT = 0x8DD7,
-		GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT   = 0x8DD8;
-
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MIN_PROGRAM_TEXEL_OFFSET_EXT = 0x8904,
-		GL_MAX_PROGRAM_TEXEL_OFFSET_EXT = 0x8905;
-
-	static { GL.initialize(); }
-
-	protected EXTGPUShader4() {
-		throw new UnsupportedOperationException();
-	}
-
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glVertexAttribI1iEXT, caps.glVertexAttribI2iEXT, caps.glVertexAttribI3iEXT, caps.glVertexAttribI4iEXT, caps.glVertexAttribI1uiEXT, 
-			caps.glVertexAttribI2uiEXT, caps.glVertexAttribI3uiEXT, caps.glVertexAttribI4uiEXT, caps.glVertexAttribI1ivEXT, caps.glVertexAttribI2ivEXT, 
-			caps.glVertexAttribI3ivEXT, caps.glVertexAttribI4ivEXT, caps.glVertexAttribI1uivEXT, caps.glVertexAttribI2uivEXT, caps.glVertexAttribI3uivEXT, 
-			caps.glVertexAttribI4uivEXT, caps.glVertexAttribI4bvEXT, caps.glVertexAttribI4svEXT, caps.glVertexAttribI4ubvEXT, caps.glVertexAttribI4usvEXT, 
-			caps.glVertexAttribIPointerEXT, caps.glGetVertexAttribIivEXT, caps.glGetVertexAttribIuivEXT, caps.glGetUniformuivEXT, 
-			caps.glBindFragDataLocationEXT, caps.glGetFragDataLocationEXT, caps.glUniform1uiEXT, caps.glUniform2uiEXT, caps.glUniform3uiEXT, 
-			caps.glUniform4uiEXT, caps.glUniform1uivEXT, caps.glUniform2uivEXT, caps.glUniform3uivEXT, caps.glUniform4uivEXT
-		);
-	}
-
-	// --- [ glVertexAttribI1iEXT ] ---
-
-	/**
-	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 */
-	public static native void glVertexAttribI1iEXT(int index, int x);
-
-	// --- [ glVertexAttribI2iEXT ] ---
-
-	/**
-	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 */
-	public static native void glVertexAttribI2iEXT(int index, int x, int y);
-
-	// --- [ glVertexAttribI3iEXT ] ---
-
-	/**
-	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 * @param z     the vertex attribute z component
-	 */
-	public static native void glVertexAttribI3iEXT(int index, int x, int y, int z);
-
-	// --- [ glVertexAttribI4iEXT ] ---
-
-	/**
-	 * Specifies the value of a pure integer generic vertex attribute.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 * @param z     the vertex attribute z component
-	 * @param w     the vertex attribute w component
-	 */
-	public static native void glVertexAttribI4iEXT(int index, int x, int y, int z, int w);
-
-	// --- [ glVertexAttribI1uiEXT ] ---
-
-	/**
-	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 */
-	public static native void glVertexAttribI1uiEXT(int index, int x);
-
-	// --- [ glVertexAttribI2uiEXT ] ---
-
-	/**
-	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 */
-	public static native void glVertexAttribI2uiEXT(int index, int x, int y);
-
-	// --- [ glVertexAttribI3uiEXT ] ---
-
-	/**
-	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 * @param z     the vertex attribute z component
-	 */
-	public static native void glVertexAttribI3uiEXT(int index, int x, int y, int z);
-
-	// --- [ glVertexAttribI4uiEXT ] ---
-
-	/**
-	 * Specifies the value of an unsigned pure integer generic vertex attribute.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 * @param z     the vertex attribute z component
-	 * @param w     the vertex attribute w component
-	 */
-	public static native void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w);
-
-	// --- [ glVertexAttribI1ivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
-	public static native void nglVertexAttribI1ivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI1iEXT VertexAttribI1iEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI1ivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 1);
-		nglVertexAttribI1ivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI2ivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
-	public static native void nglVertexAttribI2ivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI2iEXT VertexAttribI2iEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI2ivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 2);
-		nglVertexAttribI2ivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI3ivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
-	public static native void nglVertexAttribI3ivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI3iEXT VertexAttribI3iEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI3ivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 3);
-		nglVertexAttribI3ivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI4ivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
-	public static native void nglVertexAttribI4ivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI4iEXT VertexAttribI4iEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI4ivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribI4ivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI1uivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
-	public static native void nglVertexAttribI1uivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI1uiEXT VertexAttribI1uiEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI1uivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 1);
-		nglVertexAttribI1uivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI2uivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
-	public static native void nglVertexAttribI2uivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI2uiEXT VertexAttribI2uiEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI2uivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 2);
-		nglVertexAttribI2uivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI3uivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
-	public static native void nglVertexAttribI3uivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI3uiEXT VertexAttribI3uiEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI3uivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 3);
-		nglVertexAttribI3uivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI4uivEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
-	public static native void nglVertexAttribI4uivEXT(int index, long v);
-
-	/**
-	 * Pointer version of {@link #glVertexAttribI4uiEXT VertexAttribI4uiEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI4uivEXT(int index, IntBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribI4uivEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI4bvEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4bvEXT VertexAttribI4bvEXT} */
-	public static native void nglVertexAttribI4bvEXT(int index, long v);
-
-	/**
-	 * Byte version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI4bvEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribI4bvEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI4svEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
-	public static native void nglVertexAttribI4svEXT(int index, long v);
-
-	/**
-	 * Short version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI4svEXT(int index, ShortBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribI4svEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI4ubvEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4ubvEXT VertexAttribI4ubvEXT} */
-	public static native void nglVertexAttribI4ubvEXT(int index, long v);
-
-	/**
-	 * Byte version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI4ubvEXT(int index, ByteBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribI4ubvEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribI4usvEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
-	public static native void nglVertexAttribI4usvEXT(int index, long v);
-
-	/**
-	 * Short version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param v     the pure integer vertex attribute buffer
-	 */
-	public static void glVertexAttribI4usvEXT(int index, ShortBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribI4usvEXT(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttribIPointerEXT ] ---
-
-	/** Unsafe version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-	public static native void nglVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer);
-
-	/**
-	 * Specifies the location and organization of a pure integer vertex attribute array.
-	 *
-	 * @param index   the index of the pure integer generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
-	}
-
-	/**
-	 * Specifies the location and organization of a pure integer vertex attribute array.
-	 *
-	 * @param index   the index of the pure integer generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
-		nglVertexAttribIPointerEXT(index, size, type, stride, pointer);
-	}
-
-	/**
-	 * Specifies the location and organization of a pure integer vertex attribute array.
-	 *
-	 * @param index   the index of the pure integer generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
-		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
-	}
-
-	/**
-	 * Specifies the location and organization of a pure integer vertex attribute array.
-	 *
-	 * @param index   the index of the pure integer generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
-		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
-	}
-
-	// --- [ glGetVertexAttribIivEXT ] ---
-
-	/** Unsafe version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
-	public static native void nglGetVertexAttribIivEXT(int index, int pname, long params);
-
-	/**
-	 * Returns the value of a pure integer generic vertex attribute parameter.
-	 *
-	 * @param index  the index of the pure integer generic vertex attribute to be modified
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params returns the requested data
-	 */
-	public static void glGetVertexAttribIivEXT(int index, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 4);
-		nglGetVertexAttribIivEXT(index, pname, memAddress(params));
-	}
-
-	/**
-	 * Returns the value of a pure integer generic vertex attribute parameter.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param pname the symbolic name of the vertex attribute parameter to be queried
-	 */
-	public static int glGetVertexAttribIiEXT(int index, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetVertexAttribIivEXT(index, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	// --- [ glGetVertexAttribIuivEXT ] ---
-
-	/** Unsafe version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
-	public static native void nglGetVertexAttribIuivEXT(int index, int pname, long params);
-
-	/**
-	 * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
-	 *
-	 * @param index  the index of the pure integer generic vertex attribute to be modified
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params returns the requested data
-	 */
-	public static void glGetVertexAttribIuivEXT(int index, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 4);
-		nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
-	}
-
-	/**
-	 * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
-	 *
-	 * @param index the index of the pure integer generic vertex attribute to be modified
-	 * @param pname the symbolic name of the vertex attribute parameter to be queried
-	 */
-	public static int glGetVertexAttribIuiEXT(int index, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	// --- [ glGetUniformuivEXT ] ---
-
-	public static native void nglGetUniformuivEXT(int program, int location, long params);
-
-	public static void glGetUniformuivEXT(int program, int location, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetUniformuivEXT(program, location, memAddress(params));
-	}
-
-	public static int glGetUniformuiEXT(int program, int location) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetUniformuivEXT(program, location, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	// --- [ glBindFragDataLocationEXT ] ---
-
-	public static native void nglBindFragDataLocationEXT(int program, int color, long name);
-
-	public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		nglBindFragDataLocationEXT(program, color, memAddress(name));
-	}
-
-	public static void glBindFragDataLocationEXT(int program, int color, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			nglBindFragDataLocationEXT(program, color, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	// --- [ glGetFragDataLocationEXT ] ---
-
-	public static native int nglGetFragDataLocationEXT(int program, long name);
-
-	public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		return nglGetFragDataLocationEXT(program, memAddress(name));
-	}
-
-	public static int glGetFragDataLocationEXT(int program, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nglGetFragDataLocationEXT(program, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
-	// --- [ glUniform1uiEXT ] ---
-
-	public static native void glUniform1uiEXT(int location, int v0);
-
-	// --- [ glUniform2uiEXT ] ---
-
-	public static native void glUniform2uiEXT(int location, int v0, int v1);
-
-	// --- [ glUniform3uiEXT ] ---
-
-	public static native void glUniform3uiEXT(int location, int v0, int v1, int v2);
-
-	// --- [ glUniform4uiEXT ] ---
-
-	public static native void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3);
-
-	// --- [ glUniform1uivEXT ] ---
-
-	public static native void nglUniform1uivEXT(int location, int count, long value);
-
-	public static void glUniform1uivEXT(int location, IntBuffer value) {
-		nglUniform1uivEXT(location, value.remaining(), memAddress(value));
-	}
-
-	// --- [ glUniform2uivEXT ] ---
-
-	public static native void nglUniform2uivEXT(int location, int count, long value);
-
-	public static void glUniform2uivEXT(int location, IntBuffer value) {
-		nglUniform2uivEXT(location, value.remaining() >> 1, memAddress(value));
-	}
-
-	// --- [ glUniform3uivEXT ] ---
-
-	public static native void nglUniform3uivEXT(int location, int count, long value);
-
-	public static void glUniform3uivEXT(int location, IntBuffer value) {
-		nglUniform3uivEXT(location, value.remaining() / 3, memAddress(value));
-	}
-
-	// --- [ glUniform4uivEXT ] ---
-
-	public static native void nglUniform4uivEXT(int location, int count, long value);
-
-	public static void glUniform4uivEXT(int location, IntBuffer value) {
-		nglUniform4uivEXT(location, value.remaining() >> 2, memAddress(value));
-	}
-
-	/** Array version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
-	public static void glVertexAttribI1ivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI1ivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 1);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
-	public static void glVertexAttribI2ivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI2ivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 2);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
-	public static void glVertexAttribI3ivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI3ivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 3);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
-	public static void glVertexAttribI4ivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI4ivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 4);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
-	public static void glVertexAttribI1uivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI1uivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 1);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
-	public static void glVertexAttribI2uivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI2uivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 2);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
-	public static void glVertexAttribI3uivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI3uivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 3);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
-	public static void glVertexAttribI4uivEXT(int index, int[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI4uivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 4);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
-	public static void glVertexAttribI4svEXT(int index, short[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI4svEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 4);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
-	public static void glVertexAttribI4usvEXT(int index, short[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribI4usvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 4);
-		}
-		callPV(__functionAddress, index, v);
-	}
-
-	/** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, short[] pointer) {
-		long __functionAddress = GL.getICD().glVertexAttribIPointerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
-
-	/** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, int[] pointer) {
-		long __functionAddress = GL.getICD().glVertexAttribIPointerEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, index, size, type, stride, pointer);
-	}
-
-	/** Array version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
-	public static void glGetVertexAttribIivEXT(int index, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glGetVertexAttribIivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 4);
-		}
-		callPV(__functionAddress, index, pname, params);
-	}
-
-	/** Array version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
-	public static void glGetVertexAttribIuivEXT(int index, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glGetVertexAttribIuivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 4);
-		}
-		callPV(__functionAddress, index, pname, params);
-	}
-
-	/** Array version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
-	public static void glGetUniformuivEXT(int program, int location, int[] params) {
-		long __functionAddress = GL.getICD().glGetUniformuivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, program, location, params);
-	}
-
-	/** Array version of: {@link #glUniform1uivEXT Uniform1uivEXT} */
-	public static void glUniform1uivEXT(int location, int[] value) {
-		long __functionAddress = GL.getICD().glUniform1uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, value.length, value);
-	}
-
-	/** Array version of: {@link #glUniform2uivEXT Uniform2uivEXT} */
-	public static void glUniform2uivEXT(int location, int[] value) {
-		long __functionAddress = GL.getICD().glUniform2uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, value.length >> 1, value);
-	}
-
-	/** Array version of: {@link #glUniform3uivEXT Uniform3uivEXT} */
-	public static void glUniform3uivEXT(int location, int[] value) {
-		long __functionAddress = GL.getICD().glUniform3uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, value.length / 3, value);
-	}
-
-	/** Array version of: {@link #glUniform4uivEXT Uniform4uivEXT} */
-	public static void glUniform4uivEXT(int location, int[] value) {
-		long __functionAddress = GL.getICD().glUniform4uivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, value.length >> 2, value);
-	}
+    /** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, GetVertexAttribiv, GetVertexAttribIuivEXT and GetVertexAttribIivEXT. */
+    public static final int GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT = 0x88FD;
+
+    /** Returned by the {@code type} parameter of GetActiveUniform. */
+    public static final int
+        GL_SAMPLER_1D_ARRAY_EXT              = 0x8DC0,
+        GL_SAMPLER_2D_ARRAY_EXT              = 0x8DC1,
+        GL_SAMPLER_BUFFER_EXT                = 0x8DC2,
+        GL_SAMPLER_1D_ARRAY_SHADOW_EXT       = 0x8DC3,
+        GL_SAMPLER_2D_ARRAY_SHADOW_EXT       = 0x8DC4,
+        GL_SAMPLER_CUBE_SHADOW_EXT           = 0x8DC5,
+        GL_UNSIGNED_INT_VEC2_EXT             = 0x8DC6,
+        GL_UNSIGNED_INT_VEC3_EXT             = 0x8DC7,
+        GL_UNSIGNED_INT_VEC4_EXT             = 0x8DC8,
+        GL_INT_SAMPLER_1D_EXT                = 0x8DC9,
+        GL_INT_SAMPLER_2D_EXT                = 0x8DCA,
+        GL_INT_SAMPLER_3D_EXT                = 0x8DCB,
+        GL_INT_SAMPLER_CUBE_EXT              = 0x8DCC,
+        GL_INT_SAMPLER_2D_RECT_EXT           = 0x8DCD,
+        GL_INT_SAMPLER_1D_ARRAY_EXT          = 0x8DCE,
+        GL_INT_SAMPLER_2D_ARRAY_EXT          = 0x8DCF,
+        GL_INT_SAMPLER_BUFFER_EXT            = 0x8DD0,
+        GL_UNSIGNED_INT_SAMPLER_1D_EXT       = 0x8DD1,
+        GL_UNSIGNED_INT_SAMPLER_2D_EXT       = 0x8DD2,
+        GL_UNSIGNED_INT_SAMPLER_3D_EXT       = 0x8DD3,
+        GL_UNSIGNED_INT_SAMPLER_CUBE_EXT     = 0x8DD4,
+        GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT  = 0x8DD5,
+        GL_UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT = 0x8DD6,
+        GL_UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT = 0x8DD7,
+        GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT   = 0x8DD8;
+
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_MIN_PROGRAM_TEXEL_OFFSET_EXT = 0x8904,
+        GL_MAX_PROGRAM_TEXEL_OFFSET_EXT = 0x8905;
+
+    static { GL.initialize(); }
+
+    protected EXTGPUShader4() {
+        throw new UnsupportedOperationException();
+    }
+
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glVertexAttribI1iEXT, caps.glVertexAttribI2iEXT, caps.glVertexAttribI3iEXT, caps.glVertexAttribI4iEXT, caps.glVertexAttribI1uiEXT, 
+            caps.glVertexAttribI2uiEXT, caps.glVertexAttribI3uiEXT, caps.glVertexAttribI4uiEXT, caps.glVertexAttribI1ivEXT, caps.glVertexAttribI2ivEXT, 
+            caps.glVertexAttribI3ivEXT, caps.glVertexAttribI4ivEXT, caps.glVertexAttribI1uivEXT, caps.glVertexAttribI2uivEXT, caps.glVertexAttribI3uivEXT, 
+            caps.glVertexAttribI4uivEXT, caps.glVertexAttribI4bvEXT, caps.glVertexAttribI4svEXT, caps.glVertexAttribI4ubvEXT, caps.glVertexAttribI4usvEXT, 
+            caps.glVertexAttribIPointerEXT, caps.glGetVertexAttribIivEXT, caps.glGetVertexAttribIuivEXT, caps.glGetUniformuivEXT, 
+            caps.glBindFragDataLocationEXT, caps.glGetFragDataLocationEXT, caps.glUniform1uiEXT, caps.glUniform2uiEXT, caps.glUniform3uiEXT, 
+            caps.glUniform4uiEXT, caps.glUniform1uivEXT, caps.glUniform2uivEXT, caps.glUniform3uivEXT, caps.glUniform4uivEXT
+        );
+    }
+
+    // --- [ glVertexAttribI1iEXT ] ---
+
+    /**
+     * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     */
+    public static native void glVertexAttribI1iEXT(int index, int x);
+
+    // --- [ glVertexAttribI2iEXT ] ---
+
+    /**
+     * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     */
+    public static native void glVertexAttribI2iEXT(int index, int x, int y);
+
+    // --- [ glVertexAttribI3iEXT ] ---
+
+    /**
+     * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     * @param z     the vertex attribute z component
+     */
+    public static native void glVertexAttribI3iEXT(int index, int x, int y, int z);
+
+    // --- [ glVertexAttribI4iEXT ] ---
+
+    /**
+     * Specifies the value of a pure integer generic vertex attribute.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     * @param z     the vertex attribute z component
+     * @param w     the vertex attribute w component
+     */
+    public static native void glVertexAttribI4iEXT(int index, int x, int y, int z, int w);
+
+    // --- [ glVertexAttribI1uiEXT ] ---
+
+    /**
+     * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     */
+    public static native void glVertexAttribI1uiEXT(int index, int x);
+
+    // --- [ glVertexAttribI2uiEXT ] ---
+
+    /**
+     * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     */
+    public static native void glVertexAttribI2uiEXT(int index, int x, int y);
+
+    // --- [ glVertexAttribI3uiEXT ] ---
+
+    /**
+     * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     * @param z     the vertex attribute z component
+     */
+    public static native void glVertexAttribI3uiEXT(int index, int x, int y, int z);
+
+    // --- [ glVertexAttribI4uiEXT ] ---
+
+    /**
+     * Specifies the value of an unsigned pure integer generic vertex attribute.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     * @param z     the vertex attribute z component
+     * @param w     the vertex attribute w component
+     */
+    public static native void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w);
+
+    // --- [ glVertexAttribI1ivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
+    public static native void nglVertexAttribI1ivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI1iEXT VertexAttribI1iEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI1ivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 1);
+        }
+        nglVertexAttribI1ivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI2ivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
+    public static native void nglVertexAttribI2ivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI2iEXT VertexAttribI2iEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI2ivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 2);
+        }
+        nglVertexAttribI2ivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI3ivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
+    public static native void nglVertexAttribI3ivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI3iEXT VertexAttribI3iEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI3ivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 3);
+        }
+        nglVertexAttribI3ivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI4ivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
+    public static native void nglVertexAttribI4ivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI4iEXT VertexAttribI4iEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI4ivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribI4ivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI1uivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
+    public static native void nglVertexAttribI1uivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI1uiEXT VertexAttribI1uiEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI1uivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 1);
+        }
+        nglVertexAttribI1uivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI2uivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
+    public static native void nglVertexAttribI2uivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI2uiEXT VertexAttribI2uiEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI2uivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 2);
+        }
+        nglVertexAttribI2uivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI3uivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
+    public static native void nglVertexAttribI3uivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI3uiEXT VertexAttribI3uiEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI3uivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 3);
+        }
+        nglVertexAttribI3uivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI4uivEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
+    public static native void nglVertexAttribI4uivEXT(int index, long v);
+
+    /**
+     * Pointer version of {@link #glVertexAttribI4uiEXT VertexAttribI4uiEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI4uivEXT(int index, IntBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribI4uivEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI4bvEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI4bvEXT VertexAttribI4bvEXT} */
+    public static native void nglVertexAttribI4bvEXT(int index, long v);
+
+    /**
+     * Byte version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI4bvEXT(int index, ByteBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribI4bvEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI4svEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
+    public static native void nglVertexAttribI4svEXT(int index, long v);
+
+    /**
+     * Short version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI4svEXT(int index, ShortBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribI4svEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI4ubvEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI4ubvEXT VertexAttribI4ubvEXT} */
+    public static native void nglVertexAttribI4ubvEXT(int index, long v);
+
+    /**
+     * Byte version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI4ubvEXT(int index, ByteBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribI4ubvEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribI4usvEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
+    public static native void nglVertexAttribI4usvEXT(int index, long v);
+
+    /**
+     * Short version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param v     the pure integer vertex attribute buffer
+     */
+    public static void glVertexAttribI4usvEXT(int index, ShortBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribI4usvEXT(index, memAddress(v));
+    }
+
+    // --- [ glVertexAttribIPointerEXT ] ---
+
+    /** Unsafe version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+    public static native void nglVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer);
+
+    /**
+     * Specifies the location and organization of a pure integer vertex attribute array.
+     *
+     * @param index   the index of the pure integer generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
+        nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
+    }
+
+    /**
+     * Specifies the location and organization of a pure integer vertex attribute array.
+     *
+     * @param index   the index of the pure integer generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
+        nglVertexAttribIPointerEXT(index, size, type, stride, pointer);
+    }
+
+    /**
+     * Specifies the location and organization of a pure integer vertex attribute array.
+     *
+     * @param index   the index of the pure integer generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
+        nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
+    }
+
+    /**
+     * Specifies the location and organization of a pure integer vertex attribute array.
+     *
+     * @param index   the index of the pure integer generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
+        nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
+    }
+
+    // --- [ glGetVertexAttribIivEXT ] ---
+
+    /** Unsafe version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
+    public static native void nglGetVertexAttribIivEXT(int index, int pname, long params);
+
+    /**
+     * Returns the value of a pure integer generic vertex attribute parameter.
+     *
+     * @param index  the index of the pure integer generic vertex attribute to be modified
+     * @param pname  the symbolic name of the vertex attribute parameter to be queried
+     * @param params returns the requested data
+     */
+    public static void glGetVertexAttribIivEXT(int index, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 4);
+        }
+        nglGetVertexAttribIivEXT(index, pname, memAddress(params));
+    }
+
+    /**
+     * Returns the value of a pure integer generic vertex attribute parameter.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param pname the symbolic name of the vertex attribute parameter to be queried
+     */
+    public static int glGetVertexAttribIiEXT(int index, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetVertexAttribIivEXT(index, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ glGetVertexAttribIuivEXT ] ---
+
+    /** Unsafe version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
+    public static native void nglGetVertexAttribIuivEXT(int index, int pname, long params);
+
+    /**
+     * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
+     *
+     * @param index  the index of the pure integer generic vertex attribute to be modified
+     * @param pname  the symbolic name of the vertex attribute parameter to be queried
+     * @param params returns the requested data
+     */
+    public static void glGetVertexAttribIuivEXT(int index, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 4);
+        }
+        nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
+    }
+
+    /**
+     * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
+     *
+     * @param index the index of the pure integer generic vertex attribute to be modified
+     * @param pname the symbolic name of the vertex attribute parameter to be queried
+     */
+    public static int glGetVertexAttribIuiEXT(int index, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ glGetUniformuivEXT ] ---
+
+    public static native void nglGetUniformuivEXT(int program, int location, long params);
+
+    public static void glGetUniformuivEXT(int program, int location, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetUniformuivEXT(program, location, memAddress(params));
+    }
+
+    public static int glGetUniformuiEXT(int program, int location) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetUniformuivEXT(program, location, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ glBindFragDataLocationEXT ] ---
+
+    public static native void nglBindFragDataLocationEXT(int program, int color, long name);
+
+    public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nglBindFragDataLocationEXT(program, color, memAddress(name));
+    }
+
+    public static void glBindFragDataLocationEXT(int program, int color, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            nglBindFragDataLocationEXT(program, color, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ glGetFragDataLocationEXT ] ---
+
+    public static native int nglGetFragDataLocationEXT(int program, long name);
+
+    public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        return nglGetFragDataLocationEXT(program, memAddress(name));
+    }
+
+    public static int glGetFragDataLocationEXT(int program, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return nglGetFragDataLocationEXT(program, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ glUniform1uiEXT ] ---
+
+    public static native void glUniform1uiEXT(int location, int v0);
+
+    // --- [ glUniform2uiEXT ] ---
+
+    public static native void glUniform2uiEXT(int location, int v0, int v1);
+
+    // --- [ glUniform3uiEXT ] ---
+
+    public static native void glUniform3uiEXT(int location, int v0, int v1, int v2);
+
+    // --- [ glUniform4uiEXT ] ---
+
+    public static native void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3);
+
+    // --- [ glUniform1uivEXT ] ---
+
+    public static native void nglUniform1uivEXT(int location, int count, long value);
+
+    public static void glUniform1uivEXT(int location, IntBuffer value) {
+        nglUniform1uivEXT(location, value.remaining(), memAddress(value));
+    }
+
+    // --- [ glUniform2uivEXT ] ---
+
+    public static native void nglUniform2uivEXT(int location, int count, long value);
+
+    public static void glUniform2uivEXT(int location, IntBuffer value) {
+        nglUniform2uivEXT(location, value.remaining() >> 1, memAddress(value));
+    }
+
+    // --- [ glUniform3uivEXT ] ---
+
+    public static native void nglUniform3uivEXT(int location, int count, long value);
+
+    public static void glUniform3uivEXT(int location, IntBuffer value) {
+        nglUniform3uivEXT(location, value.remaining() / 3, memAddress(value));
+    }
+
+    // --- [ glUniform4uivEXT ] ---
+
+    public static native void nglUniform4uivEXT(int location, int count, long value);
+
+    public static void glUniform4uivEXT(int location, IntBuffer value) {
+        nglUniform4uivEXT(location, value.remaining() >> 2, memAddress(value));
+    }
+
+    /** Array version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
+    public static void glVertexAttribI1ivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI1ivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 1);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
+    public static void glVertexAttribI2ivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI2ivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 2);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
+    public static void glVertexAttribI3ivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI3ivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 3);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
+    public static void glVertexAttribI4ivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI4ivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 4);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
+    public static void glVertexAttribI1uivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI1uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 1);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
+    public static void glVertexAttribI2uivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI2uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 2);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
+    public static void glVertexAttribI3uivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI3uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 3);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
+    public static void glVertexAttribI4uivEXT(int index, int[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI4uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 4);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
+    public static void glVertexAttribI4svEXT(int index, short[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI4svEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 4);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
+    public static void glVertexAttribI4usvEXT(int index, short[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribI4usvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 4);
+        }
+        callPV(__functionAddress, index, v);
+    }
+
+    /** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, short[] pointer) {
+        long __functionAddress = GL.getICD().glVertexAttribIPointerEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, index, size, type, stride, pointer);
+    }
+
+    /** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, int[] pointer) {
+        long __functionAddress = GL.getICD().glVertexAttribIPointerEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, index, size, type, stride, pointer);
+    }
+
+    /** Array version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
+    public static void glGetVertexAttribIivEXT(int index, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glGetVertexAttribIivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 4);
+        }
+        callPV(__functionAddress, index, pname, params);
+    }
+
+    /** Array version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
+    public static void glGetVertexAttribIuivEXT(int index, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glGetVertexAttribIuivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 4);
+        }
+        callPV(__functionAddress, index, pname, params);
+    }
+
+    /** Array version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
+    public static void glGetUniformuivEXT(int program, int location, int[] params) {
+        long __functionAddress = GL.getICD().glGetUniformuivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, program, location, params);
+    }
+
+    /** Array version of: {@link #glUniform1uivEXT Uniform1uivEXT} */
+    public static void glUniform1uivEXT(int location, int[] value) {
+        long __functionAddress = GL.getICD().glUniform1uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, location, value.length, value);
+    }
+
+    /** Array version of: {@link #glUniform2uivEXT Uniform2uivEXT} */
+    public static void glUniform2uivEXT(int location, int[] value) {
+        long __functionAddress = GL.getICD().glUniform2uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, location, value.length >> 1, value);
+    }
+
+    /** Array version of: {@link #glUniform3uivEXT Uniform3uivEXT} */
+    public static void glUniform3uivEXT(int location, int[] value) {
+        long __functionAddress = GL.getICD().glUniform3uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, location, value.length / 3, value);
+    }
+
+    /** Array version of: {@link #glUniform4uivEXT Uniform4uivEXT} */
+    public static void glUniform4uivEXT(int location, int[] value) {
+        long __functionAddress = GL.getICD().glUniform4uivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, location, value.length >> 2, value);
+    }
 
 }

@@ -56,176 +56,178 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class GOOGLEDisplayTiming {
 
-	/** The extension specification version. */
-	public static final int VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME = "VK_GOOGLE_display_timing";
+    /** The extension name. */
+    public static final String VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME = "VK_GOOGLE_display_timing";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE = 1000092000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE = 1000092000;
 
-	protected GOOGLEDisplayTiming() {
-		throw new UnsupportedOperationException();
-	}
+    protected GOOGLEDisplayTiming() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(VKCapabilitiesDevice caps) {
-		return checkFunctions(
-			caps.vkGetRefreshCycleDurationGOOGLE, caps.vkGetPastPresentationTimingGOOGLE
-		);
-	}
+    static boolean isAvailable(VKCapabilitiesDevice caps) {
+        return checkFunctions(
+            caps.vkGetRefreshCycleDurationGOOGLE, caps.vkGetPastPresentationTimingGOOGLE
+        );
+    }
 
-	// --- [ vkGetRefreshCycleDurationGOOGLE ] ---
+    // --- [ vkGetRefreshCycleDurationGOOGLE ] ---
 
-	/** Unsafe version of: {@link #vkGetRefreshCycleDurationGOOGLE GetRefreshCycleDurationGOOGLE} */
-	public static int nvkGetRefreshCycleDurationGOOGLE(VkDevice device, long swapchain, long pDisplayTimingProperties) {
-		long __functionAddress = device.getCapabilities().vkGetRefreshCycleDurationGOOGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPJPI(__functionAddress, device.address(), swapchain, pDisplayTimingProperties);
-	}
+    /** Unsafe version of: {@link #vkGetRefreshCycleDurationGOOGLE GetRefreshCycleDurationGOOGLE} */
+    public static int nvkGetRefreshCycleDurationGOOGLE(VkDevice device, long swapchain, long pDisplayTimingProperties) {
+        long __functionAddress = device.getCapabilities().vkGetRefreshCycleDurationGOOGLE;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPJPI(__functionAddress, device.address(), swapchain, pDisplayTimingProperties);
+    }
 
-	/**
-	 * Obtain the RC duration of the PE's display.
-	 * 
-	 * <h5>C Specification</h5>
-	 * 
-	 * <p>To query the duration of a refresh cycle (RC) for the presentation engine's display, call:</p>
-	 * 
-	 * <pre><code>VkResult vkGetRefreshCycleDurationGOOGLE(
+    /**
+     * Obtain the RC duration of the PE's display.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <p>To query the duration of a refresh cycle (RC) for the presentation engine's display, call:</p>
+     * 
+     * <pre><code>VkResult vkGetRefreshCycleDurationGOOGLE(
     VkDevice                                    device,
     VkSwapchainKHR                              swapchain,
     VkRefreshCycleDurationGOOGLE*               pDisplayTimingProperties);</code></pre>
-	 * 
-	 * <h5>Valid Usage (Implicit)</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-	 * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
-	 * <li>{@code pDisplayTimingProperties} <b>must</b> be a pointer to a {@link VkRefreshCycleDurationGOOGLE} structure</li>
-	 * </ul>
-	 * 
-	 * <h5>Host Synchronization</h5>
-	 * 
-	 * <ul>
-	 * <li>Host access to {@code swapchain} <b>must</b> be externally synchronized</li>
-	 * </ul>
-	 * 
-	 * <h5>Return Codes</h5>
-	 * 
-	 * <dl>
-	 * <dt>On success, this command returns</dt>
-	 * <dd><ul>
-	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-	 * </ul></dd>
-	 * <dt>On failure, this command returns</dt>
-	 * <dd><ul>
-	 * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
-	 * <li>{@link KHRSurface#VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
-	 * </ul></dd>
-	 * </dl>
-	 * 
-	 * <h5>See Also</h5>
-	 * 
-	 * <p>{@link VkRefreshCycleDurationGOOGLE}</p>
-	 *
-	 * @param device                   the device associated with {@code swapchain}.
-	 * @param swapchain                the swapchain to obtain the refresh duration for.
-	 * @param pDisplayTimingProperties a pointer to an instance of the {@link VkRefreshCycleDurationGOOGLE} structure.
-	 */
-	public static int vkGetRefreshCycleDurationGOOGLE(VkDevice device, long swapchain, VkRefreshCycleDurationGOOGLE pDisplayTimingProperties) {
-		return nvkGetRefreshCycleDurationGOOGLE(device, swapchain, pDisplayTimingProperties.address());
-	}
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+     * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
+     * <li>{@code pDisplayTimingProperties} <b>must</b> be a pointer to a {@link VkRefreshCycleDurationGOOGLE} structure</li>
+     * </ul>
+     * 
+     * <h5>Host Synchronization</h5>
+     * 
+     * <ul>
+     * <li>Host access to {@code swapchain} <b>must</b> be externally synchronized</li>
+     * </ul>
+     * 
+     * <h5>Return Codes</h5>
+     * 
+     * <dl>
+     * <dt>On success, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+     * </ul></dd>
+     * <dt>On failure, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
+     * <li>{@link KHRSurface#VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
+     * </ul></dd>
+     * </dl>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkRefreshCycleDurationGOOGLE}</p>
+     *
+     * @param device                   the device associated with {@code swapchain}.
+     * @param swapchain                the swapchain to obtain the refresh duration for.
+     * @param pDisplayTimingProperties a pointer to an instance of the {@link VkRefreshCycleDurationGOOGLE} structure.
+     */
+    public static int vkGetRefreshCycleDurationGOOGLE(VkDevice device, long swapchain, VkRefreshCycleDurationGOOGLE pDisplayTimingProperties) {
+        return nvkGetRefreshCycleDurationGOOGLE(device, swapchain, pDisplayTimingProperties.address());
+    }
 
-	// --- [ vkGetPastPresentationTimingGOOGLE ] ---
+    // --- [ vkGetPastPresentationTimingGOOGLE ] ---
 
-	/**
-	 * Unsafe version of: {@link #vkGetPastPresentationTimingGOOGLE GetPastPresentationTimingGOOGLE}
-	 *
-	 * @param pPresentationTimingCount a pointer to an integer related to the number of {@link VkPastPresentationTimingGOOGLE} structures to query, as described below.
-	 */
-	public static int nvkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, long pPresentationTimingCount, long pPresentationTimings) {
-		long __functionAddress = device.getCapabilities().vkGetPastPresentationTimingGOOGLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPJPPI(__functionAddress, device.address(), swapchain, pPresentationTimingCount, pPresentationTimings);
-	}
+    /**
+     * Unsafe version of: {@link #vkGetPastPresentationTimingGOOGLE GetPastPresentationTimingGOOGLE}
+     *
+     * @param pPresentationTimingCount a pointer to an integer related to the number of {@link VkPastPresentationTimingGOOGLE} structures to query, as described below.
+     */
+    public static int nvkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, long pPresentationTimingCount, long pPresentationTimings) {
+        long __functionAddress = device.getCapabilities().vkGetPastPresentationTimingGOOGLE;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPJPPI(__functionAddress, device.address(), swapchain, pPresentationTimingCount, pPresentationTimings);
+    }
 
-	/**
-	 * Obtain timing of a previously-presented image.
-	 * 
-	 * <h5>C Specification</h5>
-	 * 
-	 * <p>The implementation will maintain a limited amount of history of timing information about previous presents. Because of the asynchronous nature of the presentation engine, the timing information for a given {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR} command will become available some time later. These time values can be asynchronously queried, and will be returned if available. All time values are in nanoseconds, relative to a monotonically-increasing clock (e.g. {@code CLOCK_MONOTONIC} (see clock_gettime(2)) on Android and Linux).</p>
-	 * 
-	 * <p>To asynchronously query the presentation engine, for newly-available timing information about one or more previous presents to a given swapchain, call:</p>
-	 * 
-	 * <pre><code>VkResult vkGetPastPresentationTimingGOOGLE(
+    /**
+     * Obtain timing of a previously-presented image.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <p>The implementation will maintain a limited amount of history of timing information about previous presents. Because of the asynchronous nature of the presentation engine, the timing information for a given {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR} command will become available some time later. These time values can be asynchronously queried, and will be returned if available. All time values are in nanoseconds, relative to a monotonically-increasing clock (e.g. {@code CLOCK_MONOTONIC} (see clock_gettime(2)) on Android and Linux).</p>
+     * 
+     * <p>To asynchronously query the presentation engine, for newly-available timing information about one or more previous presents to a given swapchain, call:</p>
+     * 
+     * <pre><code>VkResult vkGetPastPresentationTimingGOOGLE(
     VkDevice                                    device,
     VkSwapchainKHR                              swapchain,
     uint32_t*                                   pPresentationTimingCount,
     VkPastPresentationTimingGOOGLE*             pPresentationTimings);</code></pre>
-	 * 
-	 * <h5>Description</h5>
-	 * 
-	 * <p>If {@code pPresentationTimings} is {@code NULL}, then the number of newly-available timing records for the given {@code swapchain} is returned in {@code pPresentationTimingCount}. Otherwise, {@code pPresentationTimingCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPresentationTimings} array, and on return the variable is overwritten with the number of structures actually written to {@code pPresentationTimings}. If the value of {@code pPresentationTimingCount} is less than the number of newly-available timing records, at most {@code pPresentationTimingCount} structures will be written. If {@code pPresentationTimingCount} is smaller than the number of newly-available timing records for the given {@code swapchain}, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link VK10#VK_SUCCESS SUCCESS} to indicate that not all the available values were returned.</p>
-	 * 
-	 * <h5>Valid Usage (Implicit)</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-	 * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
-	 * <li>{@code pPresentationTimingCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-	 * <li>If the value referenced by {@code pPresentationTimingCount} is not 0, and {@code pPresentationTimings} is not {@code NULL}, {@code pPresentationTimings} <b>must</b> be a pointer to an array of {@code pPresentationTimingCount} {@link VkPastPresentationTimingGOOGLE} structures</li>
-	 * </ul>
-	 * 
-	 * <h5>Host Synchronization</h5>
-	 * 
-	 * <ul>
-	 * <li>Host access to {@code swapchain} <b>must</b> be externally synchronized</li>
-	 * </ul>
-	 * 
-	 * <h5>Return Codes</h5>
-	 * 
-	 * <dl>
-	 * <dt>On success, this command returns</dt>
-	 * <dd><ul>
-	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-	 * </ul></dd>
-	 * <dt>On failure, this command returns</dt>
-	 * <dd><ul>
-	 * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
-	 * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}</li>
-	 * <li>{@link KHRSurface#VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
-	 * </ul></dd>
-	 * </dl>
-	 * 
-	 * <h5>See Also</h5>
-	 * 
-	 * <p>{@link VkPastPresentationTimingGOOGLE}</p>
-	 *
-	 * @param device                   the device associated with {@code swapchain}.
-	 * @param swapchain                the swapchain to obtain presentation timing information duration for.
-	 * @param pPresentationTimingCount a pointer to an integer related to the number of {@link VkPastPresentationTimingGOOGLE} structures to query, as described below.
-	 * @param pPresentationTimings     either {@code NULL} or a pointer to an an array of {@link VkPastPresentationTimingGOOGLE} structures.
-	 */
-	public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, IntBuffer pPresentationTimingCount, VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
-		if ( CHECKS ) {
-			check(pPresentationTimingCount, 1);
-			checkSafe(pPresentationTimings, pPresentationTimingCount.get(pPresentationTimingCount.position()));
-		}
-		return nvkGetPastPresentationTimingGOOGLE(device, swapchain, memAddress(pPresentationTimingCount), memAddressSafe(pPresentationTimings));
-	}
+     * 
+     * <h5>Description</h5>
+     * 
+     * <p>If {@code pPresentationTimings} is {@code NULL}, then the number of newly-available timing records for the given {@code swapchain} is returned in {@code pPresentationTimingCount}. Otherwise, {@code pPresentationTimingCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pPresentationTimings} array, and on return the variable is overwritten with the number of structures actually written to {@code pPresentationTimings}. If the value of {@code pPresentationTimingCount} is less than the number of newly-available timing records, at most {@code pPresentationTimingCount} structures will be written. If {@code pPresentationTimingCount} is smaller than the number of newly-available timing records for the given {@code swapchain}, {@link VK10#VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link VK10#VK_SUCCESS SUCCESS} to indicate that not all the available values were returned.</p>
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+     * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
+     * <li>{@code pPresentationTimingCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPresentationTimingCount} is not 0, and {@code pPresentationTimings} is not {@code NULL}, {@code pPresentationTimings} <b>must</b> be a pointer to an array of {@code pPresentationTimingCount} {@link VkPastPresentationTimingGOOGLE} structures</li>
+     * </ul>
+     * 
+     * <h5>Host Synchronization</h5>
+     * 
+     * <ul>
+     * <li>Host access to {@code swapchain} <b>must</b> be externally synchronized</li>
+     * </ul>
+     * 
+     * <h5>Return Codes</h5>
+     * 
+     * <dl>
+     * <dt>On success, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+     * </ul></dd>
+     * <dt>On failure, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
+     * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}</li>
+     * <li>{@link KHRSurface#VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
+     * </ul></dd>
+     * </dl>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkPastPresentationTimingGOOGLE}</p>
+     *
+     * @param device                   the device associated with {@code swapchain}.
+     * @param swapchain                the swapchain to obtain presentation timing information duration for.
+     * @param pPresentationTimingCount a pointer to an integer related to the number of {@link VkPastPresentationTimingGOOGLE} structures to query, as described below.
+     * @param pPresentationTimings     either {@code NULL} or a pointer to an an array of {@link VkPastPresentationTimingGOOGLE} structures.
+     */
+    public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, IntBuffer pPresentationTimingCount, VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
+        if (CHECKS) {
+            check(pPresentationTimingCount, 1);
+            checkSafe(pPresentationTimings, pPresentationTimingCount.get(pPresentationTimingCount.position()));
+        }
+        return nvkGetPastPresentationTimingGOOGLE(device, swapchain, memAddress(pPresentationTimingCount), memAddressSafe(pPresentationTimings));
+    }
 
-	/** Array version of: {@link #vkGetPastPresentationTimingGOOGLE GetPastPresentationTimingGOOGLE} */
-	public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, int[] pPresentationTimingCount, VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
-		long __functionAddress = device.getCapabilities().vkGetPastPresentationTimingGOOGLE;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pPresentationTimingCount, 1);
-			checkSafe(pPresentationTimings, pPresentationTimingCount[0]);
-		}
-		return callPJPPI(__functionAddress, device.address(), swapchain, pPresentationTimingCount, memAddressSafe(pPresentationTimings));
-	}
+    /** Array version of: {@link #vkGetPastPresentationTimingGOOGLE GetPastPresentationTimingGOOGLE} */
+    public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, int[] pPresentationTimingCount, VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
+        long __functionAddress = device.getCapabilities().vkGetPastPresentationTimingGOOGLE;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pPresentationTimingCount, 1);
+            checkSafe(pPresentationTimings, pPresentationTimingCount[0]);
+        }
+        return callPJPPI(__functionAddress, device.address(), swapchain, pPresentationTimingCount, memAddressSafe(pPresentationTimings));
+    }
 
 }

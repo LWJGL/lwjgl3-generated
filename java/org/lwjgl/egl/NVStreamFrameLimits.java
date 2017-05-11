@@ -20,11 +20,11 @@ package org.lwjgl.egl;
  */
 public final class NVStreamFrameLimits {
 
-	/** Accepted as an attribute name in the {@code attrib_list} parameter of {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and as the {@code attribute} parameter of {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
-	public static final int
-		EGL_PRODUCER_MAX_FRAME_HINT_NV = 0x3337,
-		EGL_CONSUMER_MAX_FRAME_HINT_NV = 0x3338;
+    /** Accepted as an attribute name in the {@code attrib_list} parameter of {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and as the {@code attribute} parameter of {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
+    public static final int
+        EGL_PRODUCER_MAX_FRAME_HINT_NV = 0x3337,
+        EGL_CONSUMER_MAX_FRAME_HINT_NV = 0x3338;
 
-	private NVStreamFrameLimits() {}
+    private NVStreamFrameLimits() {}
 
 }

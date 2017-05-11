@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface STBIEOFCallbackI extends CallbackI.I {
 
-	String SIGNATURE = "(p)i";
+    String SIGNATURE = "(p)i";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default int callback(long args) {
+        return invoke(
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * The {@code stbi_io_callbacks.eof} callback.
-	 *
-	 * @param user a pointer to user data
-	 *
-	 * @return nonzero if we are at the end of file/data
-	 */
-	int invoke(long user);
+    /**
+     * The {@code stbi_io_callbacks.eof} callback.
+     *
+     * @param user a pointer to user data
+     *
+     * @return nonzero if we are at the end of file/data
+     */
+    int invoke(long user);
 
 }

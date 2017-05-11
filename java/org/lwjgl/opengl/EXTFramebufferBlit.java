@@ -18,33 +18,33 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTFramebufferBlit {
 
-	/**
-	 * Accepted by the {@code target} parameter of BindFramebufferEXT, CheckFramebufferStatusEXT, FramebufferTexture{1D|2D|3D}EXT, FramebufferRenderbufferEXT,
-	 * and GetFramebufferAttachmentParameterivEXT.
-	 */
-	public static final int
-		GL_READ_FRAMEBUFFER_EXT = 0x8CA8,
-		GL_DRAW_FRAMEBUFFER_EXT = 0x8CA9;
+    /**
+     * Accepted by the {@code target} parameter of BindFramebufferEXT, CheckFramebufferStatusEXT, FramebufferTexture{1D|2D|3D}EXT, FramebufferRenderbufferEXT,
+     * and GetFramebufferAttachmentParameterivEXT.
+     */
+    public static final int
+        GL_READ_FRAMEBUFFER_EXT = 0x8CA8,
+        GL_DRAW_FRAMEBUFFER_EXT = 0x8CA9;
 
-	/** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_DRAW_FRAMEBUFFER_BINDING_EXT = 0x8CA6,
-		GL_READ_FRAMEBUFFER_BINDING_EXT = 0x8CAA;
+    /** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_DRAW_FRAMEBUFFER_BINDING_EXT = 0x8CA6,
+        GL_READ_FRAMEBUFFER_BINDING_EXT = 0x8CAA;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTFramebufferBlit() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTFramebufferBlit() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBlitFramebufferEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBlitFramebufferEXT
+        );
+    }
 
-	// --- [ glBlitFramebufferEXT ] ---
+    // --- [ glBlitFramebufferEXT ] ---
 
-	public static native void glBlitFramebufferEXT(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+    public static native void glBlitFramebufferEXT(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 }

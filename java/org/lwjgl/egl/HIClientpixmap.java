@@ -15,34 +15,34 @@ import static org.lwjgl.system.JNI.*;
  */
 public class HIClientpixmap {
 
-	/**  */
-	public static final int EGL_CLIENT_PIXMAP_POINTER_HI = 0x8F74;
+    /**  */
+    public static final int EGL_CLIENT_PIXMAP_POINTER_HI = 0x8F74;
 
-	protected HIClientpixmap() {
-		throw new UnsupportedOperationException();
-	}
+    protected HIClientpixmap() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglCreatePixmapSurfaceHI
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglCreatePixmapSurfaceHI
+        );
+    }
 
-	// --- [ eglCreatePixmapSurfaceHI ] ---
+    // --- [ eglCreatePixmapSurfaceHI ] ---
 
-	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
-		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurfaceHI;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(config);
-			EGLClientPixmapHI.validate(pixmap);
-		}
-		return callPPPP(__functionAddress, dpy, config, pixmap);
-	}
+    public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
+        long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurfaceHI;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(config);
+            EGLClientPixmapHI.validate(pixmap);
+        }
+        return callPPPP(__functionAddress, dpy, config, pixmap);
+    }
 
-	public static long eglCreatePixmapSurfaceHI(long dpy, long config, EGLClientPixmapHI pixmap) {
-		return neglCreatePixmapSurfaceHI(dpy, config, pixmap.address());
-	}
+    public static long eglCreatePixmapSurfaceHI(long dpy, long config, EGLClientPixmapHI pixmap) {
+        return neglCreatePixmapSurfaceHI(dpy, config, pixmap.address());
+    }
 
 }

@@ -15,36 +15,36 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESTextureStorageMultisample2DArray {
 
-	/**
-	 * Accepted by the {@code target} parameter of BindTexture, TexStorage3DMultisampleOES, GetInternalformativ, TexParameter{if}*, GetTexParameter{if}v and
-	 * GetTexLevelParameter{if}v. Also, the texture object indicated by the {@code texture} argument to FramebufferTextureLayer can be
-	 * TEXTURE_2D_MULTISAMPLE_ARRAY_OES.
-	 */
-	public static final int GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES = 0x9102;
+    /**
+     * Accepted by the {@code target} parameter of BindTexture, TexStorage3DMultisampleOES, GetInternalformativ, TexParameter{if}*, GetTexParameter{if}v and
+     * GetTexLevelParameter{if}v. Also, the texture object indicated by the {@code texture} argument to FramebufferTextureLayer can be
+     * TEXTURE_2D_MULTISAMPLE_ARRAY_OES.
+     */
+    public static final int GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES = 0x9102;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES = 0x9105;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES = 0x9105;
 
-	/** Returned by the {@code type} parameter of GetActiveUniform. */
-	public static final int
-		GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES              = 0x910B,
-		GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES          = 0x910C,
-		GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910D;
+    /** Returned by the {@code type} parameter of GetActiveUniform. */
+    public static final int
+        GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES              = 0x910B,
+        GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES          = 0x910C,
+        GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES = 0x910D;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESTextureStorageMultisample2DArray() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESTextureStorageMultisample2DArray() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glTexStorage3DMultisampleOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glTexStorage3DMultisampleOES
+        );
+    }
 
-	// --- [ glTexStorage3DMultisampleOES ] ---
+    // --- [ glTexStorage3DMultisampleOES ] ---
 
-	public static native void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
+    public static native void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 }

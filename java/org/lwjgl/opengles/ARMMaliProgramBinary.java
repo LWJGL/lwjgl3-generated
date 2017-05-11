@@ -19,9 +19,9 @@ package org.lwjgl.opengles;
  */
 public final class ARMMaliProgramBinary {
 
-	/** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
-	public static final int GL_MALI_PROGRAM_BINARY_ARM = 0x8F61;
+    /** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
+    public static final int GL_MALI_PROGRAM_BINARY_ARM = 0x8F61;
 
-	private ARMMaliProgramBinary() {}
+    private ARMMaliProgramBinary() {}
 
 }

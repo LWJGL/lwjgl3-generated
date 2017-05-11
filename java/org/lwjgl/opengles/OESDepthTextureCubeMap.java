@@ -14,15 +14,15 @@ package org.lwjgl.opengles;
  */
 public final class OESDepthTextureCubeMap {
 
-	/**
-	 * Accepted by the {@code format} parameter of TexImage2D and TexSubImage2D and {@code internalFormat} parameter of TexImage2D when {@code target} is one
-	 * of the TEXTURE_CUBE_MAP_ targets.
-	 */
-	public static final int GL_DEPTH_STENCIL_OES = 0x84F9;
+    /**
+     * Accepted by the {@code format} parameter of TexImage2D and TexSubImage2D and {@code internalFormat} parameter of TexImage2D when {@code target} is one
+     * of the TEXTURE_CUBE_MAP_ targets.
+     */
+    public static final int GL_DEPTH_STENCIL_OES = 0x84F9;
 
-	/** Accepted by the {@code type} parameter of TexImage2D, TexSubImage2D when {@code target} is one of the TEXTURE_CUBE_MAP_ targets. */
-	public static final int GL_DEPTH24_STENCIL8_OES = 0x88F0;
+    /** Accepted by the {@code type} parameter of TexImage2D, TexSubImage2D when {@code target} is one of the TEXTURE_CUBE_MAP_ targets. */
+    public static final int GL_DEPTH24_STENCIL8_OES = 0x88F0;
 
-	private OESDepthTextureCubeMap() {}
+    private OESDepthTextureCubeMap() {}
 
 }

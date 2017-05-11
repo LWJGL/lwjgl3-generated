@@ -15,33 +15,34 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXSGISwapControl {
 
-	protected GLXSGISwapControl() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXSGISwapControl() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXSwapIntervalSGI
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXSwapIntervalSGI
+        );
+    }
 
-	// --- [ glXSwapIntervalSGI ] ---
+    // --- [ glXSwapIntervalSGI ] ---
 
-	/**
-	 * Specifies the minimum number of video frame periods per buffer swap. (e.g. a value of two means that the color buffers will be swapped at most every
-	 * other video frame.)  A return value of zero indicates success; otherwise an error occurred.  The interval takes effect when {@link GLX#glXSwapBuffers SwapBuffers}
-	 * is first called subsequent to the {@code glXSwapIntervalSGI} call.
-	 * 
-	 * <p>A video frame period is the time required by the monitor to display a full frame of video data.  In the case of an interlaced monitor, this is typically
-	 * the time required to display both the even and odd fields of a frame of video data.</p>
-	 *
-	 * @param interval the swap interval
-	 */
-	public static int glXSwapIntervalSGI(int interval) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalSGI;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, interval);
-	}
+    /**
+     * Specifies the minimum number of video frame periods per buffer swap. (e.g. a value of two means that the color buffers will be swapped at most every
+     * other video frame.)  A return value of zero indicates success; otherwise an error occurred.  The interval takes effect when {@link GLX#glXSwapBuffers SwapBuffers}
+     * is first called subsequent to the {@code glXSwapIntervalSGI} call.
+     * 
+     * <p>A video frame period is the time required by the monitor to display a full frame of video data.  In the case of an interlaced monitor, this is typically
+     * the time required to display both the even and odd fields of a frame of video data.</p>
+     *
+     * @param interval the swap interval
+     */
+    public static int glXSwapIntervalSGI(int interval) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalSGI;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress, interval);
+    }
 
 }

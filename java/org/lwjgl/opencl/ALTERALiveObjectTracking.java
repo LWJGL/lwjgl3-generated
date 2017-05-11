@@ -31,58 +31,58 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ALTERALiveObjectTracking {
 
-	protected ALTERALiveObjectTracking() {
-		throw new UnsupportedOperationException();
-	}
+    protected ALTERALiveObjectTracking() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(CLCapabilities caps) {
-		return checkFunctions(
-			caps.clTrackLiveObjectsAltera, caps.clReportLiveObjectsAltera
-		);
-	}
+    static boolean isAvailable(CLCapabilities caps) {
+        return checkFunctions(
+            caps.clTrackLiveObjectsAltera, caps.clReportLiveObjectsAltera
+        );
+    }
 
-	// --- [ clTrackLiveObjectsAltera ] ---
+    // --- [ clTrackLiveObjectsAltera ] ---
 
-	/**
-	 * Registers a future interest in enumerating all the live objects in the runtime API. Registering such an interest may itself increase memory use and
-	 * runtime, which is why is must be explicitly requested.
-	 * 
-	 * <p>Behaviour is unspecified if the {@code clTrackLiveObjectsAltera} method is called before the the first call to {@link CL10#clGetPlatformIDs GetPlatformIDs}.</p>
-	 *
-	 * @param platform the platform ID
-	 */
-	public static void clTrackLiveObjectsAltera(long platform) {
-		long __functionAddress = CL.getICD().clTrackLiveObjectsAltera;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(platform);
-		}
-		callPV(__functionAddress, platform);
-	}
+    /**
+     * Registers a future interest in enumerating all the live objects in the runtime API. Registering such an interest may itself increase memory use and
+     * runtime, which is why is must be explicitly requested.
+     * 
+     * <p>Behaviour is unspecified if the {@code clTrackLiveObjectsAltera} method is called before the the first call to {@link CL10#clGetPlatformIDs GetPlatformIDs}.</p>
+     *
+     * @param platform the platform ID
+     */
+    public static void clTrackLiveObjectsAltera(long platform) {
+        long __functionAddress = CL.getICD().clTrackLiveObjectsAltera;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(platform);
+        }
+        callPV(__functionAddress, platform);
+    }
 
-	// --- [ clReportLiveObjectsAltera ] ---
+    // --- [ clReportLiveObjectsAltera ] ---
 
-	/** Unsafe version of: {@link #clReportLiveObjectsAltera ReportLiveObjectsAltera} */
-	public static void nclReportLiveObjectsAltera(long platform, long report_fn, long user_data) {
-		long __functionAddress = CL.getICD().clReportLiveObjectsAltera;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(platform);
-			check(user_data);
-		}
-		callPPPV(__functionAddress, platform, report_fn, user_data);
-	}
+    /** Unsafe version of: {@link #clReportLiveObjectsAltera ReportLiveObjectsAltera} */
+    public static void nclReportLiveObjectsAltera(long platform, long report_fn, long user_data) {
+        long __functionAddress = CL.getICD().clReportLiveObjectsAltera;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(platform);
+            check(user_data);
+        }
+        callPPPV(__functionAddress, platform, report_fn, user_data);
+    }
 
-	/**
-	 * Requests an enumeration of all live objects in the runtime. The enumeration is performed by calling the callback function once for each live object in
-	 * some implementation-defined sequence (i.e. not concurrently).
-	 *
-	 * @param platform  the platform for which live objects are being tracked
-	 * @param report_fn the callback function
-	 * @param user_data a pointer to user data that will be passed to {@code report_fn}
-	 */
-	public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallbackI report_fn, long user_data) {
-		nclReportLiveObjectsAltera(platform, report_fn.address(), user_data);
-	}
+    /**
+     * Requests an enumeration of all live objects in the runtime. The enumeration is performed by calling the callback function once for each live object in
+     * some implementation-defined sequence (i.e. not concurrently).
+     *
+     * @param platform  the platform for which live objects are being tracked
+     * @param report_fn the callback function
+     * @param user_data a pointer to user data that will be passed to {@code report_fn}
+     */
+    public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallbackI report_fn, long user_data) {
+        nclReportLiveObjectsAltera(platform, report_fn.address(), user_data);
+    }
 
 }

@@ -29,51 +29,51 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ANGLEInstancedArrays {
 
-	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
-	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
+    /** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
+    public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected ANGLEInstancedArrays() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANGLEInstancedArrays() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glDrawArraysInstancedANGLE, caps.glDrawElementsInstancedANGLE, caps.glVertexAttribDivisorANGLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glDrawArraysInstancedANGLE, caps.glDrawElementsInstancedANGLE, caps.glVertexAttribDivisorANGLE
+        );
+    }
 
-	// --- [ glDrawArraysInstancedANGLE ] ---
+    // --- [ glDrawArraysInstancedANGLE ] ---
 
-	public static native void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount);
+    public static native void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount);
 
-	// --- [ glDrawElementsInstancedANGLE ] ---
+    // --- [ glDrawElementsInstancedANGLE ] ---
 
-	public static native void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount);
+    public static native void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount);
 
-	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
-		nglDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
-	}
+    public static void glDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
+        nglDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
+    }
 
-	public static void glDrawElementsInstancedANGLE(int mode, int type, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedANGLE(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedANGLE(int mode, int type, ByteBuffer indices, int primcount) {
+        nglDrawElementsInstancedANGLE(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedANGLE(int mode, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedANGLE(int mode, ByteBuffer indices, int primcount) {
+        nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedANGLE(int mode, ShortBuffer indices, int primcount) {
-		nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedANGLE(int mode, ShortBuffer indices, int primcount) {
+        nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedANGLE(int mode, IntBuffer indices, int primcount) {
-		nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedANGLE(int mode, IntBuffer indices, int primcount) {
+        nglDrawElementsInstancedANGLE(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
+    }
 
-	// --- [ glVertexAttribDivisorANGLE ] ---
+    // --- [ glVertexAttribDivisorANGLE ] ---
 
-	public static native void glVertexAttribDivisorANGLE(int index, int divisor);
+    public static native void glVertexAttribDivisorANGLE(int index, int divisor);
 
 }

@@ -21,13 +21,13 @@ package org.lwjgl.opengl;
  */
 public final class ARBHalfFloatPixel {
 
-	/**
-	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, GetTexImage, TexSubImage1D, TexSubImage2D,
-	 * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, GetConvolutionFilter, SeparableFilter2D, GetSeparableFilter,
-	 * ColorTable, ColorSubTable, and GetColorTable.
-	 */
-	public static final int GL_HALF_FLOAT_ARB = 0x140B;
+    /**
+     * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, GetTexImage, TexSubImage1D, TexSubImage2D,
+     * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, GetConvolutionFilter, SeparableFilter2D, GetSeparableFilter,
+     * ColorTable, ColorSubTable, and GetColorTable.
+     */
+    public static final int GL_HALF_FLOAT_ARB = 0x140B;
 
-	private ARBHalfFloatPixel() {}
+    private ARBHalfFloatPixel() {}
 
 }

@@ -14,12 +14,12 @@ package org.lwjgl.opengl;
  */
 public final class WGLARBPixelFormatFloat {
 
-	/**
-	 * Accepted as a value in the {@code attribIList} parameter array of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}, and returned in the {@code values}
-	 * parameter array of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}.
-	 */
-	public static final int WGL_TYPE_RGBA_FLOAT_ARB = 0x21A0;
+    /**
+     * Accepted as a value in the {@code attribIList} parameter array of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}, and returned in the {@code values}
+     * parameter array of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}.
+     */
+    public static final int WGL_TYPE_RGBA_FLOAT_ARB = 0x21A0;
 
-	private WGLARBPixelFormatFloat() {}
+    private WGLARBPixelFormatFloat() {}
 
 }

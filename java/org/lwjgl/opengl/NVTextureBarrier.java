@@ -14,21 +14,21 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVTextureBarrier {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVTextureBarrier() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVTextureBarrier() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTextureBarrierNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTextureBarrierNV
+        );
+    }
 
-	// --- [ glTextureBarrierNV ] ---
+    // --- [ glTextureBarrierNV ] ---
 
-	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
-	public static native void glTextureBarrierNV();
+    /** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
+    public static native void glTextureBarrierNV();
 
 }

@@ -31,18 +31,18 @@ package org.lwjgl.opengles;
  */
 public final class OESPackedDepthStencil {
 
-	/** Accepted by the {@code format} parameter of TexImage2D and TexSubImage2D and by the {@code internalformat} parameter of TexImage2D. */
-	public static final int GL_DEPTH_STENCIL_OES = 0x84F9;
+    /** Accepted by the {@code format} parameter of TexImage2D and TexSubImage2D and by the {@code internalformat} parameter of TexImage2D. */
+    public static final int GL_DEPTH_STENCIL_OES = 0x84F9;
 
-	/** Accepted by the {@code type} parameter of TexImage2D and TexSubImage2D. */
-	public static final int GL_UNSIGNED_INT_24_8_OES = 0x84FA;
+    /** Accepted by the {@code type} parameter of TexImage2D and TexSubImage2D. */
+    public static final int GL_UNSIGNED_INT_24_8_OES = 0x84FA;
 
-	/**
-	 * Accepted by the {@code internalformat} parameter of RenderbufferStorage, and returned in the {@code params} parameter of GetRenderbufferParameteriv when
-	 * {@code pname} is RENDERBUFFER_INTERNAL_FORMAT.
-	 */
-	public static final int GL_DEPTH24_STENCIL8_OES = 0x88F0;
+    /**
+     * Accepted by the {@code internalformat} parameter of RenderbufferStorage, and returned in the {@code params} parameter of GetRenderbufferParameteriv when
+     * {@code pname} is RENDERBUFFER_INTERNAL_FORMAT.
+     */
+    public static final int GL_DEPTH24_STENCIL8_OES = 0x88F0;
 
-	private OESPackedDepthStencil() {}
+    private OESPackedDepthStencil() {}
 
 }

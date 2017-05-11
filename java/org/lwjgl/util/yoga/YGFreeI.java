@@ -13,19 +13,19 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface YGFreeI extends CallbackI.P {
 
-	String SIGNATURE = "(p)p";
+    String SIGNATURE = "(p)p";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args)
+        );
+    }
 
 
-	long invoke(long ptr);
+    long invoke(long ptr);
 
 }

@@ -14,12 +14,12 @@ package org.lwjgl.opengles;
  */
 public final class DMPProgramBinary {
 
-	/** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
-	public static final int
-		GL_SMAPHS30_PROGRAM_BINARY_DMP = 0x9251,
-		GL_SMAPHS_PROGRAM_BINARY_DMP   = 0x9252,
-		GL_DMP_PROGRAM_BINARY_DMP      = 0x9253;
+    /** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
+    public static final int
+        GL_SMAPHS30_PROGRAM_BINARY_DMP = 0x9251,
+        GL_SMAPHS_PROGRAM_BINARY_DMP   = 0x9252,
+        GL_DMP_PROGRAM_BINARY_DMP      = 0x9253;
 
-	private DMPProgramBinary() {}
+    private DMPProgramBinary() {}
 
 }

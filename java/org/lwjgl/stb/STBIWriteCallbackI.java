@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface STBIWriteCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(ppi)v";
+    String SIGNATURE = "(ppi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * The {@code stbi_write_func} callback.
-	 *
-	 * @param context the context passed to the write function
-	 * @param data    the data to write
-	 * @param size    the number of bytes in {@code data}
-	 */
-	void invoke(long context, long data, int size);
+    /**
+     * The {@code stbi_write_func} callback.
+     *
+     * @param context the context passed to the write function
+     * @param data    the data to write
+     * @param size    the number of bytes in {@code data}
+     */
+    void invoke(long context, long data, int size);
 
 }

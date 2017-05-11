@@ -11,46 +11,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class NkCommandCustomCallback extends Callback implements NkCommandCustomCallbackI {
 
-	/** Creates a {@code NkCommandCustomCallback} instance from the specified function pointer. */
-	public static NkCommandCustomCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code NkCommandCustomCallback} instance from the specified function pointer. */
+    public static NkCommandCustomCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		NkCommandCustomCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof NkCommandCustomCallback
-			? (NkCommandCustomCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        NkCommandCustomCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof NkCommandCustomCallback
+            ? (NkCommandCustomCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code NkCommandCustomCallback} instance that delegates to the specified {@code NkCommandCustomCallbackI} instance. */
-	public static NkCommandCustomCallback create(NkCommandCustomCallbackI instance) {
-		return instance instanceof NkCommandCustomCallback
-			? (NkCommandCustomCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code NkCommandCustomCallback} instance that delegates to the specified {@code NkCommandCustomCallbackI} instance. */
+    public static NkCommandCustomCallback create(NkCommandCustomCallbackI instance) {
+        return instance instanceof NkCommandCustomCallback
+            ? (NkCommandCustomCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected NkCommandCustomCallback() {
-		super(SIGNATURE);
-	}
+    protected NkCommandCustomCallback() {
+        super(SIGNATURE);
+    }
 
-	private NkCommandCustomCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private NkCommandCustomCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends NkCommandCustomCallback {
+    private static final class Container extends NkCommandCustomCallback {
 
-		private final NkCommandCustomCallbackI delegate;
+        private final NkCommandCustomCallbackI delegate;
 
-		Container(long functionPointer, NkCommandCustomCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, NkCommandCustomCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public long invoke(long canvas, short x, short y, short w, short h, long callback_data) {
-			return delegate.invoke(canvas, x, y, w, h, callback_data);
-		}
+        @Override
+        public long invoke(long canvas, short x, short y, short w, short h, long callback_data) {
+            return delegate.invoke(canvas, x, y, w, h, callback_data);
+        }
 
-	}
+    }
 
 }

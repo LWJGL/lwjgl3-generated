@@ -39,212 +39,212 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class BGFXHmdEye extends Struct {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		ROTATION,
-		TRANSLATION,
-		FOV,
-		VIEWOFFSET,
-		PROJECTION,
-		PIXELSPERTANANGLE;
+    /** The struct member offsets. */
+    public static final int
+        ROTATION,
+        TRANSLATION,
+        FOV,
+        VIEWOFFSET,
+        PROJECTION,
+        PIXELSPERTANANGLE;
 
-	static {
-		Layout layout = __struct(
-			__array(4, 4),
-			__array(4, 3),
-			__array(4, 4),
-			__array(4, 3),
-			__array(4, 16),
-			__array(4, 2)
-		);
+    static {
+        Layout layout = __struct(
+            __array(4, 4),
+            __array(4, 3),
+            __array(4, 4),
+            __array(4, 3),
+            __array(4, 16),
+            __array(4, 2)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		ROTATION = layout.offsetof(0);
-		TRANSLATION = layout.offsetof(1);
-		FOV = layout.offsetof(2);
-		VIEWOFFSET = layout.offsetof(3);
-		PROJECTION = layout.offsetof(4);
-		PIXELSPERTANANGLE = layout.offsetof(5);
-	}
+        ROTATION = layout.offsetof(0);
+        TRANSLATION = layout.offsetof(1);
+        FOV = layout.offsetof(2);
+        VIEWOFFSET = layout.offsetof(3);
+        PROJECTION = layout.offsetof(4);
+        PIXELSPERTANANGLE = layout.offsetof(5);
+    }
 
-	BGFXHmdEye(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    BGFXHmdEye(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link BGFXHmdEye} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public BGFXHmdEye(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link BGFXHmdEye} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public BGFXHmdEye(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns a {@link FloatBuffer} view of the {@code rotation} field. */
-	public FloatBuffer rotation() { return nrotation(address()); }
-	/** Returns the value at the specified index of the {@code rotation} field. */
-	public float rotation(int index) { return nrotation(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code translation} field. */
-	public FloatBuffer translation() { return ntranslation(address()); }
-	/** Returns the value at the specified index of the {@code translation} field. */
-	public float translation(int index) { return ntranslation(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code fov} field. */
-	public FloatBuffer fov() { return nfov(address()); }
-	/** Returns the value at the specified index of the {@code fov} field. */
-	public float fov(int index) { return nfov(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code viewOffset} field. */
-	public FloatBuffer viewOffset() { return nviewOffset(address()); }
-	/** Returns the value at the specified index of the {@code viewOffset} field. */
-	public float viewOffset(int index) { return nviewOffset(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code projection} field. */
-	public FloatBuffer projection() { return nprojection(address()); }
-	/** Returns the value at the specified index of the {@code projection} field. */
-	public float projection(int index) { return nprojection(address(), index); }
-	/** Returns a {@link FloatBuffer} view of the {@code pixelsPerTanAngle} field. */
-	public FloatBuffer pixelsPerTanAngle() { return npixelsPerTanAngle(address()); }
-	/** Returns the value at the specified index of the {@code pixelsPerTanAngle} field. */
-	public float pixelsPerTanAngle(int index) { return npixelsPerTanAngle(address(), index); }
+    /** Returns a {@link FloatBuffer} view of the {@code rotation} field. */
+    public FloatBuffer rotation() { return nrotation(address()); }
+    /** Returns the value at the specified index of the {@code rotation} field. */
+    public float rotation(int index) { return nrotation(address(), index); }
+    /** Returns a {@link FloatBuffer} view of the {@code translation} field. */
+    public FloatBuffer translation() { return ntranslation(address()); }
+    /** Returns the value at the specified index of the {@code translation} field. */
+    public float translation(int index) { return ntranslation(address(), index); }
+    /** Returns a {@link FloatBuffer} view of the {@code fov} field. */
+    public FloatBuffer fov() { return nfov(address()); }
+    /** Returns the value at the specified index of the {@code fov} field. */
+    public float fov(int index) { return nfov(address(), index); }
+    /** Returns a {@link FloatBuffer} view of the {@code viewOffset} field. */
+    public FloatBuffer viewOffset() { return nviewOffset(address()); }
+    /** Returns the value at the specified index of the {@code viewOffset} field. */
+    public float viewOffset(int index) { return nviewOffset(address(), index); }
+    /** Returns a {@link FloatBuffer} view of the {@code projection} field. */
+    public FloatBuffer projection() { return nprojection(address()); }
+    /** Returns the value at the specified index of the {@code projection} field. */
+    public float projection(int index) { return nprojection(address(), index); }
+    /** Returns a {@link FloatBuffer} view of the {@code pixelsPerTanAngle} field. */
+    public FloatBuffer pixelsPerTanAngle() { return npixelsPerTanAngle(address()); }
+    /** Returns the value at the specified index of the {@code pixelsPerTanAngle} field. */
+    public float pixelsPerTanAngle(int index) { return npixelsPerTanAngle(address(), index); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link BGFXHmdEye} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static BGFXHmdEye create(long address) {
-		return address == NULL ? null : new BGFXHmdEye(address, null);
-	}
+    /** Returns a new {@link BGFXHmdEye} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static BGFXHmdEye create(long address) {
+        return address == NULL ? null : new BGFXHmdEye(address, null);
+    }
 
-	/**
-	 * Create a {@link BGFXHmdEye.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link BGFXHmdEye.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #rotation}. */
-	public static FloatBuffer nrotation(long struct) { return memFloatBuffer(struct + BGFXHmdEye.ROTATION, 4); }
-	/** Unsafe version of {@link #rotation(int) rotation}. */
-	public static float nrotation(long struct, int index) {
-		if ( CHECKS ) check(index, 4);
-		return memGetFloat(struct + BGFXHmdEye.ROTATION + index * 4);
-	}
-	/** Unsafe version of {@link #translation}. */
-	public static FloatBuffer ntranslation(long struct) { return memFloatBuffer(struct + BGFXHmdEye.TRANSLATION, 3); }
-	/** Unsafe version of {@link #translation(int) translation}. */
-	public static float ntranslation(long struct, int index) {
-		if ( CHECKS ) check(index, 3);
-		return memGetFloat(struct + BGFXHmdEye.TRANSLATION + index * 4);
-	}
-	/** Unsafe version of {@link #fov}. */
-	public static FloatBuffer nfov(long struct) { return memFloatBuffer(struct + BGFXHmdEye.FOV, 4); }
-	/** Unsafe version of {@link #fov(int) fov}. */
-	public static float nfov(long struct, int index) {
-		if ( CHECKS ) check(index, 4);
-		return memGetFloat(struct + BGFXHmdEye.FOV + index * 4);
-	}
-	/** Unsafe version of {@link #viewOffset}. */
-	public static FloatBuffer nviewOffset(long struct) { return memFloatBuffer(struct + BGFXHmdEye.VIEWOFFSET, 3); }
-	/** Unsafe version of {@link #viewOffset(int) viewOffset}. */
-	public static float nviewOffset(long struct, int index) {
-		if ( CHECKS ) check(index, 3);
-		return memGetFloat(struct + BGFXHmdEye.VIEWOFFSET + index * 4);
-	}
-	/** Unsafe version of {@link #projection}. */
-	public static FloatBuffer nprojection(long struct) { return memFloatBuffer(struct + BGFXHmdEye.PROJECTION, 16); }
-	/** Unsafe version of {@link #projection(int) projection}. */
-	public static float nprojection(long struct, int index) {
-		if ( CHECKS ) check(index, 16);
-		return memGetFloat(struct + BGFXHmdEye.PROJECTION + index * 4);
-	}
-	/** Unsafe version of {@link #pixelsPerTanAngle}. */
-	public static FloatBuffer npixelsPerTanAngle(long struct) { return memFloatBuffer(struct + BGFXHmdEye.PIXELSPERTANANGLE, 2); }
-	/** Unsafe version of {@link #pixelsPerTanAngle(int) pixelsPerTanAngle}. */
-	public static float npixelsPerTanAngle(long struct, int index) {
-		if ( CHECKS ) check(index, 2);
-		return memGetFloat(struct + BGFXHmdEye.PIXELSPERTANANGLE + index * 4);
-	}
+    /** Unsafe version of {@link #rotation}. */
+    public static FloatBuffer nrotation(long struct) { return memFloatBuffer(struct + BGFXHmdEye.ROTATION, 4); }
+    /** Unsafe version of {@link #rotation(int) rotation}. */
+    public static float nrotation(long struct, int index) {
+        if (CHECKS) { check(index, 4); }
+        return memGetFloat(struct + BGFXHmdEye.ROTATION + index * 4);
+    }
+    /** Unsafe version of {@link #translation}. */
+    public static FloatBuffer ntranslation(long struct) { return memFloatBuffer(struct + BGFXHmdEye.TRANSLATION, 3); }
+    /** Unsafe version of {@link #translation(int) translation}. */
+    public static float ntranslation(long struct, int index) {
+        if (CHECKS) { check(index, 3); }
+        return memGetFloat(struct + BGFXHmdEye.TRANSLATION + index * 4);
+    }
+    /** Unsafe version of {@link #fov}. */
+    public static FloatBuffer nfov(long struct) { return memFloatBuffer(struct + BGFXHmdEye.FOV, 4); }
+    /** Unsafe version of {@link #fov(int) fov}. */
+    public static float nfov(long struct, int index) {
+        if (CHECKS) { check(index, 4); }
+        return memGetFloat(struct + BGFXHmdEye.FOV + index * 4);
+    }
+    /** Unsafe version of {@link #viewOffset}. */
+    public static FloatBuffer nviewOffset(long struct) { return memFloatBuffer(struct + BGFXHmdEye.VIEWOFFSET, 3); }
+    /** Unsafe version of {@link #viewOffset(int) viewOffset}. */
+    public static float nviewOffset(long struct, int index) {
+        if (CHECKS) { check(index, 3); }
+        return memGetFloat(struct + BGFXHmdEye.VIEWOFFSET + index * 4);
+    }
+    /** Unsafe version of {@link #projection}. */
+    public static FloatBuffer nprojection(long struct) { return memFloatBuffer(struct + BGFXHmdEye.PROJECTION, 16); }
+    /** Unsafe version of {@link #projection(int) projection}. */
+    public static float nprojection(long struct, int index) {
+        if (CHECKS) { check(index, 16); }
+        return memGetFloat(struct + BGFXHmdEye.PROJECTION + index * 4);
+    }
+    /** Unsafe version of {@link #pixelsPerTanAngle}. */
+    public static FloatBuffer npixelsPerTanAngle(long struct) { return memFloatBuffer(struct + BGFXHmdEye.PIXELSPERTANANGLE, 2); }
+    /** Unsafe version of {@link #pixelsPerTanAngle(int) pixelsPerTanAngle}. */
+    public static float npixelsPerTanAngle(long struct, int index) {
+        if (CHECKS) { check(index, 2); }
+        return memGetFloat(struct + BGFXHmdEye.PIXELSPERTANANGLE + index * 4);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link BGFXHmdEye} structs. */
-	public static class Buffer extends StructBuffer<BGFXHmdEye, Buffer> {
+    /** An array of {@link BGFXHmdEye} structs. */
+    public static class Buffer extends StructBuffer<BGFXHmdEye, Buffer> {
 
-		/**
-		 * Creates a new {@link BGFXHmdEye.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link BGFXHmdEye#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link BGFXHmdEye.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link BGFXHmdEye#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected BGFXHmdEye newInstance(long address) {
-			return new BGFXHmdEye(address, container);
-		}
+        @Override
+        protected BGFXHmdEye newInstance(long address) {
+            return new BGFXHmdEye(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns a {@link FloatBuffer} view of the {@code rotation} field. */
-		public FloatBuffer rotation() { return BGFXHmdEye.nrotation(address()); }
-		/** Returns the value at the specified index of the {@code rotation} field. */
-		public float rotation(int index) { return BGFXHmdEye.nrotation(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code translation} field. */
-		public FloatBuffer translation() { return BGFXHmdEye.ntranslation(address()); }
-		/** Returns the value at the specified index of the {@code translation} field. */
-		public float translation(int index) { return BGFXHmdEye.ntranslation(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code fov} field. */
-		public FloatBuffer fov() { return BGFXHmdEye.nfov(address()); }
-		/** Returns the value at the specified index of the {@code fov} field. */
-		public float fov(int index) { return BGFXHmdEye.nfov(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code viewOffset} field. */
-		public FloatBuffer viewOffset() { return BGFXHmdEye.nviewOffset(address()); }
-		/** Returns the value at the specified index of the {@code viewOffset} field. */
-		public float viewOffset(int index) { return BGFXHmdEye.nviewOffset(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code projection} field. */
-		public FloatBuffer projection() { return BGFXHmdEye.nprojection(address()); }
-		/** Returns the value at the specified index of the {@code projection} field. */
-		public float projection(int index) { return BGFXHmdEye.nprojection(address(), index); }
-		/** Returns a {@link FloatBuffer} view of the {@code pixelsPerTanAngle} field. */
-		public FloatBuffer pixelsPerTanAngle() { return BGFXHmdEye.npixelsPerTanAngle(address()); }
-		/** Returns the value at the specified index of the {@code pixelsPerTanAngle} field. */
-		public float pixelsPerTanAngle(int index) { return BGFXHmdEye.npixelsPerTanAngle(address(), index); }
+        /** Returns a {@link FloatBuffer} view of the {@code rotation} field. */
+        public FloatBuffer rotation() { return BGFXHmdEye.nrotation(address()); }
+        /** Returns the value at the specified index of the {@code rotation} field. */
+        public float rotation(int index) { return BGFXHmdEye.nrotation(address(), index); }
+        /** Returns a {@link FloatBuffer} view of the {@code translation} field. */
+        public FloatBuffer translation() { return BGFXHmdEye.ntranslation(address()); }
+        /** Returns the value at the specified index of the {@code translation} field. */
+        public float translation(int index) { return BGFXHmdEye.ntranslation(address(), index); }
+        /** Returns a {@link FloatBuffer} view of the {@code fov} field. */
+        public FloatBuffer fov() { return BGFXHmdEye.nfov(address()); }
+        /** Returns the value at the specified index of the {@code fov} field. */
+        public float fov(int index) { return BGFXHmdEye.nfov(address(), index); }
+        /** Returns a {@link FloatBuffer} view of the {@code viewOffset} field. */
+        public FloatBuffer viewOffset() { return BGFXHmdEye.nviewOffset(address()); }
+        /** Returns the value at the specified index of the {@code viewOffset} field. */
+        public float viewOffset(int index) { return BGFXHmdEye.nviewOffset(address(), index); }
+        /** Returns a {@link FloatBuffer} view of the {@code projection} field. */
+        public FloatBuffer projection() { return BGFXHmdEye.nprojection(address()); }
+        /** Returns the value at the specified index of the {@code projection} field. */
+        public float projection(int index) { return BGFXHmdEye.nprojection(address(), index); }
+        /** Returns a {@link FloatBuffer} view of the {@code pixelsPerTanAngle} field. */
+        public FloatBuffer pixelsPerTanAngle() { return BGFXHmdEye.npixelsPerTanAngle(address()); }
+        /** Returns the value at the specified index of the {@code pixelsPerTanAngle} field. */
+        public float pixelsPerTanAngle(int index) { return BGFXHmdEye.npixelsPerTanAngle(address(), index); }
 
-	}
+    }
 
 }

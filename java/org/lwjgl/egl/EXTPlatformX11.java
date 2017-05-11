@@ -17,11 +17,11 @@ package org.lwjgl.egl;
  */
 public final class EXTPlatformX11 {
 
-	/**  */
-	public static final int
-		EGL_PLATFORM_X11_EXT        = 0x31D5,
-		EGL_PLATFORM_X11_SCREEN_EXT = 0x31D6;
+    /**  */
+    public static final int
+        EGL_PLATFORM_X11_EXT        = 0x31D5,
+        EGL_PLATFORM_X11_SCREEN_EXT = 0x31D6;
 
-	private EXTPlatformX11() {}
+    private EXTPlatformX11() {}
 
 }

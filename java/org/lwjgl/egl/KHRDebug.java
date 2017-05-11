@@ -40,80 +40,84 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRDebug {
 
-	/** Tokens accepted by the {@code objectType} parameter of function {@link #eglLabelObjectKHR LabelObjectKHR}. */
-	public static final int
-		EGL_OBJECT_THREAD_KHR  = 0x33B0,
-		EGL_OBJECT_DISPLAY_KHR = 0x33B1,
-		EGL_OBJECT_CONTEXT_KHR = 0x33B2,
-		EGL_OBJECT_SURFACE_KHR = 0x33B3,
-		EGL_OBJECT_IMAGE_KHR   = 0x33B4,
-		EGL_OBJECT_SYNC_KHR    = 0x33B5,
-		EGL_OBJECT_STREAM_KHR  = 0x33B6;
+    /** Tokens accepted by the {@code objectType} parameter of function {@link #eglLabelObjectKHR LabelObjectKHR}. */
+    public static final int
+        EGL_OBJECT_THREAD_KHR  = 0x33B0,
+        EGL_OBJECT_DISPLAY_KHR = 0x33B1,
+        EGL_OBJECT_CONTEXT_KHR = 0x33B2,
+        EGL_OBJECT_SURFACE_KHR = 0x33B3,
+        EGL_OBJECT_IMAGE_KHR   = 0x33B4,
+        EGL_OBJECT_SYNC_KHR    = 0x33B5,
+        EGL_OBJECT_STREAM_KHR  = 0x33B6;
 
-	/**
-	 * Tokens provided by the {@code messageType} parameter of EGLDEBUGPROCKHR or the attributes input to {@link #eglDebugMessageControlKHR DebugMessageControlKHR} or attribute of
-	 * {@link #eglQueryDebugKHR QueryDebugKHR}.
-	 */
-	public static final int
-		EGL_DEBUG_MSG_CRITICAL_KHR = 0x33B9,
-		EGL_DEBUG_MSG_ERROR_KHR    = 0x33BA,
-		EGL_DEBUG_MSG_WARN_KHR     = 0x33BB,
-		EGL_DEBUG_MSG_INFO_KHR     = 0x33BC;
+    /**
+     * Tokens provided by the {@code messageType} parameter of EGLDEBUGPROCKHR or the attributes input to {@link #eglDebugMessageControlKHR DebugMessageControlKHR} or attribute of
+     * {@link #eglQueryDebugKHR QueryDebugKHR}.
+     */
+    public static final int
+        EGL_DEBUG_MSG_CRITICAL_KHR = 0x33B9,
+        EGL_DEBUG_MSG_ERROR_KHR    = 0x33BA,
+        EGL_DEBUG_MSG_WARN_KHR     = 0x33BB,
+        EGL_DEBUG_MSG_INFO_KHR     = 0x33BC;
 
-	/** Tokens provided by the input attribute to eglQueryDebugKHR. */
-	public static final int EGL_DEBUG_CALLBACK_KHR = 0x33B8;
+    /** Tokens provided by the input attribute to eglQueryDebugKHR. */
+    public static final int EGL_DEBUG_CALLBACK_KHR = 0x33B8;
 
-	protected KHRDebug() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRDebug() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglDebugMessageControlKHR, caps.eglQueryDebugKHR, caps.eglLabelObjectKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglDebugMessageControlKHR, caps.eglQueryDebugKHR, caps.eglLabelObjectKHR
+        );
+    }
 
-	// --- [ eglDebugMessageControlKHR ] ---
+    // --- [ eglDebugMessageControlKHR ] ---
 
-	public static int neglDebugMessageControlKHR(long callback, long attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglDebugMessageControlKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPI(__functionAddress, callback, attrib_list);
-	}
+    public static int neglDebugMessageControlKHR(long callback, long attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglDebugMessageControlKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPI(__functionAddress, callback, attrib_list);
+    }
 
-	public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallbackI callback, PointerBuffer attrib_list) {
-		if ( CHECKS )
-			checkNTSafe(attrib_list, EGL10.EGL_NONE);
-		return neglDebugMessageControlKHR(callback.address(), memAddressSafe(attrib_list));
-	}
+    public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallbackI callback, PointerBuffer attrib_list) {
+        if (CHECKS) {
+            checkNTSafe(attrib_list, EGL10.EGL_NONE);
+        }
+        return neglDebugMessageControlKHR(callback.address(), memAddressSafe(attrib_list));
+    }
 
-	// --- [ eglQueryDebugKHR ] ---
+    // --- [ eglQueryDebugKHR ] ---
 
-	public static int neglQueryDebugKHR(int attribute, long value) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDebugKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, attribute, value);
-	}
+    public static int neglQueryDebugKHR(int attribute, long value) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDebugKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPI(__functionAddress, attribute, value);
+    }
 
-	public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return neglQueryDebugKHR(attribute, memAddress(value)) != 0;
-	}
+    public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return neglQueryDebugKHR(attribute, memAddress(value)) != 0;
+    }
 
-	// --- [ eglLabelObjectKHR ] ---
+    // --- [ eglLabelObjectKHR ] ---
 
-	public static int eglLabelObjectKHR(long display, int objectType, long object, long label) {
-		long __functionAddress = EGL.getCapabilities().eglLabelObjectKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(object);
-			check(label);
-		}
-		return callPPPI(__functionAddress, display, objectType, object, label);
-	}
+    public static int eglLabelObjectKHR(long display, int objectType, long object, long label) {
+        long __functionAddress = EGL.getCapabilities().eglLabelObjectKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(object);
+            check(label);
+        }
+        return callPPPI(__functionAddress, display, objectType, object, label);
+    }
 
 }

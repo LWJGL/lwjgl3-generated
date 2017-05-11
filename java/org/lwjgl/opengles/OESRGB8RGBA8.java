@@ -12,11 +12,11 @@ package org.lwjgl.opengles;
  */
 public final class OESRGB8RGBA8 {
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorageOES. */
-	public static final int
-		GL_RGB8_OES  = 0x8051,
-		GL_RGBA8_OES = 0x8058;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorageOES. */
+    public static final int
+        GL_RGB8_OES  = 0x8051,
+        GL_RGBA8_OES = 0x8058;
 
-	private OESRGB8RGBA8() {}
+    private OESRGB8RGBA8() {}
 
 }

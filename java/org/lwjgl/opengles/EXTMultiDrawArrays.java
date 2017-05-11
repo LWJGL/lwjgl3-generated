@@ -21,56 +21,58 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTMultiDrawArrays {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTMultiDrawArrays() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTMultiDrawArrays() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glMultiDrawArraysEXT, caps.glMultiDrawElementsEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glMultiDrawArraysEXT, caps.glMultiDrawElementsEXT
+        );
+    }
 
-	// --- [ glMultiDrawArraysEXT ] ---
+    // --- [ glMultiDrawArraysEXT ] ---
 
-	public static native void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount);
+    public static native void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount);
 
-	public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
-		if ( CHECKS )
-			check(count, first.remaining());
-		nglMultiDrawArraysEXT(mode, memAddress(first), memAddress(count), first.remaining());
-	}
+    public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
+        if (CHECKS) {
+            check(count, first.remaining());
+        }
+        nglMultiDrawArraysEXT(mode, memAddress(first), memAddress(count), first.remaining());
+    }
 
-	// --- [ glMultiDrawElementsEXT ] ---
+    // --- [ glMultiDrawElementsEXT ] ---
 
-	public static native void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount);
+    public static native void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount);
 
-	public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
-		if ( CHECKS )
-			check(indices, count.remaining());
-		nglMultiDrawElementsEXT(mode, memAddress(count), type, memAddress(indices), count.remaining());
-	}
+    public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
+        if (CHECKS) {
+            check(indices, count.remaining());
+        }
+        nglMultiDrawElementsEXT(mode, memAddress(count), type, memAddress(indices), count.remaining());
+    }
 
-	/** Array version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
-	public static void glMultiDrawArraysEXT(int mode, int[] first, int[] count) {
-		long __functionAddress = GLES.getICD().glMultiDrawArraysEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(count, first.length);
-		}
-		callPPV(__functionAddress, mode, first, count, first.length);
-	}
+    /** Array version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
+    public static void glMultiDrawArraysEXT(int mode, int[] first, int[] count) {
+        long __functionAddress = GLES.getICD().glMultiDrawArraysEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(count, first.length);
+        }
+        callPPV(__functionAddress, mode, first, count, first.length);
+    }
 
-	/** Array version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
-	public static void glMultiDrawElementsEXT(int mode, int[] count, int type, PointerBuffer indices) {
-		long __functionAddress = GLES.getICD().glMultiDrawElementsEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(indices, count.length);
-		}
-		callPPV(__functionAddress, mode, count, type, memAddress(indices), count.length);
-	}
+    /** Array version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
+    public static void glMultiDrawElementsEXT(int mode, int[] count, int type, PointerBuffer indices) {
+        long __functionAddress = GLES.getICD().glMultiDrawElementsEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(indices, count.length);
+        }
+        callPPV(__functionAddress, mode, count, type, memAddress(indices), count.length);
+    }
 
 }

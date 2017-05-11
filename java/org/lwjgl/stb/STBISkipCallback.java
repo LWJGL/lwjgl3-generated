@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBISkipCallback extends Callback implements STBISkipCallbackI {
 
-	/** Creates a {@code STBISkipCallback} instance from the specified function pointer. */
-	public static STBISkipCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code STBISkipCallback} instance from the specified function pointer. */
+    public static STBISkipCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		STBISkipCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof STBISkipCallback
-			? (STBISkipCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        STBISkipCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof STBISkipCallback
+            ? (STBISkipCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code STBISkipCallback} instance that delegates to the specified {@code STBISkipCallbackI} instance. */
-	public static STBISkipCallback create(STBISkipCallbackI instance) {
-		return instance instanceof STBISkipCallback
-			? (STBISkipCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code STBISkipCallback} instance that delegates to the specified {@code STBISkipCallbackI} instance. */
+    public static STBISkipCallback create(STBISkipCallbackI instance) {
+        return instance instanceof STBISkipCallback
+            ? (STBISkipCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected STBISkipCallback() {
-		super(SIGNATURE);
-	}
+    protected STBISkipCallback() {
+        super(SIGNATURE);
+    }
 
-	private STBISkipCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private STBISkipCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends STBISkipCallback {
+    private static final class Container extends STBISkipCallback {
 
-		private final STBISkipCallbackI delegate;
+        private final STBISkipCallbackI delegate;
 
-		Container(long functionPointer, STBISkipCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, STBISkipCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long user, int n) {
-			delegate.invoke(user, n);
-		}
+        @Override
+        public void invoke(long user, int n) {
+            delegate.invoke(user, n);
+        }
 
-	}
+    }
 
 }

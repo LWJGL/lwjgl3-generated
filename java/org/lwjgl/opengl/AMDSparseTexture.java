@@ -24,45 +24,45 @@ import static org.lwjgl.system.Checks.*;
  */
 public class AMDSparseTexture {
 
-	/** Accepted by the {@code flags} parameter to TexStorageSparseAMD and TextureStorageSparseAMD. */
-	public static final int GL_TEXTURE_STORAGE_SPARSE_BIT_AMD = 0x1;
+    /** Accepted by the {@code flags} parameter to TexStorageSparseAMD and TextureStorageSparseAMD. */
+    public static final int GL_TEXTURE_STORAGE_SPARSE_BIT_AMD = 0x1;
 
-	/** Accepted by the {@code pname} parameter to GetInternalformativ. */
-	public static final int
-		GL_VIRTUAL_PAGE_SIZE_X_AMD = 0x9195,
-		GL_VIRTUAL_PAGE_SIZE_Y_AMD = 0x9196,
-		GL_VIRTUAL_PAGE_SIZE_Z_AMD = 0x9197;
+    /** Accepted by the {@code pname} parameter to GetInternalformativ. */
+    public static final int
+        GL_VIRTUAL_PAGE_SIZE_X_AMD = 0x9195,
+        GL_VIRTUAL_PAGE_SIZE_Y_AMD = 0x9196,
+        GL_VIRTUAL_PAGE_SIZE_Z_AMD = 0x9197;
 
-	/** Accepted by the {@code pname} parameter to GetIntegerv, GetFloatv, GetDoublev, GetInteger64v, and GetBooleanv. */
-	public static final int
-		GL_MAX_SPARSE_TEXTURE_SIZE_AMD     = 0x9198,
-		GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD  = 0x9199,
-		GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS = 0x919A;
+    /** Accepted by the {@code pname} parameter to GetIntegerv, GetFloatv, GetDoublev, GetInteger64v, and GetBooleanv. */
+    public static final int
+        GL_MAX_SPARSE_TEXTURE_SIZE_AMD     = 0x9198,
+        GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD  = 0x9199,
+        GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS = 0x919A;
 
-	/** Accepted by the {@code pname} parameter of GetTexParameter{if}v. */
-	public static final int GL_MIN_SPARSE_LEVEL_AMD = 0x919B;
+    /** Accepted by the {@code pname} parameter of GetTexParameter{if}v. */
+    public static final int GL_MIN_SPARSE_LEVEL_AMD = 0x919B;
 
-	/** Accepted by the {@code pname} parameter of TexParameter{if}{v} and GetTexParameter{if}v. */
-	public static final int GL_MIN_LOD_WARNING_AMD = 0x919C;
+    /** Accepted by the {@code pname} parameter of TexParameter{if}{v} and GetTexParameter{if}v. */
+    public static final int GL_MIN_LOD_WARNING_AMD = 0x919C;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected AMDSparseTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected AMDSparseTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTexStorageSparseAMD, caps.glTextureStorageSparseAMD
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTexStorageSparseAMD, caps.glTextureStorageSparseAMD
+        );
+    }
 
-	// --- [ glTexStorageSparseAMD ] ---
+    // --- [ glTexStorageSparseAMD ] ---
 
-	public static native void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags);
+    public static native void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags);
 
-	// --- [ glTextureStorageSparseAMD ] ---
+    // --- [ glTextureStorageSparseAMD ] ---
 
-	public static native void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags);
+    public static native void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags);
 
 }

@@ -33,96 +33,97 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVDrawVulkanImage {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVDrawVulkanImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVDrawVulkanImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glDrawVkImageNV, caps.glGetVkProcAddrNV, caps.glWaitVkSemaphoreNV, caps.glSignalVkSemaphoreNV, caps.glSignalVkFenceNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glDrawVkImageNV, caps.glGetVkProcAddrNV, caps.glWaitVkSemaphoreNV, caps.glSignalVkSemaphoreNV, caps.glSignalVkFenceNV
+        );
+    }
 
-	// --- [ glDrawVkImageNV ] ---
+    // --- [ glDrawVkImageNV ] ---
 
-	/**
-	 * Draws a screen-aligned rectangle displaying a portion of the contents of the Vulkan {@code VkImage}.
-	 *
-	 * @param vkImage the Vulkan image handle
-	 * @param sampler an optional sampler object
-	 * @param x0      the rectangle left window coordinate
-	 * @param y0      the rectangle bottom window coordinate
-	 * @param x1      the rectangle right window coordinate
-	 * @param y1      the rectangle top window coordinate
-	 * @param z       the Z window coordinate
-	 * @param s0      the left texture coordinate
-	 * @param t0      the bottom texture coordinate
-	 * @param s1      the right texture coordinate
-	 * @param t1      the top texture coordinate
-	 */
-	public static native void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+    /**
+     * Draws a screen-aligned rectangle displaying a portion of the contents of the Vulkan {@code VkImage}.
+     *
+     * @param vkImage the Vulkan image handle
+     * @param sampler an optional sampler object
+     * @param x0      the rectangle left window coordinate
+     * @param y0      the rectangle bottom window coordinate
+     * @param x1      the rectangle right window coordinate
+     * @param y1      the rectangle top window coordinate
+     * @param z       the Z window coordinate
+     * @param s0      the left texture coordinate
+     * @param t0      the bottom texture coordinate
+     * @param s1      the right texture coordinate
+     * @param t1      the top texture coordinate
+     */
+    public static native void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
-	// --- [ glGetVkProcAddrNV ] ---
+    // --- [ glGetVkProcAddrNV ] ---
 
-	/** Unsafe version of: {@link #glGetVkProcAddrNV GetVkProcAddrNV} */
-	public static native long nglGetVkProcAddrNV(long name);
+    /** Unsafe version of: {@link #glGetVkProcAddrNV GetVkProcAddrNV} */
+    public static native long nglGetVkProcAddrNV(long name);
 
-	/**
-	 * Queries the Vulkan function entry points from within an OpenGL context.
-	 *
-	 * @param name name of the Vulkan function
-	 */
-	public static long glGetVkProcAddrNV(ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		return nglGetVkProcAddrNV(memAddress(name));
-	}
+    /**
+     * Queries the Vulkan function entry points from within an OpenGL context.
+     *
+     * @param name name of the Vulkan function
+     */
+    public static long glGetVkProcAddrNV(ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        return nglGetVkProcAddrNV(memAddress(name));
+    }
 
-	/**
-	 * Queries the Vulkan function entry points from within an OpenGL context.
-	 *
-	 * @param name name of the Vulkan function
-	 */
-	public static long glGetVkProcAddrNV(CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nglGetVkProcAddrNV(memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Queries the Vulkan function entry points from within an OpenGL context.
+     *
+     * @param name name of the Vulkan function
+     */
+    public static long glGetVkProcAddrNV(CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return nglGetVkProcAddrNV(memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glWaitVkSemaphoreNV ] ---
+    // --- [ glWaitVkSemaphoreNV ] ---
 
-	/**
-	 * Causes the GL server to block until the Vulkan {@code VkSemaphore} is signalled. No GL commands after this command are executed by the server until the
-	 * semaphore is signaled.
-	 *
-	 * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
-	 */
-	public static native void glWaitVkSemaphoreNV(long vkSemaphore);
+    /**
+     * Causes the GL server to block until the Vulkan {@code VkSemaphore} is signalled. No GL commands after this command are executed by the server until the
+     * semaphore is signaled.
+     *
+     * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
+     */
+    public static native void glWaitVkSemaphoreNV(long vkSemaphore);
 
-	// --- [ glSignalVkSemaphoreNV ] ---
+    // --- [ glSignalVkSemaphoreNV ] ---
 
-	/**
-	 * Causes the GL server to signal the Vulkan {@code VkSemaphore} when it executes this command. The semaphore is not signalled by GL until all commands
-	 * issued before this have completed execution on the GL server.
-	 *
-	 * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
-	 */
-	public static native void glSignalVkSemaphoreNV(long vkSemaphore);
+    /**
+     * Causes the GL server to signal the Vulkan {@code VkSemaphore} when it executes this command. The semaphore is not signalled by GL until all commands
+     * issued before this have completed execution on the GL server.
+     *
+     * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
+     */
+    public static native void glSignalVkSemaphoreNV(long vkSemaphore);
 
-	// --- [ glSignalVkFenceNV ] ---
+    // --- [ glSignalVkFenceNV ] ---
 
-	/**
-	 * Causes the GL server to signal the Vulkan {@code VkFence} object when it executes this command. The fence is not signalled by the GL until all commands
-	 * issued before this have completed execution on the GL server.
-	 *
-	 * @param vkFence a valid Vulkan VkFence non-dispatcable handle otherwise the operation is undefined
-	 */
-	public static native void glSignalVkFenceNV(long vkFence);
+    /**
+     * Causes the GL server to signal the Vulkan {@code VkFence} object when it executes this command. The fence is not signalled by the GL until all commands
+     * issued before this have completed execution on the GL server.
+     *
+     * @param vkFence a valid Vulkan VkFence non-dispatcable handle otherwise the operation is undefined
+     */
+    public static native void glSignalVkFenceNV(long vkFence);
 
 }

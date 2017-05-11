@@ -54,29 +54,29 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTFramebufferMultisample {
 
-	/** Accepted by the {@code pname} parameter of GetRenderbufferParameterivEXT. */
-	public static final int GL_RENDERBUFFER_SAMPLES_EXT = 0x8CAB;
+    /** Accepted by the {@code pname} parameter of GetRenderbufferParameterivEXT. */
+    public static final int GL_RENDERBUFFER_SAMPLES_EXT = 0x8CAB;
 
-	/** Returned by CheckFramebufferStatusEXT. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT = 0x8D56;
+    /** Returned by CheckFramebufferStatusEXT. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT = 0x8D56;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_MAX_SAMPLES_EXT = 0x8D57;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_MAX_SAMPLES_EXT = 0x8D57;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTFramebufferMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTFramebufferMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glRenderbufferStorageMultisampleEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glRenderbufferStorageMultisampleEXT
+        );
+    }
 
-	// --- [ glRenderbufferStorageMultisampleEXT ] ---
+    // --- [ glRenderbufferStorageMultisampleEXT ] ---
 
-	public static native void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
 
 }

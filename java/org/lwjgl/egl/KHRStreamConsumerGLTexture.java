@@ -19,53 +19,53 @@ import static org.lwjgl.system.JNI.*;
  */
 public class KHRStreamConsumerGLTexture {
 
-	/**  */
-	public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
+    /**  */
+    public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
 
-	protected KHRStreamConsumerGLTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRStreamConsumerGLTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglStreamConsumerGLTextureExternalKHR, caps.eglStreamConsumerAcquireKHR, caps.eglStreamConsumerReleaseKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglStreamConsumerGLTextureExternalKHR, caps.eglStreamConsumerAcquireKHR, caps.eglStreamConsumerReleaseKHR
+        );
+    }
 
-	// --- [ eglStreamConsumerGLTextureExternalKHR ] ---
+    // --- [ eglStreamConsumerGLTextureExternalKHR ] ---
 
-	public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
-		long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPI(__functionAddress, dpy, stream) != 0;
-	}
+    public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
+        long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPI(__functionAddress, dpy, stream) != 0;
+    }
 
-	// --- [ eglStreamConsumerAcquireKHR ] ---
+    // --- [ eglStreamConsumerAcquireKHR ] ---
 
-	public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
-		long __functionAddress = EGL.getCapabilities().eglStreamConsumerAcquireKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPI(__functionAddress, dpy, stream) != 0;
-	}
+    public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
+        long __functionAddress = EGL.getCapabilities().eglStreamConsumerAcquireKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPI(__functionAddress, dpy, stream) != 0;
+    }
 
-	// --- [ eglStreamConsumerReleaseKHR ] ---
+    // --- [ eglStreamConsumerReleaseKHR ] ---
 
-	public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
-		long __functionAddress = EGL.getCapabilities().eglStreamConsumerReleaseKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPI(__functionAddress, dpy, stream) != 0;
-	}
+    public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
+        long __functionAddress = EGL.getCapabilities().eglStreamConsumerReleaseKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPI(__functionAddress, dpy, stream) != 0;
+    }
 
 }

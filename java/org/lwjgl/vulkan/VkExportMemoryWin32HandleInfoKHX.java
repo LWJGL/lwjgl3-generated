@@ -78,353 +78,355 @@ import org.lwjgl.system.windows.*;
  */
 public class VkExportMemoryWin32HandleInfoKHX extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		STYPE,
-		PNEXT,
-		PATTRIBUTES,
-		DWACCESS,
-		NAME;
+    /** The struct member offsets. */
+    public static final int
+        STYPE,
+        PNEXT,
+        PATTRIBUTES,
+        DWACCESS,
+        NAME;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(4),
-			__member(POINTER_SIZE)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
+            __member(4),
+            __member(POINTER_SIZE)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		STYPE = layout.offsetof(0);
-		PNEXT = layout.offsetof(1);
-		PATTRIBUTES = layout.offsetof(2);
-		DWACCESS = layout.offsetof(3);
-		NAME = layout.offsetof(4);
-	}
+        STYPE = layout.offsetof(0);
+        PNEXT = layout.offsetof(1);
+        PATTRIBUTES = layout.offsetof(2);
+        DWACCESS = layout.offsetof(3);
+        NAME = layout.offsetof(4);
+    }
 
-	VkExportMemoryWin32HandleInfoKHX(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    VkExportMemoryWin32HandleInfoKHX(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link VkExportMemoryWin32HandleInfoKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public VkExportMemoryWin32HandleInfoKHX(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link VkExportMemoryWin32HandleInfoKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public VkExportMemoryWin32HandleInfoKHX(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code sType} field. */
-	public int sType() { return nsType(address()); }
-	/** Returns the value of the {@code pNext} field. */
-	public long pNext() { return npNext(address()); }
-	/** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
-	public SECURITY_ATTRIBUTES pAttributes() { return npAttributes(address()); }
-	/** Returns the value of the {@code dwAccess} field. */
-	public int dwAccess() { return ndwAccess(address()); }
-	/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
-	public ByteBuffer name() { return nname(address()); }
-	/** Decodes the null-terminated string pointed to by the {@code name} field. */
-	public String nameString() { return nnameString(address()); }
+    /** Returns the value of the {@code sType} field. */
+    public int sType() { return nsType(address()); }
+    /** Returns the value of the {@code pNext} field. */
+    public long pNext() { return npNext(address()); }
+    /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+    public SECURITY_ATTRIBUTES pAttributes() { return npAttributes(address()); }
+    /** Returns the value of the {@code dwAccess} field. */
+    public int dwAccess() { return ndwAccess(address()); }
+    /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+    public ByteBuffer name() { return nname(address()); }
+    /** Decodes the null-terminated string pointed to by the {@code name} field. */
+    public String nameString() { return nnameString(address()); }
 
-	/** Sets the specified value to the {@code sType} field. */
-	public VkExportMemoryWin32HandleInfoKHX sType(int value) { nsType(address(), value); return this; }
-	/** Sets the specified value to the {@code pNext} field. */
-	public VkExportMemoryWin32HandleInfoKHX pNext(long value) { npNext(address(), value); return this; }
-	/** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-	public VkExportMemoryWin32HandleInfoKHX pAttributes(SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
-	/** Sets the specified value to the {@code dwAccess} field. */
-	public VkExportMemoryWin32HandleInfoKHX dwAccess(int value) { ndwAccess(address(), value); return this; }
-	/** Sets the address of the specified encoded string to the {@code name} field. */
-	public VkExportMemoryWin32HandleInfoKHX name(ByteBuffer value) { nname(address(), value); return this; }
+    /** Sets the specified value to the {@code sType} field. */
+    public VkExportMemoryWin32HandleInfoKHX sType(int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkExportMemoryWin32HandleInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
+    public VkExportMemoryWin32HandleInfoKHX pAttributes(SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
+    /** Sets the specified value to the {@code dwAccess} field. */
+    public VkExportMemoryWin32HandleInfoKHX dwAccess(int value) { ndwAccess(address(), value); return this; }
+    /** Sets the address of the specified encoded string to the {@code name} field. */
+    public VkExportMemoryWin32HandleInfoKHX name(ByteBuffer value) { nname(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public VkExportMemoryWin32HandleInfoKHX set(
-		int sType,
-		long pNext,
-		SECURITY_ATTRIBUTES pAttributes,
-		int dwAccess,
-		ByteBuffer name
-	) {
-		sType(sType);
-		pNext(pNext);
-		pAttributes(pAttributes);
-		dwAccess(dwAccess);
-		name(name);
+    /** Initializes this struct with the specified values. */
+    public VkExportMemoryWin32HandleInfoKHX set(
+        int sType,
+        long pNext,
+        SECURITY_ATTRIBUTES pAttributes,
+        int dwAccess,
+        ByteBuffer name
+    ) {
+        sType(sType);
+        pNext(pNext);
+        pAttributes(pAttributes);
+        dwAccess(dwAccess);
+        name(name);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkExportMemoryWin32HandleInfoKHX set(VkExportMemoryWin32HandleInfoKHX src) {
-		memCopy(src.address(), address(), SIZEOF);
-		return this;
-	}
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkExportMemoryWin32HandleInfoKHX set(VkExportMemoryWin32HandleInfoKHX src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static VkExportMemoryWin32HandleInfoKHX malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VkExportMemoryWin32HandleInfoKHX malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static VkExportMemoryWin32HandleInfoKHX calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VkExportMemoryWin32HandleInfoKHX calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated with {@link BufferUtils}. */
-	public static VkExportMemoryWin32HandleInfoKHX create() {
-		return new VkExportMemoryWin32HandleInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated with {@link BufferUtils}. */
+    public static VkExportMemoryWin32HandleInfoKHX create() {
+        return new VkExportMemoryWin32HandleInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static VkExportMemoryWin32HandleInfoKHX create(long address) {
-		return address == NULL ? null : new VkExportMemoryWin32HandleInfoKHX(address, null);
-	}
+    /** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static VkExportMemoryWin32HandleInfoKHX create(long address) {
+        return address == NULL ? null : new VkExportMemoryWin32HandleInfoKHX(address, null);
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the thread-local {@link MemoryStack}. */
-	public static VkExportMemoryWin32HandleInfoKHX mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VkExportMemoryWin32HandleInfoKHX mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static VkExportMemoryWin32HandleInfoKHX callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VkExportMemoryWin32HandleInfoKHX callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkExportMemoryWin32HandleInfoKHX mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkExportMemoryWin32HandleInfoKHX mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkExportMemoryWin32HandleInfoKHX callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkExportMemoryWin32HandleInfoKHX callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #sType}. */
-	public static int nsType(long struct) { return memGetInt(struct + VkExportMemoryWin32HandleInfoKHX.STYPE); }
-	/** Unsafe version of {@link #pNext}. */
-	public static long npNext(long struct) { return memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.PNEXT); }
-	/** Unsafe version of {@link #pAttributes}. */
-	public static SECURITY_ATTRIBUTES npAttributes(long struct) { return SECURITY_ATTRIBUTES.create(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.PATTRIBUTES)); }
-	/** Unsafe version of {@link #dwAccess}. */
-	public static int ndwAccess(long struct) { return memGetInt(struct + VkExportMemoryWin32HandleInfoKHX.DWACCESS); }
-	/** Unsafe version of {@link #name}. */
-	public static ByteBuffer nname(long struct) { return memByteBufferNT2(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME)); }
-	/** Unsafe version of {@link #nameString}. */
-	public static String nnameString(long struct) { return memUTF16(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME)); }
+    /** Unsafe version of {@link #sType}. */
+    public static int nsType(long struct) { return memGetInt(struct + VkExportMemoryWin32HandleInfoKHX.STYPE); }
+    /** Unsafe version of {@link #pNext}. */
+    public static long npNext(long struct) { return memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.PNEXT); }
+    /** Unsafe version of {@link #pAttributes}. */
+    public static SECURITY_ATTRIBUTES npAttributes(long struct) { return SECURITY_ATTRIBUTES.create(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.PATTRIBUTES)); }
+    /** Unsafe version of {@link #dwAccess}. */
+    public static int ndwAccess(long struct) { return memGetInt(struct + VkExportMemoryWin32HandleInfoKHX.DWACCESS); }
+    /** Unsafe version of {@link #name}. */
+    public static ByteBuffer nname(long struct) { return memByteBufferNT2(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME)); }
+    /** Unsafe version of {@link #nameString}. */
+    public static String nnameString(long struct) { return memUTF16(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME)); }
 
-	/** Unsafe version of {@link #sType(int) sType}. */
-	public static void nsType(long struct, int value) { memPutInt(struct + VkExportMemoryWin32HandleInfoKHX.STYPE, value); }
-	/** Unsafe version of {@link #pNext(long) pNext}. */
-	public static void npNext(long struct, long value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoKHX.PNEXT, value); }
-	/** Unsafe version of {@link #pAttributes(SECURITY_ATTRIBUTES) pAttributes}. */
-	public static void npAttributes(long struct, SECURITY_ATTRIBUTES value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoKHX.PATTRIBUTES, addressSafe(value)); }
-	/** Unsafe version of {@link #dwAccess(int) dwAccess}. */
-	public static void ndwAccess(long struct, int value) { memPutInt(struct + VkExportMemoryWin32HandleInfoKHX.DWACCESS, value); }
-	/** Unsafe version of {@link #name(ByteBuffer) name}. */
-	public static void nname(long struct, ByteBuffer value) { 
-		if ( CHECKS ) checkNT2Safe(value); 
-		memPutAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME, memAddress(value));
-	}
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkExportMemoryWin32HandleInfoKHX.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoKHX.PNEXT, value); }
+    /** Unsafe version of {@link #pAttributes(SECURITY_ATTRIBUTES) pAttributes}. */
+    public static void npAttributes(long struct, SECURITY_ATTRIBUTES value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoKHX.PATTRIBUTES, addressSafe(value)); }
+    /** Unsafe version of {@link #dwAccess(int) dwAccess}. */
+    public static void ndwAccess(long struct, int value) { memPutInt(struct + VkExportMemoryWin32HandleInfoKHX.DWACCESS, value); }
+    /** Unsafe version of {@link #name(ByteBuffer) name}. */
+    public static void nname(long struct, ByteBuffer value) {
+        if (CHECKS) { checkNT2Safe(value); }
+        memPutAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME, memAddress(value));
+    }
 
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		long pAttributes = memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.PATTRIBUTES);
-		if ( pAttributes != NULL )
-			SECURITY_ATTRIBUTES.validate(pAttributes);
-		check(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME));
-	}
+    /**
+     * Validates pointer members that should not be {@code NULL}.
+     *
+     * @param struct the struct to validate
+     */
+    public static void validate(long struct) {
+        long pAttributes = memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.PATTRIBUTES);
+        if (pAttributes != NULL) {
+            SECURITY_ATTRIBUTES.validate(pAttributes);
+        }
+        check(memGetAddress(struct + VkExportMemoryWin32HandleInfoKHX.NAME));
+    }
 
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
+    /**
+     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+     *
+     * @param array the struct array to validate
+     * @param count the number of structs in {@code array}
+     */
+    public static void validate(long array, int count) {
+        for (int i = 0; i < count; i++) {
+            validate(array + i * SIZEOF);
+        }
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link VkExportMemoryWin32HandleInfoKHX} structs. */
-	public static class Buffer extends StructBuffer<VkExportMemoryWin32HandleInfoKHX, Buffer> implements NativeResource {
+    /** An array of {@link VkExportMemoryWin32HandleInfoKHX} structs. */
+    public static class Buffer extends StructBuffer<VkExportMemoryWin32HandleInfoKHX, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link VkExportMemoryWin32HandleInfoKHX#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link VkExportMemoryWin32HandleInfoKHX.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link VkExportMemoryWin32HandleInfoKHX#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected VkExportMemoryWin32HandleInfoKHX newInstance(long address) {
-			return new VkExportMemoryWin32HandleInfoKHX(address, container);
-		}
+        @Override
+        protected VkExportMemoryWin32HandleInfoKHX newInstance(long address) {
+            return new VkExportMemoryWin32HandleInfoKHX(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code sType} field. */
-		public int sType() { return VkExportMemoryWin32HandleInfoKHX.nsType(address()); }
-		/** Returns the value of the {@code pNext} field. */
-		public long pNext() { return VkExportMemoryWin32HandleInfoKHX.npNext(address()); }
-		/** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
-		public SECURITY_ATTRIBUTES pAttributes() { return VkExportMemoryWin32HandleInfoKHX.npAttributes(address()); }
-		/** Returns the value of the {@code dwAccess} field. */
-		public int dwAccess() { return VkExportMemoryWin32HandleInfoKHX.ndwAccess(address()); }
-		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
-		public ByteBuffer name() { return VkExportMemoryWin32HandleInfoKHX.nname(address()); }
-		/** Decodes the null-terminated string pointed to by the {@code name} field. */
-		public String nameString() { return VkExportMemoryWin32HandleInfoKHX.nnameString(address()); }
+        /** Returns the value of the {@code sType} field. */
+        public int sType() { return VkExportMemoryWin32HandleInfoKHX.nsType(address()); }
+        /** Returns the value of the {@code pNext} field. */
+        public long pNext() { return VkExportMemoryWin32HandleInfoKHX.npNext(address()); }
+        /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+        public SECURITY_ATTRIBUTES pAttributes() { return VkExportMemoryWin32HandleInfoKHX.npAttributes(address()); }
+        /** Returns the value of the {@code dwAccess} field. */
+        public int dwAccess() { return VkExportMemoryWin32HandleInfoKHX.ndwAccess(address()); }
+        /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+        public ByteBuffer name() { return VkExportMemoryWin32HandleInfoKHX.nname(address()); }
+        /** Decodes the null-terminated string pointed to by the {@code name} field. */
+        public String nameString() { return VkExportMemoryWin32HandleInfoKHX.nnameString(address()); }
 
-		/** Sets the specified value to the {@code sType} field. */
-		public VkExportMemoryWin32HandleInfoKHX.Buffer sType(int value) { VkExportMemoryWin32HandleInfoKHX.nsType(address(), value); return this; }
-		/** Sets the specified value to the {@code pNext} field. */
-		public VkExportMemoryWin32HandleInfoKHX.Buffer pNext(long value) { VkExportMemoryWin32HandleInfoKHX.npNext(address(), value); return this; }
-		/** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-		public VkExportMemoryWin32HandleInfoKHX.Buffer pAttributes(SECURITY_ATTRIBUTES value) { VkExportMemoryWin32HandleInfoKHX.npAttributes(address(), value); return this; }
-		/** Sets the specified value to the {@code dwAccess} field. */
-		public VkExportMemoryWin32HandleInfoKHX.Buffer dwAccess(int value) { VkExportMemoryWin32HandleInfoKHX.ndwAccess(address(), value); return this; }
-		/** Sets the address of the specified encoded string to the {@code name} field. */
-		public VkExportMemoryWin32HandleInfoKHX.Buffer name(ByteBuffer value) { VkExportMemoryWin32HandleInfoKHX.nname(address(), value); return this; }
+        /** Sets the specified value to the {@code sType} field. */
+        public VkExportMemoryWin32HandleInfoKHX.Buffer sType(int value) { VkExportMemoryWin32HandleInfoKHX.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkExportMemoryWin32HandleInfoKHX.Buffer pNext(long value) { VkExportMemoryWin32HandleInfoKHX.npNext(address(), value); return this; }
+        /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
+        public VkExportMemoryWin32HandleInfoKHX.Buffer pAttributes(SECURITY_ATTRIBUTES value) { VkExportMemoryWin32HandleInfoKHX.npAttributes(address(), value); return this; }
+        /** Sets the specified value to the {@code dwAccess} field. */
+        public VkExportMemoryWin32HandleInfoKHX.Buffer dwAccess(int value) { VkExportMemoryWin32HandleInfoKHX.ndwAccess(address(), value); return this; }
+        /** Sets the address of the specified encoded string to the {@code name} field. */
+        public VkExportMemoryWin32HandleInfoKHX.Buffer name(ByteBuffer value) { VkExportMemoryWin32HandleInfoKHX.nname(address(), value); return this; }
 
-	}
+    }
 
 }

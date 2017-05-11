@@ -33,9 +33,9 @@ package org.lwjgl.egl;
  */
 public final class NVStreamFIFOSynchronous {
 
-	/** Accepted as an attribute name in the {@code attrib_list} parameter of {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and a the {@code attribute} parameter of {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
-	public static final int EGL_STREAM_FIFO_SYNCHRONOUS_NV = 0x3336;
+    /** Accepted as an attribute name in the {@code attrib_list} parameter of {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and a the {@code attribute} parameter of {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
+    public static final int EGL_STREAM_FIFO_SYNCHRONOUS_NV = 0x3336;
 
-	private NVStreamFIFOSynchronous() {}
+    private NVStreamFIFOSynchronous() {}
 
 }

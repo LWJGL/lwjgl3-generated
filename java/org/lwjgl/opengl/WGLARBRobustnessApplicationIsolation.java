@@ -23,12 +23,12 @@ package org.lwjgl.opengl;
  */
 public final class WGLARBRobustnessApplicationIsolation {
 
-	/**
-	 * Accepted as a bit in the attribute value for {@link WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attribList} argument to
-	 * {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}.
-	 */
-	public static final int WGL_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x8;
+    /**
+     * Accepted as a bit in the attribute value for {@link WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attribList} argument to
+     * {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}.
+     */
+    public static final int WGL_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x8;
 
-	private WGLARBRobustnessApplicationIsolation() {}
+    private WGLARBRobustnessApplicationIsolation() {}
 
 }

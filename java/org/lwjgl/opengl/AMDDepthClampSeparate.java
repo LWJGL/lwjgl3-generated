@@ -16,14 +16,14 @@ package org.lwjgl.opengl;
  */
 public final class AMDDepthClampSeparate {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int
-		GL_DEPTH_CLAMP_NEAR_AMD = 0x901E,
-		GL_DEPTH_CLAMP_FAR_AMD  = 0x901F;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int
+        GL_DEPTH_CLAMP_NEAR_AMD = 0x901E,
+        GL_DEPTH_CLAMP_FAR_AMD  = 0x901F;
 
-	private AMDDepthClampSeparate() {}
+    private AMDDepthClampSeparate() {}
 
 }

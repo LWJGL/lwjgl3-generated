@@ -28,17 +28,17 @@ package org.lwjgl.opengl;
  */
 public final class NVFogDistance {
 
-	/** Accepted by the {@code pname} parameters of Fogf, Fogi, Fogfv, Fogiv, GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_FOG_DISTANCE_MODE_NV = 0x855A;
+    /** Accepted by the {@code pname} parameters of Fogf, Fogi, Fogfv, Fogiv, GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_FOG_DISTANCE_MODE_NV = 0x855A;
 
-	/**
-	 * When the {@code pname} parameter of Fogf, Fogi, Foggv, and Fogiv, is FOG_DISTANCE_MODE_NV, then the value of {@code param} or the value pointed to by
-	 * {@code params} may be.
-	 */
-	public static final int
-		GL_EYE_RADIAL_NV         = 0x855B,
-		GL_EYE_PLANE_ABSOLUTE_NV = 0x855C;
+    /**
+     * When the {@code pname} parameter of Fogf, Fogi, Foggv, and Fogiv, is FOG_DISTANCE_MODE_NV, then the value of {@code param} or the value pointed to by
+     * {@code params} may be.
+     */
+    public static final int
+        GL_EYE_RADIAL_NV         = 0x855B,
+        GL_EYE_PLANE_ABSOLUTE_NV = 0x855C;
 
-	private NVFogDistance() {}
+    private NVFogDistance() {}
 
 }

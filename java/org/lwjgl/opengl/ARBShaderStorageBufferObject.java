@@ -33,60 +33,60 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBShaderStorageBufferObject {
 
-	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int GL_SHADER_STORAGE_BUFFER = 0x90D2;
+    /** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
+    public static final int GL_SHADER_STORAGE_BUFFER = 0x90D2;
 
-	/**
-	 * Accepted by the {@code pname} parameter of GetIntegerv, GetIntegeri_v, GetBooleanv, GetInteger64v, GetFloatv, GetDoublev, GetBooleani_v, GetIntegeri_v,
-	 * GetFloati_v, GetDoublei_v, and GetInteger64i_v.
-	 */
-	public static final int GL_SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
+    /**
+     * Accepted by the {@code pname} parameter of GetIntegerv, GetIntegeri_v, GetBooleanv, GetInteger64v, GetFloatv, GetDoublev, GetBooleani_v, GetIntegeri_v,
+     * GetFloati_v, GetDoublei_v, and GetInteger64i_v.
+     */
+    public static final int GL_SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
-	/** Accepted by the {@code pname} parameter of GetIntegeri_v, GetBooleani_v, GetIntegeri_v, GetFloati_v, GetDoublei_v, and GetInteger64i_v. */
-	public static final int
-		GL_SHADER_STORAGE_BUFFER_START = 0x90D4,
-		GL_SHADER_STORAGE_BUFFER_SIZE  = 0x90D5;
+    /** Accepted by the {@code pname} parameter of GetIntegeri_v, GetBooleani_v, GetIntegeri_v, GetFloati_v, GetDoublei_v, and GetInteger64i_v. */
+    public static final int
+        GL_SHADER_STORAGE_BUFFER_START = 0x90D4,
+        GL_SHADER_STORAGE_BUFFER_SIZE  = 0x90D5;
 
-	/** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS          = 0x90D6,
-		GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS        = 0x90D7,
-		GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS    = 0x90D8,
-		GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS = 0x90D9,
-		GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS        = 0x90DA,
-		GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS         = 0x90DB,
-		GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS        = 0x90DC,
-		GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS        = 0x90DD,
-		GL_MAX_SHADER_STORAGE_BLOCK_SIZE             = 0x90DE,
-		GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT    = 0x90DF;
+    /** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetInteger64v, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS          = 0x90D6,
+        GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS        = 0x90D7,
+        GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS    = 0x90D8,
+        GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS = 0x90D9,
+        GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS        = 0x90DA,
+        GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS         = 0x90DB,
+        GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS        = 0x90DC,
+        GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS        = 0x90DD,
+        GL_MAX_SHADER_STORAGE_BLOCK_SIZE             = 0x90DE,
+        GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT    = 0x90DF;
 
-	/** Accepted in the {@code barriers} bitfield in glMemoryBarrier. */
-	public static final int GL_SHADER_STORAGE_BARRIER_BIT = 0x2000;
+    /** Accepted in the {@code barriers} bitfield in glMemoryBarrier. */
+    public static final int GL_SHADER_STORAGE_BARRIER_BIT = 0x2000;
 
-	/** Also, add a new alias for the existing token MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS. */
-	public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
+    /** Also, add a new alias for the existing token MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS. */
+    public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBShaderStorageBufferObject() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBShaderStorageBufferObject() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glShaderStorageBlockBinding
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glShaderStorageBlockBinding
+        );
+    }
 
-	// --- [ glShaderStorageBlockBinding ] ---
+    // --- [ glShaderStorageBlockBinding ] ---
 
-	/**
-	 * Changes an active shader storage block binding.
-	 *
-	 * @param program             the name of the program containing the block whose binding to change
-	 * @param storageBlockIndex   the index storage block within the program
-	 * @param storageBlockBinding the index storage block binding to associate with the specified storage block
-	 */
-	public static native void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
+    /**
+     * Changes an active shader storage block binding.
+     *
+     * @param program             the name of the program containing the block whose binding to change
+     * @param storageBlockIndex   the index storage block within the program
+     * @param storageBlockBinding the index storage block binding to associate with the specified storage block
+     */
+    public static native void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
 
 }

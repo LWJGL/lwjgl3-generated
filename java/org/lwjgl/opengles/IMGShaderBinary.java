@@ -12,9 +12,9 @@ package org.lwjgl.opengles;
  */
 public final class IMGShaderBinary {
 
-	/** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
-	public static final int GL_SGX_BINARY_IMG = 0x8C0A;
+    /** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
+    public static final int GL_SGX_BINARY_IMG = 0x8C0A;
 
-	private IMGShaderBinary() {}
+    private IMGShaderBinary() {}
 
 }

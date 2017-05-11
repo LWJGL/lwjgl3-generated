@@ -26,157 +26,161 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTOcclusionQueryBoolean {
 
-	/** Accepted by the {@code target} parameter of BeginQueryEXT, EndQueryEXT, and GetQueryivEXT. */
-	public static final int
-		GL_ANY_SAMPLES_PASSED_EXT              = 0x8C2F,
-		GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT = 0x8D6A;
+    /** Accepted by the {@code target} parameter of BeginQueryEXT, EndQueryEXT, and GetQueryivEXT. */
+    public static final int
+        GL_ANY_SAMPLES_PASSED_EXT              = 0x8C2F,
+        GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT = 0x8D6A;
 
-	/** Accepted by the {@code pname} parameter of GetQueryivEXT. */
-	public static final int GL_CURRENT_QUERY_EXT = 0x8865;
+    /** Accepted by the {@code pname} parameter of GetQueryivEXT. */
+    public static final int GL_CURRENT_QUERY_EXT = 0x8865;
 
-	/** Accepted by the {@code pname} parameter of GetQueryObjectivEXT and GetQueryObjectuivEXT. */
-	public static final int
-		GL_QUERY_RESULT_EXT           = 0x8866,
-		GL_QUERY_RESULT_AVAILABLE_EXT = 0x8867;
+    /** Accepted by the {@code pname} parameter of GetQueryObjectivEXT and GetQueryObjectuivEXT. */
+    public static final int
+        GL_QUERY_RESULT_EXT           = 0x8866,
+        GL_QUERY_RESULT_AVAILABLE_EXT = 0x8867;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTOcclusionQueryBoolean() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTOcclusionQueryBoolean() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glGenQueriesEXT, caps.glDeleteQueriesEXT, caps.glIsQueryEXT, caps.glBeginQueryEXT, caps.glEndQueryEXT, caps.glGetQueryivEXT, 
-			caps.glGetQueryObjectuivEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glGenQueriesEXT, caps.glDeleteQueriesEXT, caps.glIsQueryEXT, caps.glBeginQueryEXT, caps.glEndQueryEXT, caps.glGetQueryivEXT, 
+            caps.glGetQueryObjectuivEXT
+        );
+    }
 
-	// --- [ glGenQueriesEXT ] ---
+    // --- [ glGenQueriesEXT ] ---
 
-	public static native void nglGenQueriesEXT(int n, long ids);
+    public static native void nglGenQueriesEXT(int n, long ids);
 
-	public static void glGenQueriesEXT(IntBuffer ids) {
-		nglGenQueriesEXT(ids.remaining(), memAddress(ids));
-	}
+    public static void glGenQueriesEXT(IntBuffer ids) {
+        nglGenQueriesEXT(ids.remaining(), memAddress(ids));
+    }
 
-	public static int glGenQueriesEXT() {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer ids = stack.callocInt(1);
-			nglGenQueriesEXT(1, memAddress(ids));
-			return ids.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGenQueriesEXT() {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer ids = stack.callocInt(1);
+            nglGenQueriesEXT(1, memAddress(ids));
+            return ids.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glDeleteQueriesEXT ] ---
+    // --- [ glDeleteQueriesEXT ] ---
 
-	public static native void nglDeleteQueriesEXT(int n, long ids);
+    public static native void nglDeleteQueriesEXT(int n, long ids);
 
-	public static void glDeleteQueriesEXT(IntBuffer ids) {
-		nglDeleteQueriesEXT(ids.remaining(), memAddress(ids));
-	}
+    public static void glDeleteQueriesEXT(IntBuffer ids) {
+        nglDeleteQueriesEXT(ids.remaining(), memAddress(ids));
+    }
 
-	public static void glDeleteQueriesEXT(int id) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer ids = stack.ints(id);
-			nglDeleteQueriesEXT(1, memAddress(ids));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glDeleteQueriesEXT(int id) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer ids = stack.ints(id);
+            nglDeleteQueriesEXT(1, memAddress(ids));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glIsQueryEXT ] ---
+    // --- [ glIsQueryEXT ] ---
 
-	public static native boolean glIsQueryEXT(int id);
+    public static native boolean glIsQueryEXT(int id);
 
-	// --- [ glBeginQueryEXT ] ---
+    // --- [ glBeginQueryEXT ] ---
 
-	public static native void glBeginQueryEXT(int target, int id);
+    public static native void glBeginQueryEXT(int target, int id);
 
-	// --- [ glEndQueryEXT ] ---
+    // --- [ glEndQueryEXT ] ---
 
-	public static native void glEndQueryEXT(int target);
+    public static native void glEndQueryEXT(int target);
 
-	// --- [ glGetQueryivEXT ] ---
+    // --- [ glGetQueryivEXT ] ---
 
-	public static native void nglGetQueryivEXT(int target, int pname, long params);
+    public static native void nglGetQueryivEXT(int target, int pname, long params);
 
-	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetQueryivEXT(target, pname, memAddress(params));
-	}
+    public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetQueryivEXT(target, pname, memAddress(params));
+    }
 
-	public static int glGetQueryiEXT(int target, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetQueryivEXT(target, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetQueryiEXT(int target, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetQueryivEXT(target, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetQueryObjectuivEXT ] ---
+    // --- [ glGetQueryObjectuivEXT ] ---
 
-	public static native void nglGetQueryObjectuivEXT(int id, int pname, long params);
+    public static native void nglGetQueryObjectuivEXT(int id, int pname, long params);
 
-	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
-	}
+    public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetQueryObjectuivEXT(id, pname, memAddress(params));
+    }
 
-	public static int glGetQueryObjectuiEXT(int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetQueryObjectuivEXT(id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetQueryObjectuiEXT(int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetQueryObjectuivEXT(id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGenQueriesEXT GenQueriesEXT} */
-	public static void glGenQueriesEXT(int[] ids) {
-		long __functionAddress = GLES.getICD().glGenQueriesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, ids.length, ids);
-	}
+    /** Array version of: {@link #glGenQueriesEXT GenQueriesEXT} */
+    public static void glGenQueriesEXT(int[] ids) {
+        long __functionAddress = GLES.getICD().glGenQueriesEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, ids.length, ids);
+    }
 
-	/** Array version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
-	public static void glDeleteQueriesEXT(int[] ids) {
-		long __functionAddress = GLES.getICD().glDeleteQueriesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, ids.length, ids);
-	}
+    /** Array version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
+    public static void glDeleteQueriesEXT(int[] ids) {
+        long __functionAddress = GLES.getICD().glDeleteQueriesEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, ids.length, ids);
+    }
 
-	/** Array version of: {@link #glGetQueryivEXT GetQueryivEXT} */
-	public static void glGetQueryivEXT(int target, int pname, int[] params) {
-		long __functionAddress = GLES.getICD().glGetQueryivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, target, pname, params);
-	}
+    /** Array version of: {@link #glGetQueryivEXT GetQueryivEXT} */
+    public static void glGetQueryivEXT(int target, int pname, int[] params) {
+        long __functionAddress = GLES.getICD().glGetQueryivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, target, pname, params);
+    }
 
-	/** Array version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
-	public static void glGetQueryObjectuivEXT(int id, int pname, int[] params) {
-		long __functionAddress = GLES.getICD().glGetQueryObjectuivEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, id, pname, params);
-	}
+    /** Array version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
+    public static void glGetQueryObjectuivEXT(int id, int pname, int[] params) {
+        long __functionAddress = GLES.getICD().glGetQueryObjectuivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, id, pname, params);
+    }
 
 }

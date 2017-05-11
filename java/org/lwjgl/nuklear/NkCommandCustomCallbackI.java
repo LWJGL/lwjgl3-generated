@@ -13,24 +13,24 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkCommandCustomCallbackI extends CallbackI.P {
 
-	String SIGNATURE = "(pssssp)p";
+    String SIGNATURE = "(pssssp)p";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgShort(args),
-			dcbArgShort(args),
-			dcbArgShort(args),
-			dcbArgShort(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgShort(args),
+            dcbArgShort(args),
+            dcbArgShort(args),
+            dcbArgShort(args),
+            dcbArgPointer(args)
+        );
+    }
 
 
-	long invoke(long canvas, short x, short y, short w, short h, long callback_data);
+    long invoke(long canvas, short x, short y, short w, short h, long callback_data);
 
 }

@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWWindowMaximizeCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pi)v";
+    String SIGNATURE = "(pi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args) != 0
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args) != 0
+        );
+    }
 
-	/**
-	 * Will be called when the specified window is maximized or restored.
-	 *
-	 * @param window    the window that was maximized or restored.
-	 * @param maximized {@link GLFW#GLFW_TRUE TRUE} if the window was maximized, or {@link GLFW#GLFW_FALSE FALSE} if it was restored
-	 */
-	void invoke(long window, boolean maximized);
+    /**
+     * Will be called when the specified window is maximized or restored.
+     *
+     * @param window    the window that was maximized or restored.
+     * @param maximized {@link GLFW#GLFW_TRUE TRUE} if the window was maximized, or {@link GLFW#GLFW_FALSE FALSE} if it was restored
+     */
+    void invoke(long window, boolean maximized);
 
 }

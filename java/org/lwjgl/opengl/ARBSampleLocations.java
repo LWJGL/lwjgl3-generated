@@ -34,101 +34,103 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBSampleLocations {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB           = 0x933D,
-		GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB        = 0x933E,
-		GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB       = 0x933F,
-		GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB = 0x9340;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB           = 0x933D,
+        GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB        = 0x933E,
+        GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB       = 0x933F,
+        GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB = 0x9340;
 
-	/**
-	 * // Alias of SAMPLE_POSITION. Before NV_expms, the spec used "location". SAMPLE_LOCATION_ARB 0x8E50 PROGRAMMABLE_SAMPLE_LOCATION_ARB 0x9341 Accepted by
-	 * the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv.
-	 */
-	public static final int
-		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342,
-		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB    = 0x9343;
+    /**
+     * // Alias of SAMPLE_POSITION. Before NV_expms, the spec used "location". SAMPLE_LOCATION_ARB 0x8E50 PROGRAMMABLE_SAMPLE_LOCATION_ARB 0x9341 Accepted by
+     * the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv.
+     */
+    public static final int
+        GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB = 0x9342,
+        GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB    = 0x9343;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBSampleLocations() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBSampleLocations() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferSampleLocationsfvARB, caps.glNamedFramebufferSampleLocationsfvARB, caps.glEvaluateDepthValuesARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferSampleLocationsfvARB, caps.glNamedFramebufferSampleLocationsfvARB, caps.glEvaluateDepthValuesARB
+        );
+    }
 
-	// --- [ glFramebufferSampleLocationsfvARB ] ---
+    // --- [ glFramebufferSampleLocationsfvARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}
-	 *
-	 * @param count the number of sample locations to update
-	 */
-	public static native void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v);
+    /**
+     * Unsafe version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}
+     *
+     * @param count the number of sample locations to update
+     */
+    public static native void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v);
 
-	/**
-	 * Controls the programmable sample locations for the framebuffer bound to the specified {@code target}.
-	 * 
-	 * <p>There are {@code N} pairs of programmable sample locations values in a framebuffer, where {@code N} is the value of
-	 * {@link #GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB}. Each programmable sample location is specified as a pair of floating point values in the range
-	 * {@code [0,1]}, corresponding to the x and y locations respectively in GL pixel space. {@code (0.5, 0.5)} thus corresponds to the pixel center. Sample
-	 * locations outside of {@code [0,1]} result in undefined behavior.</p>
-	 *
-	 * @param target the framebuffer target. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
-	 * @param start  the first sample location to update
-	 * @param v      a pair of values for each sample location to update
-	 */
-	public static void glFramebufferSampleLocationsfvARB(int target, int start, FloatBuffer v) {
-		nglFramebufferSampleLocationsfvARB(target, start, v.remaining() >> 1, memAddress(v));
-	}
+    /**
+     * Controls the programmable sample locations for the framebuffer bound to the specified {@code target}.
+     * 
+     * <p>There are {@code N} pairs of programmable sample locations values in a framebuffer, where {@code N} is the value of
+     * {@link #GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB}. Each programmable sample location is specified as a pair of floating point values in the range
+     * {@code [0,1]}, corresponding to the x and y locations respectively in GL pixel space. {@code (0.5, 0.5)} thus corresponds to the pixel center. Sample
+     * locations outside of {@code [0,1]} result in undefined behavior.</p>
+     *
+     * @param target the framebuffer target. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
+     * @param start  the first sample location to update
+     * @param v      a pair of values for each sample location to update
+     */
+    public static void glFramebufferSampleLocationsfvARB(int target, int start, FloatBuffer v) {
+        nglFramebufferSampleLocationsfvARB(target, start, v.remaining() >> 1, memAddress(v));
+    }
 
-	// --- [ glNamedFramebufferSampleLocationsfvARB ] ---
+    // --- [ glNamedFramebufferSampleLocationsfvARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB}
-	 *
-	 * @param count the number of sample locations to update
-	 */
-	public static native void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v);
+    /**
+     * Unsafe version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB}
+     *
+     * @param count the number of sample locations to update
+     */
+    public static native void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v);
 
-	/**
-	 * DSA version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}.
-	 *
-	 * @param framebuffer the framebuffer object to update
-	 * @param start       the first sample location to update
-	 * @param v           a pair of values for each sample location to update
-	 */
-	public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, FloatBuffer v) {
-		nglNamedFramebufferSampleLocationsfvARB(framebuffer, start, v.remaining() >> 1, memAddress(v));
-	}
+    /**
+     * DSA version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}.
+     *
+     * @param framebuffer the framebuffer object to update
+     * @param start       the first sample location to update
+     * @param v           a pair of values for each sample location to update
+     */
+    public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, FloatBuffer v) {
+        nglNamedFramebufferSampleLocationsfvARB(framebuffer, start, v.remaining() >> 1, memAddress(v));
+    }
 
-	// --- [ glEvaluateDepthValuesARB ] ---
+    // --- [ glEvaluateDepthValuesARB ] ---
 
-	/**
-	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
-	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
-	 * generated. If the current framebuffer has no depth buffer, EvaluateDepthValuesARB will have no effect.
-	 */
-	public static native void glEvaluateDepthValuesARB();
+    /**
+     * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
+     * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
+     * generated. If the current framebuffer has no depth buffer, EvaluateDepthValuesARB will have no effect.
+     */
+    public static native void glEvaluateDepthValuesARB();
 
-	/** Array version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
-	public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {
-		long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, start, v.length >> 1, v);
-	}
+    /** Array version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
+    public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {
+        long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvARB;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, start, v.length >> 1, v);
+    }
 
-	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
-	public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, float[] v) {
-		long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvARB;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, start, v.length >> 1, v);
-	}
+    /** Array version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
+    public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, float[] v) {
+        long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvARB;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, framebuffer, start, v.length >> 1, v);
+    }
 
 }

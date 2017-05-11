@@ -42,54 +42,54 @@ package org.lwjgl.vulkan;
  */
 public final class NVViewportSwizzle {
 
-	/** The extension specification version. */
-	public static final int VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME = "VK_NV_viewport_swizzle";
+    /** The extension name. */
+    public static final String VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME = "VK_NV_viewport_swizzle";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000;
 
-	/**
-	 * VkViewportCoordinateSwizzleNV - (no short description available)
-	 * 
-	 * <h5>Description</h5>
-	 * 
-	 * <p>For more information, see:</p>
-	 * 
-	 * <ul>
-	 * <li>The See Also section for other reference pages using this type.</li>
-	 * <li>The Vulkan Specification.</li>
-	 * </ul>
-	 * 
-	 * <h5>See Also</h5>
-	 * 
-	 * <p>{@link VkViewportSwizzleNV}</p>
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV}</li>
-	 * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV}</li>
-	 * </ul>
-	 */
-	public static final int
-		VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV = 0,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV = 1,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV = 2,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV = 3,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV = 4,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV = 5,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV = 6,
-		VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV = 7;
+    /**
+     * VkViewportCoordinateSwizzleNV - (no short description available)
+     * 
+     * <h5>Description</h5>
+     * 
+     * <p>For more information, see:</p>
+     * 
+     * <ul>
+     * <li>The See Also section for other reference pages using this type.</li>
+     * <li>The Vulkan Specification.</li>
+     * </ul>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkViewportSwizzleNV}</p>
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV}</li>
+     * <li>{@link #VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV}</li>
+     * </ul>
+     */
+    public static final int
+        VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV = 0,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV = 1,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV = 2,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV = 3,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV = 4,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV = 5,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV = 6,
+        VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV = 7;
 
-	private NVViewportSwizzle() {}
+    private NVViewportSwizzle() {}
 
 }

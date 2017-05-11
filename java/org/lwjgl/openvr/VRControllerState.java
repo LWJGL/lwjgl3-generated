@@ -36,325 +36,325 @@ import static org.lwjgl.system.MemoryStack.*;
  */
 public class VRControllerState extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		UNPACKETNUM,
-		ULBUTTONPRESSED,
-		ULBUTTONTOUCHED,
-		RAXIS;
+    /** The struct member offsets. */
+    public static final int
+        UNPACKETNUM,
+        ULBUTTONPRESSED,
+        ULBUTTONTOUCHED,
+        RAXIS;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(8),
-			__member(8),
-			__array(VRControllerAxis.SIZEOF, VRControllerAxis.ALIGNOF, 5)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(8),
+            __member(8),
+            __array(VRControllerAxis.SIZEOF, VRControllerAxis.ALIGNOF, 5)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		UNPACKETNUM = layout.offsetof(0);
-		ULBUTTONPRESSED = layout.offsetof(1);
-		ULBUTTONTOUCHED = layout.offsetof(2);
-		RAXIS = layout.offsetof(3);
-	}
+        UNPACKETNUM = layout.offsetof(0);
+        ULBUTTONPRESSED = layout.offsetof(1);
+        ULBUTTONTOUCHED = layout.offsetof(2);
+        RAXIS = layout.offsetof(3);
+    }
 
-	VRControllerState(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    VRControllerState(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link VRControllerState} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public VRControllerState(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link VRControllerState} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public VRControllerState(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code unPacketNum} field. */
-	public int unPacketNum() { return nunPacketNum(address()); }
-	/** Returns the value of the {@code ulButtonPressed} field. */
-	public long ulButtonPressed() { return nulButtonPressed(address()); }
-	/** Returns the value of the {@code ulButtonTouched} field. */
-	public long ulButtonTouched() { return nulButtonTouched(address()); }
-	/** Returns a {@link VRControllerAxis}.Buffer view of the {@code rAxis} field. */
-	public VRControllerAxis.Buffer rAxis() { return nrAxis(address()); }
-	/** Returns a {@link VRControllerAxis} view of the struct at the specified index of the {@code rAxis} field. */
-	public VRControllerAxis rAxis(int index) { return nrAxis(address(), index); }
+    /** Returns the value of the {@code unPacketNum} field. */
+    public int unPacketNum() { return nunPacketNum(address()); }
+    /** Returns the value of the {@code ulButtonPressed} field. */
+    public long ulButtonPressed() { return nulButtonPressed(address()); }
+    /** Returns the value of the {@code ulButtonTouched} field. */
+    public long ulButtonTouched() { return nulButtonTouched(address()); }
+    /** Returns a {@link VRControllerAxis}.Buffer view of the {@code rAxis} field. */
+    public VRControllerAxis.Buffer rAxis() { return nrAxis(address()); }
+    /** Returns a {@link VRControllerAxis} view of the struct at the specified index of the {@code rAxis} field. */
+    public VRControllerAxis rAxis(int index) { return nrAxis(address(), index); }
 
-	/** Sets the specified value to the {@code unPacketNum} field. */
-	public VRControllerState unPacketNum(int value) { nunPacketNum(address(), value); return this; }
-	/** Sets the specified value to the {@code ulButtonPressed} field. */
-	public VRControllerState ulButtonPressed(long value) { nulButtonPressed(address(), value); return this; }
-	/** Sets the specified value to the {@code ulButtonTouched} field. */
-	public VRControllerState ulButtonTouched(long value) { nulButtonTouched(address(), value); return this; }
-	/** Copies the specified {@link VRControllerAxis.Buffer} to the {@code rAxis} field. */
-	public VRControllerState rAxis(VRControllerAxis.Buffer value) { nrAxis(address(), value); return this; }
-	/** Copies the specified {@link VRControllerAxis} at the specified index of the {@code rAxis} field. */
-	public VRControllerState rAxis(int index, VRControllerAxis value) { nrAxis(address(), index, value); return this; }
+    /** Sets the specified value to the {@code unPacketNum} field. */
+    public VRControllerState unPacketNum(int value) { nunPacketNum(address(), value); return this; }
+    /** Sets the specified value to the {@code ulButtonPressed} field. */
+    public VRControllerState ulButtonPressed(long value) { nulButtonPressed(address(), value); return this; }
+    /** Sets the specified value to the {@code ulButtonTouched} field. */
+    public VRControllerState ulButtonTouched(long value) { nulButtonTouched(address(), value); return this; }
+    /** Copies the specified {@link VRControllerAxis.Buffer} to the {@code rAxis} field. */
+    public VRControllerState rAxis(VRControllerAxis.Buffer value) { nrAxis(address(), value); return this; }
+    /** Copies the specified {@link VRControllerAxis} at the specified index of the {@code rAxis} field. */
+    public VRControllerState rAxis(int index, VRControllerAxis value) { nrAxis(address(), index, value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public VRControllerState set(
-		int unPacketNum,
-		long ulButtonPressed,
-		long ulButtonTouched,
-		VRControllerAxis.Buffer rAxis
-	) {
-		unPacketNum(unPacketNum);
-		ulButtonPressed(ulButtonPressed);
-		ulButtonTouched(ulButtonTouched);
-		rAxis(rAxis);
+    /** Initializes this struct with the specified values. */
+    public VRControllerState set(
+        int unPacketNum,
+        long ulButtonPressed,
+        long ulButtonTouched,
+        VRControllerAxis.Buffer rAxis
+    ) {
+        unPacketNum(unPacketNum);
+        ulButtonPressed(ulButtonPressed);
+        ulButtonTouched(ulButtonTouched);
+        rAxis(rAxis);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VRControllerState set(VRControllerState src) {
-		memCopy(src.address(), address(), SIZEOF);
-		return this;
-	}
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VRControllerState set(VRControllerState src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VRControllerState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static VRControllerState malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link VRControllerState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VRControllerState malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link VRControllerState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static VRControllerState calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link VRControllerState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VRControllerState calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link VRControllerState} instance allocated with {@link BufferUtils}. */
-	public static VRControllerState create() {
-		return new VRControllerState(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link VRControllerState} instance allocated with {@link BufferUtils}. */
+    public static VRControllerState create() {
+        return new VRControllerState(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link VRControllerState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static VRControllerState create(long address) {
-		return address == NULL ? null : new VRControllerState(address, null);
-	}
+    /** Returns a new {@link VRControllerState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static VRControllerState create(long address) {
+        return address == NULL ? null : new VRControllerState(address, null);
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link VRControllerState.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link VRControllerState.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VRControllerState} instance allocated on the thread-local {@link MemoryStack}. */
-	public static VRControllerState mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link VRControllerState} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VRControllerState mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link VRControllerState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static VRControllerState callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link VRControllerState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VRControllerState callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VRControllerState mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VRControllerState} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VRControllerState mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VRControllerState callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VRControllerState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VRControllerState callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VRControllerState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VRControllerState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #unPacketNum}. */
-	public static int nunPacketNum(long struct) { return memGetInt(struct + VRControllerState.UNPACKETNUM); }
-	/** Unsafe version of {@link #ulButtonPressed}. */
-	public static long nulButtonPressed(long struct) { return memGetLong(struct + VRControllerState.ULBUTTONPRESSED); }
-	/** Unsafe version of {@link #ulButtonTouched}. */
-	public static long nulButtonTouched(long struct) { return memGetLong(struct + VRControllerState.ULBUTTONTOUCHED); }
-	/** Unsafe version of {@link #rAxis}. */
-	public static VRControllerAxis.Buffer nrAxis(long struct) { return VRControllerAxis.create(struct + VRControllerState.RAXIS, 5); }
-	/** Unsafe version of {@link #rAxis(int) rAxis}. */
-	public static VRControllerAxis nrAxis(long struct, int index) {
-		if ( CHECKS ) check(index, 5);
-		return VRControllerAxis.create(struct + VRControllerState.RAXIS + index * VRControllerAxis.SIZEOF);
-	}
+    /** Unsafe version of {@link #unPacketNum}. */
+    public static int nunPacketNum(long struct) { return memGetInt(struct + VRControllerState.UNPACKETNUM); }
+    /** Unsafe version of {@link #ulButtonPressed}. */
+    public static long nulButtonPressed(long struct) { return memGetLong(struct + VRControllerState.ULBUTTONPRESSED); }
+    /** Unsafe version of {@link #ulButtonTouched}. */
+    public static long nulButtonTouched(long struct) { return memGetLong(struct + VRControllerState.ULBUTTONTOUCHED); }
+    /** Unsafe version of {@link #rAxis}. */
+    public static VRControllerAxis.Buffer nrAxis(long struct) { return VRControllerAxis.create(struct + VRControllerState.RAXIS, 5); }
+    /** Unsafe version of {@link #rAxis(int) rAxis}. */
+    public static VRControllerAxis nrAxis(long struct, int index) {
+        if (CHECKS) { check(index, 5); }
+        return VRControllerAxis.create(struct + VRControllerState.RAXIS + index * VRControllerAxis.SIZEOF);
+    }
 
-	/** Unsafe version of {@link #unPacketNum(int) unPacketNum}. */
-	public static void nunPacketNum(long struct, int value) { memPutInt(struct + VRControllerState.UNPACKETNUM, value); }
-	/** Unsafe version of {@link #ulButtonPressed(long) ulButtonPressed}. */
-	public static void nulButtonPressed(long struct, long value) { memPutLong(struct + VRControllerState.ULBUTTONPRESSED, value); }
-	/** Unsafe version of {@link #ulButtonTouched(long) ulButtonTouched}. */
-	public static void nulButtonTouched(long struct, long value) { memPutLong(struct + VRControllerState.ULBUTTONTOUCHED, value); }
-	/** Unsafe version of {@link #rAxis(VRControllerAxis.Buffer) rAxis}. */
-	public static void nrAxis(long struct, VRControllerAxis.Buffer value) {
-		if ( CHECKS ) checkGT(value, 5);
-		memCopy(value.address(), struct + VRControllerState.RAXIS, value.remaining() * VRControllerAxis.SIZEOF);
-	}
-	/** Unsafe version of {@link #rAxis(int, VRControllerAxis) rAxis}. */
-	public static void nrAxis(long struct, int index, VRControllerAxis value) {
-		if ( CHECKS ) check(index, 5);
-		memCopy(value.address(), struct + VRControllerState.RAXIS + index * VRControllerAxis.SIZEOF, VRControllerAxis.SIZEOF);
-	}
+    /** Unsafe version of {@link #unPacketNum(int) unPacketNum}. */
+    public static void nunPacketNum(long struct, int value) { memPutInt(struct + VRControllerState.UNPACKETNUM, value); }
+    /** Unsafe version of {@link #ulButtonPressed(long) ulButtonPressed}. */
+    public static void nulButtonPressed(long struct, long value) { memPutLong(struct + VRControllerState.ULBUTTONPRESSED, value); }
+    /** Unsafe version of {@link #ulButtonTouched(long) ulButtonTouched}. */
+    public static void nulButtonTouched(long struct, long value) { memPutLong(struct + VRControllerState.ULBUTTONTOUCHED, value); }
+    /** Unsafe version of {@link #rAxis(VRControllerAxis.Buffer) rAxis}. */
+    public static void nrAxis(long struct, VRControllerAxis.Buffer value) {
+        if (CHECKS) { checkGT(value, 5); }
+        memCopy(value.address(), struct + VRControllerState.RAXIS, value.remaining() * VRControllerAxis.SIZEOF);
+    }
+    /** Unsafe version of {@link #rAxis(int, VRControllerAxis) rAxis}. */
+    public static void nrAxis(long struct, int index, VRControllerAxis value) {
+        if (CHECKS) { check(index, 5); }
+        memCopy(value.address(), struct + VRControllerState.RAXIS + index * VRControllerAxis.SIZEOF, VRControllerAxis.SIZEOF);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link VRControllerState} structs. */
-	public static class Buffer extends StructBuffer<VRControllerState, Buffer> implements NativeResource {
+    /** An array of {@link VRControllerState} structs. */
+    public static class Buffer extends StructBuffer<VRControllerState, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link VRControllerState.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link VRControllerState#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link VRControllerState.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link VRControllerState#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected VRControllerState newInstance(long address) {
-			return new VRControllerState(address, container);
-		}
+        @Override
+        protected VRControllerState newInstance(long address) {
+            return new VRControllerState(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code unPacketNum} field. */
-		public int unPacketNum() { return VRControllerState.nunPacketNum(address()); }
-		/** Returns the value of the {@code ulButtonPressed} field. */
-		public long ulButtonPressed() { return VRControllerState.nulButtonPressed(address()); }
-		/** Returns the value of the {@code ulButtonTouched} field. */
-		public long ulButtonTouched() { return VRControllerState.nulButtonTouched(address()); }
-		/** Returns a {@link VRControllerAxis}.Buffer view of the {@code rAxis} field. */
-		public VRControllerAxis.Buffer rAxis() { return VRControllerState.nrAxis(address()); }
-		/** Returns a {@link VRControllerAxis} view of the struct at the specified index of the {@code rAxis} field. */
-		public VRControllerAxis rAxis(int index) { return VRControllerState.nrAxis(address(), index); }
+        /** Returns the value of the {@code unPacketNum} field. */
+        public int unPacketNum() { return VRControllerState.nunPacketNum(address()); }
+        /** Returns the value of the {@code ulButtonPressed} field. */
+        public long ulButtonPressed() { return VRControllerState.nulButtonPressed(address()); }
+        /** Returns the value of the {@code ulButtonTouched} field. */
+        public long ulButtonTouched() { return VRControllerState.nulButtonTouched(address()); }
+        /** Returns a {@link VRControllerAxis}.Buffer view of the {@code rAxis} field. */
+        public VRControllerAxis.Buffer rAxis() { return VRControllerState.nrAxis(address()); }
+        /** Returns a {@link VRControllerAxis} view of the struct at the specified index of the {@code rAxis} field. */
+        public VRControllerAxis rAxis(int index) { return VRControllerState.nrAxis(address(), index); }
 
-		/** Sets the specified value to the {@code unPacketNum} field. */
-		public VRControllerState.Buffer unPacketNum(int value) { VRControllerState.nunPacketNum(address(), value); return this; }
-		/** Sets the specified value to the {@code ulButtonPressed} field. */
-		public VRControllerState.Buffer ulButtonPressed(long value) { VRControllerState.nulButtonPressed(address(), value); return this; }
-		/** Sets the specified value to the {@code ulButtonTouched} field. */
-		public VRControllerState.Buffer ulButtonTouched(long value) { VRControllerState.nulButtonTouched(address(), value); return this; }
-		/** Copies the specified {@link VRControllerAxis.Buffer} to the {@code rAxis} field. */
-		public VRControllerState.Buffer rAxis(VRControllerAxis.Buffer value) { VRControllerState.nrAxis(address(), value); return this; }
-		/** Copies the specified {@link VRControllerAxis} at the specified index of the {@code rAxis} field. */
-		public VRControllerState.Buffer rAxis(int index, VRControllerAxis value) { VRControllerState.nrAxis(address(), index, value); return this; }
+        /** Sets the specified value to the {@code unPacketNum} field. */
+        public VRControllerState.Buffer unPacketNum(int value) { VRControllerState.nunPacketNum(address(), value); return this; }
+        /** Sets the specified value to the {@code ulButtonPressed} field. */
+        public VRControllerState.Buffer ulButtonPressed(long value) { VRControllerState.nulButtonPressed(address(), value); return this; }
+        /** Sets the specified value to the {@code ulButtonTouched} field. */
+        public VRControllerState.Buffer ulButtonTouched(long value) { VRControllerState.nulButtonTouched(address(), value); return this; }
+        /** Copies the specified {@link VRControllerAxis.Buffer} to the {@code rAxis} field. */
+        public VRControllerState.Buffer rAxis(VRControllerAxis.Buffer value) { VRControllerState.nrAxis(address(), value); return this; }
+        /** Copies the specified {@link VRControllerAxis} at the specified index of the {@code rAxis} field. */
+        public VRControllerState.Buffer rAxis(int index, VRControllerAxis value) { VRControllerState.nrAxis(address(), index, value); return this; }
 
-	}
+    }
 
 }

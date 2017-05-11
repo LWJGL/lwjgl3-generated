@@ -34,55 +34,55 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTTextureBuffer {
 
-	/**
-	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBufferRange, BindTexture, UnmapBuffer, GetBufferParameteriv,
-	 * GetBufferPointerv, TexBufferEXT, and TexBufferRangeEXT.
-	 */
-	public static final int GL_TEXTURE_BUFFER_EXT = 0x8C2A;
+    /**
+     * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBufferRange, BindTexture, UnmapBuffer, GetBufferParameteriv,
+     * GetBufferPointerv, TexBufferEXT, and TexBufferRangeEXT.
+     */
+    public static final int GL_TEXTURE_BUFFER_EXT = 0x8C2A;
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetFloatv, and GetIntegerv. */
-	public static final int
-		GL_TEXTURE_BUFFER_BINDING_EXT          = 0x8C2A,
-		GL_MAX_TEXTURE_BUFFER_SIZE_EXT         = 0x8C2B,
-		GL_TEXTURE_BINDING_BUFFER_EXT          = 0x8C2C,
-		GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT = 0x919F;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetFloatv, and GetIntegerv. */
+    public static final int
+        GL_TEXTURE_BUFFER_BINDING_EXT          = 0x8C2A,
+        GL_MAX_TEXTURE_BUFFER_SIZE_EXT         = 0x8C2B,
+        GL_TEXTURE_BINDING_BUFFER_EXT          = 0x8C2C,
+        GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT = 0x919F;
 
-	/**
-	 * Returned in the {@code type} parameter of GetActiveUniform, the {@code params} parameter of GetActiveUniformsiv, and the {@code params} parameter of
-	 * GetProgramResourceiv when the TYPE property is queried on the UNIFORM interface.
-	 */
-	public static final int
-		GL_SAMPLER_BUFFER_EXT              = 0x8DC2,
-		GL_INT_SAMPLER_BUFFER_EXT          = 0x8DD0,
-		GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT = 0x8DD8,
-		GL_IMAGE_BUFFER_EXT                = 0x9051,
-		GL_INT_IMAGE_BUFFER_EXT            = 0x905C,
-		GL_UNSIGNED_INT_IMAGE_BUFFER_EXT   = 0x9067;
+    /**
+     * Returned in the {@code type} parameter of GetActiveUniform, the {@code params} parameter of GetActiveUniformsiv, and the {@code params} parameter of
+     * GetProgramResourceiv when the TYPE property is queried on the UNIFORM interface.
+     */
+    public static final int
+        GL_SAMPLER_BUFFER_EXT              = 0x8DC2,
+        GL_INT_SAMPLER_BUFFER_EXT          = 0x8DD0,
+        GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT = 0x8DD8,
+        GL_IMAGE_BUFFER_EXT                = 0x9051,
+        GL_INT_IMAGE_BUFFER_EXT            = 0x905C,
+        GL_UNSIGNED_INT_IMAGE_BUFFER_EXT   = 0x9067;
 
-	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D,
-		GL_TEXTURE_BUFFER_OFFSET_EXT             = 0x919D,
-		GL_TEXTURE_BUFFER_SIZE_EXT               = 0x919E;
+    /** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
+    public static final int
+        GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT = 0x8C2D,
+        GL_TEXTURE_BUFFER_OFFSET_EXT             = 0x919D,
+        GL_TEXTURE_BUFFER_SIZE_EXT               = 0x919E;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTTextureBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTTextureBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glTexBufferEXT, caps.glTexBufferRangeEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glTexBufferEXT, caps.glTexBufferRangeEXT
+        );
+    }
 
-	// --- [ glTexBufferEXT ] ---
+    // --- [ glTexBufferEXT ] ---
 
-	public static native void glTexBufferEXT(int target, int internalformat, int buffer);
+    public static native void glTexBufferEXT(int target, int internalformat, int buffer);
 
-	// --- [ glTexBufferRangeEXT ] ---
+    // --- [ glTexBufferRangeEXT ] ---
 
-	public static native void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size);
+    public static native void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size);
 
 }

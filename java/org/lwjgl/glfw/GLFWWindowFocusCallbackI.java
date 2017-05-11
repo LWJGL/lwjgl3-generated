@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWWindowFocusCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pi)v";
+    String SIGNATURE = "(pi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args) != 0
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args) != 0
+        );
+    }
 
-	/**
-	 * Will be called when the specified window gains or loses focus.
-	 *
-	 * @param window  the window that was focused or defocused
-	 * @param focused {@link GLFW#GLFW_TRUE TRUE} if the window was focused, or {@link GLFW#GLFW_FALSE FALSE} if it was defocused
-	 */
-	void invoke(long window, boolean focused);
+    /**
+     * Will be called when the specified window gains or loses focus.
+     *
+     * @param window  the window that was focused or defocused
+     * @param focused {@link GLFW#GLFW_TRUE TRUE} if the window was focused, or {@link GLFW#GLFW_FALSE FALSE} if it was defocused
+     */
+    void invoke(long window, boolean focused);
 
 }

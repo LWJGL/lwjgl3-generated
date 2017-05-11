@@ -28,112 +28,114 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBVertexArrayObject {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBVertexArrayObject() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBVertexArrayObject() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBindVertexArray, caps.glDeleteVertexArrays, caps.glGenVertexArrays, caps.glIsVertexArray
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBindVertexArray, caps.glDeleteVertexArrays, caps.glGenVertexArrays, caps.glIsVertexArray
+        );
+    }
 
-	// --- [ glBindVertexArray ] ---
+    // --- [ glBindVertexArray ] ---
 
-	/**
-	 * Binds a vertex array object
-	 *
-	 * @param array the name of the vertex array to bind
-	 */
-	public static native void glBindVertexArray(int array);
+    /**
+     * Binds a vertex array object
+     *
+     * @param array the name of the vertex array to bind
+     */
+    public static native void glBindVertexArray(int array);
 
-	// --- [ glDeleteVertexArrays ] ---
+    // --- [ glDeleteVertexArrays ] ---
 
-	/**
-	 * Unsafe version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
-	 *
-	 * @param n the number of vertex array objects to be deleted
-	 */
-	public static native void nglDeleteVertexArrays(int n, long arrays);
+    /**
+     * Unsafe version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
+     *
+     * @param n the number of vertex array objects to be deleted
+     */
+    public static native void nglDeleteVertexArrays(int n, long arrays);
 
-	/**
-	 * Deletes vertex array objects.
-	 *
-	 * @param arrays an array containing the n names of the objects to be deleted
-	 */
-	public static void glDeleteVertexArrays(IntBuffer arrays) {
-		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
-	}
+    /**
+     * Deletes vertex array objects.
+     *
+     * @param arrays an array containing the n names of the objects to be deleted
+     */
+    public static void glDeleteVertexArrays(IntBuffer arrays) {
+        nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
+    }
 
-	/** Deletes vertex array objects. */
-	public static void glDeleteVertexArrays(int array) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer arrays = stack.ints(array);
-			nglDeleteVertexArrays(1, memAddress(arrays));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /** Deletes vertex array objects. */
+    public static void glDeleteVertexArrays(int array) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer arrays = stack.ints(array);
+            nglDeleteVertexArrays(1, memAddress(arrays));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGenVertexArrays ] ---
+    // --- [ glGenVertexArrays ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGenVertexArrays GenVertexArrays}
-	 *
-	 * @param n the number of vertex array object names to generate
-	 */
-	public static native void nglGenVertexArrays(int n, long arrays);
+    /**
+     * Unsafe version of: {@link #glGenVertexArrays GenVertexArrays}
+     *
+     * @param n the number of vertex array object names to generate
+     */
+    public static native void nglGenVertexArrays(int n, long arrays);
 
-	/**
-	 * Generates vertex array object names.
-	 *
-	 * @param arrays a buffer in which the generated vertex array object names are stored
-	 */
-	public static void glGenVertexArrays(IntBuffer arrays) {
-		nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
-	}
+    /**
+     * Generates vertex array object names.
+     *
+     * @param arrays a buffer in which the generated vertex array object names are stored
+     */
+    public static void glGenVertexArrays(IntBuffer arrays) {
+        nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
+    }
 
-	/** Generates vertex array object names. */
-	public static int glGenVertexArrays() {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer arrays = stack.callocInt(1);
-			nglGenVertexArrays(1, memAddress(arrays));
-			return arrays.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /** Generates vertex array object names. */
+    public static int glGenVertexArrays() {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer arrays = stack.callocInt(1);
+            nglGenVertexArrays(1, memAddress(arrays));
+            return arrays.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glIsVertexArray ] ---
+    // --- [ glIsVertexArray ] ---
 
-	/**
-	 * Determines if a name corresponds to a vertex array object.
-	 *
-	 * @param array a value that may be the name of a vertex array object
-	 */
-	public static native boolean glIsVertexArray(int array);
+    /**
+     * Determines if a name corresponds to a vertex array object.
+     *
+     * @param array a value that may be the name of a vertex array object
+     */
+    public static native boolean glIsVertexArray(int array);
 
-	/** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
-	public static void glDeleteVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getICD().glDeleteVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, arrays.length, arrays);
-	}
+    /** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
+    public static void glDeleteVertexArrays(int[] arrays) {
+        long __functionAddress = GL.getICD().glDeleteVertexArrays;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, arrays.length, arrays);
+    }
 
-	/** Array version of: {@link #glGenVertexArrays GenVertexArrays} */
-	public static void glGenVertexArrays(int[] arrays) {
-		long __functionAddress = GL.getICD().glGenVertexArrays;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, arrays.length, arrays);
-	}
+    /** Array version of: {@link #glGenVertexArrays GenVertexArrays} */
+    public static void glGenVertexArrays(int[] arrays) {
+        long __functionAddress = GL.getICD().glGenVertexArrays;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, arrays.length, arrays);
+    }
 
 }

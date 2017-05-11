@@ -17,43 +17,44 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXSGIMakeCurrentRead {
 
-	protected GLXSGIMakeCurrentRead() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXSGIMakeCurrentRead() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXMakeCurrentReadSGI, caps.glXGetCurrentReadDrawableSGI
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXMakeCurrentReadSGI, caps.glXGetCurrentReadDrawableSGI
+        );
+    }
 
-	// --- [ glXMakeCurrentReadSGI ] ---
+    // --- [ glXMakeCurrentReadSGI ] ---
 
-	/**
-	 * Associates two {@code GLXDrawables} with the current rendering context.
-	 *
-	 * @param display the connection to the X server
-	 * @param draw    the draw drawable
-	 * @param read    the read drawable
-	 * @param ctx     the current context
-	 */
-	public static boolean glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeCurrentReadSGI;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		return callPPPPI(__functionAddress, display, draw, read, ctx) != 0;
-	}
+    /**
+     * Associates two {@code GLXDrawables} with the current rendering context.
+     *
+     * @param display the connection to the X server
+     * @param draw    the draw drawable
+     * @param read    the read drawable
+     * @param ctx     the current context
+     */
+    public static boolean glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeCurrentReadSGI;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        return callPPPPI(__functionAddress, display, draw, read, ctx) != 0;
+    }
 
-	// --- [ glXGetCurrentReadDrawableSGI ] ---
+    // --- [ glXGetCurrentReadDrawableSGI ] ---
 
-	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
-	public static long glXGetCurrentReadDrawableSGI() {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawableSGI;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress);
-	}
+    /** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
+    public static long glXGetCurrentReadDrawableSGI() {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawableSGI;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callP(__functionAddress);
+    }
 
 }

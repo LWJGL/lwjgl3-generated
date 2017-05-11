@@ -13,12 +13,12 @@ package org.lwjgl.opengles;
  */
 public final class APPLETextureFormatBGRA8888 {
 
-	/** Accepted by the {@code format} parameters of TexImage2D and TexSubImage2D. */
-	public static final int GL_BGRA_EXT = 0x80E1;
+    /** Accepted by the {@code format} parameters of TexImage2D and TexSubImage2D. */
+    public static final int GL_BGRA_EXT = 0x80E1;
 
-	/** Accepted by the {@code internalformat} parameters of TexStorage2D and TexStorage3D. */
-	public static final int GL_BGRA8_EXT = 0x93A1;
+    /** Accepted by the {@code internalformat} parameters of TexStorage2D and TexStorage3D. */
+    public static final int GL_BGRA8_EXT = 0x93A1;
 
-	private APPLETextureFormatBGRA8888() {}
+    private APPLETextureFormatBGRA8888() {}
 
 }

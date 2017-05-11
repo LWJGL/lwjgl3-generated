@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface BGFXCacheReadSizeCallbackI extends CallbackI.I {
 
-	String SIGNATURE = "(pl)i";
+    String SIGNATURE = "(pl)i";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgLong(args)
-		);
-	}
+    @Override
+    default int callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgLongLong(args)
+        );
+    }
 
-	/**
-	 * Will be called to determine size of cached item.
-	 *
-	 * @param _this the callback interface
-	 * @param _id   cache id
-	 *
-	 * @return number of bytes to read
-	 */
-	int invoke(long _this, long _id);
+    /**
+     * Will be called to determine size of cached item.
+     *
+     * @param _this the callback interface
+     * @param _id   cache id
+     *
+     * @return number of bytes to read
+     */
+    int invoke(long _this, long _id);
 
 }

@@ -30,48 +30,49 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTShaderPixelLocalStorage2 {
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetInteger64v, or GetFloatv. */
-	public static final int
-		GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT = 0x9650,
-		GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT      = 0x9651;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetInteger64v, or GetFloatv. */
+    public static final int
+        GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT = 0x9650,
+        GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT      = 0x9651;
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTShaderPixelLocalStorage2() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTShaderPixelLocalStorage2() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferPixelLocalStorageSizeEXT, caps.glGetFramebufferPixelLocalStorageSizeEXT, caps.glClearPixelLocalStorageuiEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferPixelLocalStorageSizeEXT, caps.glGetFramebufferPixelLocalStorageSizeEXT, caps.glClearPixelLocalStorageuiEXT
+        );
+    }
 
-	// --- [ glFramebufferPixelLocalStorageSizeEXT ] ---
+    // --- [ glFramebufferPixelLocalStorageSizeEXT ] ---
 
-	public static native void glFramebufferPixelLocalStorageSizeEXT(int target, int size);
+    public static native void glFramebufferPixelLocalStorageSizeEXT(int target, int size);
 
-	// --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
+    // --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
 
-	public static native int glGetFramebufferPixelLocalStorageSizeEXT(int target);
+    public static native int glGetFramebufferPixelLocalStorageSizeEXT(int target);
 
-	// --- [ glClearPixelLocalStorageuiEXT ] ---
+    // --- [ glClearPixelLocalStorageuiEXT ] ---
 
-	public static native void nglClearPixelLocalStorageuiEXT(int offset, int n, long values);
+    public static native void nglClearPixelLocalStorageuiEXT(int offset, int n, long values);
 
-	public static void glClearPixelLocalStorageuiEXT(int offset, IntBuffer values) {
-		nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
-	}
+    public static void glClearPixelLocalStorageuiEXT(int offset, IntBuffer values) {
+        nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
+    }
 
-	/** Array version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
-	public static void glClearPixelLocalStorageuiEXT(int offset, int[] values) {
-		long __functionAddress = GLES.getICD().glClearPixelLocalStorageuiEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, offset, values.length, values);
-	}
+    /** Array version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
+    public static void glClearPixelLocalStorageuiEXT(int offset, int[] values) {
+        long __functionAddress = GLES.getICD().glClearPixelLocalStorageuiEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, offset, values.length, values);
+    }
 
 }

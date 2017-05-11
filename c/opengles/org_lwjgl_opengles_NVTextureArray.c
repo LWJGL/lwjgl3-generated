@@ -16,43 +16,43 @@ typedef void (APIENTRY *glFramebufferTextureLayerNVPROC) (jint, jint, jint, jint
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglTexImage3DNV__IIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalFormat, jint width, jint height, jint depth, jint border, jint format, jint type, jlong pixelsAddress) {
-	glTexImage3DNVPROC glTexImage3DNV = (glTexImage3DNVPROC)tlsGetFunction(652);
-	const intptr_t pixels = (const intptr_t)pixelsAddress;
-	UNUSED_PARAM(clazz)
-	glTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, pixels);
+    glTexImage3DNVPROC glTexImage3DNV = (glTexImage3DNVPROC)tlsGetFunction(652);
+    const intptr_t pixels = (const intptr_t)pixelsAddress;
+    UNUSED_PARAM(clazz)
+    glTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglTexSubImage3DNV__IIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong pixelsAddress) {
-	glTexSubImage3DNVPROC glTexSubImage3DNV = (glTexSubImage3DNVPROC)tlsGetFunction(675);
-	const intptr_t pixels = (const intptr_t)pixelsAddress;
-	UNUSED_PARAM(clazz)
-	glTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+    glTexSubImage3DNVPROC glTexSubImage3DNV = (glTexSubImage3DNVPROC)tlsGetFunction(675);
+    const intptr_t pixels = (const intptr_t)pixelsAddress;
+    UNUSED_PARAM(clazz)
+    glTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_glCopyTexSubImage3DNV(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint x, jint y, jint width, jint height) {
-	glCopyTexSubImage3DNVPROC glCopyTexSubImage3DNV = (glCopyTexSubImage3DNVPROC)tlsGetFunction(93);
-	UNUSED_PARAM(clazz)
-	glCopyTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+    glCopyTexSubImage3DNVPROC glCopyTexSubImage3DNV = (glCopyTexSubImage3DNVPROC)tlsGetFunction(93);
+    UNUSED_PARAM(clazz)
+    glCopyTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, x, y, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglCompressedTexImage3DNV(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint imageSize, jlong dataAddress) {
-	glCompressedTexImage3DNVPROC glCompressedTexImage3DNV = (glCompressedTexImage3DNVPROC)tlsGetFunction(77);
-	const intptr_t data = (const intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, data);
+    glCompressedTexImage3DNVPROC glCompressedTexImage3DNV = (glCompressedTexImage3DNVPROC)tlsGetFunction(77);
+    const intptr_t data = (const intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_nglCompressedTexSubImage3DNV(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint imageSize, jlong dataAddress) {
-	glCompressedTexSubImage3DNVPROC glCompressedTexSubImage3DNV = (glCompressedTexSubImage3DNVPROC)tlsGetFunction(81);
-	const intptr_t data = (const intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+    glCompressedTexSubImage3DNVPROC glCompressedTexSubImage3DNV = (glCompressedTexSubImage3DNVPROC)tlsGetFunction(81);
+    const intptr_t data = (const intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVTextureArray_glFramebufferTextureLayerNV(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
-	glFramebufferTextureLayerNVPROC glFramebufferTextureLayerNV = (glFramebufferTextureLayerNVPROC)tlsGetFunction(232);
-	UNUSED_PARAM(clazz)
-	glFramebufferTextureLayerNV(target, attachment, texture, level, layer);
+    glFramebufferTextureLayerNVPROC glFramebufferTextureLayerNV = (glFramebufferTextureLayerNVPROC)tlsGetFunction(232);
+    UNUSED_PARAM(clazz)
+    glFramebufferTextureLayerNV(target, attachment, texture, level, layer);
 }
 
 EXTERN_C_EXIT

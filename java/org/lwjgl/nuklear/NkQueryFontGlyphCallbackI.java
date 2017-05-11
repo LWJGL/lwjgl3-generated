@@ -13,23 +13,23 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkQueryFontGlyphCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pfpii)v";
+    String SIGNATURE = "(pfpii)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgFloat(args),
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgFloat(args),
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgInt(args)
+        );
+    }
 
 
-	void invoke(long handle, float font_height, long glyph, int codepoint, int next_codepoint);
+    void invoke(long handle, float font_height, long glyph, int codepoint, int next_codepoint);
 
 }

@@ -22,42 +22,42 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVConservativeRaster {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
-	public static final int GL_CONSERVATIVE_RASTERIZATION_NV = 0x9346;
+    /** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
+    public static final int GL_CONSERVATIVE_RASTERIZATION_NV = 0x9346;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV   = 0x9347,
-		GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV   = 0x9348,
-		GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV   = 0x9347,
+        GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV   = 0x9348,
+        GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVConservativeRaster() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVConservativeRaster() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glSubpixelPrecisionBiasNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glSubpixelPrecisionBiasNV
+        );
+    }
 
-	// --- [ glSubpixelPrecisionBiasNV ] ---
+    // --- [ glSubpixelPrecisionBiasNV ] ---
 
-	/**
-	 * Sets the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} and {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} values.
-	 * 
-	 * <p>The vertex's window x and y coordinates may be optionally converted to fixed-point values with {@code N} fractional bits. If
-	 * {@link #GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is disabled, then {@code N} is the implementation-dependent value of {@link GL11#GL_SUBPIXEL_BITS SUBPIXEL_BITS}. If
-	 * {@link #GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is enabled, {@code N} is computed as the sum of the value of {@link GL11#GL_SUBPIXEL_BITS SUBPIXEL_BITS} and programmable values of
-	 * {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} and {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV}.</p>
-	 * 
-	 * <p>When these values are non-zero, the invariance requirement may not apply because the subpixel precision may not be the same at all window coordinates.</p>
-	 *
-	 * @param xbits the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} value. The initial value is zero.
-	 * @param ybits the {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} value. The initial value is zero.
-	 */
-	public static native void glSubpixelPrecisionBiasNV(int xbits, int ybits);
+    /**
+     * Sets the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} and {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} values.
+     * 
+     * <p>The vertex's window x and y coordinates may be optionally converted to fixed-point values with {@code N} fractional bits. If
+     * {@link #GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is disabled, then {@code N} is the implementation-dependent value of {@link GL11#GL_SUBPIXEL_BITS SUBPIXEL_BITS}. If
+     * {@link #GL_CONSERVATIVE_RASTERIZATION_NV CONSERVATIVE_RASTERIZATION_NV} is enabled, {@code N} is computed as the sum of the value of {@link GL11#GL_SUBPIXEL_BITS SUBPIXEL_BITS} and programmable values of
+     * {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} and {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV}.</p>
+     * 
+     * <p>When these values are non-zero, the invariance requirement may not apply because the subpixel precision may not be the same at all window coordinates.</p>
+     *
+     * @param xbits the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} value. The initial value is zero.
+     * @param ybits the {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} value. The initial value is zero.
+     */
+    public static native void glSubpixelPrecisionBiasNV(int xbits, int ybits);
 
 }

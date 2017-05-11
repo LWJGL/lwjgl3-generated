@@ -20,36 +20,36 @@ import static org.lwjgl.system.Checks.*;
  */
 public class IMGFramebufferDownsample {
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG = 0x913C;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG = 0x913C;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetInteger64v, and GetInternalFormativ. */
-	public static final int GL_NUM_DOWNSAMPLE_SCALES_IMG = 0x913D;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetInteger64v, and GetInternalFormativ. */
+    public static final int GL_NUM_DOWNSAMPLE_SCALES_IMG = 0x913D;
 
-	/** Accepted by the {@code target} parameter of GetIntegerv, GetInteger64v, GetIntegeri_v, GetInteger64i_v and GetInternalFormativ. */
-	public static final int GL_DOWNSAMPLE_SCALES_IMG = 0x913E;
+    /** Accepted by the {@code target} parameter of GetIntegerv, GetInteger64v, GetIntegeri_v, GetInteger64i_v and GetInternalFormativ. */
+    public static final int GL_DOWNSAMPLE_SCALES_IMG = 0x913E;
 
-	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
-	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;
+    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected IMGFramebufferDownsample() {
-		throw new UnsupportedOperationException();
-	}
+    protected IMGFramebufferDownsample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferTexture2DDownsampleIMG, caps.glFramebufferTextureLayerDownsampleIMG
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferTexture2DDownsampleIMG, caps.glFramebufferTextureLayerDownsampleIMG
+        );
+    }
 
-	// --- [ glFramebufferTexture2DDownsampleIMG ] ---
+    // --- [ glFramebufferTexture2DDownsampleIMG ] ---
 
-	public static native void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale);
+    public static native void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale);
 
-	// --- [ glFramebufferTextureLayerDownsampleIMG ] ---
+    // --- [ glFramebufferTextureLayerDownsampleIMG ] ---
 
-	public static native void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale);
+    public static native void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale);
 
 }

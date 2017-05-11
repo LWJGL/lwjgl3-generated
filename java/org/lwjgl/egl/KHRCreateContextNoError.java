@@ -15,9 +15,9 @@ package org.lwjgl.egl;
  */
 public final class KHRCreateContextNoError {
 
-	/**  */
-	public static final int EGL_CONTEXT_OPENGL_NO_ERROR_KHR = 0x31B3;
+    /**  */
+    public static final int EGL_CONTEXT_OPENGL_NO_ERROR_KHR = 0x31B3;
 
-	private KHRCreateContextNoError() {}
+    private KHRCreateContextNoError() {}
 
 }

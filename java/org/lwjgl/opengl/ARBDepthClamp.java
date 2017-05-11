@@ -26,12 +26,12 @@ package org.lwjgl.opengl;
  */
 public final class ARBDepthClamp {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int GL_DEPTH_CLAMP = 0x864F;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int GL_DEPTH_CLAMP = 0x864F;
 
-	private ARBDepthClamp() {}
+    private ARBDepthClamp() {}
 
 }

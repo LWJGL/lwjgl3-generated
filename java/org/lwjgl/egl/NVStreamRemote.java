@@ -41,63 +41,63 @@ package org.lwjgl.egl;
  */
 public final class NVStreamRemote {
 
-	/** Returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} when attribute is {@link KHRStream#EGL_STREAM_STATE_KHR STREAM_STATE_KHR}. */
-	public static final int EGL_STREAM_STATE_INITIALIZING_NV = 0x3240;
+    /** Returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} when attribute is {@link KHRStream#EGL_STREAM_STATE_KHR STREAM_STATE_KHR}. */
+    public static final int EGL_STREAM_STATE_INITIALIZING_NV = 0x3240;
 
-	/** Accepted as attribute names in {@link KHRStream#eglCreateStreamKHR CreateStreamKHR}, {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}, {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}, and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR}. */
-	public static final int
-		EGL_STREAM_TYPE_NV     = 0x3241,
-		EGL_STREAM_PROTOCOL_NV = 0x3242,
-		EGL_STREAM_ENDPOINT_NV = 0x3243;
+    /** Accepted as attribute names in {@link KHRStream#eglCreateStreamKHR CreateStreamKHR}, {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}, {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}, and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR}. */
+    public static final int
+        EGL_STREAM_TYPE_NV     = 0x3241,
+        EGL_STREAM_PROTOCOL_NV = 0x3242,
+        EGL_STREAM_ENDPOINT_NV = 0x3243;
 
-	/**
-	 * Accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}, and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR}, as value when attribute is
-	 * {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}, {@link #EGL_STREAM_PROTOCOL_NV STREAM_PROTOCOL_NV} or {@link #EGL_STREAM_ENDPOINT_NV STREAM_ENDPOINT_NV}.
-	 */
-	public static final int EGL_STREAM_LOCAL_NV = 0x3244;
+    /**
+     * Accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}, and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR}, as value when attribute is
+     * {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}, {@link #EGL_STREAM_PROTOCOL_NV STREAM_PROTOCOL_NV} or {@link #EGL_STREAM_ENDPOINT_NV STREAM_ENDPOINT_NV}.
+     */
+    public static final int EGL_STREAM_LOCAL_NV = 0x3244;
 
-	/**
-	 * When {@code NV_stream_cross_object} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
-	 * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
-	 */
-	public static final int EGL_STREAM_CROSS_OBJECT_NV = 0x334D;
+    /**
+     * When {@code NV_stream_cross_object} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
+     * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
+     */
+    public static final int EGL_STREAM_CROSS_OBJECT_NV = 0x334D;
 
-	/**
-	 * When {@code NV_stream_cross_display} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
-	 * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
-	 */
-	public static final int EGL_STREAM_CROSS_DISPLAY_NV = 0x334E;
+    /**
+     * When {@code NV_stream_cross_display} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
+     * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
+     */
+    public static final int EGL_STREAM_CROSS_DISPLAY_NV = 0x334E;
 
-	/**
-	 * When {@code NV_stream_cross_process} is present, accepted as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV} by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}.
-	 * When either {@code NV_stream_cross_process} or {@code KHR_stream_cross_process_fd} is present, returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
-	 * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} for attribute  {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
-	 */
-	public static final int EGL_STREAM_CROSS_PROCESS_NV = 0x3245;
+    /**
+     * When {@code NV_stream_cross_process} is present, accepted as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV} by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}.
+     * When either {@code NV_stream_cross_process} or {@code KHR_stream_cross_process_fd} is present, returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
+     * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} for attribute  {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
+     */
+    public static final int EGL_STREAM_CROSS_PROCESS_NV = 0x3245;
 
-	/**
-	 * When {@code NV_stream_cross_partition} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
-	 * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
-	 */
-	public static final int EGL_STREAM_CROSS_PARTITION_NV = 0x323F;
+    /**
+     * When {@code NV_stream_cross_partition} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
+     * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
+     */
+    public static final int EGL_STREAM_CROSS_PARTITION_NV = 0x323F;
 
-	/**
-	 * When {@code NV_stream_cross_system} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
-	 * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
-	 */
-	public static final int EGL_STREAM_CROSS_SYSTEM_NV = 0x334F;
+    /**
+     * When {@code NV_stream_cross_system} is present, accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and
+     * {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} as value for attribute {@link #EGL_STREAM_TYPE_NV STREAM_TYPE_NV}.
+     */
+    public static final int EGL_STREAM_CROSS_SYSTEM_NV = 0x334F;
 
-	/** If {@code KHR_stream_cross_process_fd} is present, returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} when attribute is {@link #EGL_STREAM_PROTOCOL_NV STREAM_PROTOCOL_NV}. */
-	public static final int EGL_STREAM_PROTOCOL_FD_NV = 0x3246;
+    /** If {@code KHR_stream_cross_process_fd} is present, returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} when attribute is {@link #EGL_STREAM_PROTOCOL_NV STREAM_PROTOCOL_NV}. */
+    public static final int EGL_STREAM_PROTOCOL_FD_NV = 0x3246;
 
-	/**
-	 * Accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}, and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} when attribute is
-	 * {@link #EGL_STREAM_ENDPOINT_NV STREAM_ENDPOINT_NV}.
-	 */
-	public static final int
-		EGL_STREAM_PRODUCER_NV = 0x3247,
-		EGL_STREAM_CONSUMER_NV = 0x3248;
+    /**
+     * Accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStreamAttrib#eglCreateStreamAttribKHR CreateStreamAttribKHR}, and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} and {@link KHRStreamAttrib#eglQueryStreamAttribKHR QueryStreamAttribKHR} when attribute is
+     * {@link #EGL_STREAM_ENDPOINT_NV STREAM_ENDPOINT_NV}.
+     */
+    public static final int
+        EGL_STREAM_PRODUCER_NV = 0x3247,
+        EGL_STREAM_CONSUMER_NV = 0x3248;
 
-	private NVStreamRemote() {}
+    private NVStreamRemote() {}
 
 }

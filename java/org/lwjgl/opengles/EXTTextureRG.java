@@ -24,19 +24,19 @@ package org.lwjgl.opengles;
  */
 public final class EXTTextureRG {
 
-	/**
-	 * Accepted by the {@code internalformat} parameter of TexImage2D and CopyTexImage2D, and the {@code format} parameter of TexImage2D, TexSubImage2D, and
-	 * ReadPixels.
-	 */
-	public static final int
-		GL_RED_EXT = 0x1903,
-		GL_RG_EXT  = 0x8227;
+    /**
+     * Accepted by the {@code internalformat} parameter of TexImage2D and CopyTexImage2D, and the {@code format} parameter of TexImage2D, TexSubImage2D, and
+     * ReadPixels.
+     */
+    public static final int
+        GL_RED_EXT = 0x1903,
+        GL_RG_EXT  = 0x8227;
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorage and RenderbufferStorageMultisampleAPPLE. */
-	public static final int
-		GL_R8_EXT  = 0x8229,
-		GL_RG8_EXT = 0x822B;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorage and RenderbufferStorageMultisampleAPPLE. */
+    public static final int
+        GL_R8_EXT  = 0x8229,
+        GL_RG8_EXT = 0x822B;
 
-	private EXTTextureRG() {}
+    private EXTTextureRG() {}
 
 }

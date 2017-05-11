@@ -15,32 +15,32 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OVRMultiviewMultisampledRenderToTexture {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OVRMultiviewMultisampledRenderToTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected OVRMultiviewMultisampledRenderToTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferTextureMultisampleMultiviewOVR
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferTextureMultisampleMultiviewOVR
+        );
+    }
 
-	// --- [ glFramebufferTextureMultisampleMultiviewOVR ] ---
+    // --- [ glFramebufferTextureMultisampleMultiviewOVR ] ---
 
-	/**
-	 * Operates similarly to {@link OVRMultiview#glFramebufferTextureMultiviewOVR FramebufferTextureMultiviewOVR}, except that it also enables multisampled rendering into the images of a
-	 * non-multisampled texture object similarly to {@link EXTMultisampledRenderToTexture#glFramebufferTexture2DMultisampleEXT FramebufferTexture2DMultisampleEXT}.
-	 *
-	 * @param target        
-	 * @param attachment    
-	 * @param texture       
-	 * @param level         
-	 * @param samples       
-	 * @param baseViewIndex 
-	 * @param numViews      
-	 */
-	public static native void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews);
+    /**
+     * Operates similarly to {@link OVRMultiview#glFramebufferTextureMultiviewOVR FramebufferTextureMultiviewOVR}, except that it also enables multisampled rendering into the images of a
+     * non-multisampled texture object similarly to {@link EXTMultisampledRenderToTexture#glFramebufferTexture2DMultisampleEXT FramebufferTexture2DMultisampleEXT}.
+     *
+     * @param target        
+     * @param attachment    
+     * @param texture       
+     * @param level         
+     * @param samples       
+     * @param baseViewIndex 
+     * @param numViews      
+     */
+    public static native void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews);
 
 }

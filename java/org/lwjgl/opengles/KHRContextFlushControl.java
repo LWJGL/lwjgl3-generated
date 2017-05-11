@@ -24,12 +24,12 @@ package org.lwjgl.opengles;
  */
 public final class KHRContextFlushControl {
 
-	/** Accepted by the {@code pname} parameter of GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v. */
-	public static final int GL_CONTEXT_RELEASE_BEHAVIOR_KHR = 0x82FB;
+    /** Accepted by the {@code pname} parameter of GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v. */
+    public static final int GL_CONTEXT_RELEASE_BEHAVIOR_KHR = 0x82FB;
 
-	/** Returned in {@code data} by GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v when {@code pname} is {@link #GL_CONTEXT_RELEASE_BEHAVIOR_KHR CONTEXT_RELEASE_BEHAVIOR_KHR}. */
-	public static final int GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR = 0x82FC;
+    /** Returned in {@code data} by GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v when {@code pname} is {@link #GL_CONTEXT_RELEASE_BEHAVIOR_KHR CONTEXT_RELEASE_BEHAVIOR_KHR}. */
+    public static final int GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR = 0x82FC;
 
-	private KHRContextFlushControl() {}
+    private KHRContextFlushControl() {}
 
 }

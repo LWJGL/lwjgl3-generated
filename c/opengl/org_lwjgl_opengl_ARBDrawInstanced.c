@@ -12,16 +12,16 @@ typedef void (APIENTRY *glDrawElementsInstancedARBPROC) (jint, jint, jint, const
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawInstanced_glDrawArraysInstancedARB(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
-	glDrawArraysInstancedARBPROC glDrawArraysInstancedARB = (glDrawArraysInstancedARBPROC)tlsGetFunction(347);
-	UNUSED_PARAM(clazz)
-	glDrawArraysInstancedARB(mode, first, count, primcount);
+    glDrawArraysInstancedARBPROC glDrawArraysInstancedARB = (glDrawArraysInstancedARBPROC)tlsGetFunction(347);
+    UNUSED_PARAM(clazz)
+    glDrawArraysInstancedARB(mode, first, count, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawInstanced_nglDrawElementsInstancedARB(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
-	glDrawElementsInstancedARBPROC glDrawElementsInstancedARB = (glDrawElementsInstancedARBPROC)tlsGetFunction(361);
-	const intptr_t indices = (const intptr_t)indicesAddress;
-	UNUSED_PARAM(clazz)
-	glDrawElementsInstancedARB(mode, count, type, indices, primcount);
+    glDrawElementsInstancedARBPROC glDrawElementsInstancedARB = (glDrawElementsInstancedARBPROC)tlsGetFunction(361);
+    const intptr_t indices = (const intptr_t)indicesAddress;
+    UNUSED_PARAM(clazz)
+    glDrawElementsInstancedARB(mode, count, type, indices, primcount);
 }
 
 EXTERN_C_EXIT

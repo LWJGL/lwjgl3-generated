@@ -14,11 +14,11 @@ package org.lwjgl.openal;
  */
 public final class EXTMulawBFormat {
 
-	/** Buffer formats. */
-	public static final int
-		AL_FORMAT_BFORMAT2D_MULAW = 0x10031,
-		AL_FORMAT_BFORMAT3D_MULAW = 0x10032;
+    /** Buffer formats. */
+    public static final int
+        AL_FORMAT_BFORMAT2D_MULAW = 0x10031,
+        AL_FORMAT_BFORMAT3D_MULAW = 0x10032;
 
-	private EXTMulawBFormat() {}
+    private EXTMulawBFormat() {}
 
 }

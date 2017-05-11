@@ -23,39 +23,39 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTBindableUniform {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT   = 0x8DE2,
-		GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT = 0x8DE3,
-		GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT = 0x8DE4,
-		GL_MAX_BINDABLE_UNIFORM_SIZE_EXT      = 0x8DED,
-		GL_UNIFORM_BUFFER_BINDING_EXT         = 0x8DEF;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT   = 0x8DE2,
+        GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT = 0x8DE3,
+        GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT = 0x8DE4,
+        GL_MAX_BINDABLE_UNIFORM_SIZE_EXT      = 0x8DED,
+        GL_UNIFORM_BUFFER_BINDING_EXT         = 0x8DEF;
 
-	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int GL_UNIFORM_BUFFER_EXT = 0x8DEE;
+    /** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
+    public static final int GL_UNIFORM_BUFFER_EXT = 0x8DEE;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTBindableUniform() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTBindableUniform() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glUniformBufferEXT, caps.glGetUniformBufferSizeEXT, caps.glGetUniformOffsetEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glUniformBufferEXT, caps.glGetUniformBufferSizeEXT, caps.glGetUniformOffsetEXT
+        );
+    }
 
-	// --- [ glUniformBufferEXT ] ---
+    // --- [ glUniformBufferEXT ] ---
 
-	public static native void glUniformBufferEXT(int program, int location, int buffer);
+    public static native void glUniformBufferEXT(int program, int location, int buffer);
 
-	// --- [ glGetUniformBufferSizeEXT ] ---
+    // --- [ glGetUniformBufferSizeEXT ] ---
 
-	public static native int glGetUniformBufferSizeEXT(int program, int location);
+    public static native int glGetUniformBufferSizeEXT(int program, int location);
 
-	// --- [ glGetUniformOffsetEXT ] ---
+    // --- [ glGetUniformOffsetEXT ] ---
 
-	public static native long glGetUniformOffsetEXT(int program, int location);
+    public static native long glGetUniformOffsetEXT(int program, int location);
 
 }

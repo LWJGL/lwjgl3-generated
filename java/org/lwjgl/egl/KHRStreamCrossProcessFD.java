@@ -37,40 +37,40 @@ import static org.lwjgl.system.JNI.*;
  */
 public class KHRStreamCrossProcessFD {
 
-	/**  */
-	public static final int EGL_NO_FILE_DESCRIPTOR_KHR = -1;
+    /**  */
+    public static final int EGL_NO_FILE_DESCRIPTOR_KHR = -1;
 
-	protected KHRStreamCrossProcessFD() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRStreamCrossProcessFD() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglGetStreamFileDescriptorKHR, caps.eglCreateStreamFromFileDescriptorKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglGetStreamFileDescriptorKHR, caps.eglCreateStreamFromFileDescriptorKHR
+        );
+    }
 
-	// --- [ eglGetStreamFileDescriptorKHR ] ---
+    // --- [ eglGetStreamFileDescriptorKHR ] ---
 
-	public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
-		long __functionAddress = EGL.getCapabilities().eglGetStreamFileDescriptorKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPI(__functionAddress, dpy, stream);
-	}
+    public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
+        long __functionAddress = EGL.getCapabilities().eglGetStreamFileDescriptorKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPI(__functionAddress, dpy, stream);
+    }
 
-	// --- [ eglCreateStreamFromFileDescriptorKHR ] ---
+    // --- [ eglCreateStreamFromFileDescriptorKHR ] ---
 
-	public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
-		long __functionAddress = EGL.getCapabilities().eglCreateStreamFromFileDescriptorKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-		}
-		return callPP(__functionAddress, dpy, file_descriptor);
-	}
+    public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
+        long __functionAddress = EGL.getCapabilities().eglCreateStreamFromFileDescriptorKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+        }
+        return callPP(__functionAddress, dpy, file_descriptor);
+    }
 
 }

@@ -18,33 +18,33 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ANGLEFramebufferBlit {
 
-	/**
-	 * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture2D, FramebufferTexture3DOES,
-	 * FramebufferRenderbuffer, and GetFramebufferAttachmentParameteriv.
-	 */
-	public static final int
-		GL_READ_FRAMEBUFFER_ANGLE = 0x8CA8,
-		GL_DRAW_FRAMEBUFFER_ANGLE = 0x8CA9;
+    /**
+     * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture2D, FramebufferTexture3DOES,
+     * FramebufferRenderbuffer, and GetFramebufferAttachmentParameteriv.
+     */
+    public static final int
+        GL_READ_FRAMEBUFFER_ANGLE = 0x8CA8,
+        GL_DRAW_FRAMEBUFFER_ANGLE = 0x8CA9;
 
-	/** Accepted by the {@code pname} parameters of GetIntegerv and GetFloatv. */
-	public static final int
-		GL_DRAW_FRAMEBUFFER_BINDING_ANGLE = 0x8CA6,
-		GL_READ_FRAMEBUFFER_BINDING_ANGLE = 0x8CAA;
+    /** Accepted by the {@code pname} parameters of GetIntegerv and GetFloatv. */
+    public static final int
+        GL_DRAW_FRAMEBUFFER_BINDING_ANGLE = 0x8CA6,
+        GL_READ_FRAMEBUFFER_BINDING_ANGLE = 0x8CAA;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected ANGLEFramebufferBlit() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANGLEFramebufferBlit() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glBlitFramebufferANGLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glBlitFramebufferANGLE
+        );
+    }
 
-	// --- [ glBlitFramebufferANGLE ] ---
+    // --- [ glBlitFramebufferANGLE ] ---
 
-	public static native void glBlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+    public static native void glBlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
 }

@@ -50,46 +50,46 @@ import static org.lwjgl.system.Checks.*;
  */
 public class KHRBlendEquationAdvanced {
 
-	/** Accepted by the {@code mode} parameter of BlendEquation and BlendEquationi. */
-	public static final int
-		GL_MULTIPLY_KHR       = 0x9294,
-		GL_SCREEN_KHR         = 0x9295,
-		GL_OVERLAY_KHR        = 0x9296,
-		GL_DARKEN_KHR         = 0x9297,
-		GL_LIGHTEN_KHR        = 0x9298,
-		GL_COLORDODGE_KHR     = 0x9299,
-		GL_COLORBURN_KHR      = 0x929A,
-		GL_HARDLIGHT_KHR      = 0x929B,
-		GL_SOFTLIGHT_KHR      = 0x929C,
-		GL_DIFFERENCE_KHR     = 0x929E,
-		GL_EXCLUSION_KHR      = 0x92A0,
-		GL_HSL_HUE_KHR        = 0x92AD,
-		GL_HSL_SATURATION_KHR = 0x92AE,
-		GL_HSL_COLOR_KHR      = 0x92AF,
-		GL_HSL_LUMINOSITY_KHR = 0x92B0;
+    /** Accepted by the {@code mode} parameter of BlendEquation and BlendEquationi. */
+    public static final int
+        GL_MULTIPLY_KHR       = 0x9294,
+        GL_SCREEN_KHR         = 0x9295,
+        GL_OVERLAY_KHR        = 0x9296,
+        GL_DARKEN_KHR         = 0x9297,
+        GL_LIGHTEN_KHR        = 0x9298,
+        GL_COLORDODGE_KHR     = 0x9299,
+        GL_COLORBURN_KHR      = 0x929A,
+        GL_HARDLIGHT_KHR      = 0x929B,
+        GL_SOFTLIGHT_KHR      = 0x929C,
+        GL_DIFFERENCE_KHR     = 0x929E,
+        GL_EXCLUSION_KHR      = 0x92A0,
+        GL_HSL_HUE_KHR        = 0x92AD,
+        GL_HSL_SATURATION_KHR = 0x92AE,
+        GL_HSL_COLOR_KHR      = 0x92AF,
+        GL_HSL_LUMINOSITY_KHR = 0x92B0;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected KHRBlendEquationAdvanced() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRBlendEquationAdvanced() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBlendBarrierKHR
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBlendBarrierKHR
+        );
+    }
 
-	// --- [ glBlendBarrierKHR ] ---
+    // --- [ glBlendBarrierKHR ] ---
 
-	/**
-	 * Specifies a boundary between passes when using advanced blend equations.
-	 * 
-	 * <p>When using advanced blending equations, applications should split their rendering into a collection of blending passes, none of which touch an
-	 * individual sample in the framebuffer more than once. The results of blending are undefined if the sample being blended has been touched previously in
-	 * the same pass. Any command that causes the value of a sample to be modified using the framebuffer is considered to touch the sample, including clears,
-	 * blended or unblended primitives, and {@link GL30#glBlitFramebuffer BlitFramebuffer} copies.</p>
-	 */
-	public static native void glBlendBarrierKHR();
+    /**
+     * Specifies a boundary between passes when using advanced blend equations.
+     * 
+     * <p>When using advanced blending equations, applications should split their rendering into a collection of blending passes, none of which touch an
+     * individual sample in the framebuffer more than once. The results of blending are undefined if the sample being blended has been touched previously in
+     * the same pass. Any command that causes the value of a sample to be modified using the framebuffer is considered to touch the sample, including clears,
+     * blended or unblended primitives, and {@link GL30#glBlitFramebuffer BlitFramebuffer} copies.</p>
+     */
+    public static native void glBlendBarrierKHR();
 
 }

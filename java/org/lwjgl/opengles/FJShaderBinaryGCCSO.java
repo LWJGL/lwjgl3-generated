@@ -12,9 +12,9 @@ package org.lwjgl.opengles;
  */
 public final class FJShaderBinaryGCCSO {
 
-	/** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
-	public static final int GL_GCCSO_SHADER_BINARY_FJ = 0x9260;
+    /** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
+    public static final int GL_GCCSO_SHADER_BINARY_FJ = 0x9260;
 
-	private FJShaderBinaryGCCSO() {}
+    private FJShaderBinaryGCCSO() {}
 
 }

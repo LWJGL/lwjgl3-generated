@@ -35,31 +35,31 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVStreamReset {
 
-	/** Accepted as an attribute in the {@code attrib_list} parameter of {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and the {@code attrib} parameter of {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
-	public static final int
-		EGL_SUPPORT_RESET_NV = 0x3334,
-		EGL_SUPPORT_REUSE_NV = 0x3335;
+    /** Accepted as an attribute in the {@code attrib_list} parameter of {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and the {@code attrib} parameter of {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
+    public static final int
+        EGL_SUPPORT_RESET_NV = 0x3334,
+        EGL_SUPPORT_REUSE_NV = 0x3335;
 
-	protected NVStreamReset() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVStreamReset() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglResetStreamNV
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglResetStreamNV
+        );
+    }
 
-	// --- [ eglResetStreamNV ] ---
+    // --- [ eglResetStreamNV ] ---
 
-	public static boolean eglResetStreamNV(long dpy, long stream) {
-		long __functionAddress = EGL.getCapabilities().eglResetStreamNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPI(__functionAddress, dpy, stream) != 0;
-	}
+    public static boolean eglResetStreamNV(long dpy, long stream) {
+        long __functionAddress = EGL.getCapabilities().eglResetStreamNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPI(__functionAddress, dpy, stream) != 0;
+    }
 
 }

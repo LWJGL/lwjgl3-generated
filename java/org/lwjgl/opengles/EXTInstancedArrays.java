@@ -29,51 +29,51 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTInstancedArrays {
 
-	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
-	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
+    /** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
+    public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTInstancedArrays() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTInstancedArrays() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glDrawArraysInstancedEXT, caps.glDrawElementsInstancedEXT, caps.glVertexAttribDivisorEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glDrawArraysInstancedEXT, caps.glDrawElementsInstancedEXT, caps.glVertexAttribDivisorEXT
+        );
+    }
 
-	// --- [ glDrawArraysInstancedEXT ] ---
+    // --- [ glDrawArraysInstancedEXT ] ---
 
-	public static native void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
+    public static native void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount);
 
-	// --- [ glDrawElementsInstancedEXT ] ---
+    // --- [ glDrawElementsInstancedEXT ] ---
 
-	public static native void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount);
+    public static native void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount);
 
-	public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
-		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount);
-	}
+    public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
+        nglDrawElementsInstancedEXT(mode, count, type, indices, primcount);
+    }
 
-	public static void glDrawElementsInstancedEXT(int mode, int type, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedEXT(int mode, int type, ByteBuffer indices, int primcount) {
+        nglDrawElementsInstancedEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedEXT(int mode, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedEXT(int mode, ByteBuffer indices, int primcount) {
+        nglDrawElementsInstancedEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedEXT(int mode, ShortBuffer indices, int primcount) {
-		nglDrawElementsInstancedEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedEXT(int mode, ShortBuffer indices, int primcount) {
+        nglDrawElementsInstancedEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedEXT(int mode, IntBuffer indices, int primcount) {
-		nglDrawElementsInstancedEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedEXT(int mode, IntBuffer indices, int primcount) {
+        nglDrawElementsInstancedEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
+    }
 
-	// --- [ glVertexAttribDivisorEXT ] ---
+    // --- [ glVertexAttribDivisorEXT ] ---
 
-	public static native void glVertexAttribDivisorEXT(int index, int divisor);
+    public static native void glVertexAttribDivisorEXT(int index, int divisor);
 
 }

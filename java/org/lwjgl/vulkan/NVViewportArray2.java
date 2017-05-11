@@ -55,12 +55,12 @@ package org.lwjgl.vulkan;
  */
 public final class NVViewportArray2 {
 
-	/** The extension specification version. */
-	public static final int VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME = "VK_NV_viewport_array2";
+    /** The extension name. */
+    public static final String VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME = "VK_NV_viewport_array2";
 
-	private NVViewportArray2() {}
+    private NVViewportArray2() {}
 
 }

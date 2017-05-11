@@ -30,35 +30,35 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBProvokingVertex {
 
-	/** Accepted by the {@code mode} parameter of ProvokingVertex. */
-	public static final int
-		GL_FIRST_VERTEX_CONVENTION = 0x8E4D,
-		GL_LAST_VERTEX_CONVENTION  = 0x8E4E;
+    /** Accepted by the {@code mode} parameter of ProvokingVertex. */
+    public static final int
+        GL_FIRST_VERTEX_CONVENTION = 0x8E4D,
+        GL_LAST_VERTEX_CONVENTION  = 0x8E4E;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_PROVOKING_VERTEX                         = 0x8E4F,
-		GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_PROVOKING_VERTEX                         = 0x8E4F,
+        GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION = 0x8E4C;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBProvokingVertex() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBProvokingVertex() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glProvokingVertex
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glProvokingVertex
+        );
+    }
 
-	// --- [ glProvokingVertex ] ---
+    // --- [ glProvokingVertex ] ---
 
-	/**
-	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
-	 *
-	 * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link GL32#GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link GL32#GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
-	 */
-	public static native void glProvokingVertex(int mode);
+    /**
+     * Specifies the vertex to be used as the source of data for flat shaded varyings.
+     *
+     * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link GL32#GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link GL32#GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
+     */
+    public static native void glProvokingVertex(int mode);
 
 }

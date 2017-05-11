@@ -7,26 +7,26 @@
 #include <stddef.h>
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4701 4702 4711 4738))
+    __pragma(warning(disable : 4701 4702 4711 4738))
 #endif
 #include "stb_rect_pack.h"
 ENABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-	#define alignof __alignof
+    #define alignof __alignof
 #else
-	#include <stdalign.h>
+    #include <stdalign.h>
 #endif
 
 EXTERN_C_EXIT
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBRPContext_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
-	jint *buffer = (jint *)(intptr_t)bufferAddress;
+    jint *buffer = (jint *)(intptr_t)bufferAddress;
 
-	UNUSED_PARAMS(__env, clazz)
+    UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = alignof(stbrp_context);
+    buffer[0] = alignof(stbrp_context);
 
-	return sizeof(stbrp_context);
+    return sizeof(stbrp_context);
 }
 
 EXTERN_C_EXIT

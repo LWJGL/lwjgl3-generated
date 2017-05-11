@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface AIFileSeekI extends CallbackI.I {
 
-	String SIGNATURE = "(ppi)i";
+    String SIGNATURE = "(ppi)i";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default int callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * File seek procedure
-	 *
-	 * @param pFile  File pointer to seek to
-	 * @param offset Number of bytes to shift from origin
-	 * @param origin Position used as reference for the offset.
-	 */
-	int invoke(long pFile, long offset, int origin);
+    /**
+     * File seek procedure
+     *
+     * @param pFile  File pointer to seek to
+     * @param offset Number of bytes to shift from origin
+     * @param origin Position used as reference for the offset.
+     */
+    int invoke(long pFile, long offset, int origin);
 
 }

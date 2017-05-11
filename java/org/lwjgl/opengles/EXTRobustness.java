@@ -51,138 +51,143 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTRobustness {
 
-	/** Returned by GetGraphicsResetStatusEXT. */
-	public static final int
-		GL_GUILTY_CONTEXT_RESET_EXT   = 0x8253,
-		GL_INNOCENT_CONTEXT_RESET_EXT = 0x8254,
-		GL_UNKNOWN_CONTEXT_RESET_EXT  = 0x8255;
+    /** Returned by GetGraphicsResetStatusEXT. */
+    public static final int
+        GL_GUILTY_CONTEXT_RESET_EXT   = 0x8253,
+        GL_INNOCENT_CONTEXT_RESET_EXT = 0x8254,
+        GL_UNKNOWN_CONTEXT_RESET_EXT  = 0x8255;
 
-	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_CONTEXT_ROBUST_ACCESS_EXT       = 0x90F3,
-		GL_RESET_NOTIFICATION_STRATEGY_EXT = 0x8256;
+    /** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_CONTEXT_ROBUST_ACCESS_EXT       = 0x90F3,
+        GL_RESET_NOTIFICATION_STRATEGY_EXT = 0x8256;
 
-	/** Returned by GetIntegerv and related simple queries when {@code value} is RESET_NOTIFICATION_STRATEGY_EXT . */
-	public static final int
-		GL_LOSE_CONTEXT_ON_RESET_EXT = 0x8252,
-		GL_NO_RESET_NOTIFICATION_EXT = 0x8261;
+    /** Returned by GetIntegerv and related simple queries when {@code value} is RESET_NOTIFICATION_STRATEGY_EXT . */
+    public static final int
+        GL_LOSE_CONTEXT_ON_RESET_EXT = 0x8252,
+        GL_NO_RESET_NOTIFICATION_EXT = 0x8261;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTRobustness() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTRobustness() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glGetGraphicsResetStatusEXT, caps.glReadnPixelsEXT, caps.glGetnUniformfvEXT, caps.glGetnUniformivEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glGetGraphicsResetStatusEXT, caps.glReadnPixelsEXT, caps.glGetnUniformfvEXT, caps.glGetnUniformivEXT
+        );
+    }
 
-	// --- [ glGetGraphicsResetStatusEXT ] ---
+    // --- [ glGetGraphicsResetStatusEXT ] ---
 
-	public static native int glGetGraphicsResetStatusEXT();
+    public static native int glGetGraphicsResetStatusEXT();
 
-	// --- [ glReadnPixelsEXT ] ---
+    // --- [ glReadnPixelsEXT ] ---
 
-	public static native void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data);
+    public static native void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data);
 
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
-		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
-	}
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
+        nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
+    }
 
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
-		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining(), memAddress(data));
-	}
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
+        nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining(), memAddress(data));
+    }
 
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
-		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
-	}
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
+        nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
+    }
 
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, IntBuffer data) {
-		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
-	}
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, IntBuffer data) {
+        nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
+    }
 
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
-		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
-	}
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
+        nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
+    }
 
-	// --- [ glGetnUniformfvEXT ] ---
+    // --- [ glGetnUniformfvEXT ] ---
 
-	public static native void nglGetnUniformfvEXT(int program, int location, int bufSize, long params);
+    public static native void nglGetnUniformfvEXT(int program, int location, int bufSize, long params);
 
-	public static void glGetnUniformfvEXT(int program, int location, FloatBuffer params) {
-		nglGetnUniformfvEXT(program, location, params.remaining(), memAddress(params));
-	}
+    public static void glGetnUniformfvEXT(int program, int location, FloatBuffer params) {
+        nglGetnUniformfvEXT(program, location, params.remaining(), memAddress(params));
+    }
 
-	public static float glGetnUniformfEXT(int program, int location) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			FloatBuffer params = stack.callocFloat(1);
-			nglGetnUniformfvEXT(program, location, 1, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static float glGetnUniformfEXT(int program, int location) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            FloatBuffer params = stack.callocFloat(1);
+            nglGetnUniformfvEXT(program, location, 1, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetnUniformivEXT ] ---
+    // --- [ glGetnUniformivEXT ] ---
 
-	public static native void nglGetnUniformivEXT(int program, int location, int bufSize, long params);
+    public static native void nglGetnUniformivEXT(int program, int location, int bufSize, long params);
 
-	public static void glGetnUniformivEXT(int program, int location, IntBuffer params) {
-		nglGetnUniformivEXT(program, location, params.remaining(), memAddress(params));
-	}
+    public static void glGetnUniformivEXT(int program, int location, IntBuffer params) {
+        nglGetnUniformivEXT(program, location, params.remaining(), memAddress(params));
+    }
 
-	public static int glGetnUniformiEXT(int program, int location) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetnUniformivEXT(program, location, 1, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetnUniformiEXT(int program, int location) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetnUniformivEXT(program, location, 1, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
-		long __functionAddress = GLES.getICD().glReadnPixelsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
-	}
+    /** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
+        long __functionAddress = GLES.getICD().glReadnPixelsEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
+    }
 
-	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
-		long __functionAddress = GLES.getICD().glReadnPixelsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
-	}
+    /** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
+        long __functionAddress = GLES.getICD().glReadnPixelsEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
+    }
 
-	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
-		long __functionAddress = GLES.getICD().glReadnPixelsEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
-	}
+    /** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
+        long __functionAddress = GLES.getICD().glReadnPixelsEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
+    }
 
-	/** Array version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
-	public static void glGetnUniformfvEXT(int program, int location, float[] params) {
-		long __functionAddress = GLES.getICD().glGetnUniformfvEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params.length, params);
-	}
+    /** Array version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
+    public static void glGetnUniformfvEXT(int program, int location, float[] params) {
+        long __functionAddress = GLES.getICD().glGetnUniformfvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, program, location, params.length, params);
+    }
 
-	/** Array version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
-	public static void glGetnUniformivEXT(int program, int location, int[] params) {
-		long __functionAddress = GLES.getICD().glGetnUniformivEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params.length, params);
-	}
+    /** Array version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
+    public static void glGetnUniformivEXT(int program, int location, int[] params) {
+        long __functionAddress = GLES.getICD().glGetnUniformivEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, program, location, params.length, params);
+    }
 
 }

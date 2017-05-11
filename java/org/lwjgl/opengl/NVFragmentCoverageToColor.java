@@ -21,31 +21,31 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVFragmentCoverageToColor {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
-	public static final int GL_FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
+    /** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
+    public static final int GL_FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVFragmentCoverageToColor() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVFragmentCoverageToColor() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glFragmentCoverageColorNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glFragmentCoverageColorNV
+        );
+    }
 
-	// --- [ glFragmentCoverageColorNV ] ---
+    // --- [ glFragmentCoverageColorNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param color the draw buffer index that the coverage value will be written to. Must be between 0 and the value of MAX_DRAW_BUFFERS minus one, inclusive.
-	 */
-	public static native void glFragmentCoverageColorNV(int color);
+    /**
+     * 
+     *
+     * @param color the draw buffer index that the coverage value will be written to. Must be between 0 and the value of MAX_DRAW_BUFFERS minus one, inclusive.
+     */
+    public static native void glFragmentCoverageColorNV(int color);
 
 }

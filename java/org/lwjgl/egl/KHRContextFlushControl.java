@@ -25,14 +25,14 @@ package org.lwjgl.egl;
  */
 public final class KHRContextFlushControl {
 
-	/** Accepted as an attribute name in the {@code *attrib_list} argument to {@link EGL10#eglCreateContext CreateContext}. */
-	public static final int EGL_CONTEXT_RELEASE_BEHAVIOR_KHR = 0x2097;
+    /** Accepted as an attribute name in the {@code *attrib_list} argument to {@link EGL10#eglCreateContext CreateContext}. */
+    public static final int EGL_CONTEXT_RELEASE_BEHAVIOR_KHR = 0x2097;
 
-	/** Accepted as an attribute value for {@link #EGL_CONTEXT_RELEASE_BEHAVIOR_KHR CONTEXT_RELEASE_BEHAVIOR_KHR} in the {@code *attrib_list} argument to {@link EGL10#eglCreateContext CreateContext}. */
-	public static final int
-		EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR  = 0x0,
-		EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR = 0x2098;
+    /** Accepted as an attribute value for {@link #EGL_CONTEXT_RELEASE_BEHAVIOR_KHR CONTEXT_RELEASE_BEHAVIOR_KHR} in the {@code *attrib_list} argument to {@link EGL10#eglCreateContext CreateContext}. */
+    public static final int
+        EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR  = 0x0,
+        EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR = 0x2098;
 
-	private KHRContextFlushControl() {}
+    private KHRContextFlushControl() {}
 
 }

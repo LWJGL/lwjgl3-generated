@@ -23,72 +23,74 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDeviceQuery {
 
-	/**  */
-	public static final int
-		EGL_BAD_DEVICE_EXT = 0x322B,
-		EGL_DEVICE_EXT     = 0x322C;
+    /**  */
+    public static final int
+        EGL_BAD_DEVICE_EXT = 0x322B,
+        EGL_DEVICE_EXT     = 0x322C;
 
-	/**  */
-	public static final long EGL_NO_DEVICE_EXT = 0x0L;
+    /**  */
+    public static final long EGL_NO_DEVICE_EXT = 0x0L;
 
-	protected EXTDeviceQuery() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDeviceQuery() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglQueryDeviceAttribEXT, caps.eglQueryDeviceStringEXT, caps.eglQueryDisplayAttribEXT
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglQueryDeviceAttribEXT, caps.eglQueryDeviceStringEXT, caps.eglQueryDisplayAttribEXT
+        );
+    }
 
-	// --- [ eglQueryDeviceAttribEXT ] ---
+    // --- [ eglQueryDeviceAttribEXT ] ---
 
-	public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDeviceAttribEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(device);
-		}
-		return callPPI(__functionAddress, device, attribute, value);
-	}
+    public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDeviceAttribEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(device);
+        }
+        return callPPI(__functionAddress, device, attribute, value);
+    }
 
-	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value)) != 0;
-	}
+    public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return neglQueryDeviceAttribEXT(device, attribute, memAddress(value)) != 0;
+    }
 
-	// --- [ eglQueryDeviceStringEXT ] ---
+    // --- [ eglQueryDeviceStringEXT ] ---
 
-	public static long neglQueryDeviceStringEXT(long device, int name) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDeviceStringEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(device);
-		}
-		return callPP(__functionAddress, device, name);
-	}
+    public static long neglQueryDeviceStringEXT(long device, int name) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDeviceStringEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(device);
+        }
+        return callPP(__functionAddress, device, name);
+    }
 
-	public static String eglQueryDeviceStringEXT(long device, int name) {
-		long __result = neglQueryDeviceStringEXT(device, name);
-		return memASCII(__result);
-	}
+    public static String eglQueryDeviceStringEXT(long device, int name) {
+        long __result = neglQueryDeviceStringEXT(device, name);
+        return memASCII(__result);
+    }
 
-	// --- [ eglQueryDisplayAttribEXT ] ---
+    // --- [ eglQueryDisplayAttribEXT ] ---
 
-	public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-		}
-		return callPPI(__functionAddress, dpy, attribute, value);
-	}
+    public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+        }
+        return callPPI(__functionAddress, dpy, attribute, value);
+    }
 
-	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value)) != 0;
-	}
+    public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value)) != 0;
+    }
 
 }

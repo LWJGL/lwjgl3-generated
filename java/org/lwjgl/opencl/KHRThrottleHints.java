@@ -13,15 +13,15 @@ package org.lwjgl.opencl;
  */
 public final class KHRThrottleHints {
 
-	/** cl_command_queue_properties */
-	public static final int CL_QUEUE_THROTTLE_KHR = 0x1097;
+    /** cl_command_queue_properties */
+    public static final int CL_QUEUE_THROTTLE_KHR = 0x1097;
 
-	/** cl_queue_throttle_khr */
-	public static final int
-		CL_QUEUE_THROTTLE_HIGH_KHR = (1<<0),
-		CL_QUEUE_THROTTLE_MED_KHR  = (1<<1),
-		CL_QUEUE_THROTTLE_LOW_KHR  = (1<<2);
+    /** cl_queue_throttle_khr */
+    public static final int
+        CL_QUEUE_THROTTLE_HIGH_KHR = (1<<0),
+        CL_QUEUE_THROTTLE_MED_KHR  = (1<<1),
+        CL_QUEUE_THROTTLE_LOW_KHR  = (1<<2);
 
-	private KHRThrottleHints() {}
+    private KHRThrottleHints() {}
 
 }

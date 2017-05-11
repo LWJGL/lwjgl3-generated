@@ -13,21 +13,21 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkItemGetterI extends CallbackI.F {
 
-	String SIGNATURE = "(pip)f";
+    String SIGNATURE = "(pip)f";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default float callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default float callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args)
+        );
+    }
 
 
-	float invoke(long userdata, int selected, long item);
+    float invoke(long userdata, int selected, long item);
 
 }

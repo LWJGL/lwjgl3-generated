@@ -15,37 +15,37 @@ typedef void (APIENTRY *glMatrixIndexPointerARBPROC) (jint, jint, jint, intptr_t
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_glCurrentPaletteMatrixARB(JNIEnv *__env, jclass clazz, jint index) {
-	glCurrentPaletteMatrixARBPROC glCurrentPaletteMatrixARB = (glCurrentPaletteMatrixARBPROC)tlsGetFunction(282);
-	UNUSED_PARAM(clazz)
-	glCurrentPaletteMatrixARB(index);
+    glCurrentPaletteMatrixARBPROC glCurrentPaletteMatrixARB = (glCurrentPaletteMatrixARBPROC)tlsGetFunction(282);
+    UNUSED_PARAM(clazz)
+    glCurrentPaletteMatrixARB(index);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexuivARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress) {
-	glMatrixIndexuivARBPROC glMatrixIndexuivARB = (glMatrixIndexuivARBPROC)tlsGetFunction(949);
-	intptr_t indices = (intptr_t)indicesAddress;
-	UNUSED_PARAM(clazz)
-	glMatrixIndexuivARB(size, indices);
+    glMatrixIndexuivARBPROC glMatrixIndexuivARB = (glMatrixIndexuivARBPROC)tlsGetFunction(949);
+    intptr_t indices = (intptr_t)indicesAddress;
+    UNUSED_PARAM(clazz)
+    glMatrixIndexuivARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexubvARB(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress) {
-	glMatrixIndexubvARBPROC glMatrixIndexubvARB = (glMatrixIndexubvARBPROC)tlsGetFunction(948);
-	intptr_t indices = (intptr_t)indicesAddress;
-	UNUSED_PARAM(clazz)
-	glMatrixIndexubvARB(size, indices);
+    glMatrixIndexubvARBPROC glMatrixIndexubvARB = (glMatrixIndexubvARBPROC)tlsGetFunction(948);
+    intptr_t indices = (intptr_t)indicesAddress;
+    UNUSED_PARAM(clazz)
+    glMatrixIndexubvARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexusvARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress) {
-	glMatrixIndexusvARBPROC glMatrixIndexusvARB = (glMatrixIndexusvARBPROC)tlsGetFunction(950);
-	intptr_t indices = (intptr_t)indicesAddress;
-	UNUSED_PARAM(clazz)
-	glMatrixIndexusvARB(size, indices);
+    glMatrixIndexusvARBPROC glMatrixIndexusvARB = (glMatrixIndexusvARBPROC)tlsGetFunction(950);
+    intptr_t indices = (intptr_t)indicesAddress;
+    UNUSED_PARAM(clazz)
+    glMatrixIndexusvARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexPointerARB(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
-	glMatrixIndexPointerARBPROC glMatrixIndexPointerARB = (glMatrixIndexPointerARBPROC)tlsGetFunction(947);
-	intptr_t pointer = (intptr_t)pointerAddress;
-	UNUSED_PARAM(clazz)
-	glMatrixIndexPointerARB(size, type, stride, pointer);
+    glMatrixIndexPointerARBPROC glMatrixIndexPointerARB = (glMatrixIndexPointerARBPROC)tlsGetFunction(947);
+    intptr_t pointer = (intptr_t)pointerAddress;
+    UNUSED_PARAM(clazz)
+    glMatrixIndexPointerARB(size, type, stride, pointer);
 }
 
 EXTERN_C_EXIT

@@ -23,19 +23,19 @@ package org.lwjgl.opengl;
  */
 public final class EXTPackedFloat {
 
-	/** Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorageEXT. */
-	public static final int GL_R11F_G11F_B10F_EXT = 0x8C3A;
+    /** Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorageEXT. */
+    public static final int GL_R11F_G11F_B10F_EXT = 0x8C3A;
 
-	/**
-	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, GetTexImage, TexImage3D, TexSubImage1D, TexSubImage2D,
-	 * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, ConvolutionFilter3D, GetConvolutionFilter, SeparableFilter2D,
-	 * GetSeparableFilter, ColorTable, ColorSubTable, and GetColorTable.
-	 */
-	public static final int GL_UNSIGNED_INT_10F_11F_11F_REV_EXT = 0x8C3B;
+    /**
+     * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, GetTexImage, TexImage3D, TexSubImage1D, TexSubImage2D,
+     * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, ConvolutionFilter3D, GetConvolutionFilter, SeparableFilter2D,
+     * GetSeparableFilter, ColorTable, ColorSubTable, and GetColorTable.
+     */
+    public static final int GL_UNSIGNED_INT_10F_11F_11F_REV_EXT = 0x8C3B;
 
-	/** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_RGBA_SIGNED_COMPONENTS_EXT = 0x8C3C;
+    /** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_RGBA_SIGNED_COMPONENTS_EXT = 0x8C3C;
 
-	private EXTPackedFloat() {}
+    private EXTPackedFloat() {}
 
 }

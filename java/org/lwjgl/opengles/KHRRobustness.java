@@ -53,318 +53,324 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRRobustness {
 
-	/** Returned by {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR}. */
-	public static final int
-		GL_GUILTY_CONTEXT_RESET_KHR   = 0x8253,
-		GL_INNOCENT_CONTEXT_RESET_KHR = 0x8254,
-		GL_UNKNOWN_CONTEXT_RESET_KHR  = 0x8255;
+    /** Returned by {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR}. */
+    public static final int
+        GL_GUILTY_CONTEXT_RESET_KHR   = 0x8253,
+        GL_INNOCENT_CONTEXT_RESET_KHR = 0x8254,
+        GL_UNKNOWN_CONTEXT_RESET_KHR  = 0x8255;
 
-	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_CONTEXT_ROBUST_ACCESS_KHR       = 0x90F3,
-		GL_RESET_NOTIFICATION_STRATEGY_KHR = 0x8256;
+    /** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_CONTEXT_ROBUST_ACCESS_KHR       = 0x90F3,
+        GL_RESET_NOTIFICATION_STRATEGY_KHR = 0x8256;
 
-	/** Returned by GetIntegerv and related simple queries when {@code value} is {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}. */
-	public static final int
-		GL_LOSE_CONTEXT_ON_RESET_KHR = 0x8252,
-		GL_NO_RESET_NOTIFICATION_KHR = 0x8261;
+    /** Returned by GetIntegerv and related simple queries when {@code value} is {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}. */
+    public static final int
+        GL_LOSE_CONTEXT_ON_RESET_KHR = 0x8252,
+        GL_NO_RESET_NOTIFICATION_KHR = 0x8261;
 
-	/** Returned by {@link GLES20#glGetError GetError}. */
-	public static final int GL_CONTEXT_LOST_KHR = 0x507;
+    /** Returned by {@link GLES20#glGetError GetError}. */
+    public static final int GL_CONTEXT_LOST_KHR = 0x507;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected KHRRobustness() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRRobustness() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glGetGraphicsResetStatusKHR, caps.glReadnPixelsKHR, caps.glGetnUniformfvKHR, caps.glGetnUniformivKHR, caps.glGetnUniformuivKHR
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glGetGraphicsResetStatusKHR, caps.glReadnPixelsKHR, caps.glGetnUniformfvKHR, caps.glGetnUniformivKHR, caps.glGetnUniformuivKHR
+        );
+    }
 
-	// --- [ glGetGraphicsResetStatusKHR ] ---
+    // --- [ glGetGraphicsResetStatusKHR ] ---
 
-	/**
-	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
-	 * 
-	 * <ul>
-	 * <li>{@link GLES20#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
-	 * <li>{@link #GL_GUILTY_CONTEXT_RESET_KHR GUILTY_CONTEXT_RESET_KHR} indicates that a reset has been detected that is attributable to the current GL context.</li>
-	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET_KHR INNOCENT_CONTEXT_RESET_KHR} indicates a reset has been detected that is not attributable to the current GL context.</li>
-	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET_KHR UNKNOWN_CONTEXT_RESET_KHR} indicates a detected graphics reset whose cause is unknown.</li>
-	 * </ul>
-	 * 
-	 * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
-	 * status is repeatedly returned, the context may be in the process of resetting.</p>
-	 * 
-	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
-	 * {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}.</p>
-	 * 
-	 * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION_KHR NO_RESET_NOTIFICATION_KHR}, then the implementation will never deliver notification of reset events, and
-	 * GetGraphicsResetStatus will always return NO_ERROR.</p>
-	 * 
-	 * <p>If the behavior is {@link #GL_LOSE_CONTEXT_ON_RESET_KHR LOSE_CONTEXT_ON_RESET_KHR}, a graphics reset will result in a lost context and require creating a new context as described
-	 * above. In this case GetGraphicsResetStatus will return an appropriate value from those described above.</p>
-	 * 
-	 * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
-	 * 
-	 * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
-	 * {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
-	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:</p>
-	 * 
-	 * <ul>
-	 * <li>{@link GLES20#glGetError GetError} and {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} behave normally following a graphics reset, so that the application can determine a reset has
-	 * occurred, and when it is safe to destroy and recreate the context.</li>
-	 * <li>Any commands which might cause a polling application to block indefinitely will generate a {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error, but will also return a value
-	 * indicating completion to the application.</li>
-	 * </ul>
-	 */
-	public static native int glGetGraphicsResetStatusKHR();
+    /**
+     * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
+     * 
+     * <ul>
+     * <li>{@link GLES20#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
+     * <li>{@link #GL_GUILTY_CONTEXT_RESET_KHR GUILTY_CONTEXT_RESET_KHR} indicates that a reset has been detected that is attributable to the current GL context.</li>
+     * <li>{@link #GL_INNOCENT_CONTEXT_RESET_KHR INNOCENT_CONTEXT_RESET_KHR} indicates a reset has been detected that is not attributable to the current GL context.</li>
+     * <li>{@link #GL_UNKNOWN_CONTEXT_RESET_KHR UNKNOWN_CONTEXT_RESET_KHR} indicates a detected graphics reset whose cause is unknown.</li>
+     * </ul>
+     * 
+     * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
+     * status is repeatedly returned, the context may be in the process of resetting.</p>
+     * 
+     * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
+     * {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}.</p>
+     * 
+     * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION_KHR NO_RESET_NOTIFICATION_KHR}, then the implementation will never deliver notification of reset events, and
+     * GetGraphicsResetStatus will always return NO_ERROR.</p>
+     * 
+     * <p>If the behavior is {@link #GL_LOSE_CONTEXT_ON_RESET_KHR LOSE_CONTEXT_ON_RESET_KHR}, a graphics reset will result in a lost context and require creating a new context as described
+     * above. In this case GetGraphicsResetStatus will return an appropriate value from those described above.</p>
+     * 
+     * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
+     * 
+     * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
+     * {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
+     * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:</p>
+     * 
+     * <ul>
+     * <li>{@link GLES20#glGetError GetError} and {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} behave normally following a graphics reset, so that the application can determine a reset has
+     * occurred, and when it is safe to destroy and recreate the context.</li>
+     * <li>Any commands which might cause a polling application to block indefinitely will generate a {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error, but will also return a value
+     * indicating completion to the application.</li>
+     * </ul>
+     */
+    public static native int glGetGraphicsResetStatusKHR();
 
-	// --- [ glReadnPixelsKHR ] ---
+    // --- [ glReadnPixelsKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glReadnPixelsKHR ReadnPixelsKHR}
-	 *
-	 * @param bufSize the maximum number of bytes to write into {@code data}
-	 */
-	public static native void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels);
+    /**
+     * Unsafe version of: {@link #glReadnPixelsKHR ReadnPixelsKHR}
+     *
+     * @param bufSize the maximum number of bytes to write into {@code data}
+     */
+    public static native void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels);
 
-	/**
-	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
-	 *
-	 * @param x       the left pixel coordinate
-	 * @param y       the lower pixel coordinate
-	 * @param width   the number of pixels to read in the x-dimension
-	 * @param height  the number of pixels to read in the y-dimension
-	 * @param format  the pixel format
-	 * @param type    the pixel type
-	 * @param bufSize the maximum number of bytes to write into {@code data}
-	 * @param pixels  a buffer in which to place the returned pixel data
-	 */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels);
-	}
+    /**
+     * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+     *
+     * @param x       the left pixel coordinate
+     * @param y       the lower pixel coordinate
+     * @param width   the number of pixels to read in the x-dimension
+     * @param height  the number of pixels to read in the y-dimension
+     * @param format  the pixel format
+     * @param type    the pixel type
+     * @param bufSize the maximum number of bytes to write into {@code data}
+     * @param pixels  a buffer in which to place the returned pixel data
+     */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
+        nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels);
+    }
 
-	/**
-	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
-	 *
-	 * @param x      the left pixel coordinate
-	 * @param y      the lower pixel coordinate
-	 * @param width  the number of pixels to read in the x-dimension
-	 * @param height the number of pixels to read in the y-dimension
-	 * @param format the pixel format
-	 * @param type   the pixel type
-	 * @param pixels a buffer in which to place the returned pixel data
-	 */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
-	}
+    /**
+     * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+     *
+     * @param x      the left pixel coordinate
+     * @param y      the lower pixel coordinate
+     * @param width  the number of pixels to read in the x-dimension
+     * @param height the number of pixels to read in the y-dimension
+     * @param format the pixel format
+     * @param type   the pixel type
+     * @param pixels a buffer in which to place the returned pixel data
+     */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+        nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
+    }
 
-	/**
-	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
-	 *
-	 * @param x      the left pixel coordinate
-	 * @param y      the lower pixel coordinate
-	 * @param width  the number of pixels to read in the x-dimension
-	 * @param height the number of pixels to read in the y-dimension
-	 * @param format the pixel format
-	 * @param type   the pixel type
-	 * @param pixels a buffer in which to place the returned pixel data
-	 */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
-	}
+    /**
+     * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+     *
+     * @param x      the left pixel coordinate
+     * @param y      the lower pixel coordinate
+     * @param width  the number of pixels to read in the x-dimension
+     * @param height the number of pixels to read in the y-dimension
+     * @param format the pixel format
+     * @param type   the pixel type
+     * @param pixels a buffer in which to place the returned pixel data
+     */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
+        nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
+    }
 
-	/**
-	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
-	 *
-	 * @param x      the left pixel coordinate
-	 * @param y      the lower pixel coordinate
-	 * @param width  the number of pixels to read in the x-dimension
-	 * @param height the number of pixels to read in the y-dimension
-	 * @param format the pixel format
-	 * @param type   the pixel type
-	 * @param pixels a buffer in which to place the returned pixel data
-	 */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
-	}
+    /**
+     * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+     *
+     * @param x      the left pixel coordinate
+     * @param y      the lower pixel coordinate
+     * @param width  the number of pixels to read in the x-dimension
+     * @param height the number of pixels to read in the y-dimension
+     * @param format the pixel format
+     * @param type   the pixel type
+     * @param pixels a buffer in which to place the returned pixel data
+     */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
+        nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
+    }
 
-	/**
-	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
-	 *
-	 * @param x      the left pixel coordinate
-	 * @param y      the lower pixel coordinate
-	 * @param width  the number of pixels to read in the x-dimension
-	 * @param height the number of pixels to read in the y-dimension
-	 * @param format the pixel format
-	 * @param type   the pixel type
-	 * @param pixels a buffer in which to place the returned pixel data
-	 */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
-	}
+    /**
+     * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+     *
+     * @param x      the left pixel coordinate
+     * @param y      the lower pixel coordinate
+     * @param width  the number of pixels to read in the x-dimension
+     * @param height the number of pixels to read in the y-dimension
+     * @param format the pixel format
+     * @param type   the pixel type
+     * @param pixels a buffer in which to place the returned pixel data
+     */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
+        nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
+    }
 
-	// --- [ glGetnUniformfvKHR ] ---
+    // --- [ glGetnUniformfvKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR}
-	 *
-	 * @param bufSize the maximum number of bytes to write to {@code params}
-	 */
-	public static native void nglGetnUniformfvKHR(int program, int location, int bufSize, long params);
+    /**
+     * Unsafe version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR}
+     *
+     * @param bufSize the maximum number of bytes to write to {@code params}
+     */
+    public static native void nglGetnUniformfvKHR(int program, int location, int bufSize, long params);
 
-	/**
-	 * Returns the value or values of a uniform of the default uniform block.
-	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param params   the buffer in which to place the returned data
-	 */
-	public static void glGetnUniformfvKHR(int program, int location, FloatBuffer params) {
-		nglGetnUniformfvKHR(program, location, params.remaining(), memAddress(params));
-	}
+    /**
+     * Returns the value or values of a uniform of the default uniform block.
+     *
+     * @param program  the program object
+     * @param location the uniform location
+     * @param params   the buffer in which to place the returned data
+     */
+    public static void glGetnUniformfvKHR(int program, int location, FloatBuffer params) {
+        nglGetnUniformfvKHR(program, location, params.remaining(), memAddress(params));
+    }
 
-	/**
-	 * Returns the value or values of a uniform of the default uniform block.
-	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 */
-	public static float glGetnUniformfKHR(int program, int location) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			FloatBuffer params = stack.callocFloat(1);
-			nglGetnUniformfvKHR(program, location, 1, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns the value or values of a uniform of the default uniform block.
+     *
+     * @param program  the program object
+     * @param location the uniform location
+     */
+    public static float glGetnUniformfKHR(int program, int location) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            FloatBuffer params = stack.callocFloat(1);
+            nglGetnUniformfvKHR(program, location, 1, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetnUniformivKHR ] ---
+    // --- [ glGetnUniformivKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetnUniformivKHR GetnUniformivKHR}
-	 *
-	 * @param bufSize the maximum number of bytes to write to {@code params}
-	 */
-	public static native void nglGetnUniformivKHR(int program, int location, int bufSize, long params);
+    /**
+     * Unsafe version of: {@link #glGetnUniformivKHR GetnUniformivKHR}
+     *
+     * @param bufSize the maximum number of bytes to write to {@code params}
+     */
+    public static native void nglGetnUniformivKHR(int program, int location, int bufSize, long params);
 
-	/**
-	 * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
-	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param params   the buffer in which to place the returned data
-	 */
-	public static void glGetnUniformivKHR(int program, int location, FloatBuffer params) {
-		nglGetnUniformivKHR(program, location, params.remaining(), memAddress(params));
-	}
+    /**
+     * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
+     *
+     * @param program  the program object
+     * @param location the uniform location
+     * @param params   the buffer in which to place the returned data
+     */
+    public static void glGetnUniformivKHR(int program, int location, FloatBuffer params) {
+        nglGetnUniformivKHR(program, location, params.remaining(), memAddress(params));
+    }
 
-	/**
-	 * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
-	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 */
-	public static float glGetnUniformiKHR(int program, int location) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			FloatBuffer params = stack.callocFloat(1);
-			nglGetnUniformivKHR(program, location, 1, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
+     *
+     * @param program  the program object
+     * @param location the uniform location
+     */
+    public static float glGetnUniformiKHR(int program, int location) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            FloatBuffer params = stack.callocFloat(1);
+            nglGetnUniformivKHR(program, location, 1, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetnUniformuivKHR ] ---
+    // --- [ glGetnUniformuivKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR}
-	 *
-	 * @param bufSize the maximum number of bytes to write to {@code params}
-	 */
-	public static native void nglGetnUniformuivKHR(int program, int location, int bufSize, long params);
+    /**
+     * Unsafe version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR}
+     *
+     * @param bufSize the maximum number of bytes to write to {@code params}
+     */
+    public static native void nglGetnUniformuivKHR(int program, int location, int bufSize, long params);
 
-	/**
-	 * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
-	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param params   the buffer in which to place the returned data
-	 */
-	public static void glGetnUniformuivKHR(int program, int location, FloatBuffer params) {
-		nglGetnUniformuivKHR(program, location, params.remaining(), memAddress(params));
-	}
+    /**
+     * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
+     *
+     * @param program  the program object
+     * @param location the uniform location
+     * @param params   the buffer in which to place the returned data
+     */
+    public static void glGetnUniformuivKHR(int program, int location, FloatBuffer params) {
+        nglGetnUniformuivKHR(program, location, params.remaining(), memAddress(params));
+    }
 
-	/**
-	 * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
-	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 */
-	public static float glGetnUniformuiKHR(int program, int location) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			FloatBuffer params = stack.callocFloat(1);
-			nglGetnUniformuivKHR(program, location, 1, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
+     *
+     * @param program  the program object
+     * @param location the uniform location
+     */
+    public static float glGetnUniformuiKHR(int program, int location) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            FloatBuffer params = stack.callocFloat(1);
+            nglGetnUniformuivKHR(program, location, 1, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
-		long __functionAddress = GLES.getICD().glReadnPixelsKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
-	}
+    /** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
+        long __functionAddress = GLES.getICD().glReadnPixelsKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
+    }
 
-	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
-		long __functionAddress = GLES.getICD().glReadnPixelsKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
-	}
+    /** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
+        long __functionAddress = GLES.getICD().glReadnPixelsKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
+    }
 
-	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
-		long __functionAddress = GLES.getICD().glReadnPixelsKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
-	}
+    /** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
+        long __functionAddress = GLES.getICD().glReadnPixelsKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
+    }
 
-	/** Array version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
-	public static void glGetnUniformfvKHR(int program, int location, float[] params) {
-		long __functionAddress = GLES.getICD().glGetnUniformfvKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params.length, params);
-	}
+    /** Array version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
+    public static void glGetnUniformfvKHR(int program, int location, float[] params) {
+        long __functionAddress = GLES.getICD().glGetnUniformfvKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, program, location, params.length, params);
+    }
 
-	/** Array version of: {@link #glGetnUniformivKHR GetnUniformivKHR} */
-	public static void glGetnUniformivKHR(int program, int location, float[] params) {
-		long __functionAddress = GLES.getICD().glGetnUniformivKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params.length, params);
-	}
+    /** Array version of: {@link #glGetnUniformivKHR GetnUniformivKHR} */
+    public static void glGetnUniformivKHR(int program, int location, float[] params) {
+        long __functionAddress = GLES.getICD().glGetnUniformivKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, program, location, params.length, params);
+    }
 
-	/** Array version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
-	public static void glGetnUniformuivKHR(int program, int location, float[] params) {
-		long __functionAddress = GLES.getICD().glGetnUniformuivKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, params.length, params);
-	}
+    /** Array version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
+    public static void glGetnUniformuivKHR(int program, int location, float[] params) {
+        long __functionAddress = GLES.getICD().glGetnUniformuivKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, program, location, params.length, params);
+    }
 
 }

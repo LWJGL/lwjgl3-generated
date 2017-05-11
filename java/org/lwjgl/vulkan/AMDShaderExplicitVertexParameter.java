@@ -45,12 +45,12 @@ package org.lwjgl.vulkan;
  */
 public final class AMDShaderExplicitVertexParameter {
 
-	/** The extension specification version. */
-	public static final int VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_EXTENSION_NAME = "VK_AMD_shader_explicit_vertex_parameter";
+    /** The extension name. */
+    public static final String VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_EXTENSION_NAME = "VK_AMD_shader_explicit_vertex_parameter";
 
-	private AMDShaderExplicitVertexParameter() {}
+    private AMDShaderExplicitVertexParameter() {}
 
 }

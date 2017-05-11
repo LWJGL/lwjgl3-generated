@@ -32,60 +32,61 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBPointParameters {
 
-	/** Accepted by the {@code pname} parameter of PointParameterfvARB, and the {@code pname} of Get. */
-	public static final int
-		GL_POINT_SIZE_MIN_ARB             = 0x8126,
-		GL_POINT_SIZE_MAX_ARB             = 0x8127,
-		GL_POINT_FADE_THRESHOLD_SIZE_ARB  = 0x8128,
-		GL_POINT_DISTANCE_ATTENUATION_ARB = 0x8129;
+    /** Accepted by the {@code pname} parameter of PointParameterfvARB, and the {@code pname} of Get. */
+    public static final int
+        GL_POINT_SIZE_MIN_ARB             = 0x8126,
+        GL_POINT_SIZE_MAX_ARB             = 0x8127,
+        GL_POINT_FADE_THRESHOLD_SIZE_ARB  = 0x8128,
+        GL_POINT_DISTANCE_ATTENUATION_ARB = 0x8129;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBPointParameters() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBPointParameters() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glPointParameterfARB, caps.glPointParameterfvARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glPointParameterfARB, caps.glPointParameterfvARB
+        );
+    }
 
-	// --- [ glPointParameterfARB ] ---
+    // --- [ glPointParameterfARB ] ---
 
-	/**
-	 * Sets the float value of a pointer parameter.
-	 *
-	 * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN_ARB POINT_SIZE_MIN_ARB}</td><td>{@link #GL_POINT_SIZE_MAX_ARB POINT_SIZE_MAX_ARB}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE_ARB POINT_FADE_THRESHOLD_SIZE_ARB}</td></tr></table>
-	 * @param param the parameter value
-	 */
-	public static native void glPointParameterfARB(int pname, float param);
+    /**
+     * Sets the float value of a pointer parameter.
+     *
+     * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN_ARB POINT_SIZE_MIN_ARB}</td><td>{@link #GL_POINT_SIZE_MAX_ARB POINT_SIZE_MAX_ARB}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE_ARB POINT_FADE_THRESHOLD_SIZE_ARB}</td></tr></table>
+     * @param param the parameter value
+     */
+    public static native void glPointParameterfARB(int pname, float param);
 
-	// --- [ glPointParameterfvARB ] ---
+    // --- [ glPointParameterfvARB ] ---
 
-	/** Unsafe version of: {@link #glPointParameterfvARB PointParameterfvARB} */
-	public static native void nglPointParameterfvARB(int pname, long params);
+    /** Unsafe version of: {@link #glPointParameterfvARB PointParameterfvARB} */
+    public static native void nglPointParameterfvARB(int pname, long params);
 
-	/**
-	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
-	 *
-	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
-	 * @param params the parameter value
-	 */
-	public static void glPointParameterfvARB(int pname, FloatBuffer params) {
-		if ( CHECKS )
-			check(params, 3);
-		nglPointParameterfvARB(pname, memAddress(params));
-	}
+    /**
+     * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
+     *
+     * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
+     * @param params the parameter value
+     */
+    public static void glPointParameterfvARB(int pname, FloatBuffer params) {
+        if (CHECKS) {
+            check(params, 3);
+        }
+        nglPointParameterfvARB(pname, memAddress(params));
+    }
 
-	/** Array version of: {@link #glPointParameterfvARB PointParameterfvARB} */
-	public static void glPointParameterfvARB(int pname, float[] params) {
-		long __functionAddress = GL.getICD().glPointParameterfvARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 3);
-		}
-		callPV(__functionAddress, pname, params);
-	}
+    /** Array version of: {@link #glPointParameterfvARB PointParameterfvARB} */
+    public static void glPointParameterfvARB(int pname, float[] params) {
+        long __functionAddress = GL.getICD().glPointParameterfvARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 3);
+        }
+        callPV(__functionAddress, pname, params);
+    }
 
 }

@@ -14,52 +14,53 @@ import static org.lwjgl.glfw.GLFW.*;
 /** Instances of this class may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
 public abstract class GLFWCursorEnterCallback extends Callback implements GLFWCursorEnterCallbackI {
 
-	/** Creates a {@code GLFWCursorEnterCallback} instance from the specified function pointer. */
-	public static GLFWCursorEnterCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code GLFWCursorEnterCallback} instance from the specified function pointer. */
+    public static GLFWCursorEnterCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		GLFWCursorEnterCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof GLFWCursorEnterCallback
-			? (GLFWCursorEnterCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        GLFWCursorEnterCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof GLFWCursorEnterCallback
+            ? (GLFWCursorEnterCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code GLFWCursorEnterCallback} instance that delegates to the specified {@code GLFWCursorEnterCallbackI} instance. */
-	public static GLFWCursorEnterCallback create(GLFWCursorEnterCallbackI instance) {
-		return instance instanceof GLFWCursorEnterCallback
-			? (GLFWCursorEnterCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code GLFWCursorEnterCallback} instance that delegates to the specified {@code GLFWCursorEnterCallbackI} instance. */
+    public static GLFWCursorEnterCallback create(GLFWCursorEnterCallbackI instance) {
+        return instance instanceof GLFWCursorEnterCallback
+            ? (GLFWCursorEnterCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected GLFWCursorEnterCallback() {
-		super(SIGNATURE);
-	}
+    protected GLFWCursorEnterCallback() {
+        super(SIGNATURE);
+    }
 
-	private GLFWCursorEnterCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private GLFWCursorEnterCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	/** See {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback}. */
-	public GLFWCursorEnterCallback set(long window) {
-		glfwSetCursorEnterCallback(window, this);
-		return this;
-	}
+    /** See {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback}. */
+    public GLFWCursorEnterCallback set(long window) {
+        glfwSetCursorEnterCallback(window, this);
+        return this;
+    }
 
-	private static final class Container extends GLFWCursorEnterCallback {
+    private static final class Container extends GLFWCursorEnterCallback {
 
-		private final GLFWCursorEnterCallbackI delegate;
+        private final GLFWCursorEnterCallbackI delegate;
 
-		Container(long functionPointer, GLFWCursorEnterCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, GLFWCursorEnterCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long window, boolean entered) {
-			delegate.invoke(window, entered);
-		}
+        @Override
+        public void invoke(long window, boolean entered) {
+            delegate.invoke(window, entered);
+        }
 
-	}
+    }
 
 }

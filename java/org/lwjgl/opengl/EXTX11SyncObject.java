@@ -29,30 +29,30 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTX11SyncObject {
 
-	/** Accepted by the {@code external_sync_type} parameter of ImportSyncEXT. */
-	public static final int GL_SYNC_X11_FENCE_EXT = 0x90E1;
+    /** Accepted by the {@code external_sync_type} parameter of ImportSyncEXT. */
+    public static final int GL_SYNC_X11_FENCE_EXT = 0x90E1;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTX11SyncObject() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTX11SyncObject() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glImportSyncEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glImportSyncEXT
+        );
+    }
 
-	// --- [ glImportSyncEXT ] ---
+    // --- [ glImportSyncEXT ] ---
 
-	/**
-	 * Creates a GL sync object of the type {@code external_sync_type} based on the object referred to by {@code external_sync}.
-	 *
-	 * @param external_sync_type the external sync object type. Must be:<br><table><tr><td>{@link #GL_SYNC_X11_FENCE_EXT SYNC_X11_FENCE_EXT}</td></tr></table>
-	 * @param external_sync      the external sync object. Must be the XID of a valid X11 Synchronization Fence object
-	 * @param flags              Must be 0.
-	 */
-	public static native long glImportSyncEXT(int external_sync_type, long external_sync, int flags);
+    /**
+     * Creates a GL sync object of the type {@code external_sync_type} based on the object referred to by {@code external_sync}.
+     *
+     * @param external_sync_type the external sync object type. Must be:<br><table><tr><td>{@link #GL_SYNC_X11_FENCE_EXT SYNC_X11_FENCE_EXT}</td></tr></table>
+     * @param external_sync      the external sync object. Must be the XID of a valid X11 Synchronization Fence object
+     * @param flags              Must be 0.
+     */
+    public static native long glImportSyncEXT(int external_sync_type, long external_sync, int flags);
 
 }

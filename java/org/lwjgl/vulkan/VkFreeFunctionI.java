@@ -31,25 +31,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface VkFreeFunctionI extends CallbackI.V {
 
-	String SIGNATURE = Callback.__stdcall("(pp)v");
+    String SIGNATURE = Callback.__stdcall("(pp)v");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Application-defined memory free function.
-	 *
-	 * @param pUserData the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
-	 * @param pMemory   the allocation to be freed.
-	 */
-	void invoke(long pUserData, long pMemory);
+    /**
+     * Application-defined memory free function.
+     *
+     * @param pUserData the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
+     * @param pMemory   the allocation to be freed.
+     */
+    void invoke(long pUserData, long pMemory);
 
 }

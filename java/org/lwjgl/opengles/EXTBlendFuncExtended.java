@@ -33,113 +33,117 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTBlendFuncExtended {
 
-	/**
-	 * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunciEXT, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
-	 * {@code dstAlpha} parameters of BlendFuncSeparate and BlendFuncSeparateiEXT.
-	 */
-	public static final int
-		GL_SRC1_COLOR_EXT           = 0x88F9,
-		GL_SRC1_ALPHA_EXT           = 0x8589,
-		GL_ONE_MINUS_SRC1_COLOR_EXT = 0x88FA,
-		GL_ONE_MINUS_SRC1_ALPHA_EXT = 0x88FB,
-		GL_SRC_ALPHA_SATURATE_EXT   = 0x308;
+    /**
+     * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunciEXT, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
+     * {@code dstAlpha} parameters of BlendFuncSeparate and BlendFuncSeparateiEXT.
+     */
+    public static final int
+        GL_SRC1_COLOR_EXT           = 0x88F9,
+        GL_SRC1_ALPHA_EXT           = 0x8589,
+        GL_ONE_MINUS_SRC1_COLOR_EXT = 0x88FA,
+        GL_ONE_MINUS_SRC1_ALPHA_EXT = 0x88FB,
+        GL_SRC_ALPHA_SATURATE_EXT   = 0x308;
 
-	/** Accepted in the {@code props} array of GetProgramResourceiv. */
-	public static final int GL_LOCATION_INDEX_EXT = 0x930F;
+    /** Accepted in the {@code props} array of GetProgramResourceiv. */
+    public static final int GL_LOCATION_INDEX_EXT = 0x930F;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT = 0x88FC;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT = 0x88FC;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTBlendFuncExtended() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTBlendFuncExtended() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glBindFragDataLocationIndexedEXT, caps.glGetFragDataIndexEXT, caps.glBindFragDataLocationEXT, caps.glGetProgramResourceLocationIndexEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glBindFragDataLocationIndexedEXT, caps.glGetFragDataIndexEXT, caps.glBindFragDataLocationEXT, caps.glGetProgramResourceLocationIndexEXT
+        );
+    }
 
-	// --- [ glBindFragDataLocationIndexedEXT ] ---
+    // --- [ glBindFragDataLocationIndexedEXT ] ---
 
-	public static native void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name);
+    public static native void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name);
 
-	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(name));
-	}
+    public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(name));
+    }
 
-	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetFragDataIndexEXT ] ---
+    // --- [ glGetFragDataIndexEXT ] ---
 
-	public static native int nglGetFragDataIndexEXT(int program, long name);
+    public static native int nglGetFragDataIndexEXT(int program, long name);
 
-	public static int glGetFragDataIndexEXT(int program, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		return nglGetFragDataIndexEXT(program, memAddress(name));
-	}
+    public static int glGetFragDataIndexEXT(int program, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        return nglGetFragDataIndexEXT(program, memAddress(name));
+    }
 
-	public static int glGetFragDataIndexEXT(int program, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nglGetFragDataIndexEXT(program, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetFragDataIndexEXT(int program, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return nglGetFragDataIndexEXT(program, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glBindFragDataLocationEXT ] ---
+    // --- [ glBindFragDataLocationEXT ] ---
 
-	public static native void nglBindFragDataLocationEXT(int program, int colorNumber, long name);
+    public static native void nglBindFragDataLocationEXT(int program, int colorNumber, long name);
 
-	public static void glBindFragDataLocationEXT(int program, int colorNumber, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		nglBindFragDataLocationEXT(program, colorNumber, memAddress(name));
-	}
+    public static void glBindFragDataLocationEXT(int program, int colorNumber, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nglBindFragDataLocationEXT(program, colorNumber, memAddress(name));
+    }
 
-	public static void glBindFragDataLocationEXT(int program, int colorNumber, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			nglBindFragDataLocationEXT(program, colorNumber, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glBindFragDataLocationEXT(int program, int colorNumber, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            nglBindFragDataLocationEXT(program, colorNumber, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetProgramResourceLocationIndexEXT ] ---
+    // --- [ glGetProgramResourceLocationIndexEXT ] ---
 
-	public static native int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name);
+    public static native int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name);
 
-	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(name));
-	}
+    public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(name));
+    }
 
-	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
 }

@@ -14,52 +14,53 @@ import static org.lwjgl.glfw.GLFW.*;
 /** Instances of this class may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method. */
 public abstract class GLFWFramebufferSizeCallback extends Callback implements GLFWFramebufferSizeCallbackI {
 
-	/** Creates a {@code GLFWFramebufferSizeCallback} instance from the specified function pointer. */
-	public static GLFWFramebufferSizeCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code GLFWFramebufferSizeCallback} instance from the specified function pointer. */
+    public static GLFWFramebufferSizeCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		GLFWFramebufferSizeCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof GLFWFramebufferSizeCallback
-			? (GLFWFramebufferSizeCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        GLFWFramebufferSizeCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof GLFWFramebufferSizeCallback
+            ? (GLFWFramebufferSizeCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code GLFWFramebufferSizeCallback} instance that delegates to the specified {@code GLFWFramebufferSizeCallbackI} instance. */
-	public static GLFWFramebufferSizeCallback create(GLFWFramebufferSizeCallbackI instance) {
-		return instance instanceof GLFWFramebufferSizeCallback
-			? (GLFWFramebufferSizeCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code GLFWFramebufferSizeCallback} instance that delegates to the specified {@code GLFWFramebufferSizeCallbackI} instance. */
+    public static GLFWFramebufferSizeCallback create(GLFWFramebufferSizeCallbackI instance) {
+        return instance instanceof GLFWFramebufferSizeCallback
+            ? (GLFWFramebufferSizeCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected GLFWFramebufferSizeCallback() {
-		super(SIGNATURE);
-	}
+    protected GLFWFramebufferSizeCallback() {
+        super(SIGNATURE);
+    }
 
-	private GLFWFramebufferSizeCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private GLFWFramebufferSizeCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	/** See {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback}. */
-	public GLFWFramebufferSizeCallback set(long window) {
-		glfwSetFramebufferSizeCallback(window, this);
-		return this;
-	}
+    /** See {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback}. */
+    public GLFWFramebufferSizeCallback set(long window) {
+        glfwSetFramebufferSizeCallback(window, this);
+        return this;
+    }
 
-	private static final class Container extends GLFWFramebufferSizeCallback {
+    private static final class Container extends GLFWFramebufferSizeCallback {
 
-		private final GLFWFramebufferSizeCallbackI delegate;
+        private final GLFWFramebufferSizeCallbackI delegate;
 
-		Container(long functionPointer, GLFWFramebufferSizeCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, GLFWFramebufferSizeCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long window, int width, int height) {
-			delegate.invoke(window, width, height);
-		}
+        @Override
+        public void invoke(long window, int width, int height) {
+            delegate.invoke(window, width, height);
+        }
 
-	}
+    }
 
 }

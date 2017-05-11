@@ -15,9 +15,9 @@ package org.lwjgl.egl;
  */
 public final class ANGLESurfaceD3DTexture2DShareHandle {
 
-	/**  */
-	public static final int EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE = 0x3200;
+    /**  */
+    public static final int EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE = 0x3200;
 
-	private ANGLESurfaceD3DTexture2DShareHandle() {}
+    private ANGLESurfaceD3DTexture2DShareHandle() {}
 
 }

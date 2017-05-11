@@ -11,10 +11,10 @@ typedef void (APIENTRY *glDiscardFramebufferEXTPROC) (jint, jint, const intptr_t
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDiscardFramebuffer_nglDiscardFramebufferEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint numAttachments, jlong attachmentsAddress) {
-	glDiscardFramebufferEXTPROC glDiscardFramebufferEXT = (glDiscardFramebufferEXTPROC)tlsGetFunction(151);
-	const intptr_t attachments = (const intptr_t)attachmentsAddress;
-	UNUSED_PARAM(clazz)
-	glDiscardFramebufferEXT(target, numAttachments, attachments);
+    glDiscardFramebufferEXTPROC glDiscardFramebufferEXT = (glDiscardFramebufferEXTPROC)tlsGetFunction(151);
+    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    UNUSED_PARAM(clazz)
+    glDiscardFramebufferEXT(target, numAttachments, attachments);
 }
 
 EXTERN_C_EXIT

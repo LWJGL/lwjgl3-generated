@@ -72,353 +72,358 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBShadingLanguageInclude {
 
-	/** Accepted by the {@code type} parameter of NamedStringARB. */
-	public static final int GL_SHADER_INCLUDE_ARB = 0x8DAE;
+    /** Accepted by the {@code type} parameter of NamedStringARB. */
+    public static final int GL_SHADER_INCLUDE_ARB = 0x8DAE;
 
-	/** Accepted by the {@code pname} parameter of GetNamedStringivARB. */
-	public static final int
-		GL_NAMED_STRING_LENGTH_ARB = 0x8DE9,
-		GL_NAMED_STRING_TYPE_ARB   = 0x8DEA;
+    /** Accepted by the {@code pname} parameter of GetNamedStringivARB. */
+    public static final int
+        GL_NAMED_STRING_LENGTH_ARB = 0x8DE9,
+        GL_NAMED_STRING_TYPE_ARB   = 0x8DEA;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBShadingLanguageInclude() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBShadingLanguageInclude() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glNamedStringARB, caps.glDeleteNamedStringARB, caps.glCompileShaderIncludeARB, caps.glIsNamedStringARB, caps.glGetNamedStringARB, 
-			caps.glGetNamedStringivARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glNamedStringARB, caps.glDeleteNamedStringARB, caps.glCompileShaderIncludeARB, caps.glIsNamedStringARB, caps.glGetNamedStringARB, 
+            caps.glGetNamedStringivARB
+        );
+    }
 
-	// --- [ glNamedStringARB ] ---
+    // --- [ glNamedStringARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glNamedStringARB NamedStringARB}
-	 *
-	 * @param namelen   the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param stringlen the number of characters in {@code string}. If negative, {@code string} is considered to be a null-terminated string.
-	 */
-	public static native void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string);
+    /**
+     * Unsafe version of: {@link #glNamedStringARB NamedStringARB}
+     *
+     * @param namelen   the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
+     * @param stringlen the number of characters in {@code string}. If negative, {@code string} is considered to be a null-terminated string.
+     */
+    public static native void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string);
 
-	/**
-	 * Specifies a string and its name. Such strings can be included by name in shaders during compilation, allowing reuse of the same code segments.
-	 * 
-	 * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
-	 * associated with that tree location, it will be replaced with the new {@code string}.</p>
-	 *
-	 * @param type   the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
-	 * @param name   the name associated with the string
-	 * @param string an arbitrary string of characters
-	 */
-	public static void glNamedStringARB(int type, ByteBuffer name, ByteBuffer string) {
-		nglNamedStringARB(type, name.remaining(), memAddress(name), string.remaining(), memAddress(string));
-	}
+    /**
+     * Specifies a string and its name. Such strings can be included by name in shaders during compilation, allowing reuse of the same code segments.
+     * 
+     * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
+     * associated with that tree location, it will be replaced with the new {@code string}.</p>
+     *
+     * @param type   the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
+     * @param name   the name associated with the string
+     * @param string an arbitrary string of characters
+     */
+    public static void glNamedStringARB(int type, ByteBuffer name, ByteBuffer string) {
+        nglNamedStringARB(type, name.remaining(), memAddress(name), string.remaining(), memAddress(string));
+    }
 
-	/**
-	 * Specifies a string and its name. Such strings can be included by name in shaders during compilation, allowing reuse of the same code segments.
-	 * 
-	 * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
-	 * associated with that tree location, it will be replaced with the new {@code string}.</p>
-	 *
-	 * @param type   the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
-	 * @param name   the name associated with the string
-	 * @param string an arbitrary string of characters
-	 */
-	public static void glNamedStringARB(int type, CharSequence name, CharSequence string) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			ByteBuffer stringEncoded = stack.UTF8(string, false);
-			nglNamedStringARB(type, nameEncoded.remaining(), memAddress(nameEncoded), stringEncoded.remaining(), memAddress(stringEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Specifies a string and its name. Such strings can be included by name in shaders during compilation, allowing reuse of the same code segments.
+     * 
+     * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
+     * associated with that tree location, it will be replaced with the new {@code string}.</p>
+     *
+     * @param type   the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
+     * @param name   the name associated with the string
+     * @param string an arbitrary string of characters
+     */
+    public static void glNamedStringARB(int type, CharSequence name, CharSequence string) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            ByteBuffer stringEncoded = stack.UTF8(string, false);
+            nglNamedStringARB(type, nameEncoded.remaining(), memAddress(nameEncoded), stringEncoded.remaining(), memAddress(stringEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glDeleteNamedStringARB ] ---
+    // --- [ glDeleteNamedStringARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glDeleteNamedStringARB DeleteNamedStringARB}
-	 *
-	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 */
-	public static native void nglDeleteNamedStringARB(int namelen, long name);
+    /**
+     * Unsafe version of: {@link #glDeleteNamedStringARB DeleteNamedStringARB}
+     *
+     * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
+     */
+    public static native void nglDeleteNamedStringARB(int namelen, long name);
 
-	/**
-	 * Deletes a named string.
-	 *
-	 * @param name the name associated with the string
-	 */
-	public static void glDeleteNamedStringARB(ByteBuffer name) {
-		nglDeleteNamedStringARB(name.remaining(), memAddress(name));
-	}
+    /**
+     * Deletes a named string.
+     *
+     * @param name the name associated with the string
+     */
+    public static void glDeleteNamedStringARB(ByteBuffer name) {
+        nglDeleteNamedStringARB(name.remaining(), memAddress(name));
+    }
 
-	/**
-	 * Deletes a named string.
-	 *
-	 * @param name the name associated with the string
-	 */
-	public static void glDeleteNamedStringARB(CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			nglDeleteNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Deletes a named string.
+     *
+     * @param name the name associated with the string
+     */
+    public static void glDeleteNamedStringARB(CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            nglDeleteNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glCompileShaderIncludeARB ] ---
+    // --- [ glCompileShaderIncludeARB ] ---
 
-	/** Unsafe version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
-	public static native void nglCompileShaderIncludeARB(int shader, int count, long path, long length);
+    /** Unsafe version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
+    public static native void nglCompileShaderIncludeARB(int shader, int count, long path, long length);
 
-	/**
-	 * Compiles a shader object.
-	 * 
-	 * <p>The ordered list of {@code path}s is used during compilation, together with the arguments of {@code &#35;include} directives in the shader source, to search for
-	 * named strings corresponding to the {@code &#35;include} directives. If a {@code &#35;include} directive does not correspond to a valid named string, compilation will fail.</p>
-	 *
-	 * @param shader the shader object compile
-	 * @param path   an ordered array of {@code count} pointers to optionally null-terminated character strings defining search paths
-	 * @param length an array {@code count} values with the number of characters in each string (the string length). If an element in {@code length} is negative, its
-	 *               accompanying string is null-terminated. If {@code length} is {@code NULL}, all strings in the {@code path} argument are considered null-terminated.
-	 */
-	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, IntBuffer length) {
-		if ( CHECKS )
-			checkSafe(length, path.remaining());
-		nglCompileShaderIncludeARB(shader, path.remaining(), memAddress(path), memAddressSafe(length));
-	}
+    /**
+     * Compiles a shader object.
+     * 
+     * <p>The ordered list of {@code path}s is used during compilation, together with the arguments of {@code &#35;include} directives in the shader source, to search for
+     * named strings corresponding to the {@code &#35;include} directives. If a {@code &#35;include} directive does not correspond to a valid named string, compilation will fail.</p>
+     *
+     * @param shader the shader object compile
+     * @param path   an ordered array of {@code count} pointers to optionally null-terminated character strings defining search paths
+     * @param length an array {@code count} values with the number of characters in each string (the string length). If an element in {@code length} is negative, its
+     *               accompanying string is null-terminated. If {@code length} is {@code NULL}, all strings in the {@code path} argument are considered null-terminated.
+     */
+    public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, IntBuffer length) {
+        if (CHECKS) {
+            checkSafe(length, path.remaining());
+        }
+        nglCompileShaderIncludeARB(shader, path.remaining(), memAddress(path), memAddressSafe(length));
+    }
 
-	// --- [ glIsNamedStringARB ] ---
+    // --- [ glIsNamedStringARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glIsNamedStringARB IsNamedStringARB}
-	 *
-	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 */
-	public static native boolean nglIsNamedStringARB(int namelen, long name);
+    /**
+     * Unsafe version of: {@link #glIsNamedStringARB IsNamedStringARB}
+     *
+     * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
+     */
+    public static native boolean nglIsNamedStringARB(int namelen, long name);
 
-	/**
-	 * Returns {@link GL11#GL_TRUE TRUE} if the tree location corresponding to {@code name} has a string associated with it, and {@link GL11#GL_FALSE FALSE} if the tree location has no string
-	 * associated with it.
-	 *
-	 * @param name the name associated with the string
-	 */
-	public static boolean glIsNamedStringARB(ByteBuffer name) {
-		return nglIsNamedStringARB(name.remaining(), memAddress(name));
-	}
+    /**
+     * Returns {@link GL11#GL_TRUE TRUE} if the tree location corresponding to {@code name} has a string associated with it, and {@link GL11#GL_FALSE FALSE} if the tree location has no string
+     * associated with it.
+     *
+     * @param name the name associated with the string
+     */
+    public static boolean glIsNamedStringARB(ByteBuffer name) {
+        return nglIsNamedStringARB(name.remaining(), memAddress(name));
+    }
 
-	/**
-	 * Returns {@link GL11#GL_TRUE TRUE} if the tree location corresponding to {@code name} has a string associated with it, and {@link GL11#GL_FALSE FALSE} if the tree location has no string
-	 * associated with it.
-	 *
-	 * @param name the name associated with the string
-	 */
-	public static boolean glIsNamedStringARB(CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			return nglIsNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns {@link GL11#GL_TRUE TRUE} if the tree location corresponding to {@code name} has a string associated with it, and {@link GL11#GL_FALSE FALSE} if the tree location has no string
+     * associated with it.
+     *
+     * @param name the name associated with the string
+     */
+    public static boolean glIsNamedStringARB(CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            return nglIsNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetNamedStringARB ] ---
+    // --- [ glGetNamedStringARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetNamedStringARB GetNamedStringARB}
-	 *
-	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param bufSize the maximum number of characters that may be written into {@code string}, including the null terminator
-	 */
-	public static native void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string);
+    /**
+     * Unsafe version of: {@link #glGetNamedStringARB GetNamedStringARB}
+     *
+     * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
+     * @param bufSize the maximum number of characters that may be written into {@code string}, including the null terminator
+     */
+    public static native void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string);
 
-	/**
-	 * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
-	 *
-	 * @param name      the name associated with the string
-	 * @param stringlen a buffer in which to place the actual number of characters written into {@code string}, excluding the null terminator. If {@code NULL}, no length is
-	 *                  returned.
-	 * @param string    a buffer in which to place the returned string
-	 */
-	public static void glGetNamedStringARB(ByteBuffer name, IntBuffer stringlen, ByteBuffer string) {
-		if ( CHECKS )
-			checkSafe(stringlen, 1);
-		nglGetNamedStringARB(name.remaining(), memAddress(name), string.remaining(), memAddressSafe(stringlen), memAddress(string));
-	}
+    /**
+     * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
+     *
+     * @param name      the name associated with the string
+     * @param stringlen a buffer in which to place the actual number of characters written into {@code string}, excluding the null terminator. If {@code NULL}, no length is
+     *                  returned.
+     * @param string    a buffer in which to place the returned string
+     */
+    public static void glGetNamedStringARB(ByteBuffer name, IntBuffer stringlen, ByteBuffer string) {
+        if (CHECKS) {
+            checkSafe(stringlen, 1);
+        }
+        nglGetNamedStringARB(name.remaining(), memAddress(name), string.remaining(), memAddressSafe(stringlen), memAddress(string));
+    }
 
-	/**
-	 * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
-	 *
-	 * @param name      the name associated with the string
-	 * @param stringlen a buffer in which to place the actual number of characters written into {@code string}, excluding the null terminator. If {@code NULL}, no length is
-	 *                  returned.
-	 * @param string    a buffer in which to place the returned string
-	 */
-	public static void glGetNamedStringARB(CharSequence name, IntBuffer stringlen, ByteBuffer string) {
-		if ( CHECKS )
-			checkSafe(stringlen, 1);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), string.remaining(), memAddressSafe(stringlen), memAddress(string));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
+     *
+     * @param name      the name associated with the string
+     * @param stringlen a buffer in which to place the actual number of characters written into {@code string}, excluding the null terminator. If {@code NULL}, no length is
+     *                  returned.
+     * @param string    a buffer in which to place the returned string
+     */
+    public static void glGetNamedStringARB(CharSequence name, IntBuffer stringlen, ByteBuffer string) {
+        if (CHECKS) {
+            checkSafe(stringlen, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), string.remaining(), memAddressSafe(stringlen), memAddress(string));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
-	 *
-	 * @param name    the name associated with the string
-	 * @param bufSize the maximum number of characters that may be written into {@code string}, including the null terminator
-	 */
-	public static String glGetNamedStringARB(CharSequence name, int bufSize) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			IntBuffer stringlen = stack.ints(0);
-			ByteBuffer string = stack.malloc(bufSize);
-			nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
-			return memUTF8(string, stringlen.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
+     *
+     * @param name    the name associated with the string
+     * @param bufSize the maximum number of characters that may be written into {@code string}, including the null terminator
+     */
+    public static String glGetNamedStringARB(CharSequence name, int bufSize) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            IntBuffer stringlen = stack.ints(0);
+            ByteBuffer string = stack.malloc(bufSize);
+            nglGetNamedStringARB(nameEncoded.remaining(), memAddress(nameEncoded), bufSize, memAddress(stringlen), memAddress(string));
+            return memUTF8(string, stringlen.get(0));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
-	 *
-	 * @param name the name associated with the string
-	 */
-	public static String glGetNamedStringARB(CharSequence name) {
-		return glGetNamedStringARB(name, glGetNamedStringiARB(name, GL_NAMED_STRING_LENGTH_ARB));
-	}
+    /**
+     * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
+     *
+     * @param name the name associated with the string
+     */
+    public static String glGetNamedStringARB(CharSequence name) {
+        return glGetNamedStringARB(name, glGetNamedStringiARB(name, GL_NAMED_STRING_LENGTH_ARB));
+    }
 
-	// --- [ glGetNamedStringivARB ] ---
+    // --- [ glGetNamedStringivARB ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetNamedStringivARB GetNamedStringivARB}
-	 *
-	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 */
-	public static native void nglGetNamedStringivARB(int namelen, long name, int pname, long params);
+    /**
+     * Unsafe version of: {@link #glGetNamedStringivARB GetNamedStringivARB}
+     *
+     * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
+     */
+    public static native void nglGetNamedStringivARB(int namelen, long name, int pname, long params);
 
-	/**
-	 * Returns properties of the named string whose tree location corresponds to {@code name}.
-	 *
-	 * @param name   the name associated with the string
-	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
-	 * @param params a buffer in which to place the returned value
-	 */
-	public static void glGetNamedStringivARB(ByteBuffer name, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetNamedStringivARB(name.remaining(), memAddress(name), pname, memAddress(params));
-	}
+    /**
+     * Returns properties of the named string whose tree location corresponds to {@code name}.
+     *
+     * @param name   the name associated with the string
+     * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
+     * @param params a buffer in which to place the returned value
+     */
+    public static void glGetNamedStringivARB(ByteBuffer name, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetNamedStringivARB(name.remaining(), memAddress(name), pname, memAddress(params));
+    }
 
-	/**
-	 * Returns properties of the named string whose tree location corresponds to {@code name}.
-	 *
-	 * @param name   the name associated with the string
-	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
-	 * @param params a buffer in which to place the returned value
-	 */
-	public static void glGetNamedStringivARB(CharSequence name, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			nglGetNamedStringivARB(nameEncoded.remaining(), memAddress(nameEncoded), pname, memAddress(params));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns properties of the named string whose tree location corresponds to {@code name}.
+     *
+     * @param name   the name associated with the string
+     * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
+     * @param params a buffer in which to place the returned value
+     */
+    public static void glGetNamedStringivARB(CharSequence name, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            nglGetNamedStringivARB(nameEncoded.remaining(), memAddress(nameEncoded), pname, memAddress(params));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Returns properties of the named string whose tree location corresponds to {@code name}.
-	 *
-	 * @param name  the name associated with the string
-	 * @param pname the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
-	 */
-	public static int glGetNamedStringiARB(CharSequence name, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			IntBuffer params = stack.callocInt(1);
-			nglGetNamedStringivARB(nameEncoded.remaining(), memAddress(nameEncoded), pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns properties of the named string whose tree location corresponds to {@code name}.
+     *
+     * @param name  the name associated with the string
+     * @param pname the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
+     */
+    public static int glGetNamedStringiARB(CharSequence name, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            IntBuffer params = stack.callocInt(1);
+            nglGetNamedStringivARB(nameEncoded.remaining(), memAddress(nameEncoded), pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
-	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, int[] length) {
-		long __functionAddress = GL.getICD().glCompileShaderIncludeARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkSafe(length, path.remaining());
-		}
-		callPPV(__functionAddress, shader, path.remaining(), memAddress(path), length);
-	}
+    /** Array version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
+    public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, int[] length) {
+        long __functionAddress = GL.getICD().glCompileShaderIncludeARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkSafe(length, path.remaining());
+        }
+        callPPV(__functionAddress, shader, path.remaining(), memAddress(path), length);
+    }
 
-	/** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
-	public static void glGetNamedStringARB(ByteBuffer name, int[] stringlen, ByteBuffer string) {
-		long __functionAddress = GL.getICD().glGetNamedStringARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkSafe(stringlen, 1);
-		}
-		callPPPV(__functionAddress, name.remaining(), memAddress(name), string.remaining(), stringlen, memAddress(string));
-	}
+    /** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
+    public static void glGetNamedStringARB(ByteBuffer name, int[] stringlen, ByteBuffer string) {
+        long __functionAddress = GL.getICD().glGetNamedStringARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkSafe(stringlen, 1);
+        }
+        callPPPV(__functionAddress, name.remaining(), memAddress(name), string.remaining(), stringlen, memAddress(string));
+    }
 
-	/** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
-	public static void glGetNamedStringARB(CharSequence name, int[] stringlen, ByteBuffer string) {
-		long __functionAddress = GL.getICD().glGetNamedStringARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkSafe(stringlen, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			callPPPV(__functionAddress, nameEncoded.remaining(), memAddress(nameEncoded), string.remaining(), stringlen, memAddress(string));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
+    public static void glGetNamedStringARB(CharSequence name, int[] stringlen, ByteBuffer string) {
+        long __functionAddress = GL.getICD().glGetNamedStringARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkSafe(stringlen, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            callPPPV(__functionAddress, nameEncoded.remaining(), memAddress(nameEncoded), string.remaining(), stringlen, memAddress(string));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
-	public static void glGetNamedStringivARB(ByteBuffer name, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glGetNamedStringivARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPPV(__functionAddress, name.remaining(), memAddress(name), pname, params);
-	}
+    /** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
+    public static void glGetNamedStringivARB(ByteBuffer name, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glGetNamedStringivARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPPV(__functionAddress, name.remaining(), memAddress(name), pname, params);
+    }
 
-	/** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
-	public static void glGetNamedStringivARB(CharSequence name, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glGetNamedStringivARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name, false);
-			callPPV(__functionAddress, nameEncoded.remaining(), memAddress(nameEncoded), pname, params);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
+    public static void glGetNamedStringivARB(CharSequence name, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glGetNamedStringivARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name, false);
+            callPPV(__functionAddress, nameEncoded.remaining(), memAddress(nameEncoded), pname, params);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
 }

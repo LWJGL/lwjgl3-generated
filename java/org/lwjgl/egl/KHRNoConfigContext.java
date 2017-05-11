@@ -18,9 +18,9 @@ package org.lwjgl.egl;
  */
 public final class KHRNoConfigContext {
 
-	/** Accepted as the {@code config} parameter of {@link EGL10#eglCreateContext CreateContext}. */
-	public static final long EGL_NO_CONFIG_KHR = 0L;
+    /** Accepted as the {@code config} parameter of {@link EGL10#eglCreateContext CreateContext}. */
+    public static final long EGL_NO_CONFIG_KHR = 0L;
 
-	private KHRNoConfigContext() {}
+    private KHRNoConfigContext() {}
 
 }

@@ -28,20 +28,20 @@ package org.lwjgl.opengles;
  */
 public final class EXTSRGB {
 
-	/**
-	 * Accepted by the {@code format} and {@code internalformat} parameter of TexImage2D, and TexImage3DOES. These are also accepted by {@code format}
-	 * parameter of TexSubImage2D and TexSubImage3DOES.
-	 */
-	public static final int
-		GL_SRGB_EXT       = 0x8C40,
-		GL_SRGB_ALPHA_EXT = 0x8C42;
+    /**
+     * Accepted by the {@code format} and {@code internalformat} parameter of TexImage2D, and TexImage3DOES. These are also accepted by {@code format}
+     * parameter of TexSubImage2D and TexSubImage3DOES.
+     */
+    public static final int
+        GL_SRGB_EXT       = 0x8C40,
+        GL_SRGB_ALPHA_EXT = 0x8C42;
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorage. */
-	public static final int GL_SRGB8_ALPHA8_EXT = 0x8C43;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorage. */
+    public static final int GL_SRGB8_ALPHA8_EXT = 0x8C43;
 
-	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
-	public static final int GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT = 0x8210;
+    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    public static final int GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT = 0x8210;
 
-	private EXTSRGB() {}
+    private EXTSRGB() {}
 
 }

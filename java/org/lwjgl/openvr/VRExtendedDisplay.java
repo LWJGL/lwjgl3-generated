@@ -14,92 +14,95 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**  */
 public class VRExtendedDisplay {
 
-	protected VRExtendedDisplay() {
-		throw new UnsupportedOperationException();
-	}
+    protected VRExtendedDisplay() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ VRExtendedDisplay_GetWindowBounds ] ---
+    // --- [ VRExtendedDisplay_GetWindowBounds ] ---
 
-	/** Unsafe version of: {@link #VRExtendedDisplay_GetWindowBounds GetWindowBounds} */
-	public static void nVRExtendedDisplay_GetWindowBounds(long pnX, long pnY, long pnWidth, long pnHeight) {
-		long __functionAddress = OpenVR.VRExtendedDisplay.GetWindowBounds;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, pnX, pnY, pnWidth, pnHeight);
-	}
+    /** Unsafe version of: {@link #VRExtendedDisplay_GetWindowBounds GetWindowBounds} */
+    public static void nVRExtendedDisplay_GetWindowBounds(long pnX, long pnY, long pnWidth, long pnHeight) {
+        long __functionAddress = OpenVR.VRExtendedDisplay.GetWindowBounds;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPPV(__functionAddress, pnX, pnY, pnWidth, pnHeight);
+    }
 
-	/**
-	 * Size and position that the window needs to be on the VR display.
-	 *
-	 * @param pnX      
-	 * @param pnY      
-	 * @param pnWidth  
-	 * @param pnHeight 
-	 */
-	public static void VRExtendedDisplay_GetWindowBounds(IntBuffer pnX, IntBuffer pnY, IntBuffer pnWidth, IntBuffer pnHeight) {
-		if ( CHECKS ) {
-			check(pnX, 1);
-			check(pnY, 1);
-			check(pnWidth, 1);
-			check(pnHeight, 1);
-		}
-		nVRExtendedDisplay_GetWindowBounds(memAddress(pnX), memAddress(pnY), memAddress(pnWidth), memAddress(pnHeight));
-	}
+    /**
+     * Size and position that the window needs to be on the VR display.
+     *
+     * @param pnX      
+     * @param pnY      
+     * @param pnWidth  
+     * @param pnHeight 
+     */
+    public static void VRExtendedDisplay_GetWindowBounds(IntBuffer pnX, IntBuffer pnY, IntBuffer pnWidth, IntBuffer pnHeight) {
+        if (CHECKS) {
+            check(pnX, 1);
+            check(pnY, 1);
+            check(pnWidth, 1);
+            check(pnHeight, 1);
+        }
+        nVRExtendedDisplay_GetWindowBounds(memAddress(pnX), memAddress(pnY), memAddress(pnWidth), memAddress(pnHeight));
+    }
 
-	// --- [ VRExtendedDisplay_GetEyeOutputViewport ] ---
+    // --- [ VRExtendedDisplay_GetEyeOutputViewport ] ---
 
-	/** Unsafe version of: {@link #VRExtendedDisplay_GetEyeOutputViewport GetEyeOutputViewport} */
-	public static void nVRExtendedDisplay_GetEyeOutputViewport(int eEye, long pnX, long pnY, long pnWidth, long pnHeight) {
-		long __functionAddress = OpenVR.VRExtendedDisplay.GetEyeOutputViewport;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, eEye, pnX, pnY, pnWidth, pnHeight);
-	}
+    /** Unsafe version of: {@link #VRExtendedDisplay_GetEyeOutputViewport GetEyeOutputViewport} */
+    public static void nVRExtendedDisplay_GetEyeOutputViewport(int eEye, long pnX, long pnY, long pnWidth, long pnHeight) {
+        long __functionAddress = OpenVR.VRExtendedDisplay.GetEyeOutputViewport;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPPV(__functionAddress, eEye, pnX, pnY, pnWidth, pnHeight);
+    }
 
-	/**
-	 * Gets the viewport in the frame buffer to draw the output of the distortion into.
-	 *
-	 * @param eEye     
-	 * @param pnX      
-	 * @param pnY      
-	 * @param pnWidth  
-	 * @param pnHeight 
-	 */
-	public static void VRExtendedDisplay_GetEyeOutputViewport(int eEye, IntBuffer pnX, IntBuffer pnY, IntBuffer pnWidth, IntBuffer pnHeight) {
-		if ( CHECKS ) {
-			check(pnX, 1);
-			check(pnY, 1);
-			check(pnWidth, 1);
-			check(pnHeight, 1);
-		}
-		nVRExtendedDisplay_GetEyeOutputViewport(eEye, memAddress(pnX), memAddress(pnY), memAddress(pnWidth), memAddress(pnHeight));
-	}
+    /**
+     * Gets the viewport in the frame buffer to draw the output of the distortion into.
+     *
+     * @param eEye     
+     * @param pnX      
+     * @param pnY      
+     * @param pnWidth  
+     * @param pnHeight 
+     */
+    public static void VRExtendedDisplay_GetEyeOutputViewport(int eEye, IntBuffer pnX, IntBuffer pnY, IntBuffer pnWidth, IntBuffer pnHeight) {
+        if (CHECKS) {
+            check(pnX, 1);
+            check(pnY, 1);
+            check(pnWidth, 1);
+            check(pnHeight, 1);
+        }
+        nVRExtendedDisplay_GetEyeOutputViewport(eEye, memAddress(pnX), memAddress(pnY), memAddress(pnWidth), memAddress(pnHeight));
+    }
 
-	// --- [ VRExtendedDisplay_GetDXGIOutputInfo ] ---
+    // --- [ VRExtendedDisplay_GetDXGIOutputInfo ] ---
 
-	/** Unsafe version of: {@link #VRExtendedDisplay_GetDXGIOutputInfo GetDXGIOutputInfo} */
-	public static void nVRExtendedDisplay_GetDXGIOutputInfo(long pnAdapterIndex, long pnAdapterOutputIndex) {
-		long __functionAddress = OpenVR.VRExtendedDisplay.GetDXGIOutputInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, pnAdapterIndex, pnAdapterOutputIndex);
-	}
+    /** Unsafe version of: {@link #VRExtendedDisplay_GetDXGIOutputInfo GetDXGIOutputInfo} */
+    public static void nVRExtendedDisplay_GetDXGIOutputInfo(long pnAdapterIndex, long pnAdapterOutputIndex) {
+        long __functionAddress = OpenVR.VRExtendedDisplay.GetDXGIOutputInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, pnAdapterIndex, pnAdapterOutputIndex);
+    }
 
-	/**
-	 * <h3>D3D10/11 Only</h3>
-	 * 
-	 * <p>Returns the adapter index and output index that the user should pass into {@code EnumAdapters} and {@code EnumOutputs} to create the device and swap
-	 * chain in DX10 and DX11. If an error occurs both indices will be set to -1.</p>
-	 *
-	 * @param pnAdapterIndex       
-	 * @param pnAdapterOutputIndex 
-	 */
-	public static void VRExtendedDisplay_GetDXGIOutputInfo(IntBuffer pnAdapterIndex, IntBuffer pnAdapterOutputIndex) {
-		if ( CHECKS ) {
-			check(pnAdapterIndex, 1);
-			check(pnAdapterOutputIndex, 1);
-		}
-		nVRExtendedDisplay_GetDXGIOutputInfo(memAddress(pnAdapterIndex), memAddress(pnAdapterOutputIndex));
-	}
+    /**
+     * <h3>D3D10/11 Only</h3>
+     * 
+     * <p>Returns the adapter index and output index that the user should pass into {@code EnumAdapters} and {@code EnumOutputs} to create the device and swap
+     * chain in DX10 and DX11. If an error occurs both indices will be set to -1.</p>
+     *
+     * @param pnAdapterIndex       
+     * @param pnAdapterOutputIndex 
+     */
+    public static void VRExtendedDisplay_GetDXGIOutputInfo(IntBuffer pnAdapterIndex, IntBuffer pnAdapterOutputIndex) {
+        if (CHECKS) {
+            check(pnAdapterIndex, 1);
+            check(pnAdapterOutputIndex, 1);
+        }
+        nVRExtendedDisplay_GetDXGIOutputInfo(memAddress(pnAdapterIndex), memAddress(pnAdapterOutputIndex));
+    }
 
 }

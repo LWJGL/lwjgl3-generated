@@ -17,14 +17,14 @@ package org.lwjgl.opengles;
  */
 public final class EXTMultisampleCompatibility {
 
-	/**
-	 * Accepted by the {@code cap} parameter to Enable, Disable, and IsEnabled and the {@code pname} parameter to GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetInteger64v.
-	 */
-	public static final int
-		GL_MULTISAMPLE_EXT         = 0x809D,
-		GL_SAMPLE_ALPHA_TO_ONE_EXT = 0x809F;
+    /**
+     * Accepted by the {@code cap} parameter to Enable, Disable, and IsEnabled and the {@code pname} parameter to GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetInteger64v.
+     */
+    public static final int
+        GL_MULTISAMPLE_EXT         = 0x809D,
+        GL_SAMPLE_ALPHA_TO_ONE_EXT = 0x809F;
 
-	private EXTMultisampleCompatibility() {}
+    private EXTMultisampleCompatibility() {}
 
 }

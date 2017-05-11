@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface OVRLogCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pip)v";
+    String SIGNATURE = "(pip)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * The logging callback.
-	 *
-	 * @param userData an arbitrary value specified by the user of ovrInitParams
-	 * @param level    one of the {@code ovrLogLevel} constants
-	 * @param message  a UTF8-encoded null-terminated string
-	 */
-	void invoke(long userData, int level, long message);
+    /**
+     * The logging callback.
+     *
+     * @param userData an arbitrary value specified by the user of ovrInitParams
+     * @param level    one of the {@code ovrLogLevel} constants
+     * @param message  a UTF8-encoded null-terminated string
+     */
+    void invoke(long userData, int level, long message);
 
 }

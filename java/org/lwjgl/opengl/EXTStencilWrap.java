@@ -23,11 +23,11 @@ package org.lwjgl.opengl;
  */
 public final class EXTStencilWrap {
 
-	/** Accepted by the {@code sfail}, {@code dpfail}, and {@code dppass} parameter of StencilOp. */
-	public static final int
-		GL_INCR_WRAP_EXT = 0x8507,
-		GL_DECR_WRAP_EXT = 0x8508;
+    /** Accepted by the {@code sfail}, {@code dpfail}, and {@code dppass} parameter of StencilOp. */
+    public static final int
+        GL_INCR_WRAP_EXT = 0x8507,
+        GL_DECR_WRAP_EXT = 0x8508;
 
-	private EXTStencilWrap() {}
+    private EXTStencilWrap() {}
 
 }

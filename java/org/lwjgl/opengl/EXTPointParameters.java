@@ -55,47 +55,48 @@ alpha(Pe) = Alpha * factor(Pe)</code></pre>
  */
 public class EXTPointParameters {
 
-	/** Accepted by the {@code pname} parameter of glPointParameterfvEXT, and the {@code pname} of glGet. */
-	public static final int
-		GL_POINT_SIZE_MIN_EXT            = 0x8126,
-		GL_POINT_SIZE_MAX_EXT            = 0x8127,
-		GL_POINT_FADE_THRESHOLD_SIZE_EXT = 0x8128,
-		GL_DISTANCE_ATTENUATION_EXT      = 0x8129;
+    /** Accepted by the {@code pname} parameter of glPointParameterfvEXT, and the {@code pname} of glGet. */
+    public static final int
+        GL_POINT_SIZE_MIN_EXT            = 0x8126,
+        GL_POINT_SIZE_MAX_EXT            = 0x8127,
+        GL_POINT_FADE_THRESHOLD_SIZE_EXT = 0x8128,
+        GL_DISTANCE_ATTENUATION_EXT      = 0x8129;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTPointParameters() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTPointParameters() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glPointParameterfEXT, caps.glPointParameterfvEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glPointParameterfEXT, caps.glPointParameterfvEXT
+        );
+    }
 
-	// --- [ glPointParameterfEXT ] ---
+    // --- [ glPointParameterfEXT ] ---
 
-	public static native void glPointParameterfEXT(int pname, float param);
+    public static native void glPointParameterfEXT(int pname, float param);
 
-	// --- [ glPointParameterfvEXT ] ---
+    // --- [ glPointParameterfvEXT ] ---
 
-	public static native void nglPointParameterfvEXT(int pname, long params);
+    public static native void nglPointParameterfvEXT(int pname, long params);
 
-	public static void glPointParameterfvEXT(int pname, FloatBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglPointParameterfvEXT(pname, memAddress(params));
-	}
+    public static void glPointParameterfvEXT(int pname, FloatBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglPointParameterfvEXT(pname, memAddress(params));
+    }
 
-	/** Array version of: {@link #glPointParameterfvEXT PointParameterfvEXT} */
-	public static void glPointParameterfvEXT(int pname, float[] params) {
-		long __functionAddress = GL.getICD().glPointParameterfvEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, pname, params);
-	}
+    /** Array version of: {@link #glPointParameterfvEXT PointParameterfvEXT} */
+    public static void glPointParameterfvEXT(int pname, float[] params) {
+        long __functionAddress = GL.getICD().glPointParameterfvEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, pname, params);
+    }
 
 }

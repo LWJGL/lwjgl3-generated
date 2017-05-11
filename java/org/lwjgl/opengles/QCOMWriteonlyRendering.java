@@ -31,9 +31,9 @@ package org.lwjgl.opengles;
  */
 public final class QCOMWriteonlyRendering {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable. */
-	public static final int GL_WRITEONLY_RENDERING_QCOM = 0x8823;
+    /** Accepted by the {@code cap} parameter of Enable, Disable. */
+    public static final int GL_WRITEONLY_RENDERING_QCOM = 0x8823;
 
-	private QCOMWriteonlyRendering() {}
+    private QCOMWriteonlyRendering() {}
 
 }

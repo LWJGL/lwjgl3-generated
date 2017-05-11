@@ -28,34 +28,34 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBSampleShading {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int GL_SAMPLE_SHADING_ARB = 0x8C36;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int GL_SAMPLE_SHADING_ARB = 0x8C36;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBSampleShading() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBSampleShading() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glMinSampleShadingARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glMinSampleShadingARB
+        );
+    }
 
-	// --- [ glMinSampleShadingARB ] ---
+    // --- [ glMinSampleShadingARB ] ---
 
-	/**
-	 * Sets the minimum sample shading fraction. {@code value} is clamped to [0,1] when specified.
-	 *
-	 * @param value the minimum sample shading fraction
-	 */
-	public static native void glMinSampleShadingARB(float value);
+    /**
+     * Sets the minimum sample shading fraction. {@code value} is clamped to [0,1] when specified.
+     *
+     * @param value the minimum sample shading fraction
+     */
+    public static native void glMinSampleShadingARB(float value);
 
 }

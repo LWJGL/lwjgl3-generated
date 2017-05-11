@@ -14,9 +14,9 @@ package org.lwjgl.opengles;
  */
 public final class ANGLEProgramBinary {
 
-	/** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
-	public static final int GL_PROGRAM_BINARY_ANGLE = 0x93A6;
+    /** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
+    public static final int GL_PROGRAM_BINARY_ANGLE = 0x93A6;
 
-	private ANGLEProgramBinary() {}
+    private ANGLEProgramBinary() {}
 
 }

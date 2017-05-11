@@ -48,321 +48,321 @@ import static org.lwjgl.system.MemoryStack.*;
  */
 public class VkPastPresentationTimingGOOGLE extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		PRESENTID,
-		DESIREDPRESENTTIME,
-		ACTUALPRESENTTIME,
-		EARLIESTPRESENTTIME,
-		PRESENTMARGIN;
+    /** The struct member offsets. */
+    public static final int
+        PRESENTID,
+        DESIREDPRESENTTIME,
+        ACTUALPRESENTTIME,
+        EARLIESTPRESENTTIME,
+        PRESENTMARGIN;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(8),
-			__member(8),
-			__member(8),
-			__member(8)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(8),
+            __member(8),
+            __member(8),
+            __member(8)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		PRESENTID = layout.offsetof(0);
-		DESIREDPRESENTTIME = layout.offsetof(1);
-		ACTUALPRESENTTIME = layout.offsetof(2);
-		EARLIESTPRESENTTIME = layout.offsetof(3);
-		PRESENTMARGIN = layout.offsetof(4);
-	}
+        PRESENTID = layout.offsetof(0);
+        DESIREDPRESENTTIME = layout.offsetof(1);
+        ACTUALPRESENTTIME = layout.offsetof(2);
+        EARLIESTPRESENTTIME = layout.offsetof(3);
+        PRESENTMARGIN = layout.offsetof(4);
+    }
 
-	VkPastPresentationTimingGOOGLE(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    VkPastPresentationTimingGOOGLE(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link VkPastPresentationTimingGOOGLE} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public VkPastPresentationTimingGOOGLE(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link VkPastPresentationTimingGOOGLE} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public VkPastPresentationTimingGOOGLE(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code presentID} field. */
-	public int presentID() { return npresentID(address()); }
-	/** Returns the value of the {@code desiredPresentTime} field. */
-	public long desiredPresentTime() { return ndesiredPresentTime(address()); }
-	/** Returns the value of the {@code actualPresentTime} field. */
-	public long actualPresentTime() { return nactualPresentTime(address()); }
-	/** Returns the value of the {@code earliestPresentTime} field. */
-	public long earliestPresentTime() { return nearliestPresentTime(address()); }
-	/** Returns the value of the {@code presentMargin} field. */
-	public long presentMargin() { return npresentMargin(address()); }
+    /** Returns the value of the {@code presentID} field. */
+    public int presentID() { return npresentID(address()); }
+    /** Returns the value of the {@code desiredPresentTime} field. */
+    public long desiredPresentTime() { return ndesiredPresentTime(address()); }
+    /** Returns the value of the {@code actualPresentTime} field. */
+    public long actualPresentTime() { return nactualPresentTime(address()); }
+    /** Returns the value of the {@code earliestPresentTime} field. */
+    public long earliestPresentTime() { return nearliestPresentTime(address()); }
+    /** Returns the value of the {@code presentMargin} field. */
+    public long presentMargin() { return npresentMargin(address()); }
 
-	/** Sets the specified value to the {@code presentID} field. */
-	public VkPastPresentationTimingGOOGLE presentID(int value) { npresentID(address(), value); return this; }
-	/** Sets the specified value to the {@code desiredPresentTime} field. */
-	public VkPastPresentationTimingGOOGLE desiredPresentTime(long value) { ndesiredPresentTime(address(), value); return this; }
-	/** Sets the specified value to the {@code actualPresentTime} field. */
-	public VkPastPresentationTimingGOOGLE actualPresentTime(long value) { nactualPresentTime(address(), value); return this; }
-	/** Sets the specified value to the {@code earliestPresentTime} field. */
-	public VkPastPresentationTimingGOOGLE earliestPresentTime(long value) { nearliestPresentTime(address(), value); return this; }
-	/** Sets the specified value to the {@code presentMargin} field. */
-	public VkPastPresentationTimingGOOGLE presentMargin(long value) { npresentMargin(address(), value); return this; }
+    /** Sets the specified value to the {@code presentID} field. */
+    public VkPastPresentationTimingGOOGLE presentID(int value) { npresentID(address(), value); return this; }
+    /** Sets the specified value to the {@code desiredPresentTime} field. */
+    public VkPastPresentationTimingGOOGLE desiredPresentTime(long value) { ndesiredPresentTime(address(), value); return this; }
+    /** Sets the specified value to the {@code actualPresentTime} field. */
+    public VkPastPresentationTimingGOOGLE actualPresentTime(long value) { nactualPresentTime(address(), value); return this; }
+    /** Sets the specified value to the {@code earliestPresentTime} field. */
+    public VkPastPresentationTimingGOOGLE earliestPresentTime(long value) { nearliestPresentTime(address(), value); return this; }
+    /** Sets the specified value to the {@code presentMargin} field. */
+    public VkPastPresentationTimingGOOGLE presentMargin(long value) { npresentMargin(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public VkPastPresentationTimingGOOGLE set(
-		int presentID,
-		long desiredPresentTime,
-		long actualPresentTime,
-		long earliestPresentTime,
-		long presentMargin
-	) {
-		presentID(presentID);
-		desiredPresentTime(desiredPresentTime);
-		actualPresentTime(actualPresentTime);
-		earliestPresentTime(earliestPresentTime);
-		presentMargin(presentMargin);
+    /** Initializes this struct with the specified values. */
+    public VkPastPresentationTimingGOOGLE set(
+        int presentID,
+        long desiredPresentTime,
+        long actualPresentTime,
+        long earliestPresentTime,
+        long presentMargin
+    ) {
+        presentID(presentID);
+        desiredPresentTime(desiredPresentTime);
+        actualPresentTime(actualPresentTime);
+        earliestPresentTime(earliestPresentTime);
+        presentMargin(presentMargin);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkPastPresentationTimingGOOGLE set(VkPastPresentationTimingGOOGLE src) {
-		memCopy(src.address(), address(), SIZEOF);
-		return this;
-	}
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPastPresentationTimingGOOGLE set(VkPastPresentationTimingGOOGLE src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static VkPastPresentationTimingGOOGLE malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VkPastPresentationTimingGOOGLE malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static VkPastPresentationTimingGOOGLE calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VkPastPresentationTimingGOOGLE calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated with {@link BufferUtils}. */
-	public static VkPastPresentationTimingGOOGLE create() {
-		return new VkPastPresentationTimingGOOGLE(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated with {@link BufferUtils}. */
+    public static VkPastPresentationTimingGOOGLE create() {
+        return new VkPastPresentationTimingGOOGLE(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link VkPastPresentationTimingGOOGLE} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static VkPastPresentationTimingGOOGLE create(long address) {
-		return address == NULL ? null : new VkPastPresentationTimingGOOGLE(address, null);
-	}
+    /** Returns a new {@link VkPastPresentationTimingGOOGLE} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static VkPastPresentationTimingGOOGLE create(long address) {
+        return address == NULL ? null : new VkPastPresentationTimingGOOGLE(address, null);
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link VkPastPresentationTimingGOOGLE.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link VkPastPresentationTimingGOOGLE.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the thread-local {@link MemoryStack}. */
-	public static VkPastPresentationTimingGOOGLE mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VkPastPresentationTimingGOOGLE mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static VkPastPresentationTimingGOOGLE callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VkPastPresentationTimingGOOGLE callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkPastPresentationTimingGOOGLE mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkPastPresentationTimingGOOGLE mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkPastPresentationTimingGOOGLE callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkPastPresentationTimingGOOGLE callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #presentID}. */
-	public static int npresentID(long struct) { return memGetInt(struct + VkPastPresentationTimingGOOGLE.PRESENTID); }
-	/** Unsafe version of {@link #desiredPresentTime}. */
-	public static long ndesiredPresentTime(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.DESIREDPRESENTTIME); }
-	/** Unsafe version of {@link #actualPresentTime}. */
-	public static long nactualPresentTime(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.ACTUALPRESENTTIME); }
-	/** Unsafe version of {@link #earliestPresentTime}. */
-	public static long nearliestPresentTime(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.EARLIESTPRESENTTIME); }
-	/** Unsafe version of {@link #presentMargin}. */
-	public static long npresentMargin(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.PRESENTMARGIN); }
+    /** Unsafe version of {@link #presentID}. */
+    public static int npresentID(long struct) { return memGetInt(struct + VkPastPresentationTimingGOOGLE.PRESENTID); }
+    /** Unsafe version of {@link #desiredPresentTime}. */
+    public static long ndesiredPresentTime(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.DESIREDPRESENTTIME); }
+    /** Unsafe version of {@link #actualPresentTime}. */
+    public static long nactualPresentTime(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.ACTUALPRESENTTIME); }
+    /** Unsafe version of {@link #earliestPresentTime}. */
+    public static long nearliestPresentTime(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.EARLIESTPRESENTTIME); }
+    /** Unsafe version of {@link #presentMargin}. */
+    public static long npresentMargin(long struct) { return memGetLong(struct + VkPastPresentationTimingGOOGLE.PRESENTMARGIN); }
 
-	/** Unsafe version of {@link #presentID(int) presentID}. */
-	public static void npresentID(long struct, int value) { memPutInt(struct + VkPastPresentationTimingGOOGLE.PRESENTID, value); }
-	/** Unsafe version of {@link #desiredPresentTime(long) desiredPresentTime}. */
-	public static void ndesiredPresentTime(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.DESIREDPRESENTTIME, value); }
-	/** Unsafe version of {@link #actualPresentTime(long) actualPresentTime}. */
-	public static void nactualPresentTime(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.ACTUALPRESENTTIME, value); }
-	/** Unsafe version of {@link #earliestPresentTime(long) earliestPresentTime}. */
-	public static void nearliestPresentTime(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.EARLIESTPRESENTTIME, value); }
-	/** Unsafe version of {@link #presentMargin(long) presentMargin}. */
-	public static void npresentMargin(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.PRESENTMARGIN, value); }
+    /** Unsafe version of {@link #presentID(int) presentID}. */
+    public static void npresentID(long struct, int value) { memPutInt(struct + VkPastPresentationTimingGOOGLE.PRESENTID, value); }
+    /** Unsafe version of {@link #desiredPresentTime(long) desiredPresentTime}. */
+    public static void ndesiredPresentTime(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.DESIREDPRESENTTIME, value); }
+    /** Unsafe version of {@link #actualPresentTime(long) actualPresentTime}. */
+    public static void nactualPresentTime(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.ACTUALPRESENTTIME, value); }
+    /** Unsafe version of {@link #earliestPresentTime(long) earliestPresentTime}. */
+    public static void nearliestPresentTime(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.EARLIESTPRESENTTIME, value); }
+    /** Unsafe version of {@link #presentMargin(long) presentMargin}. */
+    public static void npresentMargin(long struct, long value) { memPutLong(struct + VkPastPresentationTimingGOOGLE.PRESENTMARGIN, value); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link VkPastPresentationTimingGOOGLE} structs. */
-	public static class Buffer extends StructBuffer<VkPastPresentationTimingGOOGLE, Buffer> implements NativeResource {
+    /** An array of {@link VkPastPresentationTimingGOOGLE} structs. */
+    public static class Buffer extends StructBuffer<VkPastPresentationTimingGOOGLE, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link VkPastPresentationTimingGOOGLE#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link VkPastPresentationTimingGOOGLE.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link VkPastPresentationTimingGOOGLE#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected VkPastPresentationTimingGOOGLE newInstance(long address) {
-			return new VkPastPresentationTimingGOOGLE(address, container);
-		}
+        @Override
+        protected VkPastPresentationTimingGOOGLE newInstance(long address) {
+            return new VkPastPresentationTimingGOOGLE(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code presentID} field. */
-		public int presentID() { return VkPastPresentationTimingGOOGLE.npresentID(address()); }
-		/** Returns the value of the {@code desiredPresentTime} field. */
-		public long desiredPresentTime() { return VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address()); }
-		/** Returns the value of the {@code actualPresentTime} field. */
-		public long actualPresentTime() { return VkPastPresentationTimingGOOGLE.nactualPresentTime(address()); }
-		/** Returns the value of the {@code earliestPresentTime} field. */
-		public long earliestPresentTime() { return VkPastPresentationTimingGOOGLE.nearliestPresentTime(address()); }
-		/** Returns the value of the {@code presentMargin} field. */
-		public long presentMargin() { return VkPastPresentationTimingGOOGLE.npresentMargin(address()); }
+        /** Returns the value of the {@code presentID} field. */
+        public int presentID() { return VkPastPresentationTimingGOOGLE.npresentID(address()); }
+        /** Returns the value of the {@code desiredPresentTime} field. */
+        public long desiredPresentTime() { return VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address()); }
+        /** Returns the value of the {@code actualPresentTime} field. */
+        public long actualPresentTime() { return VkPastPresentationTimingGOOGLE.nactualPresentTime(address()); }
+        /** Returns the value of the {@code earliestPresentTime} field. */
+        public long earliestPresentTime() { return VkPastPresentationTimingGOOGLE.nearliestPresentTime(address()); }
+        /** Returns the value of the {@code presentMargin} field. */
+        public long presentMargin() { return VkPastPresentationTimingGOOGLE.npresentMargin(address()); }
 
-		/** Sets the specified value to the {@code presentID} field. */
-		public VkPastPresentationTimingGOOGLE.Buffer presentID(int value) { VkPastPresentationTimingGOOGLE.npresentID(address(), value); return this; }
-		/** Sets the specified value to the {@code desiredPresentTime} field. */
-		public VkPastPresentationTimingGOOGLE.Buffer desiredPresentTime(long value) { VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address(), value); return this; }
-		/** Sets the specified value to the {@code actualPresentTime} field. */
-		public VkPastPresentationTimingGOOGLE.Buffer actualPresentTime(long value) { VkPastPresentationTimingGOOGLE.nactualPresentTime(address(), value); return this; }
-		/** Sets the specified value to the {@code earliestPresentTime} field. */
-		public VkPastPresentationTimingGOOGLE.Buffer earliestPresentTime(long value) { VkPastPresentationTimingGOOGLE.nearliestPresentTime(address(), value); return this; }
-		/** Sets the specified value to the {@code presentMargin} field. */
-		public VkPastPresentationTimingGOOGLE.Buffer presentMargin(long value) { VkPastPresentationTimingGOOGLE.npresentMargin(address(), value); return this; }
+        /** Sets the specified value to the {@code presentID} field. */
+        public VkPastPresentationTimingGOOGLE.Buffer presentID(int value) { VkPastPresentationTimingGOOGLE.npresentID(address(), value); return this; }
+        /** Sets the specified value to the {@code desiredPresentTime} field. */
+        public VkPastPresentationTimingGOOGLE.Buffer desiredPresentTime(long value) { VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address(), value); return this; }
+        /** Sets the specified value to the {@code actualPresentTime} field. */
+        public VkPastPresentationTimingGOOGLE.Buffer actualPresentTime(long value) { VkPastPresentationTimingGOOGLE.nactualPresentTime(address(), value); return this; }
+        /** Sets the specified value to the {@code earliestPresentTime} field. */
+        public VkPastPresentationTimingGOOGLE.Buffer earliestPresentTime(long value) { VkPastPresentationTimingGOOGLE.nearliestPresentTime(address(), value); return this; }
+        /** Sets the specified value to the {@code presentMargin} field. */
+        public VkPastPresentationTimingGOOGLE.Buffer presentMargin(long value) { VkPastPresentationTimingGOOGLE.npresentMargin(address(), value); return this; }
 
-	}
+    }
 
 }

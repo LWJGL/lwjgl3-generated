@@ -22,21 +22,21 @@ package org.lwjgl.opengles;
  */
 public final class EXTYUVTarget {
 
-	/** Returned in the {@code type} parameter of GetActiveUniform. */
-	public static final int GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT = 0x8BE7;
+    /** Returned in the {@code type} parameter of GetActiveUniform. */
+    public static final int GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT = 0x8BE7;
 
-	/**
-	 * Reuse tokens as in extension "OES_EGL_image_external." Accepted as a target in the {@code target} parameter of BindTexture, EGLImageTargetTexture2DOES,
-	 * and FramebufferTexture2D.
-	 */
-	public static final int GL_TEXTURE_EXTERNAL_OES = 0x8D65;
+    /**
+     * Reuse tokens as in extension "OES_EGL_image_external." Accepted as a target in the {@code target} parameter of BindTexture, EGLImageTargetTexture2DOES,
+     * and FramebufferTexture2D.
+     */
+    public static final int GL_TEXTURE_EXTERNAL_OES = 0x8D65;
 
-	/** Accepted as {@code value} in GetIntegerv() and GetFloatv() queries. */
-	public static final int GL_TEXTURE_BINDING_EXTERNAL_OES = 0x8D67;
+    /** Accepted as {@code value} in GetIntegerv() and GetFloatv() queries. */
+    public static final int GL_TEXTURE_BINDING_EXTERNAL_OES = 0x8D67;
 
-	/** Accepted as {@code value} in GetTexParameter*() queries. */
-	public static final int GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES = 0x8D68;
+    /** Accepted as {@code value} in GetTexParameter*() queries. */
+    public static final int GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES = 0x8D68;
 
-	private EXTYUVTarget() {}
+    private EXTYUVTarget() {}
 
 }

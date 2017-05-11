@@ -17,55 +17,55 @@ import static org.lwjgl.system.JNI.*;
  */
 public class SOFTPauseDevice {
 
-	protected SOFTPauseDevice() {
-		throw new UnsupportedOperationException();
-	}
+    protected SOFTPauseDevice() {
+        throw new UnsupportedOperationException();
+    }
 
 	static boolean isAvailable(ALCCapabilities caps) {
 		return checkFunctions(
-			caps.alcDevicePauseSOFT, caps.alcDeviceResumeSOFT
-		);
+            caps.alcDevicePauseSOFT, caps.alcDeviceResumeSOFT
+        );
 	}
 
-	// --- [ alcDevicePauseSOFT ] ---
+    // --- [ alcDevicePauseSOFT ] ---
 
-	/**
-	 * Pauses a playback device.
-	 * 
-	 * <p>When paused, no contexts associated with the device will be processed or updated. Playing sources will not produce sound, have their offsets
-	 * incremented, or process any more buffers, until the device is resumed. Pausing a device that is already paused is a legal no-op.</p>
-	 *
-	 * @param device the device to pause
-	 */
-	public static void alcDevicePauseSOFT(long device) {
+    /**
+     * Pauses a playback device.
+     * 
+     * <p>When paused, no contexts associated with the device will be processed or updated. Playing sources will not produce sound, have their offsets
+     * incremented, or process any more buffers, until the device is resumed. Pausing a device that is already paused is a legal no-op.</p>
+     *
+     * @param device the device to pause
+     */
+    public static void alcDevicePauseSOFT(long device) {
 		long __functionAddress = ALC.getICD().alcDevicePauseSOFT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(device);
-		}
-		invokePV(__functionAddress, device);
-	}
+        if (CHECKS) {
+            check(__functionAddress);
+            check(device);
+        }
+        invokePV(__functionAddress, device);
+    }
 
-	// --- [ alcDeviceResumeSOFT ] ---
+    // --- [ alcDeviceResumeSOFT ] ---
 
-	/**
-	 * Resumes playback of a paused device.
-	 * 
-	 * <p>This will restart processing on the device -- sources will resume playing sound as normal. Resuming playback on a device that is not paused is a legal
-	 * no-op.</p>
-	 * 
-	 * <p>These functions are not reference counted. alcDeviceResumeSOFT only needs to be called once to resume playback, regardless of how many times
-	 * {@link #alcDevicePauseSOFT DevicePauseSOFT} was called.</p>
-	 *
-	 * @param device the device to resume
-	 */
-	public static void alcDeviceResumeSOFT(long device) {
+    /**
+     * Resumes playback of a paused device.
+     * 
+     * <p>This will restart processing on the device -- sources will resume playing sound as normal. Resuming playback on a device that is not paused is a legal
+     * no-op.</p>
+     * 
+     * <p>These functions are not reference counted. alcDeviceResumeSOFT only needs to be called once to resume playback, regardless of how many times
+     * {@link #alcDevicePauseSOFT DevicePauseSOFT} was called.</p>
+     *
+     * @param device the device to resume
+     */
+    public static void alcDeviceResumeSOFT(long device) {
 		long __functionAddress = ALC.getICD().alcDeviceResumeSOFT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(device);
-		}
-		invokePV(__functionAddress, device);
-	}
+        if (CHECKS) {
+            check(__functionAddress);
+            check(device);
+        }
+        invokePV(__functionAddress, device);
+    }
 
 }

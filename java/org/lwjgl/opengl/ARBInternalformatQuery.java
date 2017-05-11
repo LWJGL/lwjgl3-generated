@@ -27,66 +27,67 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBInternalformatQuery {
 
-	/** Accepted by the {@code pname} parameter of GetInternalformativ. */
-	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
+    /** Accepted by the {@code pname} parameter of GetInternalformativ. */
+    public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBInternalformatQuery() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBInternalformatQuery() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glGetInternalformativ
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glGetInternalformativ
+        );
+    }
 
-	// --- [ glGetInternalformativ ] ---
+    // --- [ glGetInternalformativ ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetInternalformativ GetInternalformativ}
-	 *
-	 * @param bufSize the maximum number of values that may be written to params by the function
-	 */
-	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
+    /**
+     * Unsafe version of: {@link #glGetInternalformativ GetInternalformativ}
+     *
+     * @param bufSize the maximum number of values that may be written to params by the function
+     */
+    public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
 
-	/**
-	 * Retrieves information about implementation-dependent support for internal formats.
-	 *
-	 * @param target         the usage of the internal format. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
-	 * @param internalformat the internal format about which to retrieve information
-	 * @param pname          the type of information to query
-	 * @param params         a variable into which to write the retrieved information
-	 */
-	public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
-		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
-	}
+    /**
+     * Retrieves information about implementation-dependent support for internal formats.
+     *
+     * @param target         the usage of the internal format. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
+     * @param internalformat the internal format about which to retrieve information
+     * @param pname          the type of information to query
+     * @param params         a variable into which to write the retrieved information
+     */
+    public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
+        nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
+    }
 
-	/**
-	 * Retrieves information about implementation-dependent support for internal formats.
-	 *
-	 * @param target         the usage of the internal format. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
-	 * @param internalformat the internal format about which to retrieve information
-	 * @param pname          the type of information to query
-	 */
-	public static int glGetInternalformati(int target, int internalformat, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetInternalformativ(target, internalformat, pname, 1, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Retrieves information about implementation-dependent support for internal formats.
+     *
+     * @param target         the usage of the internal format. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
+     * @param internalformat the internal format about which to retrieve information
+     * @param pname          the type of information to query
+     */
+    public static int glGetInternalformati(int target, int internalformat, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetInternalformativ(target, internalformat, pname, 1, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGetInternalformativ GetInternalformativ} */
-	public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glGetInternalformativ;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, pname, params.length, params);
-	}
+    /** Array version of: {@link #glGetInternalformativ GetInternalformativ} */
+    public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glGetInternalformativ;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, internalformat, pname, params.length, params);
+    }
 
 }

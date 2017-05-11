@@ -35,48 +35,49 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDiscardFramebuffer {
 
-	/** Accepted in the {@code attachments} parameter of DiscardFramebufferEXT when the default framebuffer is bound to {@code target}. */
-	public static final int
-		GL_COLOR_EXT   = 0x1800,
-		GL_DEPTH_EXT   = 0x1801,
-		GL_STENCIL_EXT = 0x1802;
+    /** Accepted in the {@code attachments} parameter of DiscardFramebufferEXT when the default framebuffer is bound to {@code target}. */
+    public static final int
+        GL_COLOR_EXT   = 0x1800,
+        GL_DEPTH_EXT   = 0x1801,
+        GL_STENCIL_EXT = 0x1802;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTDiscardFramebuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDiscardFramebuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glDiscardFramebufferEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glDiscardFramebufferEXT
+        );
+    }
 
-	// --- [ glDiscardFramebufferEXT ] ---
+    // --- [ glDiscardFramebufferEXT ] ---
 
-	public static native void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments);
+    public static native void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments);
 
-	public static void glDiscardFramebufferEXT(int target, IntBuffer attachments) {
-		nglDiscardFramebufferEXT(target, attachments.remaining(), memAddress(attachments));
-	}
+    public static void glDiscardFramebufferEXT(int target, IntBuffer attachments) {
+        nglDiscardFramebufferEXT(target, attachments.remaining(), memAddress(attachments));
+    }
 
-	public static void glDiscardFramebufferEXT(int target, int attachment) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer attachments = stack.ints(attachment);
-			nglDiscardFramebufferEXT(target, 1, memAddress(attachments));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glDiscardFramebufferEXT(int target, int attachment) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer attachments = stack.ints(attachment);
+            nglDiscardFramebufferEXT(target, 1, memAddress(attachments));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
-	public static void glDiscardFramebufferEXT(int target, int[] attachments) {
-		long __functionAddress = GLES.getICD().glDiscardFramebufferEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, attachments.length, attachments);
-	}
+    /** Array version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
+    public static void glDiscardFramebufferEXT(int target, int[] attachments) {
+        long __functionAddress = GLES.getICD().glDiscardFramebufferEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, attachments.length, attachments);
+    }
 
 }

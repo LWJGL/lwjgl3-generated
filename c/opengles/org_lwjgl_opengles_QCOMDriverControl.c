@@ -14,31 +14,31 @@ typedef void (APIENTRY *glDisableDriverControlQCOMPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMDriverControl_nglGetDriverControlsQCOM__JIJ(JNIEnv *__env, jclass clazz, jlong numAddress, jint size, jlong driverControlsAddress) {
-	glGetDriverControlsQCOMPROC glGetDriverControlsQCOM = (glGetDriverControlsQCOMPROC)tlsGetFunction(270);
-	intptr_t num = (intptr_t)numAddress;
-	intptr_t driverControls = (intptr_t)driverControlsAddress;
-	UNUSED_PARAM(clazz)
-	glGetDriverControlsQCOM(num, size, driverControls);
+    glGetDriverControlsQCOMPROC glGetDriverControlsQCOM = (glGetDriverControlsQCOMPROC)tlsGetFunction(270);
+    intptr_t num = (intptr_t)numAddress;
+    intptr_t driverControls = (intptr_t)driverControlsAddress;
+    UNUSED_PARAM(clazz)
+    glGetDriverControlsQCOM(num, size, driverControls);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMDriverControl_nglGetDriverControlStringQCOM__IIJJ(JNIEnv *__env, jclass clazz, jint driverControl, jint bufSize, jlong lengthAddress, jlong driverControlStringAddress) {
-	glGetDriverControlStringQCOMPROC glGetDriverControlStringQCOM = (glGetDriverControlStringQCOMPROC)tlsGetFunction(269);
-	intptr_t length = (intptr_t)lengthAddress;
-	intptr_t driverControlString = (intptr_t)driverControlStringAddress;
-	UNUSED_PARAM(clazz)
-	glGetDriverControlStringQCOM(driverControl, bufSize, length, driverControlString);
+    glGetDriverControlStringQCOMPROC glGetDriverControlStringQCOM = (glGetDriverControlStringQCOMPROC)tlsGetFunction(269);
+    intptr_t length = (intptr_t)lengthAddress;
+    intptr_t driverControlString = (intptr_t)driverControlStringAddress;
+    UNUSED_PARAM(clazz)
+    glGetDriverControlStringQCOM(driverControl, bufSize, length, driverControlString);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMDriverControl_glEnableDriverControlQCOM(JNIEnv *__env, jclass clazz, jint driverControl) {
-	glEnableDriverControlQCOMPROC glEnableDriverControlQCOM = (glEnableDriverControlQCOMPROC)tlsGetFunction(186);
-	UNUSED_PARAM(clazz)
-	glEnableDriverControlQCOM(driverControl);
+    glEnableDriverControlQCOMPROC glEnableDriverControlQCOM = (glEnableDriverControlQCOMPROC)tlsGetFunction(186);
+    UNUSED_PARAM(clazz)
+    glEnableDriverControlQCOM(driverControl);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMDriverControl_glDisableDriverControlQCOM(JNIEnv *__env, jclass clazz, jint driverControl) {
-	glDisableDriverControlQCOMPROC glDisableDriverControlQCOM = (glDisableDriverControlQCOMPROC)tlsGetFunction(145);
-	UNUSED_PARAM(clazz)
-	glDisableDriverControlQCOM(driverControl);
+    glDisableDriverControlQCOMPROC glDisableDriverControlQCOM = (glDisableDriverControlQCOMPROC)tlsGetFunction(145);
+    UNUSED_PARAM(clazz)
+    glDisableDriverControlQCOM(driverControl);
 }
 
 EXTERN_C_EXIT

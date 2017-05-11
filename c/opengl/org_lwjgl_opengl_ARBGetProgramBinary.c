@@ -13,25 +13,25 @@ typedef void (APIENTRY *glProgramParameteriPROC) (jint, jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglGetProgramBinary__IIJJJ(JNIEnv *__env, jclass clazz, jint program, jint bufSize, jlong lengthAddress, jlong binaryFormatAddress, jlong binaryAddress) {
-	glGetProgramBinaryPROC glGetProgramBinary = (glGetProgramBinaryPROC)tlsGetFunction(653);
-	intptr_t length = (intptr_t)lengthAddress;
-	intptr_t binaryFormat = (intptr_t)binaryFormatAddress;
-	intptr_t binary = (intptr_t)binaryAddress;
-	UNUSED_PARAM(clazz)
-	glGetProgramBinary(program, bufSize, length, binaryFormat, binary);
+    glGetProgramBinaryPROC glGetProgramBinary = (glGetProgramBinaryPROC)tlsGetFunction(653);
+    intptr_t length = (intptr_t)lengthAddress;
+    intptr_t binaryFormat = (intptr_t)binaryFormatAddress;
+    intptr_t binary = (intptr_t)binaryAddress;
+    UNUSED_PARAM(clazz)
+    glGetProgramBinary(program, bufSize, length, binaryFormat, binary);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglProgramBinary(JNIEnv *__env, jclass clazz, jint program, jint binaryFormat, jlong binaryAddress, jint length) {
-	glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1242);
-	const intptr_t binary = (const intptr_t)binaryAddress;
-	UNUSED_PARAM(clazz)
-	glProgramBinary(program, binaryFormat, binary, length);
+    glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1242);
+    const intptr_t binary = (const intptr_t)binaryAddress;
+    UNUSED_PARAM(clazz)
+    glProgramBinary(program, binaryFormat, binary, length);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_glProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
-	glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1253);
-	UNUSED_PARAM(clazz)
-	glProgramParameteri(program, pname, value);
+    glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1253);
+    UNUSED_PARAM(clazz)
+    glProgramParameteri(program, pname, value);
 }
 
 EXTERN_C_EXIT

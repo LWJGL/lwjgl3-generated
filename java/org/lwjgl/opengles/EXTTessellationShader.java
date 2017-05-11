@@ -56,91 +56,91 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTTessellationShader {
 
-	/** Accepted by the {@code mode} parameter of DrawArrays, DrawElements, and other commands which draw primitives. */
-	public static final int GL_PATCHES_EXT = 0xE;
+    /** Accepted by the {@code mode} parameter of DrawArrays, DrawElements, and other commands which draw primitives. */
+    public static final int GL_PATCHES_EXT = 0xE;
 
-	/** Accepted by the {@code pname} parameter of PatchParameteriEXT, GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
-	public static final int GL_PATCH_VERTICES_EXT = 0x8E72;
+    /** Accepted by the {@code pname} parameter of PatchParameteriEXT, GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
+    public static final int GL_PATCH_VERTICES_EXT = 0x8E72;
 
-	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_TESS_CONTROL_OUTPUT_VERTICES_EXT = 0x8E75,
-		GL_TESS_GEN_MODE_EXT                = 0x8E76,
-		GL_TESS_GEN_SPACING_EXT             = 0x8E77,
-		GL_TESS_GEN_VERTEX_ORDER_EXT        = 0x8E78,
-		GL_TESS_GEN_POINT_MODE_EXT          = 0x8E79;
+    /** Accepted by the {@code pname} parameter of GetProgramiv. */
+    public static final int
+        GL_TESS_CONTROL_OUTPUT_VERTICES_EXT = 0x8E75,
+        GL_TESS_GEN_MODE_EXT                = 0x8E76,
+        GL_TESS_GEN_SPACING_EXT             = 0x8E77,
+        GL_TESS_GEN_VERTEX_ORDER_EXT        = 0x8E78,
+        GL_TESS_GEN_POINT_MODE_EXT          = 0x8E79;
 
-	/** Returned by GetProgramiv when {@code pname} is TESS_GEN_MODE_EXT. */
-	public static final int
-		GL_ISOLINES_EXT = 0x8E7A,
-		GL_QUADS_EXT    = 0x7;
+    /** Returned by GetProgramiv when {@code pname} is TESS_GEN_MODE_EXT. */
+    public static final int
+        GL_ISOLINES_EXT = 0x8E7A,
+        GL_QUADS_EXT    = 0x7;
 
-	/** Returned by GetProgramiv when {@code pname} is TESS_GEN_SPACING_EXT. */
-	public static final int
-		GL_FRACTIONAL_ODD_EXT  = 0x8E7B,
-		GL_FRACTIONAL_EVEN_EXT = 0x8E7C;
+    /** Returned by GetProgramiv when {@code pname} is TESS_GEN_SPACING_EXT. */
+    public static final int
+        GL_FRACTIONAL_ODD_EXT  = 0x8E7B,
+        GL_FRACTIONAL_EVEN_EXT = 0x8E7C;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
-	public static final int
-		GL_MAX_PATCH_VERTICES_EXT                              = 0x8E7D,
-		GL_MAX_TESS_GEN_LEVEL_EXT                              = 0x8E7E,
-		GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT             = 0x8E7F,
-		GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT          = 0x8E80,
-		GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT            = 0x8E81,
-		GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT         = 0x8E82,
-		GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT              = 0x8E83,
-		GL_MAX_TESS_PATCH_COMPONENTS_EXT                       = 0x8E84,
-		GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT        = 0x8E85,
-		GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT           = 0x8E86,
-		GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT                 = 0x8E89,
-		GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT              = 0x8E8A,
-		GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT               = 0x886C,
-		GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT            = 0x886D,
-		GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT    = 0x8E1E,
-		GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT = 0x8E1F,
-		GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT         = 0x92CD,
-		GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT      = 0x92CE,
-		GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT                = 0x92D3,
-		GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT             = 0x92D4,
-		GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT                 = 0x90CB,
-		GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT              = 0x90CC,
-		GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT          = 0x90D8,
-		GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT       = 0x90D9,
-		GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED             = 0x8221;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
+    public static final int
+        GL_MAX_PATCH_VERTICES_EXT                              = 0x8E7D,
+        GL_MAX_TESS_GEN_LEVEL_EXT                              = 0x8E7E,
+        GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT             = 0x8E7F,
+        GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT          = 0x8E80,
+        GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT            = 0x8E81,
+        GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT         = 0x8E82,
+        GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT              = 0x8E83,
+        GL_MAX_TESS_PATCH_COMPONENTS_EXT                       = 0x8E84,
+        GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT        = 0x8E85,
+        GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT           = 0x8E86,
+        GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT                 = 0x8E89,
+        GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT              = 0x8E8A,
+        GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT               = 0x886C,
+        GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT            = 0x886D,
+        GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT    = 0x8E1E,
+        GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT = 0x8E1F,
+        GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT         = 0x92CD,
+        GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT      = 0x92CE,
+        GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT                = 0x92D3,
+        GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT             = 0x92D4,
+        GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT                 = 0x90CB,
+        GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT              = 0x90CC,
+        GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT          = 0x90D8,
+        GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT       = 0x90D9,
+        GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED             = 0x8221;
 
-	/** Accepted by the {@code props} parameter of GetProgramResourceiv. */
-	public static final int
-		GL_IS_PER_PATCH_EXT                         = 0x92E7,
-		GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT    = 0x9307,
-		GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT = 0x9308;
+    /** Accepted by the {@code props} parameter of GetProgramResourceiv. */
+    public static final int
+        GL_IS_PER_PATCH_EXT                         = 0x92E7,
+        GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT    = 0x9307,
+        GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT = 0x9308;
 
-	/**
-	 * Accepted by the {@code type} parameter of CreateShader, by the {@code pname} parameter of GetProgramPipelineiv, and returned by the {@code params}
-	 * parameter of GetShaderiv.
-	 */
-	public static final int
-		GL_TESS_EVALUATION_SHADER_EXT = 0x8E87,
-		GL_TESS_CONTROL_SHADER_EXT    = 0x8E88;
+    /**
+     * Accepted by the {@code type} parameter of CreateShader, by the {@code pname} parameter of GetProgramPipelineiv, and returned by the {@code params}
+     * parameter of GetShaderiv.
+     */
+    public static final int
+        GL_TESS_EVALUATION_SHADER_EXT = 0x8E87,
+        GL_TESS_CONTROL_SHADER_EXT    = 0x8E88;
 
-	/** Accepted by the {@code stages} parameter of UseProgramStages. */
-	public static final int
-		GL_TESS_CONTROL_SHADER_BIT_EXT    = 0x8,
-		GL_TESS_EVALUATION_SHADER_BIT_EXT = 0x10;
+    /** Accepted by the {@code stages} parameter of UseProgramStages. */
+    public static final int
+        GL_TESS_CONTROL_SHADER_BIT_EXT    = 0x8,
+        GL_TESS_EVALUATION_SHADER_BIT_EXT = 0x10;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTTessellationShader() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTTessellationShader() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glPatchParameteriEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glPatchParameteriEXT
+        );
+    }
 
-	// --- [ glPatchParameteriEXT ] ---
+    // --- [ glPatchParameteriEXT ] ---
 
-	public static native void glPatchParameteriEXT(int pname, int value);
+    public static native void glPatchParameteriEXT(int pname, int value);
 
 }

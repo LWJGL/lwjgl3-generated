@@ -28,11 +28,11 @@ package org.lwjgl.opengl;
  */
 public final class EXTFramebufferMultisampleBlitScaled {
 
-	/** Accepted by the {@code filter} parameter of BlitFramebuffer. */
-	public static final int
-		GL_SCALED_RESOLVE_FASTEST_EXT = 0x90BA,
-		GL_SCALED_RESOLVE_NICEST_EXT  = 0x90BB;
+    /** Accepted by the {@code filter} parameter of BlitFramebuffer. */
+    public static final int
+        GL_SCALED_RESOLVE_FASTEST_EXT = 0x90BA,
+        GL_SCALED_RESOLVE_NICEST_EXT  = 0x90BB;
 
-	private EXTFramebufferMultisampleBlitScaled() {}
+    private EXTFramebufferMultisampleBlitScaled() {}
 
 }

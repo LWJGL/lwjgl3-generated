@@ -13,20 +13,20 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkPluginFilterI extends CallbackI.I {
 
-	String SIGNATURE = "(pi)i";
+    String SIGNATURE = "(pi)i";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default int callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
 
-	int invoke(long edit, int unicode);
+    int invoke(long edit, int unicode);
 
 }

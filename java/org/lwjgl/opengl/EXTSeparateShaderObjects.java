@@ -51,47 +51,48 @@ glActiveProgramEXT(program);</code></pre>
  */
 public class EXTSeparateShaderObjects {
 
-	/** Accepted by {@code type} parameter to GetIntegerv and GetFloatv. */
-	public static final int GL_ACTIVE_PROGRAM_EXT = 0x8B8D;
+    /** Accepted by {@code type} parameter to GetIntegerv and GetFloatv. */
+    public static final int GL_ACTIVE_PROGRAM_EXT = 0x8B8D;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTSeparateShaderObjects() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTSeparateShaderObjects() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glUseShaderProgramEXT, caps.glActiveProgramEXT, caps.glCreateShaderProgramEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glUseShaderProgramEXT, caps.glActiveProgramEXT, caps.glCreateShaderProgramEXT
+        );
+    }
 
-	// --- [ glUseShaderProgramEXT ] ---
+    // --- [ glUseShaderProgramEXT ] ---
 
-	public static native void glUseShaderProgramEXT(int type, int program);
+    public static native void glUseShaderProgramEXT(int type, int program);
 
-	// --- [ glActiveProgramEXT ] ---
+    // --- [ glActiveProgramEXT ] ---
 
-	public static native void glActiveProgramEXT(int program);
+    public static native void glActiveProgramEXT(int program);
 
-	// --- [ glCreateShaderProgramEXT ] ---
+    // --- [ glCreateShaderProgramEXT ] ---
 
-	public static native int nglCreateShaderProgramEXT(int type, long string);
+    public static native int nglCreateShaderProgramEXT(int type, long string);
 
-	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
-		if ( CHECKS )
-			checkNT1(string);
-		return nglCreateShaderProgramEXT(type, memAddress(string));
-	}
+    public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
+        if (CHECKS) {
+            checkNT1(string);
+        }
+        return nglCreateShaderProgramEXT(type, memAddress(string));
+    }
 
-	public static int glCreateShaderProgramEXT(int type, CharSequence string) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer stringEncoded = stack.UTF8(string);
-			return nglCreateShaderProgramEXT(type, memAddress(stringEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glCreateShaderProgramEXT(int type, CharSequence string) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer stringEncoded = stack.UTF8(string);
+            return nglCreateShaderProgramEXT(type, memAddress(stringEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
 }

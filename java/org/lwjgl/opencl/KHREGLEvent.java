@@ -20,61 +20,62 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHREGLEvent {
 
-	/** Returned by clCreateEventFromEGLSyncKHR if sync is not a valid EGLSyncKHR handle created with respect to EGLDisplay display. */
-	public static final int CL_INVALID_EGL_OBJECT_KHR = -1093;
+    /** Returned by clCreateEventFromEGLSyncKHR if sync is not a valid EGLSyncKHR handle created with respect to EGLDisplay display. */
+    public static final int CL_INVALID_EGL_OBJECT_KHR = -1093;
 
-	/** Returned by {@link CL10#clGetEventInfo GetEventInfo} when param_name is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
-	public static final int CL_COMMAND_EGL_FENCE_SYNC_OBJECT_KHR = 0x202F;
+    /** Returned by {@link CL10#clGetEventInfo GetEventInfo} when param_name is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
+    public static final int CL_COMMAND_EGL_FENCE_SYNC_OBJECT_KHR = 0x202F;
 
-	protected KHREGLEvent() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHREGLEvent() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(CLCapabilities caps) {
-		return checkFunctions(
-			caps.clCreateEventFromEGLSyncKHR
-		);
-	}
+    static boolean isAvailable(CLCapabilities caps) {
+        return checkFunctions(
+            caps.clCreateEventFromEGLSyncKHR
+        );
+    }
 
-	// --- [ clCreateEventFromEGLSyncKHR ] ---
+    // --- [ clCreateEventFromEGLSyncKHR ] ---
 
-	/** Unsafe version of: {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
-	public static long nclCreateEventFromEGLSyncKHR(long context, long sync, long display, long errcode_ret) {
-		long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(context);
-			check(sync);
-			check(display);
-		}
-		return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
-	}
+    /** Unsafe version of: {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
+    public static long nclCreateEventFromEGLSyncKHR(long context, long sync, long display, long errcode_ret) {
+        long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(context);
+            check(sync);
+            check(display);
+        }
+        return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
+    }
 
-	/**
-	 * Creates a linked event object.
-	 *
-	 * @param context     a valid OpenCL context
-	 * @param sync        the name of a sync object of type {@link org.lwjgl.egl.EGL15#EGL_SYNC_FENCE} created with respect to {@code EGLDisplay display}.
-	 * @param display     an {@code EGLDisplay}
-	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 */
-	public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, IntBuffer errcode_ret) {
-		if ( CHECKS )
-			checkSafe(errcode_ret, 1);
-		return nclCreateEventFromEGLSyncKHR(context, sync, display, memAddressSafe(errcode_ret));
-	}
+    /**
+     * Creates a linked event object.
+     *
+     * @param context     a valid OpenCL context
+     * @param sync        the name of a sync object of type {@link org.lwjgl.egl.EGL15#EGL_SYNC_FENCE} created with respect to {@code EGLDisplay display}.
+     * @param display     an {@code EGLDisplay}
+     * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+     */
+    public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, IntBuffer errcode_ret) {
+        if (CHECKS) {
+            checkSafe(errcode_ret, 1);
+        }
+        return nclCreateEventFromEGLSyncKHR(context, sync, display, memAddressSafe(errcode_ret));
+    }
 
-	/** Array version of: {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
-	public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, int[] errcode_ret) {
-		long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(context);
-			check(sync);
-			check(display);
-			checkSafe(errcode_ret, 1);
-		}
-		return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
-	}
+    /** Array version of: {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
+    public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, int[] errcode_ret) {
+        long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(context);
+            check(sync);
+            check(display);
+            checkSafe(errcode_ret, 1);
+        }
+        return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
+    }
 
 }

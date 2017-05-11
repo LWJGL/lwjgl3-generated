@@ -20,18 +20,18 @@ package org.lwjgl.opengl;
  */
 public final class GLXEXTStereoTree {
 
-	/** Accepted by the {@code attribute} parameter of glXQueryDrawable and glXQueryGLXPbufferSGIX. */
-	public static final int GLX_STEREO_TREE_EXT = 0x20F5;
+    /** Accepted by the {@code attribute} parameter of glXQueryDrawable and glXQueryGLXPbufferSGIX. */
+    public static final int GLX_STEREO_TREE_EXT = 0x20F5;
 
-	/**
-	 * Accepted in the {@code event_mask} parameter of glXSelectEvent and glXSelectEventSGIX, and returned in the {@code event_mask} parameter of
-	 * glXGetSelectedEvent and glXGetSelectedEventSGIX.
-	 */
-	public static final int GLX_STEREO_NOTIFY_MASK_EXT = 0x1;
+    /**
+     * Accepted in the {@code event_mask} parameter of glXSelectEvent and glXSelectEventSGIX, and returned in the {@code event_mask} parameter of
+     * glXGetSelectedEvent and glXGetSelectedEventSGIX.
+     */
+    public static final int GLX_STEREO_NOTIFY_MASK_EXT = 0x1;
 
-	/** Returned in the {@code evtype} field of XGenericEventCookie events. */
-	public static final int GLX_STEREO_NOTIFY_EXT = 0x0;
+    /** Returned in the {@code evtype} field of XGenericEventCookie events. */
+    public static final int GLX_STEREO_NOTIFY_EXT = 0x0;
 
-	private GLXEXTStereoTree() {}
+    private GLXEXTStereoTree() {}
 
 }

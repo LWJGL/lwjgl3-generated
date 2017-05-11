@@ -13,24 +13,24 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWWindowRefreshCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(p)v";
+    String SIGNATURE = "(p)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when the client area of the specified window needs to be redrawn, for example if the window has been exposed after having been covered by
-	 * another window.
-	 *
-	 * @param window the window whose content needs to be refreshed
-	 */
-	void invoke(long window);
+    /**
+     * Will be called when the client area of the specified window needs to be redrawn, for example if the window has been exposed after having been covered by
+     * another window.
+     *
+     * @param window the window whose content needs to be refreshed
+     */
+    void invoke(long window);
 
 }

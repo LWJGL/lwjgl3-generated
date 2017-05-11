@@ -30,86 +30,87 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVStreamMetadata {
 
-	/** Accepted as {@code attribute} by {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV}. */
-	public static final int
-		EGL_MAX_STREAM_METADATA_BLOCKS_NV     = 0x3250,
-		EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV = 0x3251,
-		EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV = 0x3252;
+    /** Accepted as {@code attribute} by {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV}. */
+    public static final int
+        EGL_MAX_STREAM_METADATA_BLOCKS_NV     = 0x3250,
+        EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV = 0x3251,
+        EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV = 0x3252;
 
-	/** Accepted as {@code name} by {@link #eglQueryStreamMetadataNV QueryStreamMetadataNV}. */
-	public static final int
-		EGL_PRODUCER_METADATA_NV = 0x3253,
-		EGL_CONSUMER_METADATA_NV = 0x3254,
-		EGL_PENDING_METADATA_NV  = 0x3328;
+    /** Accepted as {@code name} by {@link #eglQueryStreamMetadataNV QueryStreamMetadataNV}. */
+    public static final int
+        EGL_PRODUCER_METADATA_NV = 0x3253,
+        EGL_CONSUMER_METADATA_NV = 0x3254,
+        EGL_PENDING_METADATA_NV  = 0x3328;
 
-	/** Accepted in {@code attrib_list} by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and as {@code attribute} by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
-	public static final int
-		EGL_METADATA0_SIZE_NV = 0x3255,
-		EGL_METADATA1_SIZE_NV = 0x3256,
-		EGL_METADATA2_SIZE_NV = 0x3257,
-		EGL_METADATA3_SIZE_NV = 0x3258,
-		EGL_METADATA0_TYPE_NV = 0x3259,
-		EGL_METADATA1_TYPE_NV = 0x325A,
-		EGL_METADATA2_TYPE_NV = 0x325B,
-		EGL_METADATA3_TYPE_NV = 0x325C;
+    /** Accepted in {@code attrib_list} by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and as {@code attribute} by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
+    public static final int
+        EGL_METADATA0_SIZE_NV = 0x3255,
+        EGL_METADATA1_SIZE_NV = 0x3256,
+        EGL_METADATA2_SIZE_NV = 0x3257,
+        EGL_METADATA3_SIZE_NV = 0x3258,
+        EGL_METADATA0_TYPE_NV = 0x3259,
+        EGL_METADATA1_TYPE_NV = 0x325A,
+        EGL_METADATA2_TYPE_NV = 0x325B,
+        EGL_METADATA3_TYPE_NV = 0x325C;
 
-	protected NVStreamMetadata() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVStreamMetadata() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglQueryDisplayAttribNV, caps.eglSetStreamMetadataNV, caps.eglQueryStreamMetadataNV
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglQueryDisplayAttribNV, caps.eglSetStreamMetadataNV, caps.eglQueryStreamMetadataNV
+        );
+    }
 
-	// --- [ eglQueryDisplayAttribNV ] ---
+    // --- [ eglQueryDisplayAttribNV ] ---
 
-	public static int neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-		}
-		return callPPI(__functionAddress, dpy, attribute, value);
-	}
+    public static int neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+        }
+        return callPPI(__functionAddress, dpy, attribute, value);
+    }
 
-	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value)) != 0;
-	}
+    public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value)) != 0;
+    }
 
-	// --- [ eglSetStreamMetadataNV ] ---
+    // --- [ eglSetStreamMetadataNV ] ---
 
-	public static int neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
-		long __functionAddress = EGL.getCapabilities().eglSetStreamMetadataNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPPI(__functionAddress, dpy, stream, n, offset, size, data);
-	}
+    public static int neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
+        long __functionAddress = EGL.getCapabilities().eglSetStreamMetadataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPPI(__functionAddress, dpy, stream, n, offset, size, data);
+    }
 
-	public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
-		return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data)) != 0;
-	}
+    public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
+        return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data)) != 0;
+    }
 
-	// --- [ eglQueryStreamMetadataNV ] ---
+    // --- [ eglQueryStreamMetadataNV ] ---
 
-	public static int neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
-		long __functionAddress = EGL.getCapabilities().eglQueryStreamMetadataNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPPI(__functionAddress, dpy, stream, name, n, offset, size, data);
-	}
+    public static int neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
+        long __functionAddress = EGL.getCapabilities().eglQueryStreamMetadataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPPI(__functionAddress, dpy, stream, name, n, offset, size, data);
+    }
 
-	public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
-		return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, data.remaining(), memAddress(data)) != 0;
-	}
+    public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
+        return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, data.remaining(), memAddress(data)) != 0;
+    }
 
 }

@@ -40,15 +40,15 @@ package org.lwjgl.vulkan;
  */
 public final class KHXWin32KeyedMutex {
 
-	/** The extension specification version. */
-	public static final int VK_KHX_WIN32_KEYED_MUTEX_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_KHX_WIN32_KEYED_MUTEX_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_KHX_WIN32_KEYED_MUTEX_EXTENSION_NAME = "VK_KHX_win32_keyed_mutex";
+    /** The extension name. */
+    public static final String VK_KHX_WIN32_KEYED_MUTEX_EXTENSION_NAME = "VK_KHX_win32_keyed_mutex";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHX = 1000075000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHX = 1000075000;
 
-	private KHXWin32KeyedMutex() {}
+    private KHXWin32KeyedMutex() {}
 
 }

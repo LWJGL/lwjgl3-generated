@@ -14,9 +14,9 @@ package org.lwjgl.openal;
  */
 public final class EXTSourceDistanceModel {
 
-	/** Accepted by the {@code target} parameter of {@link AL10#alEnable Enable}, {@link AL10#alDisable Disable}, and {@link AL10#alIsEnabled IsEnabled}. */
-	public static final int AL_SOURCE_DISTANCE_MODEL = 0x200;
+    /** Accepted by the {@code target} parameter of {@link AL10#alEnable Enable}, {@link AL10#alDisable Disable}, and {@link AL10#alIsEnabled IsEnabled}. */
+    public static final int AL_SOURCE_DISTANCE_MODEL = 0x200;
 
-	private EXTSourceDistanceModel() {}
+    private EXTSourceDistanceModel() {}
 
 }

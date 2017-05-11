@@ -106,266 +106,266 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class OVRPerfStatsPerCompositorFrame extends Struct {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		HMDVSYNCINDEX,
-		APPFRAMEINDEX,
-		APPDROPPEDFRAMECOUNT,
-		APPMOTIONTOPHOTONLATENCY,
-		APPQUEUEAHEADTIME,
-		APPCPUELAPSEDTIME,
-		APPGPUELAPSEDTIME,
-		COMPOSITORFRAMEINDEX,
-		COMPOSITORDROPPEDFRAMECOUNT,
-		COMPOSITORLATENCY,
-		COMPOSITORCPUELAPSEDTIME,
-		COMPOSITORGPUELAPSEDTIME,
-		COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME,
-		COMPOSITORGPUENDTOVSYNCELAPSEDTIME,
-		ASWISACTIVE,
-		ASWACTIVATEDTOGGLECOUNT,
-		ASWPRESENTEDFRAMECOUNT,
-		ASWFAILEDFRAMECOUNT;
+    /** The struct member offsets. */
+    public static final int
+        HMDVSYNCINDEX,
+        APPFRAMEINDEX,
+        APPDROPPEDFRAMECOUNT,
+        APPMOTIONTOPHOTONLATENCY,
+        APPQUEUEAHEADTIME,
+        APPCPUELAPSEDTIME,
+        APPGPUELAPSEDTIME,
+        COMPOSITORFRAMEINDEX,
+        COMPOSITORDROPPEDFRAMECOUNT,
+        COMPOSITORLATENCY,
+        COMPOSITORCPUELAPSEDTIME,
+        COMPOSITORGPUELAPSEDTIME,
+        COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME,
+        COMPOSITORGPUENDTOVSYNCELAPSEDTIME,
+        ASWISACTIVE,
+        ASWACTIVATEDTOGGLECOUNT,
+        ASWPRESENTEDFRAMECOUNT,
+        ASWFAILEDFRAMECOUNT;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(1),
-			__member(4),
-			__member(4),
-			__member(4)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(1),
+            __member(4),
+            __member(4),
+            __member(4)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		HMDVSYNCINDEX = layout.offsetof(0);
-		APPFRAMEINDEX = layout.offsetof(1);
-		APPDROPPEDFRAMECOUNT = layout.offsetof(2);
-		APPMOTIONTOPHOTONLATENCY = layout.offsetof(3);
-		APPQUEUEAHEADTIME = layout.offsetof(4);
-		APPCPUELAPSEDTIME = layout.offsetof(5);
-		APPGPUELAPSEDTIME = layout.offsetof(6);
-		COMPOSITORFRAMEINDEX = layout.offsetof(7);
-		COMPOSITORDROPPEDFRAMECOUNT = layout.offsetof(8);
-		COMPOSITORLATENCY = layout.offsetof(9);
-		COMPOSITORCPUELAPSEDTIME = layout.offsetof(10);
-		COMPOSITORGPUELAPSEDTIME = layout.offsetof(11);
-		COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME = layout.offsetof(12);
-		COMPOSITORGPUENDTOVSYNCELAPSEDTIME = layout.offsetof(13);
-		ASWISACTIVE = layout.offsetof(14);
-		ASWACTIVATEDTOGGLECOUNT = layout.offsetof(15);
-		ASWPRESENTEDFRAMECOUNT = layout.offsetof(16);
-		ASWFAILEDFRAMECOUNT = layout.offsetof(17);
-	}
+        HMDVSYNCINDEX = layout.offsetof(0);
+        APPFRAMEINDEX = layout.offsetof(1);
+        APPDROPPEDFRAMECOUNT = layout.offsetof(2);
+        APPMOTIONTOPHOTONLATENCY = layout.offsetof(3);
+        APPQUEUEAHEADTIME = layout.offsetof(4);
+        APPCPUELAPSEDTIME = layout.offsetof(5);
+        APPGPUELAPSEDTIME = layout.offsetof(6);
+        COMPOSITORFRAMEINDEX = layout.offsetof(7);
+        COMPOSITORDROPPEDFRAMECOUNT = layout.offsetof(8);
+        COMPOSITORLATENCY = layout.offsetof(9);
+        COMPOSITORCPUELAPSEDTIME = layout.offsetof(10);
+        COMPOSITORGPUELAPSEDTIME = layout.offsetof(11);
+        COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME = layout.offsetof(12);
+        COMPOSITORGPUENDTOVSYNCELAPSEDTIME = layout.offsetof(13);
+        ASWISACTIVE = layout.offsetof(14);
+        ASWACTIVATEDTOGGLECOUNT = layout.offsetof(15);
+        ASWPRESENTEDFRAMECOUNT = layout.offsetof(16);
+        ASWFAILEDFRAMECOUNT = layout.offsetof(17);
+    }
 
-	OVRPerfStatsPerCompositorFrame(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    OVRPerfStatsPerCompositorFrame(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link OVRPerfStatsPerCompositorFrame} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public OVRPerfStatsPerCompositorFrame(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link OVRPerfStatsPerCompositorFrame} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public OVRPerfStatsPerCompositorFrame(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code HmdVsyncIndex} field. */
-	public int HmdVsyncIndex() { return nHmdVsyncIndex(address()); }
-	/** Returns the value of the {@code AppFrameIndex} field. */
-	public int AppFrameIndex() { return nAppFrameIndex(address()); }
-	/** Returns the value of the {@code AppDroppedFrameCount} field. */
-	public int AppDroppedFrameCount() { return nAppDroppedFrameCount(address()); }
-	/** Returns the value of the {@code AppMotionToPhotonLatency} field. */
-	public float AppMotionToPhotonLatency() { return nAppMotionToPhotonLatency(address()); }
-	/** Returns the value of the {@code AppQueueAheadTime} field. */
-	public float AppQueueAheadTime() { return nAppQueueAheadTime(address()); }
-	/** Returns the value of the {@code AppCpuElapsedTime} field. */
-	public float AppCpuElapsedTime() { return nAppCpuElapsedTime(address()); }
-	/** Returns the value of the {@code AppGpuElapsedTime} field. */
-	public float AppGpuElapsedTime() { return nAppGpuElapsedTime(address()); }
-	/** Returns the value of the {@code CompositorFrameIndex} field. */
-	public int CompositorFrameIndex() { return nCompositorFrameIndex(address()); }
-	/** Returns the value of the {@code CompositorDroppedFrameCount} field. */
-	public int CompositorDroppedFrameCount() { return nCompositorDroppedFrameCount(address()); }
-	/** Returns the value of the {@code CompositorLatency} field. */
-	public float CompositorLatency() { return nCompositorLatency(address()); }
-	/** Returns the value of the {@code CompositorCpuElapsedTime} field. */
-	public float CompositorCpuElapsedTime() { return nCompositorCpuElapsedTime(address()); }
-	/** Returns the value of the {@code CompositorGpuElapsedTime} field. */
-	public float CompositorGpuElapsedTime() { return nCompositorGpuElapsedTime(address()); }
-	/** Returns the value of the {@code CompositorCpuStartToGpuEndElapsedTime} field. */
-	public float CompositorCpuStartToGpuEndElapsedTime() { return nCompositorCpuStartToGpuEndElapsedTime(address()); }
-	/** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
-	public float CompositorGpuEndToVsyncElapsedTime() { return nCompositorGpuEndToVsyncElapsedTime(address()); }
-	/** Returns the value of the {@code AswIsActive} field. */
-	public boolean AswIsActive() { return nAswIsActive(address()); }
-	/** Returns the value of the {@code AswActivatedToggleCount} field. */
-	public int AswActivatedToggleCount() { return nAswActivatedToggleCount(address()); }
-	/** Returns the value of the {@code AswPresentedFrameCount} field. */
-	public int AswPresentedFrameCount() { return nAswPresentedFrameCount(address()); }
-	/** Returns the value of the {@code AswFailedFrameCount} field. */
-	public int AswFailedFrameCount() { return nAswFailedFrameCount(address()); }
+    /** Returns the value of the {@code HmdVsyncIndex} field. */
+    public int HmdVsyncIndex() { return nHmdVsyncIndex(address()); }
+    /** Returns the value of the {@code AppFrameIndex} field. */
+    public int AppFrameIndex() { return nAppFrameIndex(address()); }
+    /** Returns the value of the {@code AppDroppedFrameCount} field. */
+    public int AppDroppedFrameCount() { return nAppDroppedFrameCount(address()); }
+    /** Returns the value of the {@code AppMotionToPhotonLatency} field. */
+    public float AppMotionToPhotonLatency() { return nAppMotionToPhotonLatency(address()); }
+    /** Returns the value of the {@code AppQueueAheadTime} field. */
+    public float AppQueueAheadTime() { return nAppQueueAheadTime(address()); }
+    /** Returns the value of the {@code AppCpuElapsedTime} field. */
+    public float AppCpuElapsedTime() { return nAppCpuElapsedTime(address()); }
+    /** Returns the value of the {@code AppGpuElapsedTime} field. */
+    public float AppGpuElapsedTime() { return nAppGpuElapsedTime(address()); }
+    /** Returns the value of the {@code CompositorFrameIndex} field. */
+    public int CompositorFrameIndex() { return nCompositorFrameIndex(address()); }
+    /** Returns the value of the {@code CompositorDroppedFrameCount} field. */
+    public int CompositorDroppedFrameCount() { return nCompositorDroppedFrameCount(address()); }
+    /** Returns the value of the {@code CompositorLatency} field. */
+    public float CompositorLatency() { return nCompositorLatency(address()); }
+    /** Returns the value of the {@code CompositorCpuElapsedTime} field. */
+    public float CompositorCpuElapsedTime() { return nCompositorCpuElapsedTime(address()); }
+    /** Returns the value of the {@code CompositorGpuElapsedTime} field. */
+    public float CompositorGpuElapsedTime() { return nCompositorGpuElapsedTime(address()); }
+    /** Returns the value of the {@code CompositorCpuStartToGpuEndElapsedTime} field. */
+    public float CompositorCpuStartToGpuEndElapsedTime() { return nCompositorCpuStartToGpuEndElapsedTime(address()); }
+    /** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
+    public float CompositorGpuEndToVsyncElapsedTime() { return nCompositorGpuEndToVsyncElapsedTime(address()); }
+    /** Returns the value of the {@code AswIsActive} field. */
+    public boolean AswIsActive() { return nAswIsActive(address()); }
+    /** Returns the value of the {@code AswActivatedToggleCount} field. */
+    public int AswActivatedToggleCount() { return nAswActivatedToggleCount(address()); }
+    /** Returns the value of the {@code AswPresentedFrameCount} field. */
+    public int AswPresentedFrameCount() { return nAswPresentedFrameCount(address()); }
+    /** Returns the value of the {@code AswFailedFrameCount} field. */
+    public int AswFailedFrameCount() { return nAswFailedFrameCount(address()); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link OVRPerfStatsPerCompositorFrame} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static OVRPerfStatsPerCompositorFrame create(long address) {
-		return address == NULL ? null : new OVRPerfStatsPerCompositorFrame(address, null);
-	}
+    /** Returns a new {@link OVRPerfStatsPerCompositorFrame} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static OVRPerfStatsPerCompositorFrame create(long address) {
+        return address == NULL ? null : new OVRPerfStatsPerCompositorFrame(address, null);
+    }
 
-	/**
-	 * Create a {@link OVRPerfStatsPerCompositorFrame.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link OVRPerfStatsPerCompositorFrame.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #HmdVsyncIndex}. */
-	public static int nHmdVsyncIndex(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.HMDVSYNCINDEX); }
-	/** Unsafe version of {@link #AppFrameIndex}. */
-	public static int nAppFrameIndex(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.APPFRAMEINDEX); }
-	/** Unsafe version of {@link #AppDroppedFrameCount}. */
-	public static int nAppDroppedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.APPDROPPEDFRAMECOUNT); }
-	/** Unsafe version of {@link #AppMotionToPhotonLatency}. */
-	public static float nAppMotionToPhotonLatency(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPMOTIONTOPHOTONLATENCY); }
-	/** Unsafe version of {@link #AppQueueAheadTime}. */
-	public static float nAppQueueAheadTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPQUEUEAHEADTIME); }
-	/** Unsafe version of {@link #AppCpuElapsedTime}. */
-	public static float nAppCpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPCPUELAPSEDTIME); }
-	/** Unsafe version of {@link #AppGpuElapsedTime}. */
-	public static float nAppGpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPGPUELAPSEDTIME); }
-	/** Unsafe version of {@link #CompositorFrameIndex}. */
-	public static int nCompositorFrameIndex(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORFRAMEINDEX); }
-	/** Unsafe version of {@link #CompositorDroppedFrameCount}. */
-	public static int nCompositorDroppedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORDROPPEDFRAMECOUNT); }
-	/** Unsafe version of {@link #CompositorLatency}. */
-	public static float nCompositorLatency(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORLATENCY); }
-	/** Unsafe version of {@link #CompositorCpuElapsedTime}. */
-	public static float nCompositorCpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORCPUELAPSEDTIME); }
-	/** Unsafe version of {@link #CompositorGpuElapsedTime}. */
-	public static float nCompositorGpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORGPUELAPSEDTIME); }
-	/** Unsafe version of {@link #CompositorCpuStartToGpuEndElapsedTime}. */
-	public static float nCompositorCpuStartToGpuEndElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME); }
-	/** Unsafe version of {@link #CompositorGpuEndToVsyncElapsedTime}. */
-	public static float nCompositorGpuEndToVsyncElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORGPUENDTOVSYNCELAPSEDTIME); }
-	/** Unsafe version of {@link #AswIsActive}. */
-	public static boolean nAswIsActive(long struct) { return memGetByte(struct + OVRPerfStatsPerCompositorFrame.ASWISACTIVE) != 0; }
-	/** Unsafe version of {@link #AswActivatedToggleCount}. */
-	public static int nAswActivatedToggleCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWACTIVATEDTOGGLECOUNT); }
-	/** Unsafe version of {@link #AswPresentedFrameCount}. */
-	public static int nAswPresentedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWPRESENTEDFRAMECOUNT); }
-	/** Unsafe version of {@link #AswFailedFrameCount}. */
-	public static int nAswFailedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWFAILEDFRAMECOUNT); }
+    /** Unsafe version of {@link #HmdVsyncIndex}. */
+    public static int nHmdVsyncIndex(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.HMDVSYNCINDEX); }
+    /** Unsafe version of {@link #AppFrameIndex}. */
+    public static int nAppFrameIndex(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.APPFRAMEINDEX); }
+    /** Unsafe version of {@link #AppDroppedFrameCount}. */
+    public static int nAppDroppedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.APPDROPPEDFRAMECOUNT); }
+    /** Unsafe version of {@link #AppMotionToPhotonLatency}. */
+    public static float nAppMotionToPhotonLatency(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPMOTIONTOPHOTONLATENCY); }
+    /** Unsafe version of {@link #AppQueueAheadTime}. */
+    public static float nAppQueueAheadTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPQUEUEAHEADTIME); }
+    /** Unsafe version of {@link #AppCpuElapsedTime}. */
+    public static float nAppCpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPCPUELAPSEDTIME); }
+    /** Unsafe version of {@link #AppGpuElapsedTime}. */
+    public static float nAppGpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.APPGPUELAPSEDTIME); }
+    /** Unsafe version of {@link #CompositorFrameIndex}. */
+    public static int nCompositorFrameIndex(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORFRAMEINDEX); }
+    /** Unsafe version of {@link #CompositorDroppedFrameCount}. */
+    public static int nCompositorDroppedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORDROPPEDFRAMECOUNT); }
+    /** Unsafe version of {@link #CompositorLatency}. */
+    public static float nCompositorLatency(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORLATENCY); }
+    /** Unsafe version of {@link #CompositorCpuElapsedTime}. */
+    public static float nCompositorCpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORCPUELAPSEDTIME); }
+    /** Unsafe version of {@link #CompositorGpuElapsedTime}. */
+    public static float nCompositorGpuElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORGPUELAPSEDTIME); }
+    /** Unsafe version of {@link #CompositorCpuStartToGpuEndElapsedTime}. */
+    public static float nCompositorCpuStartToGpuEndElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORCPUSTARTTOGPUENDELAPSEDTIME); }
+    /** Unsafe version of {@link #CompositorGpuEndToVsyncElapsedTime}. */
+    public static float nCompositorGpuEndToVsyncElapsedTime(long struct) { return memGetFloat(struct + OVRPerfStatsPerCompositorFrame.COMPOSITORGPUENDTOVSYNCELAPSEDTIME); }
+    /** Unsafe version of {@link #AswIsActive}. */
+    public static boolean nAswIsActive(long struct) { return memGetByte(struct + OVRPerfStatsPerCompositorFrame.ASWISACTIVE) != 0; }
+    /** Unsafe version of {@link #AswActivatedToggleCount}. */
+    public static int nAswActivatedToggleCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWACTIVATEDTOGGLECOUNT); }
+    /** Unsafe version of {@link #AswPresentedFrameCount}. */
+    public static int nAswPresentedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWPRESENTEDFRAMECOUNT); }
+    /** Unsafe version of {@link #AswFailedFrameCount}. */
+    public static int nAswFailedFrameCount(long struct) { return memGetInt(struct + OVRPerfStatsPerCompositorFrame.ASWFAILEDFRAMECOUNT); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link OVRPerfStatsPerCompositorFrame} structs. */
-	public static class Buffer extends StructBuffer<OVRPerfStatsPerCompositorFrame, Buffer> {
+    /** An array of {@link OVRPerfStatsPerCompositorFrame} structs. */
+    public static class Buffer extends StructBuffer<OVRPerfStatsPerCompositorFrame, Buffer> {
 
-		/**
-		 * Creates a new {@link OVRPerfStatsPerCompositorFrame.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link OVRPerfStatsPerCompositorFrame#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link OVRPerfStatsPerCompositorFrame.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link OVRPerfStatsPerCompositorFrame#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected OVRPerfStatsPerCompositorFrame newInstance(long address) {
-			return new OVRPerfStatsPerCompositorFrame(address, container);
-		}
+        @Override
+        protected OVRPerfStatsPerCompositorFrame newInstance(long address) {
+            return new OVRPerfStatsPerCompositorFrame(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code HmdVsyncIndex} field. */
-		public int HmdVsyncIndex() { return OVRPerfStatsPerCompositorFrame.nHmdVsyncIndex(address()); }
-		/** Returns the value of the {@code AppFrameIndex} field. */
-		public int AppFrameIndex() { return OVRPerfStatsPerCompositorFrame.nAppFrameIndex(address()); }
-		/** Returns the value of the {@code AppDroppedFrameCount} field. */
-		public int AppDroppedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAppDroppedFrameCount(address()); }
-		/** Returns the value of the {@code AppMotionToPhotonLatency} field. */
-		public float AppMotionToPhotonLatency() { return OVRPerfStatsPerCompositorFrame.nAppMotionToPhotonLatency(address()); }
-		/** Returns the value of the {@code AppQueueAheadTime} field. */
-		public float AppQueueAheadTime() { return OVRPerfStatsPerCompositorFrame.nAppQueueAheadTime(address()); }
-		/** Returns the value of the {@code AppCpuElapsedTime} field. */
-		public float AppCpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nAppCpuElapsedTime(address()); }
-		/** Returns the value of the {@code AppGpuElapsedTime} field. */
-		public float AppGpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nAppGpuElapsedTime(address()); }
-		/** Returns the value of the {@code CompositorFrameIndex} field. */
-		public int CompositorFrameIndex() { return OVRPerfStatsPerCompositorFrame.nCompositorFrameIndex(address()); }
-		/** Returns the value of the {@code CompositorDroppedFrameCount} field. */
-		public int CompositorDroppedFrameCount() { return OVRPerfStatsPerCompositorFrame.nCompositorDroppedFrameCount(address()); }
-		/** Returns the value of the {@code CompositorLatency} field. */
-		public float CompositorLatency() { return OVRPerfStatsPerCompositorFrame.nCompositorLatency(address()); }
-		/** Returns the value of the {@code CompositorCpuElapsedTime} field. */
-		public float CompositorCpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorCpuElapsedTime(address()); }
-		/** Returns the value of the {@code CompositorGpuElapsedTime} field. */
-		public float CompositorGpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorGpuElapsedTime(address()); }
-		/** Returns the value of the {@code CompositorCpuStartToGpuEndElapsedTime} field. */
-		public float CompositorCpuStartToGpuEndElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorCpuStartToGpuEndElapsedTime(address()); }
-		/** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
-		public float CompositorGpuEndToVsyncElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorGpuEndToVsyncElapsedTime(address()); }
-		/** Returns the value of the {@code AswIsActive} field. */
-		public boolean AswIsActive() { return OVRPerfStatsPerCompositorFrame.nAswIsActive(address()); }
-		/** Returns the value of the {@code AswActivatedToggleCount} field. */
-		public int AswActivatedToggleCount() { return OVRPerfStatsPerCompositorFrame.nAswActivatedToggleCount(address()); }
-		/** Returns the value of the {@code AswPresentedFrameCount} field. */
-		public int AswPresentedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAswPresentedFrameCount(address()); }
-		/** Returns the value of the {@code AswFailedFrameCount} field. */
-		public int AswFailedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAswFailedFrameCount(address()); }
+        /** Returns the value of the {@code HmdVsyncIndex} field. */
+        public int HmdVsyncIndex() { return OVRPerfStatsPerCompositorFrame.nHmdVsyncIndex(address()); }
+        /** Returns the value of the {@code AppFrameIndex} field. */
+        public int AppFrameIndex() { return OVRPerfStatsPerCompositorFrame.nAppFrameIndex(address()); }
+        /** Returns the value of the {@code AppDroppedFrameCount} field. */
+        public int AppDroppedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAppDroppedFrameCount(address()); }
+        /** Returns the value of the {@code AppMotionToPhotonLatency} field. */
+        public float AppMotionToPhotonLatency() { return OVRPerfStatsPerCompositorFrame.nAppMotionToPhotonLatency(address()); }
+        /** Returns the value of the {@code AppQueueAheadTime} field. */
+        public float AppQueueAheadTime() { return OVRPerfStatsPerCompositorFrame.nAppQueueAheadTime(address()); }
+        /** Returns the value of the {@code AppCpuElapsedTime} field. */
+        public float AppCpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nAppCpuElapsedTime(address()); }
+        /** Returns the value of the {@code AppGpuElapsedTime} field. */
+        public float AppGpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nAppGpuElapsedTime(address()); }
+        /** Returns the value of the {@code CompositorFrameIndex} field. */
+        public int CompositorFrameIndex() { return OVRPerfStatsPerCompositorFrame.nCompositorFrameIndex(address()); }
+        /** Returns the value of the {@code CompositorDroppedFrameCount} field. */
+        public int CompositorDroppedFrameCount() { return OVRPerfStatsPerCompositorFrame.nCompositorDroppedFrameCount(address()); }
+        /** Returns the value of the {@code CompositorLatency} field. */
+        public float CompositorLatency() { return OVRPerfStatsPerCompositorFrame.nCompositorLatency(address()); }
+        /** Returns the value of the {@code CompositorCpuElapsedTime} field. */
+        public float CompositorCpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorCpuElapsedTime(address()); }
+        /** Returns the value of the {@code CompositorGpuElapsedTime} field. */
+        public float CompositorGpuElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorGpuElapsedTime(address()); }
+        /** Returns the value of the {@code CompositorCpuStartToGpuEndElapsedTime} field. */
+        public float CompositorCpuStartToGpuEndElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorCpuStartToGpuEndElapsedTime(address()); }
+        /** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
+        public float CompositorGpuEndToVsyncElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorGpuEndToVsyncElapsedTime(address()); }
+        /** Returns the value of the {@code AswIsActive} field. */
+        public boolean AswIsActive() { return OVRPerfStatsPerCompositorFrame.nAswIsActive(address()); }
+        /** Returns the value of the {@code AswActivatedToggleCount} field. */
+        public int AswActivatedToggleCount() { return OVRPerfStatsPerCompositorFrame.nAswActivatedToggleCount(address()); }
+        /** Returns the value of the {@code AswPresentedFrameCount} field. */
+        public int AswPresentedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAswPresentedFrameCount(address()); }
+        /** Returns the value of the {@code AswFailedFrameCount} field. */
+        public int AswFailedFrameCount() { return OVRPerfStatsPerCompositorFrame.nAswFailedFrameCount(address()); }
 
-	}
+    }
 
 }

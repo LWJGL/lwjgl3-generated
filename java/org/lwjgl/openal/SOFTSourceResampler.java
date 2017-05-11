@@ -44,8 +44,9 @@ public class SOFTSourceResampler {
 
     public static long nalGetStringiSOFT(int pname, int index) {
         long __functionAddress = AL.getICD().alGetStringiSOFT;
-        if ( CHECKS )
+        if (CHECKS) {
             check(__functionAddress);
+        }
         return invokeP(__functionAddress, pname, index);
     }
 

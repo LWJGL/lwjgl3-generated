@@ -17,15 +17,15 @@ package org.lwjgl.opengl;
  */
 public final class EXTTextureMirrorClamp {
 
-	/**
-	 * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
-	 * when their {@code pname} parameter is TEXTURE_WRAP_S, TEXTURE_WRAP_T, or TEXTURE_WRAP_R.
-	 */
-	public static final int
-		GL_MIRROR_CLAMP_EXT           = 0x8742,
-		GL_MIRROR_CLAMP_TO_EDGE_EXT   = 0x8743,
-		GL_MIRROR_CLAMP_TO_BORDER_EXT = 0x8912;
+    /**
+     * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
+     * when their {@code pname} parameter is TEXTURE_WRAP_S, TEXTURE_WRAP_T, or TEXTURE_WRAP_R.
+     */
+    public static final int
+        GL_MIRROR_CLAMP_EXT           = 0x8742,
+        GL_MIRROR_CLAMP_TO_EDGE_EXT   = 0x8743,
+        GL_MIRROR_CLAMP_TO_BORDER_EXT = 0x8912;
 
-	private EXTTextureMirrorClamp() {}
+    private EXTTextureMirrorClamp() {}
 
 }

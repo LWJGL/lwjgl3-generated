@@ -20,74 +20,74 @@ typedef void (APIENTRY *glUniformBlockBindingPROC) (jint, jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetUniformIndices__IIJJ(JNIEnv *__env, jclass clazz, jint program, jint uniformCount, jlong uniformNamesAddress, jlong uniformIndicesAddress) {
-	glGetUniformIndicesPROC glGetUniformIndices = (glGetUniformIndicesPROC)tlsGetFunction(746);
-	const intptr_t uniformNames = (const intptr_t)uniformNamesAddress;
-	intptr_t uniformIndices = (intptr_t)uniformIndicesAddress;
-	UNUSED_PARAM(clazz)
-	glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices);
+    glGetUniformIndicesPROC glGetUniformIndices = (glGetUniformIndicesPROC)tlsGetFunction(746);
+    const intptr_t uniformNames = (const intptr_t)uniformNamesAddress;
+    intptr_t uniformIndices = (intptr_t)uniformIndicesAddress;
+    UNUSED_PARAM(clazz)
+    glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetActiveUniformsiv__IIJIJ(JNIEnv *__env, jclass clazz, jint program, jint uniformCount, jlong uniformIndicesAddress, jint pname, jlong paramsAddress) {
-	glGetActiveUniformsivPROC glGetActiveUniformsiv = (glGetActiveUniformsivPROC)tlsGetFunction(500);
-	const intptr_t uniformIndices = (const intptr_t)uniformIndicesAddress;
-	intptr_t params = (intptr_t)paramsAddress;
-	UNUSED_PARAM(clazz)
-	glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params);
+    glGetActiveUniformsivPROC glGetActiveUniformsiv = (glGetActiveUniformsivPROC)tlsGetFunction(500);
+    const intptr_t uniformIndices = (const intptr_t)uniformIndicesAddress;
+    intptr_t params = (intptr_t)paramsAddress;
+    UNUSED_PARAM(clazz)
+    glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetActiveUniformName__IIIJJ(JNIEnv *__env, jclass clazz, jint program, jint uniformIndex, jint bufSize, jlong lengthAddress, jlong uniformNameAddress) {
-	glGetActiveUniformNamePROC glGetActiveUniformName = (glGetActiveUniformNamePROC)tlsGetFunction(499);
-	intptr_t length = (intptr_t)lengthAddress;
-	intptr_t uniformName = (intptr_t)uniformNameAddress;
-	UNUSED_PARAM(clazz)
-	glGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName);
+    glGetActiveUniformNamePROC glGetActiveUniformName = (glGetActiveUniformNamePROC)tlsGetFunction(499);
+    intptr_t length = (intptr_t)lengthAddress;
+    intptr_t uniformName = (intptr_t)uniformNameAddress;
+    UNUSED_PARAM(clazz)
+    glGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetUniformBlockIndex(JNIEnv *__env, jclass clazz, jint program, jlong uniformBlockNameAddress) {
-	glGetUniformBlockIndexPROC glGetUniformBlockIndex = (glGetUniformBlockIndexPROC)tlsGetFunction(744);
-	const intptr_t uniformBlockName = (const intptr_t)uniformBlockNameAddress;
-	UNUSED_PARAM(clazz)
-	return (jint)glGetUniformBlockIndex(program, uniformBlockName);
+    glGetUniformBlockIndexPROC glGetUniformBlockIndex = (glGetUniformBlockIndexPROC)tlsGetFunction(744);
+    const intptr_t uniformBlockName = (const intptr_t)uniformBlockNameAddress;
+    UNUSED_PARAM(clazz)
+    return (jint)glGetUniformBlockIndex(program, uniformBlockName);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetActiveUniformBlockiv__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint pname, jlong paramsAddress) {
-	glGetActiveUniformBlockivPROC glGetActiveUniformBlockiv = (glGetActiveUniformBlockivPROC)tlsGetFunction(498);
-	intptr_t params = (intptr_t)paramsAddress;
-	UNUSED_PARAM(clazz)
-	glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params);
+    glGetActiveUniformBlockivPROC glGetActiveUniformBlockiv = (glGetActiveUniformBlockivPROC)tlsGetFunction(498);
+    intptr_t params = (intptr_t)paramsAddress;
+    UNUSED_PARAM(clazz)
+    glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetActiveUniformBlockName__IIIJJ(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint bufSize, jlong lengthAddress, jlong uniformBlockNameAddress) {
-	glGetActiveUniformBlockNamePROC glGetActiveUniformBlockName = (glGetActiveUniformBlockNamePROC)tlsGetFunction(497);
-	intptr_t length = (intptr_t)lengthAddress;
-	intptr_t uniformBlockName = (intptr_t)uniformBlockNameAddress;
-	UNUSED_PARAM(clazz)
-	glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
+    glGetActiveUniformBlockNamePROC glGetActiveUniformBlockName = (glGetActiveUniformBlockNamePROC)tlsGetFunction(497);
+    intptr_t length = (intptr_t)lengthAddress;
+    intptr_t uniformBlockName = (intptr_t)uniformBlockNameAddress;
+    UNUSED_PARAM(clazz)
+    glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glBindBufferRange(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset, jlong size) {
-	glBindBufferRangePROC glBindBufferRange = (glBindBufferRangePROC)tlsGetFunction(34);
-	UNUSED_PARAM(clazz)
-	glBindBufferRange(target, index, buffer, (intptr_t)offset, (intptr_t)size);
+    glBindBufferRangePROC glBindBufferRange = (glBindBufferRangePROC)tlsGetFunction(34);
+    UNUSED_PARAM(clazz)
+    glBindBufferRange(target, index, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glBindBufferBase(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer) {
-	glBindBufferBasePROC glBindBufferBase = (glBindBufferBasePROC)tlsGetFunction(29);
-	UNUSED_PARAM(clazz)
-	glBindBufferBase(target, index, buffer);
+    glBindBufferBasePROC glBindBufferBase = (glBindBufferBasePROC)tlsGetFunction(29);
+    UNUSED_PARAM(clazz)
+    glBindBufferBase(target, index, buffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetIntegeri_1v__IIJ(JNIEnv *__env, jclass clazz, jint target, jint index, jlong dataAddress) {
-	glGetIntegeri_vPROC glGetIntegeri_v = (glGetIntegeri_vPROC)tlsGetFunction(565);
-	intptr_t data = (intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glGetIntegeri_v(target, index, data);
+    glGetIntegeri_vPROC glGetIntegeri_v = (glGetIntegeri_vPROC)tlsGetFunction(565);
+    intptr_t data = (intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glGetIntegeri_v(target, index, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
-	glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1782);
-	UNUSED_PARAM(clazz)
-	glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
+    glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1782);
+    UNUSED_PARAM(clazz)
+    glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 }
 
 EXTERN_C_EXIT

@@ -17,136 +17,139 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Shared Resource Methods. */
 public class VRResources {
 
-	protected VRResources() {
-		throw new UnsupportedOperationException();
-	}
+    protected VRResources() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ VRResources_LoadSharedResource ] ---
+    // --- [ VRResources_LoadSharedResource ] ---
 
-	/** Unsafe version of: {@link #VRResources_LoadSharedResource LoadSharedResource} */
-	public static int nVRResources_LoadSharedResource(long pchResourceName, long pchBuffer, int unBufferLen) {
-		long __functionAddress = OpenVR.VRResources.LoadSharedResource;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPI(__functionAddress, pchResourceName, pchBuffer, unBufferLen);
-	}
+    /** Unsafe version of: {@link #VRResources_LoadSharedResource LoadSharedResource} */
+    public static int nVRResources_LoadSharedResource(long pchResourceName, long pchBuffer, int unBufferLen) {
+        long __functionAddress = OpenVR.VRResources.LoadSharedResource;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPI(__functionAddress, pchResourceName, pchBuffer, unBufferLen);
+    }
 
-	/**
-	 * Loads the specified resource into the provided buffer if large enough.
-	 *
-	 * @param pchResourceName 
-	 * @param pchBuffer       
-	 *
-	 * @return the size in bytes of the buffer required to hold the specified resource
-	 */
-	public static int VRResources_LoadSharedResource(ByteBuffer pchResourceName, ByteBuffer pchBuffer) {
-		if ( CHECKS )
-			checkNT1(pchResourceName);
-		return nVRResources_LoadSharedResource(memAddress(pchResourceName), memAddressSafe(pchBuffer), remainingSafe(pchBuffer));
-	}
+    /**
+     * Loads the specified resource into the provided buffer if large enough.
+     *
+     * @param pchResourceName 
+     * @param pchBuffer       
+     *
+     * @return the size in bytes of the buffer required to hold the specified resource
+     */
+    public static int VRResources_LoadSharedResource(ByteBuffer pchResourceName, ByteBuffer pchBuffer) {
+        if (CHECKS) {
+            checkNT1(pchResourceName);
+        }
+        return nVRResources_LoadSharedResource(memAddress(pchResourceName), memAddressSafe(pchBuffer), remainingSafe(pchBuffer));
+    }
 
-	/**
-	 * Loads the specified resource into the provided buffer if large enough.
-	 *
-	 * @param pchResourceName 
-	 * @param pchBuffer       
-	 *
-	 * @return the size in bytes of the buffer required to hold the specified resource
-	 */
-	public static int VRResources_LoadSharedResource(CharSequence pchResourceName, ByteBuffer pchBuffer) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
-			return nVRResources_LoadSharedResource(memAddress(pchResourceNameEncoded), memAddressSafe(pchBuffer), remainingSafe(pchBuffer));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Loads the specified resource into the provided buffer if large enough.
+     *
+     * @param pchResourceName 
+     * @param pchBuffer       
+     *
+     * @return the size in bytes of the buffer required to hold the specified resource
+     */
+    public static int VRResources_LoadSharedResource(CharSequence pchResourceName, ByteBuffer pchBuffer) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
+            return nVRResources_LoadSharedResource(memAddress(pchResourceNameEncoded), memAddressSafe(pchBuffer), remainingSafe(pchBuffer));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Loads the specified resource into the provided buffer if large enough.
-	 *
-	 * @param pchResourceName 
-	 * @param unBufferLen     
-	 *
-	 * @return the size in bytes of the buffer required to hold the specified resource
-	 */
-	public static String VRResources_LoadSharedResource(CharSequence pchResourceName, int unBufferLen) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
-			ByteBuffer pchBuffer = stack.malloc(unBufferLen);
-			int __result = nVRResources_LoadSharedResource(memAddress(pchResourceNameEncoded), memAddress(pchBuffer), unBufferLen);
-			return memASCII(pchBuffer, __result - 1);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Loads the specified resource into the provided buffer if large enough.
+     *
+     * @param pchResourceName 
+     * @param unBufferLen     
+     *
+     * @return the size in bytes of the buffer required to hold the specified resource
+     */
+    public static String VRResources_LoadSharedResource(CharSequence pchResourceName, int unBufferLen) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
+            ByteBuffer pchBuffer = stack.malloc(unBufferLen);
+            int __result = nVRResources_LoadSharedResource(memAddress(pchResourceNameEncoded), memAddress(pchBuffer), unBufferLen);
+            return memASCII(pchBuffer, __result - 1);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ VRResources_GetResourceFullPath ] ---
+    // --- [ VRResources_GetResourceFullPath ] ---
 
-	/** Unsafe version of: {@link #VRResources_GetResourceFullPath GetResourceFullPath} */
-	public static int nVRResources_GetResourceFullPath(long pchResourceName, long pchResourceTypeDirectory, long pchPathBuffer, int unBufferLen) {
-		long __functionAddress = OpenVR.VRResources.GetResourceFullPath;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPPI(__functionAddress, pchResourceName, pchResourceTypeDirectory, pchPathBuffer, unBufferLen);
-	}
+    /** Unsafe version of: {@link #VRResources_GetResourceFullPath GetResourceFullPath} */
+    public static int nVRResources_GetResourceFullPath(long pchResourceName, long pchResourceTypeDirectory, long pchPathBuffer, int unBufferLen) {
+        long __functionAddress = OpenVR.VRResources.GetResourceFullPath;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPPI(__functionAddress, pchResourceName, pchResourceTypeDirectory, pchPathBuffer, unBufferLen);
+    }
 
-	/**
-	 * Provides the full path to the specified resource. Resource names can include named directories for drivers and other things, and this resolves all of
-	 * those and returns the actual physical path. {@code pchResourceTypeDirectory} is the subdirectory of resources to look in.
-	 *
-	 * @param pchResourceName          
-	 * @param pchResourceTypeDirectory 
-	 * @param pchPathBuffer            
-	 */
-	public static int VRResources_GetResourceFullPath(ByteBuffer pchResourceName, ByteBuffer pchResourceTypeDirectory, ByteBuffer pchPathBuffer) {
-		if ( CHECKS ) {
-			checkNT1(pchResourceName);
-			checkNT1(pchResourceTypeDirectory);
-		}
-		return nVRResources_GetResourceFullPath(memAddress(pchResourceName), memAddress(pchResourceTypeDirectory), memAddressSafe(pchPathBuffer), remainingSafe(pchPathBuffer));
-	}
+    /**
+     * Provides the full path to the specified resource. Resource names can include named directories for drivers and other things, and this resolves all of
+     * those and returns the actual physical path. {@code pchResourceTypeDirectory} is the subdirectory of resources to look in.
+     *
+     * @param pchResourceName          
+     * @param pchResourceTypeDirectory 
+     * @param pchPathBuffer            
+     */
+    public static int VRResources_GetResourceFullPath(ByteBuffer pchResourceName, ByteBuffer pchResourceTypeDirectory, ByteBuffer pchPathBuffer) {
+        if (CHECKS) {
+            checkNT1(pchResourceName);
+            checkNT1(pchResourceTypeDirectory);
+        }
+        return nVRResources_GetResourceFullPath(memAddress(pchResourceName), memAddress(pchResourceTypeDirectory), memAddressSafe(pchPathBuffer), remainingSafe(pchPathBuffer));
+    }
 
-	/**
-	 * Provides the full path to the specified resource. Resource names can include named directories for drivers and other things, and this resolves all of
-	 * those and returns the actual physical path. {@code pchResourceTypeDirectory} is the subdirectory of resources to look in.
-	 *
-	 * @param pchResourceName          
-	 * @param pchResourceTypeDirectory 
-	 * @param pchPathBuffer            
-	 */
-	public static int VRResources_GetResourceFullPath(CharSequence pchResourceName, CharSequence pchResourceTypeDirectory, ByteBuffer pchPathBuffer) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
-			ByteBuffer pchResourceTypeDirectoryEncoded = stack.ASCII(pchResourceTypeDirectory);
-			return nVRResources_GetResourceFullPath(memAddress(pchResourceNameEncoded), memAddress(pchResourceTypeDirectoryEncoded), memAddressSafe(pchPathBuffer), remainingSafe(pchPathBuffer));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Provides the full path to the specified resource. Resource names can include named directories for drivers and other things, and this resolves all of
+     * those and returns the actual physical path. {@code pchResourceTypeDirectory} is the subdirectory of resources to look in.
+     *
+     * @param pchResourceName          
+     * @param pchResourceTypeDirectory 
+     * @param pchPathBuffer            
+     */
+    public static int VRResources_GetResourceFullPath(CharSequence pchResourceName, CharSequence pchResourceTypeDirectory, ByteBuffer pchPathBuffer) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
+            ByteBuffer pchResourceTypeDirectoryEncoded = stack.ASCII(pchResourceTypeDirectory);
+            return nVRResources_GetResourceFullPath(memAddress(pchResourceNameEncoded), memAddress(pchResourceTypeDirectoryEncoded), memAddressSafe(pchPathBuffer), remainingSafe(pchPathBuffer));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Provides the full path to the specified resource. Resource names can include named directories for drivers and other things, and this resolves all of
-	 * those and returns the actual physical path. {@code pchResourceTypeDirectory} is the subdirectory of resources to look in.
-	 *
-	 * @param pchResourceName          
-	 * @param pchResourceTypeDirectory 
-	 * @param unBufferLen              
-	 */
-	public static String VRResources_GetResourceFullPath(CharSequence pchResourceName, CharSequence pchResourceTypeDirectory, int unBufferLen) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
-			ByteBuffer pchResourceTypeDirectoryEncoded = stack.ASCII(pchResourceTypeDirectory);
-			ByteBuffer pchPathBuffer = stack.malloc(unBufferLen);
-			int __result = nVRResources_GetResourceFullPath(memAddress(pchResourceNameEncoded), memAddress(pchResourceTypeDirectoryEncoded), memAddress(pchPathBuffer), unBufferLen);
-			return memASCII(pchPathBuffer, __result - 1);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Provides the full path to the specified resource. Resource names can include named directories for drivers and other things, and this resolves all of
+     * those and returns the actual physical path. {@code pchResourceTypeDirectory} is the subdirectory of resources to look in.
+     *
+     * @param pchResourceName          
+     * @param pchResourceTypeDirectory 
+     * @param unBufferLen              
+     */
+    public static String VRResources_GetResourceFullPath(CharSequence pchResourceName, CharSequence pchResourceTypeDirectory, int unBufferLen) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
+            ByteBuffer pchResourceTypeDirectoryEncoded = stack.ASCII(pchResourceTypeDirectory);
+            ByteBuffer pchPathBuffer = stack.malloc(unBufferLen);
+            int __result = nVRResources_GetResourceFullPath(memAddress(pchResourceNameEncoded), memAddress(pchResourceTypeDirectoryEncoded), memAddress(pchPathBuffer), unBufferLen);
+            return memASCII(pchPathBuffer, __result - 1);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
 }

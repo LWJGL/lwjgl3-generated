@@ -12,15 +12,15 @@ typedef void (APIENTRY *glDrawTransformFeedbackStreamInstancedPROC) (jint, jint,
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedbackInstanced_glDrawTransformFeedbackInstanced(JNIEnv *__env, jclass clazz, jint mode, jint id, jint primcount) {
-	glDrawTransformFeedbackInstancedPROC glDrawTransformFeedbackInstanced = (glDrawTransformFeedbackInstancedPROC)tlsGetFunction(371);
-	UNUSED_PARAM(clazz)
-	glDrawTransformFeedbackInstanced(mode, id, primcount);
+    glDrawTransformFeedbackInstancedPROC glDrawTransformFeedbackInstanced = (glDrawTransformFeedbackInstancedPROC)tlsGetFunction(371);
+    UNUSED_PARAM(clazz)
+    glDrawTransformFeedbackInstanced(mode, id, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedbackInstanced_glDrawTransformFeedbackStreamInstanced(JNIEnv *__env, jclass clazz, jint mode, jint id, jint stream, jint primcount) {
-	glDrawTransformFeedbackStreamInstancedPROC glDrawTransformFeedbackStreamInstanced = (glDrawTransformFeedbackStreamInstancedPROC)tlsGetFunction(374);
-	UNUSED_PARAM(clazz)
-	glDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
+    glDrawTransformFeedbackStreamInstancedPROC glDrawTransformFeedbackStreamInstanced = (glDrawTransformFeedbackStreamInstancedPROC)tlsGetFunction(374);
+    UNUSED_PARAM(clazz)
+    glDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
 }
 
 EXTERN_C_EXIT

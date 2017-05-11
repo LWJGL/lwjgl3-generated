@@ -21,24 +21,24 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVXConditionalRender {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVXConditionalRender() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVXConditionalRender() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBeginConditionalRenderNVX, caps.glEndConditionalRenderNVX
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBeginConditionalRenderNVX, caps.glEndConditionalRenderNVX
+        );
+    }
 
-	// --- [ glBeginConditionalRenderNVX ] ---
+    // --- [ glBeginConditionalRenderNVX ] ---
 
-	public static native void glBeginConditionalRenderNVX(int id);
+    public static native void glBeginConditionalRenderNVX(int id);
 
-	// --- [ glEndConditionalRenderNVX ] ---
+    // --- [ glEndConditionalRenderNVX ] ---
 
-	public static native void glEndConditionalRenderNVX();
+    public static native void glEndConditionalRenderNVX();
 
 }

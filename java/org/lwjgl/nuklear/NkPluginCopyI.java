@@ -13,21 +13,21 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkPluginCopyI extends CallbackI.V {
 
-	String SIGNATURE = "(ppi)v";
+    String SIGNATURE = "(ppi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
 
-	void invoke(long handle, long text, int len);
+    void invoke(long handle, long text, int len);
 
 }

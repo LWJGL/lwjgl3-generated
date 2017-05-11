@@ -23,16 +23,16 @@ package org.lwjgl.opengles;
  */
 public final class APPLETexturePackedFloat {
 
-	/** Accepted by the {@code type} parameter of TexImage2D and TexSubImage2D. */
-	public static final int
-		GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE = 0x8C3B,
-		GL_UNSIGNED_INT_5_9_9_9_REV_APPLE     = 0x8C3E;
+    /** Accepted by the {@code type} parameter of TexImage2D and TexSubImage2D. */
+    public static final int
+        GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE = 0x8C3B,
+        GL_UNSIGNED_INT_5_9_9_9_REV_APPLE     = 0x8C3E;
 
-	/** Accepted by the {@code internalformat} parameter of TexStorage2DEXT. */
-	public static final int
-		GL_R11F_G11F_B10F_APPLE = 0x8C3A,
-		GL_RGB9_E5_APPLE        = 0x8C3D;
+    /** Accepted by the {@code internalformat} parameter of TexStorage2DEXT. */
+    public static final int
+        GL_R11F_G11F_B10F_APPLE = 0x8C3A,
+        GL_RGB9_E5_APPLE        = 0x8C3D;
 
-	private APPLETexturePackedFloat() {}
+    private APPLETexturePackedFloat() {}
 
 }

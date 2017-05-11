@@ -18,49 +18,51 @@ import static org.lwjgl.system.JNI.*;
  */
 public class SOFTDeferredUpdates {
 
-	/** Accepted by the {@code paramName} parameter of {@link AL10#alGetBoolean GetBoolean}, {@link AL10#alGetBooleanv GetBooleanv} (as well as the Integer, Float, and Double variants). */
-	public static final int AL_DEFERRED_UPDATES_SOFT = 0xC002;
+    /** Accepted by the {@code paramName} parameter of {@link AL10#alGetBoolean GetBoolean}, {@link AL10#alGetBooleanv GetBooleanv} (as well as the Integer, Float, and Double variants). */
+    public static final int AL_DEFERRED_UPDATES_SOFT = 0xC002;
 
-	protected SOFTDeferredUpdates() {
-		throw new UnsupportedOperationException();
-	}
+    protected SOFTDeferredUpdates() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(ALCapabilities caps) {
-		return checkFunctions(
-			caps.alDeferUpdatesSOFT, caps.alProcessUpdatesSOFT
-		);
-	}
+    static boolean isAvailable(ALCapabilities caps) {
+        return checkFunctions(
+            caps.alDeferUpdatesSOFT, caps.alProcessUpdatesSOFT
+        );
+    }
 
-	// --- [ alDeferUpdatesSOFT ] ---
+    // --- [ alDeferUpdatesSOFT ] ---
 
-	/**
-	 * Sometimes it is desirable to ensure multiple state changes take effect at the same time. Normally this isn't possible due to the AL processing updates
-	 * asychronously, so the playback state can be updated with only part of the changes having been specified. An application can prevent these updates by
-	 * calling this function.
-	 * 
-	 * <p>When called, samples will continue to render and be sent to the output device, but the effects of changing playback properties, such as the source or
-	 * listener gain, or auxiliary slot gain or effect if EFX is supported, among others, will be deferred. Multiple changes can be batched so that they all
-	 * apply at once at a later time.</p>
-	 */
-	public static void alDeferUpdatesSOFT() {
-		long __functionAddress = AL.getICD().alDeferUpdatesSOFT;
-		if ( CHECKS )
-			check(__functionAddress);
-		invokeV(__functionAddress);
-	}
+    /**
+     * Sometimes it is desirable to ensure multiple state changes take effect at the same time. Normally this isn't possible due to the AL processing updates
+     * asychronously, so the playback state can be updated with only part of the changes having been specified. An application can prevent these updates by
+     * calling this function.
+     * 
+     * <p>When called, samples will continue to render and be sent to the output device, but the effects of changing playback properties, such as the source or
+     * listener gain, or auxiliary slot gain or effect if EFX is supported, among others, will be deferred. Multiple changes can be batched so that they all
+     * apply at once at a later time.</p>
+     */
+    public static void alDeferUpdatesSOFT() {
+        long __functionAddress = AL.getICD().alDeferUpdatesSOFT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        invokeV(__functionAddress);
+    }
 
-	// --- [ alProcessUpdatesSOFT ] ---
+    // --- [ alProcessUpdatesSOFT ] ---
 
-	/**
-	 * Resumes updates.
-	 * 
-	 * <p>Once called, all pending deferred updates will be processed. Any following state changes will also apply as normal.</p>
-	 */
-	public static void alProcessUpdatesSOFT() {
-		long __functionAddress = AL.getICD().alProcessUpdatesSOFT;
-		if ( CHECKS )
-			check(__functionAddress);
-		invokeV(__functionAddress);
-	}
+    /**
+     * Resumes updates.
+     * 
+     * <p>Once called, all pending deferred updates will be processed. Any following state changes will also apply as normal.</p>
+     */
+    public static void alProcessUpdatesSOFT() {
+        long __functionAddress = AL.getICD().alProcessUpdatesSOFT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        invokeV(__functionAddress);
+    }
 
 }

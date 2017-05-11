@@ -11,9 +11,9 @@ typedef void (APIENTRY *glCopyTextureLevelsAPPLEPROC) (jint, jint, jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLECopyTextureLevels_glCopyTextureLevelsAPPLE(JNIEnv *__env, jclass clazz, jint destinationTexture, jint sourceTexture, jint sourceBaseLevel, jint sourceLevelCount) {
-	glCopyTextureLevelsAPPLEPROC glCopyTextureLevelsAPPLE = (glCopyTextureLevelsAPPLEPROC)tlsGetFunction(95);
-	UNUSED_PARAM(clazz)
-	glCopyTextureLevelsAPPLE(destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
+    glCopyTextureLevelsAPPLEPROC glCopyTextureLevelsAPPLE = (glCopyTextureLevelsAPPLEPROC)tlsGetFunction(95);
+    UNUSED_PARAM(clazz)
+    glCopyTextureLevelsAPPLE(destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
 }
 
 EXTERN_C_EXIT

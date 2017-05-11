@@ -15,9 +15,9 @@ package org.lwjgl.egl;
  */
 public final class MESAPlatformGBM {
 
-	/**  */
-	public static final int EGL_PLATFORM_GBM_MESA = 0x31D7;
+    /**  */
+    public static final int EGL_PLATFORM_GBM_MESA = 0x31D7;
 
-	private MESAPlatformGBM() {}
+    private MESAPlatformGBM() {}
 
 }

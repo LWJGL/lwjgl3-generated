@@ -43,46 +43,47 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class VkReallocationFunction extends Callback implements VkReallocationFunctionI {
 
-	/** Creates a {@code VkReallocationFunction} instance from the specified function pointer. */
-	public static VkReallocationFunction create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code VkReallocationFunction} instance from the specified function pointer. */
+    public static VkReallocationFunction create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		VkReallocationFunctionI instance = Callback.get(functionPointer);
-		return instance instanceof VkReallocationFunction
-			? (VkReallocationFunction)instance
-			: new Container(functionPointer, instance);
-	}
+        VkReallocationFunctionI instance = Callback.get(functionPointer);
+        return instance instanceof VkReallocationFunction
+            ? (VkReallocationFunction)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code VkReallocationFunction} instance that delegates to the specified {@code VkReallocationFunctionI} instance. */
-	public static VkReallocationFunction create(VkReallocationFunctionI instance) {
-		return instance instanceof VkReallocationFunction
-			? (VkReallocationFunction)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code VkReallocationFunction} instance that delegates to the specified {@code VkReallocationFunctionI} instance. */
+    public static VkReallocationFunction create(VkReallocationFunctionI instance) {
+        return instance instanceof VkReallocationFunction
+            ? (VkReallocationFunction)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected VkReallocationFunction() {
-		super(SIGNATURE);
-	}
+    protected VkReallocationFunction() {
+        super(SIGNATURE);
+    }
 
-	private VkReallocationFunction(long functionPointer) {
-		super(functionPointer);
-	}
+    private VkReallocationFunction(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends VkReallocationFunction {
+    private static final class Container extends VkReallocationFunction {
 
-		private final VkReallocationFunctionI delegate;
+        private final VkReallocationFunctionI delegate;
 
-		Container(long functionPointer, VkReallocationFunctionI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, VkReallocationFunctionI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope) {
-			return delegate.invoke(pUserData, pOriginal, size, alignment, allocationScope);
-		}
+        @Override
+        public long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope) {
+            return delegate.invoke(pUserData, pOriginal, size, alignment, allocationScope);
+        }
 
-	}
+    }
 
 }

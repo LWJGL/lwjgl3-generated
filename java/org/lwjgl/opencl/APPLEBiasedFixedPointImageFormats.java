@@ -21,11 +21,11 @@ package org.lwjgl.opencl;
  */
 public final class APPLEBiasedFixedPointImageFormats {
 
-	/**  */
-	public static final int
-		CL_SFIXED14_APPLE    = 0x10000008,
-		CL_BIASED_HALF_APPLE = 0x10000009;
+    /**  */
+    public static final int
+        CL_SFIXED14_APPLE    = 0x10000008,
+        CL_BIASED_HALF_APPLE = 0x10000009;
 
-	private APPLEBiasedFixedPointImageFormats() {}
+    private APPLEBiasedFixedPointImageFormats() {}
 
 }

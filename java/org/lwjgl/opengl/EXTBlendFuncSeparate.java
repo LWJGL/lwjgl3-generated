@@ -17,27 +17,27 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTBlendFuncSeparate {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_DST_RGB_EXT   = 0x80C8,
-		GL_BLEND_SRC_RGB_EXT   = 0x80C9,
-		GL_BLEND_DST_ALPHA_EXT = 0x80CA,
-		GL_BLEND_SRC_ALPHA_EXT = 0x80CB;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_BLEND_DST_RGB_EXT   = 0x80C8,
+        GL_BLEND_SRC_RGB_EXT   = 0x80C9,
+        GL_BLEND_DST_ALPHA_EXT = 0x80CA,
+        GL_BLEND_SRC_ALPHA_EXT = 0x80CB;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTBlendFuncSeparate() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTBlendFuncSeparate() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBlendFuncSeparateEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBlendFuncSeparateEXT
+        );
+    }
 
-	// --- [ glBlendFuncSeparateEXT ] ---
+    // --- [ glBlendFuncSeparateEXT ] ---
 
-	public static native void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
+    public static native void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
 
 }

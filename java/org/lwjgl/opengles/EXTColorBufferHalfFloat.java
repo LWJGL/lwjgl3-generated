@@ -18,19 +18,19 @@ package org.lwjgl.opengles;
  */
 public final class EXTColorBufferHalfFloat {
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorage and RenderbufferStorageMultisampleAPPLE. */
-	public static final int
-		GL_RGBA16F_EXT = 0x881A,
-		GL_RGB16F_EXT  = 0x881B,
-		GL_RG16F_EXT   = 0x822F,
-		GL_R16F_EXT    = 0x822D;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorage and RenderbufferStorageMultisampleAPPLE. */
+    public static final int
+        GL_RGBA16F_EXT = 0x881A,
+        GL_RGB16F_EXT  = 0x881B,
+        GL_RG16F_EXT   = 0x822F,
+        GL_R16F_EXT    = 0x822D;
 
-	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
-	public static final int GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT = 0x8211;
+    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    public static final int GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT = 0x8211;
 
-	/** Returned in {@code params} by GetFramebufferAttachmentParameteriv. */
-	public static final int GL_UNSIGNED_NORMALIZED_EXT = 0x8C17;
+    /** Returned in {@code params} by GetFramebufferAttachmentParameteriv. */
+    public static final int GL_UNSIGNED_NORMALIZED_EXT = 0x8C17;
 
-	private EXTColorBufferHalfFloat() {}
+    private EXTColorBufferHalfFloat() {}
 
 }

@@ -41,39 +41,40 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVInternalformatSampleQuery {
 
-	/** Accepted by the {@code pname} parameter of GetInternalformatSampleivNV */
-	public static final int
-		GL_MULTISAMPLES_NV        = 0x9371,
-		GL_SUPERSAMPLE_SCALE_X_NV = 0x9372,
-		GL_SUPERSAMPLE_SCALE_Y_NV = 0x9373,
-		GL_CONFORMANT_NV          = 0x9374;
+    /** Accepted by the {@code pname} parameter of GetInternalformatSampleivNV */
+    public static final int
+        GL_MULTISAMPLES_NV        = 0x9371,
+        GL_SUPERSAMPLE_SCALE_X_NV = 0x9372,
+        GL_SUPERSAMPLE_SCALE_Y_NV = 0x9373,
+        GL_CONFORMANT_NV          = 0x9374;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVInternalformatSampleQuery() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVInternalformatSampleQuery() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glGetInternalformatSampleivNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glGetInternalformatSampleivNV
+        );
+    }
 
-	// --- [ glGetInternalformatSampleivNV ] ---
+    // --- [ glGetInternalformatSampleivNV ] ---
 
-	public static native void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params);
+    public static native void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params);
 
-	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, IntBuffer params) {
-		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, params.remaining(), memAddress(params));
-	}
+    public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, IntBuffer params) {
+        nglGetInternalformatSampleivNV(target, internalformat, samples, pname, params.remaining(), memAddress(params));
+    }
 
-	/** Array version of: {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
-	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glGetInternalformatSampleivNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, internalformat, samples, pname, params.length, params);
-	}
+    /** Array version of: {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
+    public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glGetInternalformatSampleivNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, internalformat, samples, pname, params.length, params);
+    }
 
 }

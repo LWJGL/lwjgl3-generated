@@ -18,35 +18,35 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXSGIXSwapGroup {
 
-	protected GLXSGIXSwapGroup() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXSGIXSwapGroup() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXJoinSwapGroupSGIX
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXJoinSwapGroupSGIX
+        );
+    }
 
-	// --- [ glXJoinSwapGroupSGIX ] ---
+    // --- [ glXJoinSwapGroupSGIX ] ---
 
-	/**
-	 * Adds {@code drawable} to the swap group containing {@code member} as a member. If {@code drawable} is already a member of a different group, it is
-	 * implicitly removed from that group first. If {@code member} is {@code None}, {@code drawable} is removed from the swap group that it belongs to, if
-	 * any.
-	 *
-	 * @param display  the connection to the X server
-	 * @param drawable the GLXDrawable to add to the swap group
-	 * @param member   a member of the swap group or {@code None}
-	 */
-	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupSGIX;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(drawable);
-		}
-		callPPPV(__functionAddress, display, drawable, member);
-	}
+    /**
+     * Adds {@code drawable} to the swap group containing {@code member} as a member. If {@code drawable} is already a member of a different group, it is
+     * implicitly removed from that group first. If {@code member} is {@code None}, {@code drawable} is removed from the swap group that it belongs to, if
+     * any.
+     *
+     * @param display  the connection to the X server
+     * @param drawable the GLXDrawable to add to the swap group
+     * @param member   a member of the swap group or {@code None}
+     */
+    public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupSGIX;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(drawable);
+        }
+        callPPPV(__functionAddress, display, drawable, member);
+    }
 
 }

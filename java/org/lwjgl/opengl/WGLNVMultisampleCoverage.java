@@ -12,14 +12,14 @@ package org.lwjgl.opengl;
  */
 public final class WGLNVMultisampleCoverage {
 
-	/**
-	 * Accepted by the {@code piAttributes} parameter of wglGetPixelFormatAttribivEXT, wglGetPixelFormatAttribfvEXT, and the
-	 * {@code piAttribIList} and {@code pfAttribIList} of wglChoosePixelFormatEXT.
-	 */
-	public static final int
-		WGL_COVERAGE_SAMPLES_NV = 0x2042,
-		WGL_COLOR_SAMPLES_NV    = 0x20B9;
+    /**
+     * Accepted by the {@code piAttributes} parameter of wglGetPixelFormatAttribivEXT, wglGetPixelFormatAttribfvEXT, and the
+     * {@code piAttribIList} and {@code pfAttribIList} of wglChoosePixelFormatEXT.
+     */
+    public static final int
+        WGL_COVERAGE_SAMPLES_NV = 0x2042,
+        WGL_COLOR_SAMPLES_NV    = 0x20B9;
 
-	private WGLNVMultisampleCoverage() {}
+    private WGLNVMultisampleCoverage() {}
 
 }

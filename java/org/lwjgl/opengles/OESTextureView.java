@@ -34,28 +34,28 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESTextureView {
 
-	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_VIEW_MIN_LEVEL_OES  = 0x82DB,
-		GL_TEXTURE_VIEW_NUM_LEVELS_OES = 0x82DC,
-		GL_TEXTURE_VIEW_MIN_LAYER_OES  = 0x82DD,
-		GL_TEXTURE_VIEW_NUM_LAYERS_OES = 0x82DE,
-		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
+    /** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
+    public static final int
+        GL_TEXTURE_VIEW_MIN_LEVEL_OES  = 0x82DB,
+        GL_TEXTURE_VIEW_NUM_LEVELS_OES = 0x82DC,
+        GL_TEXTURE_VIEW_MIN_LAYER_OES  = 0x82DD,
+        GL_TEXTURE_VIEW_NUM_LAYERS_OES = 0x82DE,
+        GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESTextureView() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESTextureView() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glTextureViewOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glTextureViewOES
+        );
+    }
 
-	// --- [ glTextureViewOES ] ---
+    // --- [ glTextureViewOES ] ---
 
-	public static native void glTextureViewOES(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
+    public static native void glTextureViewOES(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
 
 }

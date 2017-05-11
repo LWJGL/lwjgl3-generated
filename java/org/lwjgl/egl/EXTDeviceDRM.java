@@ -24,9 +24,9 @@ package org.lwjgl.egl;
  */
 public final class EXTDeviceDRM {
 
-	/**  */
-	public static final int EGL_DRM_DEVICE_FILE_EXT = 0x3233;
+    /**  */
+    public static final int EGL_DRM_DEVICE_FILE_EXT = 0x3233;
 
-	private EXTDeviceDRM() {}
+    private EXTDeviceDRM() {}
 
 }

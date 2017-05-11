@@ -17,9 +17,9 @@ package org.lwjgl.egl;
  */
 public final class EXTProtectedSurface {
 
-	/**  */
-	public static final int EGL_PROTECTED_CONTENT_EXT = 0x32C0;
+    /**  */
+    public static final int EGL_PROTECTED_CONTENT_EXT = 0x32C0;
 
-	private EXTProtectedSurface() {}
+    private EXTProtectedSurface() {}
 
 }

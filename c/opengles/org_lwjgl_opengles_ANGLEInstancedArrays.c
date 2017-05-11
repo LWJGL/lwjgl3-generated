@@ -13,22 +13,22 @@ typedef void (APIENTRY *glVertexAttribDivisorANGLEPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_glDrawArraysInstancedANGLE(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount) {
-	glDrawArraysInstancedANGLEPROC glDrawArraysInstancedANGLE = (glDrawArraysInstancedANGLEPROC)tlsGetFunction(157);
-	UNUSED_PARAM(clazz)
-	glDrawArraysInstancedANGLE(mode, first, count, primcount);
+    glDrawArraysInstancedANGLEPROC glDrawArraysInstancedANGLE = (glDrawArraysInstancedANGLEPROC)tlsGetFunction(157);
+    UNUSED_PARAM(clazz)
+    glDrawArraysInstancedANGLE(mode, first, count, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_nglDrawElementsInstancedANGLE(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
-	glDrawElementsInstancedANGLEPROC glDrawElementsInstancedANGLE = (glDrawElementsInstancedANGLEPROC)tlsGetFunction(171);
-	const intptr_t indices = (const intptr_t)indicesAddress;
-	UNUSED_PARAM(clazz)
-	glDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
+    glDrawElementsInstancedANGLEPROC glDrawElementsInstancedANGLE = (glDrawElementsInstancedANGLEPROC)tlsGetFunction(171);
+    const intptr_t indices = (const intptr_t)indicesAddress;
+    UNUSED_PARAM(clazz)
+    glDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_glVertexAttribDivisorANGLE(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
-	glVertexAttribDivisorANGLEPROC glVertexAttribDivisorANGLE = (glVertexAttribDivisorANGLEPROC)tlsGetFunction(761);
-	UNUSED_PARAM(clazz)
-	glVertexAttribDivisorANGLE(index, divisor);
+    glVertexAttribDivisorANGLEPROC glVertexAttribDivisorANGLE = (glVertexAttribDivisorANGLEPROC)tlsGetFunction(761);
+    UNUSED_PARAM(clazz)
+    glVertexAttribDivisorANGLE(index, divisor);
 }
 
 EXTERN_C_EXIT

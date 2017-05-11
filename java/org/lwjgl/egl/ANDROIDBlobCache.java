@@ -28,29 +28,29 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ANDROIDBlobCache {
 
-	protected ANDROIDBlobCache() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANDROIDBlobCache() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglSetBlobCacheFuncsANDROID
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglSetBlobCacheFuncsANDROID
+        );
+    }
 
-	// --- [ eglSetBlobCacheFuncsANDROID ] ---
+    // --- [ eglSetBlobCacheFuncsANDROID ] ---
 
-	public static void neglSetBlobCacheFuncsANDROID(long dpy, long set, long get) {
-		long __functionAddress = EGL.getCapabilities().eglSetBlobCacheFuncsANDROID;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-		}
-		callPPPV(__functionAddress, dpy, set, get);
-	}
+    public static void neglSetBlobCacheFuncsANDROID(long dpy, long set, long get) {
+        long __functionAddress = EGL.getCapabilities().eglSetBlobCacheFuncsANDROID;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+        }
+        callPPPV(__functionAddress, dpy, set, get);
+    }
 
-	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROIDI set, EGLGetBlobFuncANDROIDI get) {
-		neglSetBlobCacheFuncsANDROID(dpy, set.address(), get.address());
-	}
+    public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROIDI set, EGLGetBlobFuncANDROIDI get) {
+        neglSetBlobCacheFuncsANDROID(dpy, set.address(), get.address());
+    }
 
 }

@@ -13,11 +13,11 @@ package org.lwjgl.openal;
  */
 public final class EXTLinearDistance {
 
-	/** {@code AL_EXT_LINEAR_DISTANCE} tokens. */
-	public static final int
-		AL_LINEAR_DISTANCE         = 0xD003,
-		AL_LINEAR_DISTANCE_CLAMPED = 0xD004;
+    /** {@code AL_EXT_LINEAR_DISTANCE} tokens. */
+    public static final int
+        AL_LINEAR_DISTANCE         = 0xD003,
+        AL_LINEAR_DISTANCE_CLAMPED = 0xD004;
 
-	private EXTLinearDistance() {}
+    private EXTLinearDistance() {}
 
 }

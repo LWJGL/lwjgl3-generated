@@ -27,102 +27,102 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBTextureStorage {
 
-	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
-	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
+    /** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
+    public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBTextureStorage() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBTextureStorage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
-		return checkFunctions(
-			caps.glTexStorage1D, caps.glTexStorage2D, caps.glTexStorage3D, ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage1DEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage2DEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage3DEXT : -1L
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+        return checkFunctions(
+            caps.glTexStorage1D, caps.glTexStorage2D, caps.glTexStorage3D, ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage1DEXT : -1L, 
+            ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage2DEXT : -1L, 
+            ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage3DEXT : -1L
+        );
+    }
 
-	// --- [ glTexStorage1D ] ---
+    // --- [ glTexStorage1D ] ---
 
-	/**
-	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
-	 *
-	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td></tr></table>
-	 * @param levels         the number of texture levels
-	 * @param internalformat the sized internal format to be used to store texture image data
-	 * @param width          the width of the texture, in texels
-	 */
-	public static native void glTexStorage1D(int target, int levels, int internalformat, int width);
+    /**
+     * Simultaneously specifies storage for all levels of a one-dimensional texture.
+     *
+     * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td></tr></table>
+     * @param levels         the number of texture levels
+     * @param internalformat the sized internal format to be used to store texture image data
+     * @param width          the width of the texture, in texels
+     */
+    public static native void glTexStorage1D(int target, int levels, int internalformat, int width);
 
-	// --- [ glTexStorage2D ] ---
+    // --- [ glTexStorage2D ] ---
 
-	/**
-	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
-	 *
-	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr></table>
-	 * @param levels         the number of texture levels
-	 * @param internalformat the sized internal format to be used to store texture image data
-	 * @param width          the width of the texture, in texels
-	 * @param height         the height of the texture, in texels
-	 */
-	public static native void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
+    /**
+     * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
+     *
+     * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr></table>
+     * @param levels         the number of texture levels
+     * @param internalformat the sized internal format to be used to store texture image data
+     * @param width          the width of the texture, in texels
+     * @param height         the height of the texture, in texels
+     */
+    public static native void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
-	// --- [ glTexStorage3D ] ---
+    // --- [ glTexStorage3D ] ---
 
-	/**
-	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
-	 *
-	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}</td></tr><tr><td>{@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}</td></tr></table>
-	 * @param levels         the number of texture levels
-	 * @param internalformat the sized internal format to be used to store texture image data
-	 * @param width          the width of the texture, in texels
-	 * @param height         the height of the texture, in texels
-	 * @param depth          the depth of the texture, in texels
-	 */
-	public static native void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
+    /**
+     * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
+     *
+     * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}</td></tr><tr><td>{@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}</td></tr></table>
+     * @param levels         the number of texture levels
+     * @param internalformat the sized internal format to be used to store texture image data
+     * @param width          the width of the texture, in texels
+     * @param height         the height of the texture, in texels
+     * @param depth          the depth of the texture, in texels
+     */
+    public static native void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
-	// --- [ glTextureStorage1DEXT ] ---
+    // --- [ glTextureStorage1DEXT ] ---
 
-	/**
-	 * DSA version of {@link #glTexStorage1D TexStorage1D}.
-	 *
-	 * @param texture        the texture object to update
-	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td></tr></table>
-	 * @param levels         the number of texture levels
-	 * @param internalformat the sized internal format to be used to store texture image data
-	 * @param width          the width of the texture, in texels
-	 */
-	public static native void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width);
+    /**
+     * DSA version of {@link #glTexStorage1D TexStorage1D}.
+     *
+     * @param texture        the texture object to update
+     * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td></tr></table>
+     * @param levels         the number of texture levels
+     * @param internalformat the sized internal format to be used to store texture image data
+     * @param width          the width of the texture, in texels
+     */
+    public static native void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width);
 
-	// --- [ glTextureStorage2DEXT ] ---
+    // --- [ glTextureStorage2DEXT ] ---
 
-	/**
-	 * DSA version of {@link #glTexStorage2D TexStorage2D}.
-	 *
-	 * @param texture        the texture object to update
-	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr></table>
-	 * @param levels         the number of texture levels
-	 * @param internalformat the sized internal format to be used to store texture image data
-	 * @param width          the width of the texture, in texels
-	 * @param height         the height of the texture, in texels
-	 */
-	public static native void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height);
+    /**
+     * DSA version of {@link #glTexStorage2D TexStorage2D}.
+     *
+     * @param texture        the texture object to update
+     * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr></table>
+     * @param levels         the number of texture levels
+     * @param internalformat the sized internal format to be used to store texture image data
+     * @param width          the width of the texture, in texels
+     * @param height         the height of the texture, in texels
+     */
+    public static native void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height);
 
-	// --- [ glTextureStorage3DEXT ] ---
+    // --- [ glTextureStorage3DEXT ] ---
 
-	/**
-	 * DSA version of {@link #glTexStorage3D TexStorage3D}.
-	 *
-	 * @param texture        the texture object to update
-	 * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}</td></tr><tr><td>{@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}</td></tr></table>
-	 * @param levels         the number of texture levels
-	 * @param internalformat the sized internal format to be used to store texture image data
-	 * @param width          the width of the texture, in texels
-	 * @param height         the height of the texture, in texels
-	 * @param depth          the depth of the texture, in texels
-	 */
-	public static native void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth);
+    /**
+     * DSA version of {@link #glTexStorage3D TexStorage3D}.
+     *
+     * @param texture        the texture object to update
+     * @param target         the target of the operation. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}</td></tr><tr><td>{@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}</td></tr></table>
+     * @param levels         the number of texture levels
+     * @param internalformat the sized internal format to be used to store texture image data
+     * @param width          the width of the texture, in texels
+     * @param height         the height of the texture, in texels
+     * @param depth          the depth of the texture, in texels
+     */
+    public static native void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth);
 
 }

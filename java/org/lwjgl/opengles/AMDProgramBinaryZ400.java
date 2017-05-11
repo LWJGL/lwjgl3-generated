@@ -23,9 +23,9 @@ package org.lwjgl.opengles;
  */
 public final class AMDProgramBinaryZ400 {
 
-	/** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
-	public static final int GL_Z400_BINARY_AMD = 0x8740;
+    /** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
+    public static final int GL_Z400_BINARY_AMD = 0x8740;
 
-	private AMDProgramBinaryZ400() {}
+    private AMDProgramBinaryZ400() {}
 
 }

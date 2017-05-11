@@ -16,12 +16,12 @@ package org.lwjgl.opengles;
  */
 public final class EXTRenderSnorm {
 
-	/** Accepted by the {@code internalFormat} parameter of RenderbufferStorage and RenderbufferStorageMultisample. */
-	public static final int
-		GL_R16_SNORM_EXT    = 0x8F98,
-		GL_RG16_SNORM_EXT   = 0x8F99,
-		GL_RGBA16_SNORM_EXT = 0x8F9B;
+    /** Accepted by the {@code internalFormat} parameter of RenderbufferStorage and RenderbufferStorageMultisample. */
+    public static final int
+        GL_R16_SNORM_EXT    = 0x8F98,
+        GL_RG16_SNORM_EXT   = 0x8F99,
+        GL_RGBA16_SNORM_EXT = 0x8F9B;
 
-	private EXTRenderSnorm() {}
+    private EXTRenderSnorm() {}
 
 }

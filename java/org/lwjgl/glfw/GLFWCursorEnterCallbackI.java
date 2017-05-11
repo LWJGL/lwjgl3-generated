@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWCursorEnterCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pi)v";
+    String SIGNATURE = "(pi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args) != 0
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args) != 0
+        );
+    }
 
-	/**
-	 * Will be called when the cursor enters or leaves the client area of the window.
-	 *
-	 * @param window  the window that received the event
-	 * @param entered {@link GLFW#GLFW_TRUE TRUE} if the cursor entered the window's client area, or {@link GLFW#GLFW_FALSE FALSE} if it left it
-	 */
-	void invoke(long window, boolean entered);
+    /**
+     * Will be called when the cursor enters or leaves the client area of the window.
+     *
+     * @param window  the window that received the event
+     * @param entered {@link GLFW#GLFW_TRUE TRUE} if the cursor entered the window's client area, or {@link GLFW#GLFW_FALSE FALSE} if it left it
+     */
+    void invoke(long window, boolean entered);
 
 }

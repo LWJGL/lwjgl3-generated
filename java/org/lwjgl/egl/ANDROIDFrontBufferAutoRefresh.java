@@ -14,12 +14,12 @@ package org.lwjgl.egl;
  */
 public final class ANDROIDFrontBufferAutoRefresh {
 
-	/**
-	 * When used as an attribute in {@link EGL11#eglSurfaceAttrib SurfaceAttrib}, the value specifies whether to enable or disable auto-refresh in the Android compositor when doing
-	 * front-buffer rendering.
-	 */
-	public static final int EGL_FRONT_BUFFER_AUTO_REFRESH_ANDROID = 0x314C;
+    /**
+     * When used as an attribute in {@link EGL11#eglSurfaceAttrib SurfaceAttrib}, the value specifies whether to enable or disable auto-refresh in the Android compositor when doing
+     * front-buffer rendering.
+     */
+    public static final int EGL_FRONT_BUFFER_AUTO_REFRESH_ANDROID = 0x314C;
 
-	private ANDROIDFrontBufferAutoRefresh() {}
+    private ANDROIDFrontBufferAutoRefresh() {}
 
 }

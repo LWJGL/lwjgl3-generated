@@ -28,29 +28,29 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ANGLEFramebufferMultisample {
 
-	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
-	public static final int GL_RENDERBUFFER_SAMPLES_ANGLE = 0x8CAB;
+    /** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
+    public static final int GL_RENDERBUFFER_SAMPLES_ANGLE = 0x8CAB;
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE = 0x8D56;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE = 0x8D56;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int GL_MAX_SAMPLES_ANGLE = 0x8D57;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int GL_MAX_SAMPLES_ANGLE = 0x8D57;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected ANGLEFramebufferMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANGLEFramebufferMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glRenderbufferStorageMultisampleANGLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glRenderbufferStorageMultisampleANGLE
+        );
+    }
 
-	// --- [ glRenderbufferStorageMultisampleANGLE ] ---
+    // --- [ glRenderbufferStorageMultisampleANGLE ] ---
 
-	public static native void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
 
 }

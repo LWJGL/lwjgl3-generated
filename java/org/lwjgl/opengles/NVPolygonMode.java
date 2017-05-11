@@ -18,34 +18,34 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVPolygonMode {
 
-	/** Accepted by the {@code pname} parameter to GetIntegerv. */
-	public static final int GL_POLYGON_MODE_NV = 0xB40;
+    /** Accepted by the {@code pname} parameter to GetIntegerv. */
+    public static final int GL_POLYGON_MODE_NV = 0xB40;
 
-	/** Accepted by the {@code pname} parameter to IsEnabled. */
-	public static final int
-		GL_POLYGON_OFFSET_POINT_NV = 0x2A01,
-		GL_POLYGON_OFFSET_LINE_NV  = 0x2A02;
+    /** Accepted by the {@code pname} parameter to IsEnabled. */
+    public static final int
+        GL_POLYGON_OFFSET_POINT_NV = 0x2A01,
+        GL_POLYGON_OFFSET_LINE_NV  = 0x2A02;
 
-	/** Returned by GetIntegerv, GetFloatv, and GetInteger64v when {@code pname} is POLYGON_MODE_NV. */
-	public static final int
-		GL_POINT_NV = 0x1B00,
-		GL_LINE_NV  = 0x1B01,
-		GL_FILL_NV  = 0x1B02;
+    /** Returned by GetIntegerv, GetFloatv, and GetInteger64v when {@code pname} is POLYGON_MODE_NV. */
+    public static final int
+        GL_POINT_NV = 0x1B00,
+        GL_LINE_NV  = 0x1B01,
+        GL_FILL_NV  = 0x1B02;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVPolygonMode() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVPolygonMode() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glPolygonModeNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glPolygonModeNV
+        );
+    }
 
-	// --- [ glPolygonModeNV ] ---
+    // --- [ glPolygonModeNV ] ---
 
-	public static native void glPolygonModeNV(int face, int mode);
+    public static native void glPolygonModeNV(int face, int mode);
 
 }

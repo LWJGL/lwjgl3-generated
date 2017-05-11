@@ -13,21 +13,23 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface YGLoggerI extends CallbackI.I {
 
-	String SIGNATURE = "(ipp)i";
+    String SIGNATURE = "(ppipp)i";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default int callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
 
-	int invoke(int level, long format, long args);
+    int invoke(long config, long node, int level, long format, long args);
 
 }

@@ -20,29 +20,29 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVPostSubBuffer {
 
-	/**  */
-	public static final int EGL_POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;
+    /**  */
+    public static final int EGL_POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;
 
-	protected NVPostSubBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVPostSubBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglPostSubBufferNV
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglPostSubBufferNV
+        );
+    }
 
-	// --- [ eglPostSubBufferNV ] ---
+    // --- [ eglPostSubBufferNV ] ---
 
-	public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
-		long __functionAddress = EGL.getCapabilities().eglPostSubBufferNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPI(__functionAddress, dpy, surface, x, y, width, height) != 0;
-	}
+    public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
+        long __functionAddress = EGL.getCapabilities().eglPostSubBufferNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPI(__functionAddress, dpy, surface, x, y, width, height) != 0;
+    }
 
 }

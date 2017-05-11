@@ -15,9 +15,9 @@ package org.lwjgl.opengles;
  */
 public final class IMGProgramBinary {
 
-	/** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
-	public static final int GL_SGX_PROGRAM_BINARY_IMG = 0x9130;
+    /** Accepted by the {@code binaryFormat} parameter of ProgramBinaryOES. */
+    public static final int GL_SGX_PROGRAM_BINARY_IMG = 0x9130;
 
-	private IMGProgramBinary() {}
+    private IMGProgramBinary() {}
 
 }

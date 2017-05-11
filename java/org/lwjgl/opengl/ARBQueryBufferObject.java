@@ -26,22 +26,22 @@ package org.lwjgl.opengl;
  */
 public final class ARBQueryBufferObject {
 
-	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv}, {@link GL33#glGetQueryObjecti64v GetQueryObjecti64v} and {@link GL33#glGetQueryObjectui64v GetQueryObjectui64v}. */
-	public static final int GL_QUERY_RESULT_NO_WAIT = 0x9194;
+    /** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv}, {@link GL33#glGetQueryObjecti64v GetQueryObjecti64v} and {@link GL33#glGetQueryObjectui64v GetQueryObjectui64v}. */
+    public static final int GL_QUERY_RESULT_NO_WAIT = 0x9194;
 
-	/**
-	 * Accepted by the {@code target} parameter of {@link GL15#glBindBuffer BindBuffer}, {@link GL15#glBufferData BufferData}, {@link GL15#glBufferSubData BufferSubData}, {@link GL15#glMapBuffer MapBuffer}, {@link GL15#glUnmapBuffer UnmapBuffer}, {@link GL30#glMapBufferRange MapBufferRange},
-	 * {@link GL15#glGetBufferSubData GetBufferSubData}, {@link GL15#glGetBufferParameteriv GetBufferParameteriv}, {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}, {@link GL15#glGetBufferPointerv GetBufferPointerv}, {@link GL43#glClearBufferSubData ClearBufferSubData}, and the {@code readtarget} and
-	 * {@code writetarget} parameters of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
-	 */
-	public static final int GL_QUERY_BUFFER = 0x9192;
+    /**
+     * Accepted by the {@code target} parameter of {@link GL15#glBindBuffer BindBuffer}, {@link GL15#glBufferData BufferData}, {@link GL15#glBufferSubData BufferSubData}, {@link GL15#glMapBuffer MapBuffer}, {@link GL15#glUnmapBuffer UnmapBuffer}, {@link GL30#glMapBufferRange MapBufferRange},
+     * {@link GL15#glGetBufferSubData GetBufferSubData}, {@link GL15#glGetBufferParameteriv GetBufferParameteriv}, {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}, {@link GL15#glGetBufferPointerv GetBufferPointerv}, {@link GL43#glClearBufferSubData ClearBufferSubData}, and the {@code readtarget} and
+     * {@code writetarget} parameters of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
+     */
+    public static final int GL_QUERY_BUFFER = 0x9192;
 
-	/** Accepted by the {@code pname} parameter of {@link GL11#glGetBooleanv GetBooleanv}, {@link GL11#glGetIntegerv GetIntegerv}, {@link GL11#glGetFloatv GetFloatv}, and {@link GL11#glGetDoublev GetDoublev}. */
-	public static final int GL_QUERY_BUFFER_BINDING = 0x9193;
+    /** Accepted by the {@code pname} parameter of {@link GL11#glGetBooleanv GetBooleanv}, {@link GL11#glGetIntegerv GetIntegerv}, {@link GL11#glGetFloatv GetFloatv}, and {@link GL11#glGetDoublev GetDoublev}. */
+    public static final int GL_QUERY_BUFFER_BINDING = 0x9193;
 
-	/** Accepted in the {@code barriers} bitfield in {@link GL42#glMemoryBarrier MemoryBarrier}. */
-	public static final int GL_QUERY_BUFFER_BARRIER_BIT = 0x8000;
+    /** Accepted in the {@code barriers} bitfield in {@link GL42#glMemoryBarrier MemoryBarrier}. */
+    public static final int GL_QUERY_BUFFER_BARRIER_BIT = 0x8000;
 
-	private ARBQueryBufferObject() {}
+    private ARBQueryBufferObject() {}
 
 }

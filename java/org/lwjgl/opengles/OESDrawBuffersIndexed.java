@@ -27,49 +27,49 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESDrawBuffersIndexed {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESDrawBuffersIndexed() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESDrawBuffersIndexed() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glEnableiOES, caps.glDisableiOES, caps.glBlendEquationiOES, caps.glBlendEquationSeparateiOES, caps.glBlendFunciOES, 
-			caps.glBlendFuncSeparateiOES, caps.glColorMaskiOES, caps.glIsEnablediOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glEnableiOES, caps.glDisableiOES, caps.glBlendEquationiOES, caps.glBlendEquationSeparateiOES, caps.glBlendFunciOES, 
+            caps.glBlendFuncSeparateiOES, caps.glColorMaskiOES, caps.glIsEnablediOES
+        );
+    }
 
-	// --- [ glEnableiOES ] ---
+    // --- [ glEnableiOES ] ---
 
-	public static native void glEnableiOES(int target, int index);
+    public static native void glEnableiOES(int target, int index);
 
-	// --- [ glDisableiOES ] ---
+    // --- [ glDisableiOES ] ---
 
-	public static native void glDisableiOES(int target, int index);
+    public static native void glDisableiOES(int target, int index);
 
-	// --- [ glBlendEquationiOES ] ---
+    // --- [ glBlendEquationiOES ] ---
 
-	public static native void glBlendEquationiOES(int buf, int mode);
+    public static native void glBlendEquationiOES(int buf, int mode);
 
-	// --- [ glBlendEquationSeparateiOES ] ---
+    // --- [ glBlendEquationSeparateiOES ] ---
 
-	public static native void glBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha);
 
-	// --- [ glBlendFunciOES ] ---
+    // --- [ glBlendFunciOES ] ---
 
-	public static native void glBlendFunciOES(int buf, int src, int dst);
+    public static native void glBlendFunciOES(int buf, int src, int dst);
 
-	// --- [ glBlendFuncSeparateiOES ] ---
+    // --- [ glBlendFuncSeparateiOES ] ---
 
-	public static native void glBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
-	// --- [ glColorMaskiOES ] ---
+    // --- [ glColorMaskiOES ] ---
 
-	public static native void glColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a);
+    public static native void glColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a);
 
-	// --- [ glIsEnablediOES ] ---
+    // --- [ glIsEnablediOES ] ---
 
-	public static native boolean glIsEnablediOES(int target, int index);
+    public static native boolean glIsEnablediOES(int target, int index);
 
 }

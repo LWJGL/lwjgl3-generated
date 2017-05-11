@@ -12,14 +12,14 @@ package org.lwjgl.opengl;
  */
 public final class GLXNVMultisampleCoverage {
 
-	/**
-	 * Accepted by the {@code attribList} parameter of glXChooseVisual, and by the {@code attrib} parameter of glXGetConfig, the
-	 * {@code attrib_list} parameter of glXChooseFBConfig, and the {@code attribute} parameter of glXGetFBConfigAttrib.
-	 */
-	public static final int
-		GLX_COVERAGE_SAMPLES_NV = 100001,
-		GLX_COLOR_SAMPLES_NV    = 0x20B3;
+    /**
+     * Accepted by the {@code attribList} parameter of glXChooseVisual, and by the {@code attrib} parameter of glXGetConfig, the
+     * {@code attrib_list} parameter of glXChooseFBConfig, and the {@code attribute} parameter of glXGetFBConfigAttrib.
+     */
+    public static final int
+        GLX_COVERAGE_SAMPLES_NV = 100001,
+        GLX_COLOR_SAMPLES_NV    = 0x20B3;
 
-	private GLXNVMultisampleCoverage() {}
+    private GLXNVMultisampleCoverage() {}
 
 }

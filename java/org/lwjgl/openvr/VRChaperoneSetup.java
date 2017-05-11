@@ -17,365 +17,385 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class VRChaperoneSetup {
 
-	protected VRChaperoneSetup() {
-		throw new UnsupportedOperationException();
-	}
+    protected VRChaperoneSetup() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ VRChaperoneSetup_CommitWorkingCopy ] ---
+    // --- [ VRChaperoneSetup_CommitWorkingCopy ] ---
 
-	/**
-	 * Saves the current working copy to disk.
-	 *
-	 * @param configFile 
-	 */
-	public static boolean VRChaperoneSetup_CommitWorkingCopy(int configFile) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.CommitWorkingCopy;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress, configFile);
-	}
+    /**
+     * Saves the current working copy to disk.
+     *
+     * @param configFile 
+     */
+    public static boolean VRChaperoneSetup_CommitWorkingCopy(int configFile) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.CommitWorkingCopy;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callZ(__functionAddress, configFile);
+    }
 
-	// --- [ VRChaperoneSetup_RevertWorkingCopy ] ---
+    // --- [ VRChaperoneSetup_RevertWorkingCopy ] ---
 
-	/**
-	 * Reverts the working copy to match the live chaperone calibration.
-	 * 
-	 * <p>To modify existing data this MUST be do WHILE getting a non-error {@code ChaperoneCalibrationStatus}. Only after this should you do gets and sets on
-	 * the existing data.</p>
-	 */
-	public static void VRChaperoneSetup_RevertWorkingCopy() {
-		long __functionAddress = OpenVR.VRChaperoneSetup.RevertWorkingCopy;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
-	}
+    /**
+     * Reverts the working copy to match the live chaperone calibration.
+     * 
+     * <p>To modify existing data this MUST be do WHILE getting a non-error {@code ChaperoneCalibrationStatus}. Only after this should you do gets and sets on
+     * the existing data.</p>
+     */
+    public static void VRChaperoneSetup_RevertWorkingCopy() {
+        long __functionAddress = OpenVR.VRChaperoneSetup.RevertWorkingCopy;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress);
+    }
 
-	// --- [ VRChaperoneSetup_GetWorkingPlayAreaSize ] ---
+    // --- [ VRChaperoneSetup_GetWorkingPlayAreaSize ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingPlayAreaSize GetWorkingPlayAreaSize} */
-	public static boolean nVRChaperoneSetup_GetWorkingPlayAreaSize(long pSizeX, long pSizeZ) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingPlayAreaSize;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pSizeX, pSizeZ);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingPlayAreaSize GetWorkingPlayAreaSize} */
+    public static boolean nVRChaperoneSetup_GetWorkingPlayAreaSize(long pSizeX, long pSizeZ) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingPlayAreaSize;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pSizeX, pSizeZ);
+    }
 
-	/**
-	 * Returns the width and depth of the Play Area (formerly named Soft Bounds) in X and Z from the working copy. Tracking space center (0,0,0) is the center
-	 * of the Play Area.
-	 *
-	 * @param pSizeX 
-	 * @param pSizeZ 
-	 */
-	public static boolean VRChaperoneSetup_GetWorkingPlayAreaSize(FloatBuffer pSizeX, FloatBuffer pSizeZ) {
-		if ( CHECKS ) {
-			check(pSizeX, 1);
-			check(pSizeZ, 1);
-		}
-		return nVRChaperoneSetup_GetWorkingPlayAreaSize(memAddress(pSizeX), memAddress(pSizeZ));
-	}
+    /**
+     * Returns the width and depth of the Play Area (formerly named Soft Bounds) in X and Z from the working copy. Tracking space center (0,0,0) is the center
+     * of the Play Area.
+     *
+     * @param pSizeX 
+     * @param pSizeZ 
+     */
+    public static boolean VRChaperoneSetup_GetWorkingPlayAreaSize(FloatBuffer pSizeX, FloatBuffer pSizeZ) {
+        if (CHECKS) {
+            check(pSizeX, 1);
+            check(pSizeZ, 1);
+        }
+        return nVRChaperoneSetup_GetWorkingPlayAreaSize(memAddress(pSizeX), memAddress(pSizeZ));
+    }
 
-	// --- [ VRChaperoneSetup_GetWorkingPlayAreaRect ] ---
+    // --- [ VRChaperoneSetup_GetWorkingPlayAreaRect ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingPlayAreaRect GetWorkingPlayAreaRect} */
-	public static boolean nVRChaperoneSetup_GetWorkingPlayAreaRect(long rect) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingPlayAreaRect;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, rect);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingPlayAreaRect GetWorkingPlayAreaRect} */
+    public static boolean nVRChaperoneSetup_GetWorkingPlayAreaRect(long rect) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingPlayAreaRect;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, rect);
+    }
 
-	/**
-	 * Returns the 4 corner positions of the Play Area (formerly named Soft Bounds) from the working copy.
-	 * 
-	 * <p>Corners are in clockwise order. Tracking space center (0,0,0) is the center of the Play Area. It's a rectangle. 2 sides are parallel to the X axis and
-	 * 2 sides are parallel to the Z axis. Height of every corner is 0Y (on the floor).</p>
-	 *
-	 * @param rect 
-	 */
-	public static boolean VRChaperoneSetup_GetWorkingPlayAreaRect(HmdQuad rect) {
-		return nVRChaperoneSetup_GetWorkingPlayAreaRect(rect.address());
-	}
+    /**
+     * Returns the 4 corner positions of the Play Area (formerly named Soft Bounds) from the working copy.
+     * 
+     * <p>Corners are in clockwise order. Tracking space center (0,0,0) is the center of the Play Area. It's a rectangle. 2 sides are parallel to the X axis and
+     * 2 sides are parallel to the Z axis. Height of every corner is 0Y (on the floor).</p>
+     *
+     * @param rect 
+     */
+    public static boolean VRChaperoneSetup_GetWorkingPlayAreaRect(HmdQuad rect) {
+        return nVRChaperoneSetup_GetWorkingPlayAreaRect(rect.address());
+    }
 
-	// --- [ VRChaperoneSetup_GetWorkingCollisionBoundsInfo ] ---
+    // --- [ VRChaperoneSetup_GetWorkingCollisionBoundsInfo ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingCollisionBoundsInfo GetWorkingCollisionBoundsInfo} */
-	public static boolean nVRChaperoneSetup_GetWorkingCollisionBoundsInfo(long pQuadsBuffer, long punQuadsCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingCollisionBoundsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingCollisionBoundsInfo GetWorkingCollisionBoundsInfo} */
+    public static boolean nVRChaperoneSetup_GetWorkingCollisionBoundsInfo(long pQuadsBuffer, long punQuadsCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingCollisionBoundsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
+    }
 
-	/**
-	 * Returns the number of Quads if the buffer points to null. Otherwise it returns Quads into the buffer up to the max specified from the working copy.
-	 *
-	 * @param pQuadsBuffer  
-	 * @param punQuadsCount 
-	 */
-	public static boolean VRChaperoneSetup_GetWorkingCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
-		if ( CHECKS ) {
-			check(punQuadsCount, 1);
-			checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
-		}
-		return nVRChaperoneSetup_GetWorkingCollisionBoundsInfo(memAddressSafe(pQuadsBuffer), memAddress(punQuadsCount));
-	}
+    /**
+     * Returns the number of Quads if the buffer points to null. Otherwise it returns Quads into the buffer up to the max specified from the working copy.
+     *
+     * @param pQuadsBuffer  
+     * @param punQuadsCount 
+     */
+    public static boolean VRChaperoneSetup_GetWorkingCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
+        if (CHECKS) {
+            check(punQuadsCount, 1);
+            checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
+        }
+        return nVRChaperoneSetup_GetWorkingCollisionBoundsInfo(memAddressSafe(pQuadsBuffer), memAddress(punQuadsCount));
+    }
 
-	// --- [ VRChaperoneSetup_GetLiveCollisionBoundsInfo ] ---
+    // --- [ VRChaperoneSetup_GetLiveCollisionBoundsInfo ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetLiveCollisionBoundsInfo GetLiveCollisionBoundsInfo} */
-	public static boolean nVRChaperoneSetup_GetLiveCollisionBoundsInfo(long pQuadsBuffer, long punQuadsCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetLiveCollisionBoundsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetLiveCollisionBoundsInfo GetLiveCollisionBoundsInfo} */
+    public static boolean nVRChaperoneSetup_GetLiveCollisionBoundsInfo(long pQuadsBuffer, long punQuadsCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetLiveCollisionBoundsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
+    }
 
-	/**
-	 * Returns the number of Quads if the buffer points to null. Otherwise it returns Quads into the buffer up to the max specified.
-	 *
-	 * @param pQuadsBuffer  
-	 * @param punQuadsCount 
-	 */
-	public static boolean VRChaperoneSetup_GetLiveCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
-		if ( CHECKS ) {
-			check(punQuadsCount, 1);
-			checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
-		}
-		return nVRChaperoneSetup_GetLiveCollisionBoundsInfo(memAddressSafe(pQuadsBuffer), memAddress(punQuadsCount));
-	}
+    /**
+     * Returns the number of Quads if the buffer points to null. Otherwise it returns Quads into the buffer up to the max specified.
+     *
+     * @param pQuadsBuffer  
+     * @param punQuadsCount 
+     */
+    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
+        if (CHECKS) {
+            check(punQuadsCount, 1);
+            checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
+        }
+        return nVRChaperoneSetup_GetLiveCollisionBoundsInfo(memAddressSafe(pQuadsBuffer), memAddress(punQuadsCount));
+    }
 
-	// --- [ VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose ] ---
+    // --- [ VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose GetWorkingSeatedZeroPoseToRawTrackingPose} */
-	public static boolean nVRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(long pmatSeatedZeroPoseToRawTrackingPose) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingSeatedZeroPoseToRawTrackingPose;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, pmatSeatedZeroPoseToRawTrackingPose);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose GetWorkingSeatedZeroPoseToRawTrackingPose} */
+    public static boolean nVRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(long pmatSeatedZeroPoseToRawTrackingPose) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingSeatedZeroPoseToRawTrackingPose;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, pmatSeatedZeroPoseToRawTrackingPose);
+    }
 
-	/**
-	 * Returns the preferred seated position from the working copy.
-	 *
-	 * @param pmatSeatedZeroPoseToRawTrackingPose 
-	 */
-	public static boolean VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
-		return nVRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(pmatSeatedZeroPoseToRawTrackingPose.address());
-	}
+    /**
+     * Returns the preferred seated position from the working copy.
+     *
+     * @param pmatSeatedZeroPoseToRawTrackingPose 
+     */
+    public static boolean VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
+        return nVRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(pmatSeatedZeroPoseToRawTrackingPose.address());
+    }
 
-	// --- [ VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose ] ---
+    // --- [ VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose GetWorkingStandingZeroPoseToRawTrackingPose} */
-	public static boolean nVRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(long pmatStandingZeroPoseToRawTrackingPose) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingStandingZeroPoseToRawTrackingPose;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, pmatStandingZeroPoseToRawTrackingPose);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose GetWorkingStandingZeroPoseToRawTrackingPose} */
+    public static boolean nVRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(long pmatStandingZeroPoseToRawTrackingPose) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetWorkingStandingZeroPoseToRawTrackingPose;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, pmatStandingZeroPoseToRawTrackingPose);
+    }
 
-	/**
-	 * Returns the standing origin from the working copy.
-	 *
-	 * @param pmatStandingZeroPoseToRawTrackingPose 
-	 */
-	public static boolean VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(HmdMatrix34 pmatStandingZeroPoseToRawTrackingPose) {
-		return nVRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(pmatStandingZeroPoseToRawTrackingPose.address());
-	}
+    /**
+     * Returns the standing origin from the working copy.
+     *
+     * @param pmatStandingZeroPoseToRawTrackingPose 
+     */
+    public static boolean VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(HmdMatrix34 pmatStandingZeroPoseToRawTrackingPose) {
+        return nVRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(pmatStandingZeroPoseToRawTrackingPose.address());
+    }
 
-	// --- [ VRChaperoneSetup_SetWorkingPlayAreaSize ] ---
+    // --- [ VRChaperoneSetup_SetWorkingPlayAreaSize ] ---
 
-	/**
-	 * Sets the Play Area in the working copy.
-	 *
-	 * @param sizeX 
-	 * @param sizeZ 
-	 */
-	public static void VRChaperoneSetup_SetWorkingPlayAreaSize(float sizeX, float sizeZ) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingPlayAreaSize;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, sizeX, sizeZ);
-	}
+    /**
+     * Sets the Play Area in the working copy.
+     *
+     * @param sizeX 
+     * @param sizeZ 
+     */
+    public static void VRChaperoneSetup_SetWorkingPlayAreaSize(float sizeX, float sizeZ) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingPlayAreaSize;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress, sizeX, sizeZ);
+    }
 
-	// --- [ VRChaperoneSetup_SetWorkingCollisionBoundsInfo ] ---
+    // --- [ VRChaperoneSetup_SetWorkingCollisionBoundsInfo ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_SetWorkingCollisionBoundsInfo SetWorkingCollisionBoundsInfo} */
-	public static void nVRChaperoneSetup_SetWorkingCollisionBoundsInfo(long pQuadsBuffer, int unQuadsCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingCollisionBoundsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pQuadsBuffer, unQuadsCount);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_SetWorkingCollisionBoundsInfo SetWorkingCollisionBoundsInfo} */
+    public static void nVRChaperoneSetup_SetWorkingCollisionBoundsInfo(long pQuadsBuffer, int unQuadsCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingCollisionBoundsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, pQuadsBuffer, unQuadsCount);
+    }
 
-	/**
-	 * Sets the Collision Bounds in the working copy.
-	 *
-	 * @param pQuadsBuffer 
-	 */
-	public static void VRChaperoneSetup_SetWorkingCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer) {
-		nVRChaperoneSetup_SetWorkingCollisionBoundsInfo(pQuadsBuffer.address(), pQuadsBuffer.remaining());
-	}
+    /**
+     * Sets the Collision Bounds in the working copy.
+     *
+     * @param pQuadsBuffer 
+     */
+    public static void VRChaperoneSetup_SetWorkingCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer) {
+        nVRChaperoneSetup_SetWorkingCollisionBoundsInfo(pQuadsBuffer.address(), pQuadsBuffer.remaining());
+    }
 
-	// --- [ VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose ] ---
+    // --- [ VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose SetWorkingSeatedZeroPoseToRawTrackingPose} */
-	public static void nVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(long pMatSeatedZeroPoseToRawTrackingPose) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingSeatedZeroPoseToRawTrackingPose;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pMatSeatedZeroPoseToRawTrackingPose);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose SetWorkingSeatedZeroPoseToRawTrackingPose} */
+    public static void nVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(long pMatSeatedZeroPoseToRawTrackingPose) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingSeatedZeroPoseToRawTrackingPose;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, pMatSeatedZeroPoseToRawTrackingPose);
+    }
 
-	/**
-	 * Sets the preferred seated position in the working copy.
-	 *
-	 * @param pMatSeatedZeroPoseToRawTrackingPose 
-	 */
-	public static void VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pMatSeatedZeroPoseToRawTrackingPose) {
-		nVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(pMatSeatedZeroPoseToRawTrackingPose.address());
-	}
+    /**
+     * Sets the preferred seated position in the working copy.
+     *
+     * @param pMatSeatedZeroPoseToRawTrackingPose 
+     */
+    public static void VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pMatSeatedZeroPoseToRawTrackingPose) {
+        nVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(pMatSeatedZeroPoseToRawTrackingPose.address());
+    }
 
-	// --- [ VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose ] ---
+    // --- [ VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose SetWorkingStandingZeroPoseToRawTrackingPose} */
-	public static void nVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(long pMatStandingZeroPoseToRawTrackingPose) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingStandingZeroPoseToRawTrackingPose;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pMatStandingZeroPoseToRawTrackingPose);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose SetWorkingStandingZeroPoseToRawTrackingPose} */
+    public static void nVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(long pMatStandingZeroPoseToRawTrackingPose) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingStandingZeroPoseToRawTrackingPose;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, pMatStandingZeroPoseToRawTrackingPose);
+    }
 
-	/**
-	 * Sets the preferred standing position in the working copy.
-	 *
-	 * @param pMatStandingZeroPoseToRawTrackingPose 
-	 */
-	public static void VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(HmdMatrix34 pMatStandingZeroPoseToRawTrackingPose) {
-		nVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(pMatStandingZeroPoseToRawTrackingPose.address());
-	}
+    /**
+     * Sets the preferred standing position in the working copy.
+     *
+     * @param pMatStandingZeroPoseToRawTrackingPose 
+     */
+    public static void VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(HmdMatrix34 pMatStandingZeroPoseToRawTrackingPose) {
+        nVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(pMatStandingZeroPoseToRawTrackingPose.address());
+    }
 
-	// --- [ VRChaperoneSetup_ReloadFromDisk ] ---
+    // --- [ VRChaperoneSetup_ReloadFromDisk ] ---
 
-	/**
-	 * Tear everything down and reload it from the file on disk.
-	 *
-	 * @param configFile one of:<br><table><tr><td>{@link VR#EChaperoneConfigFile_Live}</td><td>{@link VR#EChaperoneConfigFile_Temp}</td></tr></table>
-	 */
-	public static void VRChaperoneSetup_ReloadFromDisk(int configFile) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.ReloadFromDisk;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, configFile);
-	}
+    /**
+     * Tear everything down and reload it from the file on disk.
+     *
+     * @param configFile one of:<br><table><tr><td>{@link VR#EChaperoneConfigFile_Live}</td><td>{@link VR#EChaperoneConfigFile_Temp}</td></tr></table>
+     */
+    public static void VRChaperoneSetup_ReloadFromDisk(int configFile) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.ReloadFromDisk;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress, configFile);
+    }
 
-	// --- [ VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose ] ---
+    // --- [ VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose ] ---
 
-	/** Unsafe version of: {@link #VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose GetLiveSeatedZeroPoseToRawTrackingPose} */
-	public static boolean nVRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(long pmatSeatedZeroPoseToRawTrackingPose) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetLiveSeatedZeroPoseToRawTrackingPose;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, pmatSeatedZeroPoseToRawTrackingPose);
-	}
+    /** Unsafe version of: {@link #VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose GetLiveSeatedZeroPoseToRawTrackingPose} */
+    public static boolean nVRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(long pmatSeatedZeroPoseToRawTrackingPose) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetLiveSeatedZeroPoseToRawTrackingPose;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, pmatSeatedZeroPoseToRawTrackingPose);
+    }
 
-	/**
-	 * Returns the preferred seated position.
-	 *
-	 * @param pmatSeatedZeroPoseToRawTrackingPose 
-	 */
-	public static boolean VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
-		return nVRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(pmatSeatedZeroPoseToRawTrackingPose.address());
-	}
+    /**
+     * Returns the preferred seated position.
+     *
+     * @param pmatSeatedZeroPoseToRawTrackingPose 
+     */
+    public static boolean VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
+        return nVRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(pmatSeatedZeroPoseToRawTrackingPose.address());
+    }
 
-	// --- [ VRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo ] ---
+    // --- [ VRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo ] ---
 
-	public static void nVRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(long pTagsBuffer, int unTagCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingCollisionBoundsTagsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pTagsBuffer, unTagCount);
-	}
+    public static void nVRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(long pTagsBuffer, int unTagCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingCollisionBoundsTagsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, pTagsBuffer, unTagCount);
+    }
 
-	public static void VRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(ByteBuffer pTagsBuffer) {
-		nVRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(memAddress(pTagsBuffer), pTagsBuffer.remaining());
-	}
+    public static void VRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(ByteBuffer pTagsBuffer) {
+        nVRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(memAddress(pTagsBuffer), pTagsBuffer.remaining());
+    }
 
-	// --- [ VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo ] ---
+    // --- [ VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo ] ---
 
-	public static boolean nVRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(long pTagsBuffer, long punTagCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetLiveCollisionBoundsTagsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pTagsBuffer, punTagCount);
-	}
+    public static boolean nVRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(long pTagsBuffer, long punTagCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetLiveCollisionBoundsTagsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pTagsBuffer, punTagCount);
+    }
 
-	public static boolean VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(ByteBuffer pTagsBuffer, IntBuffer punTagCount) {
-		if ( CHECKS ) {
-			check(punTagCount, 1);
-			checkSafe(pTagsBuffer, punTagCount.get(punTagCount.position()));
-		}
-		return nVRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(memAddressSafe(pTagsBuffer), memAddress(punTagCount));
-	}
+    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(ByteBuffer pTagsBuffer, IntBuffer punTagCount) {
+        if (CHECKS) {
+            check(punTagCount, 1);
+            checkSafe(pTagsBuffer, punTagCount.get(punTagCount.position()));
+        }
+        return nVRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(memAddressSafe(pTagsBuffer), memAddress(punTagCount));
+    }
 
-	// --- [ VRChaperoneSetup_SetWorkingPhysicalBoundsInfo ] ---
+    // --- [ VRChaperoneSetup_SetWorkingPhysicalBoundsInfo ] ---
 
-	public static boolean nVRChaperoneSetup_SetWorkingPhysicalBoundsInfo(long pQuadsBuffer, int unQuadsCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingPhysicalBoundsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, pQuadsBuffer, unQuadsCount);
-	}
+    public static boolean nVRChaperoneSetup_SetWorkingPhysicalBoundsInfo(long pQuadsBuffer, int unQuadsCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.SetWorkingPhysicalBoundsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, pQuadsBuffer, unQuadsCount);
+    }
 
-	public static boolean VRChaperoneSetup_SetWorkingPhysicalBoundsInfo(HmdQuad.Buffer pQuadsBuffer) {
-		return nVRChaperoneSetup_SetWorkingPhysicalBoundsInfo(pQuadsBuffer.address(), pQuadsBuffer.remaining());
-	}
+    public static boolean VRChaperoneSetup_SetWorkingPhysicalBoundsInfo(HmdQuad.Buffer pQuadsBuffer) {
+        return nVRChaperoneSetup_SetWorkingPhysicalBoundsInfo(pQuadsBuffer.address(), pQuadsBuffer.remaining());
+    }
 
-	// --- [ VRChaperoneSetup_GetLivePhysicalBoundsInfo ] ---
+    // --- [ VRChaperoneSetup_GetLivePhysicalBoundsInfo ] ---
 
-	public static boolean nVRChaperoneSetup_GetLivePhysicalBoundsInfo(long pQuadsBuffer, long punQuadsCount) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.GetLivePhysicalBoundsInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
-	}
+    public static boolean nVRChaperoneSetup_GetLivePhysicalBoundsInfo(long pQuadsBuffer, long punQuadsCount) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.GetLivePhysicalBoundsInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
+    }
 
-	public static boolean VRChaperoneSetup_GetLivePhysicalBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
-		if ( CHECKS ) {
-			check(punQuadsCount, 1);
-			checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
-		}
-		return nVRChaperoneSetup_GetLivePhysicalBoundsInfo(memAddressSafe(pQuadsBuffer), memAddress(punQuadsCount));
-	}
+    public static boolean VRChaperoneSetup_GetLivePhysicalBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
+        if (CHECKS) {
+            check(punQuadsCount, 1);
+            checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
+        }
+        return nVRChaperoneSetup_GetLivePhysicalBoundsInfo(memAddressSafe(pQuadsBuffer), memAddress(punQuadsCount));
+    }
 
-	// --- [ VRChaperoneSetup_ExportLiveToBuffer ] ---
+    // --- [ VRChaperoneSetup_ExportLiveToBuffer ] ---
 
-	public static boolean nVRChaperoneSetup_ExportLiveToBuffer(long pBuffer, long pnBufferLength) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.ExportLiveToBuffer;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pBuffer, pnBufferLength);
-	}
+    public static boolean nVRChaperoneSetup_ExportLiveToBuffer(long pBuffer, long pnBufferLength) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.ExportLiveToBuffer;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pBuffer, pnBufferLength);
+    }
 
-	public static boolean VRChaperoneSetup_ExportLiveToBuffer(ByteBuffer pBuffer, IntBuffer pnBufferLength) {
-		if ( CHECKS ) {
-			check(pnBufferLength, 1);
-			checkSafe(pBuffer, pnBufferLength.get(pnBufferLength.position()));
-		}
-		return nVRChaperoneSetup_ExportLiveToBuffer(memAddressSafe(pBuffer), memAddress(pnBufferLength));
-	}
+    public static boolean VRChaperoneSetup_ExportLiveToBuffer(ByteBuffer pBuffer, IntBuffer pnBufferLength) {
+        if (CHECKS) {
+            check(pnBufferLength, 1);
+            checkSafe(pBuffer, pnBufferLength.get(pnBufferLength.position()));
+        }
+        return nVRChaperoneSetup_ExportLiveToBuffer(memAddressSafe(pBuffer), memAddress(pnBufferLength));
+    }
 
-	// --- [ VRChaperoneSetup_ImportFromBufferToWorking ] ---
+    // --- [ VRChaperoneSetup_ImportFromBufferToWorking ] ---
 
-	public static boolean nVRChaperoneSetup_ImportFromBufferToWorking(long pBuffer, int nImportFlags) {
-		long __functionAddress = OpenVR.VRChaperoneSetup.ImportFromBufferToWorking;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, pBuffer, nImportFlags);
-	}
+    public static boolean nVRChaperoneSetup_ImportFromBufferToWorking(long pBuffer, int nImportFlags) {
+        long __functionAddress = OpenVR.VRChaperoneSetup.ImportFromBufferToWorking;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, pBuffer, nImportFlags);
+    }
 
-	public static boolean VRChaperoneSetup_ImportFromBufferToWorking(ByteBuffer pBuffer, int nImportFlags) {
-		return nVRChaperoneSetup_ImportFromBufferToWorking(memAddress(pBuffer), nImportFlags);
-	}
+    public static boolean VRChaperoneSetup_ImportFromBufferToWorking(ByteBuffer pBuffer, int nImportFlags) {
+        return nVRChaperoneSetup_ImportFromBufferToWorking(memAddress(pBuffer), nImportFlags);
+    }
 
 }

@@ -23,9 +23,9 @@ package org.lwjgl.egl;
  */
 public final class EXTProtectedContent {
 
-	/** {@code EGLSurface} attribute name. */
-	public static final int EGL_PROTECTED_CONTENT_EXT = 0x32C0;
+    /** {@code EGLSurface} attribute name. */
+    public static final int EGL_PROTECTED_CONTENT_EXT = 0x32C0;
 
-	private EXTProtectedContent() {}
+    private EXTProtectedContent() {}
 
 }

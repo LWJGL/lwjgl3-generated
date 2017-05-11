@@ -11,9 +11,9 @@ typedef void (APIENTRY *glRenderbufferStorageMultisampleCoverageNVPROC) (jint, j
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMultisampleCoverage_glRenderbufferStorageMultisampleCoverageNV(JNIEnv *__env, jclass clazz, jint target, jint coverageSamples, jint colorSamples, jint internalformat, jint width, jint height) {
-	glRenderbufferStorageMultisampleCoverageNVPROC glRenderbufferStorageMultisampleCoverageNV = (glRenderbufferStorageMultisampleCoverageNVPROC)tlsGetFunction(1450);
-	UNUSED_PARAM(clazz)
-	glRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height);
+    glRenderbufferStorageMultisampleCoverageNVPROC glRenderbufferStorageMultisampleCoverageNV = (glRenderbufferStorageMultisampleCoverageNVPROC)tlsGetFunction(1450);
+    UNUSED_PARAM(clazz)
+    glRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height);
 }
 
 EXTERN_C_EXIT

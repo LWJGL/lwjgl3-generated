@@ -22,12 +22,12 @@ package org.lwjgl.opengles;
  */
 public final class OESShaderMultisampleInterpolation {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetInteger64v. */
-	public static final int
-		GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES  = 0x8E5B,
-		GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES  = 0x8E5C,
-		GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES = 0x8E5D;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetInteger64v. */
+    public static final int
+        GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES  = 0x8E5B,
+        GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES  = 0x8E5C,
+        GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES = 0x8E5D;
 
-	private OESShaderMultisampleInterpolation() {}
+    private OESShaderMultisampleInterpolation() {}
 
 }

@@ -14,9 +14,9 @@ package org.lwjgl.opengl;
  */
 public final class ARBShadingLanguage100 {
 
-	/** Accepted by the {@code name} parameter of GetString. */
-	public static final int GL_SHADING_LANGUAGE_VERSION_ARB = 0x8B8C;
+    /** Accepted by the {@code name} parameter of GetString. */
+    public static final int GL_SHADING_LANGUAGE_VERSION_ARB = 0x8B8C;
 
-	private ARBShadingLanguage100() {}
+    private ARBShadingLanguage100() {}
 
 }

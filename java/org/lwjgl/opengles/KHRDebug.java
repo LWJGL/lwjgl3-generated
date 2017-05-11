@@ -83,650 +83,656 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRDebug {
 
-	/** Tokens accepted by the {@code target} parameters of Enable, Disable, and  IsEnabled. */
-	public static final int
-		GL_DEBUG_OUTPUT_KHR             = 0x92E0,
-		GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR = 0x8242;
+    /** Tokens accepted by the {@code target} parameters of Enable, Disable, and  IsEnabled. */
+    public static final int
+        GL_DEBUG_OUTPUT_KHR             = 0x92E0,
+        GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR = 0x8242;
 
-	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
-	public static final int GL_CONTEXT_FLAG_DEBUG_BIT_KHR = 0x2;
+    /** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
+    public static final int GL_CONTEXT_FLAG_DEBUG_BIT_KHR = 0x2;
 
-	/** Tokens accepted by the {@code value} parameters of GetBooleanv, GetIntegerv,  GetFloatv, GetDoublev and GetInteger64v. */
-	public static final int
-		GL_MAX_DEBUG_MESSAGE_LENGTH_KHR         = 0x9143,
-		GL_MAX_DEBUG_LOGGED_MESSAGES_KHR        = 0x9144,
-		GL_DEBUG_LOGGED_MESSAGES_KHR            = 0x9145,
-		GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR = 0x8243,
-		GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR      = 0x826C,
-		GL_DEBUG_GROUP_STACK_DEPTH_KHR          = 0x826D,
-		GL_MAX_LABEL_LENGTH_KHR                 = 0x82E8;
+    /** Tokens accepted by the {@code value} parameters of GetBooleanv, GetIntegerv,  GetFloatv, GetDoublev and GetInteger64v. */
+    public static final int
+        GL_MAX_DEBUG_MESSAGE_LENGTH_KHR         = 0x9143,
+        GL_MAX_DEBUG_LOGGED_MESSAGES_KHR        = 0x9144,
+        GL_DEBUG_LOGGED_MESSAGES_KHR            = 0x9145,
+        GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR = 0x8243,
+        GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR      = 0x826C,
+        GL_DEBUG_GROUP_STACK_DEPTH_KHR          = 0x826D,
+        GL_MAX_LABEL_LENGTH_KHR                 = 0x82E8;
 
-	/** Tokens accepted by the {@code pname} parameter of GetPointerv. */
-	public static final int
-		GL_DEBUG_CALLBACK_FUNCTION_KHR   = 0x8244,
-		GL_DEBUG_CALLBACK_USER_PARAM_KHR = 0x8245;
+    /** Tokens accepted by the {@code pname} parameter of GetPointerv. */
+    public static final int
+        GL_DEBUG_CALLBACK_FUNCTION_KHR   = 0x8244,
+        GL_DEBUG_CALLBACK_USER_PARAM_KHR = 0x8245;
 
-	/**
-	 * Tokens accepted or provided by the {@code source} parameters of DebugMessageControl, DebugMessageInsert and DEBUGPROC, and the {@code sources} parameter
-	 * of GetDebugMessageLog.
-	 */
-	public static final int
-		GL_DEBUG_SOURCE_API_KHR             = 0x8246,
-		GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR   = 0x8247,
-		GL_DEBUG_SOURCE_SHADER_COMPILER_KHR = 0x8248,
-		GL_DEBUG_SOURCE_THIRD_PARTY_KHR     = 0x8249,
-		GL_DEBUG_SOURCE_APPLICATION_KHR     = 0x824A,
-		GL_DEBUG_SOURCE_OTHER_KHR           = 0x824B;
+    /**
+     * Tokens accepted or provided by the {@code source} parameters of DebugMessageControl, DebugMessageInsert and DEBUGPROC, and the {@code sources} parameter
+     * of GetDebugMessageLog.
+     */
+    public static final int
+        GL_DEBUG_SOURCE_API_KHR             = 0x8246,
+        GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR   = 0x8247,
+        GL_DEBUG_SOURCE_SHADER_COMPILER_KHR = 0x8248,
+        GL_DEBUG_SOURCE_THIRD_PARTY_KHR     = 0x8249,
+        GL_DEBUG_SOURCE_APPLICATION_KHR     = 0x824A,
+        GL_DEBUG_SOURCE_OTHER_KHR           = 0x824B;
 
-	/**
-	 * Tokens accepted or provided by the {@code type} parameters of DebugMessageControl, DebugMessageInsert and DEBUGPROC, and the {@code types} parameter of
-	 * GetDebugMessageLog.
-	 */
-	public static final int
-		GL_DEBUG_TYPE_ERROR_KHR               = 0x824C,
-		GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR = 0x824D,
-		GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR  = 0x824E,
-		GL_DEBUG_TYPE_PORTABILITY_KHR         = 0x824F,
-		GL_DEBUG_TYPE_PERFORMANCE_KHR         = 0x8250,
-		GL_DEBUG_TYPE_OTHER_KHR               = 0x8251,
-		GL_DEBUG_TYPE_MARKER_KHR              = 0x8268;
+    /**
+     * Tokens accepted or provided by the {@code type} parameters of DebugMessageControl, DebugMessageInsert and DEBUGPROC, and the {@code types} parameter of
+     * GetDebugMessageLog.
+     */
+    public static final int
+        GL_DEBUG_TYPE_ERROR_KHR               = 0x824C,
+        GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR = 0x824D,
+        GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR  = 0x824E,
+        GL_DEBUG_TYPE_PORTABILITY_KHR         = 0x824F,
+        GL_DEBUG_TYPE_PERFORMANCE_KHR         = 0x8250,
+        GL_DEBUG_TYPE_OTHER_KHR               = 0x8251,
+        GL_DEBUG_TYPE_MARKER_KHR              = 0x8268;
 
-	/** Tokens accepted or provided by the {@code type} parameters of DebugMessageControl and DEBUGPROC, and the {@code types} parameter of GetDebugMessageLog. */
-	public static final int
-		GL_DEBUG_TYPE_PUSH_GROUP_KHR = 0x8269,
-		GL_DEBUG_TYPE_POP_GROUP_KHR  = 0x826A;
+    /** Tokens accepted or provided by the {@code type} parameters of DebugMessageControl and DEBUGPROC, and the {@code types} parameter of GetDebugMessageLog. */
+    public static final int
+        GL_DEBUG_TYPE_PUSH_GROUP_KHR = 0x8269,
+        GL_DEBUG_TYPE_POP_GROUP_KHR  = 0x826A;
 
-	/**
-	 * Tokens accepted or provided by the {@code severity} parameters of DebugMessageControl, DebugMessageInsert and DEBUGPROC callback functions, and the
-	 * {@code severities} parameter of GetDebugMessageLog.
-	 */
-	public static final int
-		GL_DEBUG_SEVERITY_HIGH_KHR         = 0x9146,
-		GL_DEBUG_SEVERITY_MEDIUM_KHR       = 0x9147,
-		GL_DEBUG_SEVERITY_LOW_KHR          = 0x9148,
-		GL_DEBUG_SEVERITY_NOTIFICATION_KHR = 0x826B;
+    /**
+     * Tokens accepted or provided by the {@code severity} parameters of DebugMessageControl, DebugMessageInsert and DEBUGPROC callback functions, and the
+     * {@code severities} parameter of GetDebugMessageLog.
+     */
+    public static final int
+        GL_DEBUG_SEVERITY_HIGH_KHR         = 0x9146,
+        GL_DEBUG_SEVERITY_MEDIUM_KHR       = 0x9147,
+        GL_DEBUG_SEVERITY_LOW_KHR          = 0x9148,
+        GL_DEBUG_SEVERITY_NOTIFICATION_KHR = 0x826B;
 
-	/** Returned by GetError. */
-	public static final int
-		GL_STACK_UNDERFLOW_KHR = 0x504,
-		GL_STACK_OVERFLOW_KHR  = 0x503;
+    /** Returned by GetError. */
+    public static final int
+        GL_STACK_UNDERFLOW_KHR = 0x504,
+        GL_STACK_OVERFLOW_KHR  = 0x503;
 
-	/** Tokens accepted or provided by the {@code identifier} parameters of ObjectLabel and GetObjectLabel. */
-	public static final int
-		GL_BUFFER_KHR           = 0x82E0,
-		GL_SHADER_KHR           = 0x82E1,
-		GL_PROGRAM_KHR          = 0x82E2,
-		GL_QUERY_KHR            = 0x82E3,
-		GL_PROGRAM_PIPELINE_KHR = 0x82E4,
-		GL_SAMPLER_KHR          = 0x82E6;
+    /** Tokens accepted or provided by the {@code identifier} parameters of ObjectLabel and GetObjectLabel. */
+    public static final int
+        GL_BUFFER_KHR           = 0x82E0,
+        GL_SHADER_KHR           = 0x82E1,
+        GL_PROGRAM_KHR          = 0x82E2,
+        GL_QUERY_KHR            = 0x82E3,
+        GL_PROGRAM_PIPELINE_KHR = 0x82E4,
+        GL_SAMPLER_KHR          = 0x82E6;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected KHRDebug() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRDebug() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glDebugMessageControlKHR, caps.glDebugMessageInsertKHR, caps.glDebugMessageCallbackKHR, caps.glGetDebugMessageLogKHR, caps.glGetPointervKHR, 
-			caps.glPushDebugGroupKHR, caps.glPopDebugGroupKHR, caps.glObjectLabelKHR, caps.glGetObjectLabelKHR, caps.glObjectPtrLabelKHR, 
-			caps.glGetObjectPtrLabelKHR
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glDebugMessageControlKHR, caps.glDebugMessageInsertKHR, caps.glDebugMessageCallbackKHR, caps.glGetDebugMessageLogKHR, caps.glGetPointervKHR, 
+            caps.glPushDebugGroupKHR, caps.glPopDebugGroupKHR, caps.glObjectLabelKHR, caps.glGetObjectLabelKHR, caps.glObjectPtrLabelKHR, 
+            caps.glGetObjectPtrLabelKHR
+        );
+    }
 
-	// --- [ glDebugMessageControlKHR ] ---
+    // --- [ glDebugMessageControlKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR}
-	 *
-	 * @param count the length of the array {@code ids}
-	 */
-	public static native void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled);
+    /**
+     * Unsafe version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR}
+     *
+     * @param count the length of the array {@code ids}
+     */
+    public static native void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled);
 
-	/**
-	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
-	 * 
-	 * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
-	 * 
-	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:</p>
-	 * 
-	 * <ul>
-	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
-	 * referenced respectively.</li>
-	 * <li>When values other than {@link GLES20#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
-	 * or {@code severity} respectively will be referenced.</li>
-	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
-	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
-	 * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
-	 * </ul>
-	 * 
-	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
-	 * 
-	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
-	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
-	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
-	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
-	 * disabled.</p>
-	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
-	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
-	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
-	 * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
-	 * @param enabled  whether the selected messages should be enabled or disabled
-	 */
-	public static void glDebugMessageControlKHR(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		nglDebugMessageControlKHR(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
-	}
+    /**
+     * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
+     * 
+     * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
+     * 
+     * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
+     * ways:</p>
+     * 
+     * <ul>
+     * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
+     * referenced respectively.</li>
+     * <li>When values other than {@link GLES20#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
+     * or {@code severity} respectively will be referenced.</li>
+     * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
+     * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
+     * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
+     * </ul>
+     * 
+     * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+     * 
+     * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+     * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
+     * single call, and individually disabling all messages from that source using their types and IDs.</p>
+     * 
+     * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
+     * disabled.</p>
+     *
+     * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+     * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+     * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
+     * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
+     * @param enabled  whether the selected messages should be enabled or disabled
+     */
+    public static void glDebugMessageControlKHR(int source, int type, int severity, IntBuffer ids, boolean enabled) {
+        nglDebugMessageControlKHR(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
+    }
 
-	/**
-	 * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
-	 * 
-	 * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
-	 * 
-	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:</p>
-	 * 
-	 * <ul>
-	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
-	 * referenced respectively.</li>
-	 * <li>When values other than {@link GLES20#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
-	 * or {@code severity} respectively will be referenced.</li>
-	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
-	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
-	 * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
-	 * </ul>
-	 * 
-	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
-	 * 
-	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
-	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
-	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
-	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
-	 * disabled.</p>
-	 *
-	 * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
-	 * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
-	 * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
-	 * @param enabled  whether the selected messages should be enabled or disabled
-	 */
-	public static void glDebugMessageControlKHR(int source, int type, int severity, int id, boolean enabled) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer ids = stack.ints(id);
-			nglDebugMessageControlKHR(source, type, severity, 1, memAddress(ids), enabled);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Controls the volume of debug output in the active debug group, by disabling specific or groups of messages.
+     * 
+     * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
+     * 
+     * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
+     * ways:</p>
+     * 
+     * <ul>
+     * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
+     * referenced respectively.</li>
+     * <li>When values other than {@link GLES20#GL_DONT_CARE DONT_CARE} are specified, all messages whose source, type, or severity match the specified {@code source}, {@code type},
+     * or {@code severity} respectively will be referenced.</li>
+     * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
+     * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
+     * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
+     * </ul>
+     * 
+     * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+     * 
+     * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+     * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
+     * single call, and individually disabling all messages from that source using their types and IDs.</p>
+     * 
+     * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled the GL operates the same as if messages of every {@code source}, {@code type} or {@code severity} are
+     * disabled.</p>
+     *
+     * @param source   the source of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+     * @param type     the type of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+     * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
+     * @param enabled  whether the selected messages should be enabled or disabled
+     */
+    public static void glDebugMessageControlKHR(int source, int type, int severity, int id, boolean enabled) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer ids = stack.ints(id);
+            nglDebugMessageControlKHR(source, type, severity, 1, memAddress(ids), enabled);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glDebugMessageInsertKHR ] ---
+    // --- [ glDebugMessageInsertKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glDebugMessageInsertKHR DebugMessageInsertKHR}
-	 *
-	 * @param length the length of the string contained in the character array whose address is given by {@code message}
-	 */
-	public static native void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message);
+    /**
+     * Unsafe version of: {@link #glDebugMessageInsertKHR DebugMessageInsertKHR}
+     *
+     * @param length the length of the string contained in the character array whose address is given by {@code message}
+     */
+    public static native void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message);
 
-	/**
-	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
-	 * signals about specific render system events.
-	 * 
-	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
-	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
-	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
-	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
-	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
-	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
-	 *
-	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
-	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
-	 * @param severity the severity of the debug messages to insert
-	 * @param message  a character array containing the message to insert
-	 */
-	public static void glDebugMessageInsertKHR(int source, int type, int id, int severity, ByteBuffer message) {
-		nglDebugMessageInsertKHR(source, type, id, severity, message.remaining(), memAddress(message));
-	}
+    /**
+     * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
+     * signals about specific render system events.
+     * 
+     * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
+     * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
+     * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
+     * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
+     * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
+     * 
+     * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+     *
+     * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+     * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+     * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
+     * @param severity the severity of the debug messages to insert
+     * @param message  a character array containing the message to insert
+     */
+    public static void glDebugMessageInsertKHR(int source, int type, int id, int severity, ByteBuffer message) {
+        nglDebugMessageInsertKHR(source, type, id, severity, message.remaining(), memAddress(message));
+    }
 
-	/**
-	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
-	 * signals about specific render system events.
-	 * 
-	 * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
-	 * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
-	 * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
-	 * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
-	 * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
-	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
-	 *
-	 * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
-	 * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
-	 * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
-	 * @param severity the severity of the debug messages to insert
-	 * @param message  a character array containing the message to insert
-	 */
-	public static void glDebugMessageInsertKHR(int source, int type, int id, int severity, CharSequence message) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer messageEncoded = stack.UTF8(message, false);
-			nglDebugMessageInsertKHR(source, type, id, severity, messageEncoded.remaining(), memAddress(messageEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
+     * signals about specific render system events.
+     * 
+     * <p>The value of {@code id} specifies the ID for the message and {@code severity} indicates its severity level as defined by the caller. The string
+     * {@code buf} contains the string representation of the message. The parameter {@code length} contains the number of characters in {@code buf}. If
+     * {@code length} is negative, it is implied that {@code buf} contains a null terminated string. The error {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} will be generated if the
+     * number of characters in {@code buf}, excluding the null terminator when {@code length} is negative, is not less than the value of
+     * {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
+     * 
+     * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled calls to DebugMessageInsert are discarded and do not generate an error.</p>
+     *
+     * @param source   the source of the debug message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_KHR DEBUG_SOURCE_API_KHR}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR DEBUG_SOURCE_WINDOW_SYSTEM_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_KHR DEBUG_SOURCE_SHADER_COMPILER_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_KHR DEBUG_SOURCE_OTHER_KHR}</td></tr></table>
+     * @param type     the type of the debug message insert. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_KHR DEBUG_TYPE_ERROR_KHR}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR}</td><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PORTABILITY_KHR DEBUG_TYPE_PORTABILITY_KHR}</td><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_KHR DEBUG_TYPE_PERFORMANCE_KHR}</td><td>{@link #GL_DEBUG_TYPE_OTHER_KHR DEBUG_TYPE_OTHER_KHR}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_MARKER_KHR DEBUG_TYPE_MARKER_KHR}</td></tr></table>
+     * @param id       the user-supplied identifier of the message to insert. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
+     * @param severity the severity of the debug messages to insert
+     * @param message  a character array containing the message to insert
+     */
+    public static void glDebugMessageInsertKHR(int source, int type, int id, int severity, CharSequence message) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer messageEncoded = stack.UTF8(message, false);
+            nglDebugMessageInsertKHR(source, type, id, severity, messageEncoded.remaining(), memAddress(messageEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glDebugMessageCallbackKHR ] ---
+    // --- [ glDebugMessageCallbackKHR ] ---
 
-	/** Unsafe version of: {@link #glDebugMessageCallbackKHR DebugMessageCallbackKHR} */
-	public static native void nglDebugMessageCallbackKHR(long callback, long userParam);
+    /** Unsafe version of: {@link #glDebugMessageCallbackKHR DebugMessageCallbackKHR} */
+    public static native void nglDebugMessageCallbackKHR(long callback, long userParam);
 
-	/**
-	 * Specifies a callback to receive debugging messages from the GL.
-	 * 
-	 * <p>The function's prototype must follow the type definition of DEBUGPROC including its platform-dependent calling convention. Anything else will result in
-	 * undefined behavior. Only one debug callback can be specified for the current context, and further calls overwrite the previous callback. Specifying
-	 * {@code NULL} as the value of {@code callback} clears the current callback and disables message output through callbacks. Applications can provide
-	 * user-specified data through the pointer {@code userParam}. The context will store this pointer and will include it as one of the parameters in each call
-	 * to the callback function.</p>
-	 * 
-	 * <p>If the application has specified a callback function for receiving debug output, the implementation will call that function whenever any enabled message
-	 * is generated.  The source, type, ID, and severity of the message are specified by the DEBUGPROC parameters {@code source}, {@code type}, {@code id}, and
-	 * {@code severity}, respectively. The string representation of the message is stored in {@code message} and its length (excluding the null-terminator) is
-	 * stored in {@code length}. The parameter {@code userParam} is the user-specified parameter that was given when calling DebugMessageCallback.</p>
-	 * 
-	 * <p>Applications can query the current callback function and the current user-specified parameter by obtaining the values of {@link #GL_DEBUG_CALLBACK_FUNCTION_KHR DEBUG_CALLBACK_FUNCTION_KHR}
-	 * and {@link #GL_DEBUG_CALLBACK_USER_PARAM_KHR DEBUG_CALLBACK_USER_PARAM_KHR}, respectively.</p>
-	 * 
-	 * <p>Applications that specify a callback function must be aware of certain special conditions when executing code inside a callback when it is called by the
-	 * GL, regardless of the debug source.</p>
-	 * 
-	 * <p>The memory for {@code message} is owned and managed by the GL, and should only be considered valid for the duration of the function call.</p>
-	 * 
-	 * <p>The behavior of calling any GL or window system function from within the callback function is undefined and may lead to program termination.</p>
-	 * 
-	 * <p>Care must also be taken in securing debug callbacks for use with asynchronous debug output by multi-threaded GL implementations.</p>
-	 * 
-	 * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled then the GL will not call the callback function.</p>
-	 *
-	 * @param callback  a callback function that will be called when a debug message is generated
-	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
-	 */
-	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallbackI callback, long userParam) {
-		nglDebugMessageCallbackKHR(memAddressSafe(callback), userParam);
-	}
+    /**
+     * Specifies a callback to receive debugging messages from the GL.
+     * 
+     * <p>The function's prototype must follow the type definition of DEBUGPROC including its platform-dependent calling convention. Anything else will result in
+     * undefined behavior. Only one debug callback can be specified for the current context, and further calls overwrite the previous callback. Specifying
+     * {@code NULL} as the value of {@code callback} clears the current callback and disables message output through callbacks. Applications can provide
+     * user-specified data through the pointer {@code userParam}. The context will store this pointer and will include it as one of the parameters in each call
+     * to the callback function.</p>
+     * 
+     * <p>If the application has specified a callback function for receiving debug output, the implementation will call that function whenever any enabled message
+     * is generated.  The source, type, ID, and severity of the message are specified by the DEBUGPROC parameters {@code source}, {@code type}, {@code id}, and
+     * {@code severity}, respectively. The string representation of the message is stored in {@code message} and its length (excluding the null-terminator) is
+     * stored in {@code length}. The parameter {@code userParam} is the user-specified parameter that was given when calling DebugMessageCallback.</p>
+     * 
+     * <p>Applications can query the current callback function and the current user-specified parameter by obtaining the values of {@link #GL_DEBUG_CALLBACK_FUNCTION_KHR DEBUG_CALLBACK_FUNCTION_KHR}
+     * and {@link #GL_DEBUG_CALLBACK_USER_PARAM_KHR DEBUG_CALLBACK_USER_PARAM_KHR}, respectively.</p>
+     * 
+     * <p>Applications that specify a callback function must be aware of certain special conditions when executing code inside a callback when it is called by the
+     * GL, regardless of the debug source.</p>
+     * 
+     * <p>The memory for {@code message} is owned and managed by the GL, and should only be considered valid for the duration of the function call.</p>
+     * 
+     * <p>The behavior of calling any GL or window system function from within the callback function is undefined and may lead to program termination.</p>
+     * 
+     * <p>Care must also be taken in securing debug callbacks for use with asynchronous debug output by multi-threaded GL implementations.</p>
+     * 
+     * <p>If the {@link #GL_DEBUG_OUTPUT_KHR DEBUG_OUTPUT_KHR} state is disabled then the GL will not call the callback function.</p>
+     *
+     * @param callback  a callback function that will be called when a debug message is generated
+     * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
+     */
+    public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallbackI callback, long userParam) {
+        nglDebugMessageCallbackKHR(memAddressSafe(callback), userParam);
+    }
 
-	// --- [ glGetDebugMessageLogKHR ] ---
+    // --- [ glGetDebugMessageLogKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR}
-	 *
-	 * @param bufsize the size of the buffer whose address is given by {@code messageLog}
-	 */
-	public static native int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog);
+    /**
+     * Unsafe version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR}
+     *
+     * @param bufsize the size of the buffer whose address is given by {@code messageLog}
+     */
+    public static native int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog);
 
-	/**
-	 * Retrieves messages from the debug message log.
-	 * 
-	 * <p>This function fetches a maximum of {@code count} messages from the message log, and will return the number of messages successfully fetched.</p>
-	 * 
-	 * <p>Messages will be fetched from the log in order of oldest to newest. Those messages that were fetched will be removed from the log.</p>
-	 * 
-	 * <p>The sources, types, severities, IDs, and string lengths of fetched messages will be stored in the application-provided arrays {@code sources},
-	 * {@code types}, {@code severities}, {@code ids}, and {@code lengths}, respectively. The application is responsible for allocating enough space for each
-	 * array to hold up to {@code count} elements. The string representations of all fetched messages are stored in the {@code messageLog} array. If multiple
-	 * messages are fetched, their strings are concatenated into the same {@code messageLog} array and will be separated by single null terminators. The last
-	 * string in the array will also be null-terminated. The maximum size of {@code messageLog}, including the space used by all null terminators, is given by
-	 * {@code bufSize}. If {@code bufSize} is less than zero and {@code messageLog} is not {@code NULL}, an {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error will be generated. If a message's
-	 * string, including its null terminator, can not fully fit within the {@code messageLog} array's remaining space, then that message and any subsequent
-	 * messages will not be fetched and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null terminator of each string.</p>
-	 * 
-	 * <p>Any or all of the arrays {@code sources}, {@code types}, {@code ids}, {@code severities}, {@code lengths} and {@code messageLog} can also be null
-	 * pointers, which causes the attributes for such arrays to be discarded when messages are fetched, however those messages will still be removed from the
-	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function with
-	 * null pointers for all attribute arrays.</p>
-	 * 
-	 * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT_KHR CONTEXT_FLAG_DEBUG_BIT_KHR}, then the GL can opt to never add messages to the message log so GetDebugMessageLog will
-	 * always return zero.</p>
-	 *
-	 * @param count      the number of debug messages to retrieve from the log
-	 * @param sources    an array of variables to receive the sources of the retrieved messages
-	 * @param types      an array of variables to receive the types of the retrieved messages
-	 * @param ids        an array of unsigned integers to receive the ids of the retrieved messages
-	 * @param severities an array of variables to receive the severites of the retrieved messages
-	 * @param lengths    an array of variables to receive the lengths of the received messages
-	 * @param messageLog an array of characters that will receive the messages
-	 */
-	public static int glGetDebugMessageLogKHR(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( CHECKS ) {
-			checkSafe(sources, count);
-			checkSafe(types, count);
-			checkSafe(ids, count);
-			checkSafe(severities, count);
-			checkSafe(lengths, count);
-		}
-		return nglGetDebugMessageLogKHR(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
-	}
+    /**
+     * Retrieves messages from the debug message log.
+     * 
+     * <p>This function fetches a maximum of {@code count} messages from the message log, and will return the number of messages successfully fetched.</p>
+     * 
+     * <p>Messages will be fetched from the log in order of oldest to newest. Those messages that were fetched will be removed from the log.</p>
+     * 
+     * <p>The sources, types, severities, IDs, and string lengths of fetched messages will be stored in the application-provided arrays {@code sources},
+     * {@code types}, {@code severities}, {@code ids}, and {@code lengths}, respectively. The application is responsible for allocating enough space for each
+     * array to hold up to {@code count} elements. The string representations of all fetched messages are stored in the {@code messageLog} array. If multiple
+     * messages are fetched, their strings are concatenated into the same {@code messageLog} array and will be separated by single null terminators. The last
+     * string in the array will also be null-terminated. The maximum size of {@code messageLog}, including the space used by all null terminators, is given by
+     * {@code bufSize}. If {@code bufSize} is less than zero and {@code messageLog} is not {@code NULL}, an {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error will be generated. If a message's
+     * string, including its null terminator, can not fully fit within the {@code messageLog} array's remaining space, then that message and any subsequent
+     * messages will not be fetched and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null terminator of each string.</p>
+     * 
+     * <p>Any or all of the arrays {@code sources}, {@code types}, {@code ids}, {@code severities}, {@code lengths} and {@code messageLog} can also be null
+     * pointers, which causes the attributes for such arrays to be discarded when messages are fetched, however those messages will still be removed from the
+     * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function with
+     * null pointers for all attribute arrays.</p>
+     * 
+     * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT_KHR CONTEXT_FLAG_DEBUG_BIT_KHR}, then the GL can opt to never add messages to the message log so GetDebugMessageLog will
+     * always return zero.</p>
+     *
+     * @param count      the number of debug messages to retrieve from the log
+     * @param sources    an array of variables to receive the sources of the retrieved messages
+     * @param types      an array of variables to receive the types of the retrieved messages
+     * @param ids        an array of unsigned integers to receive the ids of the retrieved messages
+     * @param severities an array of variables to receive the severites of the retrieved messages
+     * @param lengths    an array of variables to receive the lengths of the received messages
+     * @param messageLog an array of characters that will receive the messages
+     */
+    public static int glGetDebugMessageLogKHR(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
+        if (CHECKS) {
+            checkSafe(sources, count);
+            checkSafe(types, count);
+            checkSafe(ids, count);
+            checkSafe(severities, count);
+            checkSafe(lengths, count);
+        }
+        return nglGetDebugMessageLogKHR(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+    }
 
-	// --- [ glGetPointervKHR ] ---
+    // --- [ glGetPointervKHR ] ---
 
-	public static native void nglGetPointervKHR(int pname, long params);
+    public static native void nglGetPointervKHR(int pname, long params);
 
-	public static void glGetPointervKHR(int pname, PointerBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetPointervKHR(pname, memAddress(params));
-	}
+    public static void glGetPointervKHR(int pname, PointerBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetPointervKHR(pname, memAddress(params));
+    }
 
-	public static long glGetPointerKHR(int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			PointerBuffer params = stack.callocPointer(1);
-			nglGetPointervKHR(pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static long glGetPointerKHR(int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            PointerBuffer params = stack.callocPointer(1);
+            nglGetPointervKHR(pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glPushDebugGroupKHR ] ---
+    // --- [ glPushDebugGroupKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glPushDebugGroupKHR PushDebugGroupKHR}
-	 *
-	 * @param length the length of the message to be sent to the debug output stream
-	 */
-	public static native void nglPushDebugGroupKHR(int source, int id, int length, long message);
+    /**
+     * Unsafe version of: {@link #glPushDebugGroupKHR PushDebugGroupKHR}
+     *
+     * @param length the length of the message to be sent to the debug output stream
+     */
+    public static native void nglPushDebugGroupKHR(int source, int id, int length, long message);
 
-	/**
-	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
-	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
-	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP_KHR DEBUG_TYPE_PUSH_GROUP_KHR}, and
-	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
-	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
-	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug
-	 * group.
-	 * 
-	 * <p>An {@link GLES20#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}. An
-	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
-	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
-	 *
-	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
-	 * @param id      the identifier of the message
-	 * @param message a string containing the message to be sent to the debug output stream
-	 */
-	public static void glPushDebugGroupKHR(int source, int id, ByteBuffer message) {
-		nglPushDebugGroupKHR(source, id, message.remaining(), memAddress(message));
-	}
+    /**
+     * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
+     * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
+     * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP_KHR DEBUG_TYPE_PUSH_GROUP_KHR}, and
+     * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+     * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
+     * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug
+     * group.
+     * 
+     * <p>An {@link GLES20#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}. An
+     * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
+     * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
+     *
+     * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
+     * @param id      the identifier of the message
+     * @param message a string containing the message to be sent to the debug output stream
+     */
+    public static void glPushDebugGroupKHR(int source, int id, ByteBuffer message) {
+        nglPushDebugGroupKHR(source, id, message.remaining(), memAddress(message));
+    }
 
-	/**
-	 * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
-	 * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
-	 * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP_KHR DEBUG_TYPE_PUSH_GROUP_KHR}, and
-	 * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
-	 * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
-	 * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug
-	 * group.
-	 * 
-	 * <p>An {@link GLES20#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}. An
-	 * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
-	 * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
-	 *
-	 * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
-	 * @param id      the identifier of the message
-	 * @param message a string containing the message to be sent to the debug output stream
-	 */
-	public static void glPushDebugGroupKHR(int source, int id, CharSequence message) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer messageEncoded = stack.UTF8(message, false);
-			nglPushDebugGroupKHR(source, id, messageEncoded.remaining(), memAddress(messageEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Pushes a debug group described by the string {@code message} into the command stream. The value of {@code id} specifies the ID of messages generated.
+     * The parameter {@code length} contains the number of characters in {@code message}. If {@code length} is negative, it is implied that {@code message}
+     * contains a null terminated string. The message has the specified {@code source} and {@code id}, {@code type} {@link #GL_DEBUG_TYPE_PUSH_GROUP_KHR DEBUG_TYPE_PUSH_GROUP_KHR}, and
+     * {@code severity} {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}. The GL will put a new debug group on top of the debug group stack which inherits the control of the
+     * volume of debug output of the debug group previously residing on the top of the debug group stack. Because debug groups are strictly hierarchical, any
+     * additional control of the debug output volume will only apply within the active debug group and the debug groups pushed on top of the active debug
+     * group.
+     * 
+     * <p>An {@link GLES20#GL_INVALID_ENUM INVALID_ENUM} error is generated if the value of {@code source} is neither {@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR} nor {@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}. An
+     * {@link GLES20#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code length} is negative and the number of characters in {@code message}, excluding the null-terminator,
+     * is not less than the value of {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_KHR MAX_DEBUG_MESSAGE_LENGTH_KHR}.</p>
+     *
+     * @param source  the source of the debug message. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_KHR DEBUG_SOURCE_APPLICATION_KHR}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_KHR DEBUG_SOURCE_THIRD_PARTY_KHR}</td></tr></table>
+     * @param id      the identifier of the message
+     * @param message a string containing the message to be sent to the debug output stream
+     */
+    public static void glPushDebugGroupKHR(int source, int id, CharSequence message) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer messageEncoded = stack.UTF8(message, false);
+            nglPushDebugGroupKHR(source, id, messageEncoded.remaining(), memAddress(messageEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glPopDebugGroupKHR ] ---
+    // --- [ glPopDebugGroupKHR ] ---
 
-	/**
-	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
-	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroupKHR PushDebugGroupKHR} command.
-	 * {@link #GL_DEBUG_TYPE_PUSH_GROUP_KHR DEBUG_TYPE_PUSH_GROUP_KHR} and {@link #GL_DEBUG_TYPE_POP_GROUP_KHR DEBUG_TYPE_POP_GROUP_KHR} share a single namespace for message {@code id}. {@code severity} has the value
-	 * {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}. The {@code type} has the value {@link #GL_DEBUG_TYPE_POP_GROUP_KHR DEBUG_TYPE_POP_GROUP_KHR}. Popping a debug group restores the debug output volume
-	 * control of the parent debug group.
-	 * 
-	 * <p>Attempting to pop the default debug group off the stack generates a {@link #GL_STACK_UNDERFLOW_KHR STACK_UNDERFLOW_KHR} error; pushing a debug group onto a stack containing
-	 * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR MAX_DEBUG_GROUP_STACK_DEPTH_KHR} minus one elements will generate a {@link #GL_STACK_OVERFLOW_KHR STACK_OVERFLOW_KHR} error.</p>
-	 */
-	public static native void glPopDebugGroupKHR();
+    /**
+     * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
+     * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroupKHR PushDebugGroupKHR} command.
+     * {@link #GL_DEBUG_TYPE_PUSH_GROUP_KHR DEBUG_TYPE_PUSH_GROUP_KHR} and {@link #GL_DEBUG_TYPE_POP_GROUP_KHR DEBUG_TYPE_POP_GROUP_KHR} share a single namespace for message {@code id}. {@code severity} has the value
+     * {@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}. The {@code type} has the value {@link #GL_DEBUG_TYPE_POP_GROUP_KHR DEBUG_TYPE_POP_GROUP_KHR}. Popping a debug group restores the debug output volume
+     * control of the parent debug group.
+     * 
+     * <p>Attempting to pop the default debug group off the stack generates a {@link #GL_STACK_UNDERFLOW_KHR STACK_UNDERFLOW_KHR} error; pushing a debug group onto a stack containing
+     * {@link #GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR MAX_DEBUG_GROUP_STACK_DEPTH_KHR} minus one elements will generate a {@link #GL_STACK_OVERFLOW_KHR STACK_OVERFLOW_KHR} error.</p>
+     */
+    public static native void glPopDebugGroupKHR();
 
-	// --- [ glObjectLabelKHR ] ---
+    // --- [ glObjectLabelKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glObjectLabelKHR ObjectLabelKHR}
-	 *
-	 * @param length the length of the label to be used for the object
-	 */
-	public static native void nglObjectLabelKHR(int identifier, int name, int length, long label);
+    /**
+     * Unsafe version of: {@link #glObjectLabelKHR ObjectLabelKHR}
+     *
+     * @param length the length of the label to be used for the object
+     */
+    public static native void nglObjectLabelKHR(int identifier, int name, int length, long label);
 
-	/**
-	 * Labels a named object identified within a namespace.
-	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
-	 * @param name       the name of the object to label
-	 * @param label      a string containing the label to assign to the object
-	 */
-	public static void glObjectLabelKHR(int identifier, int name, ByteBuffer label) {
-		nglObjectLabelKHR(identifier, name, label.remaining(), memAddress(label));
-	}
+    /**
+     * Labels a named object identified within a namespace.
+     *
+     * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+     * @param name       the name of the object to label
+     * @param label      a string containing the label to assign to the object
+     */
+    public static void glObjectLabelKHR(int identifier, int name, ByteBuffer label) {
+        nglObjectLabelKHR(identifier, name, label.remaining(), memAddress(label));
+    }
 
-	/**
-	 * Labels a named object identified within a namespace.
-	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
-	 * @param name       the name of the object to label
-	 * @param label      a string containing the label to assign to the object
-	 */
-	public static void glObjectLabelKHR(int identifier, int name, CharSequence label) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			nglObjectLabelKHR(identifier, name, labelEncoded.remaining(), memAddress(labelEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Labels a named object identified within a namespace.
+     *
+     * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+     * @param name       the name of the object to label
+     * @param label      a string containing the label to assign to the object
+     */
+    public static void glObjectLabelKHR(int identifier, int name, CharSequence label) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer labelEncoded = stack.UTF8(label, false);
+            nglObjectLabelKHR(identifier, name, labelEncoded.remaining(), memAddress(labelEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetObjectLabelKHR ] ---
+    // --- [ glGetObjectLabelKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR}
-	 *
-	 * @param bufSize the length of the buffer whose address is in {@code label}
-	 */
-	public static native void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label);
+    /**
+     * Unsafe version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR}
+     *
+     * @param bufSize the length of the buffer whose address is in {@code label}
+     */
+    public static native void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label);
 
-	/**
-	 * Retrieves the label of a named object identified within a namespace.
-	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
-	 * @param name       the name of the object whose label to retrieve
-	 * @param length     the address of a variable to receive the length of the object label
-	 * @param label      a string that will receive the object label
-	 */
-	public static void glGetObjectLabelKHR(int identifier, int name, IntBuffer length, ByteBuffer label) {
-		if ( CHECKS )
-			checkSafe(length, 1);
-		nglGetObjectLabelKHR(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
-	}
+    /**
+     * Retrieves the label of a named object identified within a namespace.
+     *
+     * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+     * @param name       the name of the object whose label to retrieve
+     * @param length     the address of a variable to receive the length of the object label
+     * @param label      a string that will receive the object label
+     */
+    public static void glGetObjectLabelKHR(int identifier, int name, IntBuffer length, ByteBuffer label) {
+        if (CHECKS) {
+            checkSafe(length, 1);
+        }
+        nglGetObjectLabelKHR(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
+    }
 
-	/**
-	 * Retrieves the label of a named object identified within a namespace.
-	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
-	 * @param name       the name of the object whose label to retrieve
-	 * @param bufSize    the length of the buffer whose address is in {@code label}
-	 */
-	public static String glGetObjectLabelKHR(int identifier, int name, int bufSize) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectLabelKHR(identifier, name, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Retrieves the label of a named object identified within a namespace.
+     *
+     * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+     * @param name       the name of the object whose label to retrieve
+     * @param bufSize    the length of the buffer whose address is in {@code label}
+     */
+    public static String glGetObjectLabelKHR(int identifier, int name, int bufSize) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer length = stack.ints(0);
+            ByteBuffer label = stack.malloc(bufSize);
+            nglGetObjectLabelKHR(identifier, name, bufSize, memAddress(length), memAddress(label));
+            return memUTF8(label, length.get(0));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Retrieves the label of a named object identified within a namespace.
-	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
-	 * @param name       the name of the object whose label to retrieve
-	 */
-	public static String glGetObjectLabelKHR(int identifier, int name) {
-		return glGetObjectLabelKHR(identifier, name, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR));
-	}
+    /**
+     * Retrieves the label of a named object identified within a namespace.
+     *
+     * @param identifier the namespace from which the name of the object is allocated. One of:<br><table><tr><td>{@link #GL_BUFFER_KHR BUFFER_KHR}</td><td>{@link #GL_SHADER_KHR SHADER_KHR}</td><td>{@link #GL_PROGRAM_KHR PROGRAM_KHR}</td><td>{@link #GL_QUERY_KHR QUERY_KHR}</td><td>{@link #GL_PROGRAM_PIPELINE_KHR PROGRAM_PIPELINE_KHR}</td><td>{@link #GL_SAMPLER_KHR SAMPLER_KHR}</td></tr><tr><td>{@link GLES20#GL_TEXTURE TEXTURE}</td><td>{@link GLES20#GL_RENDERBUFFER RENDERBUFFER}</td><td>{@link GLES20#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GLES30#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
+     * @param name       the name of the object whose label to retrieve
+     */
+    public static String glGetObjectLabelKHR(int identifier, int name) {
+        return glGetObjectLabelKHR(identifier, name, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR));
+    }
 
-	// --- [ glObjectPtrLabelKHR ] ---
+    // --- [ glObjectPtrLabelKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR}
-	 *
-	 * @param length the length of the label to be used for the object
-	 */
-	public static native void nglObjectPtrLabelKHR(long ptr, int length, long label);
+    /**
+     * Unsafe version of: {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR}
+     *
+     * @param length the length of the label to be used for the object
+     */
+    public static native void nglObjectPtrLabelKHR(long ptr, int length, long label);
 
-	/**
-	 * Labels a sync object identified by a pointer.
-	 *
-	 * @param ptr   a pointer identifying a sync object
-	 * @param label a string containing the label to assign to the object
-	 */
-	public static void glObjectPtrLabelKHR(long ptr, ByteBuffer label) {
-		if ( CHECKS )
-			check(ptr);
-		nglObjectPtrLabelKHR(ptr, label.remaining(), memAddress(label));
-	}
+    /**
+     * Labels a sync object identified by a pointer.
+     *
+     * @param ptr   a pointer identifying a sync object
+     * @param label a string containing the label to assign to the object
+     */
+    public static void glObjectPtrLabelKHR(long ptr, ByteBuffer label) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nglObjectPtrLabelKHR(ptr, label.remaining(), memAddress(label));
+    }
 
-	/**
-	 * Labels a sync object identified by a pointer.
-	 *
-	 * @param ptr   a pointer identifying a sync object
-	 * @param label a string containing the label to assign to the object
-	 */
-	public static void glObjectPtrLabelKHR(long ptr, CharSequence label) {
-		if ( CHECKS )
-			check(ptr);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			nglObjectPtrLabelKHR(ptr, labelEncoded.remaining(), memAddress(labelEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Labels a sync object identified by a pointer.
+     *
+     * @param ptr   a pointer identifying a sync object
+     * @param label a string containing the label to assign to the object
+     */
+    public static void glObjectPtrLabelKHR(long ptr, CharSequence label) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer labelEncoded = stack.UTF8(label, false);
+            nglObjectPtrLabelKHR(ptr, labelEncoded.remaining(), memAddress(labelEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetObjectPtrLabelKHR ] ---
+    // --- [ glGetObjectPtrLabelKHR ] ---
 
-	/**
-	 * Unsafe version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR}
-	 *
-	 * @param bufSize the length of the buffer whose address is in {@code label}
-	 */
-	public static native void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label);
+    /**
+     * Unsafe version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR}
+     *
+     * @param bufSize the length of the buffer whose address is in {@code label}
+     */
+    public static native void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label);
 
-	/**
-	 * Retrieves the label of a sync object identified by a pointer.
-	 *
-	 * @param ptr    the name of the sync object whose label to retrieve
-	 * @param length a variable to receive the length of the object label
-	 * @param label  a string that will receive the object label
-	 */
-	public static void glGetObjectPtrLabelKHR(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( CHECKS ) {
-			check(ptr);
-			checkSafe(length, 1);
-		}
-		nglGetObjectPtrLabelKHR(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
-	}
+    /**
+     * Retrieves the label of a sync object identified by a pointer.
+     *
+     * @param ptr    the name of the sync object whose label to retrieve
+     * @param length a variable to receive the length of the object label
+     * @param label  a string that will receive the object label
+     */
+    public static void glGetObjectPtrLabelKHR(long ptr, IntBuffer length, ByteBuffer label) {
+        if (CHECKS) {
+            check(ptr);
+            checkSafe(length, 1);
+        }
+        nglGetObjectPtrLabelKHR(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
+    }
 
-	/**
-	 * Retrieves the label of a sync object identified by a pointer.
-	 *
-	 * @param ptr     the name of the sync object whose label to retrieve
-	 * @param bufSize the length of the buffer whose address is in {@code label}
-	 */
-	public static String glGetObjectPtrLabelKHR(long ptr, int bufSize) {
-		if ( CHECKS )
-			check(ptr);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectPtrLabelKHR(ptr, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Retrieves the label of a sync object identified by a pointer.
+     *
+     * @param ptr     the name of the sync object whose label to retrieve
+     * @param bufSize the length of the buffer whose address is in {@code label}
+     */
+    public static String glGetObjectPtrLabelKHR(long ptr, int bufSize) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer length = stack.ints(0);
+            ByteBuffer label = stack.malloc(bufSize);
+            nglGetObjectPtrLabelKHR(ptr, bufSize, memAddress(length), memAddress(label));
+            return memUTF8(label, length.get(0));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/**
-	 * Retrieves the label of a sync object identified by a pointer.
-	 *
-	 * @param ptr the name of the sync object whose label to retrieve
-	 */
-	public static String glGetObjectPtrLabelKHR(long ptr) {
-		return glGetObjectPtrLabelKHR(ptr, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR));
-	}
+    /**
+     * Retrieves the label of a sync object identified by a pointer.
+     *
+     * @param ptr the name of the sync object whose label to retrieve
+     */
+    public static String glGetObjectPtrLabelKHR(long ptr) {
+        return glGetObjectPtrLabelKHR(ptr, GLES20.glGetInteger(GL_MAX_LABEL_LENGTH_KHR));
+    }
 
-	/** Array version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
-	public static void glDebugMessageControlKHR(int source, int type, int severity, int[] ids, boolean enabled) {
-		long __functionAddress = GLES.getICD().glDebugMessageControlKHR;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
-	}
+    /** Array version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
+    public static void glDebugMessageControlKHR(int source, int type, int severity, int[] ids, boolean enabled) {
+        long __functionAddress = GLES.getICD().glDebugMessageControlKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
+    }
 
-	/** Array version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
-	public static int glGetDebugMessageLogKHR(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
-		long __functionAddress = GLES.getICD().glGetDebugMessageLogKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkSafe(sources, count);
-			checkSafe(types, count);
-			checkSafe(ids, count);
-			checkSafe(severities, count);
-			checkSafe(lengths, count);
-		}
-		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
-	}
+    /** Array version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
+    public static int glGetDebugMessageLogKHR(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
+        long __functionAddress = GLES.getICD().glGetDebugMessageLogKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkSafe(sources, count);
+            checkSafe(types, count);
+            checkSafe(ids, count);
+            checkSafe(severities, count);
+            checkSafe(lengths, count);
+        }
+        return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
+    }
 
-	/** Array version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
-	public static void glGetObjectLabelKHR(int identifier, int name, int[] length, ByteBuffer label) {
-		long __functionAddress = GLES.getICD().glGetObjectLabelKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkSafe(length, 1);
-		}
-		callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
-	}
+    /** Array version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
+    public static void glGetObjectLabelKHR(int identifier, int name, int[] length, ByteBuffer label) {
+        long __functionAddress = GLES.getICD().glGetObjectLabelKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkSafe(length, 1);
+        }
+        callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
+    }
 
-	/** Array version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
-	public static void glGetObjectPtrLabelKHR(long ptr, int[] length, ByteBuffer label) {
-		long __functionAddress = GLES.getICD().glGetObjectPtrLabelKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(ptr);
-			checkSafe(length, 1);
-		}
-		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
-	}
+    /** Array version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
+    public static void glGetObjectPtrLabelKHR(long ptr, int[] length, ByteBuffer label) {
+        long __functionAddress = GLES.getICD().glGetObjectPtrLabelKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(ptr);
+            checkSafe(length, 1);
+        }
+        callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
+    }
 
 }

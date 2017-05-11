@@ -21,49 +21,50 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRStreamProducerEGLSurface {
 
-	/**  */
-	public static final int EGL_STREAM_BIT_KHR = 0x800;
+    /**  */
+    public static final int EGL_STREAM_BIT_KHR = 0x800;
 
-	protected KHRStreamProducerEGLSurface() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRStreamProducerEGLSurface() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglCreateStreamProducerSurfaceKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglCreateStreamProducerSurfaceKHR
+        );
+    }
 
-	// --- [ eglCreateStreamProducerSurfaceKHR ] ---
+    // --- [ eglCreateStreamProducerSurfaceKHR ] ---
 
-	public static long neglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, long attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(config);
-			check(stream);
-		}
-		return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
-	}
+    public static long neglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, long attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(config);
+            check(stream);
+        }
+        return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
+    }
 
-	public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, IntBuffer attrib_list) {
-		if ( CHECKS )
-			checkNTSafe(attrib_list, EGL10.EGL_NONE);
-		return neglCreateStreamProducerSurfaceKHR(dpy, config, stream, memAddressSafe(attrib_list));
-	}
+    public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, IntBuffer attrib_list) {
+        if (CHECKS) {
+            checkNTSafe(attrib_list, EGL10.EGL_NONE);
+        }
+        return neglCreateStreamProducerSurfaceKHR(dpy, config, stream, memAddressSafe(attrib_list));
+    }
 
-	/** Array version of: {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
-	public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, int[] attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(config);
-			check(stream);
-			checkNTSafe(attrib_list, EGL10.EGL_NONE);
-		}
-		return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
-	}
+    /** Array version of: {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
+    public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, int[] attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(config);
+            check(stream);
+            checkNTSafe(attrib_list, EGL10.EGL_NONE);
+        }
+        return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
+    }
 
 }

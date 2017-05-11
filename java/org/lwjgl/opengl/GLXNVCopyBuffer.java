@@ -15,64 +15,64 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXNVCopyBuffer {
 
-	protected GLXNVCopyBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXNVCopyBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXCopyBufferSubDataNV, caps.glXNamedCopyBufferSubDataNV
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXCopyBufferSubDataNV, caps.glXNamedCopyBufferSubDataNV
+        );
+    }
 
-	// --- [ glXCopyBufferSubDataNV ] ---
+    // --- [ glXCopyBufferSubDataNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display     the connection to the X server
-	 * @param readCtx     
-	 * @param writeCtx    
-	 * @param readTarget  
-	 * @param writeTarget 
-	 * @param readOffset  
-	 * @param writeOffset 
-	 * @param size        
-	 */
-	public static void glXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyBufferSubDataNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(readCtx);
-			check(writeCtx);
-		}
-		callPPPPPPV(__functionAddress, display, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
-	}
+    /**
+     * 
+     *
+     * @param display     the connection to the X server
+     * @param readCtx     
+     * @param writeCtx    
+     * @param readTarget  
+     * @param writeTarget 
+     * @param readOffset  
+     * @param writeOffset 
+     * @param size        
+     */
+    public static void glXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyBufferSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(readCtx);
+            check(writeCtx);
+        }
+        callPPPPPPV(__functionAddress, display, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
+    }
 
-	// --- [ glXNamedCopyBufferSubDataNV ] ---
+    // --- [ glXNamedCopyBufferSubDataNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display     the connection to the X server
-	 * @param readCtx     
-	 * @param writeCtx    
-	 * @param readBuffer  
-	 * @param writeBuffer 
-	 * @param readOffset  
-	 * @param writeOffset 
-	 * @param size        
-	 */
-	public static void glXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXNamedCopyBufferSubDataNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(readCtx);
-			check(writeCtx);
-		}
-		callPPPPPPV(__functionAddress, display, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size);
-	}
+    /**
+     * 
+     *
+     * @param display     the connection to the X server
+     * @param readCtx     
+     * @param writeCtx    
+     * @param readBuffer  
+     * @param writeBuffer 
+     * @param readOffset  
+     * @param writeOffset 
+     * @param size        
+     */
+    public static void glXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXNamedCopyBufferSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(readCtx);
+            check(writeCtx);
+        }
+        callPPPPPPV(__functionAddress, display, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size);
+    }
 
 }

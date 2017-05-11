@@ -15,9 +15,9 @@ package org.lwjgl.egl;
  */
 public final class NVDeviceCUDA {
 
-	/**  */
-	public static final int EGL_CUDA_DEVICE_NV = 0x323A;
+    /**  */
+    public static final int EGL_CUDA_DEVICE_NV = 0x323A;
 
-	private NVDeviceCUDA() {}
+    private NVDeviceCUDA() {}
 
 }

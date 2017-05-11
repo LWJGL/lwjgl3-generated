@@ -19,9 +19,9 @@ package org.lwjgl.opengl;
  */
 public final class NVMultisampleFilterHint {
 
-	/** Accepted by the {@code target} parameter of Hint and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_MULTISAMPLE_FILTER_HINT_NV = 0x8534;
+    /** Accepted by the {@code target} parameter of Hint and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_MULTISAMPLE_FILTER_HINT_NV = 0x8534;
 
-	private NVMultisampleFilterHint() {}
+    private NVMultisampleFilterHint() {}
 
 }

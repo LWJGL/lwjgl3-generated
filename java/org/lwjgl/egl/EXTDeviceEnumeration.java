@@ -30,39 +30,41 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDeviceEnumeration {
 
-	protected EXTDeviceEnumeration() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDeviceEnumeration() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglQueryDevicesEXT
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglQueryDevicesEXT
+        );
+    }
 
-	// --- [ eglQueryDevicesEXT ] ---
+    // --- [ eglQueryDevicesEXT ] ---
 
-	public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPI(__functionAddress, max_devices, devices, num_devices);
-	}
+    public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPI(__functionAddress, max_devices, devices, num_devices);
+    }
 
-	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
-		if ( CHECKS )
-			check(num_devices, 1);
-		return neglQueryDevicesEXT(remainingSafe(devices), memAddressSafe(devices), memAddress(num_devices)) != 0;
-	}
+    public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
+        if (CHECKS) {
+            check(num_devices, 1);
+        }
+        return neglQueryDevicesEXT(remainingSafe(devices), memAddressSafe(devices), memAddress(num_devices)) != 0;
+    }
 
-	/** Array version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-	public static boolean eglQueryDevicesEXT(PointerBuffer devices, int[] num_devices) {
-		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(num_devices, 1);
-		}
-		return callPPI(__functionAddress, remainingSafe(devices), memAddressSafe(devices), num_devices) != 0;
-	}
+    /** Array version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
+    public static boolean eglQueryDevicesEXT(PointerBuffer devices, int[] num_devices) {
+        long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(num_devices, 1);
+        }
+        return callPPI(__functionAddress, remainingSafe(devices), memAddressSafe(devices), num_devices) != 0;
+    }
 
 }

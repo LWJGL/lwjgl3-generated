@@ -22,138 +22,146 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class VRChaperone {
 
-	protected VRChaperone() {
-		throw new UnsupportedOperationException();
-	}
+    protected VRChaperone() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ VRChaperone_GetCalibrationState ] ---
+    // --- [ VRChaperone_GetCalibrationState ] ---
 
-	/** Get the current state of Chaperone calibration. This state can change at any time during a session due to physical base station changes. */
-	public static int VRChaperone_GetCalibrationState() {
-		long __functionAddress = OpenVR.VRChaperone.GetCalibrationState;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress);
-	}
+    /** Get the current state of Chaperone calibration. This state can change at any time during a session due to physical base station changes. */
+    public static int VRChaperone_GetCalibrationState() {
+        long __functionAddress = OpenVR.VRChaperone.GetCalibrationState;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress);
+    }
 
-	// --- [ VRChaperone_GetPlayAreaSize ] ---
+    // --- [ VRChaperone_GetPlayAreaSize ] ---
 
-	/** Unsafe version of: {@link #VRChaperone_GetPlayAreaSize GetPlayAreaSize} */
-	public static boolean nVRChaperone_GetPlayAreaSize(long pSizeX, long pSizeZ) {
-		long __functionAddress = OpenVR.VRChaperone.GetPlayAreaSize;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPPZ(__functionAddress, pSizeX, pSizeZ);
-	}
+    /** Unsafe version of: {@link #VRChaperone_GetPlayAreaSize GetPlayAreaSize} */
+    public static boolean nVRChaperone_GetPlayAreaSize(long pSizeX, long pSizeZ) {
+        long __functionAddress = OpenVR.VRChaperone.GetPlayAreaSize;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPZ(__functionAddress, pSizeX, pSizeZ);
+    }
 
-	/**
-	 * Returns the width and depth of the Play Area (formerly named Soft Bounds) in X and Z. Tracking space center(0, 0, 0) is the center of the Play Area.
-	 *
-	 * @param pSizeX 
-	 * @param pSizeZ 
-	 */
-	public static boolean VRChaperone_GetPlayAreaSize(FloatBuffer pSizeX, FloatBuffer pSizeZ) {
-		if ( CHECKS ) {
-			check(pSizeX, 1);
-			check(pSizeZ, 1);
-		}
-		return nVRChaperone_GetPlayAreaSize(memAddress(pSizeX), memAddress(pSizeZ));
-	}
+    /**
+     * Returns the width and depth of the Play Area (formerly named Soft Bounds) in X and Z. Tracking space center(0, 0, 0) is the center of the Play Area.
+     *
+     * @param pSizeX 
+     * @param pSizeZ 
+     */
+    public static boolean VRChaperone_GetPlayAreaSize(FloatBuffer pSizeX, FloatBuffer pSizeZ) {
+        if (CHECKS) {
+            check(pSizeX, 1);
+            check(pSizeZ, 1);
+        }
+        return nVRChaperone_GetPlayAreaSize(memAddress(pSizeX), memAddress(pSizeZ));
+    }
 
-	// --- [ VRChaperone_GetPlayAreaRect ] ---
+    // --- [ VRChaperone_GetPlayAreaRect ] ---
 
-	/** Unsafe version of: {@link #VRChaperone_GetPlayAreaRect GetPlayAreaRect} */
-	public static boolean nVRChaperone_GetPlayAreaRect(long rect) {
-		long __functionAddress = OpenVR.VRChaperone.GetPlayAreaRect;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPZ(__functionAddress, rect);
-	}
+    /** Unsafe version of: {@link #VRChaperone_GetPlayAreaRect GetPlayAreaRect} */
+    public static boolean nVRChaperone_GetPlayAreaRect(long rect) {
+        long __functionAddress = OpenVR.VRChaperone.GetPlayAreaRect;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPZ(__functionAddress, rect);
+    }
 
-	/**
-	 * Returns the 4 corner positions of the Play Area (formerly named Soft Bounds).
-	 * 
-	 * <p>Corners are in counter-clockwise order. Standing center (0,0,0) is the center of the Play Area. It's a rectangle. 2 sides are parallel to the X axis
-	 * and 2 sides are parallel to the Z axis. Height of every corner is 0Y (on the floor).</p>
-	 *
-	 * @param rect 
-	 */
-	public static boolean VRChaperone_GetPlayAreaRect(HmdQuad rect) {
-		return nVRChaperone_GetPlayAreaRect(rect.address());
-	}
+    /**
+     * Returns the 4 corner positions of the Play Area (formerly named Soft Bounds).
+     * 
+     * <p>Corners are in counter-clockwise order. Standing center (0,0,0) is the center of the Play Area. It's a rectangle. 2 sides are parallel to the X axis
+     * and 2 sides are parallel to the Z axis. Height of every corner is 0Y (on the floor).</p>
+     *
+     * @param rect 
+     */
+    public static boolean VRChaperone_GetPlayAreaRect(HmdQuad rect) {
+        return nVRChaperone_GetPlayAreaRect(rect.address());
+    }
 
-	// --- [ VRChaperone_ReloadInfo ] ---
+    // --- [ VRChaperone_ReloadInfo ] ---
 
-	/** Reload Chaperone data from the .vrchap file on disk. */
-	public static void VRChaperone_ReloadInfo() {
-		long __functionAddress = OpenVR.VRChaperone.ReloadInfo;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress);
-	}
+    /** Reload Chaperone data from the .vrchap file on disk. */
+    public static void VRChaperone_ReloadInfo() {
+        long __functionAddress = OpenVR.VRChaperone.ReloadInfo;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress);
+    }
 
-	// --- [ VRChaperone_SetSceneColor ] ---
+    // --- [ VRChaperone_SetSceneColor ] ---
 
-	/** Unsafe version of: {@link #VRChaperone_SetSceneColor SetSceneColor} */
-	public static void nVRChaperone_SetSceneColor(long color) {
-		long __functionAddress = OpenVR.VRChaperone.SetSceneColor;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, color);
-	}
+    /** Unsafe version of: {@link #VRChaperone_SetSceneColor SetSceneColor} */
+    public static void nVRChaperone_SetSceneColor(long color) {
+        long __functionAddress = OpenVR.VRChaperone.SetSceneColor;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, color);
+    }
 
-	/**
-	 * Optionally give the chaperone system a hit about the color and brightness in the scene.
-	 *
-	 * @param color 
-	 */
-	public static void VRChaperone_SetSceneColor(HmdColor color) {
-		nVRChaperone_SetSceneColor(color.address());
-	}
+    /**
+     * Optionally give the chaperone system a hit about the color and brightness in the scene.
+     *
+     * @param color 
+     */
+    public static void VRChaperone_SetSceneColor(HmdColor color) {
+        nVRChaperone_SetSceneColor(color.address());
+    }
 
-	// --- [ VRChaperone_GetBoundsColor ] ---
+    // --- [ VRChaperone_GetBoundsColor ] ---
 
-	/** Unsafe version of: {@link #VRChaperone_GetBoundsColor GetBoundsColor} */
-	public static void nVRChaperone_GetBoundsColor(long pOutputColorArray, int nNumOutputColors, float flCollisionBoundsFadeDistance, long pOutputCameraColor) {
-		long __functionAddress = OpenVR.VRChaperone.GetBoundsColor;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, pOutputColorArray, nNumOutputColors, flCollisionBoundsFadeDistance, pOutputCameraColor);
-	}
+    /** Unsafe version of: {@link #VRChaperone_GetBoundsColor GetBoundsColor} */
+    public static void nVRChaperone_GetBoundsColor(long pOutputColorArray, int nNumOutputColors, float flCollisionBoundsFadeDistance, long pOutputCameraColor) {
+        long __functionAddress = OpenVR.VRChaperone.GetBoundsColor;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, pOutputColorArray, nNumOutputColors, flCollisionBoundsFadeDistance, pOutputCameraColor);
+    }
 
-	/**
-	 * Get the current chaperone bounds draw color and brightness.
-	 *
-	 * @param pOutputColorArray             
-	 * @param flCollisionBoundsFadeDistance 
-	 * @param pOutputCameraColor            
-	 */
-	public static void VRChaperone_GetBoundsColor(HmdColor.Buffer pOutputColorArray, float flCollisionBoundsFadeDistance, HmdColor pOutputCameraColor) {
-		nVRChaperone_GetBoundsColor(pOutputColorArray.address(), pOutputColorArray.remaining(), flCollisionBoundsFadeDistance, pOutputCameraColor.address());
-	}
+    /**
+     * Get the current chaperone bounds draw color and brightness.
+     *
+     * @param pOutputColorArray             
+     * @param flCollisionBoundsFadeDistance 
+     * @param pOutputCameraColor            
+     */
+    public static void VRChaperone_GetBoundsColor(HmdColor.Buffer pOutputColorArray, float flCollisionBoundsFadeDistance, HmdColor pOutputCameraColor) {
+        nVRChaperone_GetBoundsColor(pOutputColorArray.address(), pOutputColorArray.remaining(), flCollisionBoundsFadeDistance, pOutputCameraColor.address());
+    }
 
-	// --- [ VRChaperone_AreBoundsVisible ] ---
+    // --- [ VRChaperone_AreBoundsVisible ] ---
 
-	/** Determine whether the bounds are showing right now. */
-	public static boolean VRChaperone_AreBoundsVisible() {
-		long __functionAddress = OpenVR.VRChaperone.AreBoundsVisible;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callZ(__functionAddress);
-	}
+    /** Determine whether the bounds are showing right now. */
+    public static boolean VRChaperone_AreBoundsVisible() {
+        long __functionAddress = OpenVR.VRChaperone.AreBoundsVisible;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callZ(__functionAddress);
+    }
 
-	// --- [ VRChaperone_ForceBoundsVisible ] ---
+    // --- [ VRChaperone_ForceBoundsVisible ] ---
 
-	/**
-	 * Force the bounds to show, mostly for utilities.
-	 *
-	 * @param bForce 
-	 */
-	public static void VRChaperone_ForceBoundsVisible(boolean bForce) {
-		long __functionAddress = OpenVR.VRChaperone.ForceBoundsVisible;
-		if ( CHECKS )
-			check(__functionAddress);
-		callV(__functionAddress, bForce);
-	}
+    /**
+     * Force the bounds to show, mostly for utilities.
+     *
+     * @param bForce 
+     */
+    public static void VRChaperone_ForceBoundsVisible(boolean bForce) {
+        long __functionAddress = OpenVR.VRChaperone.ForceBoundsVisible;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress, bForce);
+    }
 
 }

@@ -13,30 +13,30 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface CLEventCallbackI extends CallbackI.V {
 
-	String SIGNATURE = Callback.__stdcall("(pip)v");
+    String SIGNATURE = Callback.__stdcall("(pip)v");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when the execution status of the command associated with {@code event} changes to an execution status equal or past the status specified by
-	 * {@code command_exec_status}."
-	 *
-	 * @param event                     the event
-	 * @param event_command_exec_status represents the execution status of command for which this callback function is invoked. If the callback is called as the result of the command
-	 *                                  associated with event being abnormally terminated, an appropriate error code for the error that caused the termination will be passed to
-	 *                                  {@code event_command_exec_status} instead.
-	 * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback SetEventCallback}
-	 */
-	void invoke(long event, int event_command_exec_status, long user_data);
+    /**
+     * Will be called when the execution status of the command associated with {@code event} changes to an execution status equal or past the status specified by
+     * {@code command_exec_status}."
+     *
+     * @param event                     the event
+     * @param event_command_exec_status represents the execution status of command for which this callback function is invoked. If the callback is called as the result of the command
+     *                                  associated with event being abnormally terminated, an appropriate error code for the error that caused the termination will be passed to
+     *                                  {@code event_command_exec_status} instead.
+     * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback SetEventCallback}
+     */
+    void invoke(long event, int event_command_exec_status, long user_data);
 
 }

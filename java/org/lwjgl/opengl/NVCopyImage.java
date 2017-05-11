@@ -16,39 +16,39 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVCopyImage {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVCopyImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVCopyImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glCopyImageSubDataNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glCopyImageSubDataNV
+        );
+    }
 
-	// --- [ glCopyImageSubDataNV ] ---
+    // --- [ glCopyImageSubDataNV ] ---
 
-	/**
-	 * Copies a region of texel data between two image objects. An image object may be either a texture or a renderbuffer.
-	 *
-	 * @param srcName   
-	 * @param srcTarget 
-	 * @param srcLevel  
-	 * @param srcX      
-	 * @param srcY      
-	 * @param srcZ      
-	 * @param dstName   
-	 * @param dstTarget 
-	 * @param dstLevel  
-	 * @param dstX      
-	 * @param dstY      
-	 * @param dstZ      
-	 * @param width     
-	 * @param height    
-	 * @param depth     
-	 */
-	public static native void glCopyImageSubDataNV(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
+    /**
+     * Copies a region of texel data between two image objects. An image object may be either a texture or a renderbuffer.
+     *
+     * @param srcName   
+     * @param srcTarget 
+     * @param srcLevel  
+     * @param srcX      
+     * @param srcY      
+     * @param srcZ      
+     * @param dstName   
+     * @param dstTarget 
+     * @param dstLevel  
+     * @param dstX      
+     * @param dstY      
+     * @param dstZ      
+     * @param width     
+     * @param height    
+     * @param depth     
+     */
+    public static native void glCopyImageSubDataNV(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
 
 }

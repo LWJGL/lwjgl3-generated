@@ -15,28 +15,28 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVCopyBuffer {
 
-	/**
-	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBufferOES, UnmapBufferOES, GetBufferPointervOES, GetBufferParameteriv and
-	 * CopyBufferSubDataNV.
-	 */
-	public static final int
-		GL_COPY_READ_BUFFER_NV  = 0x8F36,
-		GL_COPY_WRITE_BUFFER_NV = 0x8F37;
+    /**
+     * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBufferOES, UnmapBufferOES, GetBufferPointervOES, GetBufferParameteriv and
+     * CopyBufferSubDataNV.
+     */
+    public static final int
+        GL_COPY_READ_BUFFER_NV  = 0x8F36,
+        GL_COPY_WRITE_BUFFER_NV = 0x8F37;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVCopyBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVCopyBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glCopyBufferSubDataNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glCopyBufferSubDataNV
+        );
+    }
 
-	// --- [ glCopyBufferSubDataNV ] ---
+    // --- [ glCopyBufferSubDataNV ] ---
 
-	public static native void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+    public static native void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 }

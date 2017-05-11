@@ -59,15 +59,15 @@ package org.lwjgl.vulkan;
  */
 public final class KHRSamplerMirrorClampToEdge {
 
-	/** The extension specification version. */
-	public static final int VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME = "VK_KHR_sampler_mirror_clamp_to_edge";
+    /** The extension name. */
+    public static final String VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME = "VK_KHR_sampler_mirror_clamp_to_edge";
 
-	/**  */
-	public static final int VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4;
+    /**  */
+    public static final int VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4;
 
-	private KHRSamplerMirrorClampToEdge() {}
+    private KHRSamplerMirrorClampToEdge() {}
 
 }

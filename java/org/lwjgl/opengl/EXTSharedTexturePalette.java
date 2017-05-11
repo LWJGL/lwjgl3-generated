@@ -17,12 +17,12 @@ package org.lwjgl.opengl;
  */
 public final class EXTSharedTexturePalette {
 
-	/**
-	 * Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, IsEnabled, Enable, Disable, ColorTableEXT,
-	 * ColorSubTableEXT, GetColorTableEXT, GetColorTableParameterivEXT, and GetColorTableParameterfd EXT.
-	 */
-	public static final int GL_SHARED_TEXTURE_PALETTE_EXT = 0x81FB;
+    /**
+     * Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, IsEnabled, Enable, Disable, ColorTableEXT,
+     * ColorSubTableEXT, GetColorTableEXT, GetColorTableParameterivEXT, and GetColorTableParameterfd EXT.
+     */
+    public static final int GL_SHARED_TEXTURE_PALETTE_EXT = 0x81FB;
 
-	private EXTSharedTexturePalette() {}
+    private EXTSharedTexturePalette() {}
 
 }

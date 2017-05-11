@@ -14,9 +14,9 @@ package org.lwjgl.opengl;
  */
 public final class NVFillRectangle {
 
-	/** Accepted by the {@code mode} parameter of PolygonMode. */
-	public static final int GL_FILL_RECTANGLE_NV = 0x933C;
+    /** Accepted by the {@code mode} parameter of PolygonMode. */
+    public static final int GL_FILL_RECTANGLE_NV = 0x933C;
 
-	private NVFillRectangle() {}
+    private NVFillRectangle() {}
 
 }

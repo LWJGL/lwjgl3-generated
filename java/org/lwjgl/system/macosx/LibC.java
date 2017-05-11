@@ -11,27 +11,27 @@ import static org.lwjgl.system.JNI.*;
 /** Native bindings to libc, the Standard C Library. */
 public class LibC {
 
-	protected LibC() {
-		throw new UnsupportedOperationException();
-	}
+    protected LibC() {
+        throw new UnsupportedOperationException();
+    }
 
-	/** Contains the function pointers loaded from {@code LibSystem.getLibrary()}. */
-	public static final class Functions {
+    /** Contains the function pointers loaded from {@code LibSystem.getLibrary()}. */
+    public static final class Functions {
 
-		private Functions() {}
+        private Functions() {}
 
-		/** Function address. */
-		public static final long
-			getpid = apiGetFunctionAddress(LibSystem.getLibrary(), "getpid");
+        /** Function address. */
+        public static final long
+            getpid = apiGetFunctionAddress(LibSystem.getLibrary(), "getpid");
 
-	}
+    }
 
-	// --- [ getpid ] ---
+    // --- [ getpid ] ---
 
-	/** Returns the process ID of the calling process. */
-	public static long getpid() {
-		long __functionAddress = Functions.getpid;
-		return invokeP(__functionAddress);
-	}
+    /** Returns the process ID of the calling process. */
+    public static long getpid() {
+        long __functionAddress = Functions.getpid;
+        return invokeP(__functionAddress);
+    }
 
 }

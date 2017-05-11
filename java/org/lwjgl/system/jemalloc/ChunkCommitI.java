@@ -13,31 +13,31 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface ChunkCommitI extends CallbackI.Z {
 
-	String SIGNATURE = "(ppppi)B";
+    String SIGNATURE = "(ppppi)B";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default boolean callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Chunk commit hook.
-	 *
-	 * @param chunk     
-	 * @param size      
-	 * @param offset    
-	 * @param length    
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
+    /**
+     * Chunk commit hook.
+     *
+     * @param chunk     
+     * @param size      
+     * @param offset    
+     * @param length    
+     * @param arena_ind 
+     */
+    boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
 
 }

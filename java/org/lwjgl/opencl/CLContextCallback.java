@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods. */
 public abstract class CLContextCallback extends Callback implements CLContextCallbackI {
 
-	/** Creates a {@code CLContextCallback} instance from the specified function pointer. */
-	public static CLContextCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code CLContextCallback} instance from the specified function pointer. */
+    public static CLContextCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		CLContextCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof CLContextCallback
-			? (CLContextCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        CLContextCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof CLContextCallback
+            ? (CLContextCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code CLContextCallback} instance that delegates to the specified {@code CLContextCallbackI} instance. */
-	public static CLContextCallback create(CLContextCallbackI instance) {
-		return instance instanceof CLContextCallback
-			? (CLContextCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code CLContextCallback} instance that delegates to the specified {@code CLContextCallbackI} instance. */
+    public static CLContextCallback create(CLContextCallbackI instance) {
+        return instance instanceof CLContextCallback
+            ? (CLContextCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected CLContextCallback() {
-		super(SIGNATURE);
-	}
+    protected CLContextCallback() {
+        super(SIGNATURE);
+    }
 
-	private CLContextCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private CLContextCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends CLContextCallback {
+    private static final class Container extends CLContextCallback {
 
-		private final CLContextCallbackI delegate;
+        private final CLContextCallbackI delegate;
 
-		Container(long functionPointer, CLContextCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, CLContextCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long errinfo, long private_info, long cb, long user_data) {
-			delegate.invoke(errinfo, private_info, cb, user_data);
-		}
+        @Override
+        public void invoke(long errinfo, long private_info, long cb, long user_data) {
+            delegate.invoke(errinfo, private_info, cb, user_data);
+        }
 
-	}
+    }
 
 }

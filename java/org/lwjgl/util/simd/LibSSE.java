@@ -10,16 +10,16 @@ import org.lwjgl.system.*;
 /** Initializes the sse shared library. */
 final class LibSSE {
 
-	static {
-		String libName = Platform.mapLibraryNameBundled("lwjgl_sse");
-		Library.loadSystem(System::load, System::loadLibrary, LibSSE.class, libName);
-	}
+    static {
+        String libName = Platform.mapLibraryNameBundled("lwjgl_sse");
+        Library.loadSystem(System::load, System::loadLibrary, LibSSE.class, libName);
+    }
 
-	private LibSSE() {
-	}
+    private LibSSE() {
+    }
 
-	static void initialize() {
-		// intentionally empty to trigger static initializer
-	}
+    static void initialize() {
+        // intentionally empty to trigger static initializer
+    }
 
 }

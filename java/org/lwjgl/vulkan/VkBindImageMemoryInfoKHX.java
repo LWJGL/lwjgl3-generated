@@ -97,400 +97,403 @@ import static org.lwjgl.system.MemoryStack.*;
  */
 public class VkBindImageMemoryInfoKHX extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		STYPE,
-		PNEXT,
-		IMAGE,
-		MEMORY,
-		MEMORYOFFSET,
-		DEVICEINDEXCOUNT,
-		PDEVICEINDICES,
-		SFRRECTCOUNT,
-		PSFRRECTS;
+    /** The struct member offsets. */
+    public static final int
+        STYPE,
+        PNEXT,
+        IMAGE,
+        MEMORY,
+        MEMORYOFFSET,
+        DEVICEINDEXCOUNT,
+        PDEVICEINDICES,
+        SFRRECTCOUNT,
+        PSFRRECTS;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(POINTER_SIZE),
-			__member(8),
-			__member(8),
-			__member(8),
-			__member(4),
-			__member(POINTER_SIZE),
-			__member(4),
-			__member(POINTER_SIZE)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(8),
+            __member(8),
+            __member(8),
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(4),
+            __member(POINTER_SIZE)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		STYPE = layout.offsetof(0);
-		PNEXT = layout.offsetof(1);
-		IMAGE = layout.offsetof(2);
-		MEMORY = layout.offsetof(3);
-		MEMORYOFFSET = layout.offsetof(4);
-		DEVICEINDEXCOUNT = layout.offsetof(5);
-		PDEVICEINDICES = layout.offsetof(6);
-		SFRRECTCOUNT = layout.offsetof(7);
-		PSFRRECTS = layout.offsetof(8);
-	}
+        STYPE = layout.offsetof(0);
+        PNEXT = layout.offsetof(1);
+        IMAGE = layout.offsetof(2);
+        MEMORY = layout.offsetof(3);
+        MEMORYOFFSET = layout.offsetof(4);
+        DEVICEINDEXCOUNT = layout.offsetof(5);
+        PDEVICEINDICES = layout.offsetof(6);
+        SFRRECTCOUNT = layout.offsetof(7);
+        PSFRRECTS = layout.offsetof(8);
+    }
 
-	VkBindImageMemoryInfoKHX(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    VkBindImageMemoryInfoKHX(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link VkBindImageMemoryInfoKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public VkBindImageMemoryInfoKHX(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link VkBindImageMemoryInfoKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public VkBindImageMemoryInfoKHX(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code sType} field. */
-	public int sType() { return nsType(address()); }
-	/** Returns the value of the {@code pNext} field. */
-	public long pNext() { return npNext(address()); }
-	/** Returns the value of the {@code image} field. */
-	public long image() { return nimage(address()); }
-	/** Returns the value of the {@code memory} field. */
-	public long memory() { return nmemory(address()); }
-	/** Returns the value of the {@code memoryOffset} field. */
-	public long memoryOffset() { return nmemoryOffset(address()); }
-	/** Returns the value of the {@code deviceIndexCount} field. */
-	public int deviceIndexCount() { return ndeviceIndexCount(address()); }
-	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
-	public IntBuffer pDeviceIndices() { return npDeviceIndices(address()); }
-	/** Returns the value of the {@code SFRRectCount} field. */
-	public int SFRRectCount() { return nSFRRectCount(address()); }
-	/** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pSFRRects} field. */
-	public VkRect2D.Buffer pSFRRects() { return npSFRRects(address()); }
+    /** Returns the value of the {@code sType} field. */
+    public int sType() { return nsType(address()); }
+    /** Returns the value of the {@code pNext} field. */
+    public long pNext() { return npNext(address()); }
+    /** Returns the value of the {@code image} field. */
+    public long image() { return nimage(address()); }
+    /** Returns the value of the {@code memory} field. */
+    public long memory() { return nmemory(address()); }
+    /** Returns the value of the {@code memoryOffset} field. */
+    public long memoryOffset() { return nmemoryOffset(address()); }
+    /** Returns the value of the {@code deviceIndexCount} field. */
+    public int deviceIndexCount() { return ndeviceIndexCount(address()); }
+    /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
+    public IntBuffer pDeviceIndices() { return npDeviceIndices(address()); }
+    /** Returns the value of the {@code SFRRectCount} field. */
+    public int SFRRectCount() { return nSFRRectCount(address()); }
+    /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pSFRRects} field. */
+    public VkRect2D.Buffer pSFRRects() { return npSFRRects(address()); }
 
-	/** Sets the specified value to the {@code sType} field. */
-	public VkBindImageMemoryInfoKHX sType(int value) { nsType(address(), value); return this; }
-	/** Sets the specified value to the {@code pNext} field. */
-	public VkBindImageMemoryInfoKHX pNext(long value) { npNext(address(), value); return this; }
-	/** Sets the specified value to the {@code image} field. */
-	public VkBindImageMemoryInfoKHX image(long value) { nimage(address(), value); return this; }
-	/** Sets the specified value to the {@code memory} field. */
-	public VkBindImageMemoryInfoKHX memory(long value) { nmemory(address(), value); return this; }
-	/** Sets the specified value to the {@code memoryOffset} field. */
-	public VkBindImageMemoryInfoKHX memoryOffset(long value) { nmemoryOffset(address(), value); return this; }
-	/** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-	public VkBindImageMemoryInfoKHX pDeviceIndices(IntBuffer value) { npDeviceIndices(address(), value); return this; }
-	/** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pSFRRects} field. */
-	public VkBindImageMemoryInfoKHX pSFRRects(VkRect2D.Buffer value) { npSFRRects(address(), value); return this; }
+    /** Sets the specified value to the {@code sType} field. */
+    public VkBindImageMemoryInfoKHX sType(int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkBindImageMemoryInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    /** Sets the specified value to the {@code image} field. */
+    public VkBindImageMemoryInfoKHX image(long value) { nimage(address(), value); return this; }
+    /** Sets the specified value to the {@code memory} field. */
+    public VkBindImageMemoryInfoKHX memory(long value) { nmemory(address(), value); return this; }
+    /** Sets the specified value to the {@code memoryOffset} field. */
+    public VkBindImageMemoryInfoKHX memoryOffset(long value) { nmemoryOffset(address(), value); return this; }
+    /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
+    public VkBindImageMemoryInfoKHX pDeviceIndices(IntBuffer value) { npDeviceIndices(address(), value); return this; }
+    /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pSFRRects} field. */
+    public VkBindImageMemoryInfoKHX pSFRRects(VkRect2D.Buffer value) { npSFRRects(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public VkBindImageMemoryInfoKHX set(
-		int sType,
-		long pNext,
-		long image,
-		long memory,
-		long memoryOffset,
-		IntBuffer pDeviceIndices,
-		VkRect2D.Buffer pSFRRects
-	) {
-		sType(sType);
-		pNext(pNext);
-		image(image);
-		memory(memory);
-		memoryOffset(memoryOffset);
-		pDeviceIndices(pDeviceIndices);
-		pSFRRects(pSFRRects);
+    /** Initializes this struct with the specified values. */
+    public VkBindImageMemoryInfoKHX set(
+        int sType,
+        long pNext,
+        long image,
+        long memory,
+        long memoryOffset,
+        IntBuffer pDeviceIndices,
+        VkRect2D.Buffer pSFRRects
+    ) {
+        sType(sType);
+        pNext(pNext);
+        image(image);
+        memory(memory);
+        memoryOffset(memoryOffset);
+        pDeviceIndices(pDeviceIndices);
+        pSFRRects(pSFRRects);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkBindImageMemoryInfoKHX set(VkBindImageMemoryInfoKHX src) {
-		memCopy(src.address(), address(), SIZEOF);
-		return this;
-	}
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkBindImageMemoryInfoKHX set(VkBindImageMemoryInfoKHX src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static VkBindImageMemoryInfoKHX malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VkBindImageMemoryInfoKHX malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static VkBindImageMemoryInfoKHX calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VkBindImageMemoryInfoKHX calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated with {@link BufferUtils}. */
-	public static VkBindImageMemoryInfoKHX create() {
-		return new VkBindImageMemoryInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated with {@link BufferUtils}. */
+    public static VkBindImageMemoryInfoKHX create() {
+        return new VkBindImageMemoryInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link VkBindImageMemoryInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static VkBindImageMemoryInfoKHX create(long address) {
-		return address == NULL ? null : new VkBindImageMemoryInfoKHX(address, null);
-	}
+    /** Returns a new {@link VkBindImageMemoryInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static VkBindImageMemoryInfoKHX create(long address) {
+        return address == NULL ? null : new VkBindImageMemoryInfoKHX(address, null);
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link VkBindImageMemoryInfoKHX.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link VkBindImageMemoryInfoKHX.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the thread-local {@link MemoryStack}. */
-	public static VkBindImageMemoryInfoKHX mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VkBindImageMemoryInfoKHX mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static VkBindImageMemoryInfoKHX callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VkBindImageMemoryInfoKHX callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkBindImageMemoryInfoKHX mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkBindImageMemoryInfoKHX mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkBindImageMemoryInfoKHX callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkBindImageMemoryInfoKHX callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkBindImageMemoryInfoKHX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #sType}. */
-	public static int nsType(long struct) { return memGetInt(struct + VkBindImageMemoryInfoKHX.STYPE); }
-	/** Unsafe version of {@link #pNext}. */
-	public static long npNext(long struct) { return memGetAddress(struct + VkBindImageMemoryInfoKHX.PNEXT); }
-	/** Unsafe version of {@link #image}. */
-	public static long nimage(long struct) { return memGetLong(struct + VkBindImageMemoryInfoKHX.IMAGE); }
-	/** Unsafe version of {@link #memory}. */
-	public static long nmemory(long struct) { return memGetLong(struct + VkBindImageMemoryInfoKHX.MEMORY); }
-	/** Unsafe version of {@link #memoryOffset}. */
-	public static long nmemoryOffset(long struct) { return memGetLong(struct + VkBindImageMemoryInfoKHX.MEMORYOFFSET); }
-	/** Unsafe version of {@link #deviceIndexCount}. */
-	public static int ndeviceIndexCount(long struct) { return memGetInt(struct + VkBindImageMemoryInfoKHX.DEVICEINDEXCOUNT); }
-	/** Unsafe version of {@link #pDeviceIndices() pDeviceIndices}. */
-	public static IntBuffer npDeviceIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkBindImageMemoryInfoKHX.PDEVICEINDICES), ndeviceIndexCount(struct)); }
-	/** Unsafe version of {@link #SFRRectCount}. */
-	public static int nSFRRectCount(long struct) { return memGetInt(struct + VkBindImageMemoryInfoKHX.SFRRECTCOUNT); }
-	/** Unsafe version of {@link #pSFRRects}. */
-	public static VkRect2D.Buffer npSFRRects(long struct) { return VkRect2D.create(memGetAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS), nSFRRectCount(struct)); }
+    /** Unsafe version of {@link #sType}. */
+    public static int nsType(long struct) { return memGetInt(struct + VkBindImageMemoryInfoKHX.STYPE); }
+    /** Unsafe version of {@link #pNext}. */
+    public static long npNext(long struct) { return memGetAddress(struct + VkBindImageMemoryInfoKHX.PNEXT); }
+    /** Unsafe version of {@link #image}. */
+    public static long nimage(long struct) { return memGetLong(struct + VkBindImageMemoryInfoKHX.IMAGE); }
+    /** Unsafe version of {@link #memory}. */
+    public static long nmemory(long struct) { return memGetLong(struct + VkBindImageMemoryInfoKHX.MEMORY); }
+    /** Unsafe version of {@link #memoryOffset}. */
+    public static long nmemoryOffset(long struct) { return memGetLong(struct + VkBindImageMemoryInfoKHX.MEMORYOFFSET); }
+    /** Unsafe version of {@link #deviceIndexCount}. */
+    public static int ndeviceIndexCount(long struct) { return memGetInt(struct + VkBindImageMemoryInfoKHX.DEVICEINDEXCOUNT); }
+    /** Unsafe version of {@link #pDeviceIndices() pDeviceIndices}. */
+    public static IntBuffer npDeviceIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkBindImageMemoryInfoKHX.PDEVICEINDICES), ndeviceIndexCount(struct)); }
+    /** Unsafe version of {@link #SFRRectCount}. */
+    public static int nSFRRectCount(long struct) { return memGetInt(struct + VkBindImageMemoryInfoKHX.SFRRECTCOUNT); }
+    /** Unsafe version of {@link #pSFRRects}. */
+    public static VkRect2D.Buffer npSFRRects(long struct) { return VkRect2D.create(memGetAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS), nSFRRectCount(struct)); }
 
-	/** Unsafe version of {@link #sType(int) sType}. */
-	public static void nsType(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.STYPE, value); }
-	/** Unsafe version of {@link #pNext(long) pNext}. */
-	public static void npNext(long struct, long value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PNEXT, value); }
-	/** Unsafe version of {@link #image(long) image}. */
-	public static void nimage(long struct, long value) { memPutLong(struct + VkBindImageMemoryInfoKHX.IMAGE, value); }
-	/** Unsafe version of {@link #memory(long) memory}. */
-	public static void nmemory(long struct, long value) { memPutLong(struct + VkBindImageMemoryInfoKHX.MEMORY, value); }
-	/** Unsafe version of {@link #memoryOffset(long) memoryOffset}. */
-	public static void nmemoryOffset(long struct, long value) { memPutLong(struct + VkBindImageMemoryInfoKHX.MEMORYOFFSET, value); }
-	/** Sets the specified value to the {@code deviceIndexCount} field of the specified {@code struct}. */
-	public static void ndeviceIndexCount(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.DEVICEINDEXCOUNT, value); }
-	/** Unsafe version of {@link #pDeviceIndices(IntBuffer) pDeviceIndices}. */
-	public static void npDeviceIndices(long struct, IntBuffer value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PDEVICEINDICES, memAddressSafe(value)); ndeviceIndexCount(struct, value == null ? 0 : value.remaining()); }
-	/** Sets the specified value to the {@code SFRRectCount} field of the specified {@code struct}. */
-	public static void nSFRRectCount(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.SFRRECTCOUNT, value); }
-	/** Unsafe version of {@link #pSFRRects(VkRect2D.Buffer) pSFRRects}. */
-	public static void npSFRRects(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS, addressSafe(value)); nSFRRectCount(struct, value == null ? 0 : value.remaining()); }
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PNEXT, value); }
+    /** Unsafe version of {@link #image(long) image}. */
+    public static void nimage(long struct, long value) { memPutLong(struct + VkBindImageMemoryInfoKHX.IMAGE, value); }
+    /** Unsafe version of {@link #memory(long) memory}. */
+    public static void nmemory(long struct, long value) { memPutLong(struct + VkBindImageMemoryInfoKHX.MEMORY, value); }
+    /** Unsafe version of {@link #memoryOffset(long) memoryOffset}. */
+    public static void nmemoryOffset(long struct, long value) { memPutLong(struct + VkBindImageMemoryInfoKHX.MEMORYOFFSET, value); }
+    /** Sets the specified value to the {@code deviceIndexCount} field of the specified {@code struct}. */
+    public static void ndeviceIndexCount(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.DEVICEINDEXCOUNT, value); }
+    /** Unsafe version of {@link #pDeviceIndices(IntBuffer) pDeviceIndices}. */
+    public static void npDeviceIndices(long struct, IntBuffer value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PDEVICEINDICES, memAddressSafe(value)); ndeviceIndexCount(struct, value == null ? 0 : value.remaining()); }
+    /** Sets the specified value to the {@code SFRRectCount} field of the specified {@code struct}. */
+    public static void nSFRRectCount(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.SFRRECTCOUNT, value); }
+    /** Unsafe version of {@link #pSFRRects(VkRect2D.Buffer) pSFRRects}. */
+    public static void npSFRRects(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS, addressSafe(value)); nSFRRectCount(struct, value == null ? 0 : value.remaining()); }
 
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		if ( ndeviceIndexCount(struct) != 0 )
-			check(memGetAddress(struct + VkBindImageMemoryInfoKHX.PDEVICEINDICES));
-		if ( nSFRRectCount(struct) != 0 )
-			check(memGetAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS));
-	}
+    /**
+     * Validates pointer members that should not be {@code NULL}.
+     *
+     * @param struct the struct to validate
+     */
+    public static void validate(long struct) {
+        if (ndeviceIndexCount(struct) != 0) {
+            check(memGetAddress(struct + VkBindImageMemoryInfoKHX.PDEVICEINDICES));
+        }
+        if (nSFRRectCount(struct) != 0) {
+            check(memGetAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS));
+        }
+    }
 
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
+    /**
+     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+     *
+     * @param array the struct array to validate
+     * @param count the number of structs in {@code array}
+     */
+    public static void validate(long array, int count) {
+        for (int i = 0; i < count; i++) {
+            validate(array + i * SIZEOF);
+        }
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link VkBindImageMemoryInfoKHX} structs. */
-	public static class Buffer extends StructBuffer<VkBindImageMemoryInfoKHX, Buffer> implements NativeResource {
+    /** An array of {@link VkBindImageMemoryInfoKHX} structs. */
+    public static class Buffer extends StructBuffer<VkBindImageMemoryInfoKHX, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link VkBindImageMemoryInfoKHX.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link VkBindImageMemoryInfoKHX#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link VkBindImageMemoryInfoKHX.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link VkBindImageMemoryInfoKHX#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected VkBindImageMemoryInfoKHX newInstance(long address) {
-			return new VkBindImageMemoryInfoKHX(address, container);
-		}
+        @Override
+        protected VkBindImageMemoryInfoKHX newInstance(long address) {
+            return new VkBindImageMemoryInfoKHX(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code sType} field. */
-		public int sType() { return VkBindImageMemoryInfoKHX.nsType(address()); }
-		/** Returns the value of the {@code pNext} field. */
-		public long pNext() { return VkBindImageMemoryInfoKHX.npNext(address()); }
-		/** Returns the value of the {@code image} field. */
-		public long image() { return VkBindImageMemoryInfoKHX.nimage(address()); }
-		/** Returns the value of the {@code memory} field. */
-		public long memory() { return VkBindImageMemoryInfoKHX.nmemory(address()); }
-		/** Returns the value of the {@code memoryOffset} field. */
-		public long memoryOffset() { return VkBindImageMemoryInfoKHX.nmemoryOffset(address()); }
-		/** Returns the value of the {@code deviceIndexCount} field. */
-		public int deviceIndexCount() { return VkBindImageMemoryInfoKHX.ndeviceIndexCount(address()); }
-		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
-		public IntBuffer pDeviceIndices() { return VkBindImageMemoryInfoKHX.npDeviceIndices(address()); }
-		/** Returns the value of the {@code SFRRectCount} field. */
-		public int SFRRectCount() { return VkBindImageMemoryInfoKHX.nSFRRectCount(address()); }
-		/** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pSFRRects} field. */
-		public VkRect2D.Buffer pSFRRects() { return VkBindImageMemoryInfoKHX.npSFRRects(address()); }
+        /** Returns the value of the {@code sType} field. */
+        public int sType() { return VkBindImageMemoryInfoKHX.nsType(address()); }
+        /** Returns the value of the {@code pNext} field. */
+        public long pNext() { return VkBindImageMemoryInfoKHX.npNext(address()); }
+        /** Returns the value of the {@code image} field. */
+        public long image() { return VkBindImageMemoryInfoKHX.nimage(address()); }
+        /** Returns the value of the {@code memory} field. */
+        public long memory() { return VkBindImageMemoryInfoKHX.nmemory(address()); }
+        /** Returns the value of the {@code memoryOffset} field. */
+        public long memoryOffset() { return VkBindImageMemoryInfoKHX.nmemoryOffset(address()); }
+        /** Returns the value of the {@code deviceIndexCount} field. */
+        public int deviceIndexCount() { return VkBindImageMemoryInfoKHX.ndeviceIndexCount(address()); }
+        /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
+        public IntBuffer pDeviceIndices() { return VkBindImageMemoryInfoKHX.npDeviceIndices(address()); }
+        /** Returns the value of the {@code SFRRectCount} field. */
+        public int SFRRectCount() { return VkBindImageMemoryInfoKHX.nSFRRectCount(address()); }
+        /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pSFRRects} field. */
+        public VkRect2D.Buffer pSFRRects() { return VkBindImageMemoryInfoKHX.npSFRRects(address()); }
 
-		/** Sets the specified value to the {@code sType} field. */
-		public VkBindImageMemoryInfoKHX.Buffer sType(int value) { VkBindImageMemoryInfoKHX.nsType(address(), value); return this; }
-		/** Sets the specified value to the {@code pNext} field. */
-		public VkBindImageMemoryInfoKHX.Buffer pNext(long value) { VkBindImageMemoryInfoKHX.npNext(address(), value); return this; }
-		/** Sets the specified value to the {@code image} field. */
-		public VkBindImageMemoryInfoKHX.Buffer image(long value) { VkBindImageMemoryInfoKHX.nimage(address(), value); return this; }
-		/** Sets the specified value to the {@code memory} field. */
-		public VkBindImageMemoryInfoKHX.Buffer memory(long value) { VkBindImageMemoryInfoKHX.nmemory(address(), value); return this; }
-		/** Sets the specified value to the {@code memoryOffset} field. */
-		public VkBindImageMemoryInfoKHX.Buffer memoryOffset(long value) { VkBindImageMemoryInfoKHX.nmemoryOffset(address(), value); return this; }
-		/** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-		public VkBindImageMemoryInfoKHX.Buffer pDeviceIndices(IntBuffer value) { VkBindImageMemoryInfoKHX.npDeviceIndices(address(), value); return this; }
-		/** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pSFRRects} field. */
-		public VkBindImageMemoryInfoKHX.Buffer pSFRRects(VkRect2D.Buffer value) { VkBindImageMemoryInfoKHX.npSFRRects(address(), value); return this; }
+        /** Sets the specified value to the {@code sType} field. */
+        public VkBindImageMemoryInfoKHX.Buffer sType(int value) { VkBindImageMemoryInfoKHX.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkBindImageMemoryInfoKHX.Buffer pNext(long value) { VkBindImageMemoryInfoKHX.npNext(address(), value); return this; }
+        /** Sets the specified value to the {@code image} field. */
+        public VkBindImageMemoryInfoKHX.Buffer image(long value) { VkBindImageMemoryInfoKHX.nimage(address(), value); return this; }
+        /** Sets the specified value to the {@code memory} field. */
+        public VkBindImageMemoryInfoKHX.Buffer memory(long value) { VkBindImageMemoryInfoKHX.nmemory(address(), value); return this; }
+        /** Sets the specified value to the {@code memoryOffset} field. */
+        public VkBindImageMemoryInfoKHX.Buffer memoryOffset(long value) { VkBindImageMemoryInfoKHX.nmemoryOffset(address(), value); return this; }
+        /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
+        public VkBindImageMemoryInfoKHX.Buffer pDeviceIndices(IntBuffer value) { VkBindImageMemoryInfoKHX.npDeviceIndices(address(), value); return this; }
+        /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pSFRRects} field. */
+        public VkBindImageMemoryInfoKHX.Buffer pSFRRects(VkRect2D.Buffer value) { VkBindImageMemoryInfoKHX.npSFRRects(address(), value); return this; }
 
-	}
+    }
 
 }

@@ -13,41 +13,43 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public class WGLNVVertexArrayRange {
 
-	protected WGLNVVertexArrayRange() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLNVVertexArrayRange() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglAllocateMemoryNV, caps.wglFreeMemoryNV
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglAllocateMemoryNV, caps.wglFreeMemoryNV
+        );
+    }
 
-	// --- [ wglAllocateMemoryNV ] ---
+    // --- [ wglAllocateMemoryNV ] ---
 
-	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglAllocateMemoryNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callP(__functionAddress, size, readfreq, writefreq, priority);
-	}
+    public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglAllocateMemoryNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callP(__functionAddress, size, readfreq, writefreq, priority);
+    }
 
-	public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
-		long __result = nwglAllocateMemoryNV(size, readfreq, writefreq, priority);
-		return memByteBuffer(__result, size);
-	}
+    public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
+        long __result = nwglAllocateMemoryNV(size, readfreq, writefreq, priority);
+        return memByteBuffer(__result, size);
+    }
 
-	// --- [ wglFreeMemoryNV ] ---
+    // --- [ wglFreeMemoryNV ] ---
 
-	public static void nwglFreeMemoryNV(long pointer) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglFreeMemoryNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, pointer);
-	}
+    public static void nwglFreeMemoryNV(long pointer) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglFreeMemoryNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, pointer);
+    }
 
-	public static void wglFreeMemoryNV(ByteBuffer pointer) {
-		nwglFreeMemoryNV(memAddress(pointer));
-	}
+    public static void wglFreeMemoryNV(ByteBuffer pointer) {
+        nwglFreeMemoryNV(memAddress(pointer));
+    }
 
 }

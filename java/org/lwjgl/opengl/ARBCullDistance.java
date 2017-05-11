@@ -16,11 +16,11 @@ package org.lwjgl.opengl;
  */
 public final class ARBCullDistance {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */
-	public static final int
-		GL_MAX_CULL_DISTANCES                   = 0x82F9,
-		GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES = 0x82FA;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */
+    public static final int
+        GL_MAX_CULL_DISTANCES                   = 0x82F9,
+        GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES = 0x82FA;
 
-	private ARBCullDistance() {}
+    private ARBCullDistance() {}
 
 }

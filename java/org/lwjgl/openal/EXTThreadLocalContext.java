@@ -16,39 +16,41 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTThreadLocalContext {
 
-	protected EXTThreadLocalContext() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTThreadLocalContext() {
+        throw new UnsupportedOperationException();
+    }
 
 	static boolean isAvailable(ALCCapabilities caps) {
 		return checkFunctions(
-			caps.alcSetThreadContext, caps.alcGetThreadContext
-		);
+            caps.alcSetThreadContext, caps.alcGetThreadContext
+        );
 	}
 
-	// --- [ alcSetThreadContext ] ---
+    // --- [ alcSetThreadContext ] ---
 
-	/**
-	 * Makes a context current with respect to OpenAL operation on the current thread. The context parameter can be {@code NULL} or a valid context pointer. Using
-	 * {@code NULL} results in no thread-specific context being current in the calling thread, which is useful when shutting OpenAL down.
-	 *
-	 * @param context the context to make current
-	 */
-	public static boolean alcSetThreadContext(long context) {
+    /**
+     * Makes a context current with respect to OpenAL operation on the current thread. The context parameter can be {@code NULL} or a valid context pointer. Using
+     * {@code NULL} results in no thread-specific context being current in the calling thread, which is useful when shutting OpenAL down.
+     *
+     * @param context the context to make current
+     */
+    public static boolean alcSetThreadContext(long context) {
 		long __functionAddress = ALC.getICD().alcSetThreadContext;
-		if ( CHECKS )
-			check(__functionAddress);
-		return invokePZ(__functionAddress, context);
-	}
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return invokePZ(__functionAddress, context);
+    }
 
-	// --- [ alcGetThreadContext ] ---
+    // --- [ alcGetThreadContext ] ---
 
-	/** Retrieves a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread-specific context is set. */
-	public static long alcGetThreadContext() {
+    /** Retrieves a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread-specific context is set. */
+    public static long alcGetThreadContext() {
 		long __functionAddress = ALC.getICD().alcGetThreadContext;
-		if ( CHECKS )
-			check(__functionAddress);
-		return invokeP(__functionAddress);
-	}
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return invokeP(__functionAddress);
+    }
 
 }

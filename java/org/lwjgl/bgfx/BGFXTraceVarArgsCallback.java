@@ -16,46 +16,47 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class BGFXTraceVarArgsCallback extends Callback implements BGFXTraceVarArgsCallbackI {
 
-	/** Creates a {@code BGFXTraceVarArgsCallback} instance from the specified function pointer. */
-	public static BGFXTraceVarArgsCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code BGFXTraceVarArgsCallback} instance from the specified function pointer. */
+    public static BGFXTraceVarArgsCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		BGFXTraceVarArgsCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof BGFXTraceVarArgsCallback
-			? (BGFXTraceVarArgsCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        BGFXTraceVarArgsCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof BGFXTraceVarArgsCallback
+            ? (BGFXTraceVarArgsCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code BGFXTraceVarArgsCallback} instance that delegates to the specified {@code BGFXTraceVarArgsCallbackI} instance. */
-	public static BGFXTraceVarArgsCallback create(BGFXTraceVarArgsCallbackI instance) {
-		return instance instanceof BGFXTraceVarArgsCallback
-			? (BGFXTraceVarArgsCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code BGFXTraceVarArgsCallback} instance that delegates to the specified {@code BGFXTraceVarArgsCallbackI} instance. */
+    public static BGFXTraceVarArgsCallback create(BGFXTraceVarArgsCallbackI instance) {
+        return instance instanceof BGFXTraceVarArgsCallback
+            ? (BGFXTraceVarArgsCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected BGFXTraceVarArgsCallback() {
-		super(SIGNATURE);
-	}
+    protected BGFXTraceVarArgsCallback() {
+        super(SIGNATURE);
+    }
 
-	private BGFXTraceVarArgsCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private BGFXTraceVarArgsCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends BGFXTraceVarArgsCallback {
+    private static final class Container extends BGFXTraceVarArgsCallback {
 
-		private final BGFXTraceVarArgsCallbackI delegate;
+        private final BGFXTraceVarArgsCallbackI delegate;
 
-		Container(long functionPointer, BGFXTraceVarArgsCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, BGFXTraceVarArgsCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long _this, long _filePath, short _line, long _format, long _argList) {
-			delegate.invoke(_this, _filePath, _line, _format, _argList);
-		}
+        @Override
+        public void invoke(long _this, long _filePath, short _line, long _format, long _argList) {
+            delegate.invoke(_this, _filePath, _line, _format, _argList);
+        }
 
-	}
+    }
 
 }

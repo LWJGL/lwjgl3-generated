@@ -32,90 +32,91 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBGLSPIRV {
 
-	/** Accepted by the {@code binaryformat} parameter of {@link GL41#glShaderBinary ShaderBinary}. */
-	public static final int GL_SHADER_BINARY_FORMAT_SPIR_V_ARB = 0x9551;
+    /** Accepted by the {@code binaryformat} parameter of {@link GL41#glShaderBinary ShaderBinary}. */
+    public static final int GL_SHADER_BINARY_FORMAT_SPIR_V_ARB = 0x9551;
 
-	/** Accepted by the {@code pname} parameter of {@link GL20#glGetShaderiv GetShaderiv}. */
-	public static final int GL_SPIR_V_BINARY_ARB = 0x9552;
+    /** Accepted by the {@code pname} parameter of {@link GL20#glGetShaderiv GetShaderiv}. */
+    public static final int GL_SPIR_V_BINARY_ARB = 0x9552;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBGLSPIRV() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBGLSPIRV() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glSpecializeShaderARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glSpecializeShaderARB
+        );
+    }
 
-	// --- [ glSpecializeShaderARB ] ---
+    // --- [ glSpecializeShaderARB ] ---
 
-	/** Unsafe version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
-	public static native void nglSpecializeShaderARB(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue);
+    /** Unsafe version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
+    public static native void nglSpecializeShaderARB(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue);
 
-	/**
-	 * Specializes a shader created from a SPIR-V module.
-	 *
-	 * @param shader         
-	 * @param pEntryPoint    
-	 * @param pConstantIndex 
-	 * @param pConstantValue 
-	 */
-	public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
-		if ( CHECKS ) {
-			checkNT1(pEntryPoint);
-			check(pConstantValue, pConstantIndex.remaining());
-		}
-		nglSpecializeShaderARB(shader, memAddress(pEntryPoint), pConstantIndex.remaining(), memAddress(pConstantIndex), memAddress(pConstantValue));
-	}
+    /**
+     * Specializes a shader created from a SPIR-V module.
+     *
+     * @param shader         
+     * @param pEntryPoint    
+     * @param pConstantIndex 
+     * @param pConstantValue 
+     */
+    public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
+        if (CHECKS) {
+            checkNT1(pEntryPoint);
+            check(pConstantValue, pConstantIndex.remaining());
+        }
+        nglSpecializeShaderARB(shader, memAddress(pEntryPoint), pConstantIndex.remaining(), memAddress(pConstantIndex), memAddress(pConstantValue));
+    }
 
-	/**
-	 * Specializes a shader created from a SPIR-V module.
-	 *
-	 * @param shader         
-	 * @param pEntryPoint    
-	 * @param pConstantIndex 
-	 * @param pConstantValue 
-	 */
-	public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
-		if ( CHECKS )
-			check(pConstantValue, pConstantIndex.remaining());
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pEntryPointEncoded = stack.UTF8(pEntryPoint);
-			nglSpecializeShaderARB(shader, memAddress(pEntryPointEncoded), pConstantIndex.remaining(), memAddress(pConstantIndex), memAddress(pConstantValue));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Specializes a shader created from a SPIR-V module.
+     *
+     * @param shader         
+     * @param pEntryPoint    
+     * @param pConstantIndex 
+     * @param pConstantValue 
+     */
+    public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
+        if (CHECKS) {
+            check(pConstantValue, pConstantIndex.remaining());
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pEntryPointEncoded = stack.UTF8(pEntryPoint);
+            nglSpecializeShaderARB(shader, memAddress(pEntryPointEncoded), pConstantIndex.remaining(), memAddress(pConstantIndex), memAddress(pConstantValue));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
-	public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
-		long __functionAddress = GL.getICD().glSpecializeShaderARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkNT1(pEntryPoint);
-			check(pConstantValue, pConstantIndex.length);
-		}
-		callPPPV(__functionAddress, shader, memAddress(pEntryPoint), pConstantIndex.length, pConstantIndex, pConstantValue);
-	}
+    /** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
+    public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
+        long __functionAddress = GL.getICD().glSpecializeShaderARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkNT1(pEntryPoint);
+            check(pConstantValue, pConstantIndex.length);
+        }
+        callPPPV(__functionAddress, shader, memAddress(pEntryPoint), pConstantIndex.length, pConstantIndex, pConstantValue);
+    }
 
-	/** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
-	public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
-		long __functionAddress = GL.getICD().glSpecializeShaderARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pConstantValue, pConstantIndex.length);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pEntryPointEncoded = stack.UTF8(pEntryPoint);
-			callPPPV(__functionAddress, shader, memAddress(pEntryPointEncoded), pConstantIndex.length, pConstantIndex, pConstantValue);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
+    public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
+        long __functionAddress = GL.getICD().glSpecializeShaderARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pConstantValue, pConstantIndex.length);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pEntryPointEncoded = stack.UTF8(pEntryPoint);
+            callPPPV(__functionAddress, shader, memAddress(pEntryPointEncoded), pConstantIndex.length, pConstantIndex, pConstantValue);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
 }

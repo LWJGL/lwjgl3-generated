@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface BGFXReleaseFunctionCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pp)v";
+    String SIGNATURE = "(pp)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Memory release callback.
-	 *
-	 * @param _ptr      
-	 * @param _userData 
-	 */
-	void invoke(long _ptr, long _userData);
+    /**
+     * Memory release callback.
+     *
+     * @param _ptr      
+     * @param _userData 
+     */
+    void invoke(long _ptr, long _userData);
 
 }

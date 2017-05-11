@@ -127,101 +127,102 @@ void main()
  */
 public class NVClipSpaceWScaling {
 
-	/** The extension specification version. */
-	public static final int VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME = "VK_NV_clip_space_w_scaling";
+    /** The extension name. */
+    public static final String VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME = "VK_NV_clip_space_w_scaling";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV = 1000087000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV = 1000087000;
 
-	/** Extends {@code VkDynamicState}. */
-	public static final int VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV = 1000087000;
+    /** Extends {@code VkDynamicState}. */
+    public static final int VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV = 1000087000;
 
-	protected NVClipSpaceWScaling() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVClipSpaceWScaling() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(VKCapabilitiesDevice caps) {
-		return checkFunctions(
-			caps.vkCmdSetViewportWScalingNV
-		);
-	}
+    static boolean isAvailable(VKCapabilitiesDevice caps) {
+        return checkFunctions(
+            caps.vkCmdSetViewportWScalingNV
+        );
+    }
 
-	// --- [ vkCmdSetViewportWScalingNV ] ---
+    // --- [ vkCmdSetViewportWScalingNV ] ---
 
-	/**
-	 * Unsafe version of: {@link #vkCmdSetViewportWScalingNV CmdSetViewportWScalingNV}
-	 *
-	 * @param viewportCount the number of viewports whose parameters are updated by the command.
-	 */
-	public static void nvkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, int firstViewport, int viewportCount, long pViewportWScalings) {
-		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetViewportWScalingNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, commandBuffer.address(), firstViewport, viewportCount, pViewportWScalings);
-	}
+    /**
+     * Unsafe version of: {@link #vkCmdSetViewportWScalingNV CmdSetViewportWScalingNV}
+     *
+     * @param viewportCount the number of viewports whose parameters are updated by the command.
+     */
+    public static void nvkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, int firstViewport, int viewportCount, long pViewportWScalings) {
+        long __functionAddress = commandBuffer.getCapabilities().vkCmdSetViewportWScalingNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, commandBuffer.address(), firstViewport, viewportCount, pViewportWScalings);
+    }
 
-	/**
-	 * Set the viewport W scaling on a command buffer.
-	 * 
-	 * <h5>C Specification</h5>
-	 * 
-	 * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled, viewport W scaling parameters are specified using the {@code pViewportWScalings} member of {@link VkPipelineViewportWScalingStateCreateInfoNV} in the pipeline state object. If the pipeline state object was created with the {@link VK10#VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled, the viewport transformation parameters are dynamically set and changed with the command:</p>
-	 * 
-	 * <pre><code>void vkCmdSetViewportWScalingNV(
+    /**
+     * Set the viewport W scaling on a command buffer.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled, viewport W scaling parameters are specified using the {@code pViewportWScalings} member of {@link VkPipelineViewportWScalingStateCreateInfoNV} in the pipeline state object. If the pipeline state object was created with the {@link VK10#VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled, the viewport transformation parameters are dynamically set and changed with the command:</p>
+     * 
+     * <pre><code>void vkCmdSetViewportWScalingNV(
     VkCommandBuffer                             commandBuffer,
     uint32_t                                    firstViewport,
     uint32_t                                    viewportCount,
     const VkViewportWScalingNV*                 pViewportWScalings);</code></pre>
-	 * 
-	 * <h5>Description</h5>
-	 * 
-	 * <p>The viewport parameters taken from element <code>i</code> of {@code pViewportScalings} replace the current state for the viewport index <code>firstViewport {plus} i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled</li>
-	 * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
-	 * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
-	 * <li>{@code pViewportScalings} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewportWScalingNV} structures</li>
-	 * </ul>
-	 * 
-	 * <h5>Valid Usage (Implicit)</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-	 * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
-	 * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
-	 * </ul>
-	 * 
-	 * <h5>Host Synchronization</h5>
-	 * 
-	 * <ul>
-	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
-	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
-	 * </ul>
-	 * 
-	 * <h5>Command Properties</h5>
-	 * 
-	 * <table class="lwjgl">
-	 * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics</td><td></td></tr></tbody>
-	 * </table>
-	 * 
-	 * <h5>See Also</h5>
-	 * 
-	 * <p>{@link VkViewportWScalingNV}</p>
-	 *
-	 * @param commandBuffer      the command buffer into which the command will be recorded.
-	 * @param firstViewport      the index of the first viewport whose parameters are updated by the command.
-	 * @param pViewportWScalings 
-	 */
-	public static void vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, int firstViewport, VkViewportWScalingNV.Buffer pViewportWScalings) {
-		nvkCmdSetViewportWScalingNV(commandBuffer, firstViewport, pViewportWScalings.remaining(), pViewportWScalings.address());
-	}
+     * 
+     * <h5>Description</h5>
+     * 
+     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewportScalings} replace the current state for the viewport index <code>firstViewport {plus} i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
+     * 
+     * <h5>Valid Usage</h5>
+     * 
+     * <ul>
+     * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled</li>
+     * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
+     * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
+     * <li>{@code pViewportScalings} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewportWScalingNV} structures</li>
+     * </ul>
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+     * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
+     * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+     * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
+     * </ul>
+     * 
+     * <h5>Host Synchronization</h5>
+     * 
+     * <ul>
+     * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+     * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
+     * </ul>
+     * 
+     * <h5>Command Properties</h5>
+     * 
+     * <table class="lwjgl">
+     * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics</td><td></td></tr></tbody>
+     * </table>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkViewportWScalingNV}</p>
+     *
+     * @param commandBuffer      the command buffer into which the command will be recorded.
+     * @param firstViewport      the index of the first viewport whose parameters are updated by the command.
+     * @param pViewportWScalings 
+     */
+    public static void vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, int firstViewport, VkViewportWScalingNV.Buffer pViewportWScalings) {
+        nvkCmdSetViewportWScalingNV(commandBuffer, firstViewport, pViewportWScalings.remaining(), pViewportWScalings.address());
+    }
 
 }

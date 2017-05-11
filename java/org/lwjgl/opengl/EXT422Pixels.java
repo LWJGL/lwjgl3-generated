@@ -20,17 +20,17 @@ package org.lwjgl.opengl;
  */
 public final class EXT422Pixels {
 
-	/**
-	 * Accepted by the {@code format} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, GetTexImage, TexImage3D, TexSubImage1D, TexSubImage2D,
-	 * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, ConvolutionFilter3D, GetConvolutionFilter, SeparableFilter2D,
-	 * SeparableFilter3D, GetSeparableFilter, ColorTable, and GetColorTable.
-	 */
-	public static final int
-		GL_422_EXT             = 0x80CC,
-		GL_422_REV_EXT         = 0x80CD,
-		GL_422_AVERAGE_EXT     = 0x80CE,
-		GL_422_REV_AVERAGE_EXT = 0x80CF;
+    /**
+     * Accepted by the {@code format} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, GetTexImage, TexImage3D, TexSubImage1D, TexSubImage2D,
+     * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, ConvolutionFilter3D, GetConvolutionFilter, SeparableFilter2D,
+     * SeparableFilter3D, GetSeparableFilter, ColorTable, and GetColorTable.
+     */
+    public static final int
+        GL_422_EXT             = 0x80CC,
+        GL_422_REV_EXT         = 0x80CD,
+        GL_422_AVERAGE_EXT     = 0x80CE,
+        GL_422_REV_AVERAGE_EXT = 0x80CF;
 
-	private EXT422Pixels() {}
+    private EXT422Pixels() {}
 
 }

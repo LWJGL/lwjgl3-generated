@@ -14,11 +14,11 @@ package org.lwjgl.opengl;
  */
 public final class ARBTextureEnvDot3 {
 
-	/** Accepted by the {@code params} parameter of TexEnvf, TexEnvi, TexEnvfv, and TexEnviv when the {@code pname} parameter value is COMBINE_RGB_ARB. */
-	public static final int
-		GL_DOT3_RGB_ARB  = 0x86AE,
-		GL_DOT3_RGBA_ARB = 0x86AF;
+    /** Accepted by the {@code params} parameter of TexEnvf, TexEnvi, TexEnvfv, and TexEnviv when the {@code pname} parameter value is COMBINE_RGB_ARB. */
+    public static final int
+        GL_DOT3_RGB_ARB  = 0x86AE,
+        GL_DOT3_RGBA_ARB = 0x86AF;
 
-	private ARBTextureEnvDot3() {}
+    private ARBTextureEnvDot3() {}
 
 }

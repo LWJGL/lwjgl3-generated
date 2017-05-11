@@ -17,46 +17,47 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class BGFXFatalCallback extends Callback implements BGFXFatalCallbackI {
 
-	/** Creates a {@code BGFXFatalCallback} instance from the specified function pointer. */
-	public static BGFXFatalCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code BGFXFatalCallback} instance from the specified function pointer. */
+    public static BGFXFatalCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		BGFXFatalCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof BGFXFatalCallback
-			? (BGFXFatalCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        BGFXFatalCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof BGFXFatalCallback
+            ? (BGFXFatalCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code BGFXFatalCallback} instance that delegates to the specified {@code BGFXFatalCallbackI} instance. */
-	public static BGFXFatalCallback create(BGFXFatalCallbackI instance) {
-		return instance instanceof BGFXFatalCallback
-			? (BGFXFatalCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code BGFXFatalCallback} instance that delegates to the specified {@code BGFXFatalCallbackI} instance. */
+    public static BGFXFatalCallback create(BGFXFatalCallbackI instance) {
+        return instance instanceof BGFXFatalCallback
+            ? (BGFXFatalCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected BGFXFatalCallback() {
-		super(SIGNATURE);
-	}
+    protected BGFXFatalCallback() {
+        super(SIGNATURE);
+    }
 
-	private BGFXFatalCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private BGFXFatalCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends BGFXFatalCallback {
+    private static final class Container extends BGFXFatalCallback {
 
-		private final BGFXFatalCallbackI delegate;
+        private final BGFXFatalCallbackI delegate;
 
-		Container(long functionPointer, BGFXFatalCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, BGFXFatalCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long _this, int _code, long _str) {
-			delegate.invoke(_this, _code, _str);
-		}
+        @Override
+        public void invoke(long _this, int _code, long _str) {
+            delegate.invoke(_this, _code, _str);
+        }
 
-	}
+    }
 
 }

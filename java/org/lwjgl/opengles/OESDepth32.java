@@ -12,9 +12,9 @@ package org.lwjgl.opengles;
  */
 public final class OESDepth32 {
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorageOES. */
-	public static final int GL_DEPTH_COMPONENT32_OES = 0x81A7;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorageOES. */
+    public static final int GL_DEPTH_COMPONENT32_OES = 0x81A7;
 
-	private OESDepth32() {}
+    private OESDepth32() {}
 
 }

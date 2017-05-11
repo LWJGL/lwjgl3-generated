@@ -20,16 +20,16 @@ package org.lwjgl.opengles;
  */
 public final class NVTextureBorderClamp {
 
-	/** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, and TexParameterfv. */
-	public static final int GL_TEXTURE_BORDER_COLOR_NV = 0x1004;
+    /** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, and TexParameterfv. */
+    public static final int GL_TEXTURE_BORDER_COLOR_NV = 0x1004;
 
-	/**
-	 * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
-	 * and returned by the {@code params} parameter of GetTexParameteriv and GetTexParameterfv when their {@code pname} parameter is TEXTURE_WRAP_S,
-	 * TEXTURE_WRAP_T, or TEXTURE_WRAP_R_OES.
-	 */
-	public static final int GL_CLAMP_TO_BORDER_NV = 0x812D;
+    /**
+     * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
+     * and returned by the {@code params} parameter of GetTexParameteriv and GetTexParameterfv when their {@code pname} parameter is TEXTURE_WRAP_S,
+     * TEXTURE_WRAP_T, or TEXTURE_WRAP_R_OES.
+     */
+    public static final int GL_CLAMP_TO_BORDER_NV = 0x812D;
 
-	private NVTextureBorderClamp() {}
+    private NVTextureBorderClamp() {}
 
 }

@@ -16,29 +16,29 @@ package org.lwjgl.opencl;
  */
 public final class INTELDriverDiagnostics {
 
-	/** Accepted as a property name in the {@code properties} parameter of {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType}. */
-	public static final int CL_CONTEXT_SHOW_DIAGNOSTICS_INTEL = 0x4106;
+    /** Accepted as a property name in the {@code properties} parameter of {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType}. */
+    public static final int CL_CONTEXT_SHOW_DIAGNOSTICS_INTEL = 0x4106;
 
-	/**
-	 * The value for the property {@link #CL_CONTEXT_SHOW_DIAGNOSTICS_INTEL CONTEXT_SHOW_DIAGNOSTICS_INTEL} is a bitfield of type {@code cl_diagnostic_verbose_level_intel} that controls the types of
-	 * diagnostic messages that are reported.
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #CL_CONTEXT_DIAGNOSTICS_LEVEL_GOOD_INTEL CONTEXT_DIAGNOSTICS_LEVEL_GOOD_INTEL} - Messages under good verbose level report good use cases to verify that the driver is used properly and optimally.</li>
-	 * <li>{@link #CL_CONTEXT_DIAGNOSTICS_LEVEL_BAD_INTEL CONTEXT_DIAGNOSTICS_LEVEL_BAD_INTEL} - Messages under bad verbose level report cases that may result in degraded performance.</li>
-	 * <li>{@link #CL_CONTEXT_DIAGNOSTICS_LEVEL_NEUTRAL_INTEL CONTEXT_DIAGNOSTICS_LEVEL_NEUTRAL_INTEL} - 
-	 * Messages under neutral verbose level report cases that may or may not have performance implications. Additionally, neutral diagnostic messages may
-	 * inform developers about specific internal driver properties.
-	 * </li>
-	 * </ul>
-	 */
-	public static final int
-		CL_CONTEXT_DIAGNOSTICS_LEVEL_GOOD_INTEL    = 0x1,
-		CL_CONTEXT_DIAGNOSTICS_LEVEL_BAD_INTEL     = 0x2,
-		CL_CONTEXT_DIAGNOSTICS_LEVEL_NEUTRAL_INTEL = 0x4;
+    /**
+     * The value for the property {@link #CL_CONTEXT_SHOW_DIAGNOSTICS_INTEL CONTEXT_SHOW_DIAGNOSTICS_INTEL} is a bitfield of type {@code cl_diagnostic_verbose_level_intel} that controls the types of
+     * diagnostic messages that are reported.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #CL_CONTEXT_DIAGNOSTICS_LEVEL_GOOD_INTEL CONTEXT_DIAGNOSTICS_LEVEL_GOOD_INTEL} - Messages under good verbose level report good use cases to verify that the driver is used properly and optimally.</li>
+     * <li>{@link #CL_CONTEXT_DIAGNOSTICS_LEVEL_BAD_INTEL CONTEXT_DIAGNOSTICS_LEVEL_BAD_INTEL} - Messages under bad verbose level report cases that may result in degraded performance.</li>
+     * <li>{@link #CL_CONTEXT_DIAGNOSTICS_LEVEL_NEUTRAL_INTEL CONTEXT_DIAGNOSTICS_LEVEL_NEUTRAL_INTEL} - 
+     * Messages under neutral verbose level report cases that may or may not have performance implications. Additionally, neutral diagnostic messages may
+     * inform developers about specific internal driver properties.
+     * </li>
+     * </ul>
+     */
+    public static final int
+        CL_CONTEXT_DIAGNOSTICS_LEVEL_GOOD_INTEL    = 0x1,
+        CL_CONTEXT_DIAGNOSTICS_LEVEL_BAD_INTEL     = 0x2,
+        CL_CONTEXT_DIAGNOSTICS_LEVEL_NEUTRAL_INTEL = 0x4;
 
-	private INTELDriverDiagnostics() {}
+    private INTELDriverDiagnostics() {}
 
 }

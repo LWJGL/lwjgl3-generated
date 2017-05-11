@@ -17,13 +17,13 @@ package org.lwjgl.opencl;
  */
 public final class EXTAtomicCounters32 {
 
-	/**
-	 * Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}.
-	 * 
-	 * <p>Max number of atomic counters that can be used by a kernel. The minimum value is 8.</p>
-	 */
-	public static final int CL_DEVICE_MAX_ATOMIC_COUNTERS_EXT = 0x4032;
+    /**
+     * Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}.
+     * 
+     * <p>Max number of atomic counters that can be used by a kernel. The minimum value is 8.</p>
+     */
+    public static final int CL_DEVICE_MAX_ATOMIC_COUNTERS_EXT = 0x4032;
 
-	private EXTAtomicCounters32() {}
+    private EXTAtomicCounters32() {}
 
 }

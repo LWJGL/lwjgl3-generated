@@ -13,20 +13,20 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface YGReallocI extends CallbackI.P {
 
-	String SIGNATURE = "(pp)p";
+    String SIGNATURE = "(pp)p";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
 
-	long invoke(long ptr, long size);
+    long invoke(long ptr, long size);
 
 }

@@ -44,12 +44,12 @@ package org.lwjgl.vulkan;
  */
 public final class AMDGCNShader {
 
-	/** The extension specification version. */
-	public static final int VK_AMD_GCN_SHADER_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_AMD_GCN_SHADER_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_AMD_GCN_SHADER_EXTENSION_NAME = "VK_AMD_gcn_shader";
+    /** The extension name. */
+    public static final String VK_AMD_GCN_SHADER_EXTENSION_NAME = "VK_AMD_gcn_shader";
 
-	private AMDGCNShader() {}
+    private AMDGCNShader() {}
 
 }

@@ -29,23 +29,23 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESPrimitiveBoundingBox {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
-	public static final int GL_PRIMITIVE_BOUNDING_BOX_OES = 0x92BE;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
+    public static final int GL_PRIMITIVE_BOUNDING_BOX_OES = 0x92BE;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESPrimitiveBoundingBox() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESPrimitiveBoundingBox() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glPrimitiveBoundingBoxOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glPrimitiveBoundingBoxOES
+        );
+    }
 
-	// --- [ glPrimitiveBoundingBoxOES ] ---
+    // --- [ glPrimitiveBoundingBoxOES ] ---
 
-	public static native void glPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
+    public static native void glPrimitiveBoundingBoxOES(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 }

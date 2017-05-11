@@ -23,84 +23,85 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class GLXARBCreateContext {
 
-	/** Accepted as an attribute name in {@code attrib_list}. */
-	public static final int
-		GLX_CONTEXT_MAJOR_VERSION_ARB = 0x2091,
-		GLX_CONTEXT_MINOR_VERSION_ARB = 0x2092,
-		GLX_CONTEXT_FLAGS_ARB         = 0x2094;
+    /** Accepted as an attribute name in {@code attrib_list}. */
+    public static final int
+        GLX_CONTEXT_MAJOR_VERSION_ARB = 0x2091,
+        GLX_CONTEXT_MINOR_VERSION_ARB = 0x2092,
+        GLX_CONTEXT_FLAGS_ARB         = 0x2094;
 
-	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attrib_list}. */
-	public static final int
-		GLX_CONTEXT_DEBUG_BIT_ARB              = 0x1,
-		GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
+    /** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attrib_list}. */
+    public static final int
+        GLX_CONTEXT_DEBUG_BIT_ARB              = 0x1,
+        GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
 
-	protected GLXARBCreateContext() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXARBCreateContext() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXCreateContextAttribsARB
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXCreateContextAttribsARB
+        );
+    }
 
-	// --- [ glXCreateContextAttribsARB ] ---
+    // --- [ glXCreateContextAttribsARB ] ---
 
-	/** Unsafe version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
-	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(config);
-		}
-		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
-	}
+    /** Unsafe version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
+    public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(config);
+        }
+        return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
+    }
 
-	/**
-	 * Creates an OpenGL rendering context.
-	 * 
-	 * <p>If {@code glXCreateContextAttribsARB} succeeds, it initializes the context to the initial state defined by the OpenGL specification, and returns a
-	 * handle to it. This handle can be used to render to any GLX surface (window, pixmap, or pbuffer) compatible with {@code config}, subject to constraints
-	 * imposed by the OpenGL API version of the context.</p>
-	 * 
-	 * <p>If {@code share_context} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all
-	 * other contexts {@code share_context} already shares with, and the newly created context. An arbitrary number of {@code GLXContexts} can share data in
-	 * this fashion. The server context state for all sharing contexts must exist in a single address space.</p>
-	 *
-	 * @param display       the connection to the X server
-	 * @param config        the {@code GLXFBConfig}
-	 * @param share_context if not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all other contexts
-	 *                      {@code share_context} already shares with, and the newly created context. An arbitrary number of GLXContexts can share data in this fashion. The
-	 *                      server context state for all sharing contexts must exist in a single address space.
-	 * @param direct        direct rendering is requested if {@code direct} is {@code True}, and indirect rendering if {@code direct} is {@code False}. If
-	 *                      {@code direct} is {@code True}, the implementation may nonetheless create an indirect rendering context if any of the following conditions hold:
-	 *                      
-	 *                      <ul>
-	 *                      <li>The implementation does not support direct rendering.</li>
-	 *                      <li>{@code display} is not a local X server.</li>
-	 *                      <li>Implementation-dependent limits on the number of direct rendering contexts that can be supported simultaneously are exceeded.</li>
-	 *                      </ul>
-	 *                      
-	 *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
-	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
-	 */
-	public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, IntBuffer attrib_list) {
-		if ( CHECKS )
-			checkNTSafe(attrib_list);
-		return nglXCreateContextAttribsARB(display, config, share_context, direct ? 1 : 0, memAddressSafe(attrib_list));
-	}
+    /**
+     * Creates an OpenGL rendering context.
+     * 
+     * <p>If {@code glXCreateContextAttribsARB} succeeds, it initializes the context to the initial state defined by the OpenGL specification, and returns a
+     * handle to it. This handle can be used to render to any GLX surface (window, pixmap, or pbuffer) compatible with {@code config}, subject to constraints
+     * imposed by the OpenGL API version of the context.</p>
+     * 
+     * <p>If {@code share_context} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all
+     * other contexts {@code share_context} already shares with, and the newly created context. An arbitrary number of {@code GLXContexts} can share data in
+     * this fashion. The server context state for all sharing contexts must exist in a single address space.</p>
+     *
+     * @param display       the connection to the X server
+     * @param config        the {@code GLXFBConfig}
+     * @param share_context if not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all other contexts
+     *                      {@code share_context} already shares with, and the newly created context. An arbitrary number of GLXContexts can share data in this fashion. The
+     *                      server context state for all sharing contexts must exist in a single address space.
+     * @param direct        direct rendering is requested if {@code direct} is {@code True}, and indirect rendering if {@code direct} is {@code False}. If
+     *                      {@code direct} is {@code True}, the implementation may nonetheless create an indirect rendering context if any of the following conditions hold:
+     *                      
+     *                      <ul>
+     *                      <li>The implementation does not support direct rendering.</li>
+     *                      <li>{@code display} is not a local X server.</li>
+     *                      <li>Implementation-dependent limits on the number of direct rendering contexts that can be supported simultaneously are exceeded.</li>
+     *                      </ul>
+     *                      
+     *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
+     * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
+     */
+    public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, IntBuffer attrib_list) {
+        if (CHECKS) {
+            checkNTSafe(attrib_list);
+        }
+        return nglXCreateContextAttribsARB(display, config, share_context, direct ? 1 : 0, memAddressSafe(attrib_list));
+    }
 
-	/** Array version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
-	public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, int[] attrib_list) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-			check(config);
-			checkNTSafe(attrib_list);
-		}
-		return callPPPPP(__functionAddress, display, config, share_context, direct ? 1 : 0, attrib_list);
-	}
+    /** Array version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
+    public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, int[] attrib_list) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+            check(config);
+            checkNTSafe(attrib_list);
+        }
+        return callPPPPP(__functionAddress, display, config, share_context, direct ? 1 : 0, attrib_list);
+    }
 
 }

@@ -12,9 +12,9 @@ package org.lwjgl.opengles;
  */
 public final class VIVShaderBinary {
 
-	/** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
-	public static final int GL_SHADER_BINARY_VIV = 0x8FC4;
+    /** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
+    public static final int GL_SHADER_BINARY_VIV = 0x8FC4;
 
-	private VIVShaderBinary() {}
+    private VIVShaderBinary() {}
 
 }

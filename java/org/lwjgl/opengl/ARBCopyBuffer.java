@@ -17,47 +17,47 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBCopyBuffer {
 
-	/**
-	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv, MapBufferRange,
-	 * FlushMappedBufferRange, GetBufferParameteriv, BindBufferRange, BindBufferBase, and CopyBufferSubData.
-	 */
-	public static final int
-		GL_COPY_READ_BUFFER  = 0x8F36,
-		GL_COPY_WRITE_BUFFER = 0x8F37;
+    /**
+     * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv, MapBufferRange,
+     * FlushMappedBufferRange, GetBufferParameteriv, BindBufferRange, BindBufferBase, and CopyBufferSubData.
+     */
+    public static final int
+        GL_COPY_READ_BUFFER  = 0x8F36,
+        GL_COPY_WRITE_BUFFER = 0x8F37;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBCopyBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBCopyBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glCopyBufferSubData
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glCopyBufferSubData
+        );
+    }
 
-	// --- [ glCopyBufferSubData ] ---
+    // --- [ glCopyBufferSubData ] ---
 
-	/**
-	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
-	 * 
-	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if any of readoffset, writeoffset, or size are negative, if readoffset+size exceeds the size of the buffer object
-	 * bound to readtarget, or if writeoffset+size exceeds the size of the buffer object bound to writetarget.</p>
-	 * 
-	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if the same buffer object is bound to both readtarget and writetarget, and the ranges [readoffset, readoffset+size)
-	 * and [writeoffset, writeoffset+size) overlap.</p>
-	 * 
-	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if zero is bound to readtarget or writetarget.</p>
-	 * 
-	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the buffer objects bound to either readtarget or writetarget are mapped.</p>
-	 *
-	 * @param readTarget  the source buffer object target. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td></tr><tr><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td></tr></table>
-	 * @param writeTarget the destination buffer object target
-	 * @param readOffset  the source buffer object offset, in bytes
-	 * @param writeOffset the destination buffer object offset, in bytes
-	 * @param size        the number of bytes to copy
-	 */
-	public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+    /**
+     * Copies all or part of one buffer object's data store to the data store of another buffer object.
+     * 
+     * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if any of readoffset, writeoffset, or size are negative, if readoffset+size exceeds the size of the buffer object
+     * bound to readtarget, or if writeoffset+size exceeds the size of the buffer object bound to writetarget.</p>
+     * 
+     * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if the same buffer object is bound to both readtarget and writetarget, and the ranges [readoffset, readoffset+size)
+     * and [writeoffset, writeoffset+size) overlap.</p>
+     * 
+     * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if zero is bound to readtarget or writetarget.</p>
+     * 
+     * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the buffer objects bound to either readtarget or writetarget are mapped.</p>
+     *
+     * @param readTarget  the source buffer object target. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td></tr><tr><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr><tr><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td></tr></table>
+     * @param writeTarget the destination buffer object target
+     * @param readOffset  the source buffer object offset, in bytes
+     * @param writeOffset the destination buffer object offset, in bytes
+     * @param size        the number of bytes to copy
+     */
+    public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
 
 }

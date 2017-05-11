@@ -29,71 +29,72 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVExplicitMultisample {
 
-	/** Accepted by the {@code pname} parameter of GetMultisamplefvNV. */
-	public static final int GL_SAMPLE_POSITION_NV = 0x8E50;
+    /** Accepted by the {@code pname} parameter of GetMultisamplefvNV. */
+    public static final int GL_SAMPLE_POSITION_NV = 0x8E50;
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int GL_SAMPLE_MASK_NV = 0x8E51;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int GL_SAMPLE_MASK_NV = 0x8E51;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanIndexedvEXT and GetIntegerIndexedvEXT. */
-	public static final int GL_SAMPLE_MASK_VALUE_NV = 0x8E52;
+    /** Accepted by the {@code pname} parameter of GetBooleanIndexedvEXT and GetIntegerIndexedvEXT. */
+    public static final int GL_SAMPLE_MASK_VALUE_NV = 0x8E52;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_TEXTURE_BINDING_RENDERBUFFER_NV            = 0x8E53,
-		GL_TEXTURE_RENDERBUFFER_DATA_STORE_BINDING_NV = 0x8E54,
-		GL_MAX_SAMPLE_MASK_WORDS_NV                   = 0x8E59;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_TEXTURE_BINDING_RENDERBUFFER_NV            = 0x8E53,
+        GL_TEXTURE_RENDERBUFFER_DATA_STORE_BINDING_NV = 0x8E54,
+        GL_MAX_SAMPLE_MASK_WORDS_NV                   = 0x8E59;
 
-	/** Accepted by the {@code target} parameter of BindTexture, and TexRenderbufferNV. */
-	public static final int GL_TEXTURE_RENDERBUFFER_NV = 0x8E55;
+    /** Accepted by the {@code target} parameter of BindTexture, and TexRenderbufferNV. */
+    public static final int GL_TEXTURE_RENDERBUFFER_NV = 0x8E55;
 
-	/** Returned by the {@code type} parameter of GetActiveUniform. */
-	public static final int
-		GL_SAMPLER_RENDERBUFFER_NV              = 0x8E56,
-		GL_INT_SAMPLER_RENDERBUFFER_NV          = 0x8E57,
-		GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;
+    /** Returned by the {@code type} parameter of GetActiveUniform. */
+    public static final int
+        GL_SAMPLER_RENDERBUFFER_NV              = 0x8E56,
+        GL_INT_SAMPLER_RENDERBUFFER_NV          = 0x8E57,
+        GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVExplicitMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVExplicitMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glGetMultisamplefvNV, caps.glSampleMaskIndexedNV, caps.glTexRenderbufferNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glGetMultisamplefvNV, caps.glSampleMaskIndexedNV, caps.glTexRenderbufferNV
+        );
+    }
 
-	// --- [ glGetMultisamplefvNV ] ---
+    // --- [ glGetMultisamplefvNV ] ---
 
-	public static native void nglGetMultisamplefvNV(int pname, int index, long val);
+    public static native void nglGetMultisamplefvNV(int pname, int index, long val);
 
-	public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
-		if ( CHECKS )
-			check(val, 2);
-		nglGetMultisamplefvNV(pname, index, memAddress(val));
-	}
+    public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
+        if (CHECKS) {
+            check(val, 2);
+        }
+        nglGetMultisamplefvNV(pname, index, memAddress(val));
+    }
 
-	// --- [ glSampleMaskIndexedNV ] ---
+    // --- [ glSampleMaskIndexedNV ] ---
 
-	public static native void glSampleMaskIndexedNV(int index, int mask);
+    public static native void glSampleMaskIndexedNV(int index, int mask);
 
-	// --- [ glTexRenderbufferNV ] ---
+    // --- [ glTexRenderbufferNV ] ---
 
-	public static native void glTexRenderbufferNV(int target, int renderbuffer);
+    public static native void glTexRenderbufferNV(int target, int renderbuffer);
 
-	/** Array version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
-	public static void glGetMultisamplefvNV(int pname, int index, float[] val) {
-		long __functionAddress = GL.getICD().glGetMultisamplefvNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(val, 2);
-		}
-		callPV(__functionAddress, pname, index, val);
-	}
+    /** Array version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
+    public static void glGetMultisamplefvNV(int pname, int index, float[] val) {
+        long __functionAddress = GL.getICD().glGetMultisamplefvNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(val, 2);
+        }
+        callPV(__functionAddress, pname, index, val);
+    }
 
 }

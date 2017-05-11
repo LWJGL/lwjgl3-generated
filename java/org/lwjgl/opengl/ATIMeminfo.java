@@ -17,12 +17,12 @@ package org.lwjgl.opengl;
  */
 public final class ATIMeminfo {
 
-	/** Accepted by the {@code param} parameter of GetIntegerv. */
-	public static final int
-		GL_VBO_FREE_MEMORY_ATI          = 0x87FB,
-		GL_TEXTURE_FREE_MEMORY_ATI      = 0x87FC,
-		GL_RENDERBUFFER_FREE_MEMORY_ATI = 0x87FD;
+    /** Accepted by the {@code param} parameter of GetIntegerv. */
+    public static final int
+        GL_VBO_FREE_MEMORY_ATI          = 0x87FB,
+        GL_TEXTURE_FREE_MEMORY_ATI      = 0x87FC,
+        GL_RENDERBUFFER_FREE_MEMORY_ATI = 0x87FD;
 
-	private ATIMeminfo() {}
+    private ATIMeminfo() {}
 
 }

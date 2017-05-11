@@ -13,15 +13,15 @@ package org.lwjgl.opencl;
  */
 public final class KHRPriorityHints {
 
-	/** cl_command_queue_properties */
-	public static final int CL_QUEUE_PRIORITY_KHR = 0x1096;
+    /** cl_command_queue_properties */
+    public static final int CL_QUEUE_PRIORITY_KHR = 0x1096;
 
-	/** cl_queue_priority_khr */
-	public static final int
-		CL_QUEUE_PRIORITY_HIGH_KHR = (1<<0),
-		CL_QUEUE_PRIORITY_MED_KHR  = (1<<1),
-		CL_QUEUE_PRIORITY_LOW_KHR  = (1<<2);
+    /** cl_queue_priority_khr */
+    public static final int
+        CL_QUEUE_PRIORITY_HIGH_KHR = (1<<0),
+        CL_QUEUE_PRIORITY_MED_KHR  = (1<<1),
+        CL_QUEUE_PRIORITY_LOW_KHR  = (1<<2);
 
-	private KHRPriorityHints() {}
+    private KHRPriorityHints() {}
 
 }

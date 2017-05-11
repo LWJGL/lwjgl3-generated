@@ -17,9 +17,9 @@ package org.lwjgl.egl;
  */
 public final class EXTGLColorspaceBT2020Linear {
 
-	/** Accepted as attribute values for {@link EGL15#EGL_GL_COLORSPACE GL_COLORSPACE} by {@link EGL10#eglCreateWindowSurface CreateWindowSurface}, {@link EGL10#eglCreatePbufferSurface CreatePbufferSurface} and {@link EGL10#eglCreatePixmapSurface CreatePixmapSurface}. */
-	public static final int EGL_GL_COLORSPACE_BT2020_LINEAR_EXT = 0x333F;
+    /** Accepted as attribute values for {@link EGL15#EGL_GL_COLORSPACE GL_COLORSPACE} by {@link EGL10#eglCreateWindowSurface CreateWindowSurface}, {@link EGL10#eglCreatePbufferSurface CreatePbufferSurface} and {@link EGL10#eglCreatePixmapSurface CreatePixmapSurface}. */
+    public static final int EGL_GL_COLORSPACE_BT2020_LINEAR_EXT = 0x333F;
 
-	private EXTGLColorspaceBT2020Linear() {}
+    private EXTGLColorspaceBT2020Linear() {}
 
 }

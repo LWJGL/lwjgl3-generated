@@ -31,43 +31,43 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTMapBufferRange {
 
-	/** Accepted by the {@code access} parameter of MapBufferRangeEXT. */
-	public static final int
-		GL_MAP_READ_BIT_EXT              = 0x1,
-		GL_MAP_WRITE_BIT_EXT             = 0x2,
-		GL_MAP_INVALIDATE_RANGE_BIT_EXT  = 0x4,
-		GL_MAP_INVALIDATE_BUFFER_BIT_EXT = 0x8,
-		GL_MAP_FLUSH_EXPLICIT_BIT_EXT    = 0x10,
-		GL_MAP_UNSYNCHRONIZED_BIT_EXT    = 0x20;
+    /** Accepted by the {@code access} parameter of MapBufferRangeEXT. */
+    public static final int
+        GL_MAP_READ_BIT_EXT              = 0x1,
+        GL_MAP_WRITE_BIT_EXT             = 0x2,
+        GL_MAP_INVALIDATE_RANGE_BIT_EXT  = 0x4,
+        GL_MAP_INVALIDATE_BUFFER_BIT_EXT = 0x8,
+        GL_MAP_FLUSH_EXPLICIT_BIT_EXT    = 0x10,
+        GL_MAP_UNSYNCHRONIZED_BIT_EXT    = 0x20;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTMapBufferRange() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTMapBufferRange() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glMapBufferRangeEXT, caps.glFlushMappedBufferRangeEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glMapBufferRangeEXT, caps.glFlushMappedBufferRangeEXT
+        );
+    }
 
-	// --- [ glMapBufferRangeEXT ] ---
+    // --- [ glMapBufferRangeEXT ] ---
 
-	public static native long nglMapBufferRangeEXT(int target, long offset, long length, int access);
+    public static native long nglMapBufferRangeEXT(int target, long offset, long length, int access);
 
-	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
-		long __result = nglMapBufferRangeEXT(target, offset, length, access);
-		return memByteBuffer(__result, (int)length);
-	}
+    public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
+        long __result = nglMapBufferRangeEXT(target, offset, length, access);
+        return memByteBuffer(__result, (int)length);
+    }
 
-	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access, ByteBuffer old_buffer) {
-		long __result = nglMapBufferRangeEXT(target, offset, length, access);
-		return apiGetMappedBuffer(old_buffer, __result, (int)length);
-	}
+    public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access, ByteBuffer old_buffer) {
+        long __result = nglMapBufferRangeEXT(target, offset, length, access);
+        return apiGetMappedBuffer(old_buffer, __result, (int)length);
+    }
 
-	// --- [ glFlushMappedBufferRangeEXT ] ---
+    // --- [ glFlushMappedBufferRangeEXT ] ---
 
-	public static native void glFlushMappedBufferRangeEXT(int target, long offset, long length);
+    public static native void glFlushMappedBufferRangeEXT(int target, long offset, long length);
 
 }

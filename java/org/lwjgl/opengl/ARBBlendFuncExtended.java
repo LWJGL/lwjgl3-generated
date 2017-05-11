@@ -29,98 +29,100 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBBlendFuncExtended {
 
-	/**
-	 * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunci, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
-	 * {@code dstAlpha} parameters of BlendFuncSeparate and BlendFuncSeparatei.
-	 */
-	public static final int
-		GL_SRC1_COLOR           = 0x88F9,
-		GL_ONE_MINUS_SRC1_COLOR = 0x88FA,
-		GL_ONE_MINUS_SRC1_ALPHA = 0x88FB;
+    /**
+     * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunci, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
+     * {@code dstAlpha} parameters of BlendFuncSeparate and BlendFuncSeparatei.
+     */
+    public static final int
+        GL_SRC1_COLOR           = 0x88F9,
+        GL_ONE_MINUS_SRC1_COLOR = 0x88FA,
+        GL_ONE_MINUS_SRC1_ALPHA = 0x88FB;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
-	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
+    public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBBlendFuncExtended() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBBlendFuncExtended() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBindFragDataLocationIndexed, caps.glGetFragDataIndex
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBindFragDataLocationIndexed, caps.glGetFragDataIndex
+        );
+    }
 
-	// --- [ glBindFragDataLocationIndexed ] ---
+    // --- [ glBindFragDataLocationIndexed ] ---
 
-	/** Unsafe version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
-	public static native void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name);
+    /** Unsafe version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
+    public static native void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name);
 
-	/**
-	 * Binds a user-defined varying out variable to a fragment shader color number and index.
-	 *
-	 * @param program     the name of the program containing varying out variable whose binding to modify
-	 * @param colorNumber the color number to bind the user-defined varying out variable to
-	 * @param index       the index of the color input to bind the user-defined varying out variable to
-	 * @param name        the name of the user-defined varying out variable whose binding to modify
-	 */
-	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
-	}
+    /**
+     * Binds a user-defined varying out variable to a fragment shader color number and index.
+     *
+     * @param program     the name of the program containing varying out variable whose binding to modify
+     * @param colorNumber the color number to bind the user-defined varying out variable to
+     * @param index       the index of the color input to bind the user-defined varying out variable to
+     * @param name        the name of the user-defined varying out variable whose binding to modify
+     */
+    public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
+    }
 
-	/**
-	 * Binds a user-defined varying out variable to a fragment shader color number and index.
-	 *
-	 * @param program     the name of the program containing varying out variable whose binding to modify
-	 * @param colorNumber the color number to bind the user-defined varying out variable to
-	 * @param index       the index of the color input to bind the user-defined varying out variable to
-	 * @param name        the name of the user-defined varying out variable whose binding to modify
-	 */
-	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Binds a user-defined varying out variable to a fragment shader color number and index.
+     *
+     * @param program     the name of the program containing varying out variable whose binding to modify
+     * @param colorNumber the color number to bind the user-defined varying out variable to
+     * @param index       the index of the color input to bind the user-defined varying out variable to
+     * @param name        the name of the user-defined varying out variable whose binding to modify
+     */
+    public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetFragDataIndex ] ---
+    // --- [ glGetFragDataIndex ] ---
 
-	/** Unsafe version of: {@link #glGetFragDataIndex GetFragDataIndex} */
-	public static native int nglGetFragDataIndex(int program, long name);
+    /** Unsafe version of: {@link #glGetFragDataIndex GetFragDataIndex} */
+    public static native int nglGetFragDataIndex(int program, long name);
 
-	/**
-	 * Queries the bindings of color indices to user-defined varying out variables.
-	 *
-	 * @param program the name of the program containing varying out variable whose binding to query
-	 * @param name    the name of the user-defined varying out variable whose index to query
-	 */
-	public static int glGetFragDataIndex(int program, ByteBuffer name) {
-		if ( CHECKS )
-			checkNT1(name);
-		return nglGetFragDataIndex(program, memAddress(name));
-	}
+    /**
+     * Queries the bindings of color indices to user-defined varying out variables.
+     *
+     * @param program the name of the program containing varying out variable whose binding to query
+     * @param name    the name of the user-defined varying out variable whose index to query
+     */
+    public static int glGetFragDataIndex(int program, ByteBuffer name) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        return nglGetFragDataIndex(program, memAddress(name));
+    }
 
-	/**
-	 * Queries the bindings of color indices to user-defined varying out variables.
-	 *
-	 * @param program the name of the program containing varying out variable whose binding to query
-	 * @param name    the name of the user-defined varying out variable whose index to query
-	 */
-	public static int glGetFragDataIndex(int program, CharSequence name) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nglGetFragDataIndex(program, memAddress(nameEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Queries the bindings of color indices to user-defined varying out variables.
+     *
+     * @param program the name of the program containing varying out variable whose binding to query
+     * @param name    the name of the user-defined varying out variable whose index to query
+     */
+    public static int glGetFragDataIndex(int program, CharSequence name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return nglGetFragDataIndex(program, memAddress(nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
 }

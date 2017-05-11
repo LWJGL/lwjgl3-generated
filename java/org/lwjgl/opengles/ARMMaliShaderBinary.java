@@ -17,9 +17,9 @@ package org.lwjgl.opengles;
  */
 public final class ARMMaliShaderBinary {
 
-	/** Accepted by the {@code binaryFormat} parameter of ShaderBinary. */
-	public static final int GL_MALI_SHADER_BINARY_ARM = 0x8F60;
+    /** Accepted by the {@code binaryFormat} parameter of ShaderBinary. */
+    public static final int GL_MALI_SHADER_BINARY_ARM = 0x8F60;
 
-	private ARMMaliShaderBinary() {}
+    private ARMMaliShaderBinary() {}
 
 }

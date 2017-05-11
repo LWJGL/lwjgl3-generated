@@ -24,12 +24,12 @@ package org.lwjgl.opengl;
  */
 public final class ARBEnhancedLayouts {
 
-	/** Accepted in the {@code props} array of {@link GL43#glGetProgramResourceiv GetProgramResourceiv}. */
-	public static final int
-		GL_LOCATION_COMPONENT               = 0x934A,
-		GL_TRANSFORM_FEEDBACK_BUFFER_INDEX  = 0x934B,
-		GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
+    /** Accepted in the {@code props} array of {@link GL43#glGetProgramResourceiv GetProgramResourceiv}. */
+    public static final int
+        GL_LOCATION_COMPONENT               = 0x934A,
+        GL_TRANSFORM_FEEDBACK_BUFFER_INDEX  = 0x934B,
+        GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
 
-	private ARBEnhancedLayouts() {}
+    private ARBEnhancedLayouts() {}
 
 }

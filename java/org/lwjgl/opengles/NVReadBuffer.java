@@ -21,23 +21,23 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVReadBuffer {
 
-	/** Accepted by the {@code pname} parameter of GetIntegerv. */
-	public static final int GL_READ_BUFFER_NV = 0xC02;
+    /** Accepted by the {@code pname} parameter of GetIntegerv. */
+    public static final int GL_READ_BUFFER_NV = 0xC02;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVReadBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVReadBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glReadBufferNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glReadBufferNV
+        );
+    }
 
-	// --- [ glReadBufferNV ] ---
+    // --- [ glReadBufferNV ] ---
 
-	public static native void glReadBufferNV(int mode);
+    public static native void glReadBufferNV(int mode);
 
 }

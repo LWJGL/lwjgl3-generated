@@ -17,9 +17,9 @@ package org.lwjgl.opengles;
  */
 public final class INTELConservativeRasterization {
 
-	/** Accepted by the {@code target} parameter of {@link GLES20#glEnable Enable}, {@link GLES20#glDisable Disable}, {@link GLES20#glIsEnabled IsEnabled}. */
-	public static final int GL_CONSERVATIVE_RASTERIZATION_INTEL = 0x83FE;
+    /** Accepted by the {@code target} parameter of {@link GLES20#glEnable Enable}, {@link GLES20#glDisable Disable}, {@link GLES20#glIsEnabled IsEnabled}. */
+    public static final int GL_CONSERVATIVE_RASTERIZATION_INTEL = 0x83FE;
 
-	private INTELConservativeRasterization() {}
+    private INTELConservativeRasterization() {}
 
 }

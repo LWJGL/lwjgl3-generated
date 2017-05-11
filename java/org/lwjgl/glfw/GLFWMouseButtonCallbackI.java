@@ -13,29 +13,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWMouseButtonCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(piii)v";
+    String SIGNATURE = "(piii)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgInt(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Will be called when a mouse button is pressed or released.
-	 *
-	 * @param window the window that received the event
-	 * @param button the mouse button that was pressed or released
-	 * @param action the button action. One of:<br><table><tr><td>{@link GLFW#GLFW_PRESS PRESS}</td><td>{@link GLFW#GLFW_RELEASE RELEASE}</td><td>{@link GLFW#GLFW_REPEAT REPEAT}</td></tr></table>
-	 * @param mods   bitfield describing which modifiers keys were held down
-	 */
-	void invoke(long window, int button, int action, int mods);
+    /**
+     * Will be called when a mouse button is pressed or released.
+     *
+     * @param window the window that received the event
+     * @param button the mouse button that was pressed or released
+     * @param action the button action. One of:<br><table><tr><td>{@link GLFW#GLFW_PRESS PRESS}</td><td>{@link GLFW#GLFW_RELEASE RELEASE}</td><td>{@link GLFW#GLFW_REPEAT REPEAT}</td></tr></table>
+     * @param mods   bitfield describing which modifiers keys were held down
+     */
+    void invoke(long window, int button, int action, int mods);
 
 }

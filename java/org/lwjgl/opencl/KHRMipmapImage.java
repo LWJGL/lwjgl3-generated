@@ -13,12 +13,12 @@ package org.lwjgl.opencl;
  */
 public final class KHRMipmapImage {
 
-	/** cl_sampler_info */
-	public static final int
-		CL_SAMPLER_MIP_FILTER_MODE_KHR = 0x1155,
-		CL_SAMPLER_LOD_MIN_KHR         = 0x1156,
-		CL_SAMPLER_LOD_MAX_KHR         = 0x1157;
+    /** cl_sampler_info */
+    public static final int
+        CL_SAMPLER_MIP_FILTER_MODE_KHR = 0x1155,
+        CL_SAMPLER_LOD_MIN_KHR         = 0x1156,
+        CL_SAMPLER_LOD_MAX_KHR         = 0x1157;
 
-	private KHRMipmapImage() {}
+    private KHRMipmapImage() {}
 
 }

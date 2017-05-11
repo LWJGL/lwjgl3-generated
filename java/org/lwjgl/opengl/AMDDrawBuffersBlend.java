@@ -20,32 +20,32 @@ import static org.lwjgl.system.Checks.*;
  */
 public class AMDDrawBuffersBlend {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected AMDDrawBuffersBlend() {
-		throw new UnsupportedOperationException();
-	}
+    protected AMDDrawBuffersBlend() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBlendFuncIndexedAMD, caps.glBlendFuncSeparateIndexedAMD, caps.glBlendEquationIndexedAMD, caps.glBlendEquationSeparateIndexedAMD
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBlendFuncIndexedAMD, caps.glBlendFuncSeparateIndexedAMD, caps.glBlendEquationIndexedAMD, caps.glBlendEquationSeparateIndexedAMD
+        );
+    }
 
-	// --- [ glBlendFuncIndexedAMD ] ---
+    // --- [ glBlendFuncIndexedAMD ] ---
 
-	public static native void glBlendFuncIndexedAMD(int buf, int src, int dst);
+    public static native void glBlendFuncIndexedAMD(int buf, int src, int dst);
 
-	// --- [ glBlendFuncSeparateIndexedAMD ] ---
+    // --- [ glBlendFuncSeparateIndexedAMD ] ---
 
-	public static native void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
-	// --- [ glBlendEquationIndexedAMD ] ---
+    // --- [ glBlendEquationIndexedAMD ] ---
 
-	public static native void glBlendEquationIndexedAMD(int buf, int mode);
+    public static native void glBlendEquationIndexedAMD(int buf, int mode);
 
-	// --- [ glBlendEquationSeparateIndexedAMD ] ---
+    // --- [ glBlendEquationSeparateIndexedAMD ] ---
 
-	public static native void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha);
 
 }

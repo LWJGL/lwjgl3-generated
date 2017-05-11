@@ -33,81 +33,83 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTTimerQuery {
 
-	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int GL_TIME_ELAPSED_EXT = 0x88BF;
+    /** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
+    public static final int GL_TIME_ELAPSED_EXT = 0x88BF;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTTimerQuery() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTTimerQuery() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glGetQueryObjecti64vEXT, caps.glGetQueryObjectui64vEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glGetQueryObjecti64vEXT, caps.glGetQueryObjectui64vEXT
+        );
+    }
 
-	// --- [ glGetQueryObjecti64vEXT ] ---
+    // --- [ glGetQueryObjecti64vEXT ] ---
 
-	public static native void nglGetQueryObjecti64vEXT(int id, int pname, long params);
+    public static native void nglGetQueryObjecti64vEXT(int id, int pname, long params);
 
-	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
-	}
+    public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
+    }
 
-	public static long glGetQueryObjecti64EXT(int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static long glGetQueryObjecti64EXT(int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetQueryObjectui64vEXT ] ---
+    // --- [ glGetQueryObjectui64vEXT ] ---
 
-	public static native void nglGetQueryObjectui64vEXT(int id, int pname, long params);
+    public static native void nglGetQueryObjectui64vEXT(int id, int pname, long params);
 
-	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
-	}
+    public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
+    }
 
-	public static long glGetQueryObjectui64EXT(int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static long glGetQueryObjectui64EXT(int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
-	public static void glGetQueryObjecti64vEXT(int id, int pname, long[] params) {
-		long __functionAddress = GL.getICD().glGetQueryObjecti64vEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, id, pname, params);
-	}
+    /** Array version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
+    public static void glGetQueryObjecti64vEXT(int id, int pname, long[] params) {
+        long __functionAddress = GL.getICD().glGetQueryObjecti64vEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, id, pname, params);
+    }
 
-	/** Array version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
-	public static void glGetQueryObjectui64vEXT(int id, int pname, long[] params) {
-		long __functionAddress = GL.getICD().glGetQueryObjectui64vEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, id, pname, params);
-	}
+    /** Array version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
+    public static void glGetQueryObjectui64vEXT(int id, int pname, long[] params) {
+        long __functionAddress = GL.getICD().glGetQueryObjectui64vEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, id, pname, params);
+    }
 
 }

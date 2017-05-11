@@ -13,23 +13,23 @@ typedef void (APIENTRY *glResolveDepthValuesNVPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_nglFramebufferSampleLocationsfvNV__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint start, jint count, jlong vAddress) {
-	glFramebufferSampleLocationsfvNVPROC glFramebufferSampleLocationsfvNV = (glFramebufferSampleLocationsfvNVPROC)tlsGetFunction(447);
-	const intptr_t v = (const intptr_t)vAddress;
-	UNUSED_PARAM(clazz)
-	glFramebufferSampleLocationsfvNV(target, start, count, v);
+    glFramebufferSampleLocationsfvNVPROC glFramebufferSampleLocationsfvNV = (glFramebufferSampleLocationsfvNVPROC)tlsGetFunction(447);
+    const intptr_t v = (const intptr_t)vAddress;
+    UNUSED_PARAM(clazz)
+    glFramebufferSampleLocationsfvNV(target, start, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_nglNamedFramebufferSampleLocationsfvNV__IIIJ(JNIEnv *__env, jclass clazz, jint framebuffer, jint start, jint count, jlong vAddress) {
-	glNamedFramebufferSampleLocationsfvNVPROC glNamedFramebufferSampleLocationsfvNV = (glNamedFramebufferSampleLocationsfvNVPROC)tlsGetFunction(1133);
-	const intptr_t v = (const intptr_t)vAddress;
-	UNUSED_PARAM(clazz)
-	glNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v);
+    glNamedFramebufferSampleLocationsfvNVPROC glNamedFramebufferSampleLocationsfvNV = (glNamedFramebufferSampleLocationsfvNVPROC)tlsGetFunction(1133);
+    const intptr_t v = (const intptr_t)vAddress;
+    UNUSED_PARAM(clazz)
+    glNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_glResolveDepthValuesNV(JNIEnv *__env, jclass clazz) {
-	glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(1454);
-	UNUSED_PARAM(clazz)
-	glResolveDepthValuesNV();
+    glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(1454);
+    UNUSED_PARAM(clazz)
+    glResolveDepthValuesNV();
 }
 
 EXTERN_C_EXIT

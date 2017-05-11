@@ -21,9 +21,9 @@ package org.lwjgl.egl;
  */
 public final class KHRMutableRenderBuffer {
 
-	/** Accepted as a new value for the {@link EGL10#EGL_SURFACE_TYPE SURFACE_TYPE} {@code EGLConfig} attribute. */
-	public static final int EGL_MUTABLE_RENDER_BUFFER_BIT_KHR = 0x1000;
+    /** Accepted as a new value for the {@link EGL10#EGL_SURFACE_TYPE SURFACE_TYPE} {@code EGLConfig} attribute. */
+    public static final int EGL_MUTABLE_RENDER_BUFFER_BIT_KHR = 0x1000;
 
-	private KHRMutableRenderBuffer() {}
+    private KHRMutableRenderBuffer() {}
 
 }

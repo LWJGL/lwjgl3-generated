@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4711))
+    __pragma(warning(disable : 4711))
 #endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
@@ -14,95 +14,95 @@ ENABLE_WARNINGS()
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1Detect(JNIEnv *__env, jclass clazz, jint timeoutMilliseconds, jlong __result) {
-	UNUSED_PARAMS(__env, clazz)
-	*((ovrDetectResult*)(intptr_t)__result) = ovr_Detect(timeoutMilliseconds);
+    UNUSED_PARAMS(__env, clazz)
+    *((ovrDetectResult*)(intptr_t)__result) = ovr_Detect(timeoutMilliseconds);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1Projection(JNIEnv *__env, jclass clazz, jlong fovAddress, jfloat znear, jfloat zfar, jint projectionModFlags, jlong __result) {
-	ovrFovPort *fov = (ovrFovPort *)(intptr_t)fovAddress;
-	UNUSED_PARAMS(__env, clazz)
-	*((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_Projection(*fov, znear, zfar, projectionModFlags);
+    ovrFovPort *fov = (ovrFovPort *)(intptr_t)fovAddress;
+    UNUSED_PARAMS(__env, clazz)
+    *((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_Projection(*fov, znear, zfar, projectionModFlags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrTimewarpProjectionDesc_1FromProjection(JNIEnv *__env, jclass clazz, jlong projectionAddress, jint projectionModFlags, jlong __result) {
-	ovrMatrix4f *projection = (ovrMatrix4f *)(intptr_t)projectionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	*((ovrTimewarpProjectionDesc*)(intptr_t)__result) = ovrTimewarpProjectionDesc_FromProjection(*projection, projectionModFlags);
+    ovrMatrix4f *projection = (ovrMatrix4f *)(intptr_t)projectionAddress;
+    UNUSED_PARAMS(__env, clazz)
+    *((ovrTimewarpProjectionDesc*)(intptr_t)__result) = ovrTimewarpProjectionDesc_FromProjection(*projection, projectionModFlags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1OrthoSubProjection(JNIEnv *__env, jclass clazz, jlong projectionAddress, jlong orthoScaleAddress, jfloat orthoDistance, jfloat HmdToEyeOffsetX, jlong __result) {
-	ovrMatrix4f *projection = (ovrMatrix4f *)(intptr_t)projectionAddress;
-	ovrVector2f *orthoScale = (ovrVector2f *)(intptr_t)orthoScaleAddress;
-	UNUSED_PARAMS(__env, clazz)
-	*((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_OrthoSubProjection(*projection, *orthoScale, orthoDistance, HmdToEyeOffsetX);
+    ovrMatrix4f *projection = (ovrMatrix4f *)(intptr_t)projectionAddress;
+    ovrVector2f *orthoScale = (ovrVector2f *)(intptr_t)orthoScaleAddress;
+    UNUSED_PARAMS(__env, clazz)
+    *((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_OrthoSubProjection(*projection, *orthoScale, orthoDistance, HmdToEyeOffsetX);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1CalcEyePoses(JNIEnv *__env, jclass clazz, jlong headPoseAddress, jlong HmdToEyeOffsetAddress, jlong outEyePosesAddress) {
-	ovrPosef *headPose = (ovrPosef *)(intptr_t)headPoseAddress;
-	const ovrVector3f *HmdToEyeOffset = (const ovrVector3f *)(intptr_t)HmdToEyeOffsetAddress;
-	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
-	UNUSED_PARAMS(__env, clazz)
-	ovr_CalcEyePoses(*headPose, HmdToEyeOffset, outEyePoses);
+    ovrPosef *headPose = (ovrPosef *)(intptr_t)headPoseAddress;
+    const ovrVector3f *HmdToEyeOffset = (const ovrVector3f *)(intptr_t)HmdToEyeOffsetAddress;
+    ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
+    UNUSED_PARAMS(__env, clazz)
+    ovr_CalcEyePoses(*headPose, HmdToEyeOffset, outEyePoses);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeOffsetAddress, jlong outEyePosesAddress, jlong outSensorSampleTimeAddress) {
-	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-	const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
-	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
-	double *outSensorSampleTime = (double *)(intptr_t)outSensorSampleTimeAddress;
-	UNUSED_PARAMS(__env, clazz)
-	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, outSensorSampleTime);
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
+    ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
+    double *outSensorSampleTime = (double *)(intptr_t)outSensorSampleTimeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, outSensorSampleTime);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrPosef_1FlipHandedness(JNIEnv *__env, jclass clazz, jlong inPoseAddress, jlong outPoseAddress) {
-	const ovrPosef *inPose = (const ovrPosef *)(intptr_t)inPoseAddress;
-	ovrPosef *outPose = (ovrPosef *)(intptr_t)outPoseAddress;
-	UNUSED_PARAMS(__env, clazz)
-	ovrPosef_FlipHandedness(inPose, outPose);
+    const ovrPosef *inPose = (const ovrPosef *)(intptr_t)inPoseAddress;
+    ovrPosef *outPose = (ovrPosef *)(intptr_t)outPoseAddress;
+    UNUSED_PARAMS(__env, clazz)
+    ovrPosef_FlipHandedness(inPose, outPose);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReadWavFromBuffer(JNIEnv *__env, jclass clazz, jlong outAudioChannelAddress, jlong inputDataAddress, jint dataSizeInBytes, jint stereoChannelToUse) {
-	ovrAudioChannelData *outAudioChannel = (ovrAudioChannelData *)(intptr_t)outAudioChannelAddress;
-	const void *inputData = (const void *)(intptr_t)inputDataAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)ovr_ReadWavFromBuffer(outAudioChannel, inputData, dataSizeInBytes, stereoChannelToUse);
+    ovrAudioChannelData *outAudioChannel = (ovrAudioChannelData *)(intptr_t)outAudioChannelAddress;
+    const void *inputData = (const void *)(intptr_t)inputDataAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_ReadWavFromBuffer(outAudioChannel, inputData, dataSizeInBytes, stereoChannelToUse);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GenHapticsFromAudioData(JNIEnv *__env, jclass clazz, jlong outHapticsClipAddress, jlong audioChannelAddress, jint genMode) {
-	ovrHapticsClip *outHapticsClip = (ovrHapticsClip *)(intptr_t)outHapticsClipAddress;
-	const ovrAudioChannelData *audioChannel = (const ovrAudioChannelData *)(intptr_t)audioChannelAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)ovr_GenHapticsFromAudioData(outHapticsClip, audioChannel, genMode);
+    ovrHapticsClip *outHapticsClip = (ovrHapticsClip *)(intptr_t)outHapticsClipAddress;
+    const ovrAudioChannelData *audioChannel = (const ovrAudioChannelData *)(intptr_t)audioChannelAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_GenHapticsFromAudioData(outHapticsClip, audioChannel, genMode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReleaseAudioChannelData(JNIEnv *__env, jclass clazz, jlong audioChannelAddress) {
-	ovrAudioChannelData *audioChannel = (ovrAudioChannelData *)(intptr_t)audioChannelAddress;
-	UNUSED_PARAMS(__env, clazz)
-	ovr_ReleaseAudioChannelData(audioChannel);
+    ovrAudioChannelData *audioChannel = (ovrAudioChannelData *)(intptr_t)audioChannelAddress;
+    UNUSED_PARAMS(__env, clazz)
+    ovr_ReleaseAudioChannelData(audioChannel);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReleaseHapticsClip(JNIEnv *__env, jclass clazz, jlong hapticsClipAddress) {
-	ovrHapticsClip *hapticsClip = (ovrHapticsClip *)(intptr_t)hapticsClipAddress;
-	UNUSED_PARAMS(__env, clazz)
-	ovr_ReleaseHapticsClip(hapticsClip);
+    ovrHapticsClip *hapticsClip = (ovrHapticsClip *)(intptr_t)hapticsClipAddress;
+    UNUSED_PARAMS(__env, clazz)
+    ovr_ReleaseHapticsClip(hapticsClip);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJ_3D(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeOffsetAddress, jlong outEyePosesAddress, jdoubleArray outSensorSampleTimeAddress) {
-	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-	const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
-	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
-	jdouble *outSensorSampleTime = outSensorSampleTimeAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, outSensorSampleTimeAddress, 0);
-	UNUSED_PARAMS(__env, clazz)
-	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double *)outSensorSampleTime);
-	if ( outSensorSampleTime != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, outSensorSampleTimeAddress, outSensorSampleTime, 0);
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
+    ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
+    jdouble *outSensorSampleTime = outSensorSampleTimeAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, outSensorSampleTimeAddress, 0);
+    UNUSED_PARAMS(__env, clazz)
+    ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double *)outSensorSampleTime);
+    if (outSensorSampleTime != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, outSensorSampleTimeAddress, outSensorSampleTime, 0); }
 }
 #ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJ_3D(jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeOffsetAddress, jlong outEyePosesAddress, jint outSensorSampleTime__length, jdouble* outSensorSampleTime) {
-	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-	const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
-	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
-	UNUSED_PARAM(outSensorSampleTime__length)
-	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double *)outSensorSampleTime);
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
+    ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
+    UNUSED_PARAM(outSensorSampleTime__length)
+    ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double *)outSensorSampleTime);
 }
 #endif
 

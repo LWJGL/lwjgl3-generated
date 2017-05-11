@@ -13,18 +13,18 @@ package org.lwjgl.opengl;
  */
 public final class NVPackedDepthStencil {
 
-	/**
-	 * Accepted by the {@code format} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D,
-	 * and GetTexImage, and by the {@code type} parameter of CopyPixels.
-	 */
-	public static final int GL_DEPTH_STENCIL_NV = 0x84F9;
+    /**
+     * Accepted by the {@code format} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D,
+     * and GetTexImage, and by the {@code type} parameter of CopyPixels.
+     */
+    public static final int GL_DEPTH_STENCIL_NV = 0x84F9;
 
-	/**
-	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
-	 * GetTexImage.
-	 */
-	public static final int GL_UNSIGNED_INT_24_8_NV = 0x84FA;
+    /**
+     * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
+     * GetTexImage.
+     */
+    public static final int GL_UNSIGNED_INT_24_8_NV = 0x84FA;
 
-	private NVPackedDepthStencil() {}
+    private NVPackedDepthStencil() {}
 
 }

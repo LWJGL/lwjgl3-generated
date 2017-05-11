@@ -19,9 +19,9 @@ package org.lwjgl.opengl;
  */
 public final class WGLEXTDepthFloat {
 
-	/** Accepted by the {@code attribute} parameter of wglGetPixelFormatAttribivEXT, wglGetPixelFormatAttribfvEXT, and wglChoosePixelFormatExEXT. */
-	public static final int WGL_DEPTH_FLOAT_EXT = 0x2040;
+    /** Accepted by the {@code attribute} parameter of wglGetPixelFormatAttribivEXT, wglGetPixelFormatAttribfvEXT, and wglChoosePixelFormatExEXT. */
+    public static final int WGL_DEPTH_FLOAT_EXT = 0x2040;
 
-	private WGLEXTDepthFloat() {}
+    private WGLEXTDepthFloat() {}
 
 }

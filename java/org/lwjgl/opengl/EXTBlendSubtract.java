@@ -16,11 +16,11 @@ package org.lwjgl.opengl;
  */
 public final class EXTBlendSubtract {
 
-	/** Accepted by the {@code mode} parameter of BlendEquationEXT. */
-	public static final int
-		GL_FUNC_SUBTRACT_EXT         = 0x800A,
-		GL_FUNC_REVERSE_SUBTRACT_EXT = 0x800B;
+    /** Accepted by the {@code mode} parameter of BlendEquationEXT. */
+    public static final int
+        GL_FUNC_SUBTRACT_EXT         = 0x800A,
+        GL_FUNC_REVERSE_SUBTRACT_EXT = 0x800B;
 
-	private EXTBlendSubtract() {}
+    private EXTBlendSubtract() {}
 
 }

@@ -17,12 +17,12 @@ package org.lwjgl.egl;
  */
 public final class NVStreamFIFONext {
 
-	/** Accepted as the {@code attribute} parameter of {@link KHRStream#eglQueryStreamu64KHR QueryStreamu64KHR}. */
-	public static final int EGL_PENDING_FRAME_NV = 0x3329;
+    /** Accepted as the {@code attribute} parameter of {@link KHRStream#eglQueryStreamu64KHR QueryStreamu64KHR}. */
+    public static final int EGL_PENDING_FRAME_NV = 0x3329;
 
-	/** Accepted as the {@code attribute} parameter of {@link KHRStreamFIFO#eglQueryStreamTimeKHR QueryStreamTimeKHR}. */
-	public static final int EGL_STREAM_TIME_PENDING_NV = 0x332A;
+    /** Accepted as the {@code attribute} parameter of {@link KHRStreamFIFO#eglQueryStreamTimeKHR QueryStreamTimeKHR}. */
+    public static final int EGL_STREAM_TIME_PENDING_NV = 0x332A;
 
-	private NVStreamFIFONext() {}
+    private NVStreamFIFONext() {}
 
 }

@@ -32,63 +32,63 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTTextureArray {
 
-	/** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, GenerateMipmapEXT, and BindTexture. */
-	public static final int
-		GL_TEXTURE_1D_ARRAY_EXT = 0x8C18,
-		GL_TEXTURE_2D_ARRAY_EXT = 0x8C1A;
+    /** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, GenerateMipmapEXT, and BindTexture. */
+    public static final int
+        GL_TEXTURE_1D_ARRAY_EXT = 0x8C18,
+        GL_TEXTURE_2D_ARRAY_EXT = 0x8C1A;
 
-	/** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CopyTexSubImage3D, CompressedTexImage3D, and CompressedTexSubImage3D. */
-	public static final int GL_PROXY_TEXTURE_2D_ARRAY_EXT = 0x8C1B;
+    /** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CopyTexSubImage3D, CompressedTexImage3D, and CompressedTexSubImage3D. */
+    public static final int GL_PROXY_TEXTURE_2D_ARRAY_EXT = 0x8C1B;
 
-	/**
-	 * Accepted by the {@code target} parameter of TexImage2D, TexSubImage2D, CopyTexImage2D, CopyTexSubImage2D, CompressedTexImage2D, and
-	 * CompressedTexSubImage2D.
-	 */
-	public static final int GL_PROXY_TEXTURE_1D_ARRAY_EXT = 0x8C19;
+    /**
+     * Accepted by the {@code target} parameter of TexImage2D, TexSubImage2D, CopyTexImage2D, CopyTexSubImage2D, CompressedTexImage2D, and
+     * CompressedTexSubImage2D.
+     */
+    public static final int GL_PROXY_TEXTURE_1D_ARRAY_EXT = 0x8C19;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int
-		GL_TEXTURE_BINDING_1D_ARRAY_EXT = 0x8C1C,
-		GL_TEXTURE_BINDING_2D_ARRAY_EXT = 0x8C1D,
-		GL_MAX_ARRAY_TEXTURE_LAYERS_EXT = 0x88FF;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
+    public static final int
+        GL_TEXTURE_BINDING_1D_ARRAY_EXT = 0x8C1C,
+        GL_TEXTURE_BINDING_2D_ARRAY_EXT = 0x8C1D,
+        GL_MAX_ARRAY_TEXTURE_LAYERS_EXT = 0x88FF;
 
-	/**
-	 * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
-	 * TEXTURE_COMPARE_MODE_ARB.
-	 */
-	public static final int GL_COMPARE_REF_DEPTH_TO_TEXTURE_EXT = 0x884E;
+    /**
+     * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
+     * TEXTURE_COMPARE_MODE_ARB.
+     */
+    public static final int GL_COMPARE_REF_DEPTH_TO_TEXTURE_EXT = 0x884E;
 
-	/**
-	 * COMPARE_REF_DEPTH_TO_TEXTURE_EXT is simply an alias for the existing COMPARE_R_TO_TEXTURE token in OpenGL 2.0; the alternate name reflects the fact that
-	 * the R coordinate is not always used.) Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameterivEXT.
-	 */
-	public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT = 0x8CD4;
+    /**
+     * COMPARE_REF_DEPTH_TO_TEXTURE_EXT is simply an alias for the existing COMPARE_R_TO_TEXTURE token in OpenGL 2.0; the alternate name reflects the fact that
+     * the R coordinate is not always used.) Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameterivEXT.
+     */
+    public static final int GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT = 0x8CD4;
 
-	/**
-	 * FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER is simply an alias for the FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT token provided in EXT_framebuffer_object.
-	 * This extension generalizes the notion of "{@code zoffset}" to include layers of an array texture.) Returned by the {@code type} parameter of
-	 * GetActiveUniform.
-	 */
-	public static final int
-		GL_SAMPLER_1D_ARRAY_EXT        = 0x8DC0,
-		GL_SAMPLER_2D_ARRAY_EXT        = 0x8DC1,
-		GL_SAMPLER_1D_ARRAY_SHADOW_EXT = 0x8DC3,
-		GL_SAMPLER_2D_ARRAY_SHADOW_EXT = 0x8DC4;
+    /**
+     * FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER is simply an alias for the FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_EXT token provided in EXT_framebuffer_object.
+     * This extension generalizes the notion of "{@code zoffset}" to include layers of an array texture.) Returned by the {@code type} parameter of
+     * GetActiveUniform.
+     */
+    public static final int
+        GL_SAMPLER_1D_ARRAY_EXT        = 0x8DC0,
+        GL_SAMPLER_2D_ARRAY_EXT        = 0x8DC1,
+        GL_SAMPLER_1D_ARRAY_SHADOW_EXT = 0x8DC3,
+        GL_SAMPLER_2D_ARRAY_SHADOW_EXT = 0x8DC4;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTTextureArray() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTTextureArray() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferTextureLayerEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferTextureLayerEXT
+        );
+    }
 
-	// --- [ glFramebufferTextureLayerEXT ] ---
+    // --- [ glFramebufferTextureLayerEXT ] ---
 
-	public static native void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
+    public static native void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
 
 }

@@ -23,12 +23,12 @@ package org.lwjgl.opengl;
  */
 public final class ARBSeamlessCubeMap {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and
-	 * GetDoublev.
-	 */
-	public static final int GL_TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and
+     * GetDoublev.
+     */
+    public static final int GL_TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
 
-	private ARBSeamlessCubeMap() {}
+    private ARBSeamlessCubeMap() {}
 
 }

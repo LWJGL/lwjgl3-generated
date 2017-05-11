@@ -46,81 +46,83 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTHdrMetadata {
 
-	/** The extension specification version. */
-	public static final int VK_EXT_HDR_METADATA_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_EXT_HDR_METADATA_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_EXT_HDR_METADATA_EXTENSION_NAME = "VK_EXT_hdr_metadata";
+    /** The extension name. */
+    public static final String VK_EXT_HDR_METADATA_EXTENSION_NAME = "VK_EXT_hdr_metadata";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_HDR_METADATA_EXT = 1000105000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_HDR_METADATA_EXT = 1000105000;
 
-	protected EXTHdrMetadata() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTHdrMetadata() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(VKCapabilitiesDevice caps) {
-		return checkFunctions(
-			caps.vkSetHdrMetadataEXT
-		);
-	}
+    static boolean isAvailable(VKCapabilitiesDevice caps) {
+        return checkFunctions(
+            caps.vkSetHdrMetadataEXT
+        );
+    }
 
-	// --- [ vkSetHdrMetadataEXT ] ---
+    // --- [ vkSetHdrMetadataEXT ] ---
 
-	/**
-	 * Unsafe version of: {@link #vkSetHdrMetadataEXT SetHdrMetadataEXT}
-	 *
-	 * @param swapchainCount the number of swapchains included in {@code pSwapchains}.
-	 */
-	public static void nvkSetHdrMetadataEXT(VkDevice device, int swapchainCount, long pSwapchains, long pMetadata) {
-		long __functionAddress = device.getCapabilities().vkSetHdrMetadataEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, device.address(), swapchainCount, pSwapchains, pMetadata);
-	}
+    /**
+     * Unsafe version of: {@link #vkSetHdrMetadataEXT SetHdrMetadataEXT}
+     *
+     * @param swapchainCount the number of swapchains included in {@code pSwapchains}.
+     */
+    public static void nvkSetHdrMetadataEXT(VkDevice device, int swapchainCount, long pSwapchains, long pMetadata) {
+        long __functionAddress = device.getCapabilities().vkSetHdrMetadataEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, device.address(), swapchainCount, pSwapchains, pMetadata);
+    }
 
-	/**
-	 * function to set Hdr metadata.
-	 * 
-	 * <h5>C Specification</h5>
-	 * 
-	 * <pre><code>void vkSetHdrMetadataEXT(
+    /**
+     * function to set Hdr metadata.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <pre><code>void vkSetHdrMetadataEXT(
     VkDevice                                    device,
     uint32_t                                    swapchainCount,
     const VkSwapchainKHR*                       pSwapchains,
     const VkHdrMetadataEXT*                     pMetadata);</code></pre>
-	 * 
-	 * <h5>Valid Usage (Implicit)</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-	 * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
-	 * <li>{@code pMetadata} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@link VkHdrMetadataEXT} structures</li>
-	 * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
-	 * </ul>
-	 * 
-	 * <h5>See Also</h5>
-	 * 
-	 * <p>{@link VkHdrMetadataEXT}</p>
-	 *
-	 * @param device      the logical device where the swapchain(s) were created.
-	 * @param pSwapchains a pointer to the array of {@code swapchainCount} {@code VkSwapchainKHR} handles.
-	 * @param pMetadata   a pointer to the array of {@code swapchainCount} {@link VkHdrMetadataEXT} structures.
-	 */
-	public static void vkSetHdrMetadataEXT(VkDevice device, LongBuffer pSwapchains, VkHdrMetadataEXT.Buffer pMetadata) {
-		if ( CHECKS )
-			check(pMetadata, pSwapchains.remaining());
-		nvkSetHdrMetadataEXT(device, pSwapchains.remaining(), memAddress(pSwapchains), pMetadata.address());
-	}
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+     * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
+     * <li>{@code pMetadata} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@link VkHdrMetadataEXT} structures</li>
+     * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
+     * </ul>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkHdrMetadataEXT}</p>
+     *
+     * @param device      the logical device where the swapchain(s) were created.
+     * @param pSwapchains a pointer to the array of {@code swapchainCount} {@code VkSwapchainKHR} handles.
+     * @param pMetadata   a pointer to the array of {@code swapchainCount} {@link VkHdrMetadataEXT} structures.
+     */
+    public static void vkSetHdrMetadataEXT(VkDevice device, LongBuffer pSwapchains, VkHdrMetadataEXT.Buffer pMetadata) {
+        if (CHECKS) {
+            check(pMetadata, pSwapchains.remaining());
+        }
+        nvkSetHdrMetadataEXT(device, pSwapchains.remaining(), memAddress(pSwapchains), pMetadata.address());
+    }
 
-	/** Array version of: {@link #vkSetHdrMetadataEXT SetHdrMetadataEXT} */
-	public static void vkSetHdrMetadataEXT(VkDevice device, long[] pSwapchains, VkHdrMetadataEXT.Buffer pMetadata) {
-		long __functionAddress = device.getCapabilities().vkSetHdrMetadataEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pMetadata, pSwapchains.length);
-		}
-		callPPPV(__functionAddress, device.address(), pSwapchains.length, pSwapchains, pMetadata.address());
-	}
+    /** Array version of: {@link #vkSetHdrMetadataEXT SetHdrMetadataEXT} */
+    public static void vkSetHdrMetadataEXT(VkDevice device, long[] pSwapchains, VkHdrMetadataEXT.Buffer pMetadata) {
+        long __functionAddress = device.getCapabilities().vkSetHdrMetadataEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pMetadata, pSwapchains.length);
+        }
+        callPPPV(__functionAddress, device.address(), pSwapchains.length, pSwapchains, pMetadata.address());
+    }
 
 }

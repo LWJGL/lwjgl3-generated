@@ -16,29 +16,29 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTStencilTwoSide {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int GL_STENCIL_TEST_TWO_SIDE_EXT = 0x8910;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int GL_STENCIL_TEST_TWO_SIDE_EXT = 0x8910;
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_ACTIVE_STENCIL_FACE_EXT = 0x8911;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_ACTIVE_STENCIL_FACE_EXT = 0x8911;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTStencilTwoSide() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTStencilTwoSide() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glActiveStencilFaceEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glActiveStencilFaceEXT
+        );
+    }
 
-	// --- [ glActiveStencilFaceEXT ] ---
+    // --- [ glActiveStencilFaceEXT ] ---
 
-	public static native void glActiveStencilFaceEXT(int face);
+    public static native void glActiveStencilFaceEXT(int face);
 
 }

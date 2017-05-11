@@ -34,40 +34,40 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBTextureView {
 
-	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_VIEW_MIN_LEVEL   = 0x82DB,
-		GL_TEXTURE_VIEW_NUM_LEVELS  = 0x82DC,
-		GL_TEXTURE_VIEW_MIN_LAYER   = 0x82DD,
-		GL_TEXTURE_VIEW_NUM_LAYERS  = 0x82DE,
-		GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
+    /** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
+    public static final int
+        GL_TEXTURE_VIEW_MIN_LEVEL   = 0x82DB,
+        GL_TEXTURE_VIEW_NUM_LEVELS  = 0x82DC,
+        GL_TEXTURE_VIEW_MIN_LAYER   = 0x82DD,
+        GL_TEXTURE_VIEW_NUM_LAYERS  = 0x82DE,
+        GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBTextureView() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBTextureView() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTextureView
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTextureView
+        );
+    }
 
-	// --- [ glTextureView ] ---
+    // --- [ glTextureView ] ---
 
-	/**
-	 * Initializes a texture as a data alias of another texture's data store.
-	 *
-	 * @param texture        the texture object to be initialized as a view
-	 * @param target         the target to be used for the newly initialized texture
-	 * @param origtexture    the name of a texture object of which to make a view
-	 * @param internalformat the internal format for the newly created view
-	 * @param minlevel       the  lowest level of detail of the view
-	 * @param numlevels      the number of levels of detail to include in the view
-	 * @param minlayer       the index of the first layer to include in the view
-	 * @param numlayers      the number of layers to include in the view
-	 */
-	public static native void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
+    /**
+     * Initializes a texture as a data alias of another texture's data store.
+     *
+     * @param texture        the texture object to be initialized as a view
+     * @param target         the target to be used for the newly initialized texture
+     * @param origtexture    the name of a texture object of which to make a view
+     * @param internalformat the internal format for the newly created view
+     * @param minlevel       the  lowest level of detail of the view
+     * @param numlevels      the number of levels of detail to include in the view
+     * @param minlayer       the index of the first layer to include in the view
+     * @param numlayers      the number of layers to include in the view
+     */
+    public static native void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
 
 }

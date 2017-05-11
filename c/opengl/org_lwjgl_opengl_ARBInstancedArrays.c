@@ -12,15 +12,15 @@ typedef void (APIENTRY *glVertexArrayVertexAttribDivisorEXTPROC) (jint, jint, ji
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInstancedArrays_glVertexAttribDivisorARB(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
-	glVertexAttribDivisorARBPROC glVertexAttribDivisorARB = (glVertexAttribDivisorARBPROC)tlsGetFunction(1965);
-	UNUSED_PARAM(clazz)
-	glVertexAttribDivisorARB(index, divisor);
+    glVertexAttribDivisorARBPROC glVertexAttribDivisorARB = (glVertexAttribDivisorARBPROC)tlsGetFunction(1965);
+    UNUSED_PARAM(clazz)
+    glVertexAttribDivisorARB(index, divisor);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInstancedArrays_glVertexArrayVertexAttribDivisorEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint index, jint divisor) {
-	glVertexArrayVertexAttribDivisorEXTPROC glVertexArrayVertexAttribDivisorEXT = (glVertexArrayVertexAttribDivisorEXTPROC)tlsGetFunction(1872);
-	UNUSED_PARAM(clazz)
-	glVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor);
+    glVertexArrayVertexAttribDivisorEXTPROC glVertexArrayVertexAttribDivisorEXT = (glVertexArrayVertexAttribDivisorEXTPROC)tlsGetFunction(1872);
+    UNUSED_PARAM(clazz)
+    glVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor);
 }
 
 EXTERN_C_EXIT

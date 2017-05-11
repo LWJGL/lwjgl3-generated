@@ -23,33 +23,33 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ANDROIDNativeFenceSync {
 
-	/**  */
-	public static final int
-		EGL_SYNC_NATIVE_FENCE_ANDROID          = 0x3144,
-		EGL_SYNC_NATIVE_FENCE_FD_ANDROID       = 0x3145,
-		EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID = 0x3146,
-		EGL_NO_NATIVE_FENCE_FD_ANDROID         = -1;
+    /**  */
+    public static final int
+        EGL_SYNC_NATIVE_FENCE_ANDROID          = 0x3144,
+        EGL_SYNC_NATIVE_FENCE_FD_ANDROID       = 0x3145,
+        EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID = 0x3146,
+        EGL_NO_NATIVE_FENCE_FD_ANDROID         = -1;
 
-	protected ANDROIDNativeFenceSync() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANDROIDNativeFenceSync() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglDupNativeFenceFDANDROID
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglDupNativeFenceFDANDROID
+        );
+    }
 
-	// --- [ eglDupNativeFenceFDANDROID ] ---
+    // --- [ eglDupNativeFenceFDANDROID ] ---
 
-	public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
-		long __functionAddress = EGL.getCapabilities().eglDupNativeFenceFDANDROID;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(sync);
-		}
-		return callPPI(__functionAddress, dpy, sync);
-	}
+    public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
+        long __functionAddress = EGL.getCapabilities().eglDupNativeFenceFDANDROID;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(sync);
+        }
+        return callPPI(__functionAddress, dpy, sync);
+    }
 
 }

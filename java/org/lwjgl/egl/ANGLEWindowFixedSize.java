@@ -12,9 +12,9 @@ package org.lwjgl.egl;
  */
 public final class ANGLEWindowFixedSize {
 
-	/**  */
-	public static final int EGL_FIXED_SIZE_ANGLE = 0x3201;
+    /**  */
+    public static final int EGL_FIXED_SIZE_ANGLE = 0x3201;
 
-	private ANGLEWindowFixedSize() {}
+    private ANGLEWindowFixedSize() {}
 
 }

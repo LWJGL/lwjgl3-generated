@@ -38,9 +38,9 @@ package org.lwjgl.egl;
  */
 public final class EXTBufferAge {
 
-	/**  */
-	public static final int EGL_BUFFER_AGE_EXT = 0x313D;
+    /**  */
+    public static final int EGL_BUFFER_AGE_EXT = 0x313D;
 
-	private EXTBufferAge() {}
+    private EXTBufferAge() {}
 
 }

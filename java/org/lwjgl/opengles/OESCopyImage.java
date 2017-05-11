@@ -26,20 +26,20 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESCopyImage {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESCopyImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESCopyImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glCopyImageSubDataOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glCopyImageSubDataOES
+        );
+    }
 
-	// --- [ glCopyImageSubDataOES ] ---
+    // --- [ glCopyImageSubDataOES ] ---
 
-	public static native void glCopyImageSubDataOES(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
+    public static native void glCopyImageSubDataOES(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 }

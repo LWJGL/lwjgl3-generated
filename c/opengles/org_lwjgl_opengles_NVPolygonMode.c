@@ -11,9 +11,9 @@ typedef void (APIENTRY *glPolygonModeNVPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVPolygonMode_glPolygonModeNV(JNIEnv *__env, jclass clazz, jint face, jint mode) {
-	glPolygonModeNVPROC glPolygonModeNV = (glPolygonModeNVPROC)tlsGetFunction(483);
-	UNUSED_PARAM(clazz)
-	glPolygonModeNV(face, mode);
+    glPolygonModeNVPROC glPolygonModeNV = (glPolygonModeNVPROC)tlsGetFunction(483);
+    UNUSED_PARAM(clazz)
+    glPolygonModeNV(face, mode);
 }
 
 EXTERN_C_EXIT

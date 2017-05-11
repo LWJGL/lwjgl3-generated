@@ -33,167 +33,172 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class APPLESync {
 
-	/** Accepted as the {@code pname} parameter of GetInteger64vAPPLE. */
-	public static final int GL_MAX_SERVER_WAIT_TIMEOUT_APPLE = 0x9111;
+    /** Accepted as the {@code pname} parameter of GetInteger64vAPPLE. */
+    public static final int GL_MAX_SERVER_WAIT_TIMEOUT_APPLE = 0x9111;
 
-	/** Accepted as the {@code pname} parameter of GetSyncivAPPLE. */
-	public static final int
-		GL_OBJECT_TYPE_APPLE    = 0x9112,
-		GL_SYNC_CONDITION_APPLE = 0x9113,
-		GL_SYNC_STATUS_APPLE    = 0x9114,
-		GL_SYNC_FLAGS_APPLE     = 0x9115;
+    /** Accepted as the {@code pname} parameter of GetSyncivAPPLE. */
+    public static final int
+        GL_OBJECT_TYPE_APPLE    = 0x9112,
+        GL_SYNC_CONDITION_APPLE = 0x9113,
+        GL_SYNC_STATUS_APPLE    = 0x9114,
+        GL_SYNC_FLAGS_APPLE     = 0x9115;
 
-	/** Returned in {@code values} for GetSynciv {@code pname} OBJECT_TYPE_APPLE. */
-	public static final int GL_SYNC_FENCE_APPLE = 0x9116;
+    /** Returned in {@code values} for GetSynciv {@code pname} OBJECT_TYPE_APPLE. */
+    public static final int GL_SYNC_FENCE_APPLE = 0x9116;
 
-	/** Returned in {@code values} for GetSyncivAPPLE {@code pname} SYNC_CONDITION_APPLE. */
-	public static final int GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE = 0x9117;
+    /** Returned in {@code values} for GetSyncivAPPLE {@code pname} SYNC_CONDITION_APPLE. */
+    public static final int GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE = 0x9117;
 
-	/** Returned in {@code values} for GetSyncivAPPLE {@code pname} SYNC_STATUS_APPLE. */
-	public static final int
-		GL_UNSIGNALED_APPLE = 0x9118,
-		GL_SIGNALED_APPLE   = 0x9119;
+    /** Returned in {@code values} for GetSyncivAPPLE {@code pname} SYNC_STATUS_APPLE. */
+    public static final int
+        GL_UNSIGNALED_APPLE = 0x9118,
+        GL_SIGNALED_APPLE   = 0x9119;
 
-	/** Accepted in the {@code flags} parameter of ClientWaitSyncAPPLE. */
-	public static final int GL_SYNC_FLUSH_COMMANDS_BIT_APPLE = 0x1;
+    /** Accepted in the {@code flags} parameter of ClientWaitSyncAPPLE. */
+    public static final int GL_SYNC_FLUSH_COMMANDS_BIT_APPLE = 0x1;
 
-	/** Accepted in the {@code timeout} parameter of WaitSyncAPPLE. */
-	public static final long GL_TIMEOUT_IGNORED_APPLE = 0xFFFFFFFFFFFFFFFFL;
+    /** Accepted in the {@code timeout} parameter of WaitSyncAPPLE. */
+    public static final long GL_TIMEOUT_IGNORED_APPLE = 0xFFFFFFFFFFFFFFFFL;
 
-	/** Returned by ClientWaitSyncAPPLE. */
-	public static final int
-		GL_ALREADY_SIGNALED_APPLE    = 0x911A,
-		GL_TIMEOUT_EXPIRED_APPLE     = 0x911B,
-		GL_CONDITION_SATISFIED_APPLE = 0x911C,
-		GL_WAIT_FAILED_APPLE         = 0x911D;
+    /** Returned by ClientWaitSyncAPPLE. */
+    public static final int
+        GL_ALREADY_SIGNALED_APPLE    = 0x911A,
+        GL_TIMEOUT_EXPIRED_APPLE     = 0x911B,
+        GL_CONDITION_SATISFIED_APPLE = 0x911C,
+        GL_WAIT_FAILED_APPLE         = 0x911D;
 
-	/** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
-	public static final int GL_SYNC_OBJECT_APPLE = 0x8A53;
+    /** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
+    public static final int GL_SYNC_OBJECT_APPLE = 0x8A53;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected APPLESync() {
-		throw new UnsupportedOperationException();
-	}
+    protected APPLESync() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFenceSyncAPPLE, caps.glIsSyncAPPLE, caps.glDeleteSyncAPPLE, caps.glClientWaitSyncAPPLE, caps.glWaitSyncAPPLE, caps.glGetInteger64vAPPLE, 
-			caps.glGetSyncivAPPLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFenceSyncAPPLE, caps.glIsSyncAPPLE, caps.glDeleteSyncAPPLE, caps.glClientWaitSyncAPPLE, caps.glWaitSyncAPPLE, caps.glGetInteger64vAPPLE, 
+            caps.glGetSyncivAPPLE
+        );
+    }
 
-	// --- [ glFenceSyncAPPLE ] ---
+    // --- [ glFenceSyncAPPLE ] ---
 
-	public static native long glFenceSyncAPPLE(int condition, int flags);
+    public static native long glFenceSyncAPPLE(int condition, int flags);
 
-	// --- [ glIsSyncAPPLE ] ---
+    // --- [ glIsSyncAPPLE ] ---
 
-	public static native boolean nglIsSyncAPPLE(long sync);
+    public static native boolean nglIsSyncAPPLE(long sync);
 
-	public static boolean glIsSyncAPPLE(long sync) {
-		if ( CHECKS )
-			check(sync);
-		return nglIsSyncAPPLE(sync);
-	}
+    public static boolean glIsSyncAPPLE(long sync) {
+        if (CHECKS) {
+            check(sync);
+        }
+        return nglIsSyncAPPLE(sync);
+    }
 
-	// --- [ glDeleteSyncAPPLE ] ---
+    // --- [ glDeleteSyncAPPLE ] ---
 
-	public static native void nglDeleteSyncAPPLE(long sync);
+    public static native void nglDeleteSyncAPPLE(long sync);
 
-	public static void glDeleteSyncAPPLE(long sync) {
-		if ( CHECKS )
-			check(sync);
-		nglDeleteSyncAPPLE(sync);
-	}
+    public static void glDeleteSyncAPPLE(long sync) {
+        if (CHECKS) {
+            check(sync);
+        }
+        nglDeleteSyncAPPLE(sync);
+    }
 
-	// --- [ glClientWaitSyncAPPLE ] ---
+    // --- [ glClientWaitSyncAPPLE ] ---
 
-	public static native int nglClientWaitSyncAPPLE(long sync, int flags, long timeout);
+    public static native int nglClientWaitSyncAPPLE(long sync, int flags, long timeout);
 
-	public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
-		if ( CHECKS )
-			check(sync);
-		return nglClientWaitSyncAPPLE(sync, flags, timeout);
-	}
+    public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
+        if (CHECKS) {
+            check(sync);
+        }
+        return nglClientWaitSyncAPPLE(sync, flags, timeout);
+    }
 
-	// --- [ glWaitSyncAPPLE ] ---
+    // --- [ glWaitSyncAPPLE ] ---
 
-	public static native void nglWaitSyncAPPLE(long sync, int flags, long timeout);
+    public static native void nglWaitSyncAPPLE(long sync, int flags, long timeout);
 
-	public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
-		if ( CHECKS )
-			check(sync);
-		nglWaitSyncAPPLE(sync, flags, timeout);
-	}
+    public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
+        if (CHECKS) {
+            check(sync);
+        }
+        nglWaitSyncAPPLE(sync, flags, timeout);
+    }
 
-	// --- [ glGetInteger64vAPPLE ] ---
+    // --- [ glGetInteger64vAPPLE ] ---
 
-	public static native void nglGetInteger64vAPPLE(int pname, long params);
+    public static native void nglGetInteger64vAPPLE(int pname, long params);
 
-	public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetInteger64vAPPLE(pname, memAddress(params));
-	}
+    public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetInteger64vAPPLE(pname, memAddress(params));
+    }
 
-	public static long glGetInteger64APPLE(int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglGetInteger64vAPPLE(pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static long glGetInteger64APPLE(int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglGetInteger64vAPPLE(pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetSyncivAPPLE ] ---
+    // --- [ glGetSyncivAPPLE ] ---
 
-	public static native void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values);
+    public static native void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values);
 
-	public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
-		if ( CHECKS ) {
-			check(sync);
-			checkSafe(length, 1);
-		}
-		nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
-	}
+    public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
+        if (CHECKS) {
+            check(sync);
+            checkSafe(length, 1);
+        }
+        nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
+    }
 
-	public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
-		if ( CHECKS ) {
-			check(sync);
-			checkSafe(length, 1);
-		}
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer values = stack.callocInt(1);
-			nglGetSyncivAPPLE(sync, pname, 1, memAddressSafe(length), memAddress(values));
-			return values.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
+        if (CHECKS) {
+            check(sync);
+            checkSafe(length, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer values = stack.callocInt(1);
+            nglGetSyncivAPPLE(sync, pname, 1, memAddressSafe(length), memAddress(values));
+            return values.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
-	public static void glGetInteger64vAPPLE(int pname, long[] params) {
-		long __functionAddress = GLES.getICD().glGetInteger64vAPPLE;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, pname, params);
-	}
+    /** Array version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
+    public static void glGetInteger64vAPPLE(int pname, long[] params) {
+        long __functionAddress = GLES.getICD().glGetInteger64vAPPLE;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, pname, params);
+    }
 
-	/** Array version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
-	public static void glGetSyncivAPPLE(long sync, int pname, int[] length, int[] values) {
-		long __functionAddress = GLES.getICD().glGetSyncivAPPLE;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(sync);
-			checkSafe(length, 1);
-		}
-		callPPPV(__functionAddress, sync, pname, values.length, length, values);
-	}
+    /** Array version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
+    public static void glGetSyncivAPPLE(long sync, int pname, int[] length, int[] values) {
+        long __functionAddress = GLES.getICD().glGetSyncivAPPLE;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(sync);
+            checkSafe(length, 1);
+        }
+        callPPPV(__functionAddress, sync, pname, values.length, length, values);
+    }
 
 }

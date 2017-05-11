@@ -19,29 +19,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface MDBRelFuncI extends CallbackI.V {
 
-	String SIGNATURE = "(pppp)v";
+    String SIGNATURE = "(pppp)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * A callback function used to relocate a position-dependent data item in a fixed-address database.
-	 *
-	 * @param item   the item that is to be relocated
-	 * @param oldptr the previous address
-	 * @param newptr the new address to relocate to
-	 * @param relctx an application-provided context, set by {@link LMDB#mdb_set_relctx set_relctx}
-	 */
-	void invoke(long item, long oldptr, long newptr, long relctx);
+    /**
+     * A callback function used to relocate a position-dependent data item in a fixed-address database.
+     *
+     * @param item   the item that is to be relocated
+     * @param oldptr the previous address
+     * @param newptr the new address to relocate to
+     * @param relctx an application-provided context, set by {@link LMDB#mdb_set_relctx set_relctx}
+     */
+    void invoke(long item, long oldptr, long newptr, long relctx);
 
 }

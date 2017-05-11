@@ -14,13 +14,13 @@ package org.lwjgl.egl;
  */
 public final class IMGContextPriority {
 
-	/**  */
-	public static final int
-		EGL_CONTEXT_PRIORITY_LEVEL_IMG  = 0x3100,
-		EGL_CONTEXT_PRIORITY_HIGH_IMG   = 0x3101,
-		EGL_CONTEXT_PRIORITY_MEDIUM_IMG = 0x3102,
-		EGL_CONTEXT_PRIORITY_LOW_IMG    = 0x3103;
+    /**  */
+    public static final int
+        EGL_CONTEXT_PRIORITY_LEVEL_IMG  = 0x3100,
+        EGL_CONTEXT_PRIORITY_HIGH_IMG   = 0x3101,
+        EGL_CONTEXT_PRIORITY_MEDIUM_IMG = 0x3102,
+        EGL_CONTEXT_PRIORITY_LOW_IMG    = 0x3103;
 
-	private IMGContextPriority() {}
+    private IMGContextPriority() {}
 
 }

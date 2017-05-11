@@ -11,46 +11,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class AIFileFlushProc extends Callback implements AIFileFlushProcI {
 
-	/** Creates a {@code AIFileFlushProc} instance from the specified function pointer. */
-	public static AIFileFlushProc create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code AIFileFlushProc} instance from the specified function pointer. */
+    public static AIFileFlushProc create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		AIFileFlushProcI instance = Callback.get(functionPointer);
-		return instance instanceof AIFileFlushProc
-			? (AIFileFlushProc)instance
-			: new Container(functionPointer, instance);
-	}
+        AIFileFlushProcI instance = Callback.get(functionPointer);
+        return instance instanceof AIFileFlushProc
+            ? (AIFileFlushProc)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code AIFileFlushProc} instance that delegates to the specified {@code AIFileFlushProcI} instance. */
-	public static AIFileFlushProc create(AIFileFlushProcI instance) {
-		return instance instanceof AIFileFlushProc
-			? (AIFileFlushProc)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code AIFileFlushProc} instance that delegates to the specified {@code AIFileFlushProcI} instance. */
+    public static AIFileFlushProc create(AIFileFlushProcI instance) {
+        return instance instanceof AIFileFlushProc
+            ? (AIFileFlushProc)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected AIFileFlushProc() {
-		super(SIGNATURE);
-	}
+    protected AIFileFlushProc() {
+        super(SIGNATURE);
+    }
 
-	private AIFileFlushProc(long functionPointer) {
-		super(functionPointer);
-	}
+    private AIFileFlushProc(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends AIFileFlushProc {
+    private static final class Container extends AIFileFlushProc {
 
-		private final AIFileFlushProcI delegate;
+        private final AIFileFlushProcI delegate;
 
-		Container(long functionPointer, AIFileFlushProcI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, AIFileFlushProcI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long pFile) {
-			delegate.invoke(pFile);
-		}
+        @Override
+        public void invoke(long pFile) {
+            delegate.invoke(pFile);
+        }
 
-	}
+    }
 
 }

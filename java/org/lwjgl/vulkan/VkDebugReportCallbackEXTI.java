@@ -120,37 +120,37 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface VkDebugReportCallbackEXTI extends CallbackI.I {
 
-	String SIGNATURE = Callback.__stdcall("(iilpippp)i");
+    String SIGNATURE = Callback.__stdcall("(iilpippp)i");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgLong(args),
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default int callback(long args) {
+        return invoke(
+            dcbArgInt(args),
+            dcbArgInt(args),
+            dcbArgLongLong(args),
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Application-defined debug report callback function.
-	 *
-	 * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback.
-	 * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
-	 * @param object       gives the object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
-	 * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
-	 * @param messageCode  a layer-defined value indicating what test triggered this callback.
-	 * @param pLayerPrefix the abbreviation of the component making the callback. {@code pLayerPrefix} is only valid for the duration of the callback.
-	 * @param pMessage     a null-terminated string detailing the trigger conditions. {@code pMessage} is only valid for the duration of the callback.
-	 * @param pUserData    the user data given when the DebugReportCallback was created.
-	 */
-	int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);
+    /**
+     * Application-defined debug report callback function.
+     *
+     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback.
+     * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
+     * @param object       gives the object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
+     * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
+     * @param messageCode  a layer-defined value indicating what test triggered this callback.
+     * @param pLayerPrefix the abbreviation of the component making the callback. {@code pLayerPrefix} is only valid for the duration of the callback.
+     * @param pMessage     a null-terminated string detailing the trigger conditions. {@code pMessage} is only valid for the duration of the callback.
+     * @param pUserData    the user data given when the DebugReportCallback was created.
+     */
+    int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);
 
 }

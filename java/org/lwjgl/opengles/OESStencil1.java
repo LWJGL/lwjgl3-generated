@@ -12,9 +12,9 @@ package org.lwjgl.opengles;
  */
 public final class OESStencil1 {
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorageOES. */
-	public static final int GL_STENCIL_INDEX1_OES = 0x8D46;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorageOES. */
+    public static final int GL_STENCIL_INDEX1_OES = 0x8D46;
 
-	private OESStencil1() {}
+    private OESStencil1() {}
 
 }

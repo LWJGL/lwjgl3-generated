@@ -12,12 +12,12 @@ package org.lwjgl.openal;
  */
 public final class EXTSourceRadius {
 
-	/**
-	 * Can be used with {@link AL10#alSourcef Sourcef} to set the source radius. Units are consistent with the coordinate system in use. The value must be at least zero. Use
-	 * a value of zero to reset to a point source.
-	 */
-	public static final int AL_SOURCE_RADIUS = 0x1031;
+    /**
+     * Can be used with {@link AL10#alSourcef Sourcef} to set the source radius. Units are consistent with the coordinate system in use. The value must be at least zero. Use
+     * a value of zero to reset to a point source.
+     */
+    public static final int AL_SOURCE_RADIUS = 0x1031;
 
-	private EXTSourceRadius() {}
+    private EXTSourceRadius() {}
 
 }

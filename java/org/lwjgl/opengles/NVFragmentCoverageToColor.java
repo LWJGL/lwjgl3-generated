@@ -20,26 +20,26 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVFragmentCoverageToColor {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
-	public static final int GL_FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
+    /** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
+    public static final int GL_FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int GL_FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVFragmentCoverageToColor() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVFragmentCoverageToColor() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFragmentCoverageColorNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFragmentCoverageColorNV
+        );
+    }
 
-	// --- [ glFragmentCoverageColorNV ] ---
+    // --- [ glFragmentCoverageColorNV ] ---
 
-	public static native void glFragmentCoverageColorNV(int color);
+    public static native void glFragmentCoverageColorNV(int color);
 
 }

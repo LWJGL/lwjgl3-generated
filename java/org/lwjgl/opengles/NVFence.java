@@ -35,124 +35,127 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVFence {
 
-	/** Accepted by the {@code condition} parameter of SetFenceNV. */
-	public static final int GL_ALL_COMPLETED_NV = 0x84F2;
+    /** Accepted by the {@code condition} parameter of SetFenceNV. */
+    public static final int GL_ALL_COMPLETED_NV = 0x84F2;
 
-	/** Accepted by the {@code pname} parameter of GetFenceivNV. */
-	public static final int
-		GL_FENCE_STATUS_NV    = 0x84F3,
-		GL_FENCE_CONDITION_NV = 0x84F4;
+    /** Accepted by the {@code pname} parameter of GetFenceivNV. */
+    public static final int
+        GL_FENCE_STATUS_NV    = 0x84F3,
+        GL_FENCE_CONDITION_NV = 0x84F4;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVFence() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVFence() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glDeleteFencesNV, caps.glGenFencesNV, caps.glIsFenceNV, caps.glTestFenceNV, caps.glGetFenceivNV, caps.glFinishFenceNV, caps.glSetFenceNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glDeleteFencesNV, caps.glGenFencesNV, caps.glIsFenceNV, caps.glTestFenceNV, caps.glGetFenceivNV, caps.glFinishFenceNV, caps.glSetFenceNV
+        );
+    }
 
-	// --- [ glDeleteFencesNV ] ---
+    // --- [ glDeleteFencesNV ] ---
 
-	public static native void nglDeleteFencesNV(int n, long fences);
+    public static native void nglDeleteFencesNV(int n, long fences);
 
-	public static void glDeleteFencesNV(IntBuffer fences) {
-		nglDeleteFencesNV(fences.remaining(), memAddress(fences));
-	}
+    public static void glDeleteFencesNV(IntBuffer fences) {
+        nglDeleteFencesNV(fences.remaining(), memAddress(fences));
+    }
 
-	public static void glDeleteFencesNV(int fence) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer fences = stack.ints(fence);
-			nglDeleteFencesNV(1, memAddress(fences));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glDeleteFencesNV(int fence) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer fences = stack.ints(fence);
+            nglDeleteFencesNV(1, memAddress(fences));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGenFencesNV ] ---
+    // --- [ glGenFencesNV ] ---
 
-	public static native void nglGenFencesNV(int n, long fences);
+    public static native void nglGenFencesNV(int n, long fences);
 
-	public static void glGenFencesNV(IntBuffer fences) {
-		nglGenFencesNV(fences.remaining(), memAddress(fences));
-	}
+    public static void glGenFencesNV(IntBuffer fences) {
+        nglGenFencesNV(fences.remaining(), memAddress(fences));
+    }
 
-	public static int glGenFencesNV() {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer fences = stack.callocInt(1);
-			nglGenFencesNV(1, memAddress(fences));
-			return fences.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGenFencesNV() {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer fences = stack.callocInt(1);
+            nglGenFencesNV(1, memAddress(fences));
+            return fences.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glIsFenceNV ] ---
+    // --- [ glIsFenceNV ] ---
 
-	public static native boolean glIsFenceNV(int fence);
+    public static native boolean glIsFenceNV(int fence);
 
-	// --- [ glTestFenceNV ] ---
+    // --- [ glTestFenceNV ] ---
 
-	public static native boolean glTestFenceNV(int fence);
+    public static native boolean glTestFenceNV(int fence);
 
-	// --- [ glGetFenceivNV ] ---
+    // --- [ glGetFenceivNV ] ---
 
-	public static native void nglGetFenceivNV(int fence, int pname, long params);
+    public static native void nglGetFenceivNV(int fence, int pname, long params);
 
-	public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetFenceivNV(fence, pname, memAddress(params));
-	}
+    public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetFenceivNV(fence, pname, memAddress(params));
+    }
 
-	public static int glGetFenceiNV(int fence, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglGetFenceivNV(fence, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glGetFenceiNV(int fence, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglGetFenceivNV(fence, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glFinishFenceNV ] ---
+    // --- [ glFinishFenceNV ] ---
 
-	public static native void glFinishFenceNV(int fence);
+    public static native void glFinishFenceNV(int fence);
 
-	// --- [ glSetFenceNV ] ---
+    // --- [ glSetFenceNV ] ---
 
-	public static native void glSetFenceNV(int fence, int condition);
+    public static native void glSetFenceNV(int fence, int condition);
 
-	/** Array version of: {@link #glDeleteFencesNV DeleteFencesNV} */
-	public static void glDeleteFencesNV(int[] fences) {
-		long __functionAddress = GLES.getICD().glDeleteFencesNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, fences.length, fences);
-	}
+    /** Array version of: {@link #glDeleteFencesNV DeleteFencesNV} */
+    public static void glDeleteFencesNV(int[] fences) {
+        long __functionAddress = GLES.getICD().glDeleteFencesNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, fences.length, fences);
+    }
 
-	/** Array version of: {@link #glGenFencesNV GenFencesNV} */
-	public static void glGenFencesNV(int[] fences) {
-		long __functionAddress = GLES.getICD().glGenFencesNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, fences.length, fences);
-	}
+    /** Array version of: {@link #glGenFencesNV GenFencesNV} */
+    public static void glGenFencesNV(int[] fences) {
+        long __functionAddress = GLES.getICD().glGenFencesNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, fences.length, fences);
+    }
 
-	/** Array version of: {@link #glGetFenceivNV GetFenceivNV} */
-	public static void glGetFenceivNV(int fence, int pname, int[] params) {
-		long __functionAddress = GLES.getICD().glGetFenceivNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, fence, pname, params);
-	}
+    /** Array version of: {@link #glGetFenceivNV GetFenceivNV} */
+    public static void glGetFenceivNV(int fence, int pname, int[] params) {
+        long __functionAddress = GLES.getICD().glGetFenceivNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, fence, pname, params);
+    }
 
 }

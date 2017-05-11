@@ -13,50 +13,51 @@ import static java.lang.Float.*;
 
 public abstract class YGMeasureFunc extends Callback implements YGMeasureFuncI {
 
-	/** Creates a {@code YGMeasureFunc} instance from the specified function pointer. */
-	public static YGMeasureFunc create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code YGMeasureFunc} instance from the specified function pointer. */
+    public static YGMeasureFunc create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		YGMeasureFuncI instance = Callback.get(functionPointer);
-		return instance instanceof YGMeasureFunc
-			? (YGMeasureFunc)instance
-			: new Container(functionPointer, instance);
-	}
+        YGMeasureFuncI instance = Callback.get(functionPointer);
+        return instance instanceof YGMeasureFunc
+            ? (YGMeasureFunc)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code YGMeasureFunc} instance that delegates to the specified {@code YGMeasureFuncI} instance. */
-	public static YGMeasureFunc create(YGMeasureFuncI instance) {
-		return instance instanceof YGMeasureFunc
-			? (YGMeasureFunc)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code YGMeasureFunc} instance that delegates to the specified {@code YGMeasureFuncI} instance. */
+    public static YGMeasureFunc create(YGMeasureFuncI instance) {
+        return instance instanceof YGMeasureFunc
+            ? (YGMeasureFunc)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected YGMeasureFunc() {
-		super(SIGNATURE);
-	}
+    protected YGMeasureFunc() {
+        super(SIGNATURE);
+    }
 
-	private YGMeasureFunc(long functionPointer) {
-		super(functionPointer);
-	}
+    private YGMeasureFunc(long functionPointer) {
+        super(functionPointer);
+    }
 
-	public static long toLong(YGSize size) {
-		return floatToRawIntBits(size.width()) | ((long)floatToRawIntBits(size.height()) << 32);
-	}
+    public static long toLong(YGSize size) {
+        return floatToRawIntBits(size.width()) | ((long)floatToRawIntBits(size.height()) << 32);
+    }
 
-	private static final class Container extends YGMeasureFunc {
+    private static final class Container extends YGMeasureFunc {
 
-		private final YGMeasureFuncI delegate;
+        private final YGMeasureFuncI delegate;
 
-		Container(long functionPointer, YGMeasureFuncI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, YGMeasureFuncI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public long invoke(long node, float width, int widthMode, float height, int heightMode) {
-			return delegate.invoke(node, width, widthMode, height, heightMode);
-		}
+        @Override
+        public long invoke(long node, float width, int widthMode, float height, int heightMode) {
+            return delegate.invoke(node, width, widthMode, height, heightMode);
+        }
 
-	}
+    }
 
 }

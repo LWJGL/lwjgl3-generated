@@ -18,38 +18,38 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBParallelShaderCompile {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int GL_MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
+    public static final int GL_MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
 
-	/** Accepted as part of the {@code pname} parameter to GetShaderiv() and accepted as part of the {@code pname} parameter to GetProgramiv(). */
-	public static final int GL_COMPLETION_STATUS_ARB = 0x91B1;
+    /** Accepted as part of the {@code pname} parameter to GetShaderiv() and accepted as part of the {@code pname} parameter to GetProgramiv(). */
+    public static final int GL_COMPLETION_STATUS_ARB = 0x91B1;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBParallelShaderCompile() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBParallelShaderCompile() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glMaxShaderCompilerThreadsARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glMaxShaderCompilerThreadsARB
+        );
+    }
 
-	// --- [ glMaxShaderCompilerThreadsARB ] ---
+    // --- [ glMaxShaderCompilerThreadsARB ] ---
 
-	/**
-	 * Application may use the following to hint to the driver the maximum number background threads it would like to be used in the process of compiling
-	 * shaders or linking programs.
-	 * 
-	 * <p>An implementation may combine the maximum compiler thread request from multiple contexts in a share group in an implementation-specific way.</p>
-	 * 
-	 * <p>An application can query the current MaxShaderCompilerThreads() {@code count} by calling {@link GL11#glGetIntegerv GetIntegerv} with {@code pname} set to
-	 * {@link #GL_MAX_SHADER_COMPILER_THREADS_ARB MAX_SHADER_COMPILER_THREADS_ARB}.</p>
-	 *
-	 * @param count the number of background threads. A {@code count} of zero specifies a request for no parallel compiling or linking and a {@code count} of
-	 *              {@code 0xFFFFFFFF} requests an implementation-specific maximum.
-	 */
-	public static native void glMaxShaderCompilerThreadsARB(int count);
+    /**
+     * Application may use the following to hint to the driver the maximum number background threads it would like to be used in the process of compiling
+     * shaders or linking programs.
+     * 
+     * <p>An implementation may combine the maximum compiler thread request from multiple contexts in a share group in an implementation-specific way.</p>
+     * 
+     * <p>An application can query the current MaxShaderCompilerThreads() {@code count} by calling {@link GL11#glGetIntegerv GetIntegerv} with {@code pname} set to
+     * {@link #GL_MAX_SHADER_COMPILER_THREADS_ARB MAX_SHADER_COMPILER_THREADS_ARB}.</p>
+     *
+     * @param count the number of background threads. A {@code count} of zero specifies a request for no parallel compiling or linking and a {@code count} of
+     *              {@code 0xFFFFFFFF} requests an implementation-specific maximum.
+     */
+    public static native void glMaxShaderCompilerThreadsARB(int count);
 
 }

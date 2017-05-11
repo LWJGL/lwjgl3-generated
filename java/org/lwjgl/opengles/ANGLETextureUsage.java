@@ -18,18 +18,18 @@ package org.lwjgl.opengles;
  */
 public final class ANGLETextureUsage {
 
-	/**
-	 * Accepted as a value for {@code pname} for the TexParameter{if} and TexParameter{if}v commands and for the {@code value} parameter of
-	 * GetTexParameter{if}v.
-	 */
-	public static final int GL_TEXTURE_USAGE_ANGLE = 0x93A2;
+    /**
+     * Accepted as a value for {@code pname} for the TexParameter{if} and TexParameter{if}v commands and for the {@code value} parameter of
+     * GetTexParameter{if}v.
+     */
+    public static final int GL_TEXTURE_USAGE_ANGLE = 0x93A2;
 
-	/**
-	 * Accepted as a value to {@code param} for the TexParameter{if} and to {@code params} for the TexParameter{if}v commands with a {@code pname} of
-	 * TEXTURE_USAGE_ANGLE; returned as possible values for {@code data} when GetTexParameter{if}v is queried with a {@code value} of TEXTURE_USAGE_ANGLE.
-	 */
-	public static final int GL_FRAMEBUFFER_ATTACHMENT_ANGLE = 0x93A3;
+    /**
+     * Accepted as a value to {@code param} for the TexParameter{if} and to {@code params} for the TexParameter{if}v commands with a {@code pname} of
+     * TEXTURE_USAGE_ANGLE; returned as possible values for {@code data} when GetTexParameter{if}v is queried with a {@code value} of TEXTURE_USAGE_ANGLE.
+     */
+    public static final int GL_FRAMEBUFFER_ATTACHMENT_ANGLE = 0x93A3;
 
-	private ANGLETextureUsage() {}
+    private ANGLETextureUsage() {}
 
 }

@@ -17,48 +17,48 @@ typedef void (APIENTRY *glSetFenceNVPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFence_nglDeleteFencesNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong fencesAddress) {
-	glDeleteFencesNVPROC glDeleteFencesNV = (glDeleteFencesNVPROC)tlsGetFunction(295);
-	const intptr_t fences = (const intptr_t)fencesAddress;
-	UNUSED_PARAM(clazz)
-	glDeleteFencesNV(n, fences);
+    glDeleteFencesNVPROC glDeleteFencesNV = (glDeleteFencesNVPROC)tlsGetFunction(295);
+    const intptr_t fences = (const intptr_t)fencesAddress;
+    UNUSED_PARAM(clazz)
+    glDeleteFencesNV(n, fences);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFence_nglGenFencesNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong fencesAddress) {
-	glGenFencesNVPROC glGenFencesNV = (glGenFencesNVPROC)tlsGetFunction(467);
-	intptr_t fences = (intptr_t)fencesAddress;
-	UNUSED_PARAM(clazz)
-	glGenFencesNV(n, fences);
+    glGenFencesNVPROC glGenFencesNV = (glGenFencesNVPROC)tlsGetFunction(467);
+    intptr_t fences = (intptr_t)fencesAddress;
+    UNUSED_PARAM(clazz)
+    glGenFencesNV(n, fences);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVFence_glIsFenceNV(JNIEnv *__env, jclass clazz, jint fence) {
-	glIsFenceNVPROC glIsFenceNV = (glIsFenceNVPROC)tlsGetFunction(861);
-	UNUSED_PARAM(clazz)
-	return (jboolean)glIsFenceNV(fence);
+    glIsFenceNVPROC glIsFenceNV = (glIsFenceNVPROC)tlsGetFunction(861);
+    UNUSED_PARAM(clazz)
+    return (jboolean)glIsFenceNV(fence);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVFence_glTestFenceNV(JNIEnv *__env, jclass clazz, jint fence) {
-	glTestFenceNVPROC glTestFenceNV = (glTestFenceNVPROC)tlsGetFunction(1548);
-	UNUSED_PARAM(clazz)
-	return (jboolean)glTestFenceNV(fence);
+    glTestFenceNVPROC glTestFenceNV = (glTestFenceNVPROC)tlsGetFunction(1548);
+    UNUSED_PARAM(clazz)
+    return (jboolean)glTestFenceNV(fence);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFence_nglGetFenceivNV__IIJ(JNIEnv *__env, jclass clazz, jint fence, jint pname, jlong paramsAddress) {
-	glGetFenceivNVPROC glGetFenceivNV = (glGetFenceivNVPROC)tlsGetFunction(540);
-	intptr_t params = (intptr_t)paramsAddress;
-	UNUSED_PARAM(clazz)
-	glGetFenceivNV(fence, pname, params);
+    glGetFenceivNVPROC glGetFenceivNV = (glGetFenceivNVPROC)tlsGetFunction(540);
+    intptr_t params = (intptr_t)paramsAddress;
+    UNUSED_PARAM(clazz)
+    glGetFenceivNV(fence, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFence_glFinishFenceNV(JNIEnv *__env, jclass clazz, jint fence) {
-	glFinishFenceNVPROC glFinishFenceNV = (glFinishFenceNVPROC)tlsGetFunction(420);
-	UNUSED_PARAM(clazz)
-	glFinishFenceNV(fence);
+    glFinishFenceNVPROC glFinishFenceNV = (glFinishFenceNVPROC)tlsGetFunction(420);
+    UNUSED_PARAM(clazz)
+    glFinishFenceNV(fence);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFence_glSetFenceNV(JNIEnv *__env, jclass clazz, jint fence, jint condition) {
-	glSetFenceNVPROC glSetFenceNV = (glSetFenceNVPROC)tlsGetFunction(1517);
-	UNUSED_PARAM(clazz)
-	glSetFenceNV(fence, condition);
+    glSetFenceNVPROC glSetFenceNV = (glSetFenceNVPROC)tlsGetFunction(1517);
+    UNUSED_PARAM(clazz)
+    glSetFenceNV(fence, condition);
 }
 
 EXTERN_C_EXIT

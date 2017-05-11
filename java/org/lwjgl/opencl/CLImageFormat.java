@@ -34,270 +34,270 @@ import static org.lwjgl.system.MemoryStack.*;
  */
 public class CLImageFormat extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		IMAGE_CHANNEL_ORDER,
-		IMAGE_CHANNEL_DATA_TYPE;
+    /** The struct member offsets. */
+    public static final int
+        IMAGE_CHANNEL_ORDER,
+        IMAGE_CHANNEL_DATA_TYPE;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(4)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(4)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		IMAGE_CHANNEL_ORDER = layout.offsetof(0);
-		IMAGE_CHANNEL_DATA_TYPE = layout.offsetof(1);
-	}
+        IMAGE_CHANNEL_ORDER = layout.offsetof(0);
+        IMAGE_CHANNEL_DATA_TYPE = layout.offsetof(1);
+    }
 
-	CLImageFormat(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    CLImageFormat(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link CLImageFormat} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public CLImageFormat(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link CLImageFormat} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public CLImageFormat(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code image_channel_order} field. */
-	public int image_channel_order() { return nimage_channel_order(address()); }
-	/** Returns the value of the {@code image_channel_data_type} field. */
-	public int image_channel_data_type() { return nimage_channel_data_type(address()); }
+    /** Returns the value of the {@code image_channel_order} field. */
+    public int image_channel_order() { return nimage_channel_order(address()); }
+    /** Returns the value of the {@code image_channel_data_type} field. */
+    public int image_channel_data_type() { return nimage_channel_data_type(address()); }
 
-	/** Sets the specified value to the {@code image_channel_order} field. */
-	public CLImageFormat image_channel_order(int value) { nimage_channel_order(address(), value); return this; }
-	/** Sets the specified value to the {@code image_channel_data_type} field. */
-	public CLImageFormat image_channel_data_type(int value) { nimage_channel_data_type(address(), value); return this; }
+    /** Sets the specified value to the {@code image_channel_order} field. */
+    public CLImageFormat image_channel_order(int value) { nimage_channel_order(address(), value); return this; }
+    /** Sets the specified value to the {@code image_channel_data_type} field. */
+    public CLImageFormat image_channel_data_type(int value) { nimage_channel_data_type(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public CLImageFormat set(
-		int image_channel_order,
-		int image_channel_data_type
-	) {
-		image_channel_order(image_channel_order);
-		image_channel_data_type(image_channel_data_type);
+    /** Initializes this struct with the specified values. */
+    public CLImageFormat set(
+        int image_channel_order,
+        int image_channel_data_type
+    ) {
+        image_channel_order(image_channel_order);
+        image_channel_data_type(image_channel_data_type);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public CLImageFormat set(CLImageFormat src) {
-		memCopy(src.address(), address(), SIZEOF);
-		return this;
-	}
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public CLImageFormat set(CLImageFormat src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link CLImageFormat} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static CLImageFormat malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link CLImageFormat} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static CLImageFormat malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link CLImageFormat} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static CLImageFormat calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link CLImageFormat} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static CLImageFormat calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link CLImageFormat} instance allocated with {@link BufferUtils}. */
-	public static CLImageFormat create() {
-		return new CLImageFormat(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link CLImageFormat} instance allocated with {@link BufferUtils}. */
+    public static CLImageFormat create() {
+        return new CLImageFormat(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link CLImageFormat} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static CLImageFormat create(long address) {
-		return address == NULL ? null : new CLImageFormat(address, null);
-	}
+    /** Returns a new {@link CLImageFormat} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static CLImageFormat create(long address) {
+        return address == NULL ? null : new CLImageFormat(address, null);
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link CLImageFormat.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link CLImageFormat.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link CLImageFormat} instance allocated on the thread-local {@link MemoryStack}. */
-	public static CLImageFormat mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link CLImageFormat} instance allocated on the thread-local {@link MemoryStack}. */
+    public static CLImageFormat mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link CLImageFormat} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static CLImageFormat callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link CLImageFormat} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static CLImageFormat callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static CLImageFormat mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link CLImageFormat} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static CLImageFormat mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static CLImageFormat callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link CLImageFormat} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static CLImageFormat callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link CLImageFormat.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link CLImageFormat.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #image_channel_order}. */
-	public static int nimage_channel_order(long struct) { return memGetInt(struct + CLImageFormat.IMAGE_CHANNEL_ORDER); }
-	/** Unsafe version of {@link #image_channel_data_type}. */
-	public static int nimage_channel_data_type(long struct) { return memGetInt(struct + CLImageFormat.IMAGE_CHANNEL_DATA_TYPE); }
+    /** Unsafe version of {@link #image_channel_order}. */
+    public static int nimage_channel_order(long struct) { return memGetInt(struct + CLImageFormat.IMAGE_CHANNEL_ORDER); }
+    /** Unsafe version of {@link #image_channel_data_type}. */
+    public static int nimage_channel_data_type(long struct) { return memGetInt(struct + CLImageFormat.IMAGE_CHANNEL_DATA_TYPE); }
 
-	/** Unsafe version of {@link #image_channel_order(int) image_channel_order}. */
-	public static void nimage_channel_order(long struct, int value) { memPutInt(struct + CLImageFormat.IMAGE_CHANNEL_ORDER, value); }
-	/** Unsafe version of {@link #image_channel_data_type(int) image_channel_data_type}. */
-	public static void nimage_channel_data_type(long struct, int value) { memPutInt(struct + CLImageFormat.IMAGE_CHANNEL_DATA_TYPE, value); }
+    /** Unsafe version of {@link #image_channel_order(int) image_channel_order}. */
+    public static void nimage_channel_order(long struct, int value) { memPutInt(struct + CLImageFormat.IMAGE_CHANNEL_ORDER, value); }
+    /** Unsafe version of {@link #image_channel_data_type(int) image_channel_data_type}. */
+    public static void nimage_channel_data_type(long struct, int value) { memPutInt(struct + CLImageFormat.IMAGE_CHANNEL_DATA_TYPE, value); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link CLImageFormat} structs. */
-	public static class Buffer extends StructBuffer<CLImageFormat, Buffer> implements NativeResource {
+    /** An array of {@link CLImageFormat} structs. */
+    public static class Buffer extends StructBuffer<CLImageFormat, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link CLImageFormat.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link CLImageFormat#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link CLImageFormat.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link CLImageFormat#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected CLImageFormat newInstance(long address) {
-			return new CLImageFormat(address, container);
-		}
+        @Override
+        protected CLImageFormat newInstance(long address) {
+            return new CLImageFormat(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code image_channel_order} field. */
-		public int image_channel_order() { return CLImageFormat.nimage_channel_order(address()); }
-		/** Returns the value of the {@code image_channel_data_type} field. */
-		public int image_channel_data_type() { return CLImageFormat.nimage_channel_data_type(address()); }
+        /** Returns the value of the {@code image_channel_order} field. */
+        public int image_channel_order() { return CLImageFormat.nimage_channel_order(address()); }
+        /** Returns the value of the {@code image_channel_data_type} field. */
+        public int image_channel_data_type() { return CLImageFormat.nimage_channel_data_type(address()); }
 
-		/** Sets the specified value to the {@code image_channel_order} field. */
-		public CLImageFormat.Buffer image_channel_order(int value) { CLImageFormat.nimage_channel_order(address(), value); return this; }
-		/** Sets the specified value to the {@code image_channel_data_type} field. */
-		public CLImageFormat.Buffer image_channel_data_type(int value) { CLImageFormat.nimage_channel_data_type(address(), value); return this; }
+        /** Sets the specified value to the {@code image_channel_order} field. */
+        public CLImageFormat.Buffer image_channel_order(int value) { CLImageFormat.nimage_channel_order(address(), value); return this; }
+        /** Sets the specified value to the {@code image_channel_data_type} field. */
+        public CLImageFormat.Buffer image_channel_data_type(int value) { CLImageFormat.nimage_channel_data_type(address(), value); return this; }
 
-	}
+    }
 
 }

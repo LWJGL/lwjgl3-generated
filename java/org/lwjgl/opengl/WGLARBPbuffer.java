@@ -36,165 +36,167 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class WGLARBPbuffer {
 
-	/**
-	 * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB} and the {@code attributes} parameter of
-	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}.
-	 */
-	public static final int WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
+    /**
+     * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB} and the {@code attributes} parameter of
+     * {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}.
+     */
+    public static final int WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
 
-	/** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}. */
-	public static final int
-		WGL_MAX_PBUFFER_PIXELS_ARB = 0x202E,
-		WGL_MAX_PBUFFER_WIDTH_ARB  = 0x202F,
-		WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
+    /** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}. */
+    public static final int
+        WGL_MAX_PBUFFER_PIXELS_ARB = 0x202E,
+        WGL_MAX_PBUFFER_WIDTH_ARB  = 0x202F,
+        WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
-	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB CreatePbufferARB}. */
-	public static final int WGL_PBUFFER_LARGEST_ARB = 0x2033;
+    /** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB CreatePbufferARB}. */
+    public static final int WGL_PBUFFER_LARGEST_ARB = 0x2033;
 
-	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB QueryPbufferARB}. */
-	public static final int
-		WGL_PBUFFER_WIDTH_ARB  = 0x2034,
-		WGL_PBUFFER_HEIGHT_ARB = 0x2035,
-		WGL_PBUFFER_LOST_ARB   = 0x2036;
+    /** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB QueryPbufferARB}. */
+    public static final int
+        WGL_PBUFFER_WIDTH_ARB  = 0x2034,
+        WGL_PBUFFER_HEIGHT_ARB = 0x2035,
+        WGL_PBUFFER_LOST_ARB   = 0x2036;
 
-	protected WGLARBPbuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLARBPbuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglCreatePbufferARB, caps.wglGetPbufferDCARB, caps.wglReleasePbufferDCARB, caps.wglDestroyPbufferARB, caps.wglQueryPbufferARB
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglCreatePbufferARB, caps.wglGetPbufferDCARB, caps.wglReleasePbufferDCARB, caps.wglDestroyPbufferARB, caps.wglQueryPbufferARB
+        );
+    }
 
-	// --- [ wglCreatePbufferARB ] ---
+    // --- [ wglCreatePbufferARB ] ---
 
-	/** Unsafe version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
-	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hdc);
-		}
-		return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
-	}
+    /** Unsafe version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
+    public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hdc);
+        }
+        return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
+    }
 
-	/**
-	 * Creates a pixel buffer (pbuffer) and returns a handle to it.
-	 * 
-	 * <p>Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
-	 * attribute to determine which pixel formats support the creation of pbuffers.</p>
-	 *
-	 * @param hdc         a device context for the device on which the pbuffer is created
-	 * @param pixelFormat a non-generic pixel format descriptor index
-	 * @param width       the pixel width of the rectangular pbuffer
-	 * @param height      the pixel height of the rectangular pbuffer
-	 * @param attribList  a 0-terminated list of attributes {type, value} pairs containing integer attribute values
-	 */
-	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
-		if ( CHECKS )
-			checkNTSafe(attribList);
-		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList));
-	}
+    /**
+     * Creates a pixel buffer (pbuffer) and returns a handle to it.
+     * 
+     * <p>Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
+     * attribute to determine which pixel formats support the creation of pbuffers.</p>
+     *
+     * @param hdc         a device context for the device on which the pbuffer is created
+     * @param pixelFormat a non-generic pixel format descriptor index
+     * @param width       the pixel width of the rectangular pbuffer
+     * @param height      the pixel height of the rectangular pbuffer
+     * @param attribList  a 0-terminated list of attributes {type, value} pairs containing integer attribute values
+     */
+    public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
+        if (CHECKS) {
+            checkNTSafe(attribList);
+        }
+        return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList));
+    }
 
-	// --- [ wglGetPbufferDCARB ] ---
+    // --- [ wglGetPbufferDCARB ] ---
 
-	/**
-	 * Creates a device context for the pbuffer.
-	 *
-	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB CreatePbufferARB}
-	 */
-	public static long wglGetPbufferDCARB(long pbuffer) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglGetPbufferDCARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pbuffer);
-		}
-		return callPP(__functionAddress, pbuffer);
-	}
+    /**
+     * Creates a device context for the pbuffer.
+     *
+     * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB CreatePbufferARB}
+     */
+    public static long wglGetPbufferDCARB(long pbuffer) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglGetPbufferDCARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pbuffer);
+        }
+        return callPP(__functionAddress, pbuffer);
+    }
 
-	// --- [ wglReleasePbufferDCARB ] ---
+    // --- [ wglReleasePbufferDCARB ] ---
 
-	/**
-	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB GetPbufferDCARB}.
-	 *
-	 * @param pbuffer a pbuffer handle
-	 * @param hdc     a device context handle
-	 */
-	public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglReleasePbufferDCARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pbuffer);
-			check(hdc);
-		}
-		return callPPI(__functionAddress, pbuffer, hdc);
-	}
+    /**
+     * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB GetPbufferDCARB}.
+     *
+     * @param pbuffer a pbuffer handle
+     * @param hdc     a device context handle
+     */
+    public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglReleasePbufferDCARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pbuffer);
+            check(hdc);
+        }
+        return callPPI(__functionAddress, pbuffer, hdc);
+    }
 
-	// --- [ wglDestroyPbufferARB ] ---
+    // --- [ wglDestroyPbufferARB ] ---
 
-	/**
-	 * Destroys a pbuffer.
-	 * 
-	 * <p>The pbuffer is destroyed once it is no longer current to any rendering context.  When a pbuffer is destroyed, any memory resources that are attached to
-	 * it are freed and its handle is no longer valid.</p>
-	 *
-	 * @param pbuffer a pbuffer handle
-	 */
-	public static boolean wglDestroyPbufferARB(long pbuffer) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglDestroyPbufferARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pbuffer);
-		}
-		return callPI(__functionAddress, pbuffer) != 0;
-	}
+    /**
+     * Destroys a pbuffer.
+     * 
+     * <p>The pbuffer is destroyed once it is no longer current to any rendering context.  When a pbuffer is destroyed, any memory resources that are attached to
+     * it are freed and its handle is no longer valid.</p>
+     *
+     * @param pbuffer a pbuffer handle
+     */
+    public static boolean wglDestroyPbufferARB(long pbuffer) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglDestroyPbufferARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pbuffer);
+        }
+        return callPI(__functionAddress, pbuffer) != 0;
+    }
 
-	// --- [ wglQueryPbufferARB ] ---
+    // --- [ wglQueryPbufferARB ] ---
 
-	/** Unsafe version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
-	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pbuffer);
-		}
-		return callPPI(__functionAddress, pbuffer, attribute, value);
-	}
+    /** Unsafe version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
+    public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pbuffer);
+        }
+        return callPPI(__functionAddress, pbuffer, attribute, value);
+    }
 
-	/**
-	 * Queries an attribute associated with a specific pbuffer.
-	 *
-	 * @param pbuffer   a pbuffer handle
-	 * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
-	 * @param value     the attribute value
-	 */
-	public static boolean wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value)) != 0;
-	}
+    /**
+     * Queries an attribute associated with a specific pbuffer.
+     *
+     * @param pbuffer   a pbuffer handle
+     * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
+     * @param value     the attribute value
+     */
+    public static boolean wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value)) != 0;
+    }
 
-	/** Array version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
-	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, int[] attribList) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hdc);
-			checkNTSafe(attribList);
-		}
-		return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
-	}
+    /** Array version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
+    public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, int[] attribList) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hdc);
+            checkNTSafe(attribList);
+        }
+        return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
+    }
 
-	/** Array version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
-	public static boolean wglQueryPbufferARB(long pbuffer, int attribute, int[] value) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(pbuffer);
-			check(value, 1);
-		}
-		return callPPI(__functionAddress, pbuffer, attribute, value) != 0;
-	}
+    /** Array version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
+    public static boolean wglQueryPbufferARB(long pbuffer, int attribute, int[] value) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pbuffer);
+            check(value, 1);
+        }
+        return callPPI(__functionAddress, pbuffer, attribute, value) != 0;
+    }
 
 }

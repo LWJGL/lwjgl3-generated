@@ -30,20 +30,20 @@ import static org.lwjgl.system.Checks.*;
  */
 public class APPLECopyTextureLevels {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected APPLECopyTextureLevels() {
-		throw new UnsupportedOperationException();
-	}
+    protected APPLECopyTextureLevels() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glCopyTextureLevelsAPPLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glCopyTextureLevelsAPPLE
+        );
+    }
 
-	// --- [ glCopyTextureLevelsAPPLE ] ---
+    // --- [ glCopyTextureLevelsAPPLE ] ---
 
-	public static native void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount);
+    public static native void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount);
 
 }

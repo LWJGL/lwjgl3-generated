@@ -21,82 +21,82 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBTextureStorageMultisample {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBTextureStorageMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBTextureStorageMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
-		return checkFunctions(
-			caps.glTexStorage2DMultisample, caps.glTexStorage3DMultisample, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage2DMultisampleEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage3DMultisampleEXT : -1L
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+        return checkFunctions(
+            caps.glTexStorage2DMultisample, caps.glTexStorage3DMultisample, 
+            ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage2DMultisampleEXT : -1L, 
+            ext.contains("GL_EXT_direct_state_access") ? caps.glTextureStorage3DMultisampleEXT : -1L
+        );
+    }
 
-	// --- [ glTexStorage2DMultisample ] ---
+    // --- [ glTexStorage2DMultisample ] ---
 
-	/**
-	 * Specifies storage for a two-dimensional multisample texture.
-	 *
-	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
-	 * @param samples              the number of samples in the texture
-	 * @param internalformat       the sized internal format to be used to store texture image data
-	 * @param width                the width of the texture, in texels
-	 * @param height               the height of the texture, in texels
-	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
-	 *                             depend on the internal format or size of the image
-	 */
-	public static native void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
+    /**
+     * Specifies storage for a two-dimensional multisample texture.
+     *
+     * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
+     * @param samples              the number of samples in the texture
+     * @param internalformat       the sized internal format to be used to store texture image data
+     * @param width                the width of the texture, in texels
+     * @param height               the height of the texture, in texels
+     * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
+     *                             depend on the internal format or size of the image
+     */
+    public static native void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
-	// --- [ glTexStorage3DMultisample ] ---
+    // --- [ glTexStorage3DMultisample ] ---
 
-	/**
-	 * Specifies storage for a two-dimensional multisample array texture.
-	 *
-	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
-	 * @param samples              the number of samples in the texture
-	 * @param internalformat       the sized internal format to be used to store texture image data
-	 * @param width                the width of the texture, in texels
-	 * @param height               the height of the texture, in texels
-	 * @param depth                the depth of the texture, in texels
-	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
-	 *                             depend on the internal format or size of the image
-	 */
-	public static native void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
+    /**
+     * Specifies storage for a two-dimensional multisample array texture.
+     *
+     * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
+     * @param samples              the number of samples in the texture
+     * @param internalformat       the sized internal format to be used to store texture image data
+     * @param width                the width of the texture, in texels
+     * @param height               the height of the texture, in texels
+     * @param depth                the depth of the texture, in texels
+     * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
+     *                             depend on the internal format or size of the image
+     */
+    public static native void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
-	// --- [ glTextureStorage2DMultisampleEXT ] ---
+    // --- [ glTextureStorage2DMultisampleEXT ] ---
 
-	/**
-	 * DSA version of {@link #glTexStorage2DMultisample TexStorage2DMultisample}.
-	 *
-	 * @param texture              the texture object
-	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
-	 * @param samples              the number of samples in the texture
-	 * @param internalformat       the sized internal format to be used to store texture image data
-	 * @param width                the width of the texture, in texels
-	 * @param height               the height of the texture, in texels
-	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
-	 *                             depend on the internal format or size of the image
-	 */
-	public static native void glTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
+    /**
+     * DSA version of {@link #glTexStorage2DMultisample TexStorage2DMultisample}.
+     *
+     * @param texture              the texture object
+     * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
+     * @param samples              the number of samples in the texture
+     * @param internalformat       the sized internal format to be used to store texture image data
+     * @param width                the width of the texture, in texels
+     * @param height               the height of the texture, in texels
+     * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
+     *                             depend on the internal format or size of the image
+     */
+    public static native void glTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
 
-	// --- [ glTextureStorage3DMultisampleEXT ] ---
+    // --- [ glTextureStorage3DMultisampleEXT ] ---
 
-	/**
-	 * DSA version of {@link #glTexStorage3DMultisample TexStorage3DMultisample}.
-	 *
-	 * @param texture              the texture object
-	 * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
-	 * @param samples              the number of samples in the texture
-	 * @param internalformat       the sized internal format to be used to store texture image data
-	 * @param width                the width of the texture, in texels
-	 * @param height               the height of the texture, in texels
-	 * @param depth                the depth of the texture, in texels
-	 * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
-	 *                             depend on the internal format or size of the image
-	 */
-	public static native void glTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
+    /**
+     * DSA version of {@link #glTexStorage3DMultisample TexStorage3DMultisample}.
+     *
+     * @param texture              the texture object
+     * @param target               the target of the operation. One of:<br><table><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td></tr></table>
+     * @param samples              the number of samples in the texture
+     * @param internalformat       the sized internal format to be used to store texture image data
+     * @param width                the width of the texture, in texels
+     * @param height               the height of the texture, in texels
+     * @param depth                the depth of the texture, in texels
+     * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
+     *                             depend on the internal format or size of the image
+     */
+    public static native void glTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
 
 }

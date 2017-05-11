@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkSplit extends Callback implements ChunkSplitI {
 
-	/** Creates a {@code ChunkSplit} instance from the specified function pointer. */
-	public static ChunkSplit create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code ChunkSplit} instance from the specified function pointer. */
+    public static ChunkSplit create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		ChunkSplitI instance = Callback.get(functionPointer);
-		return instance instanceof ChunkSplit
-			? (ChunkSplit)instance
-			: new Container(functionPointer, instance);
-	}
+        ChunkSplitI instance = Callback.get(functionPointer);
+        return instance instanceof ChunkSplit
+            ? (ChunkSplit)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code ChunkSplit} instance that delegates to the specified {@code ChunkSplitI} instance. */
-	public static ChunkSplit create(ChunkSplitI instance) {
-		return instance instanceof ChunkSplit
-			? (ChunkSplit)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code ChunkSplit} instance that delegates to the specified {@code ChunkSplitI} instance. */
+    public static ChunkSplit create(ChunkSplitI instance) {
+        return instance instanceof ChunkSplit
+            ? (ChunkSplit)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected ChunkSplit() {
-		super(SIGNATURE);
-	}
+    protected ChunkSplit() {
+        super(SIGNATURE);
+    }
 
-	private ChunkSplit(long functionPointer) {
-		super(functionPointer);
-	}
+    private ChunkSplit(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends ChunkSplit {
+    private static final class Container extends ChunkSplit {
 
-		private final ChunkSplitI delegate;
+        private final ChunkSplitI delegate;
 
-		Container(long functionPointer, ChunkSplitI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, ChunkSplitI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public boolean invoke(long chunk, long size, long size_a, long size_b, boolean committed, int arena_ind) {
-			return delegate.invoke(chunk, size, size_a, size_b, committed, arena_ind);
-		}
+        @Override
+        public boolean invoke(long chunk, long size, long size_a, long size_b, boolean committed, int arena_ind) {
+            return delegate.invoke(chunk, size, size_a, size_b, committed, arena_ind);
+        }
 
-	}
+    }
 
 }

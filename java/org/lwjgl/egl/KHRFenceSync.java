@@ -35,102 +35,104 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRFenceSync {
 
-	/**  */
-	public static final int
-		EGL_SYNC_PRIOR_COMMANDS_COMPLETE_KHR = 0x30F0,
-		EGL_SYNC_CONDITION_KHR               = 0x30F8,
-		EGL_SYNC_FENCE_KHR                   = 0x30F9;
+    /**  */
+    public static final int
+        EGL_SYNC_PRIOR_COMMANDS_COMPLETE_KHR = 0x30F0,
+        EGL_SYNC_CONDITION_KHR               = 0x30F8,
+        EGL_SYNC_FENCE_KHR                   = 0x30F9;
 
-	protected KHRFenceSync() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRFenceSync() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglCreateSyncKHR, caps.eglDestroySyncKHR, caps.eglClientWaitSyncKHR, caps.eglGetSyncAttribKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglCreateSyncKHR, caps.eglDestroySyncKHR, caps.eglClientWaitSyncKHR, caps.eglGetSyncAttribKHR
+        );
+    }
 
-	// --- [ eglCreateSyncKHR ] ---
+    // --- [ eglCreateSyncKHR ] ---
 
-	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-		}
-		return callPPP(__functionAddress, dpy, type, attrib_list);
-	}
+    public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+        }
+        return callPPP(__functionAddress, dpy, type, attrib_list);
+    }
 
-	public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
-		if ( CHECKS )
-			checkNT(attrib_list, EGL10.EGL_NONE);
-		return neglCreateSyncKHR(dpy, type, memAddress(attrib_list));
-	}
+    public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
+        if (CHECKS) {
+            checkNT(attrib_list, EGL10.EGL_NONE);
+        }
+        return neglCreateSyncKHR(dpy, type, memAddress(attrib_list));
+    }
 
-	// --- [ eglDestroySyncKHR ] ---
+    // --- [ eglDestroySyncKHR ] ---
 
-	public static boolean eglDestroySyncKHR(long dpy, long sync) {
-		long __functionAddress = EGL.getCapabilities().eglDestroySyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(sync);
-		}
-		return callPPI(__functionAddress, dpy, sync) != 0;
-	}
+    public static boolean eglDestroySyncKHR(long dpy, long sync) {
+        long __functionAddress = EGL.getCapabilities().eglDestroySyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(sync);
+        }
+        return callPPI(__functionAddress, dpy, sync) != 0;
+    }
 
-	// --- [ eglClientWaitSyncKHR ] ---
+    // --- [ eglClientWaitSyncKHR ] ---
 
-	public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
-		long __functionAddress = EGL.getCapabilities().eglClientWaitSyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(sync);
-		}
-		return callPPJI(__functionAddress, dpy, sync, flags, timeout);
-	}
+    public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
+        long __functionAddress = EGL.getCapabilities().eglClientWaitSyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(sync);
+        }
+        return callPPJI(__functionAddress, dpy, sync, flags, timeout);
+    }
 
-	// --- [ eglGetSyncAttribKHR ] ---
+    // --- [ eglGetSyncAttribKHR ] ---
 
-	public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
-		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(sync);
-		}
-		return callPPPI(__functionAddress, dpy, sync, attribute, value);
-	}
+    public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
+        long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(sync);
+        }
+        return callPPPI(__functionAddress, dpy, sync, attribute, value);
+    }
 
-	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value)) != 0;
-	}
+    public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value)) != 0;
+    }
 
-	/** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
-	public static long eglCreateSyncKHR(long dpy, int type, int[] attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			checkNT(attrib_list, EGL10.EGL_NONE);
-		}
-		return callPPP(__functionAddress, dpy, type, attrib_list);
-	}
+    /** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
+    public static long eglCreateSyncKHR(long dpy, int type, int[] attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            checkNT(attrib_list, EGL10.EGL_NONE);
+        }
+        return callPPP(__functionAddress, dpy, type, attrib_list);
+    }
 
-	/** Array version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
-	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, int[] value) {
-		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(sync);
-			check(value, 1);
-		}
-		return callPPPI(__functionAddress, dpy, sync, attribute, value) != 0;
-	}
+    /** Array version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
+    public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, int[] value) {
+        long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(sync);
+            check(value, 1);
+        }
+        return callPPPI(__functionAddress, dpy, sync, attribute, value) != 0;
+    }
 
 }

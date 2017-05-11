@@ -26,15 +26,15 @@ package org.lwjgl.opengles;
  */
 public final class EXTProtectedTextures {
 
-	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
-	public static final int GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT = 0x10;
+    /** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
+    public static final int GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT = 0x10;
 
-	/**
-	 * Accepted as a value for {@code pname} for the TexParameter{if} and TexParameter{if}v commands and for the {@code value} parameter of
-	 * GetTexParameter{if}v.
-	 */
-	public static final int GL_TEXTURE_PROTECTED_EXT = 0x8BFA;
+    /**
+     * Accepted as a value for {@code pname} for the TexParameter{if} and TexParameter{if}v commands and for the {@code value} parameter of
+     * GetTexParameter{if}v.
+     */
+    public static final int GL_TEXTURE_PROTECTED_EXT = 0x8BFA;
 
-	private EXTProtectedTextures() {}
+    private EXTProtectedTextures() {}
 
 }

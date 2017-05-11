@@ -14,17 +14,17 @@ package org.lwjgl.opengl;
  */
 public final class WGLARBCreateContextProfile {
 
-	/** Accepted as an attribute name in {@code attribList}. */
-	public static final int WGL_CONTEXT_PROFILE_MASK_ARB = 0x9126;
+    /** Accepted as an attribute name in {@code attribList}. */
+    public static final int WGL_CONTEXT_PROFILE_MASK_ARB = 0x9126;
 
-	/** Accepted as bits in the attribute value for {@link #WGL_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attribList}. */
-	public static final int
-		WGL_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
-		WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
+    /** Accepted as bits in the attribute value for {@link #WGL_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attribList}. */
+    public static final int
+        WGL_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
+        WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
 
-	/** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
-	public static final int ERROR_INVALID_PROFILE_ARB = 0x2096;
+    /** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
+    public static final int ERROR_INVALID_PROFILE_ARB = 0x2096;
 
-	private WGLARBCreateContextProfile() {}
+    private WGLARBCreateContextProfile() {}
 
 }

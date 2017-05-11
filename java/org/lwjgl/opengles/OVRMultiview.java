@@ -29,31 +29,31 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OVRMultiview {
 
-	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
-	public static final int
-		GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR       = 0x9630,
-		GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR = 0x9632;
+    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    public static final int
+        GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR       = 0x9630,
+        GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR = 0x9632;
 
-	/** Accepted by the {@code pname} parameter of GetIntegerv. */
-	public static final int GL_MAX_VIEWS_OVR = 0x9631;
+    /** Accepted by the {@code pname} parameter of GetIntegerv. */
+    public static final int GL_MAX_VIEWS_OVR = 0x9631;
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OVRMultiview() {
-		throw new UnsupportedOperationException();
-	}
+    protected OVRMultiview() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferTextureMultiviewOVR
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferTextureMultiviewOVR
+        );
+    }
 
-	// --- [ glFramebufferTextureMultiviewOVR ] ---
+    // --- [ glFramebufferTextureMultiviewOVR ] ---
 
-	public static native void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
+    public static native void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews);
 
 }

@@ -14,29 +14,29 @@ typedef void (APIENTRY *glCoverageModulationNVPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_glRasterSamplesEXT(JNIEnv *__env, jclass clazz, jint samples, jboolean fixedsamplelocations) {
-	glRasterSamplesEXTPROC glRasterSamplesEXT = (glRasterSamplesEXTPROC)tlsGetFunction(1431);
-	UNUSED_PARAM(clazz)
-	glRasterSamplesEXT(samples, fixedsamplelocations);
+    glRasterSamplesEXTPROC glRasterSamplesEXT = (glRasterSamplesEXTPROC)tlsGetFunction(1431);
+    UNUSED_PARAM(clazz)
+    glRasterSamplesEXT(samples, fixedsamplelocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_nglCoverageModulationTableNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong vAddress) {
-	glCoverageModulationTableNVPROC glCoverageModulationTableNV = (glCoverageModulationTableNVPROC)tlsGetFunction(261);
-	const intptr_t v = (const intptr_t)vAddress;
-	UNUSED_PARAM(clazz)
-	glCoverageModulationTableNV(n, v);
+    glCoverageModulationTableNVPROC glCoverageModulationTableNV = (glCoverageModulationTableNVPROC)tlsGetFunction(261);
+    const intptr_t v = (const intptr_t)vAddress;
+    UNUSED_PARAM(clazz)
+    glCoverageModulationTableNV(n, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_nglGetCoverageModulationTableNV__IJ(JNIEnv *__env, jclass clazz, jint bufsize, jlong vAddress) {
-	glGetCoverageModulationTableNVPROC glGetCoverageModulationTableNV = (glGetCoverageModulationTableNVPROC)tlsGetFunction(531);
-	intptr_t v = (intptr_t)vAddress;
-	UNUSED_PARAM(clazz)
-	glGetCoverageModulationTableNV(bufsize, v);
+    glGetCoverageModulationTableNVPROC glGetCoverageModulationTableNV = (glGetCoverageModulationTableNVPROC)tlsGetFunction(531);
+    intptr_t v = (intptr_t)vAddress;
+    UNUSED_PARAM(clazz)
+    glGetCoverageModulationTableNV(bufsize, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_glCoverageModulationNV(JNIEnv *__env, jclass clazz, jint components) {
-	glCoverageModulationNVPROC glCoverageModulationNV = (glCoverageModulationNVPROC)tlsGetFunction(260);
-	UNUSED_PARAM(clazz)
-	glCoverageModulationNV(components);
+    glCoverageModulationNVPROC glCoverageModulationNV = (glCoverageModulationNVPROC)tlsGetFunction(260);
+    UNUSED_PARAM(clazz)
+    glCoverageModulationNV(components);
 }
 
 EXTERN_C_EXIT

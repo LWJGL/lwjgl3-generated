@@ -26,24 +26,24 @@ import static org.lwjgl.system.Checks.*;
  */
 public class INTELFramebufferCMAA {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected INTELFramebufferCMAA() {
-		throw new UnsupportedOperationException();
-	}
+    protected INTELFramebufferCMAA() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glApplyFramebufferAttachmentCMAAINTEL
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glApplyFramebufferAttachmentCMAAINTEL
+        );
+    }
 
-	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
+    // --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
 
-	/**
-	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
-	 * Conservative Morphological Anti-Aliasing algorithm.
-	 */
-	public static native void glApplyFramebufferAttachmentCMAAINTEL();
+    /**
+     * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
+     * Conservative Morphological Anti-Aliasing algorithm.
+     */
+    public static native void glApplyFramebufferAttachmentCMAAINTEL();
 
 }

@@ -12,9 +12,9 @@ package org.lwjgl.opengles;
  */
 public final class DMPShaderBinary {
 
-	/** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
-	public static final int GL_SHADER_BINARY_DMP = 0x9250;
+    /** Accepted by the {@code binaryformat} parameter of ShaderBinary. */
+    public static final int GL_SHADER_BINARY_DMP = 0x9250;
 
-	private DMPShaderBinary() {}
+    private DMPShaderBinary() {}
 
 }

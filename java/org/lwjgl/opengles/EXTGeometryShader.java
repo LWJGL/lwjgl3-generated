@@ -41,84 +41,84 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTGeometryShader {
 
-	/**
-	 * Accepted by the {@code type} parameter of CreateShader and CreateShaderProgramv, by the {@code pname} parameter of GetProgramPipelineiv and returned in
-	 * the {@code params} parameter of GetShaderiv when {@code pname} is SHADER_TYPE.
-	 */
-	public static final int GL_GEOMETRY_SHADER_EXT = 0x8DD9;
+    /**
+     * Accepted by the {@code type} parameter of CreateShader and CreateShaderProgramv, by the {@code pname} parameter of GetProgramPipelineiv and returned in
+     * the {@code params} parameter of GetShaderiv when {@code pname} is SHADER_TYPE.
+     */
+    public static final int GL_GEOMETRY_SHADER_EXT = 0x8DD9;
 
-	/** Accepted by the {@code stages} parameter of UseProgramStages. */
-	public static final int GL_GEOMETRY_SHADER_BIT_EXT = 0x4;
+    /** Accepted by the {@code stages} parameter of UseProgramStages. */
+    public static final int GL_GEOMETRY_SHADER_BIT_EXT = 0x4;
 
-	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_GEOMETRY_LINKED_VERTICES_OUT_EXT = 0x8916,
-		GL_GEOMETRY_LINKED_INPUT_TYPE_EXT   = 0x8917,
-		GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT  = 0x8918,
-		GL_GEOMETRY_SHADER_INVOCATIONS_EXT  = 0x887F;
+    /** Accepted by the {@code pname} parameter of GetProgramiv. */
+    public static final int
+        GL_GEOMETRY_LINKED_VERTICES_OUT_EXT = 0x8916,
+        GL_GEOMETRY_LINKED_INPUT_TYPE_EXT   = 0x8917,
+        GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT  = 0x8918,
+        GL_GEOMETRY_SHADER_INVOCATIONS_EXT  = 0x887F;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetInteger64v. */
-	public static final int
-		GL_LAYER_PROVOKING_VERTEX_EXT                   = 0x825E,
-		GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT          = 0x8DDF,
-		GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT              = 0x8A2C,
-		GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT = 0x8A32,
-		GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT            = 0x9123,
-		GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT           = 0x9124,
-		GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT             = 0x8DE0,
-		GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT     = 0x8DE1,
-		GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT          = 0x8E5A,
-		GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT         = 0x8C29,
-		GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT      = 0x92CF,
-		GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT             = 0x92D5,
-		GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT              = 0x90CD,
-		GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT       = 0x90D7;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetInteger64v. */
+    public static final int
+        GL_LAYER_PROVOKING_VERTEX_EXT                   = 0x825E,
+        GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT          = 0x8DDF,
+        GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT              = 0x8A2C,
+        GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT = 0x8A32,
+        GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT            = 0x9123,
+        GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT           = 0x9124,
+        GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT             = 0x8DE0,
+        GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT     = 0x8DE1,
+        GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT          = 0x8E5A,
+        GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT         = 0x8C29,
+        GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT      = 0x92CF,
+        GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT             = 0x92D5,
+        GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT              = 0x90CD,
+        GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT       = 0x90D7;
 
-	/** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX_EXT. */
-	public static final int
-		GL_FIRST_VERTEX_CONVENTION_EXT = 0x8E4D,
-		GL_LAST_VERTEX_CONVENTION_EXT  = 0x8E4E,
-		GL_UNDEFINED_VERTEX_EXT        = 0x8260;
+    /** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX_EXT. */
+    public static final int
+        GL_FIRST_VERTEX_CONVENTION_EXT = 0x8E4D,
+        GL_LAST_VERTEX_CONVENTION_EXT  = 0x8E4E,
+        GL_UNDEFINED_VERTEX_EXT        = 0x8260;
 
-	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, GetQueryiv, and GetQueryObjectuiv. */
-	public static final int GL_PRIMITIVES_GENERATED_EXT = 0x8C87;
+    /** Accepted by the {@code target} parameter of BeginQuery, EndQuery, GetQueryiv, and GetQueryObjectuiv. */
+    public static final int GL_PRIMITIVES_GENERATED_EXT = 0x8C87;
 
-	/** Accepted by the {@code mode} parameter of DrawArrays, DrawElements, and other commands which draw primitives. */
-	public static final int
-		GL_LINES_ADJACENCY_EXT          = 0xA,
-		GL_LINE_STRIP_ADJACENCY_EXT     = 0xB,
-		GL_TRIANGLES_ADJACENCY_EXT      = 0xC,
-		GL_TRIANGLE_STRIP_ADJACENCY_EXT = 0xD;
+    /** Accepted by the {@code mode} parameter of DrawArrays, DrawElements, and other commands which draw primitives. */
+    public static final int
+        GL_LINES_ADJACENCY_EXT          = 0xA,
+        GL_LINE_STRIP_ADJACENCY_EXT     = 0xB,
+        GL_TRIANGLES_ADJACENCY_EXT      = 0xC,
+        GL_TRIANGLE_STRIP_ADJACENCY_EXT = 0xD;
 
-	/** Accepted by the {@code pname} parameter of FramebufferParameteri, and GetFramebufferParameteriv. */
-	public static final int GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT = 0x9312;
+    /** Accepted by the {@code pname} parameter of FramebufferParameteri, and GetFramebufferParameteriv. */
+    public static final int GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT = 0x9312;
 
-	/** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetInteger64v, and GetFloatv. */
-	public static final int GL_MAX_FRAMEBUFFER_LAYERS_EXT = 0x9317;
+    /** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetInteger64v, and GetFloatv. */
+    public static final int GL_MAX_FRAMEBUFFER_LAYERS_EXT = 0x9317;
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT = 0x8DA8;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT = 0x8DA8;
 
-	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
-	public static final int GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT = 0x8DA7;
+    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    public static final int GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT = 0x8DA7;
 
-	/** Accepted by the {@code props} parameter of GetProgramResourceiv. */
-	public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_EXT = 0x9309;
+    /** Accepted by the {@code props} parameter of GetProgramResourceiv. */
+    public static final int GL_REFERENCED_BY_GEOMETRY_SHADER_EXT = 0x9309;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTGeometryShader() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTGeometryShader() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferTextureEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferTextureEXT
+        );
+    }
 
-	// --- [ glFramebufferTextureEXT ] ---
+    // --- [ glFramebufferTextureEXT ] ---
 
-	public static native void glFramebufferTextureEXT(int target, int attachment, int texture, int level);
+    public static native void glFramebufferTextureEXT(int target, int attachment, int texture, int level);
 
 }

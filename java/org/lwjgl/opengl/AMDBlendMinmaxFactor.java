@@ -18,14 +18,14 @@ package org.lwjgl.opengl;
  */
 public final class AMDBlendMinmaxFactor {
 
-	/**
-	 * Accepted by the {@code mode} parameter of BlendEquation and BlendEquationi, and by the {@code modeRGB} and {@code modeAlpha} parameters of
-	 * BlendEquationSeparate and BlendEquationSeparatei.
-	 */
-	public static final int
-		GL_FACTOR_MIN_AMD = 0x901C,
-		GL_FACTOR_MAX_AMD = 0x901D;
+    /**
+     * Accepted by the {@code mode} parameter of BlendEquation and BlendEquationi, and by the {@code modeRGB} and {@code modeAlpha} parameters of
+     * BlendEquationSeparate and BlendEquationSeparatei.
+     */
+    public static final int
+        GL_FACTOR_MIN_AMD = 0x901C,
+        GL_FACTOR_MAX_AMD = 0x901D;
 
-	private AMDBlendMinmaxFactor() {}
+    private AMDBlendMinmaxFactor() {}
 
 }

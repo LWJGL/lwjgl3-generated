@@ -16,38 +16,38 @@ package org.lwjgl.opencl;
  */
 public final class ARMPrintf {
 
-	/**
-	 * Accepted by the {@code properties} argument to {@link CL10#clCreateContext CreateContext}.
-	 * 
-	 * <p>Property value: <code>void printf_callback(const char *buffer, size_t len, size_t complete, void *user_data)</code></p>
-	 * 
-	 * <p>Specifies a pointer to function to be invoked when printf data is available. Upon invocation the arguments are set to the following values.</p>
-	 * 
-	 * <ul>
-	 * <li>{@code buffer} is a pointer to a character array of size {@code len} created by printf.</li>
-	 * <li>{@code len} is the number of new characters in {@code buffer}.</li>
-	 * <li>{@code complete} is set to a non zero value if there is no more data in the device's printf buffer.</li>
-	 * <li>{@code user_data} is the {@code user_data} parameter specified to {@link CL10#clCreateContext CreateContext}.</li>
-	 * </ul>
-	 * 
-	 * <p>If this property is not specified, no callback will be registered and any printf output from a kernel will be discarded.</p>
-	 */
-	public static final int CL_PRINTF_CALLBACK_ARM = 0x40B0;
+    /**
+     * Accepted by the {@code properties} argument to {@link CL10#clCreateContext CreateContext}.
+     * 
+     * <p>Property value: <code>void printf_callback(const char *buffer, size_t len, size_t complete, void *user_data)</code></p>
+     * 
+     * <p>Specifies a pointer to function to be invoked when printf data is available. Upon invocation the arguments are set to the following values.</p>
+     * 
+     * <ul>
+     * <li>{@code buffer} is a pointer to a character array of size {@code len} created by printf.</li>
+     * <li>{@code len} is the number of new characters in {@code buffer}.</li>
+     * <li>{@code complete} is set to a non zero value if there is no more data in the device's printf buffer.</li>
+     * <li>{@code user_data} is the {@code user_data} parameter specified to {@link CL10#clCreateContext CreateContext}.</li>
+     * </ul>
+     * 
+     * <p>If this property is not specified, no callback will be registered and any printf output from a kernel will be discarded.</p>
+     */
+    public static final int CL_PRINTF_CALLBACK_ARM = 0x40B0;
 
-	/**
-	 * Accepted by the {@code properties} argument to {@link CL10#clCreateContext CreateContext}.
-	 * 
-	 * <p>Property value: {@code size_t}</p>
-	 * 
-	 * <p>Specifies the size of printf buffer allocations to use within the driver. A printf buffer is allocated per device per context, within a context the
-	 * buffer will be shared between kernels executing on a device. The implementation is free to round up or ignore this value.</p>
-	 * 
-	 * <p>If this property is not specified an implementation defined default size will be chosen. For OpenCL driver versions prior to OpenCL 1.2 this value will
-	 * be 1 MiB. For driver versions of OpenCL 1.2 or greater this value is defined by the {@link CL12#CL_DEVICE_PRINTF_BUFFER_SIZE DEVICE_PRINTF_BUFFER_SIZE} parameter name for
-	 * {@link CL10#clGetDeviceInfo GetDeviceInfo}.</p>
-	 */
-	public static final int CL_PRINTF_BUFFERSIZE_ARM = 0x40B1;
+    /**
+     * Accepted by the {@code properties} argument to {@link CL10#clCreateContext CreateContext}.
+     * 
+     * <p>Property value: {@code size_t}</p>
+     * 
+     * <p>Specifies the size of printf buffer allocations to use within the driver. A printf buffer is allocated per device per context, within a context the
+     * buffer will be shared between kernels executing on a device. The implementation is free to round up or ignore this value.</p>
+     * 
+     * <p>If this property is not specified an implementation defined default size will be chosen. For OpenCL driver versions prior to OpenCL 1.2 this value will
+     * be 1 MiB. For driver versions of OpenCL 1.2 or greater this value is defined by the {@link CL12#CL_DEVICE_PRINTF_BUFFER_SIZE DEVICE_PRINTF_BUFFER_SIZE} parameter name for
+     * {@link CL10#clGetDeviceInfo GetDeviceInfo}.</p>
+     */
+    public static final int CL_PRINTF_BUFFERSIZE_ARM = 0x40B1;
 
-	private ARMPrintf() {}
+    private ARMPrintf() {}
 
 }

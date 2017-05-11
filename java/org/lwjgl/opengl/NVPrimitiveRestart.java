@@ -26,33 +26,33 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVPrimitiveRestart {
 
-	/**
-	 * Accepted by the {@code array} parameter of EnableClientState and DisableClientState, by the {@code cap} parameter of IsEnabled, and by the {@code pname}
-	 * parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev.
-	 */
-	public static final int GL_PRIMITIVE_RESTART_NV = 0x8558;
+    /**
+     * Accepted by the {@code array} parameter of EnableClientState and DisableClientState, by the {@code cap} parameter of IsEnabled, and by the {@code pname}
+     * parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev.
+     */
+    public static final int GL_PRIMITIVE_RESTART_NV = 0x8558;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_PRIMITIVE_RESTART_INDEX_NV = 0x8559;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_PRIMITIVE_RESTART_INDEX_NV = 0x8559;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVPrimitiveRestart() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVPrimitiveRestart() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glPrimitiveRestartNV, caps.glPrimitiveRestartIndexNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glPrimitiveRestartNV, caps.glPrimitiveRestartIndexNV
+        );
+    }
 
-	// --- [ glPrimitiveRestartNV ] ---
+    // --- [ glPrimitiveRestartNV ] ---
 
-	public static native void glPrimitiveRestartNV();
+    public static native void glPrimitiveRestartNV();
 
-	// --- [ glPrimitiveRestartIndexNV ] ---
+    // --- [ glPrimitiveRestartIndexNV ] ---
 
-	public static native void glPrimitiveRestartIndexNV(int index);
+    public static native void glPrimitiveRestartIndexNV(int index);
 
 }

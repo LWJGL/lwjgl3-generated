@@ -23,55 +23,56 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRGLEvent {
 
-	/** Returned by {@link CL10#clGetEventInfo GetEventInfo} when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
-	public static final int CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
+    /** Returned by {@link CL10#clGetEventInfo GetEventInfo} when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
+    public static final int CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
 
-	protected KHRGLEvent() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRGLEvent() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(CLCapabilities caps) {
-		return checkFunctions(
-			caps.clCreateEventFromGLsyncKHR
-		);
-	}
+    static boolean isAvailable(CLCapabilities caps) {
+        return checkFunctions(
+            caps.clCreateEventFromGLsyncKHR
+        );
+    }
 
-	// --- [ clCreateEventFromGLsyncKHR ] ---
+    // --- [ clCreateEventFromGLsyncKHR ] ---
 
-	/** Unsafe version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
-	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
-		long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(context);
-			check(sync);
-		}
-		return callPPPP(__functionAddress, context, sync, errcode_ret);
-	}
+    /** Unsafe version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
+    public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
+        long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(context);
+            check(sync);
+        }
+        return callPPPP(__functionAddress, context, sync, errcode_ret);
+    }
 
-	/**
-	 * Creates an OpenCL event object from an OpenGL fence sync object.
-	 *
-	 * @param context     the OpenCL context in which to create the event object
-	 * @param sync        the OpenGL fence sync object
-	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 */
-	public static long clCreateEventFromGLsyncKHR(long context, long sync, IntBuffer errcode_ret) {
-		if ( CHECKS )
-			checkSafe(errcode_ret, 1);
-		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
-	}
+    /**
+     * Creates an OpenCL event object from an OpenGL fence sync object.
+     *
+     * @param context     the OpenCL context in which to create the event object
+     * @param sync        the OpenGL fence sync object
+     * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+     */
+    public static long clCreateEventFromGLsyncKHR(long context, long sync, IntBuffer errcode_ret) {
+        if (CHECKS) {
+            checkSafe(errcode_ret, 1);
+        }
+        return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
+    }
 
-	/** Array version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
-	public static long clCreateEventFromGLsyncKHR(long context, long sync, int[] errcode_ret) {
-		long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(context);
-			check(sync);
-			checkSafe(errcode_ret, 1);
-		}
-		return callPPPP(__functionAddress, context, sync, errcode_ret);
-	}
+    /** Array version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
+    public static long clCreateEventFromGLsyncKHR(long context, long sync, int[] errcode_ret) {
+        long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(context);
+            check(sync);
+            checkSafe(errcode_ret, 1);
+        }
+        return callPPPP(__functionAddress, context, sync, errcode_ret);
+    }
 
 }

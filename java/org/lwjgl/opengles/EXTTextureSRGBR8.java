@@ -15,9 +15,9 @@ package org.lwjgl.opengles;
  */
 public final class EXTTextureSRGBR8 {
 
-	/** Accepted by the {@code internalformat} parameters of TexImage2D, TexImage3D, TexStorage2D and TexStorage3D. */
-	public static final int GL_SR8_EXT = 0x8FBD;
+    /** Accepted by the {@code internalformat} parameters of TexImage2D, TexImage3D, TexStorage2D and TexStorage3D. */
+    public static final int GL_SR8_EXT = 0x8FBD;
 
-	private EXTTextureSRGBR8() {}
+    private EXTTextureSRGBR8() {}
 
 }

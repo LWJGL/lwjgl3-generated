@@ -13,29 +13,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface ChunkDallocI extends CallbackI.Z {
 
-	String SIGNATURE = "(ppBi)B";
+    String SIGNATURE = "(ppBi)B";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgBool(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default boolean callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgBool(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Chunk deallocation hook.
-	 *
-	 * @param chunk     
-	 * @param size      
-	 * @param committed 
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk, long size, boolean committed, int arena_ind);
+    /**
+     * Chunk deallocation hook.
+     *
+     * @param chunk     
+     * @param size      
+     * @param committed 
+     * @param arena_ind 
+     */
+    boolean invoke(long chunk, long size, boolean committed, int arena_ind);
 
 }

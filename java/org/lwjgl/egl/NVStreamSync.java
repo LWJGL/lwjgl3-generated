@@ -21,49 +21,50 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVStreamSync {
 
-	/**  */
-	public static final int
-		EGL_SYNC_TYPE_KHR     = 0x30F7,
-		EGL_SYNC_NEW_FRAME_NV = 0x321F;
+    /**  */
+    public static final int
+        EGL_SYNC_TYPE_KHR     = 0x30F7,
+        EGL_SYNC_NEW_FRAME_NV = 0x321F;
 
-	protected NVStreamSync() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVStreamSync() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglCreateStreamSyncNV
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglCreateStreamSyncNV
+        );
+    }
 
-	// --- [ eglCreateStreamSyncNV ] ---
+    // --- [ eglCreateStreamSyncNV ] ---
 
-	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-		}
-		return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
-	}
+    public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+        }
+        return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
+    }
 
-	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, IntBuffer attrib_list) {
-		if ( CHECKS )
-			checkNT(attrib_list, EGL10.EGL_NONE);
-		return neglCreateStreamSyncNV(dpy, stream, type, memAddress(attrib_list));
-	}
+    public static long eglCreateStreamSyncNV(long dpy, long stream, int type, IntBuffer attrib_list) {
+        if (CHECKS) {
+            checkNT(attrib_list, EGL10.EGL_NONE);
+        }
+        return neglCreateStreamSyncNV(dpy, stream, type, memAddress(attrib_list));
+    }
 
-	/** Array version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
-	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, int[] attrib_list) {
-		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-			checkNT(attrib_list, EGL10.EGL_NONE);
-		}
-		return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
-	}
+    /** Array version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
+    public static long eglCreateStreamSyncNV(long dpy, long stream, int type, int[] attrib_list) {
+        long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+            checkNT(attrib_list, EGL10.EGL_NONE);
+        }
+        return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
+    }
 
 }

@@ -31,58 +31,59 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVPointSprite {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev, and by the {@code target} parameter of TexEnvi, TexEnviv, TexEnvf, TexEnvfv, GetTexEnviv, and GetTexEnvfv.
-	 */
-	public static final int GL_POINT_SPRITE_NV = 0x8861;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev, and by the {@code target} parameter of TexEnvi, TexEnviv, TexEnvf, TexEnvfv, GetTexEnviv, and GetTexEnvfv.
+     */
+    public static final int GL_POINT_SPRITE_NV = 0x8861;
 
-	/**
-	 * When the {@code target} parameter of TexEnvf, TexEnvfv, TexEnvi, TexEnviv, GetTexEnvfv, or GetTexEnviv is POINT_SPRITE_NV, then the value of
-	 * {@code pname} may be.
-	 */
-	public static final int GL_COORD_REPLACE_NV = 0x8862;
+    /**
+     * When the {@code target} parameter of TexEnvf, TexEnvfv, TexEnvi, TexEnviv, GetTexEnvfv, or GetTexEnviv is POINT_SPRITE_NV, then the value of
+     * {@code pname} may be.
+     */
+    public static final int GL_COORD_REPLACE_NV = 0x8862;
 
-	/**
-	 * Accepted by the {@code pname} parameter of PointParameteriNV, PointParameterfEXT, PointParameterivNV, PointParameterfvEXT, GetBooleanv, GetIntegerv,
-	 * GetFloatv, and GetDoublev.
-	 */
-	public static final int GL_POINT_SPRITE_R_MODE_NV = 0x8863;
+    /**
+     * Accepted by the {@code pname} parameter of PointParameteriNV, PointParameterfEXT, PointParameterivNV, PointParameterfvEXT, GetBooleanv, GetIntegerv,
+     * GetFloatv, and GetDoublev.
+     */
+    public static final int GL_POINT_SPRITE_R_MODE_NV = 0x8863;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVPointSprite() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVPointSprite() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glPointParameteriNV, caps.glPointParameterivNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glPointParameteriNV, caps.glPointParameterivNV
+        );
+    }
 
-	// --- [ glPointParameteriNV ] ---
+    // --- [ glPointParameteriNV ] ---
 
-	public static native void glPointParameteriNV(int pname, int param);
+    public static native void glPointParameteriNV(int pname, int param);
 
-	// --- [ glPointParameterivNV ] ---
+    // --- [ glPointParameterivNV ] ---
 
-	public static native void nglPointParameterivNV(int pname, long params);
+    public static native void nglPointParameterivNV(int pname, long params);
 
-	public static void glPointParameterivNV(int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglPointParameterivNV(pname, memAddress(params));
-	}
+    public static void glPointParameterivNV(int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglPointParameterivNV(pname, memAddress(params));
+    }
 
-	/** Array version of: {@link #glPointParameterivNV PointParameterivNV} */
-	public static void glPointParameterivNV(int pname, int[] params) {
-		long __functionAddress = GL.getICD().glPointParameterivNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, pname, params);
-	}
+    /** Array version of: {@link #glPointParameterivNV PointParameterivNV} */
+    public static void glPointParameterivNV(int pname, int[] params) {
+        long __functionAddress = GL.getICD().glPointParameterivNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, pname, params);
+    }
 
 }

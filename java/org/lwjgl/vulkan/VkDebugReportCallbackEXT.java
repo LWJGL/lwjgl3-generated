@@ -119,59 +119,60 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class VkDebugReportCallbackEXT extends Callback implements VkDebugReportCallbackEXTI {
 
-	/** Creates a {@code VkDebugReportCallbackEXT} instance from the specified function pointer. */
-	public static VkDebugReportCallbackEXT create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code VkDebugReportCallbackEXT} instance from the specified function pointer. */
+    public static VkDebugReportCallbackEXT create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		VkDebugReportCallbackEXTI instance = Callback.get(functionPointer);
-		return instance instanceof VkDebugReportCallbackEXT
-			? (VkDebugReportCallbackEXT)instance
-			: new Container(functionPointer, instance);
-	}
+        VkDebugReportCallbackEXTI instance = Callback.get(functionPointer);
+        return instance instanceof VkDebugReportCallbackEXT
+            ? (VkDebugReportCallbackEXT)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code VkDebugReportCallbackEXT} instance that delegates to the specified {@code VkDebugReportCallbackEXTI} instance. */
-	public static VkDebugReportCallbackEXT create(VkDebugReportCallbackEXTI instance) {
-		return instance instanceof VkDebugReportCallbackEXT
-			? (VkDebugReportCallbackEXT)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code VkDebugReportCallbackEXT} instance that delegates to the specified {@code VkDebugReportCallbackEXTI} instance. */
+    public static VkDebugReportCallbackEXT create(VkDebugReportCallbackEXTI instance) {
+        return instance instanceof VkDebugReportCallbackEXT
+            ? (VkDebugReportCallbackEXT)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected VkDebugReportCallbackEXT() {
-		super(SIGNATURE);
-	}
+    protected VkDebugReportCallbackEXT() {
+        super(SIGNATURE);
+    }
 
-	private VkDebugReportCallbackEXT(long functionPointer) {
-		super(functionPointer);
-	}
+    private VkDebugReportCallbackEXT(long functionPointer) {
+        super(functionPointer);
+    }
 
-	/**
-	 * Converts the specified {@link VkDebugReportCallbackEXT} argument to a String.
-	 *
-	 * <p>This method may only be used inside a {@code VkDebugReportCallbackEXT} invocation.</p>
-	 *
-	 * @param string the argument to decode
-	 *
-	 * @return the message as a String
-	 */
-	public static String getString(long string) {
-		return memUTF8(string);
-	}
+    /**
+     * Converts the specified {@link VkDebugReportCallbackEXT} argument to a String.
+     *
+     * <p>This method may only be used inside a {@code VkDebugReportCallbackEXT} invocation.</p>
+     *
+     * @param string the argument to decode
+     *
+     * @return the message as a String
+     */
+    public static String getString(long string) {
+        return memUTF8(string);
+    }
 
-	private static final class Container extends VkDebugReportCallbackEXT {
+    private static final class Container extends VkDebugReportCallbackEXT {
 
-		private final VkDebugReportCallbackEXTI delegate;
+        private final VkDebugReportCallbackEXTI delegate;
 
-		Container(long functionPointer, VkDebugReportCallbackEXTI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, VkDebugReportCallbackEXTI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData) {
-			return delegate.invoke(flags, objectType, object, location, messageCode, pLayerPrefix, pMessage, pUserData);
-		}
+        @Override
+        public int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData) {
+            return delegate.invoke(flags, objectType, object, location, messageCode, pLayerPrefix, pMessage, pUserData);
+        }
 
-	}
+    }
 
 }

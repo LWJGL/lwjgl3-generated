@@ -60,278 +60,282 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NativeFileDialog {
 
-	/**
-	 * Result values.
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #NFD_ERROR ERROR} - Programmatic error.</li>
-	 * <li>{@link #NFD_OKAY OKAY} - User pressed okay, or successful return.</li>
-	 * <li>{@link #NFD_CANCEL CANCEL} - User pressed cancel.</li>
-	 * </ul>
-	 */
-	public static final int
-		NFD_ERROR  = 0,
-		NFD_OKAY   = 1,
-		NFD_CANCEL = 2;
+    /**
+     * Result values.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #NFD_ERROR ERROR} - Programmatic error.</li>
+     * <li>{@link #NFD_OKAY OKAY} - User pressed okay, or successful return.</li>
+     * <li>{@link #NFD_CANCEL CANCEL} - User pressed cancel.</li>
+     * </ul>
+     */
+    public static final int
+        NFD_ERROR  = 0,
+        NFD_OKAY   = 1,
+        NFD_CANCEL = 2;
 
-	static { LibNFD.initialize(); }
+    static { LibNFD.initialize(); }
 
-	protected NativeFileDialog() {
-		throw new UnsupportedOperationException();
-	}
+    protected NativeFileDialog() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ NFD_OpenDialog ] ---
+    // --- [ NFD_OpenDialog ] ---
 
-	/** Unsafe version of: {@link #NFD_OpenDialog OpenDialog} */
-	public static native int nNFD_OpenDialog(long filterList, long defaultPath, long outPath);
+    /** Unsafe version of: {@link #NFD_OpenDialog OpenDialog} */
+    public static native int nNFD_OpenDialog(long filterList, long defaultPath, long outPath);
 
-	/**
-	 * Launches a single file open dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
-	public static int NFD_OpenDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
-		if ( CHECKS ) {
-			checkNT1Safe(filterList);
-			checkNT1Safe(defaultPath);
-			check(outPath, 1);
-		}
-		return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
-	}
+    /**
+     * Launches a single file open dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+     * needed.</p>
+     *
+     * @param filterList  an optional filter list
+     * @param defaultPath an optional default path
+     * @param outPath     returns the selected file path
+     */
+    public static int NFD_OpenDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
+        if (CHECKS) {
+            checkNT1Safe(filterList);
+            checkNT1Safe(defaultPath);
+            check(outPath, 1);
+        }
+        return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
+    }
 
-	/**
-	 * Launches a single file open dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
-	public static int NFD_OpenDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
-		if ( CHECKS )
-			check(outPath, 1);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer filterListEncoded = stack.UTF8(filterList);
-			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
-			return nNFD_OpenDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Launches a single file open dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+     * needed.</p>
+     *
+     * @param filterList  an optional filter list
+     * @param defaultPath an optional default path
+     * @param outPath     returns the selected file path
+     */
+    public static int NFD_OpenDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
+        if (CHECKS) {
+            check(outPath, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer filterListEncoded = stack.UTF8(filterList);
+            ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
+            return nNFD_OpenDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ NFD_OpenDialogMultiple ] ---
+    // --- [ NFD_OpenDialogMultiple ] ---
 
-	/** Unsafe version of: {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
-	public static native int nNFD_OpenDialogMultiple(long filterList, long defaultPath, long outPaths);
+    /** Unsafe version of: {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
+    public static native int nNFD_OpenDialogMultiple(long filterList, long defaultPath, long outPaths);
 
-	/**
-	 * Launches a multiple file open dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
-	 * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPaths    a path set that will be filled with the selected files
-	 */
-	public static int NFD_OpenDialogMultiple(ByteBuffer filterList, ByteBuffer defaultPath, NFDPathSet outPaths) {
-		if ( CHECKS ) {
-			checkNT1Safe(filterList);
-			checkNT1Safe(defaultPath);
-		}
-		return nNFD_OpenDialogMultiple(memAddressSafe(filterList), memAddressSafe(defaultPath), outPaths.address());
-	}
+    /**
+     * Launches a multiple file open dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
+     * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
+     *
+     * @param filterList  an optional filter list
+     * @param defaultPath an optional default path
+     * @param outPaths    a path set that will be filled with the selected files
+     */
+    public static int NFD_OpenDialogMultiple(ByteBuffer filterList, ByteBuffer defaultPath, NFDPathSet outPaths) {
+        if (CHECKS) {
+            checkNT1Safe(filterList);
+            checkNT1Safe(defaultPath);
+        }
+        return nNFD_OpenDialogMultiple(memAddressSafe(filterList), memAddressSafe(defaultPath), outPaths.address());
+    }
 
-	/**
-	 * Launches a multiple file open dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
-	 * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPaths    a path set that will be filled with the selected files
-	 */
-	public static int NFD_OpenDialogMultiple(CharSequence filterList, CharSequence defaultPath, NFDPathSet outPaths) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer filterListEncoded = stack.UTF8(filterList);
-			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
-			return nNFD_OpenDialogMultiple(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), outPaths.address());
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Launches a multiple file open dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
+     * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
+     *
+     * @param filterList  an optional filter list
+     * @param defaultPath an optional default path
+     * @param outPaths    a path set that will be filled with the selected files
+     */
+    public static int NFD_OpenDialogMultiple(CharSequence filterList, CharSequence defaultPath, NFDPathSet outPaths) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer filterListEncoded = stack.UTF8(filterList);
+            ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
+            return nNFD_OpenDialogMultiple(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), outPaths.address());
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ NFD_SaveDialog ] ---
+    // --- [ NFD_SaveDialog ] ---
 
-	/** Unsafe version of: {@link #NFD_SaveDialog SaveDialog} */
-	public static native int nNFD_SaveDialog(long filterList, long defaultPath, long outPath);
+    /** Unsafe version of: {@link #NFD_SaveDialog SaveDialog} */
+    public static native int nNFD_SaveDialog(long filterList, long defaultPath, long outPath);
 
-	/**
-	 * Launches a save dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
-	public static int NFD_SaveDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
-		if ( CHECKS ) {
-			checkNT1Safe(filterList);
-			checkNT1Safe(defaultPath);
-			check(outPath, 1);
-		}
-		return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
-	}
+    /**
+     * Launches a save dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+     * needed.</p>
+     *
+     * @param filterList  an optional filter list
+     * @param defaultPath an optional default path
+     * @param outPath     returns the selected file path
+     */
+    public static int NFD_SaveDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
+        if (CHECKS) {
+            checkNT1Safe(filterList);
+            checkNT1Safe(defaultPath);
+            check(outPath, 1);
+        }
+        return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
+    }
 
-	/**
-	 * Launches a save dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
-	public static int NFD_SaveDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
-		if ( CHECKS )
-			check(outPath, 1);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer filterListEncoded = stack.UTF8(filterList);
-			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
-			return nNFD_SaveDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Launches a save dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+     * needed.</p>
+     *
+     * @param filterList  an optional filter list
+     * @param defaultPath an optional default path
+     * @param outPath     returns the selected file path
+     */
+    public static int NFD_SaveDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
+        if (CHECKS) {
+            check(outPath, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer filterListEncoded = stack.UTF8(filterList);
+            ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
+            return nNFD_SaveDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ NFD_PickFolder ] ---
+    // --- [ NFD_PickFolder ] ---
 
-	/** Unsafe version of: {@link #NFD_PickFolder PickFolder} */
-	public static native int nNFD_PickFolder(long defaultPath, long outPath);
+    /** Unsafe version of: {@link #NFD_PickFolder PickFolder} */
+    public static native int nNFD_PickFolder(long defaultPath, long outPath);
 
-	/**
-	 * Launches a select folder dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
-	public static int NFD_PickFolder(ByteBuffer defaultPath, PointerBuffer outPath) {
-		if ( CHECKS ) {
-			checkNT1Safe(defaultPath);
-			check(outPath, 1);
-		}
-		return nNFD_PickFolder(memAddressSafe(defaultPath), memAddress(outPath));
-	}
+    /**
+     * Launches a select folder dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+     * needed.</p>
+     *
+     * @param defaultPath an optional default path
+     * @param outPath     returns the selected file path
+     */
+    public static int NFD_PickFolder(ByteBuffer defaultPath, PointerBuffer outPath) {
+        if (CHECKS) {
+            checkNT1Safe(defaultPath);
+            check(outPath, 1);
+        }
+        return nNFD_PickFolder(memAddressSafe(defaultPath), memAddress(outPath));
+    }
 
-	/**
-	 * Launches a select folder dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
-	public static int NFD_PickFolder(CharSequence defaultPath, PointerBuffer outPath) {
-		if ( CHECKS )
-			check(outPath, 1);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
-			return nNFD_PickFolder(memAddressSafe(defaultPathEncoded), memAddress(outPath));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Launches a select folder dialog.
+     * 
+     * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+     * needed.</p>
+     *
+     * @param defaultPath an optional default path
+     * @param outPath     returns the selected file path
+     */
+    public static int NFD_PickFolder(CharSequence defaultPath, PointerBuffer outPath) {
+        if (CHECKS) {
+            check(outPath, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
+            return nNFD_PickFolder(memAddressSafe(defaultPathEncoded), memAddress(outPath));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ NFD_GetError ] ---
+    // --- [ NFD_GetError ] ---
 
-	/** Unsafe version of: {@link #NFD_GetError GetError} */
-	public static native long nNFD_GetError();
+    /** Unsafe version of: {@link #NFD_GetError GetError} */
+    public static native long nNFD_GetError();
 
-	/** Returns the last error. */
-	public static String NFD_GetError() {
-		long __result = nNFD_GetError();
-		return memASCII(__result);
-	}
+    /** Returns the last error. */
+    public static String NFD_GetError() {
+        long __result = nNFD_GetError();
+        return memASCII(__result);
+    }
 
-	// --- [ NFD_PathSet_GetCount ] ---
+    // --- [ NFD_PathSet_GetCount ] ---
 
-	/** Unsafe version of: {@link #NFD_PathSet_GetCount PathSet_GetCount} */
-	public static native long nNFD_PathSet_GetCount(long pathSet);
+    /** Unsafe version of: {@link #NFD_PathSet_GetCount PathSet_GetCount} */
+    public static native long nNFD_PathSet_GetCount(long pathSet);
 
-	/**
-	 * Returns the number of entries stored in {@code pathSet}.
-	 *
-	 * @param pathSet the path set to query
-	 */
-	public static long NFD_PathSet_GetCount(NFDPathSet pathSet) {
-		return nNFD_PathSet_GetCount(pathSet.address());
-	}
+    /**
+     * Returns the number of entries stored in {@code pathSet}.
+     *
+     * @param pathSet the path set to query
+     */
+    public static long NFD_PathSet_GetCount(NFDPathSet pathSet) {
+        return nNFD_PathSet_GetCount(pathSet.address());
+    }
 
-	// --- [ NFD_PathSet_GetPath ] ---
+    // --- [ NFD_PathSet_GetPath ] ---
 
-	/** Unsafe version of: {@link #NFD_PathSet_GetPath PathSet_GetPath} */
-	public static native long nNFD_PathSet_GetPath(long pathSet, long index);
+    /** Unsafe version of: {@link #NFD_PathSet_GetPath PathSet_GetPath} */
+    public static native long nNFD_PathSet_GetPath(long pathSet, long index);
 
-	/**
-	 * Returns the UTF-8 path at offset {@code index}.
-	 *
-	 * @param pathSet the path set to query
-	 * @param index   the path offset
-	 */
-	public static String NFD_PathSet_GetPath(NFDPathSet pathSet, long index) {
-		long __result = nNFD_PathSet_GetPath(pathSet.address(), index);
-		return memUTF8(__result);
-	}
+    /**
+     * Returns the UTF-8 path at offset {@code index}.
+     *
+     * @param pathSet the path set to query
+     * @param index   the path offset
+     */
+    public static String NFD_PathSet_GetPath(NFDPathSet pathSet, long index) {
+        long __result = nNFD_PathSet_GetPath(pathSet.address(), index);
+        return memUTF8(__result);
+    }
 
-	// --- [ NFD_PathSet_Free ] ---
+    // --- [ NFD_PathSet_Free ] ---
 
-	/** Unsafe version of: {@link #NFD_PathSet_Free PathSet_Free} */
-	public static native void nNFD_PathSet_Free(long pathSet);
+    /** Unsafe version of: {@link #NFD_PathSet_Free PathSet_Free} */
+    public static native void nNFD_PathSet_Free(long pathSet);
 
-	/**
-	 * Frees the contents of the specified path set.
-	 *
-	 * @param pathSet the path set
-	 */
-	public static void NFD_PathSet_Free(NFDPathSet pathSet) {
-		nNFD_PathSet_Free(pathSet.address());
-	}
+    /**
+     * Frees the contents of the specified path set.
+     *
+     * @param pathSet the path set
+     */
+    public static void NFD_PathSet_Free(NFDPathSet pathSet) {
+        nNFD_PathSet_Free(pathSet.address());
+    }
 
-	// --- [ NFD_Free ] ---
+    // --- [ NFD_Free ] ---
 
-	/** Unsafe version of: {@link #NFD_Free Free} */
-	public static native void nNFDi_Free(long outPath);
+    /** Unsafe version of: {@link #NFD_Free Free} */
+    public static native void nNFDi_Free(long outPath);
 
-	/**
-	 * Frees memory allocated by NativeFileDialog.
-	 *
-	 * @param outPath the string to free
-	 */
-	public static void NFD_Free(ByteBuffer outPath) {
-		if ( CHECKS )
-			check(outPath, 1);
-		nNFDi_Free(memAddress(outPath));
-	}
+    /**
+     * Frees memory allocated by NativeFileDialog.
+     *
+     * @param outPath the string to free
+     */
+    public static void NFD_Free(ByteBuffer outPath) {
+        if (CHECKS) {
+            check(outPath, 1);
+        }
+        nNFDi_Free(memAddress(outPath));
+    }
 
 }

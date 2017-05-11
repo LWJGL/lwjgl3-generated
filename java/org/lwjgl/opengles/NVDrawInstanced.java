@@ -30,66 +30,66 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVDrawInstanced {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVDrawInstanced() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVDrawInstanced() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glDrawArraysInstancedNV, caps.glDrawElementsInstancedNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glDrawArraysInstancedNV, caps.glDrawElementsInstancedNV
+        );
+    }
 
-	// --- [ glDrawArraysInstancedNV ] ---
+    // --- [ glDrawArraysInstancedNV ] ---
 
-	public static native void glDrawArraysInstancedNV(int mode, int first, int count, int primcount);
+    public static native void glDrawArraysInstancedNV(int mode, int first, int count, int primcount);
 
-	// --- [ glDrawElementsInstancedNV ] ---
+    // --- [ glDrawElementsInstancedNV ] ---
 
-	/**
-	 * Unsafe version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV}
-	 *
-	 * @param type {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
-	 */
-	public static native void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount);
+    /**
+     * Unsafe version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV}
+     *
+     * @param type {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
+     */
+    public static native void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount);
 
-	/**
-	 * 
-	 *
-	 * @param mode      
-	 * @param count     
-	 * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
-	 * @param indices   
-	 * @param primcount 
-	 */
-	public static void glDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
-		nglDrawElementsInstancedNV(mode, count, type, indices, primcount);
-	}
+    /**
+     * 
+     *
+     * @param mode      
+     * @param count     
+     * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
+     * @param indices   
+     * @param primcount 
+     */
+    public static void glDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
+        nglDrawElementsInstancedNV(mode, count, type, indices, primcount);
+    }
 
-	/**
-	 * 
-	 *
-	 * @param mode      
-	 * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
-	 * @param indices   
-	 * @param primcount 
-	 */
-	public static void glDrawElementsInstancedNV(int mode, int type, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedNV(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
-	}
+    /**
+     * 
+     *
+     * @param mode      
+     * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
+     * @param indices   
+     * @param primcount 
+     */
+    public static void glDrawElementsInstancedNV(int mode, int type, ByteBuffer indices, int primcount) {
+        nglDrawElementsInstancedNV(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedNV(int mode, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedNV(int mode, ByteBuffer indices, int primcount) {
+        nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedNV(int mode, ShortBuffer indices, int primcount) {
-		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedNV(int mode, ShortBuffer indices, int primcount) {
+        nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
+    }
 
-	public static void glDrawElementsInstancedNV(int mode, IntBuffer indices, int primcount) {
-		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
-	}
+    public static void glDrawElementsInstancedNV(int mode, IntBuffer indices, int primcount) {
+        nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
+    }
 
 }

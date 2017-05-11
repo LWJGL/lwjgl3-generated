@@ -15,9 +15,9 @@ package org.lwjgl.egl;
  */
 public final class KHRVGParentImage {
 
-	/**  */
-	public static final int EGL_VG_PARENT_IMAGE_KHR = 0x30BA;
+    /**  */
+    public static final int EGL_VG_PARENT_IMAGE_KHR = 0x30BA;
 
-	private KHRVGParentImage() {}
+    private KHRVGParentImage() {}
 
 }

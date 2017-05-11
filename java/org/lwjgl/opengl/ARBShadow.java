@@ -17,17 +17,17 @@ package org.lwjgl.opengl;
  */
 public final class ARBShadow {
 
-	/** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_COMPARE_MODE_ARB = 0x884C,
-		GL_TEXTURE_COMPARE_FUNC_ARB = 0x884D;
+    /** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
+    public static final int
+        GL_TEXTURE_COMPARE_MODE_ARB = 0x884C,
+        GL_TEXTURE_COMPARE_FUNC_ARB = 0x884D;
 
-	/**
-	 * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
-	 * TEXTURE_COMPARE_MODE_ARB.
-	 */
-	public static final int GL_COMPARE_R_TO_TEXTURE_ARB = 0x884E;
+    /**
+     * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
+     * TEXTURE_COMPARE_MODE_ARB.
+     */
+    public static final int GL_COMPARE_R_TO_TEXTURE_ARB = 0x884E;
 
-	private ARBShadow() {}
+    private ARBShadow() {}
 
 }

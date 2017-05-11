@@ -24,12 +24,12 @@ package org.lwjgl.egl;
  */
 public final class NVDepthNonlinear {
 
-	/**  */
-	public static final int
-		EGL_DEPTH_ENCODING_NV           = 0x30E2,
-		EGL_DEPTH_ENCODING_NONE_NV      = 0,
-		EGL_DEPTH_ENCODING_NONLINEAR_NV = 0x30E3;
+    /**  */
+    public static final int
+        EGL_DEPTH_ENCODING_NV           = 0x30E2,
+        EGL_DEPTH_ENCODING_NONE_NV      = 0,
+        EGL_DEPTH_ENCODING_NONLINEAR_NV = 0x30E3;
 
-	private NVDepthNonlinear() {}
+    private NVDepthNonlinear() {}
 
 }

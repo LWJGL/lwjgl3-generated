@@ -39,15 +39,15 @@ package org.lwjgl.vulkan;
  */
 public final class KHXExternalSemaphore {
 
-	/** The extension specification version. */
-	public static final int VK_KHX_EXTERNAL_SEMAPHORE_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_KHX_EXTERNAL_SEMAPHORE_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME = "VK_KHX_external_semaphore";
+    /** The extension name. */
+    public static final String VK_KHX_EXTERNAL_SEMAPHORE_EXTENSION_NAME = "VK_KHX_external_semaphore";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX = 1000077000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHX = 1000077000;
 
-	private KHXExternalSemaphore() {}
+    private KHXExternalSemaphore() {}
 
 }

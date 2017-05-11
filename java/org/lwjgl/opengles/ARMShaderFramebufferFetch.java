@@ -20,12 +20,12 @@ package org.lwjgl.opengles;
  */
 public final class ARMShaderFramebufferFetch {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int GL_FETCH_PER_SAMPLE_ARM = 0x8F65;
+    /** Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int GL_FETCH_PER_SAMPLE_ARM = 0x8F65;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM = 0x8F66;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
+    public static final int GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM = 0x8F66;
 
-	private ARMShaderFramebufferFetch() {}
+    private ARMShaderFramebufferFetch() {}
 
 }

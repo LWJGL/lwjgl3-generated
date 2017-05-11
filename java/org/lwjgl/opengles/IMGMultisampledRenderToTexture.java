@@ -29,36 +29,36 @@ import static org.lwjgl.system.Checks.*;
  */
 public class IMGMultisampledRenderToTexture {
 
-	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
-	public static final int GL_RENDERBUFFER_SAMPLES_IMG = 0x9133;
+    /** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
+    public static final int GL_RENDERBUFFER_SAMPLES_IMG = 0x9133;
 
-	/** Returned by CheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG = 0x9134;
+    /** Returned by CheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG = 0x9134;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_MAX_SAMPLES_IMG = 0x9135;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_MAX_SAMPLES_IMG = 0x9135;
 
-	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
-	public static final int GL_TEXTURE_SAMPLES_IMG = 0x9136;
+    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    public static final int GL_TEXTURE_SAMPLES_IMG = 0x9136;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected IMGMultisampledRenderToTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected IMGMultisampledRenderToTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glRenderbufferStorageMultisampleIMG, caps.glFramebufferTexture2DMultisampleIMG
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glRenderbufferStorageMultisampleIMG, caps.glFramebufferTexture2DMultisampleIMG
+        );
+    }
 
-	// --- [ glRenderbufferStorageMultisampleIMG ] ---
+    // --- [ glRenderbufferStorageMultisampleIMG ] ---
 
-	public static native void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
 
-	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
+    // --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
-	public static native void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples);
+    public static native void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples);
 
 }

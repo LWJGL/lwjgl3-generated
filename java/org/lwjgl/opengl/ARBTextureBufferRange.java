@@ -19,51 +19,51 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBTextureBufferRange {
 
-	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_TEXTURE_BUFFER_OFFSET = 0x919D,
-		GL_TEXTURE_BUFFER_SIZE   = 0x919E;
+    /** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
+    public static final int
+        GL_TEXTURE_BUFFER_OFFSET = 0x919D,
+        GL_TEXTURE_BUFFER_SIZE   = 0x919E;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBTextureBufferRange() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBTextureBufferRange() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
-		return checkFunctions(
-			caps.glTexBufferRange, ext.contains("GL_EXT_direct_state_access") ? caps.glTextureBufferRangeEXT : -1L
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+        return checkFunctions(
+            caps.glTexBufferRange, ext.contains("GL_EXT_direct_state_access") ? caps.glTextureBufferRangeEXT : -1L
+        );
+    }
 
-	// --- [ glTexBufferRange ] ---
+    // --- [ glTexBufferRange ] ---
 
-	/**
-	 * Binds a range of a buffer's data store to a buffer texture.
-	 *
-	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
-	 * @param internalformat the internal format of the data in the store belonging to {@code buffer}
-	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
-	 * @param offset         the offset of the start of the range of the buffer's data store to attach
-	 * @param size           the size of the range of the buffer's data store to attach
-	 */
-	public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
+    /**
+     * Binds a range of a buffer's data store to a buffer texture.
+     *
+     * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
+     * @param internalformat the internal format of the data in the store belonging to {@code buffer}
+     * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
+     * @param offset         the offset of the start of the range of the buffer's data store to attach
+     * @param size           the size of the range of the buffer's data store to attach
+     */
+    public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
 
-	// --- [ glTextureBufferRangeEXT ] ---
+    // --- [ glTextureBufferRangeEXT ] ---
 
-	/**
-	 * DSA version of {@link #glTexBufferRange TexBufferRange}.
-	 *
-	 * @param texture        the texture object
-	 * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
-	 * @param internalformat the internal format of the data in the store belonging to {@code buffer}
-	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
-	 * @param offset         the offset of the start of the range of the buffer's data store to attach
-	 * @param size           the size of the range of the buffer's data store to attach
-	 */
-	public static native void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size);
+    /**
+     * DSA version of {@link #glTexBufferRange TexBufferRange}.
+     *
+     * @param texture        the texture object
+     * @param target         the target of the operation. Must be:<br><table><tr><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td></tr></table>
+     * @param internalformat the internal format of the data in the store belonging to {@code buffer}
+     * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
+     * @param offset         the offset of the start of the range of the buffer's data store to attach
+     * @param size           the size of the range of the buffer's data store to attach
+     */
+    public static native void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size);
 
 }

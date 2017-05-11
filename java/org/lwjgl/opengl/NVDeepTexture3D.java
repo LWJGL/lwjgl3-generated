@@ -14,11 +14,11 @@ package org.lwjgl.opengl;
  */
 public final class NVDeepTexture3D {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int
-		GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV = 0x90D0,
-		GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV        = 0x90D1;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
+    public static final int
+        GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV = 0x90D0,
+        GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV        = 0x90D1;
 
-	private NVDeepTexture3D() {}
+    private NVDeepTexture3D() {}
 
 }

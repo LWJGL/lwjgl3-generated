@@ -13,23 +13,23 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWWindowCloseCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(p)v";
+    String SIGNATURE = "(p)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when the user attempts to close the specified window, for example by clicking the close widget in the title bar.
-	 *
-	 * @param window the window that the user attempted to close
-	 */
-	void invoke(long window);
+    /**
+     * Will be called when the user attempts to close the specified window, for example by clicking the close widget in the title bar.
+     *
+     * @param window the window that the user attempted to close
+     */
+    void invoke(long window);
 
 }

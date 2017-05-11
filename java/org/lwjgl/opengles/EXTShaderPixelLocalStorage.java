@@ -27,14 +27,14 @@ package org.lwjgl.opengles;
  */
 public final class EXTShaderPixelLocalStorage {
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetInteger64v, or GetFloatv. */
-	public static final int
-		GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT = 0x8F63,
-		GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT      = 0x8F67;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetInteger64v, or GetFloatv. */
+    public static final int
+        GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT = 0x8F63,
+        GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT      = 0x8F67;
 
-	/** Accepted by the {@code pname} parameters of IsEnabled, GetBooleanv, GetIntegerv, GetInteger64v, or GetFloatv. */
-	public static final int GL_SHADER_PIXEL_LOCAL_STORAGE_EXT = 0x8F64;
+    /** Accepted by the {@code pname} parameters of IsEnabled, GetBooleanv, GetIntegerv, GetInteger64v, or GetFloatv. */
+    public static final int GL_SHADER_PIXEL_LOCAL_STORAGE_EXT = 0x8F64;
 
-	private EXTShaderPixelLocalStorage() {}
+    private EXTShaderPixelLocalStorage() {}
 
 }

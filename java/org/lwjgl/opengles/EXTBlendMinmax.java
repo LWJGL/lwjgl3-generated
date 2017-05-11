@@ -16,15 +16,15 @@ package org.lwjgl.opengles;
  */
 public final class EXTBlendMinmax {
 
-	/** Accepted by the {@code mode} parameter of BlendEquationEXT. */
-	public static final int
-		GL_FUNC_ADD_EXT = 0x8006,
-		GL_MIN_EXT      = 0x8007,
-		GL_MAX_EXT      = 0x8008;
+    /** Accepted by the {@code mode} parameter of BlendEquationEXT. */
+    public static final int
+        GL_FUNC_ADD_EXT = 0x8006,
+        GL_MIN_EXT      = 0x8007,
+        GL_MAX_EXT      = 0x8008;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_BLEND_EQUATION_EXT = 0x8009;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_BLEND_EQUATION_EXT = 0x8009;
 
-	private EXTBlendMinmax() {}
+    private EXTBlendMinmax() {}
 
 }

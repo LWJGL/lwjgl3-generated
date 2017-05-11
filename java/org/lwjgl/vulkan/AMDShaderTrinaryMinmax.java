@@ -45,12 +45,12 @@ package org.lwjgl.vulkan;
  */
 public final class AMDShaderTrinaryMinmax {
 
-	/** The extension specification version. */
-	public static final int VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME = "VK_AMD_shader_trinary_minmax";
+    /** The extension name. */
+    public static final String VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME = "VK_AMD_shader_trinary_minmax";
 
-	private AMDShaderTrinaryMinmax() {}
+    private AMDShaderTrinaryMinmax() {}
 
 }

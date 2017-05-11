@@ -12,11 +12,11 @@ package org.lwjgl.opengl;
  */
 public final class GLXARBMultisample {
 
-	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}. */
-	public static final int
-		GLX_SAMPLE_BUFFERS_ARB = 100000,
-		GLX_SAMPLES_ARB        = 100001;
+    /** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}. */
+    public static final int
+        GLX_SAMPLE_BUFFERS_ARB = 100000,
+        GLX_SAMPLES_ARB        = 100001;
 
-	private GLXARBMultisample() {}
+    private GLXARBMultisample() {}
 
 }

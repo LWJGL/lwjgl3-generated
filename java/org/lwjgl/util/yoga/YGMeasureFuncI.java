@@ -13,31 +13,31 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface YGMeasureFuncI extends CallbackI.J {
 
-	String SIGNATURE = "(pfifi)l";
+    String SIGNATURE = "(pfifi)l";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgFloat(args),
-			dcbArgInt(args),
-			dcbArgFloat(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgFloat(args),
+            dcbArgInt(args),
+            dcbArgFloat(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Use {@link YGMeasureFunc#toLong toLong} to create the return value.
-	 *
-	 * @param node       
-	 * @param width      
-	 * @param widthMode  
-	 * @param height     
-	 * @param heightMode 
-	 */
-	long invoke(long node, float width, int widthMode, float height, int heightMode);
+    /**
+     * Use {@link YGMeasureFunc#toLong toLong} to create the return value.
+     *
+     * @param node       
+     * @param width      
+     * @param widthMode  
+     * @param height     
+     * @param heightMode 
+     */
+    long invoke(long node, float width, int widthMode, float height, int heightMode);
 
 }

@@ -24,26 +24,26 @@ package org.lwjgl.opengles;
  */
 public final class OESTextureCubeMapArray {
 
-	/**
-	 * Accepted by the {@code target} parameter of TexParameter{if}, TexParameter{if}v, TexParameterI{i ui}vOES, BindTexture, GenerateMipmap, TexImage3D,
-	 * TexSubImage3D, TexStorage3D, GetTexParameter{if}v, GetTexParameter{i ui}vOES, GetTexLevelParameter{if}v, CompressedTexImage3D, CompressedTexSubImage3D
-	 * and CopyTexSubImage3D.
-	 */
-	public static final int GL_TEXTURE_CUBE_MAP_ARRAY_OES = 0x9009;
+    /**
+     * Accepted by the {@code target} parameter of TexParameter{if}, TexParameter{if}v, TexParameterI{i ui}vOES, BindTexture, GenerateMipmap, TexImage3D,
+     * TexSubImage3D, TexStorage3D, GetTexParameter{if}v, GetTexParameter{i ui}vOES, GetTexLevelParameter{if}v, CompressedTexImage3D, CompressedTexSubImage3D
+     * and CopyTexSubImage3D.
+     */
+    public static final int GL_TEXTURE_CUBE_MAP_ARRAY_OES = 0x9009;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv and GetFloatv. */
-	public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_OES = 0x900A;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv and GetFloatv. */
+    public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_OES = 0x900A;
 
-	/** Returned by the {@code type} parameter of GetActiveUniform, and by the {@code params} parameter of GetProgramResourceiv when {@code props} is TYPE. */
-	public static final int
-		GL_SAMPLER_CUBE_MAP_ARRAY_OES              = 0x900C,
-		GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_OES       = 0x900D,
-		GL_INT_SAMPLER_CUBE_MAP_ARRAY_OES          = 0x900E,
-		GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_OES = 0x900F,
-		GL_IMAGE_CUBE_MAP_ARRAY_OES                = 0x9054,
-		GL_INT_IMAGE_CUBE_MAP_ARRAY_OES            = 0x905F,
-		GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES   = 0x906A;
+    /** Returned by the {@code type} parameter of GetActiveUniform, and by the {@code params} parameter of GetProgramResourceiv when {@code props} is TYPE. */
+    public static final int
+        GL_SAMPLER_CUBE_MAP_ARRAY_OES              = 0x900C,
+        GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_OES       = 0x900D,
+        GL_INT_SAMPLER_CUBE_MAP_ARRAY_OES          = 0x900E,
+        GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_OES = 0x900F,
+        GL_IMAGE_CUBE_MAP_ARRAY_OES                = 0x9054,
+        GL_INT_IMAGE_CUBE_MAP_ARRAY_OES            = 0x905F,
+        GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES   = 0x906A;
 
-	private OESTextureCubeMapArray() {}
+    private OESTextureCubeMapArray() {}
 
 }

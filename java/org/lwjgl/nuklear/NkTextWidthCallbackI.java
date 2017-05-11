@@ -13,22 +13,22 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface NkTextWidthCallbackI extends CallbackI.F {
 
-	String SIGNATURE = "(pfpi)f";
+    String SIGNATURE = "(pfpi)f";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default float callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgFloat(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default float callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgFloat(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
 
-	float invoke(long handle, float h, long text, int len);
+    float invoke(long handle, float h, long text, int len);
 
 }

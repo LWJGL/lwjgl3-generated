@@ -20,99 +20,99 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBDrawBuffersBlend {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBDrawBuffersBlend() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBDrawBuffersBlend() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBlendEquationiARB, caps.glBlendEquationSeparateiARB, caps.glBlendFunciARB, caps.glBlendFuncSeparateiARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBlendEquationiARB, caps.glBlendEquationSeparateiARB, caps.glBlendFunciARB, caps.glBlendFuncSeparateiARB
+        );
+    }
 
-	// --- [ glBlendEquationiARB ] ---
+    // --- [ glBlendEquationiARB ] ---
 
-	/**
-	 * Provides a way to enable blending and set color write masks independently per color output.
-	 * 
-	 * <p>This call modifies the blend equations associated with an individual draw buffer.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if {@code mode} is not one of {@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT},
-	 * {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MAX MAX}, or {@link GL14#GL_MIN MIN}.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
-	 * of {@link GL11#glEnd End}.</p>
-	 *
-	 * @param buf  an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
-	 * @param mode determines both the RGB and alpha blend equations. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
-	 */
-	public static native void glBlendEquationiARB(int buf, int mode);
+    /**
+     * Provides a way to enable blending and set color write masks independently per color output.
+     * 
+     * <p>This call modifies the blend equations associated with an individual draw buffer.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if {@code mode} is not one of {@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT},
+     * {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MAX MAX}, or {@link GL14#GL_MIN MIN}.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
+     * of {@link GL11#glEnd End}.</p>
+     *
+     * @param buf  an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
+     * @param mode determines both the RGB and alpha blend equations. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
+     */
+    public static native void glBlendEquationiARB(int buf, int mode);
 
-	// --- [ glBlendEquationSeparateiARB ] ---
+    // --- [ glBlendEquationSeparateiARB ] ---
 
-	/**
-	 * Provides a way to enable blending and set color write masks independently per color output.
-	 * 
-	 * <p>This call modifies the blend equations associated with an individual draw buffer.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if either {@code modeRGB} or {@code modeAlpha} are not one of {@link GL14#GL_FUNC_ADD FUNC_ADD},
-	 * {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MAX MAX}, or {@link GL14#GL_MIN MIN}.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
-	 * of {@link GL11#glEnd End}.</p>
-	 *
-	 * @param buf       an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
-	 * @param modeRGB   the RGB blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
-	 * @param modeAlpha the alpha blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
-	 */
-	public static native void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha);
+    /**
+     * Provides a way to enable blending and set color write masks independently per color output.
+     * 
+     * <p>This call modifies the blend equations associated with an individual draw buffer.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if either {@code modeRGB} or {@code modeAlpha} are not one of {@link GL14#GL_FUNC_ADD FUNC_ADD},
+     * {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MAX MAX}, or {@link GL14#GL_MIN MIN}.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
+     * of {@link GL11#glEnd End}.</p>
+     *
+     * @param buf       an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
+     * @param modeRGB   the RGB blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
+     * @param modeAlpha the alpha blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
+     */
+    public static native void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha);
 
-	// --- [ glBlendFunciARB ] ---
+    // --- [ glBlendFunciARB ] ---
 
-	/**
-	 * Provides a way to enable blending and set color write masks independently per color output.
-	 * 
-	 * <p>This call modifies the blend functions associated with an individual draw buffer.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if either {@code src}, or {@code dst} is not an accepted value.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
-	 * of {@link GL11#glEnd End}.</p>
-	 *
-	 * @param buf an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
-	 * @param src determines both RGB and alpha source functions
-	 * @param dst determines both RGB and alpha destination functions
-	 */
-	public static native void glBlendFunciARB(int buf, int src, int dst);
+    /**
+     * Provides a way to enable blending and set color write masks independently per color output.
+     * 
+     * <p>This call modifies the blend functions associated with an individual draw buffer.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if either {@code src}, or {@code dst} is not an accepted value.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
+     * of {@link GL11#glEnd End}.</p>
+     *
+     * @param buf an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
+     * @param src determines both RGB and alpha source functions
+     * @param dst determines both RGB and alpha destination functions
+     */
+    public static native void glBlendFunciARB(int buf, int src, int dst);
 
-	// --- [ glBlendFuncSeparateiARB ] ---
+    // --- [ glBlendFuncSeparateiARB ] ---
 
-	/**
-	 * Provides a way to enable blending and set color write masks independently per color output.
-	 * 
-	 * <p>This call modifies the blend functions associated with an individual draw buffer.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if either {@code srcRGB}, {@code dstRGB}, {@code srcAlpha}, or {@code dstAlpha} is not an accepted value.</p>
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
-	 * of {@link GL11#glEnd End}.</p>
-	 *
-	 * @param buf      an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
-	 * @param srcRGB   the source RGB blend function
-	 * @param dstRGB   the destination RGB blend function
-	 * @param srcAlpha the source alpha blend function
-	 * @param dstAlpha the destination alpha blend function
-	 */
-	public static native void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    /**
+     * Provides a way to enable blending and set color write masks independently per color output.
+     * 
+     * <p>This call modifies the blend functions associated with an individual draw buffer.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if the {@code buf} parameter is outside the range [0, {@link GL20#GL_MAX_DRAW_BUFFERS MAX_DRAW_BUFFERS} &ndash; 1].</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated if either {@code srcRGB}, {@code dstRGB}, {@code srcAlpha}, or {@code dstAlpha} is not an accepted value.</p>
+     * 
+     * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this method is executed between the execution of {@link GL11#glBegin Begin} and the corresponding execution
+     * of {@link GL11#glEnd End}.</p>
+     *
+     * @param buf      an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
+     * @param srcRGB   the source RGB blend function
+     * @param dstRGB   the destination RGB blend function
+     * @param srcAlpha the source alpha blend function
+     * @param dstAlpha the destination alpha blend function
+     */
+    public static native void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 }

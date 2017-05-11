@@ -56,154 +56,154 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class AITexture extends Struct {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		MWIDTH,
-		MHEIGHT,
-		ACHFORMATHINT,
-		PCDATA;
+    /** The struct member offsets. */
+    public static final int
+        MWIDTH,
+        MHEIGHT,
+        ACHFORMATHINT,
+        PCDATA;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(4),
-			__array(1, 4),
-			__member(POINTER_SIZE)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(4),
+            __array(1, 4),
+            __member(POINTER_SIZE)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		MWIDTH = layout.offsetof(0);
-		MHEIGHT = layout.offsetof(1);
-		ACHFORMATHINT = layout.offsetof(2);
-		PCDATA = layout.offsetof(3);
-	}
+        MWIDTH = layout.offsetof(0);
+        MHEIGHT = layout.offsetof(1);
+        ACHFORMATHINT = layout.offsetof(2);
+        PCDATA = layout.offsetof(3);
+    }
 
-	AITexture(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    AITexture(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link AITexture} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public AITexture(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link AITexture} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public AITexture(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code mWidth} field. */
-	public int mWidth() { return nmWidth(address()); }
-	/** Returns the value of the {@code mHeight} field. */
-	public int mHeight() { return nmHeight(address()); }
-	/** Returns a {@link ByteBuffer} view of the {@code achFormatHint} field. */
-	public ByteBuffer achFormatHint() { return nachFormatHint(address()); }
-	/** Decodes the null-terminated string stored in the {@code achFormatHint} field. */
-	public String achFormatHintString() { return nachFormatHintString(address()); }
-	/**
-	 * Returns a {@link AITexel.Buffer} view of the struct array pointed to by the {@code pcData} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public AITexel.Buffer pcData(int capacity) { return npcData(address(), capacity); }
+    /** Returns the value of the {@code mWidth} field. */
+    public int mWidth() { return nmWidth(address()); }
+    /** Returns the value of the {@code mHeight} field. */
+    public int mHeight() { return nmHeight(address()); }
+    /** Returns a {@link ByteBuffer} view of the {@code achFormatHint} field. */
+    public ByteBuffer achFormatHint() { return nachFormatHint(address()); }
+    /** Decodes the null-terminated string stored in the {@code achFormatHint} field. */
+    public String achFormatHintString() { return nachFormatHintString(address()); }
+    /**
+     * Returns a {@link AITexel.Buffer} view of the struct array pointed to by the {@code pcData} field.
+     *
+     * @param capacity the number of elements in the returned buffer
+     */
+    public AITexel.Buffer pcData(int capacity) { return npcData(address(), capacity); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link AITexture} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static AITexture create(long address) {
-		return address == NULL ? null : new AITexture(address, null);
-	}
+    /** Returns a new {@link AITexture} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static AITexture create(long address) {
+        return address == NULL ? null : new AITexture(address, null);
+    }
 
-	/**
-	 * Create a {@link AITexture.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link AITexture.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #mWidth}. */
-	public static int nmWidth(long struct) { return memGetInt(struct + AITexture.MWIDTH); }
-	/** Unsafe version of {@link #mHeight}. */
-	public static int nmHeight(long struct) { return memGetInt(struct + AITexture.MHEIGHT); }
-	/** Unsafe version of {@link #achFormatHint}. */
-	public static ByteBuffer nachFormatHint(long struct) { return memByteBuffer(struct + AITexture.ACHFORMATHINT, 4); }
-	/** Unsafe version of {@link #achFormatHintString}. */
-	public static String nachFormatHintString(long struct) { return memASCII(struct + AITexture.ACHFORMATHINT); }
-	/** Unsafe version of {@link #pcData}. */
-	public static AITexel.Buffer npcData(long struct, int capacity) { return AITexel.create(memGetAddress(struct + AITexture.PCDATA), capacity); }
+    /** Unsafe version of {@link #mWidth}. */
+    public static int nmWidth(long struct) { return memGetInt(struct + AITexture.MWIDTH); }
+    /** Unsafe version of {@link #mHeight}. */
+    public static int nmHeight(long struct) { return memGetInt(struct + AITexture.MHEIGHT); }
+    /** Unsafe version of {@link #achFormatHint}. */
+    public static ByteBuffer nachFormatHint(long struct) { return memByteBuffer(struct + AITexture.ACHFORMATHINT, 4); }
+    /** Unsafe version of {@link #achFormatHintString}. */
+    public static String nachFormatHintString(long struct) { return memASCII(struct + AITexture.ACHFORMATHINT); }
+    /** Unsafe version of {@link #pcData}. */
+    public static AITexel.Buffer npcData(long struct, int capacity) { return AITexel.create(memGetAddress(struct + AITexture.PCDATA), capacity); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link AITexture} structs. */
-	public static class Buffer extends StructBuffer<AITexture, Buffer> {
+    /** An array of {@link AITexture} structs. */
+    public static class Buffer extends StructBuffer<AITexture, Buffer> {
 
-		/**
-		 * Creates a new {@link AITexture.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link AITexture#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link AITexture.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link AITexture#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected AITexture newInstance(long address) {
-			return new AITexture(address, container);
-		}
+        @Override
+        protected AITexture newInstance(long address) {
+            return new AITexture(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code mWidth} field. */
-		public int mWidth() { return AITexture.nmWidth(address()); }
-		/** Returns the value of the {@code mHeight} field. */
-		public int mHeight() { return AITexture.nmHeight(address()); }
-		/** Returns a {@link ByteBuffer} view of the {@code achFormatHint} field. */
-		public ByteBuffer achFormatHint() { return AITexture.nachFormatHint(address()); }
-		/** Decodes the null-terminated string stored in the {@code achFormatHint} field. */
-		public String achFormatHintString() { return AITexture.nachFormatHintString(address()); }
-		/**
-		 * Returns a {@link AITexel.Buffer} view of the struct array pointed to by the {@code pcData} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public AITexel.Buffer pcData(int capacity) { return AITexture.npcData(address(), capacity); }
+        /** Returns the value of the {@code mWidth} field. */
+        public int mWidth() { return AITexture.nmWidth(address()); }
+        /** Returns the value of the {@code mHeight} field. */
+        public int mHeight() { return AITexture.nmHeight(address()); }
+        /** Returns a {@link ByteBuffer} view of the {@code achFormatHint} field. */
+        public ByteBuffer achFormatHint() { return AITexture.nachFormatHint(address()); }
+        /** Decodes the null-terminated string stored in the {@code achFormatHint} field. */
+        public String achFormatHintString() { return AITexture.nachFormatHintString(address()); }
+        /**
+         * Returns a {@link AITexel.Buffer} view of the struct array pointed to by the {@code pcData} field.
+         *
+         * @param capacity the number of elements in the returned buffer
+         */
+        public AITexel.Buffer pcData(int capacity) { return AITexture.npcData(address(), capacity); }
 
-	}
+    }
 
 }

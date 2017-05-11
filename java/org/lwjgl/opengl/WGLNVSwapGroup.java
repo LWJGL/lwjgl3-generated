@@ -24,136 +24,138 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class WGLNVSwapGroup {
 
-	protected WGLNVSwapGroup() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLNVSwapGroup() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglJoinSwapGroupNV, caps.wglBindSwapBarrierNV, caps.wglQuerySwapGroupNV, caps.wglQueryMaxSwapGroupsNV, caps.wglQueryFrameCountNV, 
-			caps.wglResetFrameCountNV
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglJoinSwapGroupNV, caps.wglBindSwapBarrierNV, caps.wglQuerySwapGroupNV, caps.wglQueryMaxSwapGroupsNV, caps.wglQueryFrameCountNV, 
+            caps.wglResetFrameCountNV
+        );
+    }
 
-	// --- [ wglJoinSwapGroupNV ] ---
+    // --- [ wglJoinSwapGroupNV ] ---
 
-	public static boolean wglJoinSwapGroupNV(long hDC, int group) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglJoinSwapGroupNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-		}
-		return callPI(__functionAddress, hDC, group) != 0;
-	}
+    public static boolean wglJoinSwapGroupNV(long hDC, int group) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglJoinSwapGroupNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+        }
+        return callPI(__functionAddress, hDC, group) != 0;
+    }
 
-	// --- [ wglBindSwapBarrierNV ] ---
+    // --- [ wglBindSwapBarrierNV ] ---
 
-	public static boolean wglBindSwapBarrierNV(int group, int barrier) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglBindSwapBarrierNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, group, barrier) != 0;
-	}
+    public static boolean wglBindSwapBarrierNV(int group, int barrier) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglBindSwapBarrierNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress, group, barrier) != 0;
+    }
 
-	// --- [ wglQuerySwapGroupNV ] ---
+    // --- [ wglQuerySwapGroupNV ] ---
 
-	public static int nwglQuerySwapGroupNV(long hDC, long group, long barrier) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQuerySwapGroupNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-		}
-		return callPPPI(__functionAddress, hDC, group, barrier);
-	}
+    public static int nwglQuerySwapGroupNV(long hDC, long group, long barrier) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQuerySwapGroupNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+        }
+        return callPPPI(__functionAddress, hDC, group, barrier);
+    }
 
-	public static boolean wglQuerySwapGroupNV(long hDC, IntBuffer group, IntBuffer barrier) {
-		if ( CHECKS ) {
-			check(group, 1);
-			check(barrier, 1);
-		}
-		return nwglQuerySwapGroupNV(hDC, memAddress(group), memAddress(barrier)) != 0;
-	}
+    public static boolean wglQuerySwapGroupNV(long hDC, IntBuffer group, IntBuffer barrier) {
+        if (CHECKS) {
+            check(group, 1);
+            check(barrier, 1);
+        }
+        return nwglQuerySwapGroupNV(hDC, memAddress(group), memAddress(barrier)) != 0;
+    }
 
-	// --- [ wglQueryMaxSwapGroupsNV ] ---
+    // --- [ wglQueryMaxSwapGroupsNV ] ---
 
-	public static int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQueryMaxSwapGroupsNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-		}
-		return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers);
-	}
+    public static int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQueryMaxSwapGroupsNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+        }
+        return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers);
+    }
 
-	public static boolean wglQueryMaxSwapGroupsNV(long hDC, IntBuffer maxGroups, IntBuffer maxBarriers) {
-		if ( CHECKS ) {
-			check(maxGroups, 1);
-			check(maxBarriers, 1);
-		}
-		return nwglQueryMaxSwapGroupsNV(hDC, memAddress(maxGroups), memAddress(maxBarriers)) != 0;
-	}
+    public static boolean wglQueryMaxSwapGroupsNV(long hDC, IntBuffer maxGroups, IntBuffer maxBarriers) {
+        if (CHECKS) {
+            check(maxGroups, 1);
+            check(maxBarriers, 1);
+        }
+        return nwglQueryMaxSwapGroupsNV(hDC, memAddress(maxGroups), memAddress(maxBarriers)) != 0;
+    }
 
-	// --- [ wglQueryFrameCountNV ] ---
+    // --- [ wglQueryFrameCountNV ] ---
 
-	public static int nwglQueryFrameCountNV(long hDC, long count) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQueryFrameCountNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-		}
-		return callPPI(__functionAddress, hDC, count);
-	}
+    public static int nwglQueryFrameCountNV(long hDC, long count) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQueryFrameCountNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+        }
+        return callPPI(__functionAddress, hDC, count);
+    }
 
-	public static boolean wglQueryFrameCountNV(long hDC, IntBuffer count) {
-		if ( CHECKS )
-			check(count, 1);
-		return nwglQueryFrameCountNV(hDC, memAddress(count)) != 0;
-	}
+    public static boolean wglQueryFrameCountNV(long hDC, IntBuffer count) {
+        if (CHECKS) {
+            check(count, 1);
+        }
+        return nwglQueryFrameCountNV(hDC, memAddress(count)) != 0;
+    }
 
-	// --- [ wglResetFrameCountNV ] ---
+    // --- [ wglResetFrameCountNV ] ---
 
-	public static boolean wglResetFrameCountNV(long hDC) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglResetFrameCountNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-		}
-		return callPI(__functionAddress, hDC) != 0;
-	}
+    public static boolean wglResetFrameCountNV(long hDC) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglResetFrameCountNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+        }
+        return callPI(__functionAddress, hDC) != 0;
+    }
 
-	/** Array version of: {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
-	public static boolean wglQuerySwapGroupNV(long hDC, int[] group, int[] barrier) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQuerySwapGroupNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-			check(group, 1);
-			check(barrier, 1);
-		}
-		return callPPPI(__functionAddress, hDC, group, barrier) != 0;
-	}
+    /** Array version of: {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
+    public static boolean wglQuerySwapGroupNV(long hDC, int[] group, int[] barrier) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQuerySwapGroupNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+            check(group, 1);
+            check(barrier, 1);
+        }
+        return callPPPI(__functionAddress, hDC, group, barrier) != 0;
+    }
 
-	/** Array version of: {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	public static boolean wglQueryMaxSwapGroupsNV(long hDC, int[] maxGroups, int[] maxBarriers) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQueryMaxSwapGroupsNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-			check(maxGroups, 1);
-			check(maxBarriers, 1);
-		}
-		return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers) != 0;
-	}
+    /** Array version of: {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
+    public static boolean wglQueryMaxSwapGroupsNV(long hDC, int[] maxGroups, int[] maxBarriers) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQueryMaxSwapGroupsNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+            check(maxGroups, 1);
+            check(maxBarriers, 1);
+        }
+        return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers) != 0;
+    }
 
-	/** Array version of: {@link #wglQueryFrameCountNV QueryFrameCountNV} */
-	public static boolean wglQueryFrameCountNV(long hDC, int[] count) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglQueryFrameCountNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hDC);
-			check(count, 1);
-		}
-		return callPPI(__functionAddress, hDC, count) != 0;
-	}
+    /** Array version of: {@link #wglQueryFrameCountNV QueryFrameCountNV} */
+    public static boolean wglQueryFrameCountNV(long hDC, int[] count) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglQueryFrameCountNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hDC);
+            check(count, 1);
+        }
+        return callPPI(__functionAddress, hDC, count) != 0;
+    }
 
 }

@@ -28,46 +28,47 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class VkInternalFreeNotification extends Callback implements VkInternalFreeNotificationI {
 
-	/** Creates a {@code VkInternalFreeNotification} instance from the specified function pointer. */
-	public static VkInternalFreeNotification create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code VkInternalFreeNotification} instance from the specified function pointer. */
+    public static VkInternalFreeNotification create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		VkInternalFreeNotificationI instance = Callback.get(functionPointer);
-		return instance instanceof VkInternalFreeNotification
-			? (VkInternalFreeNotification)instance
-			: new Container(functionPointer, instance);
-	}
+        VkInternalFreeNotificationI instance = Callback.get(functionPointer);
+        return instance instanceof VkInternalFreeNotification
+            ? (VkInternalFreeNotification)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code VkInternalFreeNotification} instance that delegates to the specified {@code VkInternalFreeNotificationI} instance. */
-	public static VkInternalFreeNotification create(VkInternalFreeNotificationI instance) {
-		return instance instanceof VkInternalFreeNotification
-			? (VkInternalFreeNotification)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code VkInternalFreeNotification} instance that delegates to the specified {@code VkInternalFreeNotificationI} instance. */
+    public static VkInternalFreeNotification create(VkInternalFreeNotificationI instance) {
+        return instance instanceof VkInternalFreeNotification
+            ? (VkInternalFreeNotification)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected VkInternalFreeNotification() {
-		super(SIGNATURE);
-	}
+    protected VkInternalFreeNotification() {
+        super(SIGNATURE);
+    }
 
-	private VkInternalFreeNotification(long functionPointer) {
-		super(functionPointer);
-	}
+    private VkInternalFreeNotification(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends VkInternalFreeNotification {
+    private static final class Container extends VkInternalFreeNotification {
 
-		private final VkInternalFreeNotificationI delegate;
+        private final VkInternalFreeNotificationI delegate;
 
-		Container(long functionPointer, VkInternalFreeNotificationI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, VkInternalFreeNotificationI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
-			delegate.invoke(pUserData, size, allocationType, allocationScope);
-		}
+        @Override
+        public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
+            delegate.invoke(pUserData, size, allocationType, allocationScope);
+        }
 
-	}
+    }
 
 }

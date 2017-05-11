@@ -63,42 +63,42 @@ package org.lwjgl.vulkan;
  */
 public final class AMDRasterizationOrder {
 
-	/** The extension specification version. */
-	public static final int VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME = "VK_AMD_rasterization_order";
+    /** The extension name. */
+    public static final String VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME = "VK_AMD_rasterization_order";
 
-	/** Extends {@code VkStructureType}. */
-	public static final int VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000;
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000;
 
-	/**
-	 * VkRasterizationOrderAMD - (no short description available)
-	 * 
-	 * <h5>Description</h5>
-	 * 
-	 * <p>For more information, see:</p>
-	 * 
-	 * <ul>
-	 * <li>The See Also section for other reference pages using this type.</li>
-	 * <li>The Vulkan Specification.</li>
-	 * </ul>
-	 * 
-	 * <h5>See Also</h5>
-	 * 
-	 * <p>{@link VkPipelineRasterizationStateRasterizationOrderAMD}</p>
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}</li>
-	 * <li>{@link #VK_RASTERIZATION_ORDER_RELAXED_AMD RASTERIZATION_ORDER_RELAXED_AMD}</li>
-	 * </ul>
-	 */
-	public static final int
-		VK_RASTERIZATION_ORDER_STRICT_AMD  = 0,
-		VK_RASTERIZATION_ORDER_RELAXED_AMD = 1;
+    /**
+     * VkRasterizationOrderAMD - (no short description available)
+     * 
+     * <h5>Description</h5>
+     * 
+     * <p>For more information, see:</p>
+     * 
+     * <ul>
+     * <li>The See Also section for other reference pages using this type.</li>
+     * <li>The Vulkan Specification.</li>
+     * </ul>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkPipelineRasterizationStateRasterizationOrderAMD}</p>
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}</li>
+     * <li>{@link #VK_RASTERIZATION_ORDER_RELAXED_AMD RASTERIZATION_ORDER_RELAXED_AMD}</li>
+     * </ul>
+     */
+    public static final int
+        VK_RASTERIZATION_ORDER_STRICT_AMD  = 0,
+        VK_RASTERIZATION_ORDER_RELAXED_AMD = 1;
 
-	private AMDRasterizationOrder() {}
+    private AMDRasterizationOrder() {}
 
 }

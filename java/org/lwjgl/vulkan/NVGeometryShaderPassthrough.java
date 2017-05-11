@@ -110,12 +110,12 @@ void main()
  */
 public final class NVGeometryShaderPassthrough {
 
-	/** The extension specification version. */
-	public static final int VK_NV_GEOMETRY_SHADER_PASSTHROUGH_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_NV_GEOMETRY_SHADER_PASSTHROUGH_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_NV_GEOMETRY_SHADER_PASSTHROUGH_EXTENSION_NAME = "VK_NV_geometry_shader_passthrough";
+    /** The extension name. */
+    public static final String VK_NV_GEOMETRY_SHADER_PASSTHROUGH_EXTENSION_NAME = "VK_NV_geometry_shader_passthrough";
 
-	private NVGeometryShaderPassthrough() {}
+    private NVGeometryShaderPassthrough() {}
 
 }

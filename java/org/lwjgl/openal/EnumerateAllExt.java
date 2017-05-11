@@ -16,11 +16,11 @@ package org.lwjgl.openal;
  */
 public final class EnumerateAllExt {
 
-	/** {@code ALC_ENUMERATE_ALL_EXT} tokens. */
-	public static final int
-		ALC_DEFAULT_ALL_DEVICES_SPECIFIER = 0x1012,
-		ALC_ALL_DEVICES_SPECIFIER         = 0x1013;
+    /** {@code ALC_ENUMERATE_ALL_EXT} tokens. */
+    public static final int
+        ALC_DEFAULT_ALL_DEVICES_SPECIFIER = 0x1012,
+        ALC_ALL_DEVICES_SPECIFIER         = 0x1013;
 
-	private EnumerateAllExt() {}
+    private EnumerateAllExt() {}
 
 }

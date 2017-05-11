@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWScrollCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pdd)v";
+    String SIGNATURE = "(pdd)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgDouble(args),
-			dcbArgDouble(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgDouble(args),
+            dcbArgDouble(args)
+        );
+    }
 
-	/**
-	 * Will be called when a scrolling device is used, such as a mouse wheel or scrolling area of a touchpad.
-	 *
-	 * @param window  the window that received the event
-	 * @param xoffset the scroll offset along the x-axis
-	 * @param yoffset the scroll offset along the y-axis
-	 */
-	void invoke(long window, double xoffset, double yoffset);
+    /**
+     * Will be called when a scrolling device is used, such as a mouse wheel or scrolling area of a touchpad.
+     *
+     * @param window  the window that received the event
+     * @param xoffset the scroll offset along the x-axis
+     * @param yoffset the scroll offset along the y-axis
+     */
+    void invoke(long window, double xoffset, double yoffset);
 
 }

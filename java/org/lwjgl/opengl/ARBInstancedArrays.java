@@ -29,49 +29,50 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBInstancedArrays {
 
-	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
-	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
+    /** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
+    public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBInstancedArrays() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBInstancedArrays() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
-		return checkFunctions(
-			caps.glVertexAttribDivisorARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+        return checkFunctions(
+            caps.glVertexAttribDivisorARB
+        );
+    }
 
-	// --- [ glVertexAttribDivisorARB ] ---
+    // --- [ glVertexAttribDivisorARB ] ---
 
-	/**
-	 * Modifies the rate at which generic vertex attributes advance when rendering multiple instances of primitives in a single draw call. If {@code divisor}
-	 * is zero, the attribute at slot {@code index} advances once per vertex. If {@code divisor} is non-zero, the attribute advances once per {@code divisor}
-	 * instances of the set(s) of vertices being rendered. An attribute is referred to as {@code instanced} if its {@code divisor} value is non-zero.
-	 *
-	 * @param index   the attribute index
-	 * @param divisor the divisor value
-	 */
-	public static native void glVertexAttribDivisorARB(int index, int divisor);
+    /**
+     * Modifies the rate at which generic vertex attributes advance when rendering multiple instances of primitives in a single draw call. If {@code divisor}
+     * is zero, the attribute at slot {@code index} advances once per vertex. If {@code divisor} is non-zero, the attribute advances once per {@code divisor}
+     * instances of the set(s) of vertices being rendered. An attribute is referred to as {@code instanced} if its {@code divisor} value is non-zero.
+     *
+     * @param index   the attribute index
+     * @param divisor the divisor value
+     */
+    public static native void glVertexAttribDivisorARB(int index, int divisor);
 
-	// --- [ glVertexArrayVertexAttribDivisorEXT ] ---
+    // --- [ glVertexArrayVertexAttribDivisorEXT ] ---
 
-	/**
-	 * <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
-	 * 
-	 * <p>This function was added to the extension specification in July 2013. Implemenations are allowed to expose ARB_instanced_arrays without providing this
-	 * function. The correct way to test its availability is:</p>
-	 * 
-	 * <pre><code>GLCapabilities caps = GL.getCapabilities();
-if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL )
-    glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre>
-	 *
-	 * @param vaobj   the vertex array object
-	 * @param index   the attribute index
-	 * @param divisor the divisor value
-	 */
-	public static native void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor);
+    /**
+     * <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
+     * 
+     * <p>This function was added to the extension specification in July 2013. Implemenations are allowed to expose ARB_instanced_arrays without providing this
+     * function. The correct way to test its availability is:</p>
+     * 
+     * <pre><code>GLCapabilities caps = GL.getCapabilities();
+if (caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL) {
+    glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used
+}</code></pre>
+     *
+     * @param vaobj   the vertex array object
+     * @param index   the attribute index
+     * @param divisor the divisor value
+     */
+    public static native void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor);
 
 }

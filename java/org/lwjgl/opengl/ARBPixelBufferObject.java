@@ -47,19 +47,19 @@ package org.lwjgl.opengl;
  */
 public final class ARBPixelBufferObject {
 
-	/**
-	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferParameteriv, and
-	 * GetBufferPointerv.
-	 */
-	public static final int
-		GL_PIXEL_PACK_BUFFER_ARB   = 0x88EB,
-		GL_PIXEL_UNPACK_BUFFER_ARB = 0x88EC;
+    /**
+     * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferParameteriv, and
+     * GetBufferPointerv.
+     */
+    public static final int
+        GL_PIXEL_PACK_BUFFER_ARB   = 0x88EB,
+        GL_PIXEL_UNPACK_BUFFER_ARB = 0x88EC;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_PIXEL_PACK_BUFFER_BINDING_ARB   = 0x88ED,
-		GL_PIXEL_UNPACK_BUFFER_BINDING_ARB = 0x88EF;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_PIXEL_PACK_BUFFER_BINDING_ARB   = 0x88ED,
+        GL_PIXEL_UNPACK_BUFFER_BINDING_ARB = 0x88EF;
 
-	private ARBPixelBufferObject() {}
+    private ARBPixelBufferObject() {}
 
 }

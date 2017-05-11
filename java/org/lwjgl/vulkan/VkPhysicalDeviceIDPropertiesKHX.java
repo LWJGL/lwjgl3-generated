@@ -55,185 +55,185 @@ import static org.lwjgl.vulkan.KHXExternalMemoryCapabilities.*;
  */
 public class VkPhysicalDeviceIDPropertiesKHX extends Struct {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		STYPE,
-		PNEXT,
-		DEVICEUUID,
-		DRIVERUUID,
-		DEVICELUID,
-		DEVICELUIDVALID;
+    /** The struct member offsets. */
+    public static final int
+        STYPE,
+        PNEXT,
+        DEVICEUUID,
+        DRIVERUUID,
+        DEVICELUID,
+        DEVICELUIDVALID;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(POINTER_SIZE),
-			__array(1, VK_UUID_SIZE),
-			__array(1, VK_UUID_SIZE),
-			__array(1, VK_LUID_SIZE_KHX),
-			__member(4)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(POINTER_SIZE),
+            __array(1, VK_UUID_SIZE),
+            __array(1, VK_UUID_SIZE),
+            __array(1, VK_LUID_SIZE_KHX),
+            __member(4)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		STYPE = layout.offsetof(0);
-		PNEXT = layout.offsetof(1);
-		DEVICEUUID = layout.offsetof(2);
-		DRIVERUUID = layout.offsetof(3);
-		DEVICELUID = layout.offsetof(4);
-		DEVICELUIDVALID = layout.offsetof(5);
-	}
+        STYPE = layout.offsetof(0);
+        PNEXT = layout.offsetof(1);
+        DEVICEUUID = layout.offsetof(2);
+        DRIVERUUID = layout.offsetof(3);
+        DEVICELUID = layout.offsetof(4);
+        DEVICELUIDVALID = layout.offsetof(5);
+    }
 
-	VkPhysicalDeviceIDPropertiesKHX(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    VkPhysicalDeviceIDPropertiesKHX(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link VkPhysicalDeviceIDPropertiesKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public VkPhysicalDeviceIDPropertiesKHX(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link VkPhysicalDeviceIDPropertiesKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public VkPhysicalDeviceIDPropertiesKHX(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code sType} field. */
-	public int sType() { return nsType(address()); }
-	/** Returns the value of the {@code pNext} field. */
-	public long pNext() { return npNext(address()); }
-	/** Returns a {@link ByteBuffer} view of the {@code deviceUUID} field. */
-	public ByteBuffer deviceUUID() { return ndeviceUUID(address()); }
-	/** Returns the value at the specified index of the {@code deviceUUID} field. */
-	public byte deviceUUID(int index) { return ndeviceUUID(address(), index); }
-	/** Returns a {@link ByteBuffer} view of the {@code driverUUID} field. */
-	public ByteBuffer driverUUID() { return ndriverUUID(address()); }
-	/** Returns the value at the specified index of the {@code driverUUID} field. */
-	public byte driverUUID(int index) { return ndriverUUID(address(), index); }
-	/** Returns a {@link ByteBuffer} view of the {@code deviceLUID} field. */
-	public ByteBuffer deviceLUID() { return ndeviceLUID(address()); }
-	/** Returns the value at the specified index of the {@code deviceLUID} field. */
-	public byte deviceLUID(int index) { return ndeviceLUID(address(), index); }
-	/** Returns the value of the {@code deviceLUIDValid} field. */
-	public boolean deviceLUIDValid() { return ndeviceLUIDValid(address()) != 0; }
+    /** Returns the value of the {@code sType} field. */
+    public int sType() { return nsType(address()); }
+    /** Returns the value of the {@code pNext} field. */
+    public long pNext() { return npNext(address()); }
+    /** Returns a {@link ByteBuffer} view of the {@code deviceUUID} field. */
+    public ByteBuffer deviceUUID() { return ndeviceUUID(address()); }
+    /** Returns the value at the specified index of the {@code deviceUUID} field. */
+    public byte deviceUUID(int index) { return ndeviceUUID(address(), index); }
+    /** Returns a {@link ByteBuffer} view of the {@code driverUUID} field. */
+    public ByteBuffer driverUUID() { return ndriverUUID(address()); }
+    /** Returns the value at the specified index of the {@code driverUUID} field. */
+    public byte driverUUID(int index) { return ndriverUUID(address(), index); }
+    /** Returns a {@link ByteBuffer} view of the {@code deviceLUID} field. */
+    public ByteBuffer deviceLUID() { return ndeviceLUID(address()); }
+    /** Returns the value at the specified index of the {@code deviceLUID} field. */
+    public byte deviceLUID(int index) { return ndeviceLUID(address(), index); }
+    /** Returns the value of the {@code deviceLUIDValid} field. */
+    public boolean deviceLUIDValid() { return ndeviceLUIDValid(address()) != 0; }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkPhysicalDeviceIDPropertiesKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static VkPhysicalDeviceIDPropertiesKHX create(long address) {
-		return address == NULL ? null : new VkPhysicalDeviceIDPropertiesKHX(address, null);
-	}
+    /** Returns a new {@link VkPhysicalDeviceIDPropertiesKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static VkPhysicalDeviceIDPropertiesKHX create(long address) {
+        return address == NULL ? null : new VkPhysicalDeviceIDPropertiesKHX(address, null);
+    }
 
-	/**
-	 * Create a {@link VkPhysicalDeviceIDPropertiesKHX.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link VkPhysicalDeviceIDPropertiesKHX.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #sType}. */
-	public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceIDPropertiesKHX.STYPE); }
-	/** Unsafe version of {@link #pNext}. */
-	public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceIDPropertiesKHX.PNEXT); }
-	/** Unsafe version of {@link #deviceUUID}. */
-	public static ByteBuffer ndeviceUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICEUUID, VK_UUID_SIZE); }
-	/** Unsafe version of {@link #deviceUUID(int) deviceUUID}. */
-	public static byte ndeviceUUID(long struct, int index) {
-		if ( CHECKS ) check(index, VK_UUID_SIZE);
-		return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICEUUID + index * 1);
-	}
-	/** Unsafe version of {@link #driverUUID}. */
-	public static ByteBuffer ndriverUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHX.DRIVERUUID, VK_UUID_SIZE); }
-	/** Unsafe version of {@link #driverUUID(int) driverUUID}. */
-	public static byte ndriverUUID(long struct, int index) {
-		if ( CHECKS ) check(index, VK_UUID_SIZE);
-		return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHX.DRIVERUUID + index * 1);
-	}
-	/** Unsafe version of {@link #deviceLUID}. */
-	public static ByteBuffer ndeviceLUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICELUID, VK_LUID_SIZE_KHX); }
-	/** Unsafe version of {@link #deviceLUID(int) deviceLUID}. */
-	public static byte ndeviceLUID(long struct, int index) {
-		if ( CHECKS ) check(index, VK_LUID_SIZE_KHX);
-		return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICELUID + index * 1);
-	}
-	/** Unsafe version of {@link #deviceLUIDValid}. */
-	public static int ndeviceLUIDValid(long struct) { return memGetInt(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICELUIDVALID); }
+    /** Unsafe version of {@link #sType}. */
+    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceIDPropertiesKHX.STYPE); }
+    /** Unsafe version of {@link #pNext}. */
+    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceIDPropertiesKHX.PNEXT); }
+    /** Unsafe version of {@link #deviceUUID}. */
+    public static ByteBuffer ndeviceUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICEUUID, VK_UUID_SIZE); }
+    /** Unsafe version of {@link #deviceUUID(int) deviceUUID}. */
+    public static byte ndeviceUUID(long struct, int index) {
+        if (CHECKS) { check(index, VK_UUID_SIZE); }
+        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICEUUID + index * 1);
+    }
+    /** Unsafe version of {@link #driverUUID}. */
+    public static ByteBuffer ndriverUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHX.DRIVERUUID, VK_UUID_SIZE); }
+    /** Unsafe version of {@link #driverUUID(int) driverUUID}. */
+    public static byte ndriverUUID(long struct, int index) {
+        if (CHECKS) { check(index, VK_UUID_SIZE); }
+        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHX.DRIVERUUID + index * 1);
+    }
+    /** Unsafe version of {@link #deviceLUID}. */
+    public static ByteBuffer ndeviceLUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICELUID, VK_LUID_SIZE_KHX); }
+    /** Unsafe version of {@link #deviceLUID(int) deviceLUID}. */
+    public static byte ndeviceLUID(long struct, int index) {
+        if (CHECKS) { check(index, VK_LUID_SIZE_KHX); }
+        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICELUID + index * 1);
+    }
+    /** Unsafe version of {@link #deviceLUIDValid}. */
+    public static int ndeviceLUIDValid(long struct) { return memGetInt(struct + VkPhysicalDeviceIDPropertiesKHX.DEVICELUIDVALID); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link VkPhysicalDeviceIDPropertiesKHX} structs. */
-	public static class Buffer extends StructBuffer<VkPhysicalDeviceIDPropertiesKHX, Buffer> {
+    /** An array of {@link VkPhysicalDeviceIDPropertiesKHX} structs. */
+    public static class Buffer extends StructBuffer<VkPhysicalDeviceIDPropertiesKHX, Buffer> {
 
-		/**
-		 * Creates a new {@link VkPhysicalDeviceIDPropertiesKHX.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link VkPhysicalDeviceIDPropertiesKHX#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link VkPhysicalDeviceIDPropertiesKHX.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link VkPhysicalDeviceIDPropertiesKHX#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected VkPhysicalDeviceIDPropertiesKHX newInstance(long address) {
-			return new VkPhysicalDeviceIDPropertiesKHX(address, container);
-		}
+        @Override
+        protected VkPhysicalDeviceIDPropertiesKHX newInstance(long address) {
+            return new VkPhysicalDeviceIDPropertiesKHX(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code sType} field. */
-		public int sType() { return VkPhysicalDeviceIDPropertiesKHX.nsType(address()); }
-		/** Returns the value of the {@code pNext} field. */
-		public long pNext() { return VkPhysicalDeviceIDPropertiesKHX.npNext(address()); }
-		/** Returns a {@link ByteBuffer} view of the {@code deviceUUID} field. */
-		public ByteBuffer deviceUUID() { return VkPhysicalDeviceIDPropertiesKHX.ndeviceUUID(address()); }
-		/** Returns the value at the specified index of the {@code deviceUUID} field. */
-		public byte deviceUUID(int index) { return VkPhysicalDeviceIDPropertiesKHX.ndeviceUUID(address(), index); }
-		/** Returns a {@link ByteBuffer} view of the {@code driverUUID} field. */
-		public ByteBuffer driverUUID() { return VkPhysicalDeviceIDPropertiesKHX.ndriverUUID(address()); }
-		/** Returns the value at the specified index of the {@code driverUUID} field. */
-		public byte driverUUID(int index) { return VkPhysicalDeviceIDPropertiesKHX.ndriverUUID(address(), index); }
-		/** Returns a {@link ByteBuffer} view of the {@code deviceLUID} field. */
-		public ByteBuffer deviceLUID() { return VkPhysicalDeviceIDPropertiesKHX.ndeviceLUID(address()); }
-		/** Returns the value at the specified index of the {@code deviceLUID} field. */
-		public byte deviceLUID(int index) { return VkPhysicalDeviceIDPropertiesKHX.ndeviceLUID(address(), index); }
-		/** Returns the value of the {@code deviceLUIDValid} field. */
-		public boolean deviceLUIDValid() { return VkPhysicalDeviceIDPropertiesKHX.ndeviceLUIDValid(address()) != 0; }
+        /** Returns the value of the {@code sType} field. */
+        public int sType() { return VkPhysicalDeviceIDPropertiesKHX.nsType(address()); }
+        /** Returns the value of the {@code pNext} field. */
+        public long pNext() { return VkPhysicalDeviceIDPropertiesKHX.npNext(address()); }
+        /** Returns a {@link ByteBuffer} view of the {@code deviceUUID} field. */
+        public ByteBuffer deviceUUID() { return VkPhysicalDeviceIDPropertiesKHX.ndeviceUUID(address()); }
+        /** Returns the value at the specified index of the {@code deviceUUID} field. */
+        public byte deviceUUID(int index) { return VkPhysicalDeviceIDPropertiesKHX.ndeviceUUID(address(), index); }
+        /** Returns a {@link ByteBuffer} view of the {@code driverUUID} field. */
+        public ByteBuffer driverUUID() { return VkPhysicalDeviceIDPropertiesKHX.ndriverUUID(address()); }
+        /** Returns the value at the specified index of the {@code driverUUID} field. */
+        public byte driverUUID(int index) { return VkPhysicalDeviceIDPropertiesKHX.ndriverUUID(address(), index); }
+        /** Returns a {@link ByteBuffer} view of the {@code deviceLUID} field. */
+        public ByteBuffer deviceLUID() { return VkPhysicalDeviceIDPropertiesKHX.ndeviceLUID(address()); }
+        /** Returns the value at the specified index of the {@code deviceLUID} field. */
+        public byte deviceLUID(int index) { return VkPhysicalDeviceIDPropertiesKHX.ndeviceLUID(address(), index); }
+        /** Returns the value of the {@code deviceLUIDValid} field. */
+        public boolean deviceLUIDValid() { return VkPhysicalDeviceIDPropertiesKHX.ndeviceLUIDValid(address()) != 0; }
 
-	}
+    }
 
 }

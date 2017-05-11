@@ -20,12 +20,12 @@ package org.lwjgl.opengles;
  */
 public final class OESVertexHalfFloat {
 
-	/**
-	 * Accepted by the {@code type} parameter of VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, IndexPointer, FogCoordPointer,
-	 * TexCoordPointer, and VertexAttribPointer.
-	 */
-	public static final int GL_HALF_FLOAT_OES = 0x8D61;
+    /**
+     * Accepted by the {@code type} parameter of VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, IndexPointer, FogCoordPointer,
+     * TexCoordPointer, and VertexAttribPointer.
+     */
+    public static final int GL_HALF_FLOAT_OES = 0x8D61;
 
-	private OESVertexHalfFloat() {}
+    private OESVertexHalfFloat() {}
 
 }

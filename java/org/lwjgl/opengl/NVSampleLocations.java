@@ -34,98 +34,100 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVSampleLocations {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV           = 0x933D,
-		GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV        = 0x933E,
-		GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV       = 0x933F,
-		GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV = 0x9340;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV           = 0x933D,
+        GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV        = 0x933E,
+        GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV       = 0x933F,
+        GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV = 0x9340;
 
-	/** Accepted by the {@code pname} parameter of GetMultisamplefv. */
-	public static final int
-		GL_SAMPLE_LOCATION_NV              = 0x8E50,
-		GL_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9341;
+    /** Accepted by the {@code pname} parameter of GetMultisamplefv. */
+    public static final int
+        GL_SAMPLE_LOCATION_NV              = 0x8E50,
+        GL_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9341;
 
-	/** Accepted by the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv. */
-	public static final int
-		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342,
-		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
+    /** Accepted by the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv. */
+    public static final int
+        GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342,
+        GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVSampleLocations() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVSampleLocations() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferSampleLocationsfvNV, caps.glNamedFramebufferSampleLocationsfvNV, caps.glResolveDepthValuesNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferSampleLocationsfvNV, caps.glNamedFramebufferSampleLocationsfvNV, caps.glResolveDepthValuesNV
+        );
+    }
 
-	// --- [ glFramebufferSampleLocationsfvNV ] ---
+    // --- [ glFramebufferSampleLocationsfvNV ] ---
 
-	/**
-	 * Unsafe version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV}
-	 *
-	 * @param count the number of sample locations to modify
-	 */
-	public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v);
+    /**
+     * Unsafe version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV}
+     *
+     * @param count the number of sample locations to modify
+     */
+    public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v);
 
-	/**
-	 * Updates the programmable sample locations
-	 *
-	 * @param target the framebuffer whose programmable sample locations are modified
-	 * @param start  the index of the first sample location to modify
-	 * @param v      a pair of floating point values in the range [0,1] for each sample location
-	 */
-	public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
-		nglFramebufferSampleLocationsfvNV(target, start, v.remaining() >> 1, memAddress(v));
-	}
+    /**
+     * Updates the programmable sample locations
+     *
+     * @param target the framebuffer whose programmable sample locations are modified
+     * @param start  the index of the first sample location to modify
+     * @param v      a pair of floating point values in the range [0,1] for each sample location
+     */
+    public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
+        nglFramebufferSampleLocationsfvNV(target, start, v.remaining() >> 1, memAddress(v));
+    }
 
-	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
+    // --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
-	/**
-	 * Unsafe version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV}
-	 *
-	 * @param count the number of sample locations to modify
-	 */
-	public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v);
+    /**
+     * Unsafe version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV}
+     *
+     * @param count the number of sample locations to modify
+     */
+    public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v);
 
-	/**
-	 * Updates the programmable sample locations
-	 *
-	 * @param framebuffer the framebuffer whose programmable sample locations are modified
-	 * @param start       the index of the first sample location to modify
-	 * @param v           a pair of floating point values in the range [0,1] for each sample location
-	 */
-	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
-		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, v.remaining() >> 1, memAddress(v));
-	}
+    /**
+     * Updates the programmable sample locations
+     *
+     * @param framebuffer the framebuffer whose programmable sample locations are modified
+     * @param start       the index of the first sample location to modify
+     * @param v           a pair of floating point values in the range [0,1] for each sample location
+     */
+    public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
+        nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, v.remaining() >> 1, memAddress(v));
+    }
 
-	// --- [ glResolveDepthValuesNV ] ---
+    // --- [ glResolveDepthValuesNV ] ---
 
-	/**
-	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
-	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
-	 * generated. If the current framebuffer has no depth buffer, ResolveDepthValuesNV will have no effect.
-	 */
-	public static native void glResolveDepthValuesNV();
+    /**
+     * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
+     * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
+     * generated. If the current framebuffer has no depth buffer, ResolveDepthValuesNV will have no effect.
+     */
+    public static native void glResolveDepthValuesNV();
 
-	/** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
-	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
-		long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, start, v.length >> 1, v);
-	}
+    /** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
+    public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
+        long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, start, v.length >> 1, v);
+    }
 
-	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
-	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
-		long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, start, v.length >> 1, v);
-	}
+    /** Array version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
+    public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
+        long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, framebuffer, start, v.length >> 1, v);
+    }
 
 }

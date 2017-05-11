@@ -47,46 +47,46 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVPixelDataRange {
 
-	/**
-	 * Accepted by the {@code target} parameter of PixelDataRangeNV and FlushPixelDataRangeNV, and by the {@code cap} parameter of EnableClientState,
-	 * DisableClientState, and IsEnabled.
-	 */
-	public static final int
-		GL_WRITE_PIXEL_DATA_RANGE_NV = 0x8878,
-		GL_READ_PIXEL_DATA_RANGE_NV  = 0x8879;
+    /**
+     * Accepted by the {@code target} parameter of PixelDataRangeNV and FlushPixelDataRangeNV, and by the {@code cap} parameter of EnableClientState,
+     * DisableClientState, and IsEnabled.
+     */
+    public static final int
+        GL_WRITE_PIXEL_DATA_RANGE_NV = 0x8878,
+        GL_READ_PIXEL_DATA_RANGE_NV  = 0x8879;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_WRITE_PIXEL_DATA_RANGE_LENGTH_NV = 0x887A,
-		GL_READ_PIXEL_DATA_RANGE_LENGTH_NV  = 0x887B;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_WRITE_PIXEL_DATA_RANGE_LENGTH_NV = 0x887A,
+        GL_READ_PIXEL_DATA_RANGE_LENGTH_NV  = 0x887B;
 
-	/** Accepted by the {@code pname} parameter of GetPointerv. */
-	public static final int
-		GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV = 0x887C,
-		GL_READ_PIXEL_DATA_RANGE_POINTER_NV  = 0x887D;
+    /** Accepted by the {@code pname} parameter of GetPointerv. */
+    public static final int
+        GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV = 0x887C,
+        GL_READ_PIXEL_DATA_RANGE_POINTER_NV  = 0x887D;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVPixelDataRange() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVPixelDataRange() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glPixelDataRangeNV, caps.glFlushPixelDataRangeNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glPixelDataRangeNV, caps.glFlushPixelDataRangeNV
+        );
+    }
 
-	// --- [ glPixelDataRangeNV ] ---
+    // --- [ glPixelDataRangeNV ] ---
 
-	public static native void nglPixelDataRangeNV(int target, int length, long pointer);
+    public static native void nglPixelDataRangeNV(int target, int length, long pointer);
 
-	public static void glPixelDataRangeNV(int target, ByteBuffer pointer) {
-		nglPixelDataRangeNV(target, pointer.remaining(), memAddress(pointer));
-	}
+    public static void glPixelDataRangeNV(int target, ByteBuffer pointer) {
+        nglPixelDataRangeNV(target, pointer.remaining(), memAddress(pointer));
+    }
 
-	// --- [ glFlushPixelDataRangeNV ] ---
+    // --- [ glFlushPixelDataRangeNV ] ---
 
-	public static native void glFlushPixelDataRangeNV(int target);
+    public static native void glFlushPixelDataRangeNV(int target);
 
 }

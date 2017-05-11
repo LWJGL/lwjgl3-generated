@@ -33,14 +33,14 @@ package org.lwjgl.egl;
  */
 public final class NVStreamSocket {
 
-	/** Accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} when attribute is {@link NVStreamRemote#EGL_STREAM_PROTOCOL_NV STREAM_PROTOCOL_NV}. */
-	public static final int EGL_STREAM_PROTOCOL_SOCKET_NV = 0x324B;
+    /** Accepted by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and returned by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} when attribute is {@link NVStreamRemote#EGL_STREAM_PROTOCOL_NV STREAM_PROTOCOL_NV}. */
+    public static final int EGL_STREAM_PROTOCOL_SOCKET_NV = 0x324B;
 
-	/** Accepted as attribute names by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} functions. */
-	public static final int
-		EGL_SOCKET_HANDLE_NV = 0x324C,
-		EGL_SOCKET_TYPE_NV   = 0x324D;
+    /** Accepted as attribute names by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and {@link KHRStream#eglQueryStreamKHR QueryStreamKHR} functions. */
+    public static final int
+        EGL_SOCKET_HANDLE_NV = 0x324C,
+        EGL_SOCKET_TYPE_NV   = 0x324D;
 
-	private NVStreamSocket() {}
+    private NVStreamSocket() {}
 
 }

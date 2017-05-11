@@ -14,13 +14,13 @@ package org.lwjgl.opencl;
  */
 public final class INTELPackedYUV {
 
-	/** Accepted as {@code image_channel_order} of {@code cl_image_format}. */
-	public static final int
-		CL_YUYV_INTEL = 0x4076,
-		CL_UYVY_INTEL = 0x4077,
-		CL_YVYU_INTEL = 0x4078,
-		CL_VYUY_INTEL = 0x4079;
+    /** Accepted as {@code image_channel_order} of {@code cl_image_format}. */
+    public static final int
+        CL_YUYV_INTEL = 0x4076,
+        CL_UYVY_INTEL = 0x4077,
+        CL_YVYU_INTEL = 0x4078,
+        CL_VYUY_INTEL = 0x4079;
 
-	private INTELPackedYUV() {}
+    private INTELPackedYUV() {}
 
 }

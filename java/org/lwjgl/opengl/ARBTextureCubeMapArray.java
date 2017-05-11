@@ -27,22 +27,22 @@ package org.lwjgl.opengl;
  */
 public final class ARBTextureCubeMapArray {
 
-	/** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, BindTexture, and GenerateMipmap. */
-	public static final int GL_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x9009;
+    /** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, BindTexture, and GenerateMipmap. */
+    public static final int GL_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x9009;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB = 0x900A;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
+    public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB = 0x900A;
 
-	/** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CompressedTeximage3D, CompressedTexSubImage3D and CopyTexSubImage3D. */
-	public static final int GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x900B;
+    /** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CompressedTeximage3D, CompressedTexSubImage3D and CopyTexSubImage3D. */
+    public static final int GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x900B;
 
-	/** TEXTURE_CUBE_MAP_ARRAY_ARB Returned by the {@code type} parameter of GetActiveUniform. */
-	public static final int
-		GL_SAMPLER_CUBE_MAP_ARRAY_ARB              = 0x900C,
-		GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB       = 0x900D,
-		GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB          = 0x900E,
-		GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB = 0x900F;
+    /** TEXTURE_CUBE_MAP_ARRAY_ARB Returned by the {@code type} parameter of GetActiveUniform. */
+    public static final int
+        GL_SAMPLER_CUBE_MAP_ARRAY_ARB              = 0x900C,
+        GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB       = 0x900D,
+        GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB          = 0x900E,
+        GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB = 0x900F;
 
-	private ARBTextureCubeMapArray() {}
+    private ARBTextureCubeMapArray() {}
 
 }

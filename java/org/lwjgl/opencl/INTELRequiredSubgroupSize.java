@@ -15,15 +15,15 @@ package org.lwjgl.opencl;
  */
 public final class INTELRequiredSubgroupSize {
 
-	/** Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. */
-	public static final int CL_DEVICE_SUB_GROUP_SIZES_INTEL = 0x4108;
+    /** Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. */
+    public static final int CL_DEVICE_SUB_GROUP_SIZES_INTEL = 0x4108;
 
-	/** Accepted as the {@code param_name} parameter of {@link CL10#clGetKernelWorkGroupInfo GetKernelWorkGroupInfo}. */
-	public static final int CL_KERNEL_SPILL_MEM_SIZE_INTEL = 0x4109;
+    /** Accepted as the {@code param_name} parameter of {@link CL10#clGetKernelWorkGroupInfo GetKernelWorkGroupInfo}. */
+    public static final int CL_KERNEL_SPILL_MEM_SIZE_INTEL = 0x4109;
 
-	/** Accepted as the {@code param_name} parameter of {@link CL21#clGetKernelSubGroupInfo GetKernelSubGroupInfo} and/or {@link INTELSubgroups#clGetKernelSubGroupInfoKHR GetKernelSubGroupInfoKHR}. */
-	public static final int CL_KERNEL_COMPILE_SUB_GROUP_SIZE_INTEL = 0x410A;
+    /** Accepted as the {@code param_name} parameter of {@link CL21#clGetKernelSubGroupInfo GetKernelSubGroupInfo} and/or {@link INTELSubgroups#clGetKernelSubGroupInfoKHR GetKernelSubGroupInfoKHR}. */
+    public static final int CL_KERNEL_COMPILE_SUB_GROUP_SIZE_INTEL = 0x410A;
 
-	private INTELRequiredSubgroupSize() {}
+    private INTELRequiredSubgroupSize() {}
 
 }

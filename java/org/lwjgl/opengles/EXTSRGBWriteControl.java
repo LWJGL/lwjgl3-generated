@@ -17,12 +17,12 @@ package org.lwjgl.opengles;
  */
 public final class EXTSRGBWriteControl {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv and
-	 * GetInteger64v.
-	 */
-	public static final int GL_FRAMEBUFFER_SRGB_EXT = 0x8DB9;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv and
+     * GetInteger64v.
+     */
+    public static final int GL_FRAMEBUFFER_SRGB_EXT = 0x8DB9;
 
-	private EXTSRGBWriteControl() {}
+    private EXTSRGBWriteControl() {}
 
 }

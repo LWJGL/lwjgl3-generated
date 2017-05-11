@@ -34,69 +34,71 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVSampleLocations {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV           = 0x933D,
-		GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV        = 0x933E,
-		GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV       = 0x933F,
-		GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV = 0x9340;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV           = 0x933D,
+        GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV        = 0x933E,
+        GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV       = 0x933F,
+        GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV = 0x9340;
 
-	/** Accepted by the {@code pname} parameter of GetMultisamplefv. */
-	public static final int
-		GL_SAMPLE_LOCATION_NV              = 0x8E50,
-		GL_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9341;
+    /** Accepted by the {@code pname} parameter of GetMultisamplefv. */
+    public static final int
+        GL_SAMPLE_LOCATION_NV              = 0x8E50,
+        GL_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9341;
 
-	/** Accepted by the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv. */
-	public static final int
-		GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342,
-		GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
+    /** Accepted by the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv. */
+    public static final int
+        GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV = 0x9342,
+        GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV    = 0x9343;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVSampleLocations() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVSampleLocations() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glFramebufferSampleLocationsfvNV, caps.glNamedFramebufferSampleLocationsfvNV, caps.glResolveDepthValuesNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glFramebufferSampleLocationsfvNV, caps.glNamedFramebufferSampleLocationsfvNV, caps.glResolveDepthValuesNV
+        );
+    }
 
-	// --- [ glFramebufferSampleLocationsfvNV ] ---
+    // --- [ glFramebufferSampleLocationsfvNV ] ---
 
-	public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v);
+    public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v);
 
-	public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
-		nglFramebufferSampleLocationsfvNV(target, start, v.remaining(), memAddress(v));
-	}
+    public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
+        nglFramebufferSampleLocationsfvNV(target, start, v.remaining(), memAddress(v));
+    }
 
-	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
+    // --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
-	public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v);
+    public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v);
 
-	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
-		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, v.remaining(), memAddress(v));
-	}
+    public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
+        nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, v.remaining(), memAddress(v));
+    }
 
-	// --- [ glResolveDepthValuesNV ] ---
+    // --- [ glResolveDepthValuesNV ] ---
 
-	public static native void glResolveDepthValuesNV();
+    public static native void glResolveDepthValuesNV();
 
-	/** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
-	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
-		long __functionAddress = GLES.getICD().glFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, target, start, v.length, v);
-	}
+    /** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
+    public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
+        long __functionAddress = GLES.getICD().glFramebufferSampleLocationsfvNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, target, start, v.length, v);
+    }
 
-	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
-	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
-		long __functionAddress = GLES.getICD().glNamedFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, framebuffer, start, v.length, v);
-	}
+    /** Array version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
+    public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
+        long __functionAddress = GLES.getICD().glNamedFramebufferSampleLocationsfvNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, framebuffer, start, v.length, v);
+    }
 
 }

@@ -13,12 +13,12 @@ package org.lwjgl.openal;
  */
 public final class EXTOffset {
 
-	/** {@code AL_EXT_OFFSET} tokens. */
-	public static final int
-		AL_SEC_OFFSET    = 0x1024,
-		AL_SAMPLE_OFFSET = 0x1025,
-		AL_BYTE_OFFSET   = 0x1026;
+    /** {@code AL_EXT_OFFSET} tokens. */
+    public static final int
+        AL_SEC_OFFSET    = 0x1024,
+        AL_SAMPLE_OFFSET = 0x1025,
+        AL_BYTE_OFFSET   = 0x1026;
 
-	private EXTOffset() {}
+    private EXTOffset() {}
 
 }

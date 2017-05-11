@@ -29,49 +29,49 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTDrawBuffersIndexed {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTDrawBuffersIndexed() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDrawBuffersIndexed() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glEnableiEXT, caps.glDisableiEXT, caps.glBlendEquationiEXT, caps.glBlendEquationSeparateiEXT, caps.glBlendFunciEXT, 
-			caps.glBlendFuncSeparateiEXT, caps.glColorMaskiEXT, caps.glIsEnablediEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glEnableiEXT, caps.glDisableiEXT, caps.glBlendEquationiEXT, caps.glBlendEquationSeparateiEXT, caps.glBlendFunciEXT, 
+            caps.glBlendFuncSeparateiEXT, caps.glColorMaskiEXT, caps.glIsEnablediEXT
+        );
+    }
 
-	// --- [ glEnableiEXT ] ---
+    // --- [ glEnableiEXT ] ---
 
-	public static native void glEnableiEXT(int target, int index);
+    public static native void glEnableiEXT(int target, int index);
 
-	// --- [ glDisableiEXT ] ---
+    // --- [ glDisableiEXT ] ---
 
-	public static native void glDisableiEXT(int target, int index);
+    public static native void glDisableiEXT(int target, int index);
 
-	// --- [ glBlendEquationiEXT ] ---
+    // --- [ glBlendEquationiEXT ] ---
 
-	public static native void glBlendEquationiEXT(int buf, int mode);
+    public static native void glBlendEquationiEXT(int buf, int mode);
 
-	// --- [ glBlendEquationSeparateiEXT ] ---
+    // --- [ glBlendEquationSeparateiEXT ] ---
 
-	public static native void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha);
 
-	// --- [ glBlendFunciEXT ] ---
+    // --- [ glBlendFunciEXT ] ---
 
-	public static native void glBlendFunciEXT(int buf, int src, int dst);
+    public static native void glBlendFunciEXT(int buf, int src, int dst);
 
-	// --- [ glBlendFuncSeparateiEXT ] ---
+    // --- [ glBlendFuncSeparateiEXT ] ---
 
-	public static native void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
-	// --- [ glColorMaskiEXT ] ---
+    // --- [ glColorMaskiEXT ] ---
 
-	public static native void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a);
+    public static native void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a);
 
-	// --- [ glIsEnablediEXT ] ---
+    // --- [ glIsEnablediEXT ] ---
 
-	public static native boolean glIsEnablediEXT(int target, int index);
+    public static native boolean glIsEnablediEXT(int target, int index);
 
 }

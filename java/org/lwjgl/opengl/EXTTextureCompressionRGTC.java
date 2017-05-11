@@ -24,16 +24,16 @@ package org.lwjgl.opengl;
  */
 public final class EXTTextureCompressionRGTC {
 
-	/**
-	 * Accepted by the {@code internalformat} parameter of TexImage2D, CopyTexImage2D, and CompressedTexImage2D and the {@code format} parameter of
-	 * CompressedTexSubImage2D.
-	 */
-	public static final int
-		GL_COMPRESSED_RED_RGTC1_EXT              = 0x8DBB,
-		GL_COMPRESSED_SIGNED_RED_RGTC1_EXT       = 0x8DBC,
-		GL_COMPRESSED_RED_GREEN_RGTC2_EXT        = 0x8DBD,
-		GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT = 0x8DBE;
+    /**
+     * Accepted by the {@code internalformat} parameter of TexImage2D, CopyTexImage2D, and CompressedTexImage2D and the {@code format} parameter of
+     * CompressedTexSubImage2D.
+     */
+    public static final int
+        GL_COMPRESSED_RED_RGTC1_EXT              = 0x8DBB,
+        GL_COMPRESSED_SIGNED_RED_RGTC1_EXT       = 0x8DBC,
+        GL_COMPRESSED_RED_GREEN_RGTC2_EXT        = 0x8DBD,
+        GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT = 0x8DBE;
 
-	private EXTTextureCompressionRGTC() {}
+    private EXTTextureCompressionRGTC() {}
 
 }

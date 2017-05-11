@@ -25,140 +25,145 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class WGLNVGPUAffinity {
 
-	/** New error code set by wglShareLists, wglMakeCurrent and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
-	public static final int ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV = 0x20D0;
+    /** New error code set by wglShareLists, wglMakeCurrent and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
+    public static final int ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV = 0x20D0;
 
-	/** New error code set by {@link WGL#wglMakeCurrent MakeCurrent} and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
-	public static final int ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
+    /** New error code set by {@link WGL#wglMakeCurrent MakeCurrent} and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
+    public static final int ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
-	protected WGLNVGPUAffinity() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLNVGPUAffinity() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglEnumGpusNV, caps.wglEnumGpuDevicesNV, caps.wglCreateAffinityDCNV, caps.wglEnumGpusFromAffinityDCNV, caps.wglDeleteDCNV
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglEnumGpusNV, caps.wglEnumGpuDevicesNV, caps.wglCreateAffinityDCNV, caps.wglEnumGpusFromAffinityDCNV, caps.wglDeleteDCNV
+        );
+    }
 
-	// --- [ wglEnumGpusNV ] ---
+    // --- [ wglEnumGpusNV ] ---
 
-	/** Unsafe version of: {@link #wglEnumGpusNV EnumGpusNV} */
-	public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPI(__functionAddress, gpuIndex, gpu);
-	}
+    /** Unsafe version of: {@link #wglEnumGpusNV EnumGpusNV} */
+    public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPI(__functionAddress, gpuIndex, gpu);
+    }
 
-	/**
-	 * Returns the handles for all GPUs in a system.
-	 * 
-	 * <p>By looping over {@code wglEnumGpusNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles can be queried. If the function succeeds,
-	 * the return value is TRUE. If the function fails, the return value is FALSE and {@code gpu} will be unmodified. The function fails if {@code gpuIndex} is
-	 * greater or equal than the number of GPUs supported by the system.</p>
-	 *
-	 * @param gpuIndex an index value that specifies a GPU
-	 * @param gpu      returns a handle for GPU number {@code gpuIndex}. The first GPU will be index 0.
-	 */
-	public static boolean wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
-		if ( CHECKS )
-			check(gpu, 1);
-		return nwglEnumGpusNV(gpuIndex, memAddress(gpu)) != 0;
-	}
+    /**
+     * Returns the handles for all GPUs in a system.
+     * 
+     * <p>By looping over {@code wglEnumGpusNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles can be queried. If the function succeeds,
+     * the return value is TRUE. If the function fails, the return value is FALSE and {@code gpu} will be unmodified. The function fails if {@code gpuIndex} is
+     * greater or equal than the number of GPUs supported by the system.</p>
+     *
+     * @param gpuIndex an index value that specifies a GPU
+     * @param gpu      returns a handle for GPU number {@code gpuIndex}. The first GPU will be index 0.
+     */
+    public static boolean wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
+        if (CHECKS) {
+            check(gpu, 1);
+        }
+        return nwglEnumGpusNV(gpuIndex, memAddress(gpu)) != 0;
+    }
 
-	// --- [ wglEnumGpuDevicesNV ] ---
+    // --- [ wglEnumGpuDevicesNV ] ---
 
-	/** Unsafe version of: {@link #wglEnumGpuDevicesNV EnumGpuDevicesNV} */
-	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpuDevicesNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(gpu);
-		}
-		return callPPI(__functionAddress, gpu, deviceIndex, gpuDevice);
-	}
+    /** Unsafe version of: {@link #wglEnumGpuDevicesNV EnumGpuDevicesNV} */
+    public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpuDevicesNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(gpu);
+        }
+        return callPPI(__functionAddress, gpu, deviceIndex, gpuDevice);
+    }
 
-	/**
-	 * Retrieve information about the display devices supported by a GPU.
-	 *
-	 * @param gpu         a handle to the GPU to query
-	 * @param deviceIndex an index value that specifies a display device, supported by {@code gpu}, to query. The first display device will be index 0.
-	 * @param gpuDevice   a {@link GPU_DEVICE} structure which will receive information about the display device at index {@code deviceIndex}.
-	 */
-	public static boolean wglEnumGpuDevicesNV(long gpu, int deviceIndex, GPU_DEVICE gpuDevice) {
-		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice.address()) != 0;
-	}
+    /**
+     * Retrieve information about the display devices supported by a GPU.
+     *
+     * @param gpu         a handle to the GPU to query
+     * @param deviceIndex an index value that specifies a display device, supported by {@code gpu}, to query. The first display device will be index 0.
+     * @param gpuDevice   a {@link GPU_DEVICE} structure which will receive information about the display device at index {@code deviceIndex}.
+     */
+    public static boolean wglEnumGpuDevicesNV(long gpu, int deviceIndex, GPU_DEVICE gpuDevice) {
+        return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice.address()) != 0;
+    }
 
-	// --- [ wglCreateAffinityDCNV ] ---
+    // --- [ wglCreateAffinityDCNV ] ---
 
-	/** Unsafe version of: {@link #wglCreateAffinityDCNV CreateAffinityDCNV} */
-	public static long nwglCreateAffinityDCNV(long gpuList) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAffinityDCNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPP(__functionAddress, gpuList);
-	}
+    /** Unsafe version of: {@link #wglCreateAffinityDCNV CreateAffinityDCNV} */
+    public static long nwglCreateAffinityDCNV(long gpuList) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglCreateAffinityDCNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPP(__functionAddress, gpuList);
+    }
 
-	/**
-	 * Creates an affinity-DC. Affinity-DCs, a new type of DC, can be used to direct OpenGL commands to a specific GPU or set of GPUs. An affinity-DC is a
-	 * device context with a GPU affinity mask embedded in it. This restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the
-	 * affinity mask. An affinity-DC can be created directly, using the new function {@code wglCreateAffinityDCNV} and also indirectly by calling
-	 * {@link WGLARBPbuffer#wglCreatePbufferARB CreatePbufferARB} followed by {@link WGLARBPbuffer#wglGetPbufferDCARB GetPbufferDCARB}.
-	 * 
-	 * <p>If successful, the function returns an affinity-DC handle. If it fails, {@code NULL} will be returned.</p>
-	 *
-	 * @param gpuList a {@code NULL}-terminated array of GPU handles to which the affinity-DC will be restricted
-	 */
-	public static long wglCreateAffinityDCNV(PointerBuffer gpuList) {
-		if ( CHECKS )
-			checkNT(gpuList);
-		return nwglCreateAffinityDCNV(memAddress(gpuList));
-	}
+    /**
+     * Creates an affinity-DC. Affinity-DCs, a new type of DC, can be used to direct OpenGL commands to a specific GPU or set of GPUs. An affinity-DC is a
+     * device context with a GPU affinity mask embedded in it. This restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the
+     * affinity mask. An affinity-DC can be created directly, using the new function {@code wglCreateAffinityDCNV} and also indirectly by calling
+     * {@link WGLARBPbuffer#wglCreatePbufferARB CreatePbufferARB} followed by {@link WGLARBPbuffer#wglGetPbufferDCARB GetPbufferDCARB}.
+     * 
+     * <p>If successful, the function returns an affinity-DC handle. If it fails, {@code NULL} will be returned.</p>
+     *
+     * @param gpuList a {@code NULL}-terminated array of GPU handles to which the affinity-DC will be restricted
+     */
+    public static long wglCreateAffinityDCNV(PointerBuffer gpuList) {
+        if (CHECKS) {
+            checkNT(gpuList);
+        }
+        return nwglCreateAffinityDCNV(memAddress(gpuList));
+    }
 
-	// --- [ wglEnumGpusFromAffinityDCNV ] ---
+    // --- [ wglEnumGpusFromAffinityDCNV ] ---
 
-	/** Unsafe version of: {@link #wglEnumGpusFromAffinityDCNV EnumGpusFromAffinityDCNV} */
-	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusFromAffinityDCNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(affinityDC);
-		}
-		return callPPI(__functionAddress, affinityDC, gpuIndex, gpu);
-	}
+    /** Unsafe version of: {@link #wglEnumGpusFromAffinityDCNV EnumGpusFromAffinityDCNV} */
+    public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusFromAffinityDCNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(affinityDC);
+        }
+        return callPPI(__functionAddress, affinityDC, gpuIndex, gpu);
+    }
 
-	/**
-	 * Retrieves a list of GPU handles that make up the affinity-mask of an affinity-DC.
-	 * 
-	 * <p>By looping over {@code wglEnumGpusFromAffinityDCNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles associated with the DC can
-	 * be queried. If the function succeeds, the return value is TRUE. If the function fails, the return value is FALSE and {@code gpu} will be unmodified. The
-	 * function fails if {@code gpuIndex} is greater or equal than the number of GPUs associated with {@code affinityDC}.</p>
-	 *
-	 * @param affinityDC a handle of the affinity-DC to query
-	 * @param gpuIndex   an index value of the GPU handle in the affinity mask of {@code affinityDC} to query
-	 * @param gpu        returns a handle for  GPU number {@code gpuIndex}. The first GPU will be at index 0.
-	 */
-	public static boolean wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
-		if ( CHECKS )
-			check(gpu, 1);
-		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu)) != 0;
-	}
+    /**
+     * Retrieves a list of GPU handles that make up the affinity-mask of an affinity-DC.
+     * 
+     * <p>By looping over {@code wglEnumGpusFromAffinityDCNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles associated with the DC can
+     * be queried. If the function succeeds, the return value is TRUE. If the function fails, the return value is FALSE and {@code gpu} will be unmodified. The
+     * function fails if {@code gpuIndex} is greater or equal than the number of GPUs associated with {@code affinityDC}.</p>
+     *
+     * @param affinityDC a handle of the affinity-DC to query
+     * @param gpuIndex   an index value of the GPU handle in the affinity mask of {@code affinityDC} to query
+     * @param gpu        returns a handle for  GPU number {@code gpuIndex}. The first GPU will be at index 0.
+     */
+    public static boolean wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
+        if (CHECKS) {
+            check(gpu, 1);
+        }
+        return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu)) != 0;
+    }
 
-	// --- [ wglDeleteDCNV ] ---
+    // --- [ wglDeleteDCNV ] ---
 
-	/**
-	 * Deletes an affinity-DC.
-	 *
-	 * @param hdc a handle of an affinity-DC to delete
-	 */
-	public static boolean wglDeleteDCNV(long hdc) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteDCNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hdc);
-		}
-		return callPI(__functionAddress, hdc) != 0;
-	}
+    /**
+     * Deletes an affinity-DC.
+     *
+     * @param hdc a handle of an affinity-DC to delete
+     */
+    public static boolean wglDeleteDCNV(long hdc) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglDeleteDCNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hdc);
+        }
+        return callPI(__functionAddress, hdc) != 0;
+    }
 
 }

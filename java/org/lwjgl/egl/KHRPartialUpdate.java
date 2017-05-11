@@ -32,44 +32,44 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRPartialUpdate {
 
-	/**  */
-	public static final int EGL_BUFFER_AGE_KHR = 0x313D;
+    /**  */
+    public static final int EGL_BUFFER_AGE_KHR = 0x313D;
 
-	protected KHRPartialUpdate() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRPartialUpdate() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglSetDamageRegionKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglSetDamageRegionKHR
+        );
+    }
 
-	// --- [ eglSetDamageRegionKHR ] ---
+    // --- [ eglSetDamageRegionKHR ] ---
 
-	public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
-		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
-	}
+    public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
+        long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
+    }
 
-	public static boolean eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
-		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
-	}
+    public static boolean eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
+        return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
+    }
 
-	/** Array version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
-	public static boolean eglSetDamageRegionKHR(long dpy, long surface, int[] rects) {
-		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
-	}
+    /** Array version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
+    public static boolean eglSetDamageRegionKHR(long dpy, long surface, int[] rects) {
+        long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
+    }
 
 }

@@ -24,25 +24,25 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTBlendEquationSeparate {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_EQUATION_RGB_EXT   = 0x8009,
-		GL_BLEND_EQUATION_ALPHA_EXT = 0x883D;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_BLEND_EQUATION_RGB_EXT   = 0x8009,
+        GL_BLEND_EQUATION_ALPHA_EXT = 0x883D;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTBlendEquationSeparate() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTBlendEquationSeparate() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glBlendEquationSeparateEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glBlendEquationSeparateEXT
+        );
+    }
 
-	// --- [ glBlendEquationSeparateEXT ] ---
+    // --- [ glBlendEquationSeparateEXT ] ---
 
-	public static native void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha);
 
 }

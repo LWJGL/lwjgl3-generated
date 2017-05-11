@@ -13,22 +13,22 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface EGLSetBlobFuncANDROIDI extends CallbackI.V {
 
-	String SIGNATURE = "(pppp)v";
+    String SIGNATURE = "(pppp)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
 
-	void invoke(long key, long keySize, long value, long valueSize);
+    void invoke(long key, long keySize, long value, long valueSize);
 
 }

@@ -13,11 +13,11 @@ package org.lwjgl.openal;
  */
 public final class EXTExponentDistance {
 
-	/** {@code AL_EXT_EXPONENT_DISTANCE} tokens. */
-	public static final int
-		AL_EXPONENT_DISTANCE         = 0xD005,
-		AL_EXPONENT_DISTANCE_CLAMPED = 0xD006;
+    /** {@code AL_EXT_EXPONENT_DISTANCE} tokens. */
+    public static final int
+        AL_EXPONENT_DISTANCE         = 0xD005,
+        AL_EXPONENT_DISTANCE_CLAMPED = 0xD006;
 
-	private EXTExponentDistance() {}
+    private EXTExponentDistance() {}
 
 }

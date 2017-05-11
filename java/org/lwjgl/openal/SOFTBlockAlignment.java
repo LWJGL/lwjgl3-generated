@@ -13,11 +13,11 @@ package org.lwjgl.openal;
  */
 public final class SOFTBlockAlignment {
 
-	/** Accepted by the {@code paramName} parameter of {@link AL11#alBufferi Bufferi}, {@link AL11#alBufferiv Bufferiv}, {@link AL10#alGetBufferi GetBufferi}, and {@link AL11#alGetBufferiv GetBufferiv}. */
-	public static final int
-		AL_UNPACK_BLOCK_ALIGNMENT_SOFT = 0x200C,
-		AL_PACK_BLOCK_ALIGNMENT_SOFT   = 0x200D;
+    /** Accepted by the {@code paramName} parameter of {@link AL11#alBufferi Bufferi}, {@link AL11#alBufferiv Bufferiv}, {@link AL10#alGetBufferi GetBufferi}, and {@link AL11#alGetBufferiv GetBufferiv}. */
+    public static final int
+        AL_UNPACK_BLOCK_ALIGNMENT_SOFT = 0x200C,
+        AL_PACK_BLOCK_ALIGNMENT_SOFT   = 0x200D;
 
-	private SOFTBlockAlignment() {}
+    private SOFTBlockAlignment() {}
 
 }

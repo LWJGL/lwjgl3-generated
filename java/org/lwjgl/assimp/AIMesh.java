@@ -99,598 +99,601 @@ import static org.lwjgl.system.MemoryStack.*;
  */
 public class AIMesh extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		MPRIMITIVETYPES,
-		MNUMVERTICES,
-		MNUMFACES,
-		MVERTICES,
-		MNORMALS,
-		MTANGENTS,
-		MBITANGENTS,
-		MCOLORS,
-		MTEXTURECOORDS,
-		MNUMUVCOMPONENTS,
-		MFACES,
-		MNUMBONES,
-		MBONES,
-		MMATERIALINDEX,
-		MNAME,
-		MNUMANIMMESHES,
-		MANIMMESHES;
+    /** The struct member offsets. */
+    public static final int
+        MPRIMITIVETYPES,
+        MNUMVERTICES,
+        MNUMFACES,
+        MVERTICES,
+        MNORMALS,
+        MTANGENTS,
+        MBITANGENTS,
+        MCOLORS,
+        MTEXTURECOORDS,
+        MNUMUVCOMPONENTS,
+        MFACES,
+        MNUMBONES,
+        MBONES,
+        MMATERIALINDEX,
+        MNAME,
+        MNUMANIMMESHES,
+        MANIMMESHES;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__member(POINTER_SIZE),
-			__array(POINTER_SIZE, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS),
-			__array(POINTER_SIZE, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS),
-			__array(4, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS),
-			__member(POINTER_SIZE),
-			__member(4),
-			__member(POINTER_SIZE),
-			__member(4),
-			__member(AIString.SIZEOF, AIString.ALIGNOF),
-			__member(4),
-			__member(POINTER_SIZE)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
+            __array(POINTER_SIZE, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS),
+            __array(POINTER_SIZE, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS),
+            __array(4, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS),
+            __member(POINTER_SIZE),
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(4),
+            __member(AIString.SIZEOF, AIString.ALIGNOF),
+            __member(4),
+            __member(POINTER_SIZE)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		MPRIMITIVETYPES = layout.offsetof(0);
-		MNUMVERTICES = layout.offsetof(1);
-		MNUMFACES = layout.offsetof(2);
-		MVERTICES = layout.offsetof(3);
-		MNORMALS = layout.offsetof(4);
-		MTANGENTS = layout.offsetof(5);
-		MBITANGENTS = layout.offsetof(6);
-		MCOLORS = layout.offsetof(7);
-		MTEXTURECOORDS = layout.offsetof(8);
-		MNUMUVCOMPONENTS = layout.offsetof(9);
-		MFACES = layout.offsetof(10);
-		MNUMBONES = layout.offsetof(11);
-		MBONES = layout.offsetof(12);
-		MMATERIALINDEX = layout.offsetof(13);
-		MNAME = layout.offsetof(14);
-		MNUMANIMMESHES = layout.offsetof(15);
-		MANIMMESHES = layout.offsetof(16);
-	}
+        MPRIMITIVETYPES = layout.offsetof(0);
+        MNUMVERTICES = layout.offsetof(1);
+        MNUMFACES = layout.offsetof(2);
+        MVERTICES = layout.offsetof(3);
+        MNORMALS = layout.offsetof(4);
+        MTANGENTS = layout.offsetof(5);
+        MBITANGENTS = layout.offsetof(6);
+        MCOLORS = layout.offsetof(7);
+        MTEXTURECOORDS = layout.offsetof(8);
+        MNUMUVCOMPONENTS = layout.offsetof(9);
+        MFACES = layout.offsetof(10);
+        MNUMBONES = layout.offsetof(11);
+        MBONES = layout.offsetof(12);
+        MMATERIALINDEX = layout.offsetof(13);
+        MNAME = layout.offsetof(14);
+        MNUMANIMMESHES = layout.offsetof(15);
+        MANIMMESHES = layout.offsetof(16);
+    }
 
-	AIMesh(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    AIMesh(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link AIMesh} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public AIMesh(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link AIMesh} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public AIMesh(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code mPrimitiveTypes} field. */
-	public int mPrimitiveTypes() { return nmPrimitiveTypes(address()); }
-	/** Returns the value of the {@code mNumVertices} field. */
-	public int mNumVertices() { return nmNumVertices(address()); }
-	/** Returns the value of the {@code mNumFaces} field. */
-	public int mNumFaces() { return nmNumFaces(address()); }
-	/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mVertices} field. */
-	public AIVector3D.Buffer mVertices() { return nmVertices(address()); }
-	/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mNormals} field. */
-	public AIVector3D.Buffer mNormals() { return nmNormals(address()); }
-	/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mTangents} field. */
-	public AIVector3D.Buffer mTangents() { return nmTangents(address()); }
-	/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mBitangents} field. */
-	public AIVector3D.Buffer mBitangents() { return nmBitangents(address()); }
-	/** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
-	public PointerBuffer mColors() { return nmColors(address()); }
-	/** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
-	public AIColor4D.Buffer mColors(int index) { return nmColors(address(), index); }
-	/** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
-	public PointerBuffer mTextureCoords() { return nmTextureCoords(address()); }
-	/** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
-	public AIVector3D.Buffer mTextureCoords(int index) { return nmTextureCoords(address(), index); }
-	/** Returns a {@link IntBuffer} view of the {@code mNumUVComponents} field. */
-	public IntBuffer mNumUVComponents() { return nmNumUVComponents(address()); }
-	/** Returns the value at the specified index of the {@code mNumUVComponents} field. */
-	public int mNumUVComponents(int index) { return nmNumUVComponents(address(), index); }
-	/** Returns a {@link AIFace.Buffer} view of the struct array pointed to by the {@code mFaces} field. */
-	public AIFace.Buffer mFaces() { return nmFaces(address()); }
-	/** Returns the value of the {@code mNumBones} field. */
-	public int mNumBones() { return nmNumBones(address()); }
-	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mBones} field. */
-	public PointerBuffer mBones() { return nmBones(address()); }
-	/** Returns the value of the {@code mMaterialIndex} field. */
-	public int mMaterialIndex() { return nmMaterialIndex(address()); }
-	/** Returns a {@link AIString} view of the {@code mName} field. */
-	public AIString mName() { return nmName(address()); }
-	/** Returns the value of the {@code mNumAnimMeshes} field. */
-	public int mNumAnimMeshes() { return nmNumAnimMeshes(address()); }
-	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimMeshes} field. */
-	public PointerBuffer mAnimMeshes() { return nmAnimMeshes(address()); }
+    /** Returns the value of the {@code mPrimitiveTypes} field. */
+    public int mPrimitiveTypes() { return nmPrimitiveTypes(address()); }
+    /** Returns the value of the {@code mNumVertices} field. */
+    public int mNumVertices() { return nmNumVertices(address()); }
+    /** Returns the value of the {@code mNumFaces} field. */
+    public int mNumFaces() { return nmNumFaces(address()); }
+    /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mVertices} field. */
+    public AIVector3D.Buffer mVertices() { return nmVertices(address()); }
+    /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mNormals} field. */
+    public AIVector3D.Buffer mNormals() { return nmNormals(address()); }
+    /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mTangents} field. */
+    public AIVector3D.Buffer mTangents() { return nmTangents(address()); }
+    /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mBitangents} field. */
+    public AIVector3D.Buffer mBitangents() { return nmBitangents(address()); }
+    /** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
+    public PointerBuffer mColors() { return nmColors(address()); }
+    /** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
+    public AIColor4D.Buffer mColors(int index) { return nmColors(address(), index); }
+    /** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
+    public PointerBuffer mTextureCoords() { return nmTextureCoords(address()); }
+    /** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
+    public AIVector3D.Buffer mTextureCoords(int index) { return nmTextureCoords(address(), index); }
+    /** Returns a {@link IntBuffer} view of the {@code mNumUVComponents} field. */
+    public IntBuffer mNumUVComponents() { return nmNumUVComponents(address()); }
+    /** Returns the value at the specified index of the {@code mNumUVComponents} field. */
+    public int mNumUVComponents(int index) { return nmNumUVComponents(address(), index); }
+    /** Returns a {@link AIFace.Buffer} view of the struct array pointed to by the {@code mFaces} field. */
+    public AIFace.Buffer mFaces() { return nmFaces(address()); }
+    /** Returns the value of the {@code mNumBones} field. */
+    public int mNumBones() { return nmNumBones(address()); }
+    /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mBones} field. */
+    public PointerBuffer mBones() { return nmBones(address()); }
+    /** Returns the value of the {@code mMaterialIndex} field. */
+    public int mMaterialIndex() { return nmMaterialIndex(address()); }
+    /** Returns a {@link AIString} view of the {@code mName} field. */
+    public AIString mName() { return nmName(address()); }
+    /** Returns the value of the {@code mNumAnimMeshes} field. */
+    public int mNumAnimMeshes() { return nmNumAnimMeshes(address()); }
+    /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimMeshes} field. */
+    public PointerBuffer mAnimMeshes() { return nmAnimMeshes(address()); }
 
-	/** Sets the specified value to the {@code mPrimitiveTypes} field. */
-	public AIMesh mPrimitiveTypes(int value) { nmPrimitiveTypes(address(), value); return this; }
-	/** Sets the specified value to the {@code mNumVertices} field. */
-	public AIMesh mNumVertices(int value) { nmNumVertices(address(), value); return this; }
-	/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mVertices} field. */
-	public AIMesh mVertices(AIVector3D.Buffer value) { nmVertices(address(), value); return this; }
-	/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mNormals} field. */
-	public AIMesh mNormals(AIVector3D.Buffer value) { nmNormals(address(), value); return this; }
-	/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mTangents} field. */
-	public AIMesh mTangents(AIVector3D.Buffer value) { nmTangents(address(), value); return this; }
-	/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mBitangents} field. */
-	public AIMesh mBitangents(AIVector3D.Buffer value) { nmBitangents(address(), value); return this; }
-	/** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
-	public AIMesh mColors(PointerBuffer value) { nmColors(address(), value); return this; }
-	/** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
-	public AIMesh mColors(int index, AIColor4D.Buffer value) { nmColors(address(), index, value); return this; }
-	/** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
-	public AIMesh mTextureCoords(PointerBuffer value) { nmTextureCoords(address(), value); return this; }
-	/** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
-	public AIMesh mTextureCoords(int index, AIVector3D.Buffer value) { nmTextureCoords(address(), index, value); return this; }
-	/** Copies the specified {@link IntBuffer} to the {@code mNumUVComponents} field. */
-	public AIMesh mNumUVComponents(IntBuffer value) { nmNumUVComponents(address(), value); return this; }
-	/** Sets the specified value at the specified index of the {@code mNumUVComponents} field. */
-	public AIMesh mNumUVComponents(int index, int value) { nmNumUVComponents(address(), index, value); return this; }
-	/** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
-	public AIMesh mFaces(AIFace.Buffer value) { nmFaces(address(), value); return this; }
-	/** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
-	public AIMesh mBones(PointerBuffer value) { nmBones(address(), value); return this; }
-	/** Sets the specified value to the {@code mMaterialIndex} field. */
-	public AIMesh mMaterialIndex(int value) { nmMaterialIndex(address(), value); return this; }
-	/** Copies the specified {@link AIString} to the {@code mName} field. */
-	public AIMesh mName(AIString value) { nmName(address(), value); return this; }
-	/** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
-	public AIMesh mAnimMeshes(PointerBuffer value) { nmAnimMeshes(address(), value); return this; }
+    /** Sets the specified value to the {@code mPrimitiveTypes} field. */
+    public AIMesh mPrimitiveTypes(int value) { nmPrimitiveTypes(address(), value); return this; }
+    /** Sets the specified value to the {@code mNumVertices} field. */
+    public AIMesh mNumVertices(int value) { nmNumVertices(address(), value); return this; }
+    /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mVertices} field. */
+    public AIMesh mVertices(AIVector3D.Buffer value) { nmVertices(address(), value); return this; }
+    /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mNormals} field. */
+    public AIMesh mNormals(AIVector3D.Buffer value) { nmNormals(address(), value); return this; }
+    /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mTangents} field. */
+    public AIMesh mTangents(AIVector3D.Buffer value) { nmTangents(address(), value); return this; }
+    /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mBitangents} field. */
+    public AIMesh mBitangents(AIVector3D.Buffer value) { nmBitangents(address(), value); return this; }
+    /** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
+    public AIMesh mColors(PointerBuffer value) { nmColors(address(), value); return this; }
+    /** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
+    public AIMesh mColors(int index, AIColor4D.Buffer value) { nmColors(address(), index, value); return this; }
+    /** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
+    public AIMesh mTextureCoords(PointerBuffer value) { nmTextureCoords(address(), value); return this; }
+    /** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
+    public AIMesh mTextureCoords(int index, AIVector3D.Buffer value) { nmTextureCoords(address(), index, value); return this; }
+    /** Copies the specified {@link IntBuffer} to the {@code mNumUVComponents} field. */
+    public AIMesh mNumUVComponents(IntBuffer value) { nmNumUVComponents(address(), value); return this; }
+    /** Sets the specified value at the specified index of the {@code mNumUVComponents} field. */
+    public AIMesh mNumUVComponents(int index, int value) { nmNumUVComponents(address(), index, value); return this; }
+    /** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
+    public AIMesh mFaces(AIFace.Buffer value) { nmFaces(address(), value); return this; }
+    /** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
+    public AIMesh mBones(PointerBuffer value) { nmBones(address(), value); return this; }
+    /** Sets the specified value to the {@code mMaterialIndex} field. */
+    public AIMesh mMaterialIndex(int value) { nmMaterialIndex(address(), value); return this; }
+    /** Copies the specified {@link AIString} to the {@code mName} field. */
+    public AIMesh mName(AIString value) { nmName(address(), value); return this; }
+    /** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
+    public AIMesh mAnimMeshes(PointerBuffer value) { nmAnimMeshes(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public AIMesh set(
-		int mPrimitiveTypes,
-		int mNumVertices,
-		AIVector3D.Buffer mVertices,
-		AIVector3D.Buffer mNormals,
-		AIVector3D.Buffer mTangents,
-		AIVector3D.Buffer mBitangents,
-		PointerBuffer mColors,
-		PointerBuffer mTextureCoords,
-		IntBuffer mNumUVComponents,
-		AIFace.Buffer mFaces,
-		PointerBuffer mBones,
-		int mMaterialIndex,
-		AIString mName,
-		PointerBuffer mAnimMeshes
-	) {
-		mPrimitiveTypes(mPrimitiveTypes);
-		mNumVertices(mNumVertices);
-		mVertices(mVertices);
-		mNormals(mNormals);
-		mTangents(mTangents);
-		mBitangents(mBitangents);
-		mColors(mColors);
-		mTextureCoords(mTextureCoords);
-		mNumUVComponents(mNumUVComponents);
-		mFaces(mFaces);
-		mBones(mBones);
-		mMaterialIndex(mMaterialIndex);
-		mName(mName);
-		mAnimMeshes(mAnimMeshes);
+    /** Initializes this struct with the specified values. */
+    public AIMesh set(
+        int mPrimitiveTypes,
+        int mNumVertices,
+        AIVector3D.Buffer mVertices,
+        AIVector3D.Buffer mNormals,
+        AIVector3D.Buffer mTangents,
+        AIVector3D.Buffer mBitangents,
+        PointerBuffer mColors,
+        PointerBuffer mTextureCoords,
+        IntBuffer mNumUVComponents,
+        AIFace.Buffer mFaces,
+        PointerBuffer mBones,
+        int mMaterialIndex,
+        AIString mName,
+        PointerBuffer mAnimMeshes
+    ) {
+        mPrimitiveTypes(mPrimitiveTypes);
+        mNumVertices(mNumVertices);
+        mVertices(mVertices);
+        mNormals(mNormals);
+        mTangents(mTangents);
+        mBitangents(mBitangents);
+        mColors(mColors);
+        mTextureCoords(mTextureCoords);
+        mNumUVComponents(mNumUVComponents);
+        mFaces(mFaces);
+        mBones(mBones);
+        mMaterialIndex(mMaterialIndex);
+        mName(mName);
+        mAnimMeshes(mAnimMeshes);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public AIMesh set(AIMesh src) {
-		memCopy(src.address(), address(), SIZEOF);
-		return this;
-	}
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public AIMesh set(AIMesh src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link AIMesh} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static AIMesh malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link AIMesh} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static AIMesh malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link AIMesh} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static AIMesh calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link AIMesh} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static AIMesh calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link AIMesh} instance allocated with {@link BufferUtils}. */
-	public static AIMesh create() {
-		return new AIMesh(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link AIMesh} instance allocated with {@link BufferUtils}. */
+    public static AIMesh create() {
+        return new AIMesh(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link AIMesh} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static AIMesh create(long address) {
-		return address == NULL ? null : new AIMesh(address, null);
-	}
+    /** Returns a new {@link AIMesh} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static AIMesh create(long address) {
+        return address == NULL ? null : new AIMesh(address, null);
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link AIMesh.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link AIMesh.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link AIMesh} instance allocated on the thread-local {@link MemoryStack}. */
-	public static AIMesh mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link AIMesh} instance allocated on the thread-local {@link MemoryStack}. */
+    public static AIMesh mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link AIMesh} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static AIMesh callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link AIMesh} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static AIMesh callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link AIMesh} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static AIMesh mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link AIMesh} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static AIMesh mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link AIMesh} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static AIMesh callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link AIMesh} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static AIMesh callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link AIMesh.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link AIMesh.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #mPrimitiveTypes}. */
-	public static int nmPrimitiveTypes(long struct) { return memGetInt(struct + AIMesh.MPRIMITIVETYPES); }
-	/** Unsafe version of {@link #mNumVertices}. */
-	public static int nmNumVertices(long struct) { return memGetInt(struct + AIMesh.MNUMVERTICES); }
-	/** Unsafe version of {@link #mNumFaces}. */
-	public static int nmNumFaces(long struct) { return memGetInt(struct + AIMesh.MNUMFACES); }
-	/** Unsafe version of {@link #mVertices}. */
-	public static AIVector3D.Buffer nmVertices(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MVERTICES), nmNumVertices(struct)); }
-	/** Unsafe version of {@link #mNormals}. */
-	public static AIVector3D.Buffer nmNormals(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MNORMALS), nmNumVertices(struct)); }
-	/** Unsafe version of {@link #mTangents}. */
-	public static AIVector3D.Buffer nmTangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MTANGENTS), nmNumVertices(struct)); }
-	/** Unsafe version of {@link #mBitangents}. */
-	public static AIVector3D.Buffer nmBitangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MBITANGENTS), nmNumVertices(struct)); }
-	/** Unsafe version of {@link #mColors}. */
-	public static PointerBuffer nmColors(long struct) { return memPointerBuffer(struct + AIMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
-	/** Unsafe version of {@link #mColors(int) mColors}. */
-	public static AIColor4D.Buffer nmColors(long struct, int index) {
-		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
-		return AIColor4D.create(memGetAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
-	}
-	/** Unsafe version of {@link #mTextureCoords}. */
-	public static PointerBuffer nmTextureCoords(long struct) { return memPointerBuffer(struct + AIMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-	/** Unsafe version of {@link #mTextureCoords(int) mTextureCoords}. */
-	public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
-		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		return AIVector3D.create(memGetAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
-	}
-	/** Unsafe version of {@link #mNumUVComponents}. */
-	public static IntBuffer nmNumUVComponents(long struct) { return memIntBuffer(struct + AIMesh.MNUMUVCOMPONENTS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-	/** Unsafe version of {@link #mNumUVComponents(int) mNumUVComponents}. */
-	public static int nmNumUVComponents(long struct, int index) {
-		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		return memGetInt(struct + AIMesh.MNUMUVCOMPONENTS + index * 4);
-	}
-	/** Unsafe version of {@link #mFaces}. */
-	public static AIFace.Buffer nmFaces(long struct) { return AIFace.create(memGetAddress(struct + AIMesh.MFACES), nmNumFaces(struct)); }
-	/** Unsafe version of {@link #mNumBones}. */
-	public static int nmNumBones(long struct) { return memGetInt(struct + AIMesh.MNUMBONES); }
-	/** Unsafe version of {@link #mBones() mBones}. */
-	public static PointerBuffer nmBones(long struct) { return memPointerBuffer(memGetAddress(struct + AIMesh.MBONES), nmNumBones(struct)); }
-	/** Unsafe version of {@link #mMaterialIndex}. */
-	public static int nmMaterialIndex(long struct) { return memGetInt(struct + AIMesh.MMATERIALINDEX); }
-	/** Unsafe version of {@link #mName}. */
-	public static AIString nmName(long struct) { return AIString.create(struct + AIMesh.MNAME); }
-	/** Unsafe version of {@link #mNumAnimMeshes}. */
-	public static int nmNumAnimMeshes(long struct) { return memGetInt(struct + AIMesh.MNUMANIMMESHES); }
-	/** Unsafe version of {@link #mAnimMeshes() mAnimMeshes}. */
-	public static PointerBuffer nmAnimMeshes(long struct) { return memPointerBuffer(memGetAddress(struct + AIMesh.MANIMMESHES), nmNumAnimMeshes(struct)); }
+    /** Unsafe version of {@link #mPrimitiveTypes}. */
+    public static int nmPrimitiveTypes(long struct) { return memGetInt(struct + AIMesh.MPRIMITIVETYPES); }
+    /** Unsafe version of {@link #mNumVertices}. */
+    public static int nmNumVertices(long struct) { return memGetInt(struct + AIMesh.MNUMVERTICES); }
+    /** Unsafe version of {@link #mNumFaces}. */
+    public static int nmNumFaces(long struct) { return memGetInt(struct + AIMesh.MNUMFACES); }
+    /** Unsafe version of {@link #mVertices}. */
+    public static AIVector3D.Buffer nmVertices(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MVERTICES), nmNumVertices(struct)); }
+    /** Unsafe version of {@link #mNormals}. */
+    public static AIVector3D.Buffer nmNormals(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MNORMALS), nmNumVertices(struct)); }
+    /** Unsafe version of {@link #mTangents}. */
+    public static AIVector3D.Buffer nmTangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MTANGENTS), nmNumVertices(struct)); }
+    /** Unsafe version of {@link #mBitangents}. */
+    public static AIVector3D.Buffer nmBitangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MBITANGENTS), nmNumVertices(struct)); }
+    /** Unsafe version of {@link #mColors}. */
+    public static PointerBuffer nmColors(long struct) { return memPointerBuffer(struct + AIMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
+    /** Unsafe version of {@link #mColors(int) mColors}. */
+    public static AIColor4D.Buffer nmColors(long struct, int index) {
+        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
+        return AIColor4D.create(memGetAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
+    }
+    /** Unsafe version of {@link #mTextureCoords}. */
+    public static PointerBuffer nmTextureCoords(long struct) { return memPointerBuffer(struct + AIMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+    /** Unsafe version of {@link #mTextureCoords(int) mTextureCoords}. */
+    public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
+        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+        return AIVector3D.create(memGetAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
+    }
+    /** Unsafe version of {@link #mNumUVComponents}. */
+    public static IntBuffer nmNumUVComponents(long struct) { return memIntBuffer(struct + AIMesh.MNUMUVCOMPONENTS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+    /** Unsafe version of {@link #mNumUVComponents(int) mNumUVComponents}. */
+    public static int nmNumUVComponents(long struct, int index) {
+        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+        return memGetInt(struct + AIMesh.MNUMUVCOMPONENTS + index * 4);
+    }
+    /** Unsafe version of {@link #mFaces}. */
+    public static AIFace.Buffer nmFaces(long struct) { return AIFace.create(memGetAddress(struct + AIMesh.MFACES), nmNumFaces(struct)); }
+    /** Unsafe version of {@link #mNumBones}. */
+    public static int nmNumBones(long struct) { return memGetInt(struct + AIMesh.MNUMBONES); }
+    /** Unsafe version of {@link #mBones() mBones}. */
+    public static PointerBuffer nmBones(long struct) { return memPointerBuffer(memGetAddress(struct + AIMesh.MBONES), nmNumBones(struct)); }
+    /** Unsafe version of {@link #mMaterialIndex}. */
+    public static int nmMaterialIndex(long struct) { return memGetInt(struct + AIMesh.MMATERIALINDEX); }
+    /** Unsafe version of {@link #mName}. */
+    public static AIString nmName(long struct) { return AIString.create(struct + AIMesh.MNAME); }
+    /** Unsafe version of {@link #mNumAnimMeshes}. */
+    public static int nmNumAnimMeshes(long struct) { return memGetInt(struct + AIMesh.MNUMANIMMESHES); }
+    /** Unsafe version of {@link #mAnimMeshes() mAnimMeshes}. */
+    public static PointerBuffer nmAnimMeshes(long struct) { return memPointerBuffer(memGetAddress(struct + AIMesh.MANIMMESHES), nmNumAnimMeshes(struct)); }
 
-	/** Unsafe version of {@link #mPrimitiveTypes(int) mPrimitiveTypes}. */
-	public static void nmPrimitiveTypes(long struct, int value) { memPutInt(struct + AIMesh.MPRIMITIVETYPES, value); }
-	/** Sets the specified value to the {@code mNumVertices} field of the specified {@code struct}. */
-	public static void nmNumVertices(long struct, int value) { memPutInt(struct + AIMesh.MNUMVERTICES, value); }
-	/** Sets the specified value to the {@code mNumFaces} field of the specified {@code struct}. */
-	public static void nmNumFaces(long struct, int value) { memPutInt(struct + AIMesh.MNUMFACES, value); }
-	/** Unsafe version of {@link #mVertices(AIVector3D.Buffer) mVertices}. */
-	public static void nmVertices(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MVERTICES, value.address()); }
-	/** Unsafe version of {@link #mNormals(AIVector3D.Buffer) mNormals}. */
-	public static void nmNormals(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MNORMALS, addressSafe(value)); }
-	/** Unsafe version of {@link #mTangents(AIVector3D.Buffer) mTangents}. */
-	public static void nmTangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MTANGENTS, addressSafe(value)); }
-	/** Unsafe version of {@link #mBitangents(AIVector3D.Buffer) mBitangents}. */
-	public static void nmBitangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MBITANGENTS, addressSafe(value)); }
-	/** Unsafe version of {@link #mColors(PointerBuffer) mColors}. */
-	public static void nmColors(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkGT(value, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
-		memCopy(memAddress(value), struct + AIMesh.MCOLORS, value.remaining() * POINTER_SIZE);
-	}
-	/** Unsafe version of {@link #mColors(int, AIColor4D.Buffer) mColors}. */
-	public static void nmColors(long struct, int index, AIColor4D.Buffer value) {
-		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
-		memPutAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE, addressSafe(value));
-	}
-	/** Unsafe version of {@link #mTextureCoords(PointerBuffer) mTextureCoords}. */
-	public static void nmTextureCoords(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkGT(value, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		memCopy(memAddress(value), struct + AIMesh.MTEXTURECOORDS, value.remaining() * POINTER_SIZE);
-	}
-	/** Unsafe version of {@link #mTextureCoords(int, AIVector3D.Buffer) mTextureCoords}. */
-	public static void nmTextureCoords(long struct, int index, AIVector3D.Buffer value) {
-		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		memPutAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE, addressSafe(value));
-	}
-	/** Unsafe version of {@link #mNumUVComponents(IntBuffer) mNumUVComponents}. */
-	public static void nmNumUVComponents(long struct, IntBuffer value) {
-		if ( CHECKS ) checkGT(value, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		memCopy(memAddress(value), struct + AIMesh.MNUMUVCOMPONENTS, value.remaining() * 4);
-	}
-	/** Unsafe version of {@link #mNumUVComponents(int, int) mNumUVComponents}. */
-	public static void nmNumUVComponents(long struct, int index, int value) {
-		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		memPutInt(struct + AIMesh.MNUMUVCOMPONENTS + index * 4, value);
-	}
-	/** Unsafe version of {@link #mFaces(AIFace.Buffer) mFaces}. */
-	public static void nmFaces(long struct, AIFace.Buffer value) { memPutAddress(struct + AIMesh.MFACES, value.address()); nmNumFaces(struct, value.remaining()); }
-	/** Sets the specified value to the {@code mNumBones} field of the specified {@code struct}. */
-	public static void nmNumBones(long struct, int value) { memPutInt(struct + AIMesh.MNUMBONES, value); }
-	/** Unsafe version of {@link #mBones(PointerBuffer) mBones}. */
-	public static void nmBones(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MBONES, memAddressSafe(value)); nmNumBones(struct, value == null ? 0 : value.remaining()); }
-	/** Unsafe version of {@link #mMaterialIndex(int) mMaterialIndex}. */
-	public static void nmMaterialIndex(long struct, int value) { memPutInt(struct + AIMesh.MMATERIALINDEX, value); }
-	/** Unsafe version of {@link #mName(AIString) mName}. */
-	public static void nmName(long struct, AIString value) { memCopy(value.address(), struct + AIMesh.MNAME, AIString.SIZEOF); }
-	/** Sets the specified value to the {@code mNumAnimMeshes} field of the specified {@code struct}. */
-	public static void nmNumAnimMeshes(long struct, int value) { memPutInt(struct + AIMesh.MNUMANIMMESHES, value); }
-	/** Unsafe version of {@link #mAnimMeshes(PointerBuffer) mAnimMeshes}. */
-	public static void nmAnimMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MANIMMESHES, memAddressSafe(value)); nmNumAnimMeshes(struct, value == null ? 0 : value.remaining()); }
+    /** Unsafe version of {@link #mPrimitiveTypes(int) mPrimitiveTypes}. */
+    public static void nmPrimitiveTypes(long struct, int value) { memPutInt(struct + AIMesh.MPRIMITIVETYPES, value); }
+    /** Sets the specified value to the {@code mNumVertices} field of the specified {@code struct}. */
+    public static void nmNumVertices(long struct, int value) { memPutInt(struct + AIMesh.MNUMVERTICES, value); }
+    /** Sets the specified value to the {@code mNumFaces} field of the specified {@code struct}. */
+    public static void nmNumFaces(long struct, int value) { memPutInt(struct + AIMesh.MNUMFACES, value); }
+    /** Unsafe version of {@link #mVertices(AIVector3D.Buffer) mVertices}. */
+    public static void nmVertices(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MVERTICES, value.address()); }
+    /** Unsafe version of {@link #mNormals(AIVector3D.Buffer) mNormals}. */
+    public static void nmNormals(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MNORMALS, addressSafe(value)); }
+    /** Unsafe version of {@link #mTangents(AIVector3D.Buffer) mTangents}. */
+    public static void nmTangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MTANGENTS, addressSafe(value)); }
+    /** Unsafe version of {@link #mBitangents(AIVector3D.Buffer) mBitangents}. */
+    public static void nmBitangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MBITANGENTS, addressSafe(value)); }
+    /** Unsafe version of {@link #mColors(PointerBuffer) mColors}. */
+    public static void nmColors(long struct, PointerBuffer value) {
+        if (CHECKS) { checkGT(value, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
+        memCopy(memAddress(value), struct + AIMesh.MCOLORS, value.remaining() * POINTER_SIZE);
+    }
+    /** Unsafe version of {@link #mColors(int, AIColor4D.Buffer) mColors}. */
+    public static void nmColors(long struct, int index, AIColor4D.Buffer value) {
+        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
+        memPutAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE, addressSafe(value));
+    }
+    /** Unsafe version of {@link #mTextureCoords(PointerBuffer) mTextureCoords}. */
+    public static void nmTextureCoords(long struct, PointerBuffer value) {
+        if (CHECKS) { checkGT(value, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+        memCopy(memAddress(value), struct + AIMesh.MTEXTURECOORDS, value.remaining() * POINTER_SIZE);
+    }
+    /** Unsafe version of {@link #mTextureCoords(int, AIVector3D.Buffer) mTextureCoords}. */
+    public static void nmTextureCoords(long struct, int index, AIVector3D.Buffer value) {
+        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+        memPutAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE, addressSafe(value));
+    }
+    /** Unsafe version of {@link #mNumUVComponents(IntBuffer) mNumUVComponents}. */
+    public static void nmNumUVComponents(long struct, IntBuffer value) {
+        if (CHECKS) { checkGT(value, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+        memCopy(memAddress(value), struct + AIMesh.MNUMUVCOMPONENTS, value.remaining() * 4);
+    }
+    /** Unsafe version of {@link #mNumUVComponents(int, int) mNumUVComponents}. */
+    public static void nmNumUVComponents(long struct, int index, int value) {
+        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
+        memPutInt(struct + AIMesh.MNUMUVCOMPONENTS + index * 4, value);
+    }
+    /** Unsafe version of {@link #mFaces(AIFace.Buffer) mFaces}. */
+    public static void nmFaces(long struct, AIFace.Buffer value) { memPutAddress(struct + AIMesh.MFACES, value.address()); nmNumFaces(struct, value.remaining()); }
+    /** Sets the specified value to the {@code mNumBones} field of the specified {@code struct}. */
+    public static void nmNumBones(long struct, int value) { memPutInt(struct + AIMesh.MNUMBONES, value); }
+    /** Unsafe version of {@link #mBones(PointerBuffer) mBones}. */
+    public static void nmBones(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MBONES, memAddressSafe(value)); nmNumBones(struct, value == null ? 0 : value.remaining()); }
+    /** Unsafe version of {@link #mMaterialIndex(int) mMaterialIndex}. */
+    public static void nmMaterialIndex(long struct, int value) { memPutInt(struct + AIMesh.MMATERIALINDEX, value); }
+    /** Unsafe version of {@link #mName(AIString) mName}. */
+    public static void nmName(long struct, AIString value) { memCopy(value.address(), struct + AIMesh.MNAME, AIString.SIZEOF); }
+    /** Sets the specified value to the {@code mNumAnimMeshes} field of the specified {@code struct}. */
+    public static void nmNumAnimMeshes(long struct, int value) { memPutInt(struct + AIMesh.MNUMANIMMESHES, value); }
+    /** Unsafe version of {@link #mAnimMeshes(PointerBuffer) mAnimMeshes}. */
+    public static void nmAnimMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MANIMMESHES, memAddressSafe(value)); nmNumAnimMeshes(struct, value == null ? 0 : value.remaining()); }
 
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		int mNumFaces = nmNumFaces(struct);
-		check(memGetAddress(struct + AIMesh.MVERTICES));
-		long mFaces = memGetAddress(struct + AIMesh.MFACES);
-		check(mFaces);
-		AIFace.validate(mFaces, mNumFaces);
-		if ( nmNumBones(struct) != 0 )
-			check(memGetAddress(struct + AIMesh.MBONES));
-		if ( nmNumAnimMeshes(struct) != 0 )
-			check(memGetAddress(struct + AIMesh.MANIMMESHES));
-	}
+    /**
+     * Validates pointer members that should not be {@code NULL}.
+     *
+     * @param struct the struct to validate
+     */
+    public static void validate(long struct) {
+        int mNumFaces = nmNumFaces(struct);
+        check(memGetAddress(struct + AIMesh.MVERTICES));
+        long mFaces = memGetAddress(struct + AIMesh.MFACES);
+        check(mFaces);
+        AIFace.validate(mFaces, mNumFaces);
+        if (nmNumBones(struct) != 0) {
+            check(memGetAddress(struct + AIMesh.MBONES));
+        }
+        if (nmNumAnimMeshes(struct) != 0) {
+            check(memGetAddress(struct + AIMesh.MANIMMESHES));
+        }
+    }
 
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
+    /**
+     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+     *
+     * @param array the struct array to validate
+     * @param count the number of structs in {@code array}
+     */
+    public static void validate(long array, int count) {
+        for (int i = 0; i < count; i++) {
+            validate(array + i * SIZEOF);
+        }
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link AIMesh} structs. */
-	public static class Buffer extends StructBuffer<AIMesh, Buffer> implements NativeResource {
+    /** An array of {@link AIMesh} structs. */
+    public static class Buffer extends StructBuffer<AIMesh, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link AIMesh.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link AIMesh#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link AIMesh.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link AIMesh#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected AIMesh newInstance(long address) {
-			return new AIMesh(address, container);
-		}
+        @Override
+        protected AIMesh newInstance(long address) {
+            return new AIMesh(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code mPrimitiveTypes} field. */
-		public int mPrimitiveTypes() { return AIMesh.nmPrimitiveTypes(address()); }
-		/** Returns the value of the {@code mNumVertices} field. */
-		public int mNumVertices() { return AIMesh.nmNumVertices(address()); }
-		/** Returns the value of the {@code mNumFaces} field. */
-		public int mNumFaces() { return AIMesh.nmNumFaces(address()); }
-		/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mVertices} field. */
-		public AIVector3D.Buffer mVertices() { return AIMesh.nmVertices(address()); }
-		/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mNormals} field. */
-		public AIVector3D.Buffer mNormals() { return AIMesh.nmNormals(address()); }
-		/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mTangents} field. */
-		public AIVector3D.Buffer mTangents() { return AIMesh.nmTangents(address()); }
-		/** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mBitangents} field. */
-		public AIVector3D.Buffer mBitangents() { return AIMesh.nmBitangents(address()); }
-		/** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
-		public PointerBuffer mColors() { return AIMesh.nmColors(address()); }
-		/** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
-		public AIColor4D.Buffer mColors(int index) { return AIMesh.nmColors(address(), index); }
-		/** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
-		public PointerBuffer mTextureCoords() { return AIMesh.nmTextureCoords(address()); }
-		/** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
-		public AIVector3D.Buffer mTextureCoords(int index) { return AIMesh.nmTextureCoords(address(), index); }
-		/** Returns a {@link IntBuffer} view of the {@code mNumUVComponents} field. */
-		public IntBuffer mNumUVComponents() { return AIMesh.nmNumUVComponents(address()); }
-		/** Returns the value at the specified index of the {@code mNumUVComponents} field. */
-		public int mNumUVComponents(int index) { return AIMesh.nmNumUVComponents(address(), index); }
-		/** Returns a {@link AIFace.Buffer} view of the struct array pointed to by the {@code mFaces} field. */
-		public AIFace.Buffer mFaces() { return AIMesh.nmFaces(address()); }
-		/** Returns the value of the {@code mNumBones} field. */
-		public int mNumBones() { return AIMesh.nmNumBones(address()); }
-		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mBones} field. */
-		public PointerBuffer mBones() { return AIMesh.nmBones(address()); }
-		/** Returns the value of the {@code mMaterialIndex} field. */
-		public int mMaterialIndex() { return AIMesh.nmMaterialIndex(address()); }
-		/** Returns a {@link AIString} view of the {@code mName} field. */
-		public AIString mName() { return AIMesh.nmName(address()); }
-		/** Returns the value of the {@code mNumAnimMeshes} field. */
-		public int mNumAnimMeshes() { return AIMesh.nmNumAnimMeshes(address()); }
-		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimMeshes} field. */
-		public PointerBuffer mAnimMeshes() { return AIMesh.nmAnimMeshes(address()); }
+        /** Returns the value of the {@code mPrimitiveTypes} field. */
+        public int mPrimitiveTypes() { return AIMesh.nmPrimitiveTypes(address()); }
+        /** Returns the value of the {@code mNumVertices} field. */
+        public int mNumVertices() { return AIMesh.nmNumVertices(address()); }
+        /** Returns the value of the {@code mNumFaces} field. */
+        public int mNumFaces() { return AIMesh.nmNumFaces(address()); }
+        /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mVertices} field. */
+        public AIVector3D.Buffer mVertices() { return AIMesh.nmVertices(address()); }
+        /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mNormals} field. */
+        public AIVector3D.Buffer mNormals() { return AIMesh.nmNormals(address()); }
+        /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mTangents} field. */
+        public AIVector3D.Buffer mTangents() { return AIMesh.nmTangents(address()); }
+        /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mBitangents} field. */
+        public AIVector3D.Buffer mBitangents() { return AIMesh.nmBitangents(address()); }
+        /** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
+        public PointerBuffer mColors() { return AIMesh.nmColors(address()); }
+        /** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
+        public AIColor4D.Buffer mColors(int index) { return AIMesh.nmColors(address(), index); }
+        /** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
+        public PointerBuffer mTextureCoords() { return AIMesh.nmTextureCoords(address()); }
+        /** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
+        public AIVector3D.Buffer mTextureCoords(int index) { return AIMesh.nmTextureCoords(address(), index); }
+        /** Returns a {@link IntBuffer} view of the {@code mNumUVComponents} field. */
+        public IntBuffer mNumUVComponents() { return AIMesh.nmNumUVComponents(address()); }
+        /** Returns the value at the specified index of the {@code mNumUVComponents} field. */
+        public int mNumUVComponents(int index) { return AIMesh.nmNumUVComponents(address(), index); }
+        /** Returns a {@link AIFace.Buffer} view of the struct array pointed to by the {@code mFaces} field. */
+        public AIFace.Buffer mFaces() { return AIMesh.nmFaces(address()); }
+        /** Returns the value of the {@code mNumBones} field. */
+        public int mNumBones() { return AIMesh.nmNumBones(address()); }
+        /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mBones} field. */
+        public PointerBuffer mBones() { return AIMesh.nmBones(address()); }
+        /** Returns the value of the {@code mMaterialIndex} field. */
+        public int mMaterialIndex() { return AIMesh.nmMaterialIndex(address()); }
+        /** Returns a {@link AIString} view of the {@code mName} field. */
+        public AIString mName() { return AIMesh.nmName(address()); }
+        /** Returns the value of the {@code mNumAnimMeshes} field. */
+        public int mNumAnimMeshes() { return AIMesh.nmNumAnimMeshes(address()); }
+        /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimMeshes} field. */
+        public PointerBuffer mAnimMeshes() { return AIMesh.nmAnimMeshes(address()); }
 
-		/** Sets the specified value to the {@code mPrimitiveTypes} field. */
-		public AIMesh.Buffer mPrimitiveTypes(int value) { AIMesh.nmPrimitiveTypes(address(), value); return this; }
-		/** Sets the specified value to the {@code mNumVertices} field. */
-		public AIMesh.Buffer mNumVertices(int value) { AIMesh.nmNumVertices(address(), value); return this; }
-		/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mVertices} field. */
-		public AIMesh.Buffer mVertices(AIVector3D.Buffer value) { AIMesh.nmVertices(address(), value); return this; }
-		/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mNormals} field. */
-		public AIMesh.Buffer mNormals(AIVector3D.Buffer value) { AIMesh.nmNormals(address(), value); return this; }
-		/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mTangents} field. */
-		public AIMesh.Buffer mTangents(AIVector3D.Buffer value) { AIMesh.nmTangents(address(), value); return this; }
-		/** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mBitangents} field. */
-		public AIMesh.Buffer mBitangents(AIVector3D.Buffer value) { AIMesh.nmBitangents(address(), value); return this; }
-		/** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
-		public AIMesh.Buffer mColors(PointerBuffer value) { AIMesh.nmColors(address(), value); return this; }
-		/** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
-		public AIMesh.Buffer mColors(int index, AIColor4D.Buffer value) { AIMesh.nmColors(address(), index, value); return this; }
-		/** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
-		public AIMesh.Buffer mTextureCoords(PointerBuffer value) { AIMesh.nmTextureCoords(address(), value); return this; }
-		/** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
-		public AIMesh.Buffer mTextureCoords(int index, AIVector3D.Buffer value) { AIMesh.nmTextureCoords(address(), index, value); return this; }
-		/** Copies the specified {@link IntBuffer} to the {@code mNumUVComponents} field. */
-		public AIMesh.Buffer mNumUVComponents(IntBuffer value) { AIMesh.nmNumUVComponents(address(), value); return this; }
-		/** Sets the specified value at the specified index of the {@code mNumUVComponents} field. */
-		public AIMesh.Buffer mNumUVComponents(int index, int value) { AIMesh.nmNumUVComponents(address(), index, value); return this; }
-		/** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
-		public AIMesh.Buffer mFaces(AIFace.Buffer value) { AIMesh.nmFaces(address(), value); return this; }
-		/** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
-		public AIMesh.Buffer mBones(PointerBuffer value) { AIMesh.nmBones(address(), value); return this; }
-		/** Sets the specified value to the {@code mMaterialIndex} field. */
-		public AIMesh.Buffer mMaterialIndex(int value) { AIMesh.nmMaterialIndex(address(), value); return this; }
-		/** Copies the specified {@link AIString} to the {@code mName} field. */
-		public AIMesh.Buffer mName(AIString value) { AIMesh.nmName(address(), value); return this; }
-		/** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
-		public AIMesh.Buffer mAnimMeshes(PointerBuffer value) { AIMesh.nmAnimMeshes(address(), value); return this; }
+        /** Sets the specified value to the {@code mPrimitiveTypes} field. */
+        public AIMesh.Buffer mPrimitiveTypes(int value) { AIMesh.nmPrimitiveTypes(address(), value); return this; }
+        /** Sets the specified value to the {@code mNumVertices} field. */
+        public AIMesh.Buffer mNumVertices(int value) { AIMesh.nmNumVertices(address(), value); return this; }
+        /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mVertices} field. */
+        public AIMesh.Buffer mVertices(AIVector3D.Buffer value) { AIMesh.nmVertices(address(), value); return this; }
+        /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mNormals} field. */
+        public AIMesh.Buffer mNormals(AIVector3D.Buffer value) { AIMesh.nmNormals(address(), value); return this; }
+        /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mTangents} field. */
+        public AIMesh.Buffer mTangents(AIVector3D.Buffer value) { AIMesh.nmTangents(address(), value); return this; }
+        /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mBitangents} field. */
+        public AIMesh.Buffer mBitangents(AIVector3D.Buffer value) { AIMesh.nmBitangents(address(), value); return this; }
+        /** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
+        public AIMesh.Buffer mColors(PointerBuffer value) { AIMesh.nmColors(address(), value); return this; }
+        /** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
+        public AIMesh.Buffer mColors(int index, AIColor4D.Buffer value) { AIMesh.nmColors(address(), index, value); return this; }
+        /** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
+        public AIMesh.Buffer mTextureCoords(PointerBuffer value) { AIMesh.nmTextureCoords(address(), value); return this; }
+        /** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
+        public AIMesh.Buffer mTextureCoords(int index, AIVector3D.Buffer value) { AIMesh.nmTextureCoords(address(), index, value); return this; }
+        /** Copies the specified {@link IntBuffer} to the {@code mNumUVComponents} field. */
+        public AIMesh.Buffer mNumUVComponents(IntBuffer value) { AIMesh.nmNumUVComponents(address(), value); return this; }
+        /** Sets the specified value at the specified index of the {@code mNumUVComponents} field. */
+        public AIMesh.Buffer mNumUVComponents(int index, int value) { AIMesh.nmNumUVComponents(address(), index, value); return this; }
+        /** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
+        public AIMesh.Buffer mFaces(AIFace.Buffer value) { AIMesh.nmFaces(address(), value); return this; }
+        /** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
+        public AIMesh.Buffer mBones(PointerBuffer value) { AIMesh.nmBones(address(), value); return this; }
+        /** Sets the specified value to the {@code mMaterialIndex} field. */
+        public AIMesh.Buffer mMaterialIndex(int value) { AIMesh.nmMaterialIndex(address(), value); return this; }
+        /** Copies the specified {@link AIString} to the {@code mName} field. */
+        public AIMesh.Buffer mName(AIString value) { AIMesh.nmName(address(), value); return this; }
+        /** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
+        public AIMesh.Buffer mAnimMeshes(PointerBuffer value) { AIMesh.nmAnimMeshes(address(), value); return this; }
 
-	}
+    }
 
 }

@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface BGFXCaptureFrameCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(ppi)v";
+    String SIGNATURE = "(ppi)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Will be called when a frame is captured.
-	 *
-	 * @param _this the callback interface
-	 * @param _data image data
-	 * @param _size image size
-	 */
-	void invoke(long _this, long _data, int _size);
+    /**
+     * Will be called when a frame is captured.
+     *
+     * @param _this the callback interface
+     * @param _data image data
+     * @param _size image size
+     */
+    void invoke(long _this, long _data, int _size);
 
 }

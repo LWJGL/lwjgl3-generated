@@ -11,9 +11,9 @@ typedef void (APIENTRY *glBlendBarrierKHRPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRBlendEquationAdvanced_glBlendBarrierKHR(JNIEnv *__env, jclass clazz) {
-	glBlendBarrierKHRPROC glBlendBarrierKHR = (glBlendBarrierKHRPROC)tlsGetFunction(63);
-	UNUSED_PARAM(clazz)
-	glBlendBarrierKHR();
+    glBlendBarrierKHRPROC glBlendBarrierKHR = (glBlendBarrierKHRPROC)tlsGetFunction(63);
+    UNUSED_PARAM(clazz)
+    glBlendBarrierKHR();
 }
 
 EXTERN_C_EXIT

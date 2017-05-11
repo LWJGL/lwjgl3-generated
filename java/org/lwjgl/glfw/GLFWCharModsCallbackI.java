@@ -13,27 +13,27 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface GLFWCharModsCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pii)v";
+    String SIGNATURE = "(pii)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgInt(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Will be called when a Unicode character is input regardless of what modifier keys are used.
-	 *
-	 * @param window    the window that received the event
-	 * @param codepoint the Unicode code point of the character
-	 * @param mods      bitfield describing which modifier keys were held down
-	 */
-	void invoke(long window, int codepoint, int mods);
+    /**
+     * Will be called when a Unicode character is input regardless of what modifier keys are used.
+     *
+     * @param window    the window that received the event
+     * @param codepoint the Unicode code point of the character
+     * @param mods      bitfield describing which modifier keys were held down
+     */
+    void invoke(long window, int codepoint, int mods);
 
 }

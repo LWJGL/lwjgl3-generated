@@ -28,75 +28,76 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDebugLabel {
 
-	/** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
-	public static final int
-		GL_BUFFER_OBJECT_EXT           = 0x9151,
-		GL_SHADER_OBJECT_EXT           = 0x8B48,
-		GL_PROGRAM_OBJECT_EXT          = 0x8B40,
-		GL_VERTEX_ARRAY_OBJECT_EXT     = 0x9154,
-		GL_QUERY_OBJECT_EXT            = 0x9153,
-		GL_PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
+    /** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
+    public static final int
+        GL_BUFFER_OBJECT_EXT           = 0x9151,
+        GL_SHADER_OBJECT_EXT           = 0x8B48,
+        GL_PROGRAM_OBJECT_EXT          = 0x8B40,
+        GL_VERTEX_ARRAY_OBJECT_EXT     = 0x9154,
+        GL_QUERY_OBJECT_EXT            = 0x9153,
+        GL_PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTDebugLabel() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDebugLabel() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glLabelObjectEXT, caps.glGetObjectLabelEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glLabelObjectEXT, caps.glGetObjectLabelEXT
+        );
+    }
 
-	// --- [ glLabelObjectEXT ] ---
+    // --- [ glLabelObjectEXT ] ---
 
-	public static native void nglLabelObjectEXT(int type, int object, int length, long label);
+    public static native void nglLabelObjectEXT(int type, int object, int length, long label);
 
-	public static void glLabelObjectEXT(int type, int object, ByteBuffer label) {
-		nglLabelObjectEXT(type, object, label.remaining(), memAddress(label));
-	}
+    public static void glLabelObjectEXT(int type, int object, ByteBuffer label) {
+        nglLabelObjectEXT(type, object, label.remaining(), memAddress(label));
+    }
 
-	public static void glLabelObjectEXT(int type, int object, CharSequence label) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer labelEncoded = stack.UTF8(label, false);
-			nglLabelObjectEXT(type, object, labelEncoded.remaining(), memAddress(labelEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glLabelObjectEXT(int type, int object, CharSequence label) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer labelEncoded = stack.UTF8(label, false);
+            nglLabelObjectEXT(type, object, labelEncoded.remaining(), memAddress(labelEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetObjectLabelEXT ] ---
+    // --- [ glGetObjectLabelEXT ] ---
 
-	public static native void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label);
+    public static native void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label);
 
-	public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
-		if ( CHECKS )
-			check(length, 1);
-		nglGetObjectLabelEXT(type, object, label.remaining(), memAddress(length), memAddress(label));
-	}
+    public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
+        if (CHECKS) {
+            check(length, 1);
+        }
+        nglGetObjectLabelEXT(type, object, label.remaining(), memAddress(length), memAddress(label));
+    }
 
-	public static String glGetObjectLabelEXT(int type, int object, int bufSize) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer length = stack.ints(0);
-			ByteBuffer label = stack.malloc(bufSize);
-			nglGetObjectLabelEXT(type, object, bufSize, memAddress(length), memAddress(label));
-			return memUTF8(label, length.get(0));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static String glGetObjectLabelEXT(int type, int object, int bufSize) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer length = stack.ints(0);
+            ByteBuffer label = stack.malloc(bufSize);
+            nglGetObjectLabelEXT(type, object, bufSize, memAddress(length), memAddress(label));
+            return memUTF8(label, length.get(0));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
-	public static void glGetObjectLabelEXT(int type, int object, int[] length, ByteBuffer label) {
-		long __functionAddress = GLES.getICD().glGetObjectLabelEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(length, 1);
-		}
-		callPPV(__functionAddress, type, object, label.remaining(), length, memAddress(label));
-	}
+    /** Array version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
+    public static void glGetObjectLabelEXT(int type, int object, int[] length, ByteBuffer label) {
+        long __functionAddress = GLES.getICD().glGetObjectLabelEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(length, 1);
+        }
+        callPPV(__functionAddress, type, object, label.remaining(), length, memAddress(label));
+    }
 
 }

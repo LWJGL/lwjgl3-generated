@@ -18,67 +18,70 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVNativeQuery {
 
-	protected NVNativeQuery() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVNativeQuery() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglQueryNativeDisplayNV, caps.eglQueryNativeWindowNV, caps.eglQueryNativePixmapNV
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglQueryNativeDisplayNV, caps.eglQueryNativeWindowNV, caps.eglQueryNativePixmapNV
+        );
+    }
 
-	// --- [ eglQueryNativeDisplayNV ] ---
+    // --- [ eglQueryNativeDisplayNV ] ---
 
-	public static int neglQueryNativeDisplayNV(long dpy, long display_id) {
-		long __functionAddress = EGL.getCapabilities().eglQueryNativeDisplayNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-		}
-		return callPPI(__functionAddress, dpy, display_id);
-	}
+    public static int neglQueryNativeDisplayNV(long dpy, long display_id) {
+        long __functionAddress = EGL.getCapabilities().eglQueryNativeDisplayNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+        }
+        return callPPI(__functionAddress, dpy, display_id);
+    }
 
-	public static boolean eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
-		if ( CHECKS )
-			check(display_id, 1);
-		return neglQueryNativeDisplayNV(dpy, memAddress(display_id)) != 0;
-	}
+    public static boolean eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
+        if (CHECKS) {
+            check(display_id, 1);
+        }
+        return neglQueryNativeDisplayNV(dpy, memAddress(display_id)) != 0;
+    }
 
-	// --- [ eglQueryNativeWindowNV ] ---
+    // --- [ eglQueryNativeWindowNV ] ---
 
-	public static int neglQueryNativeWindowNV(long dpy, long surf, long window) {
-		long __functionAddress = EGL.getCapabilities().eglQueryNativeWindowNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surf);
-		}
-		return callPPPI(__functionAddress, dpy, surf, window);
-	}
+    public static int neglQueryNativeWindowNV(long dpy, long surf, long window) {
+        long __functionAddress = EGL.getCapabilities().eglQueryNativeWindowNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surf);
+        }
+        return callPPPI(__functionAddress, dpy, surf, window);
+    }
 
-	public static boolean eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
-		if ( CHECKS )
-			check(window, 1);
-		return neglQueryNativeWindowNV(dpy, surf, memAddress(window)) != 0;
-	}
+    public static boolean eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
+        if (CHECKS) {
+            check(window, 1);
+        }
+        return neglQueryNativeWindowNV(dpy, surf, memAddress(window)) != 0;
+    }
 
-	// --- [ eglQueryNativePixmapNV ] ---
+    // --- [ eglQueryNativePixmapNV ] ---
 
-	public static int neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
-		long __functionAddress = EGL.getCapabilities().eglQueryNativePixmapNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surf);
-		}
-		return callPPPI(__functionAddress, dpy, surf, pixmap);
-	}
+    public static int neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
+        long __functionAddress = EGL.getCapabilities().eglQueryNativePixmapNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surf);
+        }
+        return callPPPI(__functionAddress, dpy, surf, pixmap);
+    }
 
-	public static boolean eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
-		if ( CHECKS )
-			check(pixmap, 1);
-		return neglQueryNativePixmapNV(dpy, surf, memAddress(pixmap)) != 0;
-	}
+    public static boolean eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
+        if (CHECKS) {
+            check(pixmap, 1);
+        }
+        return neglQueryNativePixmapNV(dpy, surf, memAddress(pixmap)) != 0;
+    }
 
 }

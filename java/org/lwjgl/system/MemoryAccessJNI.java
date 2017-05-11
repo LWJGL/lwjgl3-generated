@@ -10,288 +10,302 @@ import static org.lwjgl.system.Checks.*;
 /** Memory access utilities. */
 class MemoryAccessJNI {
 
-	static { Library.initialize(); }
+    static { Library.initialize(); }
 
-	private MemoryAccessJNI() {
-		throw new UnsupportedOperationException();
-	}
+    private MemoryAccessJNI() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ getPointerSize ] ---
+    // --- [ getPointerSize ] ---
 
-	/** Returns the {@code sizeof(void *)}. */
-	static native int getPointerSize();
+    /** Returns the {@code sizeof(void *)}. */
+    static native int getPointerSize();
 
-	// --- [ malloc ] ---
+    // --- [ malloc ] ---
 
-	private static native long malloc();
+    private static native long malloc();
 
-	/** Returns the address of the stdlib {@code malloc} function. */
-	static final long malloc = malloc();
+    /** Returns the address of the stdlib {@code malloc} function. */
+    static final long malloc = malloc();
 
-	// --- [ calloc ] ---
+    // --- [ calloc ] ---
 
-	private static native long calloc();
+    private static native long calloc();
 
-	/** Returns the address of the stdlib {@code calloc} function. */
-	static final long calloc = calloc();
+    /** Returns the address of the stdlib {@code calloc} function. */
+    static final long calloc = calloc();
 
-	// --- [ realloc ] ---
+    // --- [ realloc ] ---
 
-	private static native long realloc();
+    private static native long realloc();
 
-	/** Returns the address of the stdlib {@code realloc} function. */
-	static final long realloc = realloc();
+    /** Returns the address of the stdlib {@code realloc} function. */
+    static final long realloc = realloc();
 
-	// --- [ free ] ---
+    // --- [ free ] ---
 
-	private static native long free();
+    private static native long free();
 
-	/** Returns the address of the stdlib {@code free} function. */
-	static final long free = free();
+    /** Returns the address of the stdlib {@code free} function. */
+    static final long free = free();
 
-	// --- [ aligned_alloc ] ---
+    // --- [ aligned_alloc ] ---
 
-	private static native long aligned_alloc();
+    private static native long aligned_alloc();
 
-	/** Returns the address of the stdlib {@code aligned_alloc} function. */
-	static final long aligned_alloc = aligned_alloc();
+    /** Returns the address of the stdlib {@code aligned_alloc} function. */
+    static final long aligned_alloc = aligned_alloc();
 
-	// --- [ aligned_free ] ---
+    // --- [ aligned_free ] ---
 
-	private static native long aligned_free();
+    private static native long aligned_free();
 
-	/** Returns the address of the stdlib {@code aligned_free} function. */
-	static final long aligned_free = aligned_free();
+    /** Returns the address of the stdlib {@code aligned_free} function. */
+    static final long aligned_free = aligned_free();
 
-	// --- [ getByte ] ---
+    // --- [ getByte ] ---
 
-	/** Unsafe version of: {@link #getByte} */
-	static native byte ngetByte(long ptr);
+    /** Unsafe version of: {@link #getByte} */
+    static native byte ngetByte(long ptr);
 
-	/**
-	 * Reads a byte value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static byte getByte(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetByte(ptr);
-	}
+    /**
+     * Reads a byte value from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static byte getByte(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetByte(ptr);
+    }
 
-	// --- [ getShort ] ---
+    // --- [ getShort ] ---
 
-	/** Unsafe version of: {@link #getShort} */
-	static native short ngetShort(long ptr);
+    /** Unsafe version of: {@link #getShort} */
+    static native short ngetShort(long ptr);
 
-	/**
-	 * Reads a short value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static short getShort(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetShort(ptr);
-	}
+    /**
+     * Reads a short value from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static short getShort(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetShort(ptr);
+    }
 
-	// --- [ getInt ] ---
+    // --- [ getInt ] ---
 
-	/** Unsafe version of: {@link #getInt} */
-	static native int ngetInt(long ptr);
+    /** Unsafe version of: {@link #getInt} */
+    static native int ngetInt(long ptr);
 
-	/**
-	 * Reads an int value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static int getInt(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetInt(ptr);
-	}
+    /**
+     * Reads an int value from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static int getInt(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetInt(ptr);
+    }
 
-	// --- [ getLong ] ---
+    // --- [ getLong ] ---
 
-	/** Unsafe version of: {@link #getLong} */
-	static native long ngetLong(long ptr);
+    /** Unsafe version of: {@link #getLong} */
+    static native long ngetLong(long ptr);
 
-	/**
-	 * Reads a long value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static long getLong(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetLong(ptr);
-	}
+    /**
+     * Reads a long value from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static long getLong(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetLong(ptr);
+    }
 
-	// --- [ getFloat ] ---
+    // --- [ getFloat ] ---
 
-	/** Unsafe version of: {@link #getFloat} */
-	static native float ngetFloat(long ptr);
+    /** Unsafe version of: {@link #getFloat} */
+    static native float ngetFloat(long ptr);
 
-	/**
-	 * Reads a float value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static float getFloat(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetFloat(ptr);
-	}
+    /**
+     * Reads a float value from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static float getFloat(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetFloat(ptr);
+    }
 
-	// --- [ getDouble ] ---
+    // --- [ getDouble ] ---
 
-	/** Unsafe version of: {@link #getDouble} */
-	static native double ngetDouble(long ptr);
+    /** Unsafe version of: {@link #getDouble} */
+    static native double ngetDouble(long ptr);
 
-	/**
-	 * Reads a double value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static double getDouble(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetDouble(ptr);
-	}
+    /**
+     * Reads a double value from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static double getDouble(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetDouble(ptr);
+    }
 
-	// --- [ getAddress ] ---
+    // --- [ getAddress ] ---
 
-	/** Unsafe version of: {@link #getAddress} */
-	static native long ngetAddress(long ptr);
+    /** Unsafe version of: {@link #getAddress} */
+    static native long ngetAddress(long ptr);
 
-	/**
-	 * Reads a pointer address from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
-	static long getAddress(long ptr) {
-		if ( CHECKS )
-			check(ptr);
-		return ngetAddress(ptr);
-	}
+    /**
+     * Reads a pointer address from the specified memory address.
+     *
+     * @param ptr the memory address to read
+     */
+    static long getAddress(long ptr) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        return ngetAddress(ptr);
+    }
 
-	// --- [ putByte ] ---
+    // --- [ putByte ] ---
 
-	/** Unsafe version of: {@link #putByte} */
-	static native void nputByte(long ptr, byte value);
+    /** Unsafe version of: {@link #putByte} */
+    static native void nputByte(long ptr, byte value);
 
-	/**
-	 * Writes a byte value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putByte(long ptr, byte value) {
-		if ( CHECKS )
-			check(ptr);
-		nputByte(ptr, value);
-	}
+    /**
+     * Writes a byte value to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putByte(long ptr, byte value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputByte(ptr, value);
+    }
 
-	// --- [ putShort ] ---
+    // --- [ putShort ] ---
 
-	/** Unsafe version of: {@link #putShort} */
-	static native void nputShort(long ptr, short value);
+    /** Unsafe version of: {@link #putShort} */
+    static native void nputShort(long ptr, short value);
 
-	/**
-	 * Writes a short value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putShort(long ptr, short value) {
-		if ( CHECKS )
-			check(ptr);
-		nputShort(ptr, value);
-	}
+    /**
+     * Writes a short value to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putShort(long ptr, short value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputShort(ptr, value);
+    }
 
-	// --- [ putInt ] ---
+    // --- [ putInt ] ---
 
-	/** Unsafe version of: {@link #putInt} */
-	static native void nputInt(long ptr, int value);
+    /** Unsafe version of: {@link #putInt} */
+    static native void nputInt(long ptr, int value);
 
-	/**
-	 * Writes an int value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putInt(long ptr, int value) {
-		if ( CHECKS )
-			check(ptr);
-		nputInt(ptr, value);
-	}
+    /**
+     * Writes an int value to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putInt(long ptr, int value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputInt(ptr, value);
+    }
 
-	// --- [ putLong ] ---
+    // --- [ putLong ] ---
 
-	/** Unsafe version of: {@link #putLong} */
-	static native void nputLong(long ptr, long value);
+    /** Unsafe version of: {@link #putLong} */
+    static native void nputLong(long ptr, long value);
 
-	/**
-	 * Writes a long value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putLong(long ptr, long value) {
-		if ( CHECKS )
-			check(ptr);
-		nputLong(ptr, value);
-	}
+    /**
+     * Writes a long value to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putLong(long ptr, long value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputLong(ptr, value);
+    }
 
-	// --- [ putFloat ] ---
+    // --- [ putFloat ] ---
 
-	/** Unsafe version of: {@link #putFloat} */
-	static native void nputFloat(long ptr, float value);
+    /** Unsafe version of: {@link #putFloat} */
+    static native void nputFloat(long ptr, float value);
 
-	/**
-	 * Writes a float value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putFloat(long ptr, float value) {
-		if ( CHECKS )
-			check(ptr);
-		nputFloat(ptr, value);
-	}
+    /**
+     * Writes a float value to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putFloat(long ptr, float value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputFloat(ptr, value);
+    }
 
-	// --- [ putDouble ] ---
+    // --- [ putDouble ] ---
 
-	/** Unsafe version of: {@link #putDouble} */
-	static native void nputDouble(long ptr, double value);
+    /** Unsafe version of: {@link #putDouble} */
+    static native void nputDouble(long ptr, double value);
 
-	/**
-	 * Writes a double value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putDouble(long ptr, double value) {
-		if ( CHECKS )
-			check(ptr);
-		nputDouble(ptr, value);
-	}
+    /**
+     * Writes a double value to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putDouble(long ptr, double value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputDouble(ptr, value);
+    }
 
-	// --- [ putAddress ] ---
+    // --- [ putAddress ] ---
 
-	/** Unsafe version of: {@link #putAddress} */
-	static native void nputAddress(long ptr, long value);
+    /** Unsafe version of: {@link #putAddress} */
+    static native void nputAddress(long ptr, long value);
 
-	/**
-	 * Writes a pointer address to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
-	static void putAddress(long ptr, long value) {
-		if ( CHECKS )
-			check(ptr);
-		nputAddress(ptr, value);
-	}
+    /**
+     * Writes a pointer address to the specified memory address.
+     *
+     * @param ptr   the memory address to write
+     * @param value the value to write
+     */
+    static void putAddress(long ptr, long value) {
+        if (CHECKS) {
+            check(ptr);
+        }
+        nputAddress(ptr, value);
+    }
 
 }

@@ -44,34 +44,34 @@ package org.lwjgl.vulkan;
  */
 public final class KHXExternalMemory {
 
-	/** The extension specification version. */
-	public static final int VK_KHX_EXTERNAL_MEMORY_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_KHX_EXTERNAL_MEMORY_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_KHX_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_KHX_external_memory";
+    /** The extension name. */
+    public static final String VK_KHX_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_KHX_external_memory";
 
-	/**
-	 * Extends {@code VkStructureType}.
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX}</li>
-	 * </ul>
-	 */
-	public static final int
-		VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX = 1000072000,
-		VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX  = 1000072001,
-		VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX        = 1000072002;
+    /**
+     * Extends {@code VkStructureType}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX}</li>
+     * </ul>
+     */
+    public static final int
+        VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO_KHX = 1000072000,
+        VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_KHX  = 1000072001,
+        VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_KHX        = 1000072002;
 
-	/** Extends {@code VkResult}. */
-	public static final int VK_ERROR_INVALID_EXTERNAL_HANDLE_KHX = -1000072003;
+    /** Extends {@code VkResult}. */
+    public static final int VK_ERROR_INVALID_EXTERNAL_HANDLE_KHX = -1000072003;
 
-	/** VK_QUEUE_FAMILY_EXTERNAL_KHX */
-	public static final int VK_QUEUE_FAMILY_EXTERNAL_KHX = (~0-1);
+    /** VK_QUEUE_FAMILY_EXTERNAL_KHX */
+    public static final int VK_QUEUE_FAMILY_EXTERNAL_KHX = (~0-1);
 
-	private KHXExternalMemory() {}
+    private KHXExternalMemory() {}
 
 }

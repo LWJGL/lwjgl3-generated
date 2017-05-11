@@ -24,27 +24,27 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTStreamConsumerEGLOutput {
 
-	protected EXTStreamConsumerEGLOutput() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTStreamConsumerEGLOutput() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglStreamConsumerOutputEXT
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglStreamConsumerOutputEXT
+        );
+    }
 
-	// --- [ eglStreamConsumerOutputEXT ] ---
+    // --- [ eglStreamConsumerOutputEXT ] ---
 
-	public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
-		long __functionAddress = EGL.getCapabilities().eglStreamConsumerOutputEXT;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(stream);
-			check(layer);
-		}
-		return callPPPI(__functionAddress, dpy, stream, layer) != 0;
-	}
+    public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
+        long __functionAddress = EGL.getCapabilities().eglStreamConsumerOutputEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(stream);
+            check(layer);
+        }
+        return callPPPI(__functionAddress, dpy, stream, layer) != 0;
+    }
 
 }

@@ -13,33 +13,33 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface ChunkMergeI extends CallbackI.Z {
 
-	String SIGNATURE = "(ppppBi)B";
+    String SIGNATURE = "(ppppBi)B";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgBool(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default boolean callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgBool(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Chunk merge hook.
-	 *
-	 * @param chunk_a   
-	 * @param size_a    
-	 * @param chunk_b   
-	 * @param size_b    
-	 * @param committed 
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind);
+    /**
+     * Chunk merge hook.
+     *
+     * @param chunk_a   
+     * @param size_a    
+     * @param chunk_b   
+     * @param size_b    
+     * @param committed 
+     * @param arena_ind 
+     */
+    boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind);
 
 }

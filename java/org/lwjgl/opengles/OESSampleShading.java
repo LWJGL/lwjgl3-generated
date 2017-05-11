@@ -25,29 +25,29 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESSampleShading {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetInteger64v.
-	 */
-	public static final int GL_SAMPLE_SHADING_OES = 0x8C36;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetInteger64v.
+     */
+    public static final int GL_SAMPLE_SHADING_OES = 0x8C36;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, and GetFloatv. */
-	public static final int GL_MIN_SAMPLE_SHADING_VALUE_OES = 0x8C37;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, and GetFloatv. */
+    public static final int GL_MIN_SAMPLE_SHADING_VALUE_OES = 0x8C37;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESSampleShading() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESSampleShading() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glMinSampleShadingOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glMinSampleShadingOES
+        );
+    }
 
-	// --- [ glMinSampleShadingOES ] ---
+    // --- [ glMinSampleShadingOES ] ---
 
-	public static native void glMinSampleShadingOES(float value);
+    public static native void glMinSampleShadingOES(float value);
 
 }

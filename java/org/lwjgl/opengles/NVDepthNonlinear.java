@@ -22,9 +22,9 @@ package org.lwjgl.opengles;
  */
 public final class NVDepthNonlinear {
 
-	/** Accepted as a valid sized internal format by all functions accepting sized internal formats with a base format of DEPTH_COMPONENT. */
-	public static final int GL_DEPTH_COMPONENT16_NONLINEAR_NV = 0x8E2C;
+    /** Accepted as a valid sized internal format by all functions accepting sized internal formats with a base format of DEPTH_COMPONENT. */
+    public static final int GL_DEPTH_COMPONENT16_NONLINEAR_NV = 0x8E2C;
 
-	private NVDepthNonlinear() {}
+    private NVDepthNonlinear() {}
 
 }

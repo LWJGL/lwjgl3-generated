@@ -15,12 +15,12 @@ package org.lwjgl.opengl;
  */
 public final class NVBlendEquationAdvancedCoherent {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Disable, Enable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv, GetDoublev
-	 * and GetInteger64v.
-	 */
-	public static final int GL_BLEND_ADVANCED_COHERENT_NV = 0x9285;
+    /**
+     * Accepted by the {@code cap} parameter of Disable, Enable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv, GetDoublev
+     * and GetInteger64v.
+     */
+    public static final int GL_BLEND_ADVANCED_COHERENT_NV = 0x9285;
 
-	private NVBlendEquationAdvancedCoherent() {}
+    private NVBlendEquationAdvancedCoherent() {}
 
 }

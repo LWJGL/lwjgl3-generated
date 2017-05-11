@@ -45,262 +45,271 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVGPUMulticast {
 
-	/** Accepted in the {@code flags} parameter of BufferStorage and NamedBufferStorageEXT. */
-	public static final int GL_PER_GPU_STORAGE_BIT_NV = 0x800;
+    /** Accepted in the {@code flags} parameter of BufferStorage and NamedBufferStorageEXT. */
+    public static final int GL_PER_GPU_STORAGE_BIT_NV = 0x800;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MULTICAST_GPUS_NV  = 0x92BA,
-		GL_RENDER_GPU_MASK_NV = 0x9558;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_MULTICAST_GPUS_NV  = 0x92BA,
+        GL_RENDER_GPU_MASK_NV = 0x9558;
 
-	/**
-	 * Accepted as a value for {@code pname} for the TexParameter{if}, TexParameter{if}v, TextureParameter{if}, TextureParameter{if}v, MultiTexParameter{if}EXT
-	 * and MultiTexParameter{if}vEXT commands and for the {@code value} parameter of GetTexParameter{if}v, GetTextureParameter{if}vEXT and
-	 * GetMultiTexParameter{if}vEXT.
-	 */
-	public static final int GL_PER_GPU_STORAGE_NV = 0x9548;
+    /**
+     * Accepted as a value for {@code pname} for the TexParameter{if}, TexParameter{if}v, TextureParameter{if}, TextureParameter{if}v, MultiTexParameter{if}EXT
+     * and MultiTexParameter{if}vEXT commands and for the {@code value} parameter of GetTexParameter{if}v, GetTextureParameter{if}vEXT and
+     * GetMultiTexParameter{if}vEXT.
+     */
+    public static final int GL_PER_GPU_STORAGE_NV = 0x9548;
 
-	/** Accepted by the {@code pname} parameter of GetMultisamplefv. */
-	public static final int GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9549;
+    /** Accepted by the {@code pname} parameter of GetMultisamplefv. */
+    public static final int GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9549;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVGPUMulticast() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVGPUMulticast() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glRenderGpuMaskNV, caps.glMulticastBufferSubDataNV, caps.glMulticastCopyBufferSubDataNV, caps.glMulticastCopyImageSubDataNV, 
-			caps.glMulticastBlitFramebufferNV, caps.glMulticastFramebufferSampleLocationsfvNV, caps.glMulticastBarrierNV, caps.glMulticastWaitSyncNV, 
-			caps.glMulticastGetQueryObjectivNV, caps.glMulticastGetQueryObjectuivNV, caps.glMulticastGetQueryObjecti64vNV, 
-			caps.glMulticastGetQueryObjectui64vNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glRenderGpuMaskNV, caps.glMulticastBufferSubDataNV, caps.glMulticastCopyBufferSubDataNV, caps.glMulticastCopyImageSubDataNV, 
+            caps.glMulticastBlitFramebufferNV, caps.glMulticastFramebufferSampleLocationsfvNV, caps.glMulticastBarrierNV, caps.glMulticastWaitSyncNV, 
+            caps.glMulticastGetQueryObjectivNV, caps.glMulticastGetQueryObjectuivNV, caps.glMulticastGetQueryObjecti64vNV, 
+            caps.glMulticastGetQueryObjectui64vNV
+        );
+    }
 
-	// --- [ glRenderGpuMaskNV ] ---
+    // --- [ glRenderGpuMaskNV ] ---
 
-	/**
-	 * Restricts render commands to a specific set of GPUs.
-	 *
-	 * @param mask 
-	 */
-	public static native void glRenderGpuMaskNV(int mask);
+    /**
+     * Restricts render commands to a specific set of GPUs.
+     *
+     * @param mask 
+     */
+    public static native void glRenderGpuMaskNV(int mask);
 
-	// --- [ glMulticastBufferSubDataNV ] ---
+    // --- [ glMulticastBufferSubDataNV ] ---
 
-	public static native void nglMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, long size, long data);
+    public static native void nglMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, long size, long data);
 
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, ByteBuffer data) {
-		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining(), memAddress(data));
-	}
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, ByteBuffer data) {
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining(), memAddress(data));
+    }
 
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, ShortBuffer data) {
-		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 1, memAddress(data));
-	}
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, ShortBuffer data) {
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 1, memAddress(data));
+    }
 
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, IntBuffer data) {
-		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
-	}
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, IntBuffer data) {
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
+    }
 
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, FloatBuffer data) {
-		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
-	}
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, FloatBuffer data) {
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
+    }
 
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, DoubleBuffer data) {
-		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 3, memAddress(data));
-	}
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, DoubleBuffer data) {
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 3, memAddress(data));
+    }
 
-	// --- [ glMulticastCopyBufferSubDataNV ] ---
+    // --- [ glMulticastCopyBufferSubDataNV ] ---
 
-	public static native void glMulticastCopyBufferSubDataNV(int readGpu, int writeGpuMask, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
+    public static native void glMulticastCopyBufferSubDataNV(int readGpu, int writeGpuMask, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size);
 
-	// --- [ glMulticastCopyImageSubDataNV ] ---
+    // --- [ glMulticastCopyImageSubDataNV ] ---
 
-	public static native void glMulticastCopyImageSubDataNV(int srcGpu, int dstGpuMask, int srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
+    public static native void glMulticastCopyImageSubDataNV(int srcGpu, int dstGpuMask, int srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
-	// --- [ glMulticastBlitFramebufferNV ] ---
+    // --- [ glMulticastBlitFramebufferNV ] ---
 
-	public static native void glMulticastBlitFramebufferNV(int srcGpu, int dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+    public static native void glMulticastBlitFramebufferNV(int srcGpu, int dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 
-	// --- [ glMulticastFramebufferSampleLocationsfvNV ] ---
+    // --- [ glMulticastFramebufferSampleLocationsfvNV ] ---
 
-	public static native void nglMulticastFramebufferSampleLocationsfvNV(int gpu, int framebuffer, int start, int count, long v);
+    public static native void nglMulticastFramebufferSampleLocationsfvNV(int gpu, int framebuffer, int start, int count, long v);
 
-	public static void glMulticastFramebufferSampleLocationsfvNV(int gpu, int framebuffer, int start, FloatBuffer v) {
-		nglMulticastFramebufferSampleLocationsfvNV(gpu, framebuffer, start, v.remaining() >> 1, memAddress(v));
-	}
+    public static void glMulticastFramebufferSampleLocationsfvNV(int gpu, int framebuffer, int start, FloatBuffer v) {
+        nglMulticastFramebufferSampleLocationsfvNV(gpu, framebuffer, start, v.remaining() >> 1, memAddress(v));
+    }
 
-	// --- [ glMulticastBarrierNV ] ---
+    // --- [ glMulticastBarrierNV ] ---
 
-	public static native void glMulticastBarrierNV();
+    public static native void glMulticastBarrierNV();
 
-	// --- [ glMulticastWaitSyncNV ] ---
+    // --- [ glMulticastWaitSyncNV ] ---
 
-	public static native void glMulticastWaitSyncNV(int signalGpu, int waitGpuMask);
+    public static native void glMulticastWaitSyncNV(int signalGpu, int waitGpuMask);
 
-	// --- [ glMulticastGetQueryObjectivNV ] ---
+    // --- [ glMulticastGetQueryObjectivNV ] ---
 
-	public static native void nglMulticastGetQueryObjectivNV(int gpu, int id, int pname, long params);
+    public static native void nglMulticastGetQueryObjectivNV(int gpu, int id, int pname, long params);
 
-	public static void glMulticastGetQueryObjectivNV(int gpu, int id, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglMulticastGetQueryObjectivNV(gpu, id, pname, memAddress(params));
-	}
+    public static void glMulticastGetQueryObjectivNV(int gpu, int id, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglMulticastGetQueryObjectivNV(gpu, id, pname, memAddress(params));
+    }
 
-	public static int glMulticastGetQueryObjectiNV(int gpu, int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglMulticastGetQueryObjectivNV(gpu, id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glMulticastGetQueryObjectiNV(int gpu, int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglMulticastGetQueryObjectivNV(gpu, id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glMulticastGetQueryObjectuivNV ] ---
+    // --- [ glMulticastGetQueryObjectuivNV ] ---
 
-	public static native void nglMulticastGetQueryObjectuivNV(int gpu, int id, int pname, long params);
+    public static native void nglMulticastGetQueryObjectuivNV(int gpu, int id, int pname, long params);
 
-	public static void glMulticastGetQueryObjectuivNV(int gpu, int id, int pname, IntBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglMulticastGetQueryObjectuivNV(gpu, id, pname, memAddress(params));
-	}
+    public static void glMulticastGetQueryObjectuivNV(int gpu, int id, int pname, IntBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglMulticastGetQueryObjectuivNV(gpu, id, pname, memAddress(params));
+    }
 
-	public static int glMulticastGetQueryObjectuiNV(int gpu, int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer params = stack.callocInt(1);
-			nglMulticastGetQueryObjectuivNV(gpu, id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static int glMulticastGetQueryObjectuiNV(int gpu, int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            IntBuffer params = stack.callocInt(1);
+            nglMulticastGetQueryObjectuivNV(gpu, id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glMulticastGetQueryObjecti64vNV ] ---
+    // --- [ glMulticastGetQueryObjecti64vNV ] ---
 
-	public static native void nglMulticastGetQueryObjecti64vNV(int gpu, int id, int pname, long params);
+    public static native void nglMulticastGetQueryObjecti64vNV(int gpu, int id, int pname, long params);
 
-	public static void glMulticastGetQueryObjecti64vNV(int gpu, int id, int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglMulticastGetQueryObjecti64vNV(gpu, id, pname, memAddress(params));
-	}
+    public static void glMulticastGetQueryObjecti64vNV(int gpu, int id, int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglMulticastGetQueryObjecti64vNV(gpu, id, pname, memAddress(params));
+    }
 
-	public static long glMulticastGetQueryObjecti64NV(int gpu, int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglMulticastGetQueryObjecti64vNV(gpu, id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static long glMulticastGetQueryObjecti64NV(int gpu, int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglMulticastGetQueryObjecti64vNV(gpu, id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glMulticastGetQueryObjectui64vNV ] ---
+    // --- [ glMulticastGetQueryObjectui64vNV ] ---
 
-	public static native void nglMulticastGetQueryObjectui64vNV(int gpu, int id, int pname, long params);
+    public static native void nglMulticastGetQueryObjectui64vNV(int gpu, int id, int pname, long params);
 
-	public static void glMulticastGetQueryObjectui64vNV(int gpu, int id, int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglMulticastGetQueryObjectui64vNV(gpu, id, pname, memAddress(params));
-	}
+    public static void glMulticastGetQueryObjectui64vNV(int gpu, int id, int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglMulticastGetQueryObjectui64vNV(gpu, id, pname, memAddress(params));
+    }
 
-	public static long glMulticastGetQueryObjectui64NV(int gpu, int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglMulticastGetQueryObjectui64vNV(gpu, id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static long glMulticastGetQueryObjectui64NV(int gpu, int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglMulticastGetQueryObjectui64vNV(gpu, id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, short[] data) {
-		long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 1), data);
-	}
+    /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, short[] data) {
+        long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 1), data);
+    }
 
-	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, int[] data) {
-		long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
-	}
+    /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, int[] data) {
+        long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
+    }
 
-	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, float[] data) {
-		long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
-	}
+    /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, float[] data) {
+        long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
+    }
 
-	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
-	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, double[] data) {
-		long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 3), data);
-	}
+    /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+    public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, double[] data) {
+        long __functionAddress = GL.getICD().glMulticastBufferSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 3), data);
+    }
 
-	/** Array version of: {@link #glMulticastFramebufferSampleLocationsfvNV MulticastFramebufferSampleLocationsfvNV} */
-	public static void glMulticastFramebufferSampleLocationsfvNV(int gpu, int framebuffer, int start, float[] v) {
-		long __functionAddress = GL.getICD().glMulticastFramebufferSampleLocationsfvNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, gpu, framebuffer, start, v.length >> 1, v);
-	}
+    /** Array version of: {@link #glMulticastFramebufferSampleLocationsfvNV MulticastFramebufferSampleLocationsfvNV} */
+    public static void glMulticastFramebufferSampleLocationsfvNV(int gpu, int framebuffer, int start, float[] v) {
+        long __functionAddress = GL.getICD().glMulticastFramebufferSampleLocationsfvNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, gpu, framebuffer, start, v.length >> 1, v);
+    }
 
-	/** Array version of: {@link #glMulticastGetQueryObjectivNV MulticastGetQueryObjectivNV} */
-	public static void glMulticastGetQueryObjectivNV(int gpu, int id, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glMulticastGetQueryObjectivNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, gpu, id, pname, params);
-	}
+    /** Array version of: {@link #glMulticastGetQueryObjectivNV MulticastGetQueryObjectivNV} */
+    public static void glMulticastGetQueryObjectivNV(int gpu, int id, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glMulticastGetQueryObjectivNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, gpu, id, pname, params);
+    }
 
-	/** Array version of: {@link #glMulticastGetQueryObjectuivNV MulticastGetQueryObjectuivNV} */
-	public static void glMulticastGetQueryObjectuivNV(int gpu, int id, int pname, int[] params) {
-		long __functionAddress = GL.getICD().glMulticastGetQueryObjectuivNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, gpu, id, pname, params);
-	}
+    /** Array version of: {@link #glMulticastGetQueryObjectuivNV MulticastGetQueryObjectuivNV} */
+    public static void glMulticastGetQueryObjectuivNV(int gpu, int id, int pname, int[] params) {
+        long __functionAddress = GL.getICD().glMulticastGetQueryObjectuivNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, gpu, id, pname, params);
+    }
 
-	/** Array version of: {@link #glMulticastGetQueryObjecti64vNV MulticastGetQueryObjecti64vNV} */
-	public static void glMulticastGetQueryObjecti64vNV(int gpu, int id, int pname, long[] params) {
-		long __functionAddress = GL.getICD().glMulticastGetQueryObjecti64vNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, gpu, id, pname, params);
-	}
+    /** Array version of: {@link #glMulticastGetQueryObjecti64vNV MulticastGetQueryObjecti64vNV} */
+    public static void glMulticastGetQueryObjecti64vNV(int gpu, int id, int pname, long[] params) {
+        long __functionAddress = GL.getICD().glMulticastGetQueryObjecti64vNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, gpu, id, pname, params);
+    }
 
-	/** Array version of: {@link #glMulticastGetQueryObjectui64vNV MulticastGetQueryObjectui64vNV} */
-	public static void glMulticastGetQueryObjectui64vNV(int gpu, int id, int pname, long[] params) {
-		long __functionAddress = GL.getICD().glMulticastGetQueryObjectui64vNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, gpu, id, pname, params);
-	}
+    /** Array version of: {@link #glMulticastGetQueryObjectui64vNV MulticastGetQueryObjectui64vNV} */
+    public static void glMulticastGetQueryObjectui64vNV(int gpu, int id, int pname, long[] params) {
+        long __functionAddress = GL.getICD().glMulticastGetQueryObjectui64vNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, gpu, id, pname, params);
+    }
 
 }

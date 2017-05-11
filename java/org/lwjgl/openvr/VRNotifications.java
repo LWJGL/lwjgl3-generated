@@ -17,84 +17,86 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**  */
 public class VRNotifications {
 
-	protected VRNotifications() {
-		throw new UnsupportedOperationException();
-	}
+    protected VRNotifications() {
+        throw new UnsupportedOperationException();
+    }
 
-	// --- [ VRNotifications_CreateNotification ] ---
+    // --- [ VRNotifications_CreateNotification ] ---
 
-	/** Unsafe version of: {@link #VRNotifications_CreateNotification CreateNotification} */
-	public static int nVRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, long pchText, int style, long pImage, long pNotificationId) {
-		long __functionAddress = OpenVR.VRNotifications.CreateNotification;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			if ( pImage != NULL ) NotificationBitmap.validate(pImage);
-		}
-		return callJJPPPI(__functionAddress, ulOverlayHandle, ulUserValue, type, pchText, style, pImage, pNotificationId);
-	}
+    /** Unsafe version of: {@link #VRNotifications_CreateNotification CreateNotification} */
+    public static int nVRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, long pchText, int style, long pImage, long pNotificationId) {
+        long __functionAddress = OpenVR.VRNotifications.CreateNotification;
+        if (CHECKS) {
+            check(__functionAddress);
+            if (pImage != NULL) { NotificationBitmap.validate(pImage); }
+        }
+        return callJJPPPI(__functionAddress, ulOverlayHandle, ulUserValue, type, pchText, style, pImage, pNotificationId);
+    }
 
-	/**
-	 * Create a notification and enqueue it to be shown to the user.
-	 * 
-	 * <p>An overlay handle is required to create a notification, as otherwise it would be impossible for a user to act on it. To create a two-line notification,
-	 * use a line break ('\n') to split the text into two lines. The {@code pImage} argument may be {@code NULL}, in which case the specified overlay's icon will be
-	 * used instead.</p>
-	 *
-	 * @param ulOverlayHandle 
-	 * @param ulUserValue     
-	 * @param type            one of:<br><table><tr><td>{@link VR#EVRNotificationType_Transient}</td><td>{@link VR#EVRNotificationType_Persistent}</td></tr><tr><td>{@link VR#EVRNotificationType_Transient_SystemWithUserValue}</td></tr></table>
-	 * @param pchText         
-	 * @param style           one of:<br><table><tr><td>{@link VR#EVRNotificationStyle_None}</td><td>{@link VR#EVRNotificationStyle_Application}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Disabled}</td><td>{@link VR#EVRNotificationStyle_Contact_Enabled}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Active}</td></tr></table>
-	 * @param pImage          
-	 * @param pNotificationId 
-	 */
-	public static int VRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, ByteBuffer pchText, int style, NotificationBitmap pImage, IntBuffer pNotificationId) {
-		if ( CHECKS ) {
-			checkNT1(pchText);
-			check(pNotificationId, 1);
-		}
-		return nVRNotifications_CreateNotification(ulOverlayHandle, ulUserValue, type, memAddress(pchText), style, memAddressSafe(pImage), memAddress(pNotificationId));
-	}
+    /**
+     * Create a notification and enqueue it to be shown to the user.
+     * 
+     * <p>An overlay handle is required to create a notification, as otherwise it would be impossible for a user to act on it. To create a two-line notification,
+     * use a line break ('\n') to split the text into two lines. The {@code pImage} argument may be {@code NULL}, in which case the specified overlay's icon will be
+     * used instead.</p>
+     *
+     * @param ulOverlayHandle 
+     * @param ulUserValue     
+     * @param type            one of:<br><table><tr><td>{@link VR#EVRNotificationType_Transient}</td><td>{@link VR#EVRNotificationType_Persistent}</td></tr><tr><td>{@link VR#EVRNotificationType_Transient_SystemWithUserValue}</td></tr></table>
+     * @param pchText         
+     * @param style           one of:<br><table><tr><td>{@link VR#EVRNotificationStyle_None}</td><td>{@link VR#EVRNotificationStyle_Application}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Disabled}</td><td>{@link VR#EVRNotificationStyle_Contact_Enabled}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Active}</td></tr></table>
+     * @param pImage          
+     * @param pNotificationId 
+     */
+    public static int VRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, ByteBuffer pchText, int style, NotificationBitmap pImage, IntBuffer pNotificationId) {
+        if (CHECKS) {
+            checkNT1(pchText);
+            check(pNotificationId, 1);
+        }
+        return nVRNotifications_CreateNotification(ulOverlayHandle, ulUserValue, type, memAddress(pchText), style, memAddressSafe(pImage), memAddress(pNotificationId));
+    }
 
-	/**
-	 * Create a notification and enqueue it to be shown to the user.
-	 * 
-	 * <p>An overlay handle is required to create a notification, as otherwise it would be impossible for a user to act on it. To create a two-line notification,
-	 * use a line break ('\n') to split the text into two lines. The {@code pImage} argument may be {@code NULL}, in which case the specified overlay's icon will be
-	 * used instead.</p>
-	 *
-	 * @param ulOverlayHandle 
-	 * @param ulUserValue     
-	 * @param type            one of:<br><table><tr><td>{@link VR#EVRNotificationType_Transient}</td><td>{@link VR#EVRNotificationType_Persistent}</td></tr><tr><td>{@link VR#EVRNotificationType_Transient_SystemWithUserValue}</td></tr></table>
-	 * @param pchText         
-	 * @param style           one of:<br><table><tr><td>{@link VR#EVRNotificationStyle_None}</td><td>{@link VR#EVRNotificationStyle_Application}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Disabled}</td><td>{@link VR#EVRNotificationStyle_Contact_Enabled}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Active}</td></tr></table>
-	 * @param pImage          
-	 * @param pNotificationId 
-	 */
-	public static int VRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, CharSequence pchText, int style, NotificationBitmap pImage, IntBuffer pNotificationId) {
-		if ( CHECKS )
-			check(pNotificationId, 1);
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer pchTextEncoded = stack.ASCII(pchText);
-			return nVRNotifications_CreateNotification(ulOverlayHandle, ulUserValue, type, memAddress(pchTextEncoded), style, memAddressSafe(pImage), memAddress(pNotificationId));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Create a notification and enqueue it to be shown to the user.
+     * 
+     * <p>An overlay handle is required to create a notification, as otherwise it would be impossible for a user to act on it. To create a two-line notification,
+     * use a line break ('\n') to split the text into two lines. The {@code pImage} argument may be {@code NULL}, in which case the specified overlay's icon will be
+     * used instead.</p>
+     *
+     * @param ulOverlayHandle 
+     * @param ulUserValue     
+     * @param type            one of:<br><table><tr><td>{@link VR#EVRNotificationType_Transient}</td><td>{@link VR#EVRNotificationType_Persistent}</td></tr><tr><td>{@link VR#EVRNotificationType_Transient_SystemWithUserValue}</td></tr></table>
+     * @param pchText         
+     * @param style           one of:<br><table><tr><td>{@link VR#EVRNotificationStyle_None}</td><td>{@link VR#EVRNotificationStyle_Application}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Disabled}</td><td>{@link VR#EVRNotificationStyle_Contact_Enabled}</td></tr><tr><td>{@link VR#EVRNotificationStyle_Contact_Active}</td></tr></table>
+     * @param pImage          
+     * @param pNotificationId 
+     */
+    public static int VRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, CharSequence pchText, int style, NotificationBitmap pImage, IntBuffer pNotificationId) {
+        if (CHECKS) {
+            check(pNotificationId, 1);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pchTextEncoded = stack.ASCII(pchText);
+            return nVRNotifications_CreateNotification(ulOverlayHandle, ulUserValue, type, memAddress(pchTextEncoded), style, memAddressSafe(pImage), memAddress(pNotificationId));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ VRNotifications_RemoveNotification ] ---
+    // --- [ VRNotifications_RemoveNotification ] ---
 
-	/**
-	 * Destroy a notification, hiding it first if it currently shown to the user.
-	 *
-	 * @param notificationId 
-	 */
-	public static int VRNotifications_RemoveNotification(int notificationId) {
-		long __functionAddress = OpenVR.VRNotifications.RemoveNotification;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callI(__functionAddress, notificationId);
-	}
+    /**
+     * Destroy a notification, hiding it first if it currently shown to the user.
+     *
+     * @param notificationId 
+     */
+    public static int VRNotifications_RemoveNotification(int notificationId) {
+        long __functionAddress = OpenVR.VRNotifications.RemoveNotification;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress, notificationId);
+    }
 
 }

@@ -26,56 +26,56 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDebugMarker {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTDebugMarker() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDebugMarker() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glInsertEventMarkerEXT, caps.glPushGroupMarkerEXT, caps.glPopGroupMarkerEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glInsertEventMarkerEXT, caps.glPushGroupMarkerEXT, caps.glPopGroupMarkerEXT
+        );
+    }
 
-	// --- [ glInsertEventMarkerEXT ] ---
+    // --- [ glInsertEventMarkerEXT ] ---
 
-	public static native void nglInsertEventMarkerEXT(int length, long marker);
+    public static native void nglInsertEventMarkerEXT(int length, long marker);
 
-	public static void glInsertEventMarkerEXT(ByteBuffer marker) {
-		nglInsertEventMarkerEXT(marker.remaining(), memAddress(marker));
-	}
+    public static void glInsertEventMarkerEXT(ByteBuffer marker) {
+        nglInsertEventMarkerEXT(marker.remaining(), memAddress(marker));
+    }
 
-	public static void glInsertEventMarkerEXT(CharSequence marker) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer markerEncoded = stack.UTF8(marker, false);
-			nglInsertEventMarkerEXT(markerEncoded.remaining(), memAddress(markerEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glInsertEventMarkerEXT(CharSequence marker) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer markerEncoded = stack.UTF8(marker, false);
+            nglInsertEventMarkerEXT(markerEncoded.remaining(), memAddress(markerEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glPushGroupMarkerEXT ] ---
+    // --- [ glPushGroupMarkerEXT ] ---
 
-	public static native void nglPushGroupMarkerEXT(int length, long marker);
+    public static native void nglPushGroupMarkerEXT(int length, long marker);
 
-	public static void glPushGroupMarkerEXT(ByteBuffer marker) {
-		nglPushGroupMarkerEXT(marker.remaining(), memAddress(marker));
-	}
+    public static void glPushGroupMarkerEXT(ByteBuffer marker) {
+        nglPushGroupMarkerEXT(marker.remaining(), memAddress(marker));
+    }
 
-	public static void glPushGroupMarkerEXT(CharSequence marker) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer markerEncoded = stack.UTF8(marker, false);
-			nglPushGroupMarkerEXT(markerEncoded.remaining(), memAddress(markerEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static void glPushGroupMarkerEXT(CharSequence marker) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer markerEncoded = stack.UTF8(marker, false);
+            nglPushGroupMarkerEXT(markerEncoded.remaining(), memAddress(markerEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glPopGroupMarkerEXT ] ---
+    // --- [ glPopGroupMarkerEXT ] ---
 
-	public static native void glPopGroupMarkerEXT();
+    public static native void glPopGroupMarkerEXT();
 
 }

@@ -27,50 +27,50 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBMultisample {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int
-		GL_MULTISAMPLE_ARB              = 0x809D,
-		GL_SAMPLE_ALPHA_TO_COVERAGE_ARB = 0x809E,
-		GL_SAMPLE_ALPHA_TO_ONE_ARB      = 0x809F,
-		GL_SAMPLE_COVERAGE_ARB          = 0x80A0;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int
+        GL_MULTISAMPLE_ARB              = 0x809D,
+        GL_SAMPLE_ALPHA_TO_COVERAGE_ARB = 0x809E,
+        GL_SAMPLE_ALPHA_TO_ONE_ARB      = 0x809F,
+        GL_SAMPLE_COVERAGE_ARB          = 0x80A0;
 
-	/** Accepted by the {@code mask} parameter of PushAttrib. */
-	public static final int GL_MULTISAMPLE_BIT_ARB = 0x20000000;
+    /** Accepted by the {@code mask} parameter of PushAttrib. */
+    public static final int GL_MULTISAMPLE_BIT_ARB = 0x20000000;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_SAMPLE_BUFFERS_ARB         = 0x80A8,
-		GL_SAMPLES_ARB                = 0x80A9,
-		GL_SAMPLE_COVERAGE_VALUE_ARB  = 0x80AA,
-		GL_SAMPLE_COVERAGE_INVERT_ARB = 0x80AB;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_SAMPLE_BUFFERS_ARB         = 0x80A8,
+        GL_SAMPLES_ARB                = 0x80A9,
+        GL_SAMPLE_COVERAGE_VALUE_ARB  = 0x80AA,
+        GL_SAMPLE_COVERAGE_INVERT_ARB = 0x80AB;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glSampleCoverageARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glSampleCoverageARB
+        );
+    }
 
-	// --- [ glSampleCoverageARB ] ---
+    // --- [ glSampleCoverageARB ] ---
 
-	/**
-	 * Specifies simultaneously the values of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB} and {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB}.
-	 * 
-	 * <p>If {@link #GL_SAMPLE_COVERAGE_ARB SAMPLE_COVERAGE_ARB} is enabled, the fragment coverage is ANDed with another temporary coverage. This temporary coverage is a function of the value
-	 * of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB}. If {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB} is {@link GL11#GL_TRUE TRUE}, the temporary coverage is inverted (all bit values are inverted) before it
-	 * is ANDed with the fragment coverage.</p>
-	 *
-	 * @param value  the desired coverage value
-	 * @param invert if true, the temporary coverage is inverted. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td></tr></table>
-	 */
-	public static native void glSampleCoverageARB(float value, boolean invert);
+    /**
+     * Specifies simultaneously the values of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB} and {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB}.
+     * 
+     * <p>If {@link #GL_SAMPLE_COVERAGE_ARB SAMPLE_COVERAGE_ARB} is enabled, the fragment coverage is ANDed with another temporary coverage. This temporary coverage is a function of the value
+     * of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB}. If {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB} is {@link GL11#GL_TRUE TRUE}, the temporary coverage is inverted (all bit values are inverted) before it
+     * is ANDed with the fragment coverage.</p>
+     *
+     * @param value  the desired coverage value
+     * @param invert if true, the temporary coverage is inverted. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td></tr></table>
+     */
+    public static native void glSampleCoverageARB(float value, boolean invert);
 
 }

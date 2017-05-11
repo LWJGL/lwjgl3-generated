@@ -11,9 +11,9 @@ typedef void (APIENTRY *glBlendEquationEXTPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBlendMinmax_glBlendEquationEXT(JNIEnv *__env, jclass clazz, jint mode) {
-	glBlendEquationEXTPROC glBlendEquationEXT = (glBlendEquationEXTPROC)tlsGetFunction(68);
-	UNUSED_PARAM(clazz)
-	glBlendEquationEXT(mode);
+    glBlendEquationEXTPROC glBlendEquationEXT = (glBlendEquationEXTPROC)tlsGetFunction(68);
+    UNUSED_PARAM(clazz)
+    glBlendEquationEXT(mode);
 }
 
 EXTERN_C_EXIT

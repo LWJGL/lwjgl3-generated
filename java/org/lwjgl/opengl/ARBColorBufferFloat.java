@@ -31,38 +31,38 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBColorBufferFloat {
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_RGBA_FLOAT_MODE_ARB = 0x8820;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_RGBA_FLOAT_MODE_ARB = 0x8820;
 
-	/** Accepted by the {@code target} parameter of ClampColorARB and the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_CLAMP_VERTEX_COLOR_ARB   = 0x891A,
-		GL_CLAMP_FRAGMENT_COLOR_ARB = 0x891B,
-		GL_CLAMP_READ_COLOR_ARB     = 0x891C;
+    /** Accepted by the {@code target} parameter of ClampColorARB and the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_CLAMP_VERTEX_COLOR_ARB   = 0x891A,
+        GL_CLAMP_FRAGMENT_COLOR_ARB = 0x891B,
+        GL_CLAMP_READ_COLOR_ARB     = 0x891C;
 
-	/** Accepted by the {@code clamp} parameter of ClampColorARB. */
-	public static final int GL_FIXED_ONLY_ARB = 0x891D;
+    /** Accepted by the {@code clamp} parameter of ClampColorARB. */
+    public static final int GL_FIXED_ONLY_ARB = 0x891D;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBColorBufferFloat() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBColorBufferFloat() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glClampColorARB
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glClampColorARB
+        );
+    }
 
-	// --- [ glClampColorARB ] ---
+    // --- [ glClampColorARB ] ---
 
-	/**
-	 * Controls color clamping.
-	 *
-	 * @param target the color target. One of:<br><table><tr><td>{@link #GL_CLAMP_VERTEX_COLOR_ARB CLAMP_VERTEX_COLOR_ARB}</td><td>{@link #GL_CLAMP_FRAGMENT_COLOR_ARB CLAMP_FRAGMENT_COLOR_ARB}</td><td>{@link #GL_CLAMP_READ_COLOR_ARB CLAMP_READ_COLOR_ARB}</td></tr></table>
-	 * @param clamp  the new clamping state. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td><td>{@link #GL_FIXED_ONLY_ARB FIXED_ONLY_ARB}</td></tr></table>
-	 */
-	public static native void glClampColorARB(int target, int clamp);
+    /**
+     * Controls color clamping.
+     *
+     * @param target the color target. One of:<br><table><tr><td>{@link #GL_CLAMP_VERTEX_COLOR_ARB CLAMP_VERTEX_COLOR_ARB}</td><td>{@link #GL_CLAMP_FRAGMENT_COLOR_ARB CLAMP_FRAGMENT_COLOR_ARB}</td><td>{@link #GL_CLAMP_READ_COLOR_ARB CLAMP_READ_COLOR_ARB}</td></tr></table>
+     * @param clamp  the new clamping state. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td><td>{@link #GL_FIXED_ONLY_ARB FIXED_ONLY_ARB}</td></tr></table>
+     */
+    public static native void glClampColorARB(int target, int clamp);
 
 }

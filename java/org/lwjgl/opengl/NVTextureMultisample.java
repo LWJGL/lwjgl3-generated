@@ -17,46 +17,46 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVTextureMultisample {
 
-	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_TEXTURE_COVERAGE_SAMPLES_NV = 0x9045,
-		GL_TEXTURE_COLOR_SAMPLES_NV    = 0x9046;
+    /** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
+    public static final int
+        GL_TEXTURE_COVERAGE_SAMPLES_NV = 0x9045,
+        GL_TEXTURE_COLOR_SAMPLES_NV    = 0x9046;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVTextureMultisample() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVTextureMultisample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTexImage2DMultisampleCoverageNV, caps.glTexImage3DMultisampleCoverageNV, caps.glTextureImage2DMultisampleNV, 
-			caps.glTextureImage3DMultisampleNV, caps.glTextureImage2DMultisampleCoverageNV, caps.glTextureImage3DMultisampleCoverageNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTexImage2DMultisampleCoverageNV, caps.glTexImage3DMultisampleCoverageNV, caps.glTextureImage2DMultisampleNV, 
+            caps.glTextureImage3DMultisampleNV, caps.glTextureImage2DMultisampleCoverageNV, caps.glTextureImage3DMultisampleCoverageNV
+        );
+    }
 
-	// --- [ glTexImage2DMultisampleCoverageNV ] ---
+    // --- [ glTexImage2DMultisampleCoverageNV ] ---
 
-	public static native void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations);
+    public static native void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations);
 
-	// --- [ glTexImage3DMultisampleCoverageNV ] ---
+    // --- [ glTexImage3DMultisampleCoverageNV ] ---
 
-	public static native void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations);
+    public static native void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations);
 
-	// --- [ glTextureImage2DMultisampleNV ] ---
+    // --- [ glTextureImage2DMultisampleNV ] ---
 
-	public static native void glTextureImage2DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, boolean fixedSampleLocations);
+    public static native void glTextureImage2DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, boolean fixedSampleLocations);
 
-	// --- [ glTextureImage3DMultisampleNV ] ---
+    // --- [ glTextureImage3DMultisampleNV ] ---
 
-	public static native void glTextureImage3DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations);
+    public static native void glTextureImage3DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations);
 
-	// --- [ glTextureImage2DMultisampleCoverageNV ] ---
+    // --- [ glTextureImage2DMultisampleCoverageNV ] ---
 
-	public static native void glTextureImage2DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations);
+    public static native void glTextureImage2DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations);
 
-	// --- [ glTextureImage3DMultisampleCoverageNV ] ---
+    // --- [ glTextureImage3DMultisampleCoverageNV ] ---
 
-	public static native void glTextureImage3DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations);
+    public static native void glTextureImage3DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations);
 
 }

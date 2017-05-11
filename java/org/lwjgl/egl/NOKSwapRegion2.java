@@ -29,41 +29,41 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NOKSwapRegion2 {
 
-	protected NOKSwapRegion2() {
-		throw new UnsupportedOperationException();
-	}
+    protected NOKSwapRegion2() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglSwapBuffersRegion2NOK
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglSwapBuffersRegion2NOK
+        );
+    }
 
-	// --- [ eglSwapBuffersRegion2NOK ] ---
+    // --- [ eglSwapBuffersRegion2NOK ] ---
 
-	public static int neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
-		long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, numRects, rects);
-	}
+    public static int neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
+        long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, numRects, rects);
+    }
 
-	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
-		return neglSwapBuffersRegion2NOK(dpy, surface, remainingSafe(rects), memAddressSafe(rects)) != 0;
-	}
+    public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
+        return neglSwapBuffersRegion2NOK(dpy, surface, remainingSafe(rects), memAddressSafe(rects)) != 0;
+    }
 
-	/** Array version of: {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
-	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int[] rects) {
-		long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, lengthSafe(rects), rects) != 0;
-	}
+    /** Array version of: {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
+    public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int[] rects) {
+        long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, lengthSafe(rects), rects) != 0;
+    }
 
 }

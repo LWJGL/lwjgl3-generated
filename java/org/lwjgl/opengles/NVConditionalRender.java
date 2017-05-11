@@ -29,31 +29,31 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVConditionalRender {
 
-	/** Accepted by the {@code mode} parameter of BeginConditionalRenderNV. */
-	public static final int
-		GL_QUERY_WAIT_NV              = 0x8E13,
-		GL_QUERY_NO_WAIT_NV           = 0x8E14,
-		GL_QUERY_BY_REGION_WAIT_NV    = 0x8E15,
-		GL_QUERY_BY_REGION_NO_WAIT_NV = 0x8E16;
+    /** Accepted by the {@code mode} parameter of BeginConditionalRenderNV. */
+    public static final int
+        GL_QUERY_WAIT_NV              = 0x8E13,
+        GL_QUERY_NO_WAIT_NV           = 0x8E14,
+        GL_QUERY_BY_REGION_WAIT_NV    = 0x8E15,
+        GL_QUERY_BY_REGION_NO_WAIT_NV = 0x8E16;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVConditionalRender() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVConditionalRender() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glBeginConditionalRenderNV, caps.glEndConditionalRenderNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glBeginConditionalRenderNV, caps.glEndConditionalRenderNV
+        );
+    }
 
-	// --- [ glBeginConditionalRenderNV ] ---
+    // --- [ glBeginConditionalRenderNV ] ---
 
-	public static native void glBeginConditionalRenderNV(int id, int mode);
+    public static native void glBeginConditionalRenderNV(int id, int mode);
 
-	// --- [ glEndConditionalRenderNV ] ---
+    // --- [ glEndConditionalRenderNV ] ---
 
-	public static native void glEndConditionalRenderNV();
+    public static native void glEndConditionalRenderNV();
 
 }

@@ -13,23 +13,23 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface CLNativeKernelI extends CallbackI.V {
 
-	String SIGNATURE = Callback.__stdcall("(p)v");
+    String SIGNATURE = Callback.__stdcall("(p)v");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called by the OpenCL using {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel}.
-	 *
-	 * @param args a pointer to the arguments list
-	 */
-	void invoke(long args);
+    /**
+     * Will be called by the OpenCL using {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel}.
+     *
+     * @param args a pointer to the arguments list
+     */
+    void invoke(long args);
 
 }

@@ -16,21 +16,21 @@ import static org.lwjgl.system.Checks.*;
  */
 public class ARBTextureBarrier {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBTextureBarrier() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBTextureBarrier() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glTextureBarrier
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glTextureBarrier
+        );
+    }
 
-	// --- [ glTextureBarrier ] ---
+    // --- [ glTextureBarrier ] ---
 
-	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
-	public static native void glTextureBarrier();
+    /** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
+    public static native void glTextureBarrier();
 
 }

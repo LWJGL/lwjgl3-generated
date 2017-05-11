@@ -30,16 +30,16 @@ package org.lwjgl.opengles;
  */
 public final class EXTPVRTCSRGB {
 
-	/**
-	 * Accepted by the {@code internalformat} parameter of CompressedTexImage2D and TexStorage2DEXT and the {@code format} parameter of
-	 * CompressedTexSubImage2D.
-	 */
-	public static final int
-		GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT       = 0x8A54,
-		GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT       = 0x8A55,
-		GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT = 0x8A56,
-		GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT = 0x8A57;
+    /**
+     * Accepted by the {@code internalformat} parameter of CompressedTexImage2D and TexStorage2DEXT and the {@code format} parameter of
+     * CompressedTexSubImage2D.
+     */
+    public static final int
+        GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT       = 0x8A54,
+        GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT       = 0x8A55,
+        GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT = 0x8A56,
+        GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT = 0x8A57;
 
-	private EXTPVRTCSRGB() {}
+    private EXTPVRTCSRGB() {}
 
 }

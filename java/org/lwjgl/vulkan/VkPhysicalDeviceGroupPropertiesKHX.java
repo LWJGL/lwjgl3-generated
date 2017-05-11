@@ -42,268 +42,268 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  */
 public class VkPhysicalDeviceGroupPropertiesKHX extends Struct implements NativeResource {
 
-	/** The struct size in bytes. */
-	public static final int SIZEOF;
+    /** The struct size in bytes. */
+    public static final int SIZEOF;
 
-	public static final int ALIGNOF;
+    public static final int ALIGNOF;
 
-	/** The struct member offsets. */
-	public static final int
-		STYPE,
-		PNEXT,
-		PHYSICALDEVICECOUNT,
-		PHYSICALDEVICES,
-		SUBSETALLOCATION;
+    /** The struct member offsets. */
+    public static final int
+        STYPE,
+        PNEXT,
+        PHYSICALDEVICECOUNT,
+        PHYSICALDEVICES,
+        SUBSETALLOCATION;
 
-	static {
-		Layout layout = __struct(
-			__member(4),
-			__member(POINTER_SIZE),
-			__member(4),
-			__array(POINTER_SIZE, VK_MAX_DEVICE_GROUP_SIZE_KHX),
-			__member(4)
-		);
+    static {
+        Layout layout = __struct(
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(4),
+            __array(POINTER_SIZE, VK_MAX_DEVICE_GROUP_SIZE_KHX),
+            __member(4)
+        );
 
-		SIZEOF = layout.getSize();
-		ALIGNOF = layout.getAlignment();
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
 
-		STYPE = layout.offsetof(0);
-		PNEXT = layout.offsetof(1);
-		PHYSICALDEVICECOUNT = layout.offsetof(2);
-		PHYSICALDEVICES = layout.offsetof(3);
-		SUBSETALLOCATION = layout.offsetof(4);
-	}
+        STYPE = layout.offsetof(0);
+        PNEXT = layout.offsetof(1);
+        PHYSICALDEVICECOUNT = layout.offsetof(2);
+        PHYSICALDEVICES = layout.offsetof(3);
+        SUBSETALLOCATION = layout.offsetof(4);
+    }
 
-	VkPhysicalDeviceGroupPropertiesKHX(long address, ByteBuffer container) {
-		super(address, container);
-	}
+    VkPhysicalDeviceGroupPropertiesKHX(long address, ByteBuffer container) {
+        super(address, container);
+    }
 
-	/**
-	 * Creates a {@link VkPhysicalDeviceGroupPropertiesKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
-	 * visible to the struct instance and vice versa.
-	 *
-	 * <p>The created instance holds a strong reference to the container object.</p>
-	 */
-	public VkPhysicalDeviceGroupPropertiesKHX(ByteBuffer container) {
-		this(memAddress(container), checkContainer(container, SIZEOF));
-	}
+    /**
+     * Creates a {@link VkPhysicalDeviceGroupPropertiesKHX} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+     * visible to the struct instance and vice versa.
+     *
+     * <p>The created instance holds a strong reference to the container object.</p>
+     */
+    public VkPhysicalDeviceGroupPropertiesKHX(ByteBuffer container) {
+        this(memAddress(container), checkContainer(container, SIZEOF));
+    }
 
-	@Override
-	public int sizeof() { return SIZEOF; }
+    @Override
+    public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code sType} field. */
-	public int sType() { return nsType(address()); }
-	/** Returns the value of the {@code pNext} field. */
-	public long pNext() { return npNext(address()); }
-	/** Returns the value of the {@code physicalDeviceCount} field. */
-	public int physicalDeviceCount() { return nphysicalDeviceCount(address()); }
-	/** Returns a {@link PointerBuffer} view of the {@code physicalDevices} field. */
-	public PointerBuffer physicalDevices() { return nphysicalDevices(address()); }
-	/** Returns the value at the specified index of the {@code physicalDevices} field. */
-	public long physicalDevices(int index) { return nphysicalDevices(address(), index); }
-	/** Returns the value of the {@code subsetAllocation} field. */
-	public boolean subsetAllocation() { return nsubsetAllocation(address()) != 0; }
+    /** Returns the value of the {@code sType} field. */
+    public int sType() { return nsType(address()); }
+    /** Returns the value of the {@code pNext} field. */
+    public long pNext() { return npNext(address()); }
+    /** Returns the value of the {@code physicalDeviceCount} field. */
+    public int physicalDeviceCount() { return nphysicalDeviceCount(address()); }
+    /** Returns a {@link PointerBuffer} view of the {@code physicalDevices} field. */
+    public PointerBuffer physicalDevices() { return nphysicalDevices(address()); }
+    /** Returns the value at the specified index of the {@code physicalDevices} field. */
+    public long physicalDevices(int index) { return nphysicalDevices(address(), index); }
+    /** Returns the value of the {@code subsetAllocation} field. */
+    public boolean subsetAllocation() { return nsubsetAllocation(address()) != 0; }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static VkPhysicalDeviceGroupPropertiesKHX malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
+    /** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VkPhysicalDeviceGroupPropertiesKHX malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
 
-	/** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static VkPhysicalDeviceGroupPropertiesKHX calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
+    /** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VkPhysicalDeviceGroupPropertiesKHX calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
 
-	/** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated with {@link BufferUtils}. */
-	public static VkPhysicalDeviceGroupPropertiesKHX create() {
-		return new VkPhysicalDeviceGroupPropertiesKHX(BufferUtils.createByteBuffer(SIZEOF));
-	}
+    /** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated with {@link BufferUtils}. */
+    public static VkPhysicalDeviceGroupPropertiesKHX create() {
+        return new VkPhysicalDeviceGroupPropertiesKHX(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
-	/** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static VkPhysicalDeviceGroupPropertiesKHX create(long address) {
-		return address == NULL ? null : new VkPhysicalDeviceGroupPropertiesKHX(address, null);
-	}
+    /** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    public static VkPhysicalDeviceGroupPropertiesKHX create(long address) {
+        return address == NULL ? null : new VkPhysicalDeviceGroupPropertiesKHX(address, null);
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(nmemAlloc(capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+    }
 
-	/**
-	 * Create a {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance at the specified memory.
-	 *
-	 * @param address  the memory address
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(long address, int capacity) {
-		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
+    /**
+     * Create a {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance at the specified memory.
+     *
+     * @param address  the memory address
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(long address, int capacity) {
+        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the thread-local {@link MemoryStack}. */
-	public static VkPhysicalDeviceGroupPropertiesKHX mallocStack() {
-		return mallocStack(stackGet());
-	}
+    /** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VkPhysicalDeviceGroupPropertiesKHX mallocStack() {
+        return mallocStack(stackGet());
+    }
 
-	/** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static VkPhysicalDeviceGroupPropertiesKHX callocStack() {
-		return callocStack(stackGet());
-	}
+    /** Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VkPhysicalDeviceGroupPropertiesKHX callocStack() {
+        return callocStack(stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkPhysicalDeviceGroupPropertiesKHX mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkPhysicalDeviceGroupPropertiesKHX mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkPhysicalDeviceGroupPropertiesKHX callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkPhysicalDeviceGroupPropertiesKHX callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
 
-	/**
-	 * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
+    /**
+     * Returns a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** Unsafe version of {@link #sType}. */
-	public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.STYPE); }
-	/** Unsafe version of {@link #pNext}. */
-	public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceGroupPropertiesKHX.PNEXT); }
-	/** Unsafe version of {@link #physicalDeviceCount}. */
-	public static int nphysicalDeviceCount(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICECOUNT); }
-	/** Unsafe version of {@link #physicalDevices}. */
-	public static PointerBuffer nphysicalDevices(long struct) { return memPointerBuffer(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
-	/** Unsafe version of {@link #physicalDevices(int) physicalDevices}. */
-	public static long nphysicalDevices(long struct, int index) {
-		if ( CHECKS ) check(index, VK_MAX_DEVICE_GROUP_SIZE_KHX);
-		return memGetAddress(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES + index * POINTER_SIZE);
-	}
-	/** Unsafe version of {@link #subsetAllocation}. */
-	public static int nsubsetAllocation(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.SUBSETALLOCATION); }
+    /** Unsafe version of {@link #sType}. */
+    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.STYPE); }
+    /** Unsafe version of {@link #pNext}. */
+    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceGroupPropertiesKHX.PNEXT); }
+    /** Unsafe version of {@link #physicalDeviceCount}. */
+    public static int nphysicalDeviceCount(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICECOUNT); }
+    /** Unsafe version of {@link #physicalDevices}. */
+    public static PointerBuffer nphysicalDevices(long struct) { return memPointerBuffer(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
+    /** Unsafe version of {@link #physicalDevices(int) physicalDevices}. */
+    public static long nphysicalDevices(long struct, int index) {
+        if (CHECKS) { check(index, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
+        return memGetAddress(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES + index * POINTER_SIZE);
+    }
+    /** Unsafe version of {@link #subsetAllocation}. */
+    public static int nsubsetAllocation(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.SUBSETALLOCATION); }
 
-	// -----------------------------------
+    // -----------------------------------
 
-	/** An array of {@link VkPhysicalDeviceGroupPropertiesKHX} structs. */
-	public static class Buffer extends StructBuffer<VkPhysicalDeviceGroupPropertiesKHX, Buffer> implements NativeResource {
+    /** An array of {@link VkPhysicalDeviceGroupPropertiesKHX} structs. */
+    public static class Buffer extends StructBuffer<VkPhysicalDeviceGroupPropertiesKHX, Buffer> implements NativeResource {
 
-		/**
-		 * Creates a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance backed by the specified container.
-		 *
-		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
-		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link VkPhysicalDeviceGroupPropertiesKHX#SIZEOF}, and its mark will be undefined.
-		 *
-		 * <p>The created buffer instance holds a strong reference to the container object.</p>
-		 */
-		public Buffer(ByteBuffer container) {
-			super(container, container.remaining() / SIZEOF);
-		}
+        /**
+         * Creates a new {@link VkPhysicalDeviceGroupPropertiesKHX.Buffer} instance backed by the specified container.
+         *
+         * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+         * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+         * by {@link VkPhysicalDeviceGroupPropertiesKHX#SIZEOF}, and its mark will be undefined.
+         *
+         * <p>The created buffer instance holds a strong reference to the container object.</p>
+         */
+        public Buffer(ByteBuffer container) {
+            super(container, container.remaining() / SIZEOF);
+        }
 
-		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			super(address, container, mark, pos, lim, cap);
-		}
+        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            super(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected Buffer self() {
-			return this;
-		}
+        @Override
+        protected Buffer self() {
+            return this;
+        }
 
-		@Override
-		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
-			return new Buffer(address, container, mark, pos, lim, cap);
-		}
+        @Override
+        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+            return new Buffer(address, container, mark, pos, lim, cap);
+        }
 
-		@Override
-		protected VkPhysicalDeviceGroupPropertiesKHX newInstance(long address) {
-			return new VkPhysicalDeviceGroupPropertiesKHX(address, container);
-		}
+        @Override
+        protected VkPhysicalDeviceGroupPropertiesKHX newInstance(long address) {
+            return new VkPhysicalDeviceGroupPropertiesKHX(address, container);
+        }
 
-		@Override
-		protected int sizeof() {
-			return SIZEOF;
-		}
+        @Override
+        protected int sizeof() {
+            return SIZEOF;
+        }
 
-		/** Returns the value of the {@code sType} field. */
-		public int sType() { return VkPhysicalDeviceGroupPropertiesKHX.nsType(address()); }
-		/** Returns the value of the {@code pNext} field. */
-		public long pNext() { return VkPhysicalDeviceGroupPropertiesKHX.npNext(address()); }
-		/** Returns the value of the {@code physicalDeviceCount} field. */
-		public int physicalDeviceCount() { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDeviceCount(address()); }
-		/** Returns a {@link PointerBuffer} view of the {@code physicalDevices} field. */
-		public PointerBuffer physicalDevices() { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDevices(address()); }
-		/** Returns the value at the specified index of the {@code physicalDevices} field. */
-		public long physicalDevices(int index) { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDevices(address(), index); }
-		/** Returns the value of the {@code subsetAllocation} field. */
-		public boolean subsetAllocation() { return VkPhysicalDeviceGroupPropertiesKHX.nsubsetAllocation(address()) != 0; }
+        /** Returns the value of the {@code sType} field. */
+        public int sType() { return VkPhysicalDeviceGroupPropertiesKHX.nsType(address()); }
+        /** Returns the value of the {@code pNext} field. */
+        public long pNext() { return VkPhysicalDeviceGroupPropertiesKHX.npNext(address()); }
+        /** Returns the value of the {@code physicalDeviceCount} field. */
+        public int physicalDeviceCount() { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDeviceCount(address()); }
+        /** Returns a {@link PointerBuffer} view of the {@code physicalDevices} field. */
+        public PointerBuffer physicalDevices() { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDevices(address()); }
+        /** Returns the value at the specified index of the {@code physicalDevices} field. */
+        public long physicalDevices(int index) { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDevices(address(), index); }
+        /** Returns the value of the {@code subsetAllocation} field. */
+        public boolean subsetAllocation() { return VkPhysicalDeviceGroupPropertiesKHX.nsubsetAllocation(address()) != 0; }
 
-	}
+    }
 
 }

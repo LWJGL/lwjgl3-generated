@@ -17,38 +17,38 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class WGLARBExtensionsString {
 
-	protected WGLARBExtensionsString() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLARBExtensionsString() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglGetExtensionsStringARB
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglGetExtensionsStringARB
+        );
+    }
 
-	// --- [ wglGetExtensionsStringARB ] ---
+    // --- [ wglGetExtensionsStringARB ] ---
 
-	/** Unsafe version of: {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
-	public static long nwglGetExtensionsStringARB(long hdc) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglGetExtensionsStringARB;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(hdc);
-		}
-		return callPP(__functionAddress, hdc);
-	}
+    /** Unsafe version of: {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
+    public static long nwglGetExtensionsStringARB(long hdc) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglGetExtensionsStringARB;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hdc);
+        }
+        return callPP(__functionAddress, hdc);
+    }
 
-	/**
-	 * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be {@code NULL} terminated and
-	 * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
-	 * empty string is returned.
-	 *
-	 * @param hdc the device context to query extensions for
-	 */
-	public static String wglGetExtensionsStringARB(long hdc) {
-		long __result = nwglGetExtensionsStringARB(hdc);
-		return memASCII(__result);
-	}
+    /**
+     * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be {@code NULL} terminated and
+     * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
+     * empty string is returned.
+     *
+     * @param hdc the device context to query extensions for
+     */
+    public static String wglGetExtensionsStringARB(long hdc) {
+        long __result = nwglGetExtensionsStringARB(hdc);
+        return memASCII(__result);
+    }
 
 }

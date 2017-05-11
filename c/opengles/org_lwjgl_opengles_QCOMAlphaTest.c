@@ -11,9 +11,9 @@ typedef void (APIENTRY *glAlphaFuncQCOMPROC) (jint, jfloat);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMAlphaTest_glAlphaFuncQCOM(JNIEnv *__env, jclass clazz, jint func, jfloat ref) {
-	glAlphaFuncQCOMPROC glAlphaFuncQCOM = (glAlphaFuncQCOMPROC)tlsGetFunction(3);
-	UNUSED_PARAM(clazz)
-	glAlphaFuncQCOM(func, ref);
+    glAlphaFuncQCOMPROC glAlphaFuncQCOM = (glAlphaFuncQCOMPROC)tlsGetFunction(3);
+    UNUSED_PARAM(clazz)
+    glAlphaFuncQCOM(func, ref);
 }
 
 EXTERN_C_EXIT

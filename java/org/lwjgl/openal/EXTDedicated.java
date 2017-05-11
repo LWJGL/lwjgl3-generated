@@ -18,12 +18,12 @@ package org.lwjgl.openal;
  */
 public final class EXTDedicated {
 
-	/** {@code ALC_EXT_DEDICATED} tokens. */
-	public static final int
-		AL_DEDICATED_GAIN                        = 0x1,
-		AL_EFFECT_DEDICATED_DIALOGUE             = 0x9001,
-		AL_EFFECT_DEDICATED_LOW_FREQUENCY_EFFECT = 0x9000;
+    /** {@code ALC_EXT_DEDICATED} tokens. */
+    public static final int
+        AL_DEDICATED_GAIN                        = 0x1,
+        AL_EFFECT_DEDICATED_DIALOGUE             = 0x9001,
+        AL_EFFECT_DEDICATED_LOW_FREQUENCY_EFFECT = 0x9000;
 
-	private EXTDedicated() {}
+    private EXTDedicated() {}
 
 }

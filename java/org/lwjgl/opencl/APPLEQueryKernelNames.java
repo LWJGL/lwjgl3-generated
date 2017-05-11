@@ -13,12 +13,12 @@ package org.lwjgl.opencl;
  */
 public final class APPLEQueryKernelNames {
 
-	/** Returns a cl_uint for number of kernels in program. */
-	public static final int CL_PROGRAM_NUM_KERNELS_APPLE = 0x10000004;
+    /** Returns a cl_uint for number of kernels in program. */
+    public static final int CL_PROGRAM_NUM_KERNELS_APPLE = 0x10000004;
 
-	/** Returns a ';' delimited char[] containing the names of kernels in program. */
-	public static final int CL_PROGRAM_KERNEL_NAMES_APPLE = 0x10000005;
+    /** Returns a ';' delimited char[] containing the names of kernels in program. */
+    public static final int CL_PROGRAM_KERNEL_NAMES_APPLE = 0x10000005;
 
-	private APPLEQueryKernelNames() {}
+    private APPLEQueryKernelNames() {}
 
 }

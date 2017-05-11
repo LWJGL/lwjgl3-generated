@@ -12,17 +12,17 @@ typedef void (APIENTRY *glClearTexImagePROC) (jint, jint, jint, jint, const intp
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBClearTexture_nglClearTexSubImage__IIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong dataAddress) {
-	glClearTexSubImagePROC glClearTexSubImage = (glClearTexSubImagePROC)tlsGetFunction(131);
-	const intptr_t data = (const intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
+    glClearTexSubImagePROC glClearTexSubImage = (glClearTexSubImagePROC)tlsGetFunction(131);
+    const intptr_t data = (const intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBClearTexture_nglClearTexImage__IIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint format, jint type, jlong dataAddress) {
-	glClearTexImagePROC glClearTexImage = (glClearTexImagePROC)tlsGetFunction(130);
-	const intptr_t data = (const intptr_t)dataAddress;
-	UNUSED_PARAM(clazz)
-	glClearTexImage(texture, level, format, type, data);
+    glClearTexImagePROC glClearTexImage = (glClearTexImagePROC)tlsGetFunction(130);
+    const intptr_t data = (const intptr_t)dataAddress;
+    UNUSED_PARAM(clazz)
+    glClearTexImage(texture, level, format, type, data);
 }
 
 EXTERN_C_EXIT

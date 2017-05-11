@@ -16,9 +16,9 @@ package org.lwjgl.opengles;
  */
 public final class OESCompressedETC1RGB8Texture {
 
-	/** Accepted by the {@code internalformat} parameter of CompressedTexImage2D. */
-	public static final int GL_ETC1_RGB8_OES = 0x8D64;
+    /** Accepted by the {@code internalformat} parameter of CompressedTexImage2D. */
+    public static final int GL_ETC1_RGB8_OES = 0x8D64;
 
-	private OESCompressedETC1RGB8Texture() {}
+    private OESCompressedETC1RGB8Texture() {}
 
 }

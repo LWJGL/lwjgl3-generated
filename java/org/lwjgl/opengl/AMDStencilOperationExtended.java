@@ -21,30 +21,30 @@ import static org.lwjgl.system.Checks.*;
  */
 public class AMDStencilOperationExtended {
 
-	/** Accepted by the {@code sfail}, {@code dpfail} and {@code dppass} parameters of StencilOp and StencilOpSeparate. */
-	public static final int
-		GL_SET_AMD           = 0x874A,
-		GL_REPLACE_VALUE_AMD = 0x874B;
+    /** Accepted by the {@code sfail}, {@code dpfail} and {@code dppass} parameters of StencilOp and StencilOpSeparate. */
+    public static final int
+        GL_SET_AMD           = 0x874A,
+        GL_REPLACE_VALUE_AMD = 0x874B;
 
-	/** Accepted by the {@code param} parameter of GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v. */
-	public static final int
-		GL_STENCIL_OP_VALUE_AMD      = 0x874C,
-		GL_STENCIL_BACK_OP_VALUE_AMD = 0x874D;
+    /** Accepted by the {@code param} parameter of GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v. */
+    public static final int
+        GL_STENCIL_OP_VALUE_AMD      = 0x874C,
+        GL_STENCIL_BACK_OP_VALUE_AMD = 0x874D;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected AMDStencilOperationExtended() {
-		throw new UnsupportedOperationException();
-	}
+    protected AMDStencilOperationExtended() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glStencilOpValueAMD
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glStencilOpValueAMD
+        );
+    }
 
-	// --- [ glStencilOpValueAMD ] ---
+    // --- [ glStencilOpValueAMD ] ---
 
-	public static native void glStencilOpValueAMD(int face, int value);
+    public static native void glStencilOpValueAMD(int face, int value);
 
 }

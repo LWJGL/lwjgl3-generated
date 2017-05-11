@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface CLProgramCallbackI extends CallbackI.V {
 
-	String SIGNATURE = Callback.__stdcall("(pp)v");
+    String SIGNATURE = Callback.__stdcall("(pp)v");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called when the program is built, compiled or linked.
-	 *
-	 * @param program   the program that was built, compiled or linked
-	 * @param user_data the user-specified value that was passed when calling {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}
-	 */
-	void invoke(long program, long user_data);
+    /**
+     * Will be called when the program is built, compiled or linked.
+     *
+     * @param program   the program that was built, compiled or linked
+     * @param user_data the user-specified value that was passed when calling {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}
+     */
+    void invoke(long program, long user_data);
 
 }

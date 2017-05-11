@@ -18,9 +18,9 @@ package org.lwjgl.opengles;
  */
 public final class OESTextureHalfFloat {
 
-	/** Accepted by the {@code type} parameter of TexImage2D, TexSubImage2D, TexImage3D, and TexSubImage3D. */
-	public static final int GL_HALF_FLOAT_OES = 0x8D61;
+    /** Accepted by the {@code type} parameter of TexImage2D, TexSubImage2D, TexImage3D, and TexSubImage3D. */
+    public static final int GL_HALF_FLOAT_OES = 0x8D61;
 
-	private OESTextureHalfFloat() {}
+    private OESTextureHalfFloat() {}
 
 }

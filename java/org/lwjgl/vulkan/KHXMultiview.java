@@ -44,31 +44,31 @@ package org.lwjgl.vulkan;
  */
 public final class KHXMultiview {
 
-	/** The extension specification version. */
-	public static final int VK_KHX_MULTIVIEW_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_KHX_MULTIVIEW_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_KHX_MULTIVIEW_EXTENSION_NAME = "VK_KHX_multiview";
+    /** The extension name. */
+    public static final String VK_KHX_MULTIVIEW_EXTENSION_NAME = "VK_KHX_multiview";
 
-	/**
-	 * Extends {@code VkStructureType}.
-	 * 
-	 * <h5>Enum values:</h5>
-	 * 
-	 * <ul>
-	 * <li>{@link #VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX}</li>
-	 * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX}</li>
-	 * </ul>
-	 */
-	public static final int
-		VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX    = 1000053000,
-		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX   = 1000053001,
-		VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX = 1000053002;
+    /**
+     * Extends {@code VkStructureType}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX}</li>
+     * </ul>
+     */
+    public static final int
+        VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX    = 1000053000,
+        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES_KHX   = 1000053001,
+        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES_KHX = 1000053002;
 
-	/** Extends {@code VkDependencyFlagBits}. */
-	public static final int VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX = 0x2;
+    /** Extends {@code VkDependencyFlagBits}. */
+    public static final int VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX = 0x2;
 
-	private KHXMultiview() {}
+    private KHXMultiview() {}
 
 }

@@ -34,28 +34,28 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTTextureView {
 
-	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_VIEW_MIN_LEVEL_EXT  = 0x82DB,
-		GL_TEXTURE_VIEW_NUM_LEVELS_EXT = 0x82DC,
-		GL_TEXTURE_VIEW_MIN_LAYER_EXT  = 0x82DD,
-		GL_TEXTURE_VIEW_NUM_LAYERS_EXT = 0x82DE,
-		GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
+    /** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
+    public static final int
+        GL_TEXTURE_VIEW_MIN_LEVEL_EXT  = 0x82DB,
+        GL_TEXTURE_VIEW_NUM_LEVELS_EXT = 0x82DC,
+        GL_TEXTURE_VIEW_MIN_LAYER_EXT  = 0x82DD,
+        GL_TEXTURE_VIEW_NUM_LAYERS_EXT = 0x82DE,
+        GL_TEXTURE_IMMUTABLE_LEVELS    = 0x82DF;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTTextureView() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTTextureView() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glTextureViewEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glTextureViewEXT
+        );
+    }
 
-	// --- [ glTextureViewEXT ] ---
+    // --- [ glTextureViewEXT ] ---
 
-	public static native void glTextureViewEXT(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
+    public static native void glTextureViewEXT(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers);
 
 }

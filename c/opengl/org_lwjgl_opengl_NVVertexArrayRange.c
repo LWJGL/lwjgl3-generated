@@ -12,16 +12,16 @@ typedef void (APIENTRY *glFlushVertexArrayRangeNVPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexArrayRange_nglVertexArrayRangeNV(JNIEnv *__env, jclass clazz, jint length, jlong pointerAddress) {
-	glVertexArrayRangeNVPROC glVertexArrayRangeNV = (glVertexArrayRangeNVPROC)tlsGetFunction(1868);
-	intptr_t pointer = (intptr_t)pointerAddress;
-	UNUSED_PARAM(clazz)
-	glVertexArrayRangeNV(length, pointer);
+    glVertexArrayRangeNVPROC glVertexArrayRangeNV = (glVertexArrayRangeNVPROC)tlsGetFunction(1868);
+    intptr_t pointer = (intptr_t)pointerAddress;
+    UNUSED_PARAM(clazz)
+    glVertexArrayRangeNV(length, pointer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexArrayRange_glFlushVertexArrayRangeNV(JNIEnv *__env, jclass clazz) {
-	glFlushVertexArrayRangeNVPROC glFlushVertexArrayRangeNV = (glFlushVertexArrayRangeNVPROC)tlsGetFunction(426);
-	UNUSED_PARAM(clazz)
-	glFlushVertexArrayRangeNV();
+    glFlushVertexArrayRangeNVPROC glFlushVertexArrayRangeNV = (glFlushVertexArrayRangeNVPROC)tlsGetFunction(426);
+    UNUSED_PARAM(clazz)
+    glFlushVertexArrayRangeNV();
 }
 
 EXTERN_C_EXIT

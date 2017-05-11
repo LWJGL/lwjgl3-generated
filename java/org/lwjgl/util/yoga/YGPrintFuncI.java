@@ -13,19 +13,19 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface YGPrintFuncI extends CallbackI.V {
 
-	String SIGNATURE = "(p)v";
+    String SIGNATURE = "(p)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args)
+        );
+    }
 
 
-	void invoke(long node);
+    void invoke(long node);
 
 }

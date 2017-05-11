@@ -21,20 +21,20 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVDrawTexture {
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected NVDrawTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVDrawTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glDrawTextureNV
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glDrawTextureNV
+        );
+    }
 
-	// --- [ glDrawTextureNV ] ---
+    // --- [ glDrawTextureNV ] ---
 
-	public static native void glDrawTextureNV(int texture, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+    public static native void glDrawTextureNV(int texture, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
 }

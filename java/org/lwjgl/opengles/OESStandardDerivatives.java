@@ -15,9 +15,9 @@ package org.lwjgl.opengles;
  */
 public final class OESStandardDerivatives {
 
-	/** Accepted by the {@code target} parameter of Hint and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES = 0x8B8B;
+    /** Accepted by the {@code target} parameter of Hint and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES = 0x8B8B;
 
-	private OESStandardDerivatives() {}
+    private OESStandardDerivatives() {}
 
 }

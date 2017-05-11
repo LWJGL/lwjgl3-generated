@@ -17,49 +17,49 @@ import static org.lwjgl.system.JNI.*;
  */
 public class WGLNVCopyImage {
 
-	protected WGLNVCopyImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected WGLNVCopyImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(WGLCapabilities caps) {
-		return checkFunctions(
-			caps.wglCopyImageSubDataNV
-		);
-	}
+    static boolean isAvailable(WGLCapabilities caps) {
+        return checkFunctions(
+            caps.wglCopyImageSubDataNV
+        );
+    }
 
-	// --- [ wglCopyImageSubDataNV ] ---
+    // --- [ wglCopyImageSubDataNV ] ---
 
-	/**
-	 * Behaves identically to the core function {@link #wglCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcRC} and {@code dstRC} parameters specify
-	 * the contexts in which to look up the source and destination objects, respectively. A value of zero indicates that the currently bound context should be
-	 * used instead.
-	 *
-	 * @param srcRC     the source OpenGL context
-	 * @param srcName   the source object
-	 * @param srcTarget the source object target
-	 * @param srcLevel  the source level-of-detail number
-	 * @param srcX      the source texel x coordinate
-	 * @param srcY      the source texel y coordinate
-	 * @param srcZ      the source texel z coordinate
-	 * @param dstRC     the destination OpenGL context
-	 * @param dstName   the destination object
-	 * @param dstTarget the destination object target
-	 * @param dstLevel  the destination level-of-detail number
-	 * @param dstX      the destination texel x coordinate
-	 * @param dstY      the destination texel y coordinate
-	 * @param dstZ      the destination texel z coordinate
-	 * @param width     the number of texels to copy in the x-dimension
-	 * @param height    the number of texels to copy in the y-dimension
-	 * @param depth     the number of texels to copy in the z-dimension
-	 */
-	public static boolean wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilitiesWGL().wglCopyImageSubDataNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(srcRC);
-			check(dstRC);
-		}
-		return callPPI(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth) != 0;
-	}
+    /**
+     * Behaves identically to the core function {@link #wglCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcRC} and {@code dstRC} parameters specify
+     * the contexts in which to look up the source and destination objects, respectively. A value of zero indicates that the currently bound context should be
+     * used instead.
+     *
+     * @param srcRC     the source OpenGL context
+     * @param srcName   the source object
+     * @param srcTarget the source object target
+     * @param srcLevel  the source level-of-detail number
+     * @param srcX      the source texel x coordinate
+     * @param srcY      the source texel y coordinate
+     * @param srcZ      the source texel z coordinate
+     * @param dstRC     the destination OpenGL context
+     * @param dstName   the destination object
+     * @param dstTarget the destination object target
+     * @param dstLevel  the destination level-of-detail number
+     * @param dstX      the destination texel x coordinate
+     * @param dstY      the destination texel y coordinate
+     * @param dstZ      the destination texel z coordinate
+     * @param width     the number of texels to copy in the x-dimension
+     * @param height    the number of texels to copy in the y-dimension
+     * @param depth     the number of texels to copy in the z-dimension
+     */
+    public static boolean wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
+        long __functionAddress = GL.getCapabilitiesWGL().wglCopyImageSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(srcRC);
+            check(dstRC);
+        }
+        return callPPI(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth) != 0;
+    }
 
 }

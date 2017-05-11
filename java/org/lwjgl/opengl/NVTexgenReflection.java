@@ -12,11 +12,11 @@ package org.lwjgl.opengl;
  */
 public final class NVTexgenReflection {
 
-	/** Accepted by the {@code param} parameter of TexGend, TexGenf, TexGeni when {@code pname} parameter is TEXTURE_GEN_MODE */
-	public static final int
-		GL_NORMAL_MAP_NV     = 0x8511,
-		GL_REFLECTION_MAP_NV = 0x8512;
+    /** Accepted by the {@code param} parameter of TexGend, TexGenf, TexGeni when {@code pname} parameter is TEXTURE_GEN_MODE */
+    public static final int
+        GL_NORMAL_MAP_NV     = 0x8511,
+        GL_REFLECTION_MAP_NV = 0x8512;
 
-	private NVTexgenReflection() {}
+    private NVTexgenReflection() {}
 
 }

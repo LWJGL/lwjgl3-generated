@@ -16,26 +16,26 @@ package org.lwjgl.opengles;
  */
 public final class EXTTextureNorm16 {
 
-	/**
-	 * Accepted by the {@code internalFormat} parameter of TexImage2D,TexImage3D, TexStorage2D, TexStorage3D and TexStorage2DMultisample,
-	 * TexStorage3DMultisampleOES, TexBufferEXT, TexBufferRangeEXT, TextureViewEXT, RenderbufferStorage and RenderbufferStorageMultisample.
-	 */
-	public static final int
-		GL_R16_EXT    = 0x822A,
-		GL_RG16_EXT   = 0x822C,
-		GL_RGBA16_EXT = 0x805B;
+    /**
+     * Accepted by the {@code internalFormat} parameter of TexImage2D,TexImage3D, TexStorage2D, TexStorage3D and TexStorage2DMultisample,
+     * TexStorage3DMultisampleOES, TexBufferEXT, TexBufferRangeEXT, TextureViewEXT, RenderbufferStorage and RenderbufferStorageMultisample.
+     */
+    public static final int
+        GL_R16_EXT    = 0x822A,
+        GL_RG16_EXT   = 0x822C,
+        GL_RGBA16_EXT = 0x805B;
 
-	/**
-	 * Accepted by the {@code internalFormat} parameter of TexImage2D,TexImage3D, TexStorage2D, TexStorage3D, TexStorage2DMultisample,
-	 * TexStorage3DMultisampleOES and TextureViewEXT.
-	 */
-	public static final int
-		GL_RGB16_EXT        = 0x8054,
-		GL_R16_SNORM_EXT    = 0x8F98,
-		GL_RG16_SNORM_EXT   = 0x8F99,
-		GL_RGB16_SNORM_EXT  = 0x8F9A,
-		GL_RGBA16_SNORM_EXT = 0x8F9B;
+    /**
+     * Accepted by the {@code internalFormat} parameter of TexImage2D,TexImage3D, TexStorage2D, TexStorage3D, TexStorage2DMultisample,
+     * TexStorage3DMultisampleOES and TextureViewEXT.
+     */
+    public static final int
+        GL_RGB16_EXT        = 0x8054,
+        GL_R16_SNORM_EXT    = 0x8F98,
+        GL_RG16_SNORM_EXT   = 0x8F99,
+        GL_RGB16_SNORM_EXT  = 0x8F9A,
+        GL_RGBA16_SNORM_EXT = 0x8F9B;
 
-	private EXTTextureNorm16() {}
+    private EXTTextureNorm16() {}
 
 }

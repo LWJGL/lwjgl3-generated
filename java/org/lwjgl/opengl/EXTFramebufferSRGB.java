@@ -28,15 +28,15 @@ package org.lwjgl.opengl;
  */
 public final class EXTFramebufferSRGB {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int GL_FRAMEBUFFER_SRGB_EXT = 0x8DB9;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int GL_FRAMEBUFFER_SRGB_EXT = 0x8DB9;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x8DBA;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x8DBA;
 
-	private EXTFramebufferSRGB() {}
+    private EXTFramebufferSRGB() {}
 
 }

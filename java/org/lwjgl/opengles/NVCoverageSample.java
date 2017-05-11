@@ -35,47 +35,47 @@ import static org.lwjgl.system.Checks.*;
  */
 public class NVCoverageSample {
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorageEXT and the {@code format} parameter of ReadPixels. */
-	public static final int GL_COVERAGE_COMPONENT_NV = 0x8ED0;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorageEXT and the {@code format} parameter of ReadPixels. */
+    public static final int GL_COVERAGE_COMPONENT_NV = 0x8ED0;
 
-	/** Accepted by the {@code internalformat} parameter of RenderbufferStorageEXT. */
-	public static final int GL_COVERAGE_COMPONENT4_NV = 0x8ED1;
+    /** Accepted by the {@code internalformat} parameter of RenderbufferStorageEXT. */
+    public static final int GL_COVERAGE_COMPONENT4_NV = 0x8ED1;
 
-	/** Accepted by the {@code operation} parameter of CoverageOperationNV. */
-	public static final int
-		GL_COVERAGE_ALL_FRAGMENTS_NV  = 0x8ED5,
-		GL_COVERAGE_EDGE_FRAGMENTS_NV = 0x8ED6,
-		GL_COVERAGE_AUTOMATIC_NV      = 0x8ED7;
+    /** Accepted by the {@code operation} parameter of CoverageOperationNV. */
+    public static final int
+        GL_COVERAGE_ALL_FRAGMENTS_NV  = 0x8ED5,
+        GL_COVERAGE_EDGE_FRAGMENTS_NV = 0x8ED6,
+        GL_COVERAGE_AUTOMATIC_NV      = 0x8ED7;
 
-	/** Accepted by the {@code attachment} parameter of FramebufferRenderbuffer, and GetFramebufferAttachmentParameteriv. */
-	public static final int GL_COVERAGE_ATTACHMENT_NV = 0x8ED2;
+    /** Accepted by the {@code attachment} parameter of FramebufferRenderbuffer, and GetFramebufferAttachmentParameteriv. */
+    public static final int GL_COVERAGE_ATTACHMENT_NV = 0x8ED2;
 
-	/** Accepted by the {@code buf} parameter of Clear. */
-	public static final int GL_COVERAGE_BUFFER_BIT_NV = 0x8000;
+    /** Accepted by the {@code buf} parameter of Clear. */
+    public static final int GL_COVERAGE_BUFFER_BIT_NV = 0x8000;
 
-	/** Accepted by the {@code pname} parameter of GetIntegerv. */
-	public static final int
-		GL_COVERAGE_BUFFERS_NV = 0x8ED3,
-		GL_COVERAGE_SAMPLES_NV = 0x8ED4;
+    /** Accepted by the {@code pname} parameter of GetIntegerv. */
+    public static final int
+        GL_COVERAGE_BUFFERS_NV = 0x8ED3,
+        GL_COVERAGE_SAMPLES_NV = 0x8ED4;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVCoverageSample() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVCoverageSample() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glCoverageMaskNV, caps.glCoverageOperationNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glCoverageMaskNV, caps.glCoverageOperationNV
+        );
+    }
 
-	// --- [ glCoverageMaskNV ] ---
+    // --- [ glCoverageMaskNV ] ---
 
-	public static native void glCoverageMaskNV(boolean mask);
+    public static native void glCoverageMaskNV(boolean mask);
 
-	// --- [ glCoverageOperationNV ] ---
+    // --- [ glCoverageOperationNV ] ---
 
-	public static native void glCoverageOperationNV(int operation);
+    public static native void glCoverageOperationNV(int operation);
 
 }

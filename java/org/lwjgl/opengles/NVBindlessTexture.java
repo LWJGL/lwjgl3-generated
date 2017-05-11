@@ -41,95 +41,97 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVBindlessTexture {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVBindlessTexture() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVBindlessTexture() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glGetTextureHandleNV, caps.glGetTextureSamplerHandleNV, caps.glMakeTextureHandleResidentNV, caps.glMakeTextureHandleNonResidentNV, 
-			caps.glGetImageHandleNV, caps.glMakeImageHandleResidentNV, caps.glMakeImageHandleNonResidentNV, caps.glUniformHandleui64NV, 
-			caps.glUniformHandleui64vNV, caps.glProgramUniformHandleui64NV, caps.glProgramUniformHandleui64vNV, caps.glIsTextureHandleResidentNV, 
-			caps.glIsImageHandleResidentNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glGetTextureHandleNV, caps.glGetTextureSamplerHandleNV, caps.glMakeTextureHandleResidentNV, caps.glMakeTextureHandleNonResidentNV, 
+            caps.glGetImageHandleNV, caps.glMakeImageHandleResidentNV, caps.glMakeImageHandleNonResidentNV, caps.glUniformHandleui64NV, 
+            caps.glUniformHandleui64vNV, caps.glProgramUniformHandleui64NV, caps.glProgramUniformHandleui64vNV, caps.glIsTextureHandleResidentNV, 
+            caps.glIsImageHandleResidentNV
+        );
+    }
 
-	// --- [ glGetTextureHandleNV ] ---
+    // --- [ glGetTextureHandleNV ] ---
 
-	public static native long glGetTextureHandleNV(int texture);
+    public static native long glGetTextureHandleNV(int texture);
 
-	// --- [ glGetTextureSamplerHandleNV ] ---
+    // --- [ glGetTextureSamplerHandleNV ] ---
 
-	public static native long glGetTextureSamplerHandleNV(int texture, int sampler);
+    public static native long glGetTextureSamplerHandleNV(int texture, int sampler);
 
-	// --- [ glMakeTextureHandleResidentNV ] ---
+    // --- [ glMakeTextureHandleResidentNV ] ---
 
-	public static native void glMakeTextureHandleResidentNV(long handle);
+    public static native void glMakeTextureHandleResidentNV(long handle);
 
-	// --- [ glMakeTextureHandleNonResidentNV ] ---
+    // --- [ glMakeTextureHandleNonResidentNV ] ---
 
-	public static native void glMakeTextureHandleNonResidentNV(long handle);
+    public static native void glMakeTextureHandleNonResidentNV(long handle);
 
-	// --- [ glGetImageHandleNV ] ---
+    // --- [ glGetImageHandleNV ] ---
 
-	public static native long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format);
+    public static native long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format);
 
-	// --- [ glMakeImageHandleResidentNV ] ---
+    // --- [ glMakeImageHandleResidentNV ] ---
 
-	public static native void glMakeImageHandleResidentNV(long handle, int access);
+    public static native void glMakeImageHandleResidentNV(long handle, int access);
 
-	// --- [ glMakeImageHandleNonResidentNV ] ---
+    // --- [ glMakeImageHandleNonResidentNV ] ---
 
-	public static native void glMakeImageHandleNonResidentNV(long handle);
+    public static native void glMakeImageHandleNonResidentNV(long handle);
 
-	// --- [ glUniformHandleui64NV ] ---
+    // --- [ glUniformHandleui64NV ] ---
 
-	public static native void glUniformHandleui64NV(int location, long value);
+    public static native void glUniformHandleui64NV(int location, long value);
 
-	// --- [ glUniformHandleui64vNV ] ---
+    // --- [ glUniformHandleui64vNV ] ---
 
-	public static native void nglUniformHandleui64vNV(int location, int count, long values);
+    public static native void nglUniformHandleui64vNV(int location, int count, long values);
 
-	public static void glUniformHandleui64vNV(int location, LongBuffer values) {
-		nglUniformHandleui64vNV(location, values.remaining(), memAddress(values));
-	}
+    public static void glUniformHandleui64vNV(int location, LongBuffer values) {
+        nglUniformHandleui64vNV(location, values.remaining(), memAddress(values));
+    }
 
-	// --- [ glProgramUniformHandleui64NV ] ---
+    // --- [ glProgramUniformHandleui64NV ] ---
 
-	public static native void glProgramUniformHandleui64NV(int program, int location, long value);
+    public static native void glProgramUniformHandleui64NV(int program, int location, long value);
 
-	// --- [ glProgramUniformHandleui64vNV ] ---
+    // --- [ glProgramUniformHandleui64vNV ] ---
 
-	public static native void nglProgramUniformHandleui64vNV(int program, int location, int count, long values);
+    public static native void nglProgramUniformHandleui64vNV(int program, int location, int count, long values);
 
-	public static void glProgramUniformHandleui64vNV(int program, int location, LongBuffer values) {
-		nglProgramUniformHandleui64vNV(program, location, values.remaining(), memAddress(values));
-	}
+    public static void glProgramUniformHandleui64vNV(int program, int location, LongBuffer values) {
+        nglProgramUniformHandleui64vNV(program, location, values.remaining(), memAddress(values));
+    }
 
-	// --- [ glIsTextureHandleResidentNV ] ---
+    // --- [ glIsTextureHandleResidentNV ] ---
 
-	public static native boolean glIsTextureHandleResidentNV(long handle);
+    public static native boolean glIsTextureHandleResidentNV(long handle);
 
-	// --- [ glIsImageHandleResidentNV ] ---
+    // --- [ glIsImageHandleResidentNV ] ---
 
-	public static native boolean glIsImageHandleResidentNV(long handle);
+    public static native boolean glIsImageHandleResidentNV(long handle);
 
-	/** Array version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
-	public static void glUniformHandleui64vNV(int location, long[] values) {
-		long __functionAddress = GLES.getICD().glUniformHandleui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, location, values.length, values);
-	}
+    /** Array version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
+    public static void glUniformHandleui64vNV(int location, long[] values) {
+        long __functionAddress = GLES.getICD().glUniformHandleui64vNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, location, values.length, values);
+    }
 
-	/** Array version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
-	public static void glProgramUniformHandleui64vNV(int program, int location, long[] values) {
-		long __functionAddress = GLES.getICD().glProgramUniformHandleui64vNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, program, location, values.length, values);
-	}
+    /** Array version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
+    public static void glProgramUniformHandleui64vNV(int program, int location, long[] values) {
+        long __functionAddress = GLES.getICD().glProgramUniformHandleui64vNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, program, location, values.length, values);
+    }
 
 }

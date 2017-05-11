@@ -14,9 +14,9 @@ package org.lwjgl.opengles;
  */
 public final class OESSurfacelessContext {
 
-	/** Returned by glCheckFramebufferStatusOES and glCheckFramebufferStatus. */
-	public static final int GL_FRAMEBUFFER_UNDEFINED_OES = 0x8219;
+    /** Returned by glCheckFramebufferStatusOES and glCheckFramebufferStatus. */
+    public static final int GL_FRAMEBUFFER_UNDEFINED_OES = 0x8219;
 
-	private OESSurfacelessContext() {}
+    private OESSurfacelessContext() {}
 
 }

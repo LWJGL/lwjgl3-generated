@@ -36,53 +36,53 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESTextureBuffer {
 
-	/**
-	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBufferRange, BindTexture, UnmapBuffer, GetBufferParameteriv,
-	 * GetBufferPointerv, TexBufferOES, and TexBufferRangeOES.
-	 */
-	public static final int GL_TEXTURE_BUFFER_OES = 0x8C2A;
+    /**
+     * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBufferRange, BindTexture, UnmapBuffer, GetBufferParameteriv,
+     * GetBufferPointerv, TexBufferOES, and TexBufferRangeOES.
+     */
+    public static final int GL_TEXTURE_BUFFER_OES = 0x8C2A;
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetFloatv, and GetIntegerv. */
-	public static final int GL_TEXTURE_BUFFER_BINDING_OES = 0x8C2A;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetFloatv, and GetIntegerv. */
+    public static final int GL_TEXTURE_BUFFER_BINDING_OES = 0x8C2A;
 
-	/**
-	 * (note that this token name is an alias for TEXTURE_BUFFER_OES, and is used for naming consistency with queries for the buffers bound to other buffer
-	 * binding points). MAX_TEXTURE_BUFFER_SIZE_OES 0x8C2B TEXTURE_BINDING_BUFFER_OES 0x8C2C TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES 0x919F Returned in the
-	 * {@code type} parameter of GetActiveUniform, the {@code params} parameter of GetActiveUniformsiv, and the {@code params} parameter of
-	 * GetProgramResourceiv when the TYPE property is queried on the UNIFORM interface.
-	 */
-	public static final int
-		GL_SAMPLER_BUFFER_OES              = 0x8DC2,
-		GL_INT_SAMPLER_BUFFER_OES          = 0x8DD0,
-		GL_UNSIGNED_INT_SAMPLER_BUFFER_OES = 0x8DD8,
-		GL_IMAGE_BUFFER_OES                = 0x9051,
-		GL_INT_IMAGE_BUFFER_OES            = 0x905C,
-		GL_UNSIGNED_INT_IMAGE_BUFFER_OES   = 0x9067;
+    /**
+     * (note that this token name is an alias for TEXTURE_BUFFER_OES, and is used for naming consistency with queries for the buffers bound to other buffer
+     * binding points). MAX_TEXTURE_BUFFER_SIZE_OES 0x8C2B TEXTURE_BINDING_BUFFER_OES 0x8C2C TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES 0x919F Returned in the
+     * {@code type} parameter of GetActiveUniform, the {@code params} parameter of GetActiveUniformsiv, and the {@code params} parameter of
+     * GetProgramResourceiv when the TYPE property is queried on the UNIFORM interface.
+     */
+    public static final int
+        GL_SAMPLER_BUFFER_OES              = 0x8DC2,
+        GL_INT_SAMPLER_BUFFER_OES          = 0x8DD0,
+        GL_UNSIGNED_INT_SAMPLER_BUFFER_OES = 0x8DD8,
+        GL_IMAGE_BUFFER_OES                = 0x9051,
+        GL_INT_IMAGE_BUFFER_OES            = 0x905C,
+        GL_UNSIGNED_INT_IMAGE_BUFFER_OES   = 0x9067;
 
-	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_TEXTURE_BUFFER_DATA_STORE_BINDING_OES = 0x8C2D,
-		GL_TEXTURE_BUFFER_OFFSET_OES             = 0x919D,
-		GL_TEXTURE_BUFFER_SIZE_OES               = 0x919E;
+    /** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
+    public static final int
+        GL_TEXTURE_BUFFER_DATA_STORE_BINDING_OES = 0x8C2D,
+        GL_TEXTURE_BUFFER_OFFSET_OES             = 0x919D,
+        GL_TEXTURE_BUFFER_SIZE_OES               = 0x919E;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESTextureBuffer() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESTextureBuffer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glTexBufferOES, caps.glTexBufferRangeOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glTexBufferOES, caps.glTexBufferRangeOES
+        );
+    }
 
-	// --- [ glTexBufferOES ] ---
+    // --- [ glTexBufferOES ] ---
 
-	public static native void glTexBufferOES(int target, int internalformat, int buffer);
+    public static native void glTexBufferOES(int target, int internalformat, int buffer);
 
-	// --- [ glTexBufferRangeOES ] ---
+    // --- [ glTexBufferRangeOES ] ---
 
-	public static native void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size);
+    public static native void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size);
 
 }

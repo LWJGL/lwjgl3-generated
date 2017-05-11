@@ -42,284 +42,289 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBVertexAttrib64Bit {
 
-	/** Returned in the {@code type} parameter of GetActiveAttrib. */
-	public static final int
-		GL_DOUBLE_VEC2   = 0x8FFC,
-		GL_DOUBLE_VEC3   = 0x8FFD,
-		GL_DOUBLE_VEC4   = 0x8FFE,
-		GL_DOUBLE_MAT2   = 0x8F46,
-		GL_DOUBLE_MAT3   = 0x8F47,
-		GL_DOUBLE_MAT4   = 0x8F48,
-		GL_DOUBLE_MAT2x3 = 0x8F49,
-		GL_DOUBLE_MAT2x4 = 0x8F4A,
-		GL_DOUBLE_MAT3x2 = 0x8F4B,
-		GL_DOUBLE_MAT3x4 = 0x8F4C,
-		GL_DOUBLE_MAT4x2 = 0x8F4D,
-		GL_DOUBLE_MAT4x3 = 0x8F4E;
+    /** Returned in the {@code type} parameter of GetActiveAttrib. */
+    public static final int
+        GL_DOUBLE_VEC2   = 0x8FFC,
+        GL_DOUBLE_VEC3   = 0x8FFD,
+        GL_DOUBLE_VEC4   = 0x8FFE,
+        GL_DOUBLE_MAT2   = 0x8F46,
+        GL_DOUBLE_MAT3   = 0x8F47,
+        GL_DOUBLE_MAT4   = 0x8F48,
+        GL_DOUBLE_MAT2x3 = 0x8F49,
+        GL_DOUBLE_MAT2x4 = 0x8F4A,
+        GL_DOUBLE_MAT3x2 = 0x8F4B,
+        GL_DOUBLE_MAT3x4 = 0x8F4C,
+        GL_DOUBLE_MAT4x2 = 0x8F4D,
+        GL_DOUBLE_MAT4x3 = 0x8F4E;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBVertexAttrib64Bit() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBVertexAttrib64Bit() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
-		return checkFunctions(
-			caps.glVertexAttribL1d, caps.glVertexAttribL2d, caps.glVertexAttribL3d, caps.glVertexAttribL4d, caps.glVertexAttribL1dv, caps.glVertexAttribL2dv, 
-			caps.glVertexAttribL3dv, caps.glVertexAttribL4dv, caps.glVertexAttribLPointer, caps.glGetVertexAttribLdv, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glVertexArrayVertexAttribLOffsetEXT : -1L
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+        return checkFunctions(
+            caps.glVertexAttribL1d, caps.glVertexAttribL2d, caps.glVertexAttribL3d, caps.glVertexAttribL4d, caps.glVertexAttribL1dv, caps.glVertexAttribL2dv, 
+            caps.glVertexAttribL3dv, caps.glVertexAttribL4dv, caps.glVertexAttribLPointer, caps.glGetVertexAttribLdv, 
+            ext.contains("GL_EXT_direct_state_access") ? caps.glVertexArrayVertexAttribLOffsetEXT : -1L
+        );
+    }
 
-	// --- [ glVertexAttribL1d ] ---
+    // --- [ glVertexAttribL1d ] ---
 
-	/**
-	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 */
-	public static native void glVertexAttribL1d(int index, double x);
+    /**
+     * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     */
+    public static native void glVertexAttribL1d(int index, double x);
 
-	// --- [ glVertexAttribL2d ] ---
+    // --- [ glVertexAttribL2d ] ---
 
-	/**
-	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 */
-	public static native void glVertexAttribL2d(int index, double x, double y);
+    /**
+     * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     */
+    public static native void glVertexAttribL2d(int index, double x, double y);
 
-	// --- [ glVertexAttribL3d ] ---
+    // --- [ glVertexAttribL3d ] ---
 
-	/**
-	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 * @param z     the vertex attribute z component
-	 */
-	public static native void glVertexAttribL3d(int index, double x, double y, double z);
+    /**
+     * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     * @param z     the vertex attribute z component
+     */
+    public static native void glVertexAttribL3d(int index, double x, double y, double z);
 
-	// --- [ glVertexAttribL4d ] ---
+    // --- [ glVertexAttribL4d ] ---
 
-	/**
-	 * Specifies the value of a generic vertex attribute.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param x     the vertex attribute x component
-	 * @param y     the vertex attribute y component
-	 * @param z     the vertex attribute z component
-	 * @param w     the vertex attribute w component
-	 */
-	public static native void glVertexAttribL4d(int index, double x, double y, double z, double w);
+    /**
+     * Specifies the value of a generic vertex attribute.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param x     the vertex attribute x component
+     * @param y     the vertex attribute y component
+     * @param z     the vertex attribute z component
+     * @param w     the vertex attribute w component
+     */
+    public static native void glVertexAttribL4d(int index, double x, double y, double z, double w);
 
-	// --- [ glVertexAttribL1dv ] ---
+    // --- [ glVertexAttribL1dv ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
-	public static native void nglVertexAttribL1dv(int index, long v);
+    /** Unsafe version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
+    public static native void nglVertexAttribL1dv(int index, long v);
 
-	/**
-	 * Pointer version of {@link #glVertexAttribL1d VertexAttribL1d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
-	public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 1);
-		nglVertexAttribL1dv(index, memAddress(v));
-	}
+    /**
+     * Pointer version of {@link #glVertexAttribL1d VertexAttribL1d}.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param v     the vertex attribute buffer
+     */
+    public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 1);
+        }
+        nglVertexAttribL1dv(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribL2dv ] ---
+    // --- [ glVertexAttribL2dv ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
-	public static native void nglVertexAttribL2dv(int index, long v);
+    /** Unsafe version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
+    public static native void nglVertexAttribL2dv(int index, long v);
 
-	/**
-	 * Pointer version of {@link #glVertexAttribL2d VertexAttribL2d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
-	public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 2);
-		nglVertexAttribL2dv(index, memAddress(v));
-	}
+    /**
+     * Pointer version of {@link #glVertexAttribL2d VertexAttribL2d}.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param v     the vertex attribute buffer
+     */
+    public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 2);
+        }
+        nglVertexAttribL2dv(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribL3dv ] ---
+    // --- [ glVertexAttribL3dv ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
-	public static native void nglVertexAttribL3dv(int index, long v);
+    /** Unsafe version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
+    public static native void nglVertexAttribL3dv(int index, long v);
 
-	/**
-	 * Pointer version of {@link #glVertexAttribL3d VertexAttribL3d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
-	public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 3);
-		nglVertexAttribL3dv(index, memAddress(v));
-	}
+    /**
+     * Pointer version of {@link #glVertexAttribL3d VertexAttribL3d}.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param v     the vertex attribute buffer
+     */
+    public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 3);
+        }
+        nglVertexAttribL3dv(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribL4dv ] ---
+    // --- [ glVertexAttribL4dv ] ---
 
-	/** Unsafe version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
-	public static native void nglVertexAttribL4dv(int index, long v);
+    /** Unsafe version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
+    public static native void nglVertexAttribL4dv(int index, long v);
 
-	/**
-	 * Pointer version of {@link #glVertexAttribL4d VertexAttribL4d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
-	public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
-		if ( CHECKS )
-			check(v, 4);
-		nglVertexAttribL4dv(index, memAddress(v));
-	}
+    /**
+     * Pointer version of {@link #glVertexAttribL4d VertexAttribL4d}.
+     *
+     * @param index the index of the generic vertex attribute to be modified
+     * @param v     the vertex attribute buffer
+     */
+    public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
+        if (CHECKS) {
+            check(v, 4);
+        }
+        nglVertexAttribL4dv(index, memAddress(v));
+    }
 
-	// --- [ glVertexAttribLPointer ] ---
+    // --- [ glVertexAttribLPointer ] ---
 
-	/**
-	 * Unsafe version of: {@link #glVertexAttribLPointer VertexAttribLPointer}
-	 *
-	 * @param type the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 */
-	public static native void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer);
+    /**
+     * Unsafe version of: {@link #glVertexAttribLPointer VertexAttribLPointer}
+     *
+     * @param type the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+     */
+    public static native void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer);
 
-	/**
-	 * Specifies the location and organization of a 64-bit vertex attribute array.
-	 *
-	 * @param index   the index of the generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
-	}
+    /**
+     * Specifies the location and organization of a 64-bit vertex attribute array.
+     *
+     * @param index   the index of the generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type    the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
+        nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
+    }
 
-	/**
-	 * Specifies the location and organization of a 64-bit vertex attribute array.
-	 *
-	 * @param index   the index of the generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
-		nglVertexAttribLPointer(index, size, type, stride, pointer);
-	}
+    /**
+     * Specifies the location and organization of a 64-bit vertex attribute array.
+     *
+     * @param index   the index of the generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type    the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
+        nglVertexAttribLPointer(index, size, type, stride, pointer);
+    }
 
-	/**
-	 * Specifies the location and organization of a 64-bit vertex attribute array.
-	 *
-	 * @param index   the index of the generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                the array. The initial value is 0.
-	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
-	public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
-		nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
-	}
+    /**
+     * Specifies the location and organization of a 64-bit vertex attribute array.
+     *
+     * @param index   the index of the generic vertex attribute to be modified
+     * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *                the array. The initial value is 0.
+     * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+     *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+     */
+    public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
+        nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
+    }
 
-	// --- [ glGetVertexAttribLdv ] ---
+    // --- [ glGetVertexAttribLdv ] ---
 
-	/** Unsafe version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
-	public static native void nglGetVertexAttribLdv(int index, int pname, long params);
+    /** Unsafe version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
+    public static native void nglGetVertexAttribLdv(int index, int pname, long params);
 
-	/**
-	 * Double version of {@link GL20#glGetVertexAttribiv GetVertexAttribiv}.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params the requested data
-	 */
-	public static void glGetVertexAttribLdv(int index, int pname, DoubleBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetVertexAttribLdv(index, pname, memAddress(params));
-	}
+    /**
+     * Double version of {@link GL20#glGetVertexAttribiv GetVertexAttribiv}.
+     *
+     * @param index  the generic vertex attribute parameter to be queried
+     * @param pname  the symbolic name of the vertex attribute parameter to be queried
+     * @param params the requested data
+     */
+    public static void glGetVertexAttribLdv(int index, int pname, DoubleBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetVertexAttribLdv(index, pname, memAddress(params));
+    }
 
-	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
+    // --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
-	/**
-	 * DSA version of {@link #glVertexAttribLPointer VertexAttribLPointer}.
-	 *
-	 * @param vaobj  the vertex array object
-	 * @param buffer the buffer object
-	 * @param index  the index of the generic vertex attribute to be modified
-	 * @param size   the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type   the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param stride the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *               the array. The initial value is 0.
-	 * @param offset the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer. The initial value is 0.
-	 */
-	public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
+    /**
+     * DSA version of {@link #glVertexAttribLPointer VertexAttribLPointer}.
+     *
+     * @param vaobj  the vertex array object
+     * @param buffer the buffer object
+     * @param index  the index of the generic vertex attribute to be modified
+     * @param size   the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+     * @param type   the data type of each component in the array. Must be:<br><table><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+     * @param stride the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+     *               the array. The initial value is 0.
+     * @param offset the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer. The initial value is 0.
+     */
+    public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
 
-	/** Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
-	public static void glVertexAttribL1dv(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL1dv;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 1);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
+    public static void glVertexAttribL1dv(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL1dv;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 1);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
-	public static void glVertexAttribL2dv(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL2dv;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 2);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
+    public static void glVertexAttribL2dv(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL2dv;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 2);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
-	public static void glVertexAttribL3dv(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL3dv;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 3);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
+    public static void glVertexAttribL3dv(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL3dv;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 3);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
-	public static void glVertexAttribL4dv(int index, double[] v) {
-		long __functionAddress = GL.getICD().glVertexAttribL4dv;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(v, 4);
-		}
-		callPV(__functionAddress, index, v);
-	}
+    /** Array version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
+    public static void glVertexAttribL4dv(int index, double[] v) {
+        long __functionAddress = GL.getICD().glVertexAttribL4dv;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(v, 4);
+        }
+        callPV(__functionAddress, index, v);
+    }
 
-	/** Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
-	public static void glGetVertexAttribLdv(int index, int pname, double[] params) {
-		long __functionAddress = GL.getICD().glGetVertexAttribLdv;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, index, pname, params);
-	}
+    /** Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
+    public static void glGetVertexAttribLdv(int index, int pname, double[] params) {
+        long __functionAddress = GL.getICD().glGetVertexAttribLdv;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, index, pname, params);
+    }
 
 }

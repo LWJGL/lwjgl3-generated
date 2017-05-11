@@ -17,9 +17,9 @@ package org.lwjgl.opengles;
  */
 public final class ANGLEPackReverseRowOrder {
 
-	/** Accepted by the {@code pname} parameter of PixelStore{if}, GetIntegerv(), GetBooleanv(), and GetFloatv(). */
-	public static final int GL_PACK_REVERSE_ROW_ORDER_ANGLE = 0x93A4;
+    /** Accepted by the {@code pname} parameter of PixelStore{if}, GetIntegerv(), GetBooleanv(), and GetFloatv(). */
+    public static final int GL_PACK_REVERSE_ROW_ORDER_ANGLE = 0x93A4;
 
-	private ANGLEPackReverseRowOrder() {}
+    private ANGLEPackReverseRowOrder() {}
 
 }

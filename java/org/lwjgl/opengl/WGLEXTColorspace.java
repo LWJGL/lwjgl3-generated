@@ -15,14 +15,14 @@ package org.lwjgl.opengl;
  */
 public final class WGLEXTColorspace {
 
-	/** Accepted as an attribute name by {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} and {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}. */
-	public static final int WGL_COLORSPACE_EXT = 0x309D;
+    /** Accepted as an attribute name by {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} and {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}. */
+    public static final int WGL_COLORSPACE_EXT = 0x309D;
 
-	/** Accepted as attribute values for {@link #WGL_COLORSPACE_EXT COLORSPACE_EXT} by {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} and {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}. */
-	public static final int
-		WGL_COLORSPACE_SRGB_EXT   = 0x3089,
-		WGL_COLORSPACE_LINEAR_EXT = 0x308A;
+    /** Accepted as attribute values for {@link #WGL_COLORSPACE_EXT COLORSPACE_EXT} by {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} and {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}. */
+    public static final int
+        WGL_COLORSPACE_SRGB_EXT   = 0x3089,
+        WGL_COLORSPACE_LINEAR_EXT = 0x308A;
 
-	private WGLEXTColorspace() {}
+    private WGLEXTColorspace() {}
 
 }

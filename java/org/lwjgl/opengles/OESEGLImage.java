@@ -21,36 +21,38 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OESEGLImage {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected OESEGLImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected OESEGLImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glEGLImageTargetTexture2DOES, caps.glEGLImageTargetRenderbufferStorageOES
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glEGLImageTargetTexture2DOES, caps.glEGLImageTargetRenderbufferStorageOES
+        );
+    }
 
-	// --- [ glEGLImageTargetTexture2DOES ] ---
+    // --- [ glEGLImageTargetTexture2DOES ] ---
 
-	public static native void nglEGLImageTargetTexture2DOES(int target, long image);
+    public static native void nglEGLImageTargetTexture2DOES(int target, long image);
 
-	public static void glEGLImageTargetTexture2DOES(int target, long image) {
-		if ( CHECKS )
-			check(image);
-		nglEGLImageTargetTexture2DOES(target, image);
-	}
+    public static void glEGLImageTargetTexture2DOES(int target, long image) {
+        if (CHECKS) {
+            check(image);
+        }
+        nglEGLImageTargetTexture2DOES(target, image);
+    }
 
-	// --- [ glEGLImageTargetRenderbufferStorageOES ] ---
+    // --- [ glEGLImageTargetRenderbufferStorageOES ] ---
 
-	public static native void nglEGLImageTargetRenderbufferStorageOES(int target, long image);
+    public static native void nglEGLImageTargetRenderbufferStorageOES(int target, long image);
 
-	public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
-		if ( CHECKS )
-			check(image);
-		nglEGLImageTargetRenderbufferStorageOES(target, image);
-	}
+    public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
+        if (CHECKS) {
+            check(image);
+        }
+        nglEGLImageTargetRenderbufferStorageOES(target, image);
+    }
 
 }

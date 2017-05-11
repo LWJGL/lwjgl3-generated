@@ -27,56 +27,57 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ANGLETranslatedShaderSource {
 
-	/** Accepted by the {@code pname} parameter of GetShaderiv. */
-	public static final int GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
+    /** Accepted by the {@code pname} parameter of GetShaderiv. */
+    public static final int GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected ANGLETranslatedShaderSource() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANGLETranslatedShaderSource() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glGetTranslatedShaderSourceANGLE
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glGetTranslatedShaderSourceANGLE
+        );
+    }
 
-	// --- [ glGetTranslatedShaderSourceANGLE ] ---
+    // --- [ glGetTranslatedShaderSourceANGLE ] ---
 
-	public static native void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source);
+    public static native void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source);
 
-	public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
-		if ( CHECKS )
-			checkSafe(length, 1);
-		nglGetTranslatedShaderSourceANGLE(shader, source.remaining(), memAddressSafe(length), memAddress(source));
-	}
+    public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
+        if (CHECKS) {
+            checkSafe(length, 1);
+        }
+        nglGetTranslatedShaderSourceANGLE(shader, source.remaining(), memAddressSafe(length), memAddress(source));
+    }
 
-	public static String glGetTranslatedShaderSourceANGLE(int shader, int bufsize) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		ByteBuffer source = memAlloc(bufsize);
-		try {
-			IntBuffer length = stack.ints(0);
-			nglGetTranslatedShaderSourceANGLE(shader, bufsize, memAddress(length), memAddress(source));
-			return memUTF8(source, length.get(0));
-		} finally {
-			memFree(source);
-			stack.setPointer(stackPointer);
-		}
-	}
+    public static String glGetTranslatedShaderSourceANGLE(int shader, int bufsize) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        ByteBuffer source = memAlloc(bufsize);
+        try {
+            IntBuffer length = stack.ints(0);
+            nglGetTranslatedShaderSourceANGLE(shader, bufsize, memAddress(length), memAddress(source));
+            return memUTF8(source, length.get(0));
+        } finally {
+            memFree(source);
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	public static String glGetTranslatedShaderSourceANGLE(int shader) {
-		return glGetTranslatedShaderSourceANGLE(shader, GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE));
-	}
+    public static String glGetTranslatedShaderSourceANGLE(int shader) {
+        return glGetTranslatedShaderSourceANGLE(shader, GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE));
+    }
 
-	/** Array version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
-	public static void glGetTranslatedShaderSourceANGLE(int shader, int[] length, ByteBuffer source) {
-		long __functionAddress = GLES.getICD().glGetTranslatedShaderSourceANGLE;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			checkSafe(length, 1);
-		}
-		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
-	}
+    /** Array version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
+    public static void glGetTranslatedShaderSourceANGLE(int shader, int[] length, ByteBuffer source) {
+        long __functionAddress = GLES.getICD().glGetTranslatedShaderSourceANGLE;
+        if (CHECKS) {
+            check(__functionAddress);
+            checkSafe(length, 1);
+        }
+        callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
+    }
 
 }

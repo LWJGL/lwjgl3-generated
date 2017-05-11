@@ -24,41 +24,41 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRSwapBuffersWithDamage {
 
-	protected KHRSwapBuffersWithDamage() {
-		throw new UnsupportedOperationException();
-	}
+    protected KHRSwapBuffersWithDamage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglSwapBuffersWithDamageKHR
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglSwapBuffersWithDamageKHR
+        );
+    }
 
-	// --- [ eglSwapBuffersWithDamageKHR ] ---
+    // --- [ eglSwapBuffersWithDamageKHR ] ---
 
-	public static int neglSwapBuffersWithDamageKHR(long dpy, long surface, long rects, int n_rects) {
-		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
-	}
+    public static int neglSwapBuffersWithDamageKHR(long dpy, long surface, long rects, int n_rects) {
+        long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
+    }
 
-	public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, IntBuffer rects) {
-		return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
-	}
+    public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, IntBuffer rects) {
+        return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
+    }
 
-	/** Array version of: {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
-	public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, int[] rects) {
-		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
-	}
+    /** Array version of: {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
+    public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, int[] rects) {
+        long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
+    }
 
 }

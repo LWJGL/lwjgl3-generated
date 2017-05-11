@@ -13,22 +13,22 @@ typedef void (APIENTRY *glVertexAttribDivisorEXTPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTInstancedArrays_glDrawArraysInstancedEXT(JNIEnv *__env, jclass clazz, jint mode, jint start, jint count, jint primcount) {
-	glDrawArraysInstancedEXTPROC glDrawArraysInstancedEXT = (glDrawArraysInstancedEXTPROC)tlsGetFunction(159);
-	UNUSED_PARAM(clazz)
-	glDrawArraysInstancedEXT(mode, start, count, primcount);
+    glDrawArraysInstancedEXTPROC glDrawArraysInstancedEXT = (glDrawArraysInstancedEXTPROC)tlsGetFunction(159);
+    UNUSED_PARAM(clazz)
+    glDrawArraysInstancedEXT(mode, start, count, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTInstancedArrays_nglDrawElementsInstancedEXT(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
-	glDrawElementsInstancedEXTPROC glDrawElementsInstancedEXT = (glDrawElementsInstancedEXTPROC)tlsGetFunction(177);
-	const intptr_t indices = (const intptr_t)indicesAddress;
-	UNUSED_PARAM(clazz)
-	glDrawElementsInstancedEXT(mode, count, type, indices, primcount);
+    glDrawElementsInstancedEXTPROC glDrawElementsInstancedEXT = (glDrawElementsInstancedEXTPROC)tlsGetFunction(177);
+    const intptr_t indices = (const intptr_t)indicesAddress;
+    UNUSED_PARAM(clazz)
+    glDrawElementsInstancedEXT(mode, count, type, indices, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTInstancedArrays_glVertexAttribDivisorEXT(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
-	glVertexAttribDivisorEXTPROC glVertexAttribDivisorEXT = (glVertexAttribDivisorEXTPROC)tlsGetFunction(762);
-	UNUSED_PARAM(clazz)
-	glVertexAttribDivisorEXT(index, divisor);
+    glVertexAttribDivisorEXTPROC glVertexAttribDivisorEXT = (glVertexAttribDivisorEXTPROC)tlsGetFunction(762);
+    UNUSED_PARAM(clazz)
+    glVertexAttribDivisorEXT(index, divisor);
 }
 
 EXTERN_C_EXIT

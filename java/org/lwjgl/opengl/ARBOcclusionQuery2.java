@@ -17,9 +17,9 @@ package org.lwjgl.opengl;
  */
 public final class ARBOcclusionQuery2 {
 
-	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int GL_ANY_SAMPLES_PASSED = 0x8C2F;
+    /** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
+    public static final int GL_ANY_SAMPLES_PASSED = 0x8C2F;
 
-	private ARBOcclusionQuery2() {}
+    private ARBOcclusionQuery2() {}
 
 }

@@ -85,12 +85,12 @@ package org.lwjgl.vulkan;
  */
 public final class EXTShaderSubgroupBallot {
 
-	/** The extension specification version. */
-	public static final int VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME = "VK_EXT_shader_subgroup_ballot";
+    /** The extension name. */
+    public static final String VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME = "VK_EXT_shader_subgroup_ballot";
 
-	private EXTShaderSubgroupBallot() {}
+    private EXTShaderSubgroupBallot() {}
 
 }

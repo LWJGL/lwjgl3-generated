@@ -45,59 +45,60 @@ import static org.lwjgl.system.JNI.*;
  */
 public class EXTDirectModeDisplay {
 
-	/** The extension specification version. */
-	public static final int VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME = "VK_EXT_direct_mode_display";
+    /** The extension name. */
+    public static final String VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME = "VK_EXT_direct_mode_display";
 
-	protected EXTDirectModeDisplay() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDirectModeDisplay() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(VKCapabilitiesInstance caps) {
-		return checkFunctions(
-			caps.vkReleaseDisplayEXT
-		);
-	}
+    static boolean isAvailable(VKCapabilitiesInstance caps) {
+        return checkFunctions(
+            caps.vkReleaseDisplayEXT
+        );
+    }
 
-	// --- [ vkReleaseDisplayEXT ] ---
+    // --- [ vkReleaseDisplayEXT ] ---
 
-	/**
-	 * Release access to an acquired VkDisplayKHR.
-	 * 
-	 * <h5>C Specification</h5>
-	 * 
-	 * <p>To release a previously acquired display, call:</p>
-	 * 
-	 * <pre><code>VkResult vkReleaseDisplayEXT(
+    /**
+     * Release access to an acquired VkDisplayKHR.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <p>To release a previously acquired display, call:</p>
+     * 
+     * <pre><code>VkResult vkReleaseDisplayEXT(
     VkPhysicalDevice                            physicalDevice,
     VkDisplayKHR                                display);</code></pre>
-	 * 
-	 * <h5>Valid Usage (Implicit)</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-	 * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
-	 * </ul>
-	 * 
-	 * <h5>Return Codes</h5>
-	 * 
-	 * <dl>
-	 * <dt>On success, this command returns</dt>
-	 * <dd><ul>
-	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-	 * </ul></dd>
-	 * </dl>
-	 *
-	 * @param physicalDevice The physical device the display is on.
-	 * @param display        The display to release control of.
-	 */
-	public static int vkReleaseDisplayEXT(VkPhysicalDevice physicalDevice, long display) {
-		long __functionAddress = physicalDevice.getCapabilities().vkReleaseDisplayEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		return callPJI(__functionAddress, physicalDevice.address(), display);
-	}
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
+     * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
+     * </ul>
+     * 
+     * <h5>Return Codes</h5>
+     * 
+     * <dl>
+     * <dt>On success, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+     * </ul></dd>
+     * </dl>
+     *
+     * @param physicalDevice The physical device the display is on.
+     * @param display        The display to release control of.
+     */
+    public static int vkReleaseDisplayEXT(VkPhysicalDevice physicalDevice, long display) {
+        long __functionAddress = physicalDevice.getCapabilities().vkReleaseDisplayEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPJI(__functionAddress, physicalDevice.address(), display);
+    }
 
 }

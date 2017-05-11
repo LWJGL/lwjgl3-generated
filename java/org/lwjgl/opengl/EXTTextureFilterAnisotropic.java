@@ -33,12 +33,12 @@ package org.lwjgl.opengl;
  */
 public final class EXTTextureFilterAnisotropic {
 
-	/** Accepted by the {@code pname} parameters of GetTexParameterfv, GetTexParameteriv, TexParameterf, TexParameterfv, TexParameteri, and TexParameteriv. */
-	public static final int GL_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FE;
+    /** Accepted by the {@code pname} parameters of GetTexParameterfv, GetTexParameteriv, TexParameterf, TexParameterfv, TexParameteri, and TexParameteriv. */
+    public static final int GL_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FE;
 
-	/** Accepted by the {@code pname} parameters of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv. */
-	public static final int GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;
+    /** Accepted by the {@code pname} parameters of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv. */
+    public static final int GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;
 
-	private EXTTextureFilterAnisotropic() {}
+    private EXTTextureFilterAnisotropic() {}
 
 }

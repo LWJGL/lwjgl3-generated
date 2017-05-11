@@ -16,11 +16,11 @@ package org.lwjgl.opengles;
  */
 public final class OESVertexType1010102 {
 
-	/** Accepted by the {@code type} parameter of VertexAttribPointer. */
-	public static final int
-		GL_UNSIGNED_INT_10_10_10_2_OES = 0x8DF6,
-		GL_INT_10_10_10_2_OES          = 0x8DF7;
+    /** Accepted by the {@code type} parameter of VertexAttribPointer. */
+    public static final int
+        GL_UNSIGNED_INT_10_10_10_2_OES = 0x8DF6,
+        GL_INT_10_10_10_2_OES          = 0x8DF7;
 
-	private OESVertexType1010102() {}
+    private OESVertexType1010102() {}
 
 }

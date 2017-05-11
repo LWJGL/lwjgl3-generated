@@ -13,25 +13,25 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface MallocMessageCallbackI extends CallbackI.V {
 
-	String SIGNATURE = "(pp)v";
+    String SIGNATURE = "(pp)v";
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
+    @Override
+    default void callback(long args) {
+        invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args)
+        );
+    }
 
-	/**
-	 * Will be called by the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method.
-	 *
-	 * @param cbopaque the opaque pointer passed to {@link JEmalloc#je_malloc_usable_size malloc_usable_size}
-	 * @param s        the message
-	 */
-	void invoke(long cbopaque, long s);
+    /**
+     * Will be called by the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method.
+     *
+     * @param cbopaque the opaque pointer passed to {@link JEmalloc#je_malloc_usable_size malloc_usable_size}
+     * @param s        the message
+     */
+    void invoke(long cbopaque, long s);
 
 }

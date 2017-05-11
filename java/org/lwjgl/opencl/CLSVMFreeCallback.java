@@ -12,46 +12,47 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
 public abstract class CLSVMFreeCallback extends Callback implements CLSVMFreeCallbackI {
 
-	/** Creates a {@code CLSVMFreeCallback} instance from the specified function pointer. */
-	public static CLSVMFreeCallback create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code CLSVMFreeCallback} instance from the specified function pointer. */
+    public static CLSVMFreeCallback create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		CLSVMFreeCallbackI instance = Callback.get(functionPointer);
-		return instance instanceof CLSVMFreeCallback
-			? (CLSVMFreeCallback)instance
-			: new Container(functionPointer, instance);
-	}
+        CLSVMFreeCallbackI instance = Callback.get(functionPointer);
+        return instance instanceof CLSVMFreeCallback
+            ? (CLSVMFreeCallback)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code CLSVMFreeCallback} instance that delegates to the specified {@code CLSVMFreeCallbackI} instance. */
-	public static CLSVMFreeCallback create(CLSVMFreeCallbackI instance) {
-		return instance instanceof CLSVMFreeCallback
-			? (CLSVMFreeCallback)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code CLSVMFreeCallback} instance that delegates to the specified {@code CLSVMFreeCallbackI} instance. */
+    public static CLSVMFreeCallback create(CLSVMFreeCallbackI instance) {
+        return instance instanceof CLSVMFreeCallback
+            ? (CLSVMFreeCallback)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected CLSVMFreeCallback() {
-		super(SIGNATURE);
-	}
+    protected CLSVMFreeCallback() {
+        super(SIGNATURE);
+    }
 
-	private CLSVMFreeCallback(long functionPointer) {
-		super(functionPointer);
-	}
+    private CLSVMFreeCallback(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends CLSVMFreeCallback {
+    private static final class Container extends CLSVMFreeCallback {
 
-		private final CLSVMFreeCallbackI delegate;
+        private final CLSVMFreeCallbackI delegate;
 
-		Container(long functionPointer, CLSVMFreeCallbackI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, CLSVMFreeCallbackI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
-			delegate.invoke(queue, num_svm_pointers, svm_pointers, user_data);
-		}
+        @Override
+        public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
+            delegate.invoke(queue, num_svm_pointers, svm_pointers, user_data);
+        }
 
-	}
+    }
 
 }

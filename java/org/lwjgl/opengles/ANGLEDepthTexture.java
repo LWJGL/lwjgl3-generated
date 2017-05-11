@@ -18,17 +18,17 @@ package org.lwjgl.opengles;
  */
 public final class ANGLEDepthTexture {
 
-	/** Accepted by the {@code format} parameter of TexImage2D and TexSubImage2D and {@code internalformat} parameter of TexImage2D. */
-	public static final int GL_DEPTH_STENCIL_OES = 0x84F9;
+    /** Accepted by the {@code format} parameter of TexImage2D and TexSubImage2D and {@code internalformat} parameter of TexImage2D. */
+    public static final int GL_DEPTH_STENCIL_OES = 0x84F9;
 
-	/** Accepted by the {@code type} parameter of TexImage2D, TexSubImage2D. */
-	public static final int GL_UNSIGNED_INT_24_8_OES = 0x84FA;
+    /** Accepted by the {@code type} parameter of TexImage2D, TexSubImage2D. */
+    public static final int GL_UNSIGNED_INT_24_8_OES = 0x84FA;
 
-	/** Accepted by the {@code internalformat} parameter of TexStorage2DEXT. */
-	public static final int
-		GL_DEPTH_COMPONENT32_OES = 0x81A7,
-		GL_DEPTH24_STENCIL8_OES  = 0x88F0;
+    /** Accepted by the {@code internalformat} parameter of TexStorage2DEXT. */
+    public static final int
+        GL_DEPTH_COMPONENT32_OES = 0x81A7,
+        GL_DEPTH24_STENCIL8_OES  = 0x88F0;
 
-	private ANGLEDepthTexture() {}
+    private ANGLEDepthTexture() {}
 
 }

@@ -17,14 +17,14 @@ package org.lwjgl.openal;
  */
 public final class SOFTSourceLength {
 
-	/** Accepted by the {@code paramName} parameter of {@link AL10#alGetSourcei GetSourcei} and {@link AL10#alGetSourceiv GetSourceiv} (these are the same as in AL_SOFT_buffer_samples). */
-	public static final int
-		AL_BYTE_LENGTH_SOFT   = 0x2009,
-		AL_SAMPLE_LENGTH_SOFT = 0x200A;
+    /** Accepted by the {@code paramName} parameter of {@link AL10#alGetSourcei GetSourcei} and {@link AL10#alGetSourceiv GetSourceiv} (these are the same as in AL_SOFT_buffer_samples). */
+    public static final int
+        AL_BYTE_LENGTH_SOFT   = 0x2009,
+        AL_SAMPLE_LENGTH_SOFT = 0x200A;
 
-	/** Accepted by the {@code paramName} parameter of {@link AL10#alGetSourcef GetSourcef} and {@link AL10#alGetSourcefv GetSourcefv} (these are the same as in AL_SOFT_buffer_samples). */
-	public static final int AL_SEC_LENGTH_SOFT = 0x200B;
+    /** Accepted by the {@code paramName} parameter of {@link AL10#alGetSourcef GetSourcef} and {@link AL10#alGetSourcefv GetSourcefv} (these are the same as in AL_SOFT_buffer_samples). */
+    public static final int AL_SEC_LENGTH_SOFT = 0x200B;
 
-	private SOFTSourceLength() {}
+    private SOFTSourceLength() {}
 
 }

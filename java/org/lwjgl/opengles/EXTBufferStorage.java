@@ -30,79 +30,82 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTBufferStorage {
 
-	/** Accepted in the {@code flags} parameter of BufferStorageEXT and NamedBufferStorageEXT. */
-	public static final int
-		GL_MAP_PERSISTENT_BIT_EXT  = 0x40,
-		GL_MAP_COHERENT_BIT_EXT    = 0x80,
-		GL_DYNAMIC_STORAGE_BIT_EXT = 0x100,
-		GL_CLIENT_STORAGE_BIT_EXT  = 0x200;
+    /** Accepted in the {@code flags} parameter of BufferStorageEXT and NamedBufferStorageEXT. */
+    public static final int
+        GL_MAP_PERSISTENT_BIT_EXT  = 0x40,
+        GL_MAP_COHERENT_BIT_EXT    = 0x80,
+        GL_DYNAMIC_STORAGE_BIT_EXT = 0x100,
+        GL_CLIENT_STORAGE_BIT_EXT  = 0x200;
 
-	/** MAP_PERSISTENT_BIT_EXT 0x0040 (as above) MAP_COHERENT_BIT_EXT 0x0080 (as above) Accepted by the {@code pname} parameter of GetBufferParameter{i|i64}v. */
-	public static final int
-		GL_BUFFER_IMMUTABLE_STORAGE_EXT = 0x821F,
-		GL_BUFFER_STORAGE_FLAGS_EXT     = 0x8220;
+    /** MAP_PERSISTENT_BIT_EXT 0x0040 (as above) MAP_COHERENT_BIT_EXT 0x0080 (as above) Accepted by the {@code pname} parameter of GetBufferParameter{i|i64}v. */
+    public static final int
+        GL_BUFFER_IMMUTABLE_STORAGE_EXT = 0x821F,
+        GL_BUFFER_STORAGE_FLAGS_EXT     = 0x8220;
 
-	/** Accepted by the {@code barriers} parameter of MemoryBarrier. */
-	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT = 0x4000;
+    /** Accepted by the {@code barriers} parameter of MemoryBarrier. */
+    public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT = 0x4000;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTBufferStorage() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTBufferStorage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glBufferStorageEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glBufferStorageEXT
+        );
+    }
 
-	// --- [ glBufferStorageEXT ] ---
+    // --- [ glBufferStorageEXT ] ---
 
-	public static native void nglBufferStorageEXT(int target, long size, long data, int flags);
+    public static native void nglBufferStorageEXT(int target, long size, long data, int flags);
 
-	public static void glBufferStorageEXT(int target, long size, int flags) {
-		nglBufferStorageEXT(target, size, NULL, flags);
-	}
+    public static void glBufferStorageEXT(int target, long size, int flags) {
+        nglBufferStorageEXT(target, size, NULL, flags);
+    }
 
-	public static void glBufferStorageEXT(int target, ByteBuffer data, int flags) {
-		nglBufferStorageEXT(target, data.remaining(), memAddress(data), flags);
-	}
+    public static void glBufferStorageEXT(int target, ByteBuffer data, int flags) {
+        nglBufferStorageEXT(target, data.remaining(), memAddress(data), flags);
+    }
 
-	public static void glBufferStorageEXT(int target, ShortBuffer data, int flags) {
-		nglBufferStorageEXT(target, data.remaining() << 1, memAddress(data), flags);
-	}
+    public static void glBufferStorageEXT(int target, ShortBuffer data, int flags) {
+        nglBufferStorageEXT(target, data.remaining() << 1, memAddress(data), flags);
+    }
 
-	public static void glBufferStorageEXT(int target, IntBuffer data, int flags) {
-		nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
-	}
+    public static void glBufferStorageEXT(int target, IntBuffer data, int flags) {
+        nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
+    }
 
-	public static void glBufferStorageEXT(int target, FloatBuffer data, int flags) {
-		nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
-	}
+    public static void glBufferStorageEXT(int target, FloatBuffer data, int flags) {
+        nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
+    }
 
-	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
-	public static void glBufferStorageEXT(int target, short[] data, int flags) {
-		long __functionAddress = GLES.getICD().glBufferStorageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
-	}
+    /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
+    public static void glBufferStorageEXT(int target, short[] data, int flags) {
+        long __functionAddress = GLES.getICD().glBufferStorageEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
+    }
 
-	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
-	public static void glBufferStorageEXT(int target, int[] data, int flags) {
-		long __functionAddress = GLES.getICD().glBufferStorageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
-	}
+    /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
+    public static void glBufferStorageEXT(int target, int[] data, int flags) {
+        long __functionAddress = GLES.getICD().glBufferStorageEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+    }
 
-	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
-	public static void glBufferStorageEXT(int target, float[] data, int flags) {
-		long __functionAddress = GLES.getICD().glBufferStorageEXT;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
-	}
+    /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
+    public static void glBufferStorageEXT(int target, float[] data, int flags) {
+        long __functionAddress = GLES.getICD().glBufferStorageEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+    }
 
 }

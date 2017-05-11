@@ -44,29 +44,29 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface VkAllocationFunctionI extends CallbackI.P {
 
-	String SIGNATURE = Callback.__stdcall("(pppi)p");
+    String SIGNATURE = Callback.__stdcall("(pppi)p");
 
-	@Override
-	default String getSignature() { return SIGNATURE; }
+    @Override
+    default String getSignature() { return SIGNATURE; }
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
+    @Override
+    default long callback(long args) {
+        return invoke(
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgPointer(args),
+            dcbArgInt(args)
+        );
+    }
 
-	/**
-	 * Application-defined memory allocation function.
-	 *
-	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
-	 * @param size            the size in bytes of the requested allocation.
-	 * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two.
-	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
-	 */
-	long invoke(long pUserData, long size, long alignment, int allocationScope);
+    /**
+     * Application-defined memory allocation function.
+     *
+     * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
+     * @param size            the size in bytes of the requested allocation.
+     * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two.
+     * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
+     */
+    long invoke(long pUserData, long size, long alignment, int allocationScope);
 
 }

@@ -35,29 +35,29 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTDepthBoundsTest {
 
-	/**
-	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
-	 * GetDoublev.
-	 */
-	public static final int GL_DEPTH_BOUNDS_TEST_EXT = 0x8890;
+    /**
+     * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
+     * GetDoublev.
+     */
+    public static final int GL_DEPTH_BOUNDS_TEST_EXT = 0x8890;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_DEPTH_BOUNDS_EXT = 0x8891;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int GL_DEPTH_BOUNDS_EXT = 0x8891;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTDepthBoundsTest() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTDepthBoundsTest() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glDepthBoundsEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glDepthBoundsEXT
+        );
+    }
 
-	// --- [ glDepthBoundsEXT ] ---
+    // --- [ glDepthBoundsEXT ] ---
 
-	public static native void glDepthBoundsEXT(double zmin, double zmax);
+    public static native void glDepthBoundsEXT(double zmin, double zmax);
 
 }

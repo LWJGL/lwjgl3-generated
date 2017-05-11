@@ -13,9 +13,9 @@ package org.lwjgl.opencl;
  */
 public final class ALTERADeviceTemperature {
 
-	/** Accepted by the {@code param_name} argument of {@link CL10#clGetDeviceInfo GetDeviceInfo}. */
-	public static final int CL_DEVICE_CORE_TEMPERATURE_ALTERA = 0x40F3;
+    /** Accepted by the {@code param_name} argument of {@link CL10#clGetDeviceInfo GetDeviceInfo}. */
+    public static final int CL_DEVICE_CORE_TEMPERATURE_ALTERA = 0x40F3;
 
-	private ALTERADeviceTemperature() {}
+    private ALTERADeviceTemperature() {}
 
 }

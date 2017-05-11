@@ -9,13 +9,13 @@
 EXTERN_C_ENTER
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCErrno_errno(JNIEnv *__env, jclass clazz) {
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)errno;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)errno;
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCErrno_getErrno(JNIEnv *__env, jclass clazz) {
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)getErrno();
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)getErrno();
 }
 
 EXTERN_C_EXIT

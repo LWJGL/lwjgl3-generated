@@ -17,11 +17,11 @@ package org.lwjgl.egl;
  */
 public final class KHRPlatformX11 {
 
-	/**  */
-	public static final int
-		EGL_PLATFORM_X11_KHR        = 0x31D5,
-		EGL_PLATFORM_X11_SCREEN_KHR = 0x31D6;
+    /**  */
+    public static final int
+        EGL_PLATFORM_X11_KHR        = 0x31D5,
+        EGL_PLATFORM_X11_SCREEN_KHR = 0x31D6;
 
-	private KHRPlatformX11() {}
+    private KHRPlatformX11() {}
 
 }

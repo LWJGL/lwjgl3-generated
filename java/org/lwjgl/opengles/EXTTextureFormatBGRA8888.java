@@ -37,9 +37,9 @@ ALPHA               ALPHA           UNSIGNED_BYTE           1</code></pre>
  */
 public final class EXTTextureFormatBGRA8888 {
 
-	/** Accepted by the {@code format} and {@code internalformat} parameters of TexImage2D and the {@code format} parameter of TexSubImage2D. */
-	public static final int GL_BGRA_EXT = 0x80E1;
+    /** Accepted by the {@code format} and {@code internalformat} parameters of TexImage2D and the {@code format} parameter of TexSubImage2D. */
+    public static final int GL_BGRA_EXT = 0x80E1;
 
-	private EXTTextureFormatBGRA8888() {}
+    private EXTTextureFormatBGRA8888() {}
 
 }

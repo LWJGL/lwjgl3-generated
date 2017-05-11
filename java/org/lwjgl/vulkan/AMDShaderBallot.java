@@ -46,12 +46,12 @@ package org.lwjgl.vulkan;
  */
 public final class AMDShaderBallot {
 
-	/** The extension specification version. */
-	public static final int VK_AMD_SHADER_BALLOT_SPEC_VERSION = 1;
+    /** The extension specification version. */
+    public static final int VK_AMD_SHADER_BALLOT_SPEC_VERSION = 1;
 
-	/** The extension name. */
-	public static final String VK_AMD_SHADER_BALLOT_EXTENSION_NAME = "VK_AMD_shader_ballot";
+    /** The extension name. */
+    public static final String VK_AMD_SHADER_BALLOT_EXTENSION_NAME = "VK_AMD_shader_ballot";
 
-	private AMDShaderBallot() {}
+    private AMDShaderBallot() {}
 
 }

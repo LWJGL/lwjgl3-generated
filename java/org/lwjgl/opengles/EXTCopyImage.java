@@ -26,20 +26,20 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTCopyImage {
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected EXTCopyImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTCopyImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glCopyImageSubDataEXT
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glCopyImageSubDataEXT
+        );
+    }
 
-	// --- [ glCopyImageSubDataEXT ] ---
+    // --- [ glCopyImageSubDataEXT ] ---
 
-	public static native void glCopyImageSubDataEXT(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
+    public static native void glCopyImageSubDataEXT(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 }

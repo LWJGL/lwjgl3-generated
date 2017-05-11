@@ -33,125 +33,127 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBTimerQuery {
 
-	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int GL_TIME_ELAPSED = 0x88BF;
+    /** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
+    public static final int GL_TIME_ELAPSED = 0x88BF;
 
-	/**
-	 * Accepted by the {@code target} parameter of GetQueryiv and QueryCounter. Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv,
-	 * GetInteger64v, GetFloatv, and GetDoublev.
-	 */
-	public static final int GL_TIMESTAMP = 0x8E28;
+    /**
+     * Accepted by the {@code target} parameter of GetQueryiv and QueryCounter. Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv,
+     * GetInteger64v, GetFloatv, and GetDoublev.
+     */
+    public static final int GL_TIMESTAMP = 0x8E28;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected ARBTimerQuery() {
-		throw new UnsupportedOperationException();
-	}
+    protected ARBTimerQuery() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glQueryCounter, caps.glGetQueryObjecti64v, caps.glGetQueryObjectui64v
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glQueryCounter, caps.glGetQueryObjecti64v, caps.glGetQueryObjectui64v
+        );
+    }
 
-	// --- [ glQueryCounter ] ---
+    // --- [ glQueryCounter ] ---
 
-	/**
-	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
-	 *
-	 * @param id     the name of a query object into which to record the GL time
-	 * @param target the counter to query. Must be:<br><table><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td></tr></table>
-	 */
-	public static native void glQueryCounter(int id, int target);
+    /**
+     * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
+     *
+     * @param id     the name of a query object into which to record the GL time
+     * @param target the counter to query. Must be:<br><table><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td></tr></table>
+     */
+    public static native void glQueryCounter(int id, int target);
 
-	// --- [ glGetQueryObjecti64v ] ---
+    // --- [ glGetQueryObjecti64v ] ---
 
-	/** Unsafe version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-	public static native void nglGetQueryObjecti64v(int id, int pname, long params);
+    /** Unsafe version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
+    public static native void nglGetQueryObjecti64v(int id, int pname, long params);
 
-	/**
-	 * Returns the 64bit integer value of query object parameter.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
-	 * @param params the requested data
-	 */
-	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetQueryObjecti64v(id, pname, memAddress(params));
-	}
+    /**
+     * Returns the 64bit integer value of query object parameter.
+     *
+     * @param id     the name of a query object
+     * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
+     * @param params the requested data
+     */
+    public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetQueryObjecti64v(id, pname, memAddress(params));
+    }
 
-	/**
-	 * Returns the 64bit integer value of query object parameter.
-	 *
-	 * @param id    the name of a query object
-	 * @param pname the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
-	 */
-	public static long glGetQueryObjecti64(int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglGetQueryObjecti64v(id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Returns the 64bit integer value of query object parameter.
+     *
+     * @param id    the name of a query object
+     * @param pname the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
+     */
+    public static long glGetQueryObjecti64(int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglGetQueryObjecti64v(id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	// --- [ glGetQueryObjectui64v ] ---
+    // --- [ glGetQueryObjectui64v ] ---
 
-	/** Unsafe version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-	public static native void nglGetQueryObjectui64v(int id, int pname, long params);
+    /** Unsafe version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
+    public static native void nglGetQueryObjectui64v(int id, int pname, long params);
 
-	/**
-	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter
-	 * @param params the requested data
-	 */
-	public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
-		if ( CHECKS )
-			check(params, 1);
-		nglGetQueryObjectui64v(id, pname, memAddress(params));
-	}
+    /**
+     * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
+     *
+     * @param id     the name of a query object
+     * @param pname  the symbolic name of a query object parameter
+     * @param params the requested data
+     */
+    public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
+        if (CHECKS) {
+            check(params, 1);
+        }
+        nglGetQueryObjectui64v(id, pname, memAddress(params));
+    }
 
-	/**
-	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
-	 *
-	 * @param id    the name of a query object
-	 * @param pname the symbolic name of a query object parameter
-	 */
-	public static long glGetQueryObjectui64(int id, int pname) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			LongBuffer params = stack.callocLong(1);
-			nglGetQueryObjectui64v(id, pname, memAddress(params));
-			return params.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
+    /**
+     * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
+     *
+     * @param id    the name of a query object
+     * @param pname the symbolic name of a query object parameter
+     */
+    public static long glGetQueryObjectui64(int id, int pname) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            LongBuffer params = stack.callocLong(1);
+            nglGetQueryObjectui64v(id, pname, memAddress(params));
+            return params.get(0);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
 
-	/** Array version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-	public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
-		long __functionAddress = GL.getICD().glGetQueryObjecti64v;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, id, pname, params);
-	}
+    /** Array version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
+    public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
+        long __functionAddress = GL.getICD().glGetQueryObjecti64v;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, id, pname, params);
+    }
 
-	/** Array version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-	public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
-		long __functionAddress = GL.getICD().glGetQueryObjectui64v;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(params, 1);
-		}
-		callPV(__functionAddress, id, pname, params);
-	}
+    /** Array version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
+    public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
+        long __functionAddress = GL.getICD().glGetQueryObjectui64v;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(params, 1);
+        }
+        callPV(__functionAddress, id, pname, params);
+    }
 
 }

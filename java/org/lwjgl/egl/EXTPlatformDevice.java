@@ -20,9 +20,9 @@ package org.lwjgl.egl;
  */
 public final class EXTPlatformDevice {
 
-	/**  */
-	public static final int EGL_PLATFORM_DEVICE_EXT = 0x313F;
+    /**  */
+    public static final int EGL_PLATFORM_DEVICE_EXT = 0x313F;
 
-	private EXTPlatformDevice() {}
+    private EXTPlatformDevice() {}
 
 }

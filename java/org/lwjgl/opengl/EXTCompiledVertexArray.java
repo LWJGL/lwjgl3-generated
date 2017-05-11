@@ -21,29 +21,29 @@ import static org.lwjgl.system.Checks.*;
  */
 public class EXTCompiledVertexArray {
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_ARRAY_ELEMENT_LOCK_FIRST_EXT = 0x81A8,
-		GL_ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+    public static final int
+        GL_ARRAY_ELEMENT_LOCK_FIRST_EXT = 0x81A8,
+        GL_ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected EXTCompiledVertexArray() {
-		throw new UnsupportedOperationException();
-	}
+    protected EXTCompiledVertexArray() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glLockArraysEXT, caps.glUnlockArraysEXT
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glLockArraysEXT, caps.glUnlockArraysEXT
+        );
+    }
 
-	// --- [ glLockArraysEXT ] ---
+    // --- [ glLockArraysEXT ] ---
 
-	public static native void glLockArraysEXT(int first, int count);
+    public static native void glLockArraysEXT(int first, int count);
 
-	// --- [ glUnlockArraysEXT ] ---
+    // --- [ glUnlockArraysEXT ] ---
 
-	public static native void glUnlockArraysEXT();
+    public static native void glUnlockArraysEXT();
 
 }

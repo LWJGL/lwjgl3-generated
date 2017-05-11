@@ -11,10 +11,10 @@ typedef void (APIENTRY *glDrawBuffersNVPROC) (jint, const intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawBuffers_nglDrawBuffersNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong bufsAddress) {
-	glDrawBuffersNVPROC glDrawBuffersNV = (glDrawBuffersNVPROC)tlsGetFunction(164);
-	const intptr_t bufs = (const intptr_t)bufsAddress;
-	UNUSED_PARAM(clazz)
-	glDrawBuffersNV(n, bufs);
+    glDrawBuffersNVPROC glDrawBuffersNV = (glDrawBuffersNVPROC)tlsGetFunction(164);
+    const intptr_t bufs = (const intptr_t)bufsAddress;
+    UNUSED_PARAM(clazz)
+    glDrawBuffersNV(n, bufs);
 }
 
 EXTERN_C_EXIT

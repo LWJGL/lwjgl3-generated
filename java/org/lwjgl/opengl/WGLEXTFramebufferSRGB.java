@@ -14,12 +14,12 @@ package org.lwjgl.opengl;
  */
 public final class WGLEXTFramebufferSRGB {
 
-	/**
-	 * Accepted by the {@code piAttributes} parameter of wglGetPixelFormatAttribivEXT, wglGetPixelFormatAttribfvEXT, and the {@code piAttribIList} and
-	 * {@code pfAttribIList} of wglChoosePixelFormatEXT.
-	 */
-	public static final int WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x20A9;
+    /**
+     * Accepted by the {@code piAttributes} parameter of wglGetPixelFormatAttribivEXT, wglGetPixelFormatAttribfvEXT, and the {@code piAttribIList} and
+     * {@code pfAttribIList} of wglChoosePixelFormatEXT.
+     */
+    public static final int WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT = 0x20A9;
 
-	private WGLEXTFramebufferSRGB() {}
+    private WGLEXTFramebufferSRGB() {}
 
 }

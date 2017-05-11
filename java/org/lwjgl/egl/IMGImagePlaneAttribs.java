@@ -13,11 +13,11 @@ package org.lwjgl.egl;
  */
 public final class IMGImagePlaneAttribs {
 
-	/** Accepted by the {@code attrib_list} parameter of eglCreateImageKHR. */
-	public static final int
-		EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG = 0x3105,
-		EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG        = 0x3106;
+    /** Accepted by the {@code attrib_list} parameter of eglCreateImageKHR. */
+    public static final int
+        EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG = 0x3105,
+        EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG        = 0x3106;
 
-	private IMGImagePlaneAttribs() {}
+    private IMGImagePlaneAttribs() {}
 
 }

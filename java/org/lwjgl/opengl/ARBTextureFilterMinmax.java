@@ -20,19 +20,19 @@ package org.lwjgl.opengl;
  */
 public final class ARBTextureFilterMinmax {
 
-	/**
-	 * Accepted by the {@code pname} parameter to SamplerParameter{i f}{v}, SamplerParameterI{u}iv, GetSamplerParameter{i f}v, GetSamplerParameterI{u}iv,
-	 * TexParameter{i f}{v}, TexParameterI{u}iv, GetTexParameter{i f}v, GetTexParameterI{u}iv, TextureParameter{i f}{v}, TextureParameterI{u}iv,
-	 * GetTextureParameter{i f}v, and GetTextureParameterI{u}iv.
-	 */
-	public static final int GL_TEXTURE_REDUCTION_MODE_ARB = 0x9366;
+    /**
+     * Accepted by the {@code pname} parameter to SamplerParameter{i f}{v}, SamplerParameterI{u}iv, GetSamplerParameter{i f}v, GetSamplerParameterI{u}iv,
+     * TexParameter{i f}{v}, TexParameterI{u}iv, GetTexParameter{i f}v, GetTexParameterI{u}iv, TextureParameter{i f}{v}, TextureParameterI{u}iv,
+     * GetTextureParameter{i f}v, and GetTextureParameterI{u}iv.
+     */
+    public static final int GL_TEXTURE_REDUCTION_MODE_ARB = 0x9366;
 
-	/**
-	 * Accepted by the {@code param} or {@code params} parameter to SamplerParameter{i f}{v}, SamplerParameterI{u}iv, TexParameter{i f}{v}, TexParameterI{u}iv,
-	 * TextureParameter{i f}{v}, and TextureParameterI{u}iv when {@code pname} is TEXTURE_REDUCTION_MODE_ARB.
-	 */
-	public static final int GL_WEIGHTED_AVERAGE_ARB = 0x9367;
+    /**
+     * Accepted by the {@code param} or {@code params} parameter to SamplerParameter{i f}{v}, SamplerParameterI{u}iv, TexParameter{i f}{v}, TexParameterI{u}iv,
+     * TextureParameter{i f}{v}, and TextureParameterI{u}iv when {@code pname} is TEXTURE_REDUCTION_MODE_ARB.
+     */
+    public static final int GL_WEIGHTED_AVERAGE_ARB = 0x9367;
 
-	private ARBTextureFilterMinmax() {}
+    private ARBTextureFilterMinmax() {}
 
 }

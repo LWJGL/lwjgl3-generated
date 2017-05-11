@@ -20,18 +20,18 @@ package org.lwjgl.opengles;
  */
 public final class IMGTextureFilterCubic {
 
-	/**
-	 * Accepted by the {@code params} parameters of TexParameterf, TexParameterfv, TexParameteri, TexParameteriv, SamplerParameterf, SamplerParameterfv,
-	 * SamperParameteri and SamplerParameteriv, and returned in {@code params} by GetTexParameterfv, GetTexParameteriv, GetSamplerParameterfv and
-	 * GetSamplerParameteriv when {@code pname} is TEXTURE_MIN_FILTER or TEXTURE_MAG_FILTER in either case.
-	 */
-	public static final int GL_CUBIC_IMG = 0x9139;
+    /**
+     * Accepted by the {@code params} parameters of TexParameterf, TexParameterfv, TexParameteri, TexParameteriv, SamplerParameterf, SamplerParameterfv,
+     * SamperParameteri and SamplerParameteriv, and returned in {@code params} by GetTexParameterfv, GetTexParameteriv, GetSamplerParameterfv and
+     * GetSamplerParameteriv when {@code pname} is TEXTURE_MIN_FILTER or TEXTURE_MAG_FILTER in either case.
+     */
+    public static final int GL_CUBIC_IMG = 0x9139;
 
-	/** Accepted as above only when {@code pname} is TEXTURE_MIN_FILTER. */
-	public static final int
-		GL_CUBIC_MIPMAP_NEAREST_IMG = 0x913A,
-		GL_CUBIC_MIPMAP_LINEAR_IMG  = 0x913B;
+    /** Accepted as above only when {@code pname} is TEXTURE_MIN_FILTER. */
+    public static final int
+        GL_CUBIC_MIPMAP_NEAREST_IMG = 0x913A,
+        GL_CUBIC_MIPMAP_LINEAR_IMG  = 0x913B;
 
-	private IMGTextureFilterCubic() {}
+    private IMGTextureFilterCubic() {}
 
 }

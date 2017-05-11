@@ -18,46 +18,47 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class MDBRelFunc extends Callback implements MDBRelFuncI {
 
-	/** Creates a {@code MDBRelFunc} instance from the specified function pointer. */
-	public static MDBRelFunc create(long functionPointer) {
-		if ( functionPointer == NULL )
-			return null;
+    /** Creates a {@code MDBRelFunc} instance from the specified function pointer. */
+    public static MDBRelFunc create(long functionPointer) {
+        if (functionPointer == NULL) {
+            return null;
+        }
 
-		MDBRelFuncI instance = Callback.get(functionPointer);
-		return instance instanceof MDBRelFunc
-			? (MDBRelFunc)instance
-			: new Container(functionPointer, instance);
-	}
+        MDBRelFuncI instance = Callback.get(functionPointer);
+        return instance instanceof MDBRelFunc
+            ? (MDBRelFunc)instance
+            : new Container(functionPointer, instance);
+    }
 
-	/** Creates a {@code MDBRelFunc} instance that delegates to the specified {@code MDBRelFuncI} instance. */
-	public static MDBRelFunc create(MDBRelFuncI instance) {
-		return instance instanceof MDBRelFunc
-			? (MDBRelFunc)instance
-			: new Container(instance.address(), instance);
-	}
+    /** Creates a {@code MDBRelFunc} instance that delegates to the specified {@code MDBRelFuncI} instance. */
+    public static MDBRelFunc create(MDBRelFuncI instance) {
+        return instance instanceof MDBRelFunc
+            ? (MDBRelFunc)instance
+            : new Container(instance.address(), instance);
+    }
 
-	protected MDBRelFunc() {
-		super(SIGNATURE);
-	}
+    protected MDBRelFunc() {
+        super(SIGNATURE);
+    }
 
-	private MDBRelFunc(long functionPointer) {
-		super(functionPointer);
-	}
+    private MDBRelFunc(long functionPointer) {
+        super(functionPointer);
+    }
 
-	private static final class Container extends MDBRelFunc {
+    private static final class Container extends MDBRelFunc {
 
-		private final MDBRelFuncI delegate;
+        private final MDBRelFuncI delegate;
 
-		Container(long functionPointer, MDBRelFuncI delegate) {
-			super(functionPointer);
-			this.delegate = delegate;
-		}
+        Container(long functionPointer, MDBRelFuncI delegate) {
+            super(functionPointer);
+            this.delegate = delegate;
+        }
 
-		@Override
-		public void invoke(long item, long oldptr, long newptr, long relctx) {
-			delegate.invoke(item, oldptr, newptr, relctx);
-		}
+        @Override
+        public void invoke(long item, long oldptr, long newptr, long relctx) {
+            delegate.invoke(item, oldptr, newptr, relctx);
+        }
 
-	}
+    }
 
 }

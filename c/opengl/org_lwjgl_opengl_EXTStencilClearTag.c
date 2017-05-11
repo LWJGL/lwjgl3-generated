@@ -11,9 +11,9 @@ typedef void (APIENTRY *glStencilClearTagEXTPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTStencilClearTag_glStencilClearTagEXT(JNIEnv *__env, jclass clazz, jint stencilTagBits, jint stencilClearTag) {
-	glStencilClearTagEXTPROC glStencilClearTagEXT = (glStencilClearTagEXTPROC)tlsGetFunction(1528);
-	UNUSED_PARAM(clazz)
-	glStencilClearTagEXT(stencilTagBits, stencilClearTag);
+    glStencilClearTagEXTPROC glStencilClearTagEXT = (glStencilClearTagEXTPROC)tlsGetFunction(1528);
+    UNUSED_PARAM(clazz)
+    glStencilClearTagEXT(stencilTagBits, stencilClearTag);
 }
 
 EXTERN_C_EXIT

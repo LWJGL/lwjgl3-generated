@@ -16,17 +16,17 @@ package org.lwjgl.opengles;
  */
 public final class EXTTextureCompressionS3TC {
 
-	/**
-	 * In extended OpenGL ES 2.0.25 these new tokens are accepted by the {@code internalformat} parameter of TexImage2D, CompressedTexImage2D and the
-	 * {@code format} parameter of CompressedTexSubImage2D. In extended OpenGL ES 3.0.2 these new tokens are also accepted by the {@code internalformat}
-	 * parameter of TexImage3D, CompressedTexImage3D, TexStorage2D, TexStorage3D and the {@code format} parameter of CompressedTexSubImage3D.
-	 */
-	public static final int
-		GL_COMPRESSED_RGB_S3TC_DXT1_EXT  = 0x83F0,
-		GL_COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1,
-		GL_COMPRESSED_RGBA_S3TC_DXT3_EXT = 0x83F2,
-		GL_COMPRESSED_RGBA_S3TC_DXT5_EXT = 0x83F3;
+    /**
+     * In extended OpenGL ES 2.0.25 these new tokens are accepted by the {@code internalformat} parameter of TexImage2D, CompressedTexImage2D and the
+     * {@code format} parameter of CompressedTexSubImage2D. In extended OpenGL ES 3.0.2 these new tokens are also accepted by the {@code internalformat}
+     * parameter of TexImage3D, CompressedTexImage3D, TexStorage2D, TexStorage3D and the {@code format} parameter of CompressedTexSubImage3D.
+     */
+    public static final int
+        GL_COMPRESSED_RGB_S3TC_DXT1_EXT  = 0x83F0,
+        GL_COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1,
+        GL_COMPRESSED_RGBA_S3TC_DXT3_EXT = 0x83F2,
+        GL_COMPRESSED_RGBA_S3TC_DXT5_EXT = 0x83F3;
 
-	private EXTTextureCompressionS3TC() {}
+    private EXTTextureCompressionS3TC() {}
 
 }

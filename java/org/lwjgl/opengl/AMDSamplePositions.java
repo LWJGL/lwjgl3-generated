@@ -23,39 +23,40 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class AMDSamplePositions {
 
-	/** Accepted by the {@code pname} parameter of GetFloatv. */
-	public static final int GL_SUBSAMPLE_DISTANCE_AMD = 0x883F;
+    /** Accepted by the {@code pname} parameter of GetFloatv. */
+    public static final int GL_SUBSAMPLE_DISTANCE_AMD = 0x883F;
 
-	static { GL.initialize(); }
+    static { GL.initialize(); }
 
-	protected AMDSamplePositions() {
-		throw new UnsupportedOperationException();
-	}
+    protected AMDSamplePositions() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLCapabilities caps) {
-		return checkFunctions(
-			caps.glSetMultisamplefvAMD
-		);
-	}
+    static boolean isAvailable(GLCapabilities caps) {
+        return checkFunctions(
+            caps.glSetMultisamplefvAMD
+        );
+    }
 
-	// --- [ glSetMultisamplefvAMD ] ---
+    // --- [ glSetMultisamplefvAMD ] ---
 
-	public static native void nglSetMultisamplefvAMD(int pname, int index, long val);
+    public static native void nglSetMultisamplefvAMD(int pname, int index, long val);
 
-	public static void glSetMultisamplefvAMD(int pname, int index, FloatBuffer val) {
-		if ( CHECKS )
-			check(val, 2);
-		nglSetMultisamplefvAMD(pname, index, memAddress(val));
-	}
+    public static void glSetMultisamplefvAMD(int pname, int index, FloatBuffer val) {
+        if (CHECKS) {
+            check(val, 2);
+        }
+        nglSetMultisamplefvAMD(pname, index, memAddress(val));
+    }
 
-	/** Array version of: {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
-	public static void glSetMultisamplefvAMD(int pname, int index, float[] val) {
-		long __functionAddress = GL.getICD().glSetMultisamplefvAMD;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(val, 2);
-		}
-		callPV(__functionAddress, pname, index, val);
-	}
+    /** Array version of: {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
+    public static void glSetMultisamplefvAMD(int pname, int index, float[] val) {
+        long __functionAddress = GL.getICD().glSetMultisamplefvAMD;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(val, 2);
+        }
+        callPV(__functionAddress, pname, index, val);
+    }
 
 }

@@ -25,11 +25,11 @@ package org.lwjgl.opengles;
  */
 public final class EXTTextureCompressionDXT1 {
 
-	/** Accepted by the {@code internalformat} parameter of CompressedTexImage2D and the {@code format} parameter of CompressedTexSubImage2D. */
-	public static final int
-		GL_COMPRESSED_RGB_S3TC_DXT1_EXT  = 0x83F0,
-		GL_COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1;
+    /** Accepted by the {@code internalformat} parameter of CompressedTexImage2D and the {@code format} parameter of CompressedTexSubImage2D. */
+    public static final int
+        GL_COMPRESSED_RGB_S3TC_DXT1_EXT  = 0x83F0,
+        GL_COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1;
 
-	private EXTTextureCompressionDXT1() {}
+    private EXTTextureCompressionDXT1() {}
 
 }

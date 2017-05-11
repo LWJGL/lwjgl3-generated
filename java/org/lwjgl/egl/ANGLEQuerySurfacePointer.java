@@ -18,32 +18,33 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ANGLEQuerySurfacePointer {
 
-	protected ANGLEQuerySurfacePointer() {
-		throw new UnsupportedOperationException();
-	}
+    protected ANGLEQuerySurfacePointer() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(EGLCapabilities caps) {
-		return checkFunctions(
-			caps.eglQuerySurfacePointerANGLE
-		);
-	}
+    static boolean isAvailable(EGLCapabilities caps) {
+        return checkFunctions(
+            caps.eglQuerySurfacePointerANGLE
+        );
+    }
 
-	// --- [ eglQuerySurfacePointerANGLE ] ---
+    // --- [ eglQuerySurfacePointerANGLE ] ---
 
-	public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
-		long __functionAddress = EGL.getCapabilities().eglQuerySurfacePointerANGLE;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(dpy);
-			check(surface);
-		}
-		return callPPPI(__functionAddress, dpy, surface, attribute, value);
-	}
+    public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
+        long __functionAddress = EGL.getCapabilities().eglQuerySurfacePointerANGLE;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpy);
+            check(surface);
+        }
+        return callPPPI(__functionAddress, dpy, surface, attribute, value);
+    }
 
-	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value)) != 0;
-	}
+    public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
+        if (CHECKS) {
+            check(value, 1);
+        }
+        return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value)) != 0;
+    }
 
 }

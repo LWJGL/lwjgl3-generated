@@ -17,49 +17,49 @@ import static org.lwjgl.system.JNI.*;
  */
 public class GLXNVCopyImage {
 
-	protected GLXNVCopyImage() {
-		throw new UnsupportedOperationException();
-	}
+    protected GLXNVCopyImage() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLXCapabilities caps) {
-		return checkFunctions(
-			caps.glXCopyImageSubDataNV
-		);
-	}
+    static boolean isAvailable(GLXCapabilities caps) {
+        return checkFunctions(
+            caps.glXCopyImageSubDataNV
+        );
+    }
 
-	// --- [ glXCopyImageSubDataNV ] ---
+    // --- [ glXCopyImageSubDataNV ] ---
 
-	/**
-	 * Behaves identically to the core function {@link #glXCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
-	 * the contexts in which to look up the source and destination objects, respectively. A value of {@code NULL} for either context indicates that the value which is
-	 * returned by {@link GLX#glXGetCurrentContext GetCurrentContext} should be used instead. Both contexts must share the same address space.
-	 *
-	 * @param display   the connection to the X server
-	 * @param srcCtx    the source context
-	 * @param srcName   
-	 * @param srcTarget 
-	 * @param srcLevel  
-	 * @param srcX      
-	 * @param srcY      
-	 * @param srcZ      
-	 * @param dstCtx    the destination context
-	 * @param dstName   
-	 * @param dstTarget 
-	 * @param dstLevel  
-	 * @param dstX      
-	 * @param dstY      
-	 * @param dstZ      
-	 * @param width     
-	 * @param height    
-	 * @param depth     
-	 */
-	public static void glXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyImageSubDataNV;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(display);
-		}
-		callPPPV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
-	}
+    /**
+     * Behaves identically to the core function {@link #glXCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
+     * the contexts in which to look up the source and destination objects, respectively. A value of {@code NULL} for either context indicates that the value which is
+     * returned by {@link GLX#glXGetCurrentContext GetCurrentContext} should be used instead. Both contexts must share the same address space.
+     *
+     * @param display   the connection to the X server
+     * @param srcCtx    the source context
+     * @param srcName   
+     * @param srcTarget 
+     * @param srcLevel  
+     * @param srcX      
+     * @param srcY      
+     * @param srcZ      
+     * @param dstCtx    the destination context
+     * @param dstName   
+     * @param dstTarget 
+     * @param dstLevel  
+     * @param dstX      
+     * @param dstY      
+     * @param dstZ      
+     * @param width     
+     * @param height    
+     * @param depth     
+     */
+    public static void glXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
+        long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyImageSubDataNV;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(display);
+        }
+        callPPPV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+    }
 
 }

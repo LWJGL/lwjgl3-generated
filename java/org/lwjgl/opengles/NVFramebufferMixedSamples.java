@@ -45,76 +45,78 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVFramebufferMixedSamples {
 
-	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
-	public static final int
-		GL_RASTER_MULTISAMPLE_EXT       = 0x9327,
-		GL_COVERAGE_MODULATION_TABLE_NV = 0x9331;
+    /** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
+    public static final int
+        GL_RASTER_MULTISAMPLE_EXT       = 0x9327,
+        GL_COVERAGE_MODULATION_TABLE_NV = 0x9331;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_RASTER_SAMPLES_EXT                    = 0x9328,
-		GL_MAX_RASTER_SAMPLES_EXT                = 0x9329,
-		GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT     = 0x932A,
-		GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
-		GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C,
-		GL_COLOR_SAMPLES_NV                      = 0x8E20,
-		GL_DEPTH_SAMPLES_NV                      = 0x932D,
-		GL_STENCIL_SAMPLES_NV                    = 0x932E,
-		GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV      = 0x932F,
-		GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV    = 0x9330,
-		GL_COVERAGE_MODULATION_NV                = 0x9332,
-		GL_COVERAGE_MODULATION_TABLE_SIZE_NV     = 0x9333;
+    /** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
+    public static final int
+        GL_RASTER_SAMPLES_EXT                    = 0x9328,
+        GL_MAX_RASTER_SAMPLES_EXT                = 0x9329,
+        GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT     = 0x932A,
+        GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT = 0x932B,
+        GL_EFFECTIVE_RASTER_SAMPLES_EXT          = 0x932C,
+        GL_COLOR_SAMPLES_NV                      = 0x8E20,
+        GL_DEPTH_SAMPLES_NV                      = 0x932D,
+        GL_STENCIL_SAMPLES_NV                    = 0x932E,
+        GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV      = 0x932F,
+        GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV    = 0x9330,
+        GL_COVERAGE_MODULATION_NV                = 0x9332,
+        GL_COVERAGE_MODULATION_TABLE_SIZE_NV     = 0x9333;
 
-	static { GLES.initialize(); }
+    static { GLES.initialize(); }
 
-	protected NVFramebufferMixedSamples() {
-		throw new UnsupportedOperationException();
-	}
+    protected NVFramebufferMixedSamples() {
+        throw new UnsupportedOperationException();
+    }
 
-	static boolean isAvailable(GLESCapabilities caps) {
-		return checkFunctions(
-			caps.glRasterSamplesEXT, caps.glCoverageModulationTableNV, caps.glGetCoverageModulationTableNV, caps.glCoverageModulationNV
-		);
-	}
+    static boolean isAvailable(GLESCapabilities caps) {
+        return checkFunctions(
+            caps.glRasterSamplesEXT, caps.glCoverageModulationTableNV, caps.glGetCoverageModulationTableNV, caps.glCoverageModulationNV
+        );
+    }
 
-	// --- [ glRasterSamplesEXT ] ---
+    // --- [ glRasterSamplesEXT ] ---
 
-	public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+    public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
 
-	// --- [ glCoverageModulationTableNV ] ---
+    // --- [ glCoverageModulationTableNV ] ---
 
-	public static native void nglCoverageModulationTableNV(int n, long v);
+    public static native void nglCoverageModulationTableNV(int n, long v);
 
-	public static void glCoverageModulationTableNV(FloatBuffer v) {
-		nglCoverageModulationTableNV(v.remaining(), memAddress(v));
-	}
+    public static void glCoverageModulationTableNV(FloatBuffer v) {
+        nglCoverageModulationTableNV(v.remaining(), memAddress(v));
+    }
 
-	// --- [ glGetCoverageModulationTableNV ] ---
+    // --- [ glGetCoverageModulationTableNV ] ---
 
-	public static native void nglGetCoverageModulationTableNV(int bufsize, long v);
+    public static native void nglGetCoverageModulationTableNV(int bufsize, long v);
 
-	public static void glGetCoverageModulationTableNV(FloatBuffer v) {
-		nglGetCoverageModulationTableNV(v.remaining(), memAddress(v));
-	}
+    public static void glGetCoverageModulationTableNV(FloatBuffer v) {
+        nglGetCoverageModulationTableNV(v.remaining(), memAddress(v));
+    }
 
-	// --- [ glCoverageModulationNV ] ---
+    // --- [ glCoverageModulationNV ] ---
 
-	public static native void glCoverageModulationNV(int components);
+    public static native void glCoverageModulationNV(int components);
 
-	/** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
-	public static void glCoverageModulationTableNV(float[] v) {
-		long __functionAddress = GLES.getICD().glCoverageModulationTableNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v.length, v);
-	}
+    /** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
+    public static void glCoverageModulationTableNV(float[] v) {
+        long __functionAddress = GLES.getICD().glCoverageModulationTableNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, v.length, v);
+    }
 
-	/** Array version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
-	public static void glGetCoverageModulationTableNV(float[] v) {
-		long __functionAddress = GLES.getICD().glGetCoverageModulationTableNV;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPV(__functionAddress, v.length, v);
-	}
+    /** Array version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
+    public static void glGetCoverageModulationTableNV(float[] v) {
+        long __functionAddress = GLES.getICD().glGetCoverageModulationTableNV;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, v.length, v);
+    }
 
 }
