@@ -12,6 +12,8 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to a Win32 {@code HWND}, as well as a query to determine support for rendering to the windows desktop.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHR_win32_surface</dd>
@@ -55,8 +57,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Ian Elliott, LunarG</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to a Win32 {@code HWND}, as well as a query to determine support for rendering to the windows desktop.</p>
  */
 public class KHRWin32Surface {
 

@@ -9,6 +9,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
+ * This is extension, along with related platform exentions, allows applications to take exclusive control of displays associated with a native windowing system. This is especially useful for virtual reality applications that wish to hide HMDs (head mounted displays) from the native platform's display management system, desktop, and/or other applications.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_EXT_direct_mode_display</dd>
@@ -40,8 +42,6 @@ import static org.lwjgl.system.JNI.*;
  * <li>James Jones, NVIDIA (jajones 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This is extension, along with related platform exentions, allows applications to take exclusive control of displays associated with a native windowing system. This is especially useful for virtual reality applications that wish to hide HMDs (head mounted displays) from the native platform's display management system, desktop, and/or other applications.</p>
  */
 public class EXTDirectModeDisplay {
 

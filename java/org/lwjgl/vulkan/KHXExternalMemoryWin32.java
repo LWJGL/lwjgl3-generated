@@ -12,6 +12,8 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * An application may wish to reference device memory in multiple Vulkan logical devices or instances, in multiple processes, and/or in multiple APIs. This extension enables an application to export Windows handles from Vulkan memory objects and to import Vulkan memory objects from Windows handles exported from other Vulkan memory objects or from similar resources in other APIs.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHX_external_memory_win32</dd>
@@ -41,8 +43,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Contact</b></dt>
  * <dd>James Jones (jajones 'at' nvidia.com)</dd>
  * </dl>
- * 
- * <p>An application may wish to reference device memory in multiple Vulkan logical devices or instances, in multiple processes, and/or in multiple APIs. This extension enables an application to export Windows handles from Vulkan memory objects and to import Vulkan memory objects from Windows handles exported from other Vulkan memory objects or from similar resources in other APIs.</p>
  */
 public class KHXExternalMemoryWin32 {
 

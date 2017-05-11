@@ -6,38 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * <dl>
- * <dt><b>Name String</b></dt>
- * <dd>VK_NV_geometry_shader_passthrough</dd>
- * <dt><b>Extension Type</b></dt>
- * <dd>Device extension</dd>
- * <dt><b>Registered Extension Number</b></dt>
- * <dd>96</dd>
- * <dt><b>Status</b></dt>
- * <dd>Complete</dd>
- * <dt><b>Last Modified Data</b></dt>
- * <dd>2017-02-15</dd>
- * <dt><b>Revision</b></dt>
- * <dd>1</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>This extension requires Vulkan 1.0.</li>
- * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/NV/SPV_NV_geometry_shader_passthrough.html">SPV_NV_geometry_shader_passthrough</a> SPIR-V extension.</li>
- * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/NV/geometry_shader_passthrough.txt">GL_NV_geometry_shader_passthrough</a> extension for GLSL source languages.</li>
- * <li>This extension requires the {@code geometryShader} feature.</li>
- * </ul></dd>
- * <dt><b>Contributors</b></dt>
- * <dd><ul>
- * <li>Piers Daniell, NVIDIA</li>
- * <li>Jeff Bolz, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contact</b></dt>
- * <dd><ul>
- * <li>Daniel Koch (dkoch 'at' nvidia.com)</li>
- * </ul></dd>
- * <dt><b>Overview</b></dt>
- * <dd>This extension adds support for the following SPIR-V extension in Vulkan:
+ * This extension adds support for the following SPIR-V extension in Vulkan:
  * 
  * <ul>
  * <li>SPV_NV_geometry_shader_passthrough</li>
@@ -47,8 +16,7 @@ package org.lwjgl.vulkan;
  * 
  * <p>This extension provides access to the {@code PassthroughNV} decoration under the {@code GeometryShaderPassthroughNV} capability. Adding this to a geometry shader input variable indicates that the values of this input are copied to the corresponding vertex of the output primitive.</p>
  * 
- * <p>When using GLSL source-based shading languages, the {@code passthrough} layout qualifier from GL_NV_geometry_shader_passthrough maps to the {@code PassthroughNV} decoration. To use the {@code passthrough} layout, in GLSL the GL_NV_geometry_shader_passthrough extension must be enabled. Behaviour is described in the GL_NV_geometry_shader_passthrough extension specification.</p></dd>
- * </dl>
+ * <p>When using GLSL source-based shading languages, the {@code passthrough} layout qualifier from GL_NV_geometry_shader_passthrough maps to the {@code PassthroughNV} decoration. To use the {@code passthrough} layout, in GLSL the GL_NV_geometry_shader_passthrough extension must be enabled. Behaviour is described in the GL_NV_geometry_shader_passthrough extension specification.</p>
  * 
  * <h5>Sample Code</h5>
  * 
@@ -107,6 +75,38 @@ void main()
     // loop over three vertices or call EmitVertex().
     gl_Layer = compute_layer();
 }</code></pre>
+ * 
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_NV_geometry_shader_passthrough</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Device extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>96</dd>
+ * <dt><b>Status</b></dt>
+ * <dd>Complete</dd>
+ * <dt><b>Last Modified Data</b></dt>
+ * <dd>2017-02-15</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>1</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>This extension requires Vulkan 1.0.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/NV/SPV_NV_geometry_shader_passthrough.html">SPV_NV_geometry_shader_passthrough</a> SPIR-V extension.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/NV/geometry_shader_passthrough.txt">GL_NV_geometry_shader_passthrough</a> extension for GLSL source languages.</li>
+ * <li>This extension requires the {@code geometryShader} feature.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Piers Daniell, NVIDIA</li>
+ * <li>Jeff Bolz, NVIDIA</li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Daniel Koch (dkoch 'at' nvidia.com)</li>
+ * </ul></dd>
+ * </dl>
  */
 public final class NVGeometryShaderPassthrough {
 

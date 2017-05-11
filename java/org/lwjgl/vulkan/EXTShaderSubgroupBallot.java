@@ -6,40 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * <dl>
- * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_shader_subgroup_ballot</dd>
- * <dt><b>Extension Type</b></dt>
- * <dd>Device extension</dd>
- * <dt><b>Registered Extension Number</b></dt>
- * <dd>65</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-11-28</dd>
- * <dt><b>Revision</b></dt>
- * <dd>1</dd>
- * <dt><b>IP Status</b></dt>
- * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>This extension requires Vulkan 1.0.</li>
- * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_shader_ballot.html">SPV_KHR_shader_ballot</a> SPIR-V extension.</li>
- * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/ARB/shader_ballot.txt">GL_ARB_shader_ballot</a> extension for GLSL source languages.</li>
- * </ul></dd>
- * <dt><b>Contributors</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz, NVIDIA</li>
- * <li>Neil Henning, Codeplay</li>
- * <li>Daniel Koch, NVIDIA Corporation</li>
- * </ul></dd>
- * <dt><b>Contact</b></dt>
- * <dd><ul>
- * <li>Daniel Koch (dkoch 'at' nvidia.com)</li>
- * </ul></dd>
- * <dt><b>Overview</b></dt>
- * <dd>This extension adds support for the following SPIR-V extension in Vulkan:
+ * This extension adds support for the following SPIR-V extension in Vulkan:
  * 
  * <ul>
  * <li>SPV_KHR_shader_ballot</li>
@@ -80,6 +47,39 @@ package org.lwjgl.vulkan;
  * <li>ballotARB() &#8594; {@code OpSubgroupBallotKHR},</li>
  * <li>readFirstInvocationARB() &#8594; {@code OpSubgroupFirstInvocationKHR}, and</li>
  * <li>readInvocationARB() &#8594; {@code OpSubgroupReadInvocationKHR}.</li>
+ * </ul>
+ * 
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_EXT_shader_subgroup_ballot</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Device extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>65</dd>
+ * <dt><b>Status</b></dt>
+ * <dd>Draft</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-11-28</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>1</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>This extension requires Vulkan 1.0.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_shader_ballot.html">SPV_KHR_shader_ballot</a> SPIR-V extension.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/ARB/shader_ballot.txt">GL_ARB_shader_ballot</a> extension for GLSL source languages.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz, NVIDIA</li>
+ * <li>Neil Henning, Codeplay</li>
+ * <li>Daniel Koch, NVIDIA Corporation</li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Daniel Koch (dkoch 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
  */

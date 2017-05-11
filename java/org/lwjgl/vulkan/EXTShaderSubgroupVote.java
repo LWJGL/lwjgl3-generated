@@ -6,39 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * <dl>
- * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_shader_subgroup_vote</dd>
- * <dt><b>Extension Type</b></dt>
- * <dd>Device extension</dd>
- * <dt><b>Registered Extension Number</b></dt>
- * <dd>66</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-11-28</dd>
- * <dt><b>Revision</b></dt>
- * <dd>1</dd>
- * <dt><b>IP Status</b></dt>
- * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>This extension requires Vulkan 1.0.</li>
- * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_subgroup_vote.html">SPV_KHR_subgroup_vote</a> SPIR-V extension.</li>
- * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/ARB/shader_group_vote.txt">GL_ARB_shader_group_vote</a> extension for GLSL source languages.</li>
- * </ul></dd>
- * <dt><b>Contributors</b></dt>
- * <dd><ul>
- * <li>Neil Henning, Codeplay</li>
- * <li>Daniel Koch, NVIDIA Corporation</li>
- * </ul></dd>
- * <dt><b>Contact</b></dt>
- * <dd><ul>
- * <li>Daniel Koch (dkoch 'at' nvidia.com)</li>
- * </ul></dd>
- * <dt><b>Overview</b></dt>
- * <dd>This extension adds support for the following SPIR-V extension in Vulkan:
+ * This extension adds support for the following SPIR-V extension in Vulkan:
  * 
  * <ul>
  * <li>SPV_KHR_subgroup_vote</li>
@@ -82,7 +50,39 @@ package org.lwjgl.vulkan;
   result = do_general_path();
 }</code></pre>
  * 
- * <p>The built-in function {@code allInvocationsARB}() will return the same value for all invocations in the group, so the group will either execute {@code do_fast_path}() or {@code do_general_path}(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation of the result and then refining the approximation. Some input values may require a small number of iterations to generate an accurate result ({@code do_fast_path}) while others require a larger number ({@code do_general_path}). In another example, shader code might want to evaluate a complex function ({@code do_general_path}) that can be greatly simplified when assuming a specific value for one of its inputs ({@code do_fast_path}).</p></dd>
+ * <p>The built-in function {@code allInvocationsARB}() will return the same value for all invocations in the group, so the group will either execute {@code do_fast_path}() or {@code do_general_path}(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation of the result and then refining the approximation. Some input values may require a small number of iterations to generate an accurate result ({@code do_fast_path}) while others require a larger number ({@code do_general_path}). In another example, shader code might want to evaluate a complex function ({@code do_general_path}) that can be greatly simplified when assuming a specific value for one of its inputs ({@code do_fast_path}).</p>
+ * 
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_EXT_shader_subgroup_vote</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Device extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>66</dd>
+ * <dt><b>Status</b></dt>
+ * <dd>Draft</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-11-28</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>1</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>This extension requires Vulkan 1.0.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_subgroup_vote.html">SPV_KHR_subgroup_vote</a> SPIR-V extension.</li>
+ * <li>This extension requires the <a target="_blank" href="https://www.opengl.org/registry/specs/ARB/shader_group_vote.txt">GL_ARB_shader_group_vote</a> extension for GLSL source languages.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Neil Henning, Codeplay</li>
+ * <li>Daniel Koch, NVIDIA Corporation</li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Daniel Koch (dkoch 'at' nvidia.com)</li>
+ * </ul></dd>
  * </dl>
  */
 public final class EXTShaderSubgroupVote {

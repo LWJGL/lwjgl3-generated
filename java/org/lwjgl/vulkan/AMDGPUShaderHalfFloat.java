@@ -6,6 +6,12 @@
 package org.lwjgl.vulkan;
 
 /**
+ * This extension adds support for the following SPIR-V extension in {apiname}:
+ * 
+ * <ul>
+ * <li>SPV_AMD_gpu_shader_half_float</li>
+ * </ul>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_AMD_gpu_shader_half_float</dd>
@@ -37,12 +43,6 @@ package org.lwjgl.vulkan;
  * <li>Dominik Witczak, AMD (mailto:Dominik.Witczak@amd.com[Dominik.Witczak@amd.com])</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension adds support for the following SPIR-V extension in {apiname}:</p>
- * 
- * <ul>
- * <li>SPV_AMD_gpu_shader_half_float</li>
- * </ul>
  */
 public final class AMDGPUShaderHalfFloat {
 

@@ -6,6 +6,12 @@
 package org.lwjgl.vulkan;
 
 /**
+ * This extension has the same goal as the OpenGL ES {@code GL_OVR_multiview} extension - it enables rendering to multiple "{@code views}" by recording a single set of commands to be executed with slightly different behavior for each view. It includes a concise way to declare a render pass with multiple views, and gives implementations freedom to render the views in the most efficient way possible.
+ * 
+ * <h5>Examples</h5>
+ * 
+ * <p>None.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHX_multiview</dd>
@@ -35,12 +41,6 @@ package org.lwjgl.vulkan;
  * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension has the same goal as the OpenGL ES {@code GL_OVR_multiview} extension - it enables rendering to multiple "{@code views}" by recording a single set of commands to be executed with slightly different behavior for each view. It includes a concise way to declare a render pass with multiple views, and gives implementations freedom to render the views in the most efficient way possible.</p>
- * 
- * <h5>Examples</h5>
- * 
- * <p>None.</p>
  */
 public final class KHXMultiview {
 

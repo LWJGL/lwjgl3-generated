@@ -6,6 +6,8 @@
 package org.lwjgl.vulkan;
 
 /**
+ * Applications that wish to import Direct3D 11 memory objects into the Vulkan API may wish to use the native keyed mutex mechanism to synchronize access to the memory between Vulkan and Direct3D. This extension provides a way for an application to access the keyed mutex associated with an imported Vulkan memory object when submitting command buffers to a queue.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHX_win32_keyed_mutex</dd>
@@ -35,8 +37,6 @@ package org.lwjgl.vulkan;
  * <dt><b>Contact</b></dt>
  * <dd>Carsten Rohde (crohde 'at' nvidia.com)</dd>
  * </dl>
- * 
- * <p>Applications that wish to import Direct3D 11 memory objects into the Vulkan API may wish to use the native keyed mutex mechanism to synchronize access to the memory between Vulkan and Direct3D. This extension provides a way for an application to access the keyed mutex associated with an imported Vulkan memory object when submitting command buffers to a queue.</p>
  */
 public final class KHXWin32KeyedMutex {
 

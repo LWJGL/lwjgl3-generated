@@ -12,36 +12,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * <dl>
- * <dt><b>Name String</b></dt>
- * <dd>VK_KHX_device_group_creation</dd>
- * <dt><b>Extension Type</b></dt>
- * <dd>Instance extension</dd>
- * <dt><b>Registered Extension Number</b></dt>
- * <dd>71</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft.</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-10-19</dd>
- * <dt><b>Revision</b></dt>
- * <dd>1</dd>
- * <dt><b>IP Status</b></dt>
- * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * </ul></dd>
- * <dt><b>Contributors</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
- * </ul></dd>
- * </dl>
- * 
- * <p>This extension provides instance-level commands to enumerate groups of physical devices, and to create a logical device from a subset of one of those groups. Such a logical device can then be used with new features in the VK_KHX_device_group extension.</p>
+ * This extension provides instance-level commands to enumerate groups of physical devices, and to create a logical device from a subset of one of those groups. Such a logical device can then be used with new features in the VK_KHX_device_group extension.
  * 
  * <h5>Examples</h5>
  * 
@@ -72,6 +43,35 @@ import static org.lwjgl.system.MemoryUtil.*;
 
     vkCreateDevice(props[0].physicalDevices[0], &devCreateInfo, NULL, &g_vkDevice);
     free(props);</code></pre>
+ * 
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_KHX_device_group_creation</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Instance extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>71</dd>
+ * <dt><b>Status</b></dt>
+ * <dd>Draft.</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-10-19</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>1</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz, NVIDIA</li>
+ * </ul></dd>
+ * <dt><b>Contacts</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
+ * </ul></dd>
+ * </dl>
  */
 public class KHXDeviceGroupCreation {
 

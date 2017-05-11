@@ -15,37 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * <dl>
- * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_debug_report</dd>
- * <dt><b>Extension Type</b></dt>
- * <dd>Instance</dd>
- * <dt><b>Registered Extension Number</b></dt>
- * <dd>12</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-01-31</dd>
- * <dt><b>Revision</b></dt>
- * <dd>5</dd>
- * <dt><b>IP Status</b></dt>
- * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0.27 of the Vulkan API.</li>
- * </ul></dd>
- * <dt><b>Contributors</b></dt>
- * <dd><ul>
- * <li>Courtney Goeltzenleuchter, LunarG</li>
- * <li>Dan Ginsburg, Valve</li>
- * <li>Jon Ashburn, LunarG</li>
- * <li>Mark Lobodzinski, LunarG</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Courtney Goeltzenleuchter</li>
- * </ul></dd>
- * </dl>
- * 
- * <p>Due to the nature of the Vulkan interface, there is very little error information available to the developer and application. By enabling optional validation layers and using the {@code VK_EXT_debug_report} extension, developers <b>can</b> obtain much more detailed feedback on the application's use of Vulkan. This extension define a way for layers and the implementation to call back to the application for events of interest to the application.</p>
+ * Due to the nature of the Vulkan interface, there is very little error information available to the developer and application. By enabling optional validation layers and using the {@code VK_EXT_debug_report} extension, developers <b>can</b> obtain much more detailed feedback on the application's use of Vulkan. This extension define a way for layers and the implementation to call back to the application for events of interest to the application.
  * 
  * <h5>Examples</h5>
  * 
@@ -99,6 +69,36 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>In the initial release of the {@code VK_EXT_debug_report} extension, the token {@link #VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT} was used. Starting in version 2 of the extension branch, {@link #VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT} is used instead for consistency with Vulkan naming rules. The older enum is still available for backwards compatibility.</p>
  * </div>
+ * 
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_EXT_debug_report</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Instance</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>12</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-01-31</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>5</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0.27 of the Vulkan API.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Courtney Goeltzenleuchter, LunarG</li>
+ * <li>Dan Ginsburg, Valve</li>
+ * <li>Jon Ashburn, LunarG</li>
+ * <li>Mark Lobodzinski, LunarG</li>
+ * </ul></dd>
+ * <dt><b>Contacts</b></dt>
+ * <dd><ul>
+ * <li>Courtney Goeltzenleuchter</li>
+ * </ul></dd>
+ * </dl>
  */
 public class EXTDebugReport {
 

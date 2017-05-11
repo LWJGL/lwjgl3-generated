@@ -6,6 +6,8 @@
 package org.lwjgl.vulkan;
 
 /**
+ * An application using external memory may wish to synchronize access to that memory using semaphores. This extension enables an application to create semaphores from which non-Vulkan handles that reference the underlying synchronization primitive can be exported.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHX_external_semaphore</dd>
@@ -34,8 +36,6 @@ package org.lwjgl.vulkan;
  * <dt><b>Contact</b></dt>
  * <dd>James Jones (jajones 'at' nvidia.com)</dd>
  * </dl>
- * 
- * <p>An application using external memory may wish to synchronize access to that memory using semaphores. This extension enables an application to create semaphores from which non-Vulkan handles that reference the underlying synchronization primitive can be exported.</p>
  */
 public final class KHXExternalSemaphore {
 

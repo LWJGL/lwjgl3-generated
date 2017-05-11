@@ -12,6 +12,8 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * This extension defines a set of utility functions for use with the {@code VK_KHR_display} and {@code VK_KHR_display_swapchain} extensions.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_EXT_display_control</dd>
@@ -45,8 +47,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>James Jones, NVIDIA (jajones 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension defines a set of utility functions for use with the {@code VK_KHR_display} and {@code VK_KHR_display_swapchain} extensions.</p>
  */
 public class EXTDisplayControl {
 

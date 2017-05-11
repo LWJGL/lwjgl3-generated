@@ -9,6 +9,12 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
+ * This extension allows descriptors to be written into the command buffer, with the implementation being responsible for managing their memory. Push descriptors may enable easier porting from older APIs and in some cases can be more efficient than writing descriptors into descriptor sets.
+ * 
+ * <h5>Examples</h5>
+ * 
+ * <p>None.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHR_push_descriptor</dd>
@@ -39,12 +45,6 @@ import static org.lwjgl.system.JNI.*;
  * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension allows descriptors to be written into the command buffer, with the implementation being responsible for managing their memory. Push descriptors may enable easier porting from older APIs and in some cases can be more efficient than writing descriptors into descriptor sets.</p>
- * 
- * <h5>Examples</h5>
- * 
- * <p>None.</p>
  */
 public class KHRPushDescriptor {
 

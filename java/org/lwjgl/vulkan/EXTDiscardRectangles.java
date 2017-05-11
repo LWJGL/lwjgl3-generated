@@ -9,6 +9,12 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
+ * This extension provides additional orthogonally aligned "discard rectangles" specified in framebuffer-space coordinates that restrict rasterization of all points, lines and triangles.
+ * 
+ * <p>From zero to an implementation-dependent limit (specified by {@code maxDiscardRectangles}) number of discard rectangles can be operational at once. When one or more discard rectangles are active, rasterized fragments can either survive if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT} mode) or be rejected if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT} mode).</p>
+ * 
+ * <p>These discard rectangles operate orthogonally to the existing scissor test functionality. If the VK_KHX_device_group extension is enabled the discard rectangles can be different for each physical device in the device group by specifying the device mask and setting discard rectangle dynamic state.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_EXT_discard_rectangles</dd>
@@ -37,12 +43,6 @@ import static org.lwjgl.system.JNI.*;
  * <dd><ul>
  * <li>Piers Daniell (pdaniell 'at' nvidia.com)</li>
  * </ul></dd>
- * <dt><b>Overview</b></dt>
- * <dd>This extension provides additional orthogonally aligned "discard rectangles" specified in framebuffer-space coordinates that restrict rasterization of all points, lines and triangles.
- * 
- * <p>From zero to an implementation-dependent limit (specified by {@code maxDiscardRectangles}) number of discard rectangles can be operational at once. When one or more discard rectangles are active, rasterized fragments can either survive if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT} mode) or be rejected if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT} mode).</p>
- * 
- * <p>These discard rectangles operate orthogonally to the existing scissor test functionality. If the VK_KHX_device_group extension is enabled the discard rectangles can be different for each physical device in the device group by specifying the device mask and setting discard rectangle dynamic state.</p></dd>
  * </dl>
  */
 public class EXTDiscardRectangles {

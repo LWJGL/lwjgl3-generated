@@ -6,6 +6,8 @@
 package org.lwjgl.vulkan;
 
 /**
+ * This extension provides the {@link VkValidationFlagsEXT} struct that can be included in the {@code pNext} chain at {@link VK10#vkCreateInstance CreateInstance} time. The new struct contains an array of {@code VkValidationCheckEXT} values that will be disabled by the validation layers.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_EXT_validation_flags</dd>
@@ -33,8 +35,6 @@ package org.lwjgl.vulkan;
  * <li>Tobin Ehlis, Google (mailto:tobine@google.com[tobine@google.com])</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension provides the {@link VkValidationFlagsEXT} struct that can be included in the {@code pNext} chain at {@link VK10#vkCreateInstance CreateInstance} time. The new struct contains an array of {@code VkValidationCheckEXT} values that will be disabled by the validation layers.</p>
  */
 public final class EXTValidationFlags {
 

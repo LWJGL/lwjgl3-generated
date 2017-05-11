@@ -9,6 +9,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
+ * Applications may wish to import memory from the Direct 3D API, or export memory to other Vulkan instances. This extension provides a set of capability queries that allow applications determine what types of win32 memory handles an implementation supports for a given set of use cases.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_NV_external_memory_capabilities</dd>
@@ -36,8 +38,6 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Contact</b></dt>
  * <dd>James Jones (jajones 'at' nvidia.com)</dd>
  * </dl>
- * 
- * <p>Applications may wish to import memory from the Direct 3D API, or export memory to other Vulkan instances. This extension provides a set of capability queries that allow applications determine what types of win32 memory handles an implementation supports for a given set of use cases.</p>
  */
 public class NVExternalMemoryCapabilities {
 

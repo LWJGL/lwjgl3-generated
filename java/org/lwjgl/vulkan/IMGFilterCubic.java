@@ -6,6 +6,27 @@
 package org.lwjgl.vulkan;
 
 /**
+ * {@code VK_IMG_filter_cubic} adds an additional, high quality cubic filtering mode to Vulkan, using a Catmull-Rom bicubic filter. Performing this kind of filtering can be done in a shader by using 16 samples and a number of instructions, but this can be inefficient. The cubic filter mode exposes an optimized high quality texture sampling using fixed texture sampling hardware.
+ * 
+ * <h5>Example</h5>
+ * 
+ * <p>Creating a sampler with the new filter for both magnification and minification</p>
+ * 
+ * <pre><code>    VkSamplerCreateInfo createInfo =
+    {
+        VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO // sType
+        // Other members set to application-desired values
+    };
+
+    createInfo.magFilter = VK_FILTER_CUBIC_IMG;
+    createInfo.minFilter = VK_FILTER_CUBIC_IMG;
+
+    VkSampler sampler;
+    VkResult result = vkCreateSampler(
+        device,
+        &createInfo,
+        &sampler);</code></pre>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_IMG_filter_cubic</dd>
@@ -32,27 +53,6 @@ package org.lwjgl.vulkan;
  * <li>Tobias Hector (mailto:tobias.hector@imgtec.com[tobias.hector@imgtec.com])</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>{@code VK_IMG_filter_cubic} adds an additional, high quality cubic filtering mode to Vulkan, using a Catmull-Rom bicubic filter. Performing this kind of filtering can be done in a shader by using 16 samples and a number of instructions, but this can be inefficient. The cubic filter mode exposes an optimized high quality texture sampling using fixed texture sampling hardware.</p>
- * 
- * <h5>Example</h5>
- * 
- * <p>Creating a sampler with the new filter for both magnification and minification</p>
- * 
- * <pre><code>    VkSamplerCreateInfo createInfo =
-    {
-        VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO // sType
-        // Other members set to application-desired values
-    };
-
-    createInfo.magFilter = VK_FILTER_CUBIC_IMG;
-    createInfo.minFilter = VK_FILTER_CUBIC_IMG;
-
-    VkSampler sampler;
-    VkResult result = vkCreateSampler(
-        device,
-        &createInfo,
-        &sampler);</code></pre>
  */
 public final class IMGFilterCubic {
 

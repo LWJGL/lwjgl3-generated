@@ -12,6 +12,8 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * The {@code VK_KHR_xlib_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to an X11 {@code Window}, using the Xlib client-side library, as well as a query to determine support for rendering via Xlib.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHR_xlib_surface</dd>
@@ -55,8 +57,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Ian Elliott, LunarG</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>The {@code VK_KHR_xlib_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to an X11 {@code Window}, using the Xlib client-side library, as well as a query to determine support for rendering via Xlib.</p>
  */
 public class KHRXlibSurface {
 

@@ -6,6 +6,16 @@
 package org.lwjgl.vulkan;
 
 /**
+ * This extension adds support for the following SPIR-V extension in Vulkan:
+ * 
+ * <ul>
+ * <li>SPV_NV_sample_mask_override_coverage</li>
+ * </ul>
+ * 
+ * <p>The extension provides access to the {@code OverrideCoverageNV} decoration under the {@code SampleMaskOverrideCoverageNV} capability. Adding this decoration to a variable with the {@code SampleMask} builtin decoration allows the shader to modify the coverage mask and affect which samples are used to process the fragment.</p>
+ * 
+ * <p>When using GLSL source-based shader languages, the {@code override_coverage} layout qualifier from GL_NV_sample_mask_override_coverage maps to the {@code OverrideCoverageNV} decoration. To use the {@code override_coverage} layout qualifier in GLSL the GL_NV_sample_mask_override_coverage extension must be enabled. Behavior is described in the GL_NV_sample_mask_override_coverage extension spec.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_NV_sample_mask_override_coverage</dd>
@@ -37,16 +47,6 @@ package org.lwjgl.vulkan;
  * <dd><ul>
  * <li>Piers Daniell (pdaniell 'at' nvidia.com)</li>
  * </ul></dd>
- * <dt><b>Overview</b></dt>
- * <dd>This extension adds support for the following SPIR-V extension in Vulkan:
- * 
- * <ul>
- * <li>SPV_NV_sample_mask_override_coverage</li>
- * </ul>
- * 
- * <p>The extension provides access to the {@code OverrideCoverageNV} decoration under the {@code SampleMaskOverrideCoverageNV} capability. Adding this decoration to a variable with the {@code SampleMask} builtin decoration allows the shader to modify the coverage mask and affect which samples are used to process the fragment.</p>
- * 
- * <p>When using GLSL source-based shader languages, the {@code override_coverage} layout qualifier from GL_NV_sample_mask_override_coverage maps to the {@code OverrideCoverageNV} decoration. To use the {@code override_coverage} layout qualifier in GLSL the GL_NV_sample_mask_override_coverage extension must be enabled. Behavior is described in the GL_NV_sample_mask_override_coverage extension spec.</p></dd>
  * </dl>
  */
 public final class NVSampleMaskOverrideCoverage {

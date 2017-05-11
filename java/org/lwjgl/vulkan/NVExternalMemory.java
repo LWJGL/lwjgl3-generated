@@ -6,6 +6,12 @@
 package org.lwjgl.vulkan;
 
 /**
+ * Applications may wish to export memory to other Vulkan instances or other APIs, or import memory from other Vulkan instances or other APIs to enable Vulkan workloads to be split up across application module, process, or API boundaries. This extension enables applications to create exportable Vulkan memory objects such that the underlying resources can be referenced outside the Vulkan instance that created them.
+ * 
+ * <h5>Examples</h5>
+ * 
+ * <pre><code>    // TODO: Write some sample code here.</code></pre>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_NV_external_memory</dd>
@@ -36,12 +42,6 @@ package org.lwjgl.vulkan;
  * <li>James Jones (jajones 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>Applications may wish to export memory to other Vulkan instances or other APIs, or import memory from other Vulkan instances or other APIs to enable Vulkan workloads to be split up across application module, process, or API boundaries. This extension enables applications to create exportable Vulkan memory objects such that the underlying resources can be referenced outside the Vulkan instance that created them.</p>
- * 
- * <h5>Examples</h5>
- * 
- * <pre><code>    // TODO: Write some sample code here.</code></pre>
  */
 public final class NVExternalMemory {
 

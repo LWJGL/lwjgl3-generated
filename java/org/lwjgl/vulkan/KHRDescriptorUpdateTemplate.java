@@ -12,6 +12,12 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * Applications may wish to update a fixed set of descriptors in a large number of descriptors sets very frequently, i.e. during initializaton phase or if it's required to rebuild descriptor sets for each frame. For those cases it's also not unlikely that all information required to update a single descriptor set is stored in a single struct. This extension provides a way to update a fixed set of descriptors in a single {@code VkDescriptorSet} with a pointer to a user defined data structure which describes the new descriptors.
+ * 
+ * <h5>Examples</h5>
+ * 
+ * <pre><code>    // TODO: Write some sample code here.</code></pre>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHR_descriptor_update_template</dd>
@@ -42,12 +48,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Markus Tavenrath (matavenrath 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>Applications may wish to update a fixed set of descriptors in a large number of descriptors sets very frequently, i.e. during initializaton phase or if it's required to rebuild descriptor sets for each frame. For those cases it's also not unlikely that all information required to update a single descriptor set is stored in a single struct. This extension provides a way to update a fixed set of descriptors in a single {@code VkDescriptorSet} with a pointer to a user defined data structure which describes the new descriptors.</p>
- * 
- * <h5>Examples</h5>
- * 
- * <pre><code>    // TODO: Write some sample code here.</code></pre>
  */
 public class KHRDescriptorUpdateTemplate {
 

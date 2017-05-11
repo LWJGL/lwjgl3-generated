@@ -6,6 +6,8 @@
 package org.lwjgl.vulkan;
 
 /**
+ * An application may wish to reference device memory in multiple Vulkan logical devices or instances, in multiple processes, and/or in multiple APIs. This extension enables an application to export non-Vulkan handles from Vulkan memory objects such that the underlying resources can be referenced outside the scope of the Vulkan logical device that created them.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHX_external_memory</dd>
@@ -39,8 +41,6 @@ package org.lwjgl.vulkan;
  * <dt><b>Contact</b></dt>
  * <dd>James Jones (jajones 'at' nvidia.com)</dd>
  * </dl>
- * 
- * <p>An application may wish to reference device memory in multiple Vulkan logical devices or instances, in multiple processes, and/or in multiple APIs. This extension enables an application to export non-Vulkan handles from Vulkan memory objects such that the underlying resources can be referenced outside the scope of the Vulkan logical device that created them.</p>
  */
 public final class KHXExternalMemory {
 

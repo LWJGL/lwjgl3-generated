@@ -12,6 +12,8 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
+ * An application using external memory may wish to synchronize access to that memory using semaphores. This extension enables an application to export semaphore state to and import semaphore state from Windows handles.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_KHX_external_semaphore_win32</dd>
@@ -41,8 +43,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Contact</b></dt>
  * <dd>James Jones (jajones 'at' nvidia.com)</dd>
  * </dl>
- * 
- * <p>An application using external memory may wish to synchronize access to that memory using semaphores. This extension enables an application to export semaphore state to and import semaphore state from Windows handles.</p>
  */
 public class KHXExternalSemaphoreWin32 {
 

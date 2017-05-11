@@ -6,36 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * <dl>
- * <dt><b>Name String</b></dt>
- * <dd>VK_NV_dedicated_allocation</dd>
- * <dt><b>Extension Type</b></dt>
- * <dd>Device extension</dd>
- * <dt><b>Registered Extension Number</b></dt>
- * <dd>27</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft.</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-05-31</dd>
- * <dt><b>Revision</b></dt>
- * <dd>1</dd>
- * <dt><b>IP Status</b></dt>
- * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * </ul></dd>
- * <dt><b>Contributors</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
- * </ul></dd>
- * </dl>
- * 
- * <p>This extension allows device memory to be allocated for a particular buffer or image resource, which on some devices can significantly improve the performance of that resource. Normal device memory allocations must support memory aliasing and sparse binding, which could interfere with optimizations like framebuffer compression or efficient page table usage. This is important for render targets and very large resources, but need not (and probably should not) be used for smaller resources that can benefit from suballocation.</p>
+ * This extension allows device memory to be allocated for a particular buffer or image resource, which on some devices can significantly improve the performance of that resource. Normal device memory allocations must support memory aliasing and sparse binding, which could interfere with optimizations like framebuffer compression or efficient page table usage. This is important for render targets and very large resources, but need not (and probably should not) be used for smaller resources that can benefit from suballocation.
  * 
  * <p>This extension adds a few small structures to resource creation and memory allocation: a new structure that flags whether am image/buffer will have a dedicated allocation, and a structure indicating the image or buffer that an allocation will be bound to.</p>
  * 
@@ -105,6 +76,35 @@ package org.lwjgl.vulkan;
         image,
         memory,
         0);</code></pre>
+ * 
+ * <dl>
+ * <dt><b>Name String</b></dt>
+ * <dd>VK_NV_dedicated_allocation</dd>
+ * <dt><b>Extension Type</b></dt>
+ * <dd>Device extension</dd>
+ * <dt><b>Registered Extension Number</b></dt>
+ * <dd>27</dd>
+ * <dt><b>Status</b></dt>
+ * <dd>Draft.</dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-05-31</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>1</dd>
+ * <dt><b>IP Status</b></dt>
+ * <dd>No known IP claims.</dd>
+ * <dt><b>Dependencies</b></dt>
+ * <dd><ul>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * </ul></dd>
+ * <dt><b>Contributors</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz, NVIDIA</li>
+ * </ul></dd>
+ * <dt><b>Contacts</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
+ * </ul></dd>
+ * </dl>
  */
 public final class NVDedicatedAllocation {
 

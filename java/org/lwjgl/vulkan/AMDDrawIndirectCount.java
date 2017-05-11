@@ -9,6 +9,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
+ * This extension allows an application to source the number of draw calls for indirect draw calls from a buffer. This enables applications to generate arbitrary amounts of draw commands and execute them without host intervention.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_AMD_draw_indirect_count</dd>
@@ -39,8 +41,6 @@ import static org.lwjgl.system.JNI.*;
  * <li>Matthaeus G. Chajdas, AMD (mailto:matthaeus.chajdas@amd.com[matthaeus.chajdas@amd.com])</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension allows an application to source the number of draw calls for indirect draw calls from a buffer. This enables applications to generate arbitrary amounts of draw commands and execute them without host intervention.</p>
  */
 public class AMDDrawIndirectCount {
 

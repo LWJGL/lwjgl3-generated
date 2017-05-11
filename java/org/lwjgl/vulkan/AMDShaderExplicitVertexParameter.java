@@ -6,6 +6,12 @@
 package org.lwjgl.vulkan;
 
 /**
+ * This extension adds support for the following SPIR-V extension in {apiname}:
+ * 
+ * <ul>
+ * <li>SPV_AMD_shader_explicit_vertex_parameter</li>
+ * </ul>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_AMD_shader_explicit_vertex_parameter</dd>
@@ -36,12 +42,6 @@ package org.lwjgl.vulkan;
  * <li>Qun Lin, AMD (mailto:quentin.lin@amd.com[quentin.lin@amd.com])</li>
  * </ul></dd>
  * </dl>
- * 
- * <p>This extension adds support for the following SPIR-V extension in {apiname}:</p>
- * 
- * <ul>
- * <li>SPV_AMD_shader_explicit_vertex_parameter</li>
- * </ul>
  */
 public final class AMDShaderExplicitVertexParameter {
 
