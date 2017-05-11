@@ -462,7 +462,7 @@ public class GLFW {
      * {@code WindowHint}: Specifies the client API major version that the created context must be compatible with. The exact behavior of this hint depends on
      * the requested client API.
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>While there is no way to ask the driver for a context of the highest supported version, GLFW will attempt to provide this when you ask for a
@@ -473,7 +473,7 @@ public class GLFW {
      * <li><b>OpenGL ES</b>: {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR} and {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR} are not hard constraints, but creation will fail if the OpenGL ES version
      * of the created context is less than the one requested. Additionally, OpenGL ES 1.x cannot be returned if 2.0 or later was requested, and vice
      * versa. This is because OpenGL ES 3.x is backward compatible with 2.0, but OpenGL ES 2.0 is not backward compatible with 1.x.</li>
-     * </ul>
+     * </ul></div>
      * 
      * <p>{@code GetWindowAttrib}: Indicate the client API major version of the window's context.</p>
      * </li>
@@ -526,14 +526,14 @@ public class GLFW {
      * {@code WindowHint}: Specifies which context creation API to use to create the context. Possible values are {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} and {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.
      * This is a hard constraint. If no client API is requested, this hint is ignored.
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li><b>macOS</b>: The EGL API is not available on this platform and requests to use it will fail.</li>
      * <li><b>Wayland, Mir</b>: The EGL API <i>is</i> the native context creation API, so this hint will have no effect.</li>
      * <li>An OpenGL extension loader library that assumes it knows which context creation API is used on a given platform may fail if you change this
      * hint. This can be resolved by having it load via {@link #glfwGetProcAddress GetProcAddress}, which always uses the selected API.</li>
-     * </ul>
+     * </ul></div>
      * 
      * <p>{@code GetWindowAttrib}: Indicates the context creation API used to create the window's context; either {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} or {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.</p>
      * </li>
@@ -648,6 +648,7 @@ public class GLFW {
             ShowWindow                 = apiGetFunctionAddress(GLFW, "glfwShowWindow"),
             HideWindow                 = apiGetFunctionAddress(GLFW, "glfwHideWindow"),
             FocusWindow                = apiGetFunctionAddress(GLFW, "glfwFocusWindow"),
+            RequestWindowAttention     = apiGetFunctionAddress(GLFW, "glfwRequestWindowAttention"),
             GetWindowMonitor           = apiGetFunctionAddress(GLFW, "glfwGetWindowMonitor"),
             SetWindowMonitor           = apiGetFunctionAddress(GLFW, "glfwSetWindowMonitor"),
             GetWindowAttrib            = apiGetFunctionAddress(GLFW, "glfwGetWindowAttrib"),
@@ -722,13 +723,13 @@ public class GLFW {
      * 
      * <p>Additional calls to this function after successful initialization but before termination will return {@link #GLFW_TRUE TRUE} immediately.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li><b>macOS</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
      * bundle, if present. This can be disabled with the {@link #GLFW_COCOA_CHDIR_RESOURCES COCOA_CHDIR_RESOURCES} init hint.</li>
-     * </ul>
+     * </ul></div>
      *
      * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occured.
      *
@@ -748,14 +749,14 @@ public class GLFW {
      * <p>If GLFW has been successfully initialized, this function should be called before the application exits. If initialization fails, there is no need to
      * call this function, as it is called by {@link #glfwInit Init} before it returns failure.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
      * <li>No window's context may be current on another thread when this function is called.</li>
-     * </ul>
+     * </ul></div>
      */
     public static void glfwTerminate() {
         long __functionAddress = Functions.Terminate;
@@ -775,12 +776,12 @@ public class GLFW {
      * <p>Some hints are platform specific. These are always valid to set on any platform but they will only affect their specific platform. Other platforms will
      * simply ignore them. Setting these hints requires no platform specific headers or calls.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function must only be called from the main thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param hint  the init hint to set. One of:<br><table><tr><td>{@link #GLFW_JOYSTICK_HAT_BUTTONS JOYSTICK_HAT_BUTTONS}</td><td>{@link #GLFW_COCOA_CHDIR_RESOURCES COCOA_CHDIR_RESOURCES}</td><td>{@link #GLFW_COCOA_MENUBAR COCOA_MENUBAR}</td></tr></table>
      * @param value the new value of the init hint
@@ -804,14 +805,14 @@ public class GLFW {
      * Retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and want to ensure
      * that you are using the minimum required version.
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>Any or all of the version arguments may be {@code NULL}.</li>
      * <li>This function always succeeds.</li>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function may be called from any thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param major where to store the major version number, or {@code NULL}
      * @param minor where to store the minor version number, or {@code NULL}
@@ -843,14 +844,14 @@ public class GLFW {
      * <p><b>Do not use the version string</b> to parse the GLFW library version. The {@link #glfwGetVersion GetVersion} function already provides the version of the library binary
      * in numerical format.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function always succeeds.</li>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function may be called from any thread.</li>
      * <li>The returned string is static and compile-time generated.</li>
-     * </ul>
+     * </ul></div>
      *
      * @return the ASCII encoded GLFW version string
      *
@@ -869,12 +870,12 @@ public class GLFW {
      * <p>This function returns and clears the error code of the last error that occurred on the calling thread. If no error has occurred since the last call, it
      * returns {@link #GLFW_NO_ERROR NO_ERROR}.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function may be called from any thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @return the last error code for the calling thread, or {@link #GLFW_NO_ERROR NO_ERROR}
      *
@@ -906,12 +907,12 @@ public class GLFW {
      * 
      * <p>Once set, the error callback remains set even after the library has been terminated.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function must only be called from the main thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param cbfun the new callback or {@code NULL} to remove the currently set callback
      *
@@ -1029,12 +1030,12 @@ public class GLFW {
      * 
      * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li><b>Windows</b>: The OS calculates the returned physical size from the current resolution and system DPI instead of querying the monitor EDID data.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param monitor  the monitor to query
      * @param widthMM  where to store the width, in millimetres, of the monitor's display area, or {@code NULL}
@@ -1254,14 +1255,14 @@ public class GLFW {
      * 
      * <p>For gamma correct rendering with OpenGL or OpenGL ES, see the {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE} hint.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
      * <li><b>Windows</b>: The gamma ramp size must be 256.</li>
      * <li>The specified gamma ramp is copied before this function returns.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param monitor the monitor whose gamma ramp to set
      * @param ramp    the gamma ramp to use
@@ -1391,7 +1392,7 @@ public class GLFW {
      * <p>The <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
      * depending on driver settings and defaults.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
@@ -1416,7 +1417,7 @@ public class GLFW {
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
      * to query the final size, position or other attributes directly after window creation.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param width   the desired width, in screen coordinates, of the window
      * @param height  the desired height, in screen coordinates, of the window
@@ -1471,7 +1472,7 @@ public class GLFW {
      * <p>The <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
      * depending on driver settings and defaults.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
@@ -1496,7 +1497,7 @@ public class GLFW {
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
      * to query the final size, position or other attributes directly after window creation.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param width   the desired width, in screen coordinates, of the window
      * @param height  the desired height, in screen coordinates, of the window
@@ -1526,13 +1527,13 @@ public class GLFW {
      * 
      * <p>If the context of the specified window is current on the main thread, it is detached before being destroyed.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
      * <li>The context of the specified window must not be current on any other thread when this function is called.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param window the window to destroy
      *
@@ -2043,6 +2044,8 @@ public class GLFW {
      * <p><b>Do not use this function</b> to steal focus from other applications unless you are certain that is what the user wants. Focus stealing can be
      * extremely disruptive.</p>
      * 
+     * <p>For a less disruptive way of getting the user's attention, see {@link #glfwRequestWindowAttention RequestWindowAttention}.</p>
+     * 
      * <p>This function must only be called from the main thread.</p>
      *
      * @param window the window to give input focus
@@ -2051,6 +2054,35 @@ public class GLFW {
      */
     public static void glfwFocusWindow(long window) {
         long __functionAddress = Functions.FocusWindow;
+        if (CHECKS) {
+            check(window);
+        }
+        invokePV(__functionAddress, window);
+    }
+
+    // --- [ glfwRequestWindowAttention ] ---
+
+    /**
+     * Requests user attention to the specified window.
+     * 
+     * <p>This function requests user attention to the specified window. On platforms where this is not supported, attention is requested to the application as
+     * a whole.</p>
+     * 
+     * <p>Once the user has given attention, usually by focusing the window or application, the system will end the request automatically.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>macOS:</b> Attention is requested to the application as a whole, not the specific window.</li>
+     * </ul></div>
+     *
+     * @param window the window to request attention to
+     *
+     * @since version 3.3
+     */
+    public static void glfwRequestWindowAttention(long window) {
+        long __functionAddress = Functions.RequestWindowAttention;
         if (CHECKS) {
             check(window);
         }
@@ -2286,12 +2318,12 @@ public class GLFW {
      * 
      * <p>The close callback is not triggered by {@link #glfwDestroyWindow DestroyWindow}.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li><b>macOS:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param window the window whose callback to set
      * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2469,12 +2501,12 @@ public class GLFW {
      * 
      * <p>Event processing is not required for joystick input to work.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
-     * </ul>
+     * </ul></div>
      */
     public static void glfwPollEvents() {
         long __functionAddress = Functions.PollEvents;
@@ -2505,12 +2537,12 @@ public class GLFW {
      * 
      * <p>Event processing is not required for joystick input to work.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
-     * </ul>
+     * </ul></div>
      */
     public static void glfwWaitEvents() {
         long __functionAddress = Functions.WaitEvents;
@@ -2542,12 +2574,12 @@ public class GLFW {
      * 
      * <p>Event processing is not required for joystick input to work.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param timeout the maximum amount of time, in seconds, to wait
      *
@@ -2740,12 +2772,12 @@ public class GLFW {
      * 
      * <p><b>Do not use this function</b> to implement <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#input_char">text input</a>.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>{@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} is not a valid key for this function.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param window the desired window
      * @param key    the desired keyboard key
@@ -2874,12 +2906,12 @@ public class GLFW {
      * <p>The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis
      * points to the right and the Y-axis points down.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>The specified image data is copied before this function returns.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param image the desired cursor image
      * @param xhot  the desired x-coordinate, in pixels, of the cursor hotspot
@@ -2898,12 +2930,12 @@ public class GLFW {
     /**
      * Returns a cursor with a standard shape, that can be set for a window with {@link #glfwSetCursor SetCursor}.
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>The specified image data is copied before this function returns.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param shape one of the standard shapes. One of:<br><table><tr><td>{@link #GLFW_ARROW_CURSOR ARROW_CURSOR}</td><td>{@link #GLFW_IBEAM_CURSOR IBEAM_CURSOR}</td><td>{@link #GLFW_CROSSHAIR_CURSOR CROSSHAIR_CURSOR}</td><td>{@link #GLFW_HAND_CURSOR HAND_CURSOR}</td><td>{@link #GLFW_HRESIZE_CURSOR HRESIZE_CURSOR}</td><td>{@link #GLFW_VRESIZE_CURSOR VRESIZE_CURSOR}</td></tr></table>
      *
@@ -2921,12 +2953,12 @@ public class GLFW {
     /**
      * Destroys a cursor previously created with {@link #glfwCreateCursor CreateCursor}. Any remaining cursors will be destroyed by {@link #glfwTerminate Terminate}.
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param cursor the cursor object to destroy
      *
@@ -3356,13 +3388,13 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
      * presence.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>Linux: Joystick hats are currently unimplemented.</li>
      * <li>The returned array is allocated and freed by GLFW.  You *  should not free it yourself.  It is valid until the specified joystick is *  disconnected, this function is called again for that joystick or the library *  is terminated.</li>
      * <li>This function must only be called from the main thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param jid the joystick to query
      *
@@ -3506,13 +3538,13 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetClipboardString GetClipboardString} or
      * {@link #glfwSetClipboardString SetClipboardString}, or until the library is terminated.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
      * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
      * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param window the window that will request the clipboard contents
      *
@@ -3681,7 +3713,7 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * 
      * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, see the present mode of your swapchain instead.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function may be called from any thread.</li>
@@ -3689,7 +3721,7 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * some swap interval extensions used by GLFW do not allow the swap interval to be reset to zero once it has been set to a non-zero value.</li>
      * <li>Some GPU drivers do not honor the requested swap interval, either because of a user setting that overrides the application's request or due to bugs
      * in the driver.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers SwapBuffers}
      *
@@ -3781,7 +3813,7 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@code glfwGetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
      * {@code vkGetDeviceProcAddr} instead.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>The address of a given function is not guaranteed to be the same between contexts.</li>
@@ -3789,7 +3821,7 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * extension string first.</li>
      * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
      * <li>This function may be called from any thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param procname the ASCII encoded name of the function
      *
@@ -3812,7 +3844,7 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * <p>This function does not apply to Vulkan. If you are rendering with Vulkan, {@code glfwGetInstanceProcAddress}, {@code vkGetInstanceProcAddr} and
      * {@code vkGetDeviceProcAddr} instead.</p>
      * 
-     * <p>Notes:</p>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>The address of a given function is not guaranteed to be the same between contexts.</li>
@@ -3820,7 +3852,7 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * extension string first.</li>
      * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
      * <li>This function may be called from any thread.</li>
-     * </ul>
+     * </ul></div>
      *
      * @param procname the ASCII encoded name of the function
      *
