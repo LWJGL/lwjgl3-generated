@@ -1927,7 +1927,7 @@ public class NanoVG {
     public static native int nnvgAddFallbackFontId(long ctx, int baseFont, int fallbackFont);
 
     /**
-     * Adds fallback font.
+     * Adds fallback font by handle.
      *
      * @param ctx          the NanoVG context
      * @param baseFont     

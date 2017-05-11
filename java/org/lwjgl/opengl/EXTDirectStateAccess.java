@@ -1855,7 +1855,7 @@ public class EXTDirectStateAccess {
     public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, ByteBuffer old_buffer) {
         long __result = nglMapNamedBufferEXT(buffer, access);
         int length = glGetNamedBufferParameteriEXT(buffer, GL15.GL_BUFFER_SIZE);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, long length, ByteBuffer old_buffer) {

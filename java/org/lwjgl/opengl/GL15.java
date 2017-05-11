@@ -615,7 +615,7 @@ public class GL15 {
     public static ByteBuffer glMapBuffer(int target, int access, ByteBuffer old_buffer) {
         long __result = nglMapBuffer(target, access);
         int length = glGetBufferParameteri(target, GL_BUFFER_SIZE);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /**

@@ -558,7 +558,7 @@ public class ARBVertexBufferObject {
     public static ByteBuffer glMapBufferARB(int target, int access, ByteBuffer old_buffer) {
         long __result = nglMapBufferARB(target, access);
         int length = glGetBufferParameteriARB(target, GL_BUFFER_SIZE_ARB);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /**

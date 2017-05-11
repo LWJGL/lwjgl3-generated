@@ -121,7 +121,7 @@ public class INTELMapTexture {
         }
         long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
         int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /**
@@ -167,7 +167,7 @@ public class INTELMapTexture {
         }
         long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
         int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */

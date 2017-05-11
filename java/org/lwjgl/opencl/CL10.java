@@ -4016,7 +4016,7 @@ public class CL10 {
         }
         long __result = nclEnqueueMapImage(command_queue, image, blocking_map ? 1 : 0, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
         int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /**
@@ -9430,7 +9430,7 @@ public class CL10 {
         }
         long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map ? 1 : 0, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
         int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /**

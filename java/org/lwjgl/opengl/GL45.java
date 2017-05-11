@@ -1033,7 +1033,7 @@ public class GL45 {
     public static ByteBuffer glMapNamedBuffer(int buffer, int access, ByteBuffer old_buffer) {
         long __result = nglMapNamedBuffer(buffer, access);
         int length = glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE);
-		return apiGetMappedBuffer(old_buffer, __result, length);
+        return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
     /**
