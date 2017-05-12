@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code imageView} <b>must</b> not be 2D or 2D array image view created from a 3D image</li>
+ * <li>{@code imageLayout} <b>must</b> match the actual {@code VkImageLayout} of each subresource accessible from {@code imageView} at the time this descriptor is accessed</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

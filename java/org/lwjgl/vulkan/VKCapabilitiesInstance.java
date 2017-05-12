@@ -67,6 +67,11 @@ public class VKCapabilitiesInstance {
         vkGetPhysicalDeviceMemoryProperties2KHR,
         vkGetPhysicalDeviceSparseImageFormatProperties2KHR;
 
+    // KHR_get_surface_capabilities2
+    public final long
+        vkGetPhysicalDeviceSurfaceCapabilities2KHR,
+        vkGetPhysicalDeviceSurfaceFormats2KHR;
+
     // KHR_surface
     public final long
         vkDestroySurfaceKHR,
@@ -138,6 +143,8 @@ public class VKCapabilitiesInstance {
     public final boolean VK_KHR_display;
     /** When true, {@link KHRGetPhysicalDeviceProperties2} is supported. */
     public final boolean VK_KHR_get_physical_device_properties2;
+    /** When true, {@link KHRGetSurfaceCapabilities2} is supported. */
+    public final boolean VK_KHR_get_surface_capabilities2;
     /** When true, {@link KHRSurface} is supported. */
     public final boolean VK_KHR_surface;
     /** When true, {@link KHRWin32Surface} is supported. */
@@ -224,6 +231,12 @@ public class VKCapabilitiesInstance {
             vkGetPhysicalDeviceMemoryProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceMemoryProperties2KHR", supported);
             vkGetPhysicalDeviceSparseImageFormatProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceSparseImageFormatProperties2KHR", supported);
             VK_KHR_get_physical_device_properties2 = supported && VK.checkExtension("VK_KHR_get_physical_device_properties2", KHRGetPhysicalDeviceProperties2.isAvailable(this));
+        }
+        {
+            supported = ext.contains("VK_KHR_get_surface_capabilities2");
+            vkGetPhysicalDeviceSurfaceCapabilities2KHR = isSupported(provider, "vkGetPhysicalDeviceSurfaceCapabilities2KHR", supported);
+            vkGetPhysicalDeviceSurfaceFormats2KHR = isSupported(provider, "vkGetPhysicalDeviceSurfaceFormats2KHR", supported);
+            VK_KHR_get_surface_capabilities2 = supported && VK.checkExtension("VK_KHR_get_surface_capabilities2", KHRGetSurfaceCapabilities2.isAvailable(this));
         }
         {
             supported = ext.contains("VK_KHR_surface");

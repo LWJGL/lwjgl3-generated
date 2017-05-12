@@ -114,6 +114,9 @@ public class EXTDebugReport {
     /** Extends {@code VkResult}. */
     public static final int VK_ERROR_VALIDATION_FAILED_EXT = -1000011001;
 
+    /** Extends {@code VkObjectType}. */
+    public static final int VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT = 1000011000;
+
     /**
      * VkDebugReportObjectTypeEXT - Specify the type of an object handle
      * 

@@ -126,7 +126,7 @@ public class VK10 {
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@link VkAcquireNextImageInfoKHX}, {@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindBufferMemoryInfoKHX}, {@link VkBindImageMemoryInfoKHX}, {@link VkBindImageMemorySwapchainInfoKHX}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkD3D12FenceSubmitInfoKHX}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceGroupBindSparseInfoKHX}, {@link VkDeviceGroupCommandBufferBeginInfoKHX}, {@link VkDeviceGroupDeviceCreateInfoKHX}, {@link VkDeviceGroupPresentCapabilitiesKHX}, {@link VkDeviceGroupPresentInfoKHX}, {@link VkDeviceGroupRenderPassBeginInfoKHX}, {@link VkDeviceGroupSubmitInfoKHX}, {@link VkDeviceGroupSwapchainCreateInfoKHX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoKHX}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoKHX}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExportSemaphoreCreateInfoKHX}, {@link VkExportSemaphoreWin32HandleInfoKHX}, {@link VkExternalBufferPropertiesKHX}, {@link VkExternalImageFormatPropertiesKHX}, {@link VkExternalMemoryBufferCreateInfoKHX}, {@link VkExternalMemoryImageCreateInfoKHX}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkExternalSemaphorePropertiesKHX}, {@link VkFenceCreateInfo}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkHdrMetadataEXT}, {@link VkIOSSurfaceCreateInfoMVK}, {@link VkImageCreateInfo}, {@link VkImageFormatProperties2KHR}, {@link VkImageMemoryBarrier}, {@link VkImageSwapchainCreateInfoKHX}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryFdInfoKHX}, {@link VkImportMemoryWin32HandleInfoKHX}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkImportSemaphoreFdInfoKHX}, {@link VkImportSemaphoreWin32HandleInfoKHX}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMacOSSurfaceCreateInfoMVK}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateFlagsInfoKHX}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMemoryFdPropertiesKHX}, {@link VkMemoryWin32HandlePropertiesKHX}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}, {@link VkPhysicalDeviceExternalBufferInfoKHX}, {@link VkPhysicalDeviceExternalImageFormatInfoKHX}, {@link VkPhysicalDeviceExternalSemaphoreInfoKHX}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceGroupPropertiesKHX}, {@link VkPhysicalDeviceIDPropertiesKHX}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceMultiviewFeaturesKHX}, {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX}, {@link VkPhysicalDeviceMultiviewPropertiesKHX}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDevicePushDescriptorPropertiesKHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDiscardRectangleStateCreateInfoEXT}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPipelineViewportSwizzleStateCreateInfoNV}, {@link VkPipelineViewportWScalingStateCreateInfoNV}, {@link VkPresentInfoKHR}, {@link VkPresentRegionsKHR}, {@link VkPresentTimesInfoGOOGLE}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkRenderPassMultiviewCreateInfoKHX}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHX}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
+     * <p>{@link VkAcquireNextImageInfoKHX}, {@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindBufferMemoryInfoKHX}, {@link VkBindImageMemoryInfoKHX}, {@link VkBindImageMemorySwapchainInfoKHX}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkD3D12FenceSubmitInfoKHX}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceGroupBindSparseInfoKHX}, {@link VkDeviceGroupCommandBufferBeginInfoKHX}, {@link VkDeviceGroupDeviceCreateInfoKHX}, {@link VkDeviceGroupPresentCapabilitiesKHX}, {@link VkDeviceGroupPresentInfoKHX}, {@link VkDeviceGroupRenderPassBeginInfoKHX}, {@link VkDeviceGroupSubmitInfoKHX}, {@link VkDeviceGroupSwapchainCreateInfoKHX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoKHX}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoKHX}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExportSemaphoreCreateInfoKHX}, {@link VkExportSemaphoreWin32HandleInfoKHX}, {@link VkExternalBufferPropertiesKHX}, {@link VkExternalImageFormatPropertiesKHX}, {@link VkExternalMemoryBufferCreateInfoKHX}, {@link VkExternalMemoryImageCreateInfoKHX}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkExternalSemaphorePropertiesKHX}, {@link VkFenceCreateInfo}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkHdrMetadataEXT}, {@link VkIOSSurfaceCreateInfoMVK}, {@link VkImageCreateInfo}, {@link VkImageFormatProperties2KHR}, {@link VkImageMemoryBarrier}, {@link VkImageSwapchainCreateInfoKHX}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryFdInfoKHX}, {@link VkImportMemoryWin32HandleInfoKHX}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkImportSemaphoreFdInfoKHX}, {@link VkImportSemaphoreWin32HandleInfoKHX}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMacOSSurfaceCreateInfoMVK}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateFlagsInfoKHX}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMemoryFdPropertiesKHX}, {@link VkMemoryWin32HandlePropertiesKHX}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}, {@link VkPhysicalDeviceExternalBufferInfoKHX}, {@link VkPhysicalDeviceExternalImageFormatInfoKHX}, {@link VkPhysicalDeviceExternalSemaphoreInfoKHX}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceGroupPropertiesKHX}, {@link VkPhysicalDeviceIDPropertiesKHX}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceMultiviewFeaturesKHX}, {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX}, {@link VkPhysicalDeviceMultiviewPropertiesKHX}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDevicePushDescriptorPropertiesKHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPhysicalDeviceSurfaceInfo2KHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDiscardRectangleStateCreateInfoEXT}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPipelineViewportSwizzleStateCreateInfoNV}, {@link VkPipelineViewportWScalingStateCreateInfoNV}, {@link VkPresentInfoKHR}, {@link VkPresentRegionsKHR}, {@link VkPresentTimesInfoGOOGLE}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkRenderPassMultiviewCreateInfoKHX}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSharedPresentSurfaceCapabilitiesKHR}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSurfaceCapabilities2KHR}, {@link VkSurfaceFormat2KHR}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHX}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
      * 
      * <h5>Enum values:</h5>
      * 
@@ -1542,7 +1542,7 @@ public class VK10 {
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
-     * <p>Images still require a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-layouts"> layout transition</a> from {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} before being used on the first queue.</p>
+     * <p>Images still require a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-layouts">layout transition</a> from {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} before being used on the first queue.</p>
      * </div>
      * 
      * <p>A queue family <b>can</b> take ownership of an image subresource or buffer range of a resource created with {@link #VK_SHARING_MODE_EXCLUSIVE SHARING_MODE_EXCLUSIVE}, without an ownership transfer, in the same way as for a resource that was just created; however, taking ownership in this way has the effect that the contents of the image subresource or buffer range are undefined.</p>
@@ -1575,9 +1575,10 @@ public class VK10 {
      * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL}: <b>must</b> only be used as a source image of a transfer command (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.</li>
      * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}: <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage bit enabled.</li>
      * <li>{@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR}: <b>must</b> only be used for presenting a presentable image for display. A swapchain&#8217;s image <b>must</b> be transitioned to this layout before calling {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR}, and <b>must</b> be transitioned away from this layout after calling {@link KHRSwapchain#vkAcquireNextImageKHR AcquireNextImageKHR}.</li>
+     * <li>{@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}: is valid only for shared presentable images, and <b>must</b> be used for any usage the image supports.</li>
      * </ul>
      * 
-     * <p>For each mechanism of accessing an image in the API, there is a parameter or structure member that controls the image layout used to access the image. For transfer commands, this is a parameter to the command (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears>> and <<copies>>). For use as a framebuffer attachment"> this is a member in the substructures of the {@link VkRenderPassCreateInfo} (see <<renderpass,Render Pass</a>). For use in a descriptor set, this is a member in the {@link VkDescriptorImageInfo} structure (see <<descriptorsets-updates>>). At the time that any command buffer command accessing an image executes on any queue, the layouts of the image subresources that are accessed <b>must</b> all match the layout specified via the API controlling those accesses.</p>
+     * <p>For each mechanism of accessing an image in the API, there is a parameter or structure member that controls the image layout used to access the image. For transfer commands, this is a parameter to the command (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">the “Clear Commands” section</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">the “Copy Commands” section</a>). For use as a framebuffer attachment, this is a member in the substructures of the {@link VkRenderPassCreateInfo} (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">Render Pass</a>). For use in a descriptor set, this is a member in the {@link VkDescriptorImageInfo} structure (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-updates">the “Descriptor Set Updates” section</a>). At the time that any command buffer command accessing an image executes on any queue, the layouts of the image subresources that are accessed <b>must</b> all match the layout specified via the API controlling those accesses.</p>
      * 
      * <p>The image layout of each image subresource <b>must</b> be well-defined at each point in the image subresource's lifetime. This means that when performing a layout transition on the image subresource, the old layout value <b>must</b> either equal the current layout of the image subresource (at the time the transition executes), or else be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} (implying that the contents of the image subresource need not be preserved). The new layout used in a transition <b>must</b> not be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED}.</p>
      * 
@@ -2731,6 +2732,72 @@ public class VK10 {
         VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1;
 
     /**
+     * VkObjectType - Specify an enumeration to track object handle types
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>No cross-references are available</p>
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_OBJECT_TYPE_UNKNOWN OBJECT_TYPE_UNKNOWN}</li>
+     * <li>{@link #VK_OBJECT_TYPE_INSTANCE OBJECT_TYPE_INSTANCE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_PHYSICAL_DEVICE OBJECT_TYPE_PHYSICAL_DEVICE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_DEVICE OBJECT_TYPE_DEVICE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_QUEUE OBJECT_TYPE_QUEUE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_SEMAPHORE OBJECT_TYPE_SEMAPHORE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_COMMAND_BUFFER OBJECT_TYPE_COMMAND_BUFFER}</li>
+     * <li>{@link #VK_OBJECT_TYPE_FENCE OBJECT_TYPE_FENCE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_DEVICE_MEMORY OBJECT_TYPE_DEVICE_MEMORY}</li>
+     * <li>{@link #VK_OBJECT_TYPE_BUFFER OBJECT_TYPE_BUFFER}</li>
+     * <li>{@link #VK_OBJECT_TYPE_IMAGE OBJECT_TYPE_IMAGE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_EVENT OBJECT_TYPE_EVENT}</li>
+     * <li>{@link #VK_OBJECT_TYPE_QUERY_POOL OBJECT_TYPE_QUERY_POOL}</li>
+     * <li>{@link #VK_OBJECT_TYPE_BUFFER_VIEW OBJECT_TYPE_BUFFER_VIEW}</li>
+     * <li>{@link #VK_OBJECT_TYPE_IMAGE_VIEW OBJECT_TYPE_IMAGE_VIEW}</li>
+     * <li>{@link #VK_OBJECT_TYPE_SHADER_MODULE OBJECT_TYPE_SHADER_MODULE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_PIPELINE_CACHE OBJECT_TYPE_PIPELINE_CACHE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_PIPELINE_LAYOUT OBJECT_TYPE_PIPELINE_LAYOUT}</li>
+     * <li>{@link #VK_OBJECT_TYPE_RENDER_PASS OBJECT_TYPE_RENDER_PASS}</li>
+     * <li>{@link #VK_OBJECT_TYPE_PIPELINE OBJECT_TYPE_PIPELINE}</li>
+     * <li>{@link #VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT}</li>
+     * <li>{@link #VK_OBJECT_TYPE_SAMPLER OBJECT_TYPE_SAMPLER}</li>
+     * <li>{@link #VK_OBJECT_TYPE_DESCRIPTOR_POOL OBJECT_TYPE_DESCRIPTOR_POOL}</li>
+     * <li>{@link #VK_OBJECT_TYPE_DESCRIPTOR_SET OBJECT_TYPE_DESCRIPTOR_SET}</li>
+     * <li>{@link #VK_OBJECT_TYPE_FRAMEBUFFER OBJECT_TYPE_FRAMEBUFFER}</li>
+     * <li>{@link #VK_OBJECT_TYPE_COMMAND_POOL OBJECT_TYPE_COMMAND_POOL}</li>
+     * </ul>
+     */
+    public static final int
+        VK_OBJECT_TYPE_UNKNOWN               = 0,
+        VK_OBJECT_TYPE_INSTANCE              = 1,
+        VK_OBJECT_TYPE_PHYSICAL_DEVICE       = 2,
+        VK_OBJECT_TYPE_DEVICE                = 3,
+        VK_OBJECT_TYPE_QUEUE                 = 4,
+        VK_OBJECT_TYPE_SEMAPHORE             = 5,
+        VK_OBJECT_TYPE_COMMAND_BUFFER        = 6,
+        VK_OBJECT_TYPE_FENCE                 = 7,
+        VK_OBJECT_TYPE_DEVICE_MEMORY         = 8,
+        VK_OBJECT_TYPE_BUFFER                = 9,
+        VK_OBJECT_TYPE_IMAGE                 = 10,
+        VK_OBJECT_TYPE_EVENT                 = 11,
+        VK_OBJECT_TYPE_QUERY_POOL            = 12,
+        VK_OBJECT_TYPE_BUFFER_VIEW           = 13,
+        VK_OBJECT_TYPE_IMAGE_VIEW            = 14,
+        VK_OBJECT_TYPE_SHADER_MODULE         = 15,
+        VK_OBJECT_TYPE_PIPELINE_CACHE        = 16,
+        VK_OBJECT_TYPE_PIPELINE_LAYOUT       = 17,
+        VK_OBJECT_TYPE_RENDER_PASS           = 18,
+        VK_OBJECT_TYPE_PIPELINE              = 19,
+        VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT = 20,
+        VK_OBJECT_TYPE_SAMPLER               = 21,
+        VK_OBJECT_TYPE_DESCRIPTOR_POOL       = 22,
+        VK_OBJECT_TYPE_DESCRIPTOR_SET        = 23,
+        VK_OBJECT_TYPE_FRAMEBUFFER           = 24,
+        VK_OBJECT_TYPE_COMMAND_POOL          = 25;
+
+    /**
      * The API version number for Vulkan 1.0.
      * 
      * <p>The patch version number in this macro will always be zero. The supported patch version for a physical device <b>can</b> be queried with
@@ -3682,12 +3749,6 @@ public class VK10 {
      * 
      * <p>Because the list of available layers may change externally between calls to {@code vkEnumerateInstanceExtensionProperties}, two calls may retrieve different results if a {@code pLayerName} is available in one call but not in another. The extensions supported by a layer may also change between two calls, e.g. if the layer implementation is replaced by a different version between those calls.</p>
      * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
-     * </ul>
-     * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
@@ -3748,12 +3809,6 @@ public class VK10 {
      * <p>If {@code pProperties} is {@code NULL}, then the number of extensions properties available is returned in {@code pPropertyCount}. Otherwise, {@code pPropertyCount} <b>must</b> point to a variable set by the user to the number of elements in the {@code pProperties} array, and on return the variable is overwritten with the number of structures actually written to {@code pProperties}. If {@code pPropertyCount} is less than the number of extension properties available, at most {@code pPropertyCount} structures will be written. If {@code pPropertyCount} is smaller than the number of extensions available, {@link #VK_INCOMPLETE INCOMPLETE} will be returned instead of {@link #VK_SUCCESS SUCCESS}, to indicate that not all the available properties were returned.</p>
      * 
      * <p>Because the list of available layers may change externally between calls to {@code vkEnumerateInstanceExtensionProperties}, two calls may retrieve different results if a {@code pLayerName} is available in one call but not in another. The extensions supported by a layer may also change between two calls, e.g. if the layer implementation is replaced by a different version between those calls.</p>
-     * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
-     * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -3830,12 +3885,6 @@ public class VK10 {
      * 
      * <p>When {@code pLayerName} parameter is NULL, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
      * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
-     * </ul>
-     * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
@@ -3895,12 +3944,6 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <p>When {@code pLayerName} parameter is NULL, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When {@code pLayerName} is the name of a layer, the device extensions provided by that layer are returned.</p>
-     * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
-     * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -4169,13 +4212,13 @@ public class VK10 {
      * 
      * <p>{@link #vkQueueSubmit QueueSubmit} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-submission">queue submission command</a>, with each batch defined by an element of {@code pSubmits} as an instance of the {@link VkSubmitInfo} structure. Batches begin execution in the order they appear in {@code pSubmits}, but <b>may</b> complete out of order.</p>
      * 
-     * <p>Fence and semaphore operations submitted with {@link #vkQueueSubmit QueueSubmit} have additional ordering constraints compared to other submission commands, with dependencies involving previous and subsequent queue operations. Information about these additional constraints can be found in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores"> semaphore</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences"> fence</a> sections of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> the synchronization chapter</a>.</p>
+     * <p>Fence and semaphore operations submitted with {@link #vkQueueSubmit QueueSubmit} have additional ordering constraints compared to other submission commands, with dependencies involving previous and subsequent queue operations. Information about these additional constraints can be found in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores">semaphore</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences">fence</a> sections of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">the synchronization chapter</a>.</p>
      * 
-     * <p>Details on the interaction of {@code pWaitDstStageMask} with synchronization are described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-waiting"> semaphore wait operation</a> section of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> the synchronization chapter</a>.</p>
+     * <p>Details on the interaction of {@code pWaitDstStageMask} with synchronization are described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-waiting">semaphore wait operation</a> section of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">the synchronization chapter</a>.</p>
      * 
-     * <p>The order that batches appear in {@code pSubmits} is used to determine <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-order"> submission order</a>, and thus all the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-implicit"> implicit ordering guarantees</a> that respect it. Other than these implicit ordering guarantees and any <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> explicit synchronization primitives</a>, these batches <b>may</b> overlap or otherwise execute out of order.</p>
+     * <p>The order that batches appear in {@code pSubmits} is used to determine <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-order">submission order</a>, and thus all the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-implicit">implicit ordering guarantees</a> that respect it. Other than these implicit ordering guarantees and any <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">explicit synchronization primitives</a>, these batches <b>may</b> overlap or otherwise execute out of order.</p>
      * 
-     * <p>If any command buffer submitted to this queue is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable state</a>, it is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> pending state</a>. Once execution of all submissions of a command buffer complete, it moves from the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> pending state</a>, back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable state</a>. If a command buffer was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} flag, it instead moves back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid state</a>.</p>
+     * <p>If any command buffer submitted to this queue is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable state</a>, it is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a>. Once execution of all submissions of a command buffer complete, it moves from the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a>, back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable state</a>. If a command buffer was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} flag, it instead moves back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid state</a>.</p>
      * 
      * <p>If {@link #vkQueueSubmit QueueSubmit} fails, it <b>may</b> return {@link #VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY} or {@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}. If it does, the implementation <b>must</b> ensure that the state and contents of any resources or synchronization primitives referenced by the submitted command buffers and any semaphores referenced by {@code pSubmits} is unaffected by the call or its failure. If {@link #vkQueueSubmit QueueSubmit} fails in such a way that the implementation <b>can</b> not make that guarantee, the implementation <b>must</b> return {@link #VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-lost-device">Lost Device</a>.</p>
      * 
@@ -4270,13 +4313,13 @@ public class VK10 {
      * 
      * <p>{@link #vkQueueSubmit QueueSubmit} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-submission">queue submission command</a>, with each batch defined by an element of {@code pSubmits} as an instance of the {@link VkSubmitInfo} structure. Batches begin execution in the order they appear in {@code pSubmits}, but <b>may</b> complete out of order.</p>
      * 
-     * <p>Fence and semaphore operations submitted with {@link #vkQueueSubmit QueueSubmit} have additional ordering constraints compared to other submission commands, with dependencies involving previous and subsequent queue operations. Information about these additional constraints can be found in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores"> semaphore</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences"> fence</a> sections of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> the synchronization chapter</a>.</p>
+     * <p>Fence and semaphore operations submitted with {@link #vkQueueSubmit QueueSubmit} have additional ordering constraints compared to other submission commands, with dependencies involving previous and subsequent queue operations. Information about these additional constraints can be found in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores">semaphore</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences">fence</a> sections of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">the synchronization chapter</a>.</p>
      * 
-     * <p>Details on the interaction of {@code pWaitDstStageMask} with synchronization are described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-waiting"> semaphore wait operation</a> section of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> the synchronization chapter</a>.</p>
+     * <p>Details on the interaction of {@code pWaitDstStageMask} with synchronization are described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-waiting">semaphore wait operation</a> section of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">the synchronization chapter</a>.</p>
      * 
-     * <p>The order that batches appear in {@code pSubmits} is used to determine <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-order"> submission order</a>, and thus all the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-implicit"> implicit ordering guarantees</a> that respect it. Other than these implicit ordering guarantees and any <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> explicit synchronization primitives</a>, these batches <b>may</b> overlap or otherwise execute out of order.</p>
+     * <p>The order that batches appear in {@code pSubmits} is used to determine <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-order">submission order</a>, and thus all the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-implicit">implicit ordering guarantees</a> that respect it. Other than these implicit ordering guarantees and any <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">explicit synchronization primitives</a>, these batches <b>may</b> overlap or otherwise execute out of order.</p>
      * 
-     * <p>If any command buffer submitted to this queue is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable state</a>, it is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> pending state</a>. Once execution of all submissions of a command buffer complete, it moves from the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> pending state</a>, back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable state</a>. If a command buffer was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} flag, it instead moves back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid state</a>.</p>
+     * <p>If any command buffer submitted to this queue is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable state</a>, it is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a>. Once execution of all submissions of a command buffer complete, it moves from the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a>, back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable state</a>. If a command buffer was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} flag, it instead moves back to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid state</a>.</p>
      * 
      * <p>If {@link #vkQueueSubmit QueueSubmit} fails, it <b>may</b> return {@link #VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY} or {@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}. If it does, the implementation <b>must</b> ensure that the state and contents of any resources or synchronization primitives referenced by the submitted command buffers and any semaphores referenced by {@code pSubmits} is unaffected by the call or its failure. If {@link #vkQueueSubmit QueueSubmit} fails in such a way that the implementation <b>can</b> not make that guarantee, the implementation <b>must</b> return {@link #VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-lost-device">Lost Device</a>.</p>
      * 
@@ -4560,7 +4603,7 @@ public class VK10 {
      * 
      * <p>Before freeing a memory object, an application <b>must</b> ensure the memory object is no longer in use by the device--for example by command buffers queued for execution. The memory <b>can</b> remain bound to images or buffers at the time the memory object is freed, but any further use of them (on host or device) for anything other than destroying those objects will result in undefined behavior. If there are still any bound images or buffers, the memory <b>may</b> not be immediately released by the implementation, but <b>must</b> be released by the time all bound images and buffers have been destroyed. Once memory is released, it is returned to the heap from which it was allocated.</p>
      * 
-     * <p>How memory objects are bound to Images and Buffers is described in detail in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-association"> Resource Memory Association</a> section.</p>
+     * <p>How memory objects are bound to Images and Buffers is described in detail in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-association">Resource Memory Association</a> section.</p>
      * 
      * <p>If a memory object is mapped at the time it is freed, it is implicitly unmapped.</p>
      * 
@@ -4629,13 +4672,13 @@ public class VK10 {
      * <p>{@link #vkMapMemory MapMemory} will fail if the implementation is unable to allocate an appropriately sized contiguous virtual address range, e.g. due to virtual address space fragmentation or platform limits. In such cases, {@link #vkMapMemory MapMemory} <b>must</b> return VK_ERROR_MEMORY_MAP_FAILED. The application <b>can</b> improve the likelihood of success by reducing the size of the mapped range and/or removing unneeded mappings using fname:VkUnmapMemory.</p>
      * </div>
      * 
-     * <p>{@link #vkMapMemory MapMemory} does not check whether the device memory is currently in use before returning the host-accessible pointer. The application <b>must</b> guarantee that any previously submitted command that writes to this range has completed before the host reads from or writes to that range, and that any previously submitted command that reads from that range has completed before the host writes to that region (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-host-writes"> here</a> for details on fulfilling such a guarantee). If the device memory was allocated without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} set, these guarantees <b>must</b> be made for an extended range: the application <b>must</b> round down the start of the range to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}, and round the end of the range up to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}.</p>
+     * <p>{@link #vkMapMemory MapMemory} does not check whether the device memory is currently in use before returning the host-accessible pointer. The application <b>must</b> guarantee that any previously submitted command that writes to this range has completed before the host reads from or writes to that range, and that any previously submitted command that reads from that range has completed before the host writes to that region (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-host-writes">here</a> for details on fulfilling such a guarantee). If the device memory was allocated without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} set, these guarantees <b>must</b> be made for an extended range: the application <b>must</b> round down the start of the range to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}, and round the end of the range up to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}.</p>
      * 
      * <p>While a range of device memory is mapped for host access, the application is responsible for synchronizing both device and host access to that memory range.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
-     * <p>It is important for the application developer to become meticulously familiar with all of the mechanisms described in the chapter on <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> Synchronization and Cache Control</a> as they are crucial to maintaining memory access ordering.</p>
+     * <p>It is important for the application developer to become meticulously familiar with all of the mechanisms described in the chapter on <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">Synchronization and Cache Control</a> as they are crucial to maintaining memory access ordering.</p>
      * </div>
      * 
      * <h5>Valid Usage</h5>
@@ -4761,7 +4804,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} guarantees that host writes to the memory ranges described by {@code pMemoryRanges} <b>can</b> be made available to device access, via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible"> availability operations</a> from the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>.</p>
+     * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} guarantees that host writes to the memory ranges described by {@code pMemoryRanges} <b>can</b> be made available to device access, via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible">availability operations</a> from the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -4815,7 +4858,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} guarantees that host writes to the memory ranges described by {@code pMemoryRanges} <b>can</b> be made available to device access, via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible"> availability operations</a> from the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>.</p>
+     * <p>{@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} guarantees that host writes to the memory ranges described by {@code pMemoryRanges} <b>can</b> be made available to device access, via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible">availability operations</a> from the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -4880,7 +4923,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} guarantees that device writes to the memory ranges described by {@code pMemoryRanges}, which have been made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types"> access types</a>, are made visible to the host. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
+     * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} guarantees that device writes to the memory ranges described by {@code pMemoryRanges}, which have been made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access types</a>, are made visible to the host. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -4934,7 +4977,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} guarantees that device writes to the memory ranges described by {@code pMemoryRanges}, which have been made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types"> access types</a>, are made visible to the host. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
+     * <p>{@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} guarantees that device writes to the memory ranges described by {@code pMemoryRanges}, which have been made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} and {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access types</a>, are made visible to the host. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -5433,7 +5476,7 @@ public class VK10 {
      * 
      * <p>As no operation to {@link #vkQueueBindSparse QueueBindSparse} causes any pipeline stage to access memory, synchronization primitives used in this command effectively only define execution dependencies.</p>
      * 
-     * <p>Additional information about fence and semaphore operation is described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> the synchronization chapter</a>.</p>
+     * <p>Additional information about fence and semaphore operation is described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">the synchronization chapter</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -5522,7 +5565,7 @@ public class VK10 {
      * 
      * <p>As no operation to {@link #vkQueueBindSparse QueueBindSparse} causes any pipeline stage to access memory, synchronization primitives used in this command effectively only define execution dependencies.</p>
      * 
-     * <p>Additional information about fence and semaphore operation is described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> the synchronization chapter</a>.</p>
+     * <p>Additional information about fence and semaphore operation is described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">the synchronization chapter</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -5876,7 +5919,7 @@ public class VK10 {
      * </tbody>
      * </table>
      * 
-     * <p>If a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-submission"> queue submission</a> command is pending execution, then the value returned by this command <b>may</b> immediately be out of date.</p>
+     * <p>If a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-submission">queue submission</a> command is pending execution, then the value returned by this command <b>may</b> immediately be out of date.</p>
      * 
      * <p>If the device has been lost (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-lost-device">Lost Device</a>), {@link #vkGetFenceStatus GetFenceStatus} <b>may</b> return any of the above status codes. If the device has been lost and {@link #vkGetFenceStatus GetFenceStatus} is called repeatedly, it will eventually return either {@link #VK_SUCCESS SUCCESS} or {@link #VK_DEVICE_LOST DEVICE_LOST}.</p>
      * 
@@ -6332,7 +6375,7 @@ public class VK10 {
      * </tbody>
      * </table>
      * 
-     * <p>If a {@link #vkCmdSetEvent CmdSetEvent} or {@link #vkCmdResetEvent CmdResetEvent} command is in a command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> pending state</a>, then the value returned by this command <b>may</b> immediately be out of date.</p>
+     * <p>If a {@link #vkCmdSetEvent CmdSetEvent} or {@link #vkCmdResetEvent CmdResetEvent} command is in a command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a>, then the value returned by this command <b>may</b> immediately be out of date.</p>
      * 
      * <p>The state of an event <b>can</b> be updated by the host. The state of the event is immediately changed, and subsequent calls to {@link #vkGetEventStatus GetEventStatus} will return the new state. If an event is already in the requested state, then updating it to the same state has no effect.</p>
      * 
@@ -6636,7 +6679,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set"> below</a>.</p>
+     * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set">below</a>.</p>
      * 
      * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
      * 
@@ -6752,7 +6795,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set"> below</a>.</p>
+     * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set">below</a>.</p>
      * 
      * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
      * 
@@ -6868,7 +6911,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set"> below</a>.</p>
+     * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set">below</a>.</p>
      * 
      * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
      * 
@@ -8581,7 +8624,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@code pAllocator} controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation"> Memory Allocation</a> chapter.</p>
+     * <p>{@code pAllocator} controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.</p>
      * 
      * <p>The created descriptor pool is returned in {@code pDescriptorPool}.</p>
      * 
@@ -9021,7 +9064,7 @@ public class VK10 {
      * 
      * <p>Each element in the {@code pDescriptorCopies} array is a {@link VkCopyDescriptorSet} structure describing an operation copying descriptors between sets.</p>
      * 
-     * <p>If the {@code dstSet} member of any given element of {@code pDescriptorWrites} or {@code pDescriptorCopies} is bound, accessed, or modified by any command that was recorded to a command buffer which is currently in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording or executable state</a>, that command buffer becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>If the {@code dstSet} member of any given element of {@code pDescriptorWrites} or {@code pDescriptorCopies} is bound, accessed, or modified by any command that was recorded to a command buffer which is currently in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording or executable state</a>, that command buffer becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9442,9 +9485,9 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When a pool is destroyed, all command buffers allocated from the pool are <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkFreeCommandBuffers"> freed</a>.</p>
+     * <p>When a pool is destroyed, all command buffers allocated from the pool are <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkFreeCommandBuffers">freed</a>.</p>
      * 
-     * <p>Any primary command buffer allocated from another {@code VkCommandPool} that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording or executable state</a> and has a secondary command buffer allocated from {@code commandPool} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>Any primary command buffer allocated from another {@code VkCommandPool} that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording or executable state</a> and has a secondary command buffer allocated from {@code commandPool} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9497,9 +9540,9 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Resetting a command pool recycles all of the resources from all of the command buffers allocated from the command pool back to the command pool. All command buffers that have been allocated from the command pool are put in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> initial state</a>.</p>
+     * <p>Resetting a command pool recycles all of the resources from all of the command buffers allocated from the command pool back to the command pool. All command buffers that have been allocated from the command pool are put in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.</p>
      * 
-     * <p>Any primary command buffer allocated from another {@code VkCommandPool} that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording or executable state</a> and has a secondary command buffer allocated from {@code commandPool} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>Any primary command buffer allocated from another {@code VkCommandPool} that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording or executable state</a> and has a secondary command buffer allocated from {@code commandPool} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9575,7 +9618,7 @@ public class VK10 {
      * 
      * <p>{@link #vkAllocateCommandBuffers AllocateCommandBuffers} <b>can</b> be used to create multiple command buffers. If the creation of any of those command buffers fails, the implementation <b>must</b> destroy all successfully created command buffer objects from this command, set all entries of the {@code pCommandBuffers} array to {@code NULL} and return the error.</p>
      * 
-     * <p>When command buffers are first allocated, they are in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> initial state</a>.</p>
+     * <p>When command buffers are first allocated, they are in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.</p>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -9647,7 +9690,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Any primary command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording or executable state</a> and has any element of {@code pCommandBuffers} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>Any primary command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording or executable state</a> and has any element of {@code pCommandBuffers} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9696,7 +9739,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Any primary command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording or executable state</a> and has any element of {@code pCommandBuffers} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>Any primary command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording or executable state</a> and has any element of {@code pCommandBuffers} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9816,7 +9859,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If there was an error during recording, the application will be notified by an unsuccessful return code returned by {@link #vkEndCommandBuffer EndCommandBuffer}. If the application wishes to further use the command buffer, the command buffer <b>must</b> be reset. The command buffer <b>must</b> have been in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording state</a>, and is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable state</a>.</p>
+     * <p>If there was an error during recording, the application will be notified by an unsuccessful return code returned by {@link #vkEndCommandBuffer EndCommandBuffer}. If the application wishes to further use the command buffer, the command buffer <b>must</b> be reset. The command buffer <b>must</b> have been in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a>, and is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable state</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9876,7 +9919,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Any primary command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> recording or executable state</a> and has {@code commandBuffer} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>Any primary command buffer that is in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording or executable state</a> and has {@code commandBuffer} recorded into it, becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9919,7 +9962,7 @@ public class VK10 {
     VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 0x00000001,
 } VkCommandBufferResetFlagBits;</code></pre>
      *                      
-     *                      <p>If {@code flags} includes {@link #VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT}, then most or all memory resources currently owned by the command buffer <b>should</b> be returned to the parent command pool. If this flag is not set, then the command buffer <b>may</b> hold onto memory resources and reuse them when recording commands. {@code commandBuffer} is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> initial state</a>.</p>
+     *                      <p>If {@code flags} includes {@link #VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT}, then most or all memory resources currently owned by the command buffer <b>should</b> be returned to the parent command pool. If this flag is not set, then the command buffer <b>may</b> hold onto memory resources and reuse them when recording commands. {@code commandBuffer} is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.</p>
      */
     public static int vkResetCommandBuffer(VkCommandBuffer commandBuffer, int flags) {
         long __functionAddress = commandBuffer.getCapabilities().vkResetCommandBuffer;
@@ -10603,7 +10646,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <p>{@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} causes the sets numbered [{@code firstSet}.. {@code firstSet}+{@code descriptorSetCount}-1] to use the bindings stored in {@code pDescriptorSets}[0..{@code descriptorSetCount}-1] for subsequent rendering commands (either compute or graphics, according to the {@code pipelineBindPoint}). Any bindings that were previously applied via these sets are no longer valid.</p>
      * 
-     * <p>Once bound, a descriptor set affects rendering of subsequent graphics or compute commands in the command buffer until a different set is bound to the same set number, or else until the set is disturbed as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-compatibility"> Pipeline Layout Compatibility</a>.</p>
+     * <p>Once bound, a descriptor set affects rendering of subsequent graphics or compute commands in the command buffer until a different set is bound to the same set number, or else until the set is disturbed as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-compatibility">Pipeline Layout Compatibility</a>.</p>
      * 
      * <p>A compatible descriptor set <b>must</b> be bound for all set numbers that any shaders in a pipeline access, at the time that a draw or dispatch command is recorded to execute using that pipeline. However, if none of the shaders in a pipeline statically use any bindings with a particular set number, then no descriptor set need be bound for that set number, even if the pipeline layout includes a non-trivial descriptor set layout for that set number.</p>
      * 
@@ -10611,7 +10654,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <p>The effective offset used for dynamic uniform and storage buffer bindings is the sum of the relative offset taken from {@code pDynamicOffsets}, and the base address of the buffer plus base offset in the descriptor set. The length of the dynamic uniform and storage buffer bindings is the buffer range as specified in the descriptor set.</p>
      * 
-     * <p>Each of the {@code pDescriptorSets} <b>must</b> be compatible with the pipeline layout specified by {@code layout}. The layout used to program the bindings <b>must</b> also be compatible with the pipeline used in subsequent graphics or compute commands, as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-compatibility"> Pipeline Layout Compatibility</a> section.</p>
+     * <p>Each of the {@code pDescriptorSets} <b>must</b> be compatible with the pipeline layout specified by {@code layout}. The layout used to program the bindings <b>must</b> also be compatible with the pipeline used in subsequent graphics or compute commands, as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-compatibility">Pipeline Layout Compatibility</a> section.</p>
      * 
      * <p>The descriptor set contents bound by a call to {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} <b>may</b> be consumed during host execution of the command, or during shader execution of the resulting draws, or any time in between. Thus, the contents <b>must</b> not be altered (overwritten by an update command, or freed) between when the command is recorded and when the command completes executing on the queue. The contents of {@code pDynamicOffsets} are consumed immediately during execution of {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}. Once all pending uses have completed, it is legal to update and reuse a descriptor set.</p>
      * 
@@ -11442,12 +11485,12 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
      * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code srcImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The {@code VkFormat} of each of {@code srcImage} and {@code dstImage} <b>must</b> be compatible, as defined <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-images-format-compatibility">below</a></li>
      * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> match</li>
      * </ul>
@@ -11573,7 +11616,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * </li>
      * </ul>
      * 
-     * <p>These coordinates are used to sample from the source image, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures"> Image Operations chapter</a>, with the filter mode equal to that of {@code filter}, a mipmap mode of {@link #VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST} and an address mode of {@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE}. Implementations <b>must</b> clamp at the edge of the source image, and <b>may</b> additionally clamp to the edge of the source region.</p>
+     * <p>These coordinates are used to sample from the source image, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures">Image Operations chapter</a>, with the filter mode equal to that of {@code filter}, a mipmap mode of {@link #VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST} and an address mode of {@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE}. Implementations <b>must</b> clamp at the edge of the source image, and <b>may</b> additionally clamp to the edge of the source region.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -11606,12 +11649,12 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
      * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code srcImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> both be equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
      * <li>If either of {@code srcImage} or {@code dstImage} was created with a signed integer {@code VkFormat}, the other <b>must</b> also have been created with a signed integer {@code VkFormat}</li>
      * <li>If either of {@code srcImage} or {@code dstImage} was created with an unsigned integer {@code VkFormat}, the other <b>must</b> also have been created with an unsigned integer {@code VkFormat}</li>
@@ -11715,7 +11758,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11803,7 +11846,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code srcImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code dstBuffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * </ul>
@@ -12389,7 +12432,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code imageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code imageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
      * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
      * </ul>
@@ -12429,7 +12472,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
      * @param image         the image to be cleared.
-     * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
+     * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
      * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">Image Views</a>. The {@code aspectMask} of all image subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
      */
@@ -12463,7 +12506,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code imageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code imageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
      * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
      * </ul>
@@ -12503,7 +12546,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
      * @param image         the image to be cleared.
-     * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
+     * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
      * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
     public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, VkImageSubresourceRange pRange) {
@@ -12787,9 +12830,9 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code srcImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * </ul>
@@ -12874,9 +12917,9 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code srcImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
-     * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
+     * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * </ul>
@@ -12943,9 +12986,9 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <p>When {@link #vkCmdSetEvent CmdSetEvent} is submitted to a queue, it defines an execution dependency on commands that were submitted before it, and defines an event signal operation which sets the event to the signaled state.</p>
      * 
-     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes every command previously submitted to the same queue, including those in the same command buffer and batch. The synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code stageMask}.</p>
+     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes every command previously submitted to the same queue, including those in the same command buffer and batch. The synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a> specified by {@code stageMask}.</p>
      * 
-     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes only the event signal operation.</p>
+     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes only the event signal operation.</p>
      * 
      * <p>If {@code event} is already in the signaled state when {@link #vkCmdSetEvent CmdSetEvent} is executed on the device, then {@link #vkCmdSetEvent CmdSetEvent} has no effect, no event signal operation occurs, and no execution dependency is generated.</p>
      * 
@@ -13012,9 +13055,9 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <p>When {@link #vkCmdResetEvent CmdResetEvent} is submitted to a queue, it defines an execution dependency on commands that were submitted before it, and defines an event unsignal operation which resets the event to the unsignaled state.</p>
      * 
-     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes every command previously submitted to the same queue, including those in the same command buffer and batch. The synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code stageMask}.</p>
+     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes every command previously submitted to the same queue, including those in the same command buffer and batch. The synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a> specified by {@code stageMask}.</p>
      * 
-     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes only the event unsignal operation.</p>
+     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes only the event unsignal operation.</p>
      * 
      * <p>If {@code event} is already in the unsignaled state when {@link #vkCmdResetEvent CmdResetEvent} is executed on the device, then {@link #vkCmdResetEvent CmdResetEvent} has no effect, no event unsignal operation occurs, and no execution dependency is generated.</p>
      * 
@@ -13103,13 +13146,13 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <p>When {@link #vkCmdWaitEvents CmdWaitEvents} is submitted to a queue, it defines a memory dependency between prior event signal operations, and subsequent commands.</p>
      * 
-     * <p>The first synchronization scope only includes event signal operations that operate on members of {@code pEvents}, and the operations that happened-before the event signal operations. Event signal operations performed by {@link #vkCmdSetEvent CmdSetEvent} that were previously submitted to the same queue are included in the first synchronization scope, if the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order"> logically latest</a> pipeline stage in their {@code stageMask} parameter is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order"> logically earlier</a> than or equal to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order"> logically latest</a> pipeline stage in {@code srcStageMask}. Event signal operations performed by {@link #vkSetEvent SetEvent} are only included in the first synchronization scope if {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} is included in {@code srcStageMask}.</p>
+     * <p>The first synchronization scope only includes event signal operations that operate on members of {@code pEvents}, and the operations that happened-before the event signal operations. Event signal operations performed by {@link #vkCmdSetEvent CmdSetEvent} that were previously submitted to the same queue are included in the first synchronization scope, if the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order">logically latest</a> pipeline stage in their {@code stageMask} parameter is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order">logically earlier</a> than or equal to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order">logically latest</a> pipeline stage in {@code srcStageMask}. Event signal operations performed by {@link #vkSetEvent SetEvent} are only included in the first synchronization scope if {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} is included in {@code srcStageMask}.</p>
      * 
-     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes commands subsequently submitted to the same queue, including those in the same command buffer and batch. The second synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> destination stage mask</a> specified by {@code dstStageMask}.</p>
+     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes commands subsequently submitted to the same queue, including those in the same command buffer and batch. The second synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a> specified by {@code dstStageMask}.</p>
      * 
-     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code srcStageMask}. Within that, the first access scope only includes the first access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers"> memory barriers</a>. If no memory barriers are specified, then the first access scope includes no accesses.</p>
+     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes">access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a> specified by {@code srcStageMask}. Within that, the first access scope only includes the first access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers">memory barriers</a>. If no memory barriers are specified, then the first access scope includes no accesses.</p>
      * 
-     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> destination stage mask</a> specified by {@code dstStageMask}. Within that, the second access scope only includes the second access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers"> memory barriers</a>. If no memory barriers are specified, then the second access scope includes no accesses.</p>
+     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes">access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a> specified by {@code dstStageMask}. Within that, the second access scope only includes the second access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers">memory barriers</a>. If no memory barriers are specified, then the second access scope includes no accesses.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -13221,15 +13264,15 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <p>When {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is submitted to a queue, it defines a memory dependency between commands that were submitted before it, and those submitted after it.</p>
      * 
-     * <p>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded outside a render pass instance, the first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes every command submitted to the same queue before it, including those in the same command buffer and batch. If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded inside a render pass instance, the first synchronization scope includes only commands submitted before it within the same subpass. In either case, the first synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code srcStageMask}.</p>
+     * <p>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded outside a render pass instance, the first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes every command submitted to the same queue before it, including those in the same command buffer and batch. If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded inside a render pass instance, the first synchronization scope includes only commands submitted before it within the same subpass. In either case, the first synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a> specified by {@code srcStageMask}.</p>
      * 
-     * <p>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded outside a render pass instance, the second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes every command submitted to the same queue after it, including those in the same command buffer and batch. If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded inside a render pass instance, the second synchronization scope includes only commands submitted after it within the same subpass. In either case, the second synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> destination stage mask</a> specified by {@code dstStageMask}.</p>
+     * <p>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded outside a render pass instance, the second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes">synchronization scope</a> includes every command submitted to the same queue after it, including those in the same command buffer and batch. If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} was recorded inside a render pass instance, the second synchronization scope includes only commands submitted after it within the same subpass. In either case, the second synchronization scope is limited to operations on the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a> specified by {@code dstStageMask}.</p>
      * 
-     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code srcStageMask}. Within that, the first access scope only includes the first access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers"> memory barriers</a>. If no memory barriers are specified, then the first access scope includes no accesses.</p>
+     * <p>The first <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes">access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a> specified by {@code srcStageMask}. Within that, the first access scope only includes the first access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers">memory barriers</a>. If no memory barriers are specified, then the first access scope includes no accesses.</p>
      * 
-     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> destination stage mask</a> specified by {@code dstStageMask}. Within that, the second access scope only includes the second access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers"> memory barriers</a>. If no memory barriers are specified, then the second access scope includes no accesses.</p>
+     * <p>The second <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes">access scope</a> is limited to access in the pipeline stages determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a> specified by {@code dstStageMask}. Within that, the second access scope only includes the second access scopes defined by elements of the {@code pMemoryBarriers}, {@code pBufferMemoryBarriers} and {@code pImageMemoryBarriers} arrays, which each define a set of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-memory-barriers">memory barriers</a>. If no memory barriers are specified, then the second access scope includes no accesses.</p>
      * 
-     * <p>If {@code dependencyFlags} includes {@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT}, then any dependency between <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions"> framebuffer-space</a> pipeline stages is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions"> framebuffer-local</a> - otherwise it is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions"> framebuffer-global</a>.</p>
+     * <p>If {@code dependencyFlags} includes {@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT}, then any dependency between <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions">framebuffer-space</a> pipeline stages is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions">framebuffer-local</a> - otherwise it is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions">framebuffer-global</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -14302,7 +14345,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <h5>Description</h5>
      * 
-     * <p>If any element of {@code pCommandBuffers} was not recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag, and it was recorded into any other primary command buffer which is currently in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable or recording state</a>, that primary command buffer becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>If any element of {@code pCommandBuffers} was not recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag, and it was recorded into any other primary command buffer which is currently in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable or recording state</a>, that primary command buffer becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -14375,7 +14418,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
      * 
      * <h5>Description</h5>
      * 
-     * <p>If any element of {@code pCommandBuffers} was not recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag, and it was recorded into any other primary command buffer which is currently in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> executable or recording state</a>, that primary command buffer becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle"> invalid</a>.</p>
+     * <p>If any element of {@code pCommandBuffers} was not recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag, and it was recorded into any other primary command buffer which is currently in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">executable or recording state</a>, that primary command buffer becomes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">invalid</a>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 

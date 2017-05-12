@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     VK_SAMPLE_COUNT_64_BIT = 0x00000040,
 } VkSampleCountFlagBits;</code></pre>
  * 
- * <p>The sample count limits defined above represent the minimum supported sample counts for each image type. Individual images <b>may</b> support additional sample counts, which are queried using {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-supported-sample-counts"> Supported Sample Counts</a>.</p></dd>
+ * <p>The sample count limits defined above represent the minimum supported sample counts for each image type. Individual images <b>may</b> support additional sample counts, which are queried using {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-supported-sample-counts">Supported Sample Counts</a>.</p></dd>
  * </dl>
  * 
  * <h5>See Also</h5>

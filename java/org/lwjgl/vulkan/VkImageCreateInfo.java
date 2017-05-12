@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Implementations <b>may</b> support additional limits and capabilities beyond those listed above.</p>
  * 
- * <p>To query an implementation's specific capabilities for a given combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags}, call {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}. The return value indicates whether that combination of image settings is supported. On success, the {@link VkImageFormatProperties} output parameter indicates the set of valid {@code samples} bits and the limits for {@code extent}, {@code mipLevels}, and {@code arrayLayers}.</p>
+ * <p>To query an implementation's specific capabilities for a given combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags}, call {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR}. The return value indicates whether that combination of image settings is supported. On success, the {@link VkImageFormatProperties} output parameter indicates the set of valid {@code samples} bits and the limits for {@code extent}, {@code mipLevels}, and {@code arrayLayers}.</p>
  * 
  * <p>To determine the set of valid {@code usage} bits for a given format, call {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}.</p>
  * 

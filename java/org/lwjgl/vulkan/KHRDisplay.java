@@ -78,6 +78,20 @@ public class KHRDisplay {
         VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001;
 
     /**
+     * Extends {@code VkObjectType}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_OBJECT_TYPE_DISPLAY_KHR OBJECT_TYPE_DISPLAY_KHR}</li>
+     * <li>{@link #VK_OBJECT_TYPE_DISPLAY_MODE_KHR OBJECT_TYPE_DISPLAY_MODE_KHR}</li>
+     * </ul>
+     */
+    public static final int
+        VK_OBJECT_TYPE_DISPLAY_KHR      = 1000002000,
+        VK_OBJECT_TYPE_DISPLAY_MODE_KHR = 1000002001;
+
+    /**
      * VkDisplayPlaneAlphaFlagBitsKHR - Alpha blending type
      * 
      * <h5>Description</h5>

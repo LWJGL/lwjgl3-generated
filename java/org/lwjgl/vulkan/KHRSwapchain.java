@@ -103,6 +103,9 @@ public class KHRSwapchain {
         VK_SUBOPTIMAL_KHR        = 1000001003,
         VK_ERROR_OUT_OF_DATE_KHR = -1000001004;
 
+    /** Extends {@code VkObjectType}. */
+    public static final int VK_OBJECT_TYPE_SWAPCHAIN_KHR = 1000001000;
+
     protected KHRSwapchain() {
         throw new UnsupportedOperationException();
     }

@@ -189,6 +189,10 @@ public class VKCapabilitiesDevice {
     public final long
         vkCmdPushDescriptorSetKHR;
 
+    // KHR_shared_presentable_image
+    public final long
+        vkGetSwapchainStatusKHR;
+
     // KHR_swapchain
     public final long
         vkCreateSwapchainKHR,
@@ -300,6 +304,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
     /** When true, {@link KHRShaderDrawParameters} is supported. */
     public final boolean VK_KHR_shader_draw_parameters;
+    /** When true, {@link KHRSharedPresentableImage} is supported. */
+    public final boolean VK_KHR_shared_presentable_image;
     /** When true, {@link KHRSwapchain} is supported. */
     public final boolean VK_KHR_swapchain;
     /** When true, {@link KHXDeviceGroup} is supported. */
@@ -551,6 +557,11 @@ public class VKCapabilitiesDevice {
         }
         VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
         VK_KHR_shader_draw_parameters = ext.contains("VK_KHR_shader_draw_parameters");
+        {
+            supported = ext.contains("VK_KHR_shared_presentable_image");
+            vkGetSwapchainStatusKHR = isSupported(provider, "vkGetSwapchainStatusKHR", supported);
+            VK_KHR_shared_presentable_image = supported && VK.checkExtension("VK_KHR_shared_presentable_image", KHRSharedPresentableImage.isAvailable(this));
+        }
         {
             supported = ext.contains("VK_KHR_swapchain");
             vkCreateSwapchainKHR = isSupported(provider, "vkCreateSwapchainKHR", supported);

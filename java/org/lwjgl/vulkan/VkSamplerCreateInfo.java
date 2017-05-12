@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
 } VkSamplerAddressMode;</code></pre>
  * 
- * <p>These values control the behavior of sampling with coordinates outside the range <code>[0,1]</code> for the respective u, v, or w coordinate as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-wrapping-operation"> Wrapping Operation</a> section.</p>
+ * <p>These values control the behavior of sampling with coordinates outside the range <code>[0,1]</code> for the respective u, v, or w coordinate as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-wrapping-operation">Wrapping Operation</a> section.</p>
  * 
  * <ul>
  * <li>{@link VK10#VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT} indicates that the repeat wrap mode will be used.</li>

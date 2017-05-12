@@ -190,6 +190,20 @@ public class NVXDeviceGeneratedCommands {
         VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX = 0x40000;
 
     /**
+     * Extends {@code VkObjectType}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_OBJECT_TYPE_OBJECT_TABLE_NVX OBJECT_TYPE_OBJECT_TABLE_NVX}</li>
+     * <li>{@link #VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX}</li>
+     * </ul>
+     */
+    public static final int
+        VK_OBJECT_TYPE_OBJECT_TABLE_NVX             = 1000086000,
+        VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX = 1000086001;
+
+    /**
      * VkIndirectCommandsLayoutUsageFlagBitsNVX - Bitmask specifying allowed usage of a indirect commands layout
      * 
      * <h5>Description</h5>
