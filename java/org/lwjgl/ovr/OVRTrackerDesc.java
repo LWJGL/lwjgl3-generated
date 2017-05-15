@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrTrackerDesc {
-    float FrustumHFovInRadians;
-    float FrustumVFovInRadians;
-    float FrustumNearZInMeters;
-    float FrustumFarZInMeters;
-}</code></pre>
+ * <code><pre>
+ * struct ovrTrackerDesc {
+ *     float FrustumHFovInRadians;
+ *     float FrustumVFovInRadians;
+ *     float FrustumNearZInMeters;
+ *     float FrustumFarZInMeters;
+ * }</pre></code>
  */
 public class OVRTrackerDesc extends Struct implements NativeResource {
 

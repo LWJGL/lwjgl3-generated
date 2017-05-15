@@ -25,12 +25,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrMirrorTextureDesc {
-    ovrTextureFormat Format;
-    int Width;
-    int Height;
-    unsigned int MiscFlags;
-}</code></pre>
+ * <code><pre>
+ * struct ovrMirrorTextureDesc {
+ *     ovrTextureFormat Format;
+ *     int Width;
+ *     int Height;
+ *     unsigned int MiscFlags;
+ * }</pre></code>
  */
 public class OVRMirrorTextureDesc extends Struct implements NativeResource {
 

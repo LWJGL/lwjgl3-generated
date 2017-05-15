@@ -55,14 +55,15 @@ import static org.lwjgl.ovr.OVR.ovrMaxProvidedFrameStats;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrPerfStats {
-    {@link OVRPerfStatsPerCompositorFrame ovrPerfStatsPerCompositorFrame} FrameStats[ovrMaxProvidedFrameStats];
-    int FrameStatsCount;
-    ovrBool AnyFrameStatsDropped;
-    float AdaptiveGpuPerformanceScale;
-    ovrBool AswIsAvailable;
-    ovrProcessId VisibleProcessId;
-}</code></pre>
+ * <code><pre>
+ * struct ovrPerfStats {
+ *     {@link OVRPerfStatsPerCompositorFrame ovrPerfStatsPerCompositorFrame} FrameStats[ovrMaxProvidedFrameStats];
+ *     int FrameStatsCount;
+ *     ovrBool AnyFrameStatsDropped;
+ *     float AdaptiveGpuPerformanceScale;
+ *     ovrBool AswIsAvailable;
+ *     ovrProcessId VisibleProcessId;
+ * }</pre></code>
  */
 public class OVRPerfStats extends Struct implements NativeResource {
 

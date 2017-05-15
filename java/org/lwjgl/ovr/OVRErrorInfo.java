@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrErrorInfo {
-    ovrResult Result;
-    char ErrorString[512];
-}</code></pre>
+ * <code><pre>
+ * struct ovrErrorInfo {
+ *     ovrResult Result;
+ *     char ErrorString[512];
+ * }</pre></code>
  */
 public class OVRErrorInfo extends Struct implements NativeResource {
 

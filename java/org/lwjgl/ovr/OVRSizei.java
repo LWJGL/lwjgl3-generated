@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrSizei {
-    int w;
-    int h;
-}</code></pre>
+ * <code><pre>
+ * struct ovrSizei {
+ *     int w;
+ *     int h;
+ * }</pre></code>
  */
 public class OVRSizei extends Struct implements NativeResource {
 

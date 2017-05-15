@@ -24,9 +24,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrBoundaryLookAndFeel {
-    {@link OVRColorf ovrColorf} Color;
-}</code></pre>
+ * <code><pre>
+ * struct ovrBoundaryLookAndFeel {
+ *     {@link OVRColorf ovrColorf} Color;
+ * }</pre></code>
  */
 public class OVRBoundaryLookAndFeel extends Struct implements NativeResource {
 

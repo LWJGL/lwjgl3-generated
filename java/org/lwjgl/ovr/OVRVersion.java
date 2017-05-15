@@ -19,7 +19,6 @@ public final class OVRVersion {
     /** The {@code ((product * 100) + major)} version of the service that the DLL is compatible with. */
     public static final int OVR_DLL_COMPATIBLE_VERSION = 101;
 
-    /**  */
     public static final int OVR_OVR_FEATURE_VERSION = 0;
 
     /** "Major.Minor.Patch.Build" */

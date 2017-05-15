@@ -45,9 +45,10 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * <li>{@code Matrix} &ndash; 
  * specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
  * 
- * <pre><code>P = (x,y,z,1)*Matrix
-TexU  = P.x/P.z
-TexV  = P.y/P.z</code></pre></li>
+ * <code><pre>
+ * P = (x,y,z,1)*Matrix
+ * TexU  = P.x/P.z
+ * TexV  = P.y/P.z</pre></code></li>
  * <li>{@code SensorSampleTime} &ndash; 
  * specifies the timestamp when the source {@code ovrPosef} (used in calculating {@code RenderPose}) was sampled from the SDK. Typically retrieved by
  * calling {@link OVR#ovr_GetTimeInSeconds GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState GetTrackingState} The main purpose for this is to accurately track app
@@ -56,14 +57,15 @@ TexV  = P.y/P.z</code></pre></li>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrLayerEyeMatrix {
-    {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain ColorTexture[ovrEye_Count];
-    {@link OVRRecti ovrRecti} Viewport[ovrEye_Count];
-    {@link OVRPosef ovrPosef} RenderPose[ovrEye_Count];
-    {@link OVRMatrix4f ovrMatrix4f} Matrix[ovrEye_Count];
-    double SensorSampleTime;
-}</code></pre>
+ * <code><pre>
+ * struct ovrLayerEyeMatrix {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     ovrTextureSwapChain ColorTexture[ovrEye_Count];
+ *     {@link OVRRecti ovrRecti} Viewport[ovrEye_Count];
+ *     {@link OVRPosef ovrPosef} RenderPose[ovrEye_Count];
+ *     {@link OVRMatrix4f ovrMatrix4f} Matrix[ovrEye_Count];
+ *     double SensorSampleTime;
+ * }</pre></code>
  */
 public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 

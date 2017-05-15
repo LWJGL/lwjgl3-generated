@@ -25,9 +25,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrMatrix4f {
-    float M[16];
-}</code></pre>
+ * <code><pre>
+ * struct ovrMatrix4f {
+ *     float M[16];
+ * }</pre></code>
  */
 public class OVRMatrix4f extends Struct implements NativeResource {
 

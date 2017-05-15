@@ -35,14 +35,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrInitParams {
-    uint32_t Flags;
-    uint32_t RequestedMinorVersion;
-    {@link OVRLogCallbackI ovrLogCallback} LogCallback;
-    uintptr_t UserData;
-    uint32_t ConnectionTimeoutMS;
-    char[4];
-}</code></pre>
+ * <code><pre>
+ * struct ovrInitParams {
+ *     uint32_t Flags;
+ *     uint32_t RequestedMinorVersion;
+ *     {@link OVRLogCallbackI ovrLogCallback} LogCallback;
+ *     uintptr_t UserData;
+ *     uint32_t ConnectionTimeoutMS;
+ *     char[4];
+ * }</pre></code>
  */
 public class OVRInitParams extends Struct implements NativeResource {
 

@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrColorf {
-    float r;
-    float g;
-    float b;
-    float a;
-}</code></pre>
+ * <code><pre>
+ * struct ovrColorf {
+ *     float r;
+ *     float g;
+ *     float b;
+ *     float a;
+ * }</pre></code>
  */
 public class OVRColorf extends Struct implements NativeResource {
 

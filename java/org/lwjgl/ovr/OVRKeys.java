@@ -18,7 +18,6 @@ public final class OVRKeys {
         OVR_KEY_NECK_TO_EYE_DISTANCE = "NeckEyeDistance",
         OVR_KEY_EYE_TO_NOSE_DISTANCE = "EyeToNoseDist";
 
-    /**  */
     public static final String OVR_DEFAULT_GENDER = "Unknown";
 
     /** Default measurements empirically determined at Oculus. */
@@ -40,7 +39,6 @@ public final class OVRKeys {
     /** bool, hide other layers when the hud is enabled. */
     public static final String OVR_LAYER_HUD_SHOW_ALL_LAYERS = "LayerHudShowAll";
 
-    /**  */
     public static final String
         OVR_DEBUG_HUD_STEREO_MODE               = "DebugHudStereoMode",
         OVR_DEBUG_HUD_STEREO_GUIDE_INFO_ENABLE  = "DebugHudStereoGuideInfoEnable",

@@ -37,10 +37,11 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrViewScaleDesc {
-    {@link OVRVector3f ovrVector3f} HmdToEyeOffset[ovrEye_Count];
-    float HmdSpaceToWorldScaleInMeters;
-}</code></pre>
+ * <code><pre>
+ * struct ovrViewScaleDesc {
+ *     {@link OVRVector3f ovrVector3f} HmdToEyeOffset[ovrEye_Count];
+ *     float HmdSpaceToWorldScaleInMeters;
+ * }</pre></code>
  */
 public class OVRViewScaleDesc extends Struct implements NativeResource {
 

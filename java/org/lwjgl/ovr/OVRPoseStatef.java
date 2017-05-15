@@ -30,15 +30,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrPoseStatef {
-    {@link OVRPosef ovrPosef} ThePose;
-    {@link OVRVector3f ovrVector3f} AngularVelocity;
-    {@link OVRVector3f ovrVector3f} LinearVelocity;
-    {@link OVRVector3f ovrVector3f} AngularAcceleration;
-    {@link OVRVector3f ovrVector3f} LinearAcceleration;
-    char[4];
-    double TimeInSeconds;
-}</code></pre>
+ * <code><pre>
+ * struct ovrPoseStatef {
+ *     {@link OVRPosef ovrPosef} ThePose;
+ *     {@link OVRVector3f ovrVector3f} AngularVelocity;
+ *     {@link OVRVector3f ovrVector3f} LinearVelocity;
+ *     {@link OVRVector3f ovrVector3f} AngularAcceleration;
+ *     {@link OVRVector3f ovrVector3f} LinearAcceleration;
+ *     char[4];
+ *     double TimeInSeconds;
+ * }</pre></code>
  */
 public class OVRPoseStatef extends Struct {
 

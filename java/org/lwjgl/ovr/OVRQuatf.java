@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrQuatf {
-    float x;
-    float y;
-    float z;
-    float w;
-}</code></pre>
+ * <code><pre>
+ * struct ovrQuatf {
+ *     float x;
+ *     float y;
+ *     float z;
+ *     float w;
+ * }</pre></code>
  */
 public class OVRQuatf extends Struct implements NativeResource {
 

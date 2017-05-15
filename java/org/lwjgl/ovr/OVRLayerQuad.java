@@ -41,13 +41,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrLayerQuad {
-    {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain ColorTexture;
-    {@link OVRRecti ovrRecti} Viewport;
-    {@link OVRPosef ovrPosef} QuadPoseCenter;
-    {@link OVRVector2f ovrVector2f} QuadSize;
-}</code></pre>
+ * <code><pre>
+ * struct ovrLayerQuad {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     ovrTextureSwapChain ColorTexture;
+ *     {@link OVRRecti ovrRecti} Viewport;
+ *     {@link OVRPosef ovrPosef} QuadPoseCenter;
+ *     {@link OVRVector2f ovrVector2f} QuadSize;
+ * }</pre></code>
  */
 public class OVRLayerQuad extends Struct implements NativeResource {
 

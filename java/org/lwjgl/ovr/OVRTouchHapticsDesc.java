@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrTouchHapticsDesc {
-    int SampleRateHz;
-    int SampleSizeInBytes;
-    int QueueMinSizeToAvoidStarvation;
-    int SubmitMinSamples;
-    int SubmitMaxSamples;
-    int SubmitOptimalSamples;
-}</code></pre>
+ * <code><pre>
+ * struct ovrTouchHapticsDesc {
+ *     int SampleRateHz;
+ *     int SampleSizeInBytes;
+ *     int QueueMinSizeToAvoidStarvation;
+ *     int SubmitMinSamples;
+ *     int SubmitMaxSamples;
+ *     int SubmitOptimalSamples;
+ * }</pre></code>
  */
 public class OVRTouchHapticsDesc extends Struct implements NativeResource {
 

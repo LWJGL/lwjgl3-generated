@@ -27,11 +27,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrHapticsBuffer {
-    void * Samples;
-    int SamplesCount;
-    ovrHapticsBufferSubmitMode SubmitMode;
-}</code></pre>
+ * <code><pre>
+ * struct ovrHapticsBuffer {
+ *     void * Samples;
+ *     int SamplesCount;
+ *     ovrHapticsBufferSubmitMode SubmitMode;
+ * }</pre></code>
  */
 public class OVRHapticsBuffer extends Struct implements NativeResource {
 

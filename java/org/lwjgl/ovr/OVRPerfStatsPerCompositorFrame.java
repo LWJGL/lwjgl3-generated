@@ -83,26 +83,27 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrPerfStatsPerCompositorFrame {
-    int HmdVsyncIndex;
-    int AppFrameIndex;
-    int AppDroppedFrameCount;
-    float AppMotionToPhotonLatency;
-    float AppQueueAheadTime;
-    float AppCpuElapsedTime;
-    float AppGpuElapsedTime;
-    int CompositorFrameIndex;
-    int CompositorDroppedFrameCount;
-    float CompositorLatency;
-    float CompositorCpuElapsedTime;
-    float CompositorGpuElapsedTime;
-    float CompositorCpuStartToGpuEndElapsedTime;
-    float CompositorGpuEndToVsyncElapsedTime;
-    ovrBool AswIsActive;
-    int AswActivatedToggleCount;
-    int AswPresentedFrameCount;
-    int AswFailedFrameCount;
-}</code></pre>
+ * <code><pre>
+ * struct ovrPerfStatsPerCompositorFrame {
+ *     int HmdVsyncIndex;
+ *     int AppFrameIndex;
+ *     int AppDroppedFrameCount;
+ *     float AppMotionToPhotonLatency;
+ *     float AppQueueAheadTime;
+ *     float AppCpuElapsedTime;
+ *     float AppGpuElapsedTime;
+ *     int CompositorFrameIndex;
+ *     int CompositorDroppedFrameCount;
+ *     float CompositorLatency;
+ *     float CompositorCpuElapsedTime;
+ *     float CompositorGpuElapsedTime;
+ *     float CompositorCpuStartToGpuEndElapsedTime;
+ *     float CompositorGpuEndToVsyncElapsedTime;
+ *     ovrBool AswIsActive;
+ *     int AswActivatedToggleCount;
+ *     int AswPresentedFrameCount;
+ *     int AswFailedFrameCount;
+ * }</pre></code>
  */
 public class OVRPerfStatsPerCompositorFrame extends Struct {
 

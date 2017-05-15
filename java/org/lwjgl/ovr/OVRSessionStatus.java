@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrSessionStatus {
-    ovrBool IsVisible;
-    ovrBool HmdPresent;
-    ovrBool HmdMounted;
-    ovrBool DisplayLost;
-    ovrBool ShouldQuit;
-    ovrBool ShouldRecenter;
-}</code></pre>
+ * <code><pre>
+ * struct ovrSessionStatus {
+ *     ovrBool IsVisible;
+ *     ovrBool HmdPresent;
+ *     ovrBool HmdMounted;
+ *     ovrBool DisplayLost;
+ *     ovrBool ShouldQuit;
+ *     ovrBool ShouldRecenter;
+ * }</pre></code>
  */
 public class OVRSessionStatus extends Struct implements NativeResource {
 

@@ -39,13 +39,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrTrackingState {
-    {@link OVRPoseStatef ovrPoseStatef} HeadPose;
-    unsigned int StatusFlags;
-    {@link OVRPoseStatef ovrPoseStatef} HandPoses[2];
-    unsigned int HandStatusFlags[2];
-    {@link OVRPosef ovrPosef} CalibratedOrigin;
-}</code></pre>
+ * <code><pre>
+ * struct ovrTrackingState {
+ *     {@link OVRPoseStatef ovrPoseStatef} HeadPose;
+ *     unsigned int StatusFlags;
+ *     {@link OVRPoseStatef ovrPoseStatef} HandPoses[2];
+ *     unsigned int HandStatusFlags[2];
+ *     {@link OVRPosef ovrPosef} CalibratedOrigin;
+ * }</pre></code>
  */
 public class OVRTrackingState extends Struct implements NativeResource {
 

@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>union ovrLayer_Union {
-    {@link OVRLayerHeader ovrLayerHeader} Header;
-    {@link OVRLayerEyeFov ovrLayerEyeFov} EyeFov;
-    {@link OVRLayerQuad ovrLayerQuad} Quad;
-}</code></pre>
+ * <code><pre>
+ * union ovrLayer_Union {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     {@link OVRLayerEyeFov ovrLayerEyeFov} EyeFov;
+ *     {@link OVRLayerQuad ovrLayerQuad} Quad;
+ * }</pre></code>
  */
 public class OVRLayerUnion extends Struct implements NativeResource {
 

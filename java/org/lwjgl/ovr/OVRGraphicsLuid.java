@@ -27,9 +27,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrGraphicsLuid {
-    char Reserved[8];
-}</code></pre>
+ * <code><pre>
+ * struct ovrGraphicsLuid {
+ *     char Reserved[8];
+ * }</pre></code>
  */
 public class OVRGraphicsLuid extends Struct implements NativeResource {
 

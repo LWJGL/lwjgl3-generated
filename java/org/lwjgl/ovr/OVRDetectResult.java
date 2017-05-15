@@ -33,11 +33,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrDetectResult {
-    ovrBool IsOculusServiceRunning;
-    ovrBool IsOculusHMDConnected;
-    char[6];
-}</code></pre>
+ * <code><pre>
+ * struct ovrDetectResult {
+ *     ovrBool IsOculusServiceRunning;
+ *     ovrBool IsOculusHMDConnected;
+ *     char[6];
+ * }</pre></code>
  */
 public class OVRDetectResult extends Struct implements NativeResource {
 

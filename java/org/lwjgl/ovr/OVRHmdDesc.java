@@ -42,26 +42,27 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrHmdDesc {
-    ovrHmdType Type;
-    char[4];
-    char ProductName[64];
-    char Manufacturer[64];
-    short VendorId;
-    short ProductId;
-    char SerialNumber[24];
-    short FirmwareMajor;
-    short FirmwareMinor;
-    unsigned int AvailableHmdCaps;
-    unsigned int DefaultHmdCaps;
-    unsigned int AvailableTrackingCaps;
-    unsigned int DefaultTrackingCaps;
-    {@link OVRFovPort ovrFovPort} DefaultEyeFov[ovrEye_Count];
-    {@link OVRFovPort ovrFovPort} MaxEyeFov[ovrEye_Count];
-    {@link OVRSizei ovrSizei} Resolution;
-    float DisplayRefreshRate;
-    char[4];
-}</code></pre>
+ * <code><pre>
+ * struct ovrHmdDesc {
+ *     ovrHmdType Type;
+ *     char[4];
+ *     char ProductName[64];
+ *     char Manufacturer[64];
+ *     short VendorId;
+ *     short ProductId;
+ *     char SerialNumber[24];
+ *     short FirmwareMajor;
+ *     short FirmwareMinor;
+ *     unsigned int AvailableHmdCaps;
+ *     unsigned int DefaultHmdCaps;
+ *     unsigned int AvailableTrackingCaps;
+ *     unsigned int DefaultTrackingCaps;
+ *     {@link OVRFovPort ovrFovPort} DefaultEyeFov[ovrEye_Count];
+ *     {@link OVRFovPort ovrFovPort} MaxEyeFov[ovrEye_Count];
+ *     {@link OVRSizei ovrSizei} Resolution;
+ *     float DisplayRefreshRate;
+ *     char[4];
+ * }</pre></code>
  */
 public class OVRHmdDesc extends Struct implements NativeResource {
 

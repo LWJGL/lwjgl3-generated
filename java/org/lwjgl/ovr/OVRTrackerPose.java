@@ -28,12 +28,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrTrackerPose {
-    unsigned int TrackerFlags;
-    {@link OVRPosef ovrPosef} Pose;
-    {@link OVRPosef ovrPosef} LeveledPose;
-    char[4];
-}</code></pre>
+ * <code><pre>
+ * struct ovrTrackerPose {
+ *     unsigned int TrackerFlags;
+ *     {@link OVRPosef ovrPosef} Pose;
+ *     {@link OVRPosef ovrPosef} LeveledPose;
+ *     char[4];
+ * }</pre></code>
  */
 public class OVRTrackerPose extends Struct implements NativeResource {
 

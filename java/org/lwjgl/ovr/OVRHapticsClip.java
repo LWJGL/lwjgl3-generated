@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrHapticsClip {
-    const void * Samples;
-    int SamplesCount;
-}</code></pre>
+ * <code><pre>
+ * struct ovrHapticsClip {
+ *     const void * Samples;
+ *     int SamplesCount;
+ * }</pre></code>
  */
 public class OVRHapticsClip extends Struct implements NativeResource {
 

@@ -38,14 +38,15 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrLayerEyeFov {
-    {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain ColorTexture[ovrEye_Count];
-    {@link OVRRecti ovrRecti} Viewport[ovrEye_Count];
-    {@link OVRFovPort ovrFovPort} Fov[ovrEye_Count];
-    {@link OVRPosef ovrPosef} RenderPose[ovrEye_Count];
-    double SensorSampleTime;
-}</code></pre>
+ * <code><pre>
+ * struct ovrLayerEyeFov {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     ovrTextureSwapChain ColorTexture[ovrEye_Count];
+ *     {@link OVRRecti ovrRecti} Viewport[ovrEye_Count];
+ *     {@link OVRFovPort ovrFovPort} Fov[ovrEye_Count];
+ *     {@link OVRPosef ovrPosef} RenderPose[ovrEye_Count];
+ *     double SensorSampleTime;
+ * }</pre></code>
  */
 public class OVRLayerEyeFov extends Struct implements NativeResource {
 

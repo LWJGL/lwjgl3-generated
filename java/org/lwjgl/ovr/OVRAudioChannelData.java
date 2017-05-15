@@ -28,11 +28,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrAudioChannelData {
-    const float * Samples;
-    int SamplesCount;
-    int Frequency;
-}</code></pre>
+ * <code><pre>
+ * struct ovrAudioChannelData {
+ *     const float * Samples;
+ *     int SamplesCount;
+ *     int Frequency;
+ * }</pre></code>
  */
 public class OVRAudioChannelData extends Struct implements NativeResource {
 

@@ -587,8 +587,9 @@ public class OVR {
      * 
      * <p>App can toggle performance HUD modes as such:</p>
      * 
-     * <pre><code>ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
-ovr_SetInt(session, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
+     * <code><pre>
+     * ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
+     * ovr_SetInt(session, OVR_PERF_HUD_MODE, (int)PerfHudMode);</pre></code>
      * 
      * <h5>Enum values:</h5>
      * 
@@ -616,8 +617,9 @@ ovr_SetInt(session, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
      * 
      * <p>App can toggle layer HUD modes as such:</p>
      * 
-     * <pre><code>ovrLayerHudMode LayerHudMode = ovrLayerHud_Info;
-ovr_SetInt(Hmd, OVR_LAYER_HUD_MODE, (int)LayerHudMode);</code></pre>
+     * <code><pre>
+     * ovrLayerHudMode LayerHudMode = ovrLayerHud_Info;
+     * ovr_SetInt(Hmd, OVR_LAYER_HUD_MODE, (int)LayerHudMode);</pre></code>
      * 
      * <h5>Enum values:</h5>
      * 
@@ -637,8 +639,9 @@ ovr_SetInt(Hmd, OVR_LAYER_HUD_MODE, (int)LayerHudMode);</code></pre>
      * 
      * <p>App can toggle the debug HUD modes as such:</p>
      * 
-     * <pre><code>ovrDebugHudStereoMode DebugHudMode = ovrDebugHudStereo_QuadWithCrosshair;
-ovr_SetInt(session, OVR_DEBUG_HUD_STEREO_MODE, (int)DebugHudMode);</code></pre>
+     * <code><pre>
+     * ovrDebugHudStereoMode DebugHudMode = ovrDebugHudStereo_QuadWithCrosshair;
+     * ovr_SetInt(session, OVR_DEBUG_HUD_STEREO_MODE, (int)DebugHudMode);</pre></code>
      * 
      * <p>The app can modify the visual properties of the stereo guide (i.e. quad, crosshair) using the {@link #ovr_SetFloatArray SetFloatArray} function. For a list of tweakable
      * properties, see the {@code OVR_DEBUG_HUD_STEREO_GUIDE_*} keys in {@link OVRKeys}.</p>
@@ -816,20 +819,22 @@ ovr_SetInt(session, OVR_DEBUG_HUD_STEREO_MODE, (int)DebugHudMode);</code></pre>
      * after {@link #ovr_Initialize Initialize} and before the first call to {@link #ovr_Create Create}. Each value is limited to 20 characters. Key names such as 'EngineName:', 'EngineVersion:'
      * do not count towards this limit.</p>
      * 
-     * <pre><code>EngineName: %s\n
-EngineVersion: %s\n
-EnginePluginName: %s\n
-EnginePluginVersion: %s\n
-EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
+     * <code><pre>
+     * EngineName: %s\n
+     * EngineVersion: %s\n
+     * EnginePluginName: %s\n
+     * EnginePluginVersion: %s\n
+     * EngineEditor: <boolean> ('true' or 'false')\n</pre></code>
      * 
      * <p>Example code:</p>
      * 
-     * <pre><code>ovr_IdentifyClient(
-    "EngineName: Unity\n" +
-    "EngineVersion: 5.3.3\n" +
-    "EnginePluginName: OVRPlugin\n" +
-    "EnginePluginVersion: 1.2.0\n" +
-    "EngineEditor: true");</code></pre>
+     * <code><pre>
+     * ovr_IdentifyClient(
+     *     "EngineName: Unity\n" +
+     *     "EngineVersion: 5.3.3\n" +
+     *     "EnginePluginName: OVRPlugin\n" +
+     *     "EnginePluginVersion: 1.2.0\n" +
+     *     "EngineEditor: true");</pre></code>
      *
      * @param identity specifies one or more newline-delimited lines of optional info
      */
@@ -848,20 +853,22 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
      * after {@link #ovr_Initialize Initialize} and before the first call to {@link #ovr_Create Create}. Each value is limited to 20 characters. Key names such as 'EngineName:', 'EngineVersion:'
      * do not count towards this limit.</p>
      * 
-     * <pre><code>EngineName: %s\n
-EngineVersion: %s\n
-EnginePluginName: %s\n
-EnginePluginVersion: %s\n
-EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
+     * <code><pre>
+     * EngineName: %s\n
+     * EngineVersion: %s\n
+     * EnginePluginName: %s\n
+     * EnginePluginVersion: %s\n
+     * EngineEditor: <boolean> ('true' or 'false')\n</pre></code>
      * 
      * <p>Example code:</p>
      * 
-     * <pre><code>ovr_IdentifyClient(
-    "EngineName: Unity\n" +
-    "EngineVersion: 5.3.3\n" +
-    "EnginePluginName: OVRPlugin\n" +
-    "EnginePluginVersion: 1.2.0\n" +
-    "EngineEditor: true");</code></pre>
+     * <code><pre>
+     * ovr_IdentifyClient(
+     *     "EngineName: Unity\n" +
+     *     "EngineVersion: 5.3.3\n" +
+     *     "EnginePluginName: OVRPlugin\n" +
+     *     "EnginePluginVersion: 1.2.0\n" +
+     *     "EngineEditor: true");</pre></code>
      *
      * @param identity specifies one or more newline-delimited lines of optional info
      */
@@ -1085,8 +1092,9 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
      * 
      * <p>This function can emulate ovr_RecenterTrackingOrigin as such:</p>
      * 
-     * <pre><code>ovrTrackingState ts = ovr_GetTrackingState(session, 0.0, ovrFalse);
-ovr_SpecifyTrackingOrigin(session, ts.HeadPose.ThePose);</code></pre>
+     * <code><pre>
+     * ovrTrackingState ts = ovr_GetTrackingState(session, 0.0, ovrFalse);
+     * ovr_SpecifyTrackingOrigin(session, ts.HeadPose.ThePose);</pre></code>
      * 
      * <p>The roll and pitch orientation components are determined by gravity and cannot be redefined. If you are using {@code ovrTrackerPoses} then you will
      * need to call {@link #ovr_GetTrackerPose GetTrackerPose} after this, because the sensor position(s) will change as a result of this.</p>
@@ -1650,9 +1658,10 @@ ovr_SpecifyTrackingOrigin(session, ts.HeadPose.ThePose);</code></pre>
      * 
      * <p>Example code:</p>
      * 
-     * <pre><code>ovrHmdDesc hmdDesc = ovr_GetHmdDesc(session);
-ovrSizei eyeSizeLeft  = ovr_GetFovTextureSize(session, ovrEye_Left,  hmdDesc.DefaultEyeFov[ovrEye_Left],  1.0f);
-ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.DefaultEyeFov[ovrEye_Right], 1.0f);</code></pre>
+     * <code><pre>
+     * ovrHmdDesc hmdDesc = ovr_GetHmdDesc(session);
+     * ovrSizei eyeSizeLeft  = ovr_GetFovTextureSize(session, ovrEye_Left,  hmdDesc.DefaultEyeFov[ovrEye_Left],  1.0f);
+     * ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.DefaultEyeFov[ovrEye_Right], 1.0f);</pre></code>
      *
      * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param eye                   which eye (left or right) to calculate for. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
@@ -1718,11 +1727,12 @@ ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.Def
      * 
      * <h3>Example code</h3>
      * 
-     * <pre><code>ovrLayerEyeFov  layer0;
-ovrLayerQuad    layer1;
-...
-ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
-ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</code></pre>
+     * <code><pre>
+     * ovrLayerEyeFov  layer0;
+     * ovrLayerQuad    layer1;
+     * ...
+     * ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
+     * ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</pre></code>
      *
      * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovr_SubmitFrame SubmitFrame} was called

@@ -29,13 +29,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrEyeRenderDesc {
-    ovrEyeType Eye;
-    {@link OVRFovPort ovrFovPort} Fov;
-    {@link OVRRecti ovrRecti} DistortedViewport;
-    {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
-    {@link OVRVector3f ovrVector3f} HmdToEyeOffset;
-}</code></pre>
+ * <code><pre>
+ * struct ovrEyeRenderDesc {
+ *     ovrEyeType Eye;
+ *     {@link OVRFovPort ovrFovPort} Fov;
+ *     {@link OVRRecti ovrRecti} DistortedViewport;
+ *     {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
+ *     {@link OVRVector3f ovrVector3f} HmdToEyeOffset;
+ * }</pre></code>
  */
 public class OVREyeRenderDesc extends Struct implements NativeResource {
 

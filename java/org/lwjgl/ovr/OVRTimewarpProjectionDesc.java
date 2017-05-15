@@ -28,11 +28,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrTimewarpProjectionDesc {
-    float Projection22;
-    float Projection23;
-    float Projection32;
-}</code></pre>
+ * <code><pre>
+ * struct ovrTimewarpProjectionDesc {
+ *     float Projection22;
+ *     float Projection23;
+ *     float Projection32;
+ * }</pre></code>
  */
 public class OVRTimewarpProjectionDesc extends Struct implements NativeResource {
 

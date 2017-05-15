@@ -30,18 +30,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrTextureSwapChainDesc {
-    ovrTextureType Type;
-    ovrTextureFormat Format;
-    int ArraySize;
-    int Width;
-    int Height;
-    int MipLevels;
-    int SampleCount;
-    ovrBool StaticImage;
-    unsigned int MiscFlags;
-    unsigned int BindFlags;
-}</code></pre>
+ * <code><pre>
+ * struct ovrTextureSwapChainDesc {
+ *     ovrTextureType Type;
+ *     ovrTextureFormat Format;
+ *     int ArraySize;
+ *     int Width;
+ *     int Height;
+ *     int MipLevels;
+ *     int SampleCount;
+ *     ovrBool StaticImage;
+ *     unsigned int MiscFlags;
+ *     unsigned int BindFlags;
+ * }</pre></code>
  */
 public class OVRTextureSwapChainDesc extends Struct implements NativeResource {
 

@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrHapticsPlaybackState {
-    int RemainingQueueSpace;
-    int SamplesQueued;
-}</code></pre>
+ * <code><pre>
+ * struct ovrHapticsPlaybackState {
+ *     int RemainingQueueSpace;
+ *     int SamplesQueued;
+ * }</pre></code>
  */
 public class OVRHapticsPlaybackState extends Struct implements NativeResource {
 

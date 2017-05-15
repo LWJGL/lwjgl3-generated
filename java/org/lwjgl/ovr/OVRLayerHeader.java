@@ -28,10 +28,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrLayerHeader {
-    ovrLayerType Type;
-    unsigned int Flags;
-}</code></pre>
+ * <code><pre>
+ * struct ovrLayerHeader {
+ *     ovrLayerType Type;
+ *     unsigned int Flags;
+ * }</pre></code>
  */
 public class OVRLayerHeader extends Struct implements NativeResource {
 

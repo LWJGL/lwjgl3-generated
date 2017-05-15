@@ -40,21 +40,22 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrInputState {
-    double TimeInSeconds;
-    unsigned int Buttons;
-    unsigned int Touches;
-    float IndexTrigger[ovrHand_Count];
-    float HandTrigger[ovrHand_Count];
-    {@link OVRVector2f ovrVector2f} Thumbstick[ovrHand_Count];
-    ovrControllerType ControllerType;
-    float IndexTriggerNoDeadzone[ovrHand_Count];
-    float HandTriggerNoDeadzone[ovrHand_Count];
-    {@link OVRVector2f ovrVector2f} ThumbstickNoDeadzone[ovrHand_Count];
-    float IndexTriggerRaw[ovrHand_Count];
-    float HandTriggerRaw[ovrHand_Count];
-    {@link OVRVector2f ovrVector2f} ThumbstickRaw[ovrHand_Count];
-}</code></pre>
+ * <code><pre>
+ * struct ovrInputState {
+ *     double TimeInSeconds;
+ *     unsigned int Buttons;
+ *     unsigned int Touches;
+ *     float IndexTrigger[ovrHand_Count];
+ *     float HandTrigger[ovrHand_Count];
+ *     {@link OVRVector2f ovrVector2f} Thumbstick[ovrHand_Count];
+ *     ovrControllerType ControllerType;
+ *     float IndexTriggerNoDeadzone[ovrHand_Count];
+ *     float HandTriggerNoDeadzone[ovrHand_Count];
+ *     {@link OVRVector2f ovrVector2f} ThumbstickNoDeadzone[ovrHand_Count];
+ *     float IndexTriggerRaw[ovrHand_Count];
+ *     float HandTriggerRaw[ovrHand_Count];
+ *     {@link OVRVector2f ovrVector2f} ThumbstickRaw[ovrHand_Count];
+ * }</pre></code>
  */
 public class OVRInputState extends Struct implements NativeResource {
 

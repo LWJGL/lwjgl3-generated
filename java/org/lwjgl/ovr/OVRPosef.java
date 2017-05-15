@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrPosef {
-    {@link OVRQuatf ovrQuatf} Orientation;
-    {@link OVRVector3f ovrVector3f} Position;
-}</code></pre>
+ * <code><pre>
+ * struct ovrPosef {
+ *     {@link OVRQuatf ovrQuatf} Orientation;
+ *     {@link OVRVector3f ovrVector3f} Position;
+ * }</pre></code>
  */
 public class OVRPosef extends Struct implements NativeResource {
 

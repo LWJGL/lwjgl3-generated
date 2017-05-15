@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct ovrRecti {
-    {@link OVRVector2i ovrVector2i} Pos;
-    {@link OVRSizei ovrSizei} Size;
-}</code></pre>
+ * <code><pre>
+ * struct ovrRecti {
+ *     {@link OVRVector2i ovrVector2i} Pos;
+ *     {@link OVRSizei ovrSizei} Size;
+ * }</pre></code>
  */
 public class OVRRecti extends Struct implements NativeResource {
 
