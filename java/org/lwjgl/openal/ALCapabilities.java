@@ -198,6 +198,8 @@ public final class ALCapabilities {
     public final boolean AL_SOFT_source_latency;
     /** When true, {@link SOFTSourceLength} is supported. */
     public final boolean AL_SOFT_source_length;
+    /** When true, {@link SOFTSourceSpatialize} is supported. */
+    public final boolean AL_SOFT_source_spatialize;
 
     /** Off-heap array of the above function addresses. */
     final PointerBuffer addresses;
@@ -354,6 +356,7 @@ public final class ALCapabilities {
         AL_SOFT_MSADPCM = ext.contains("AL_SOFT_MSADPCM");
         AL_SOFT_source_latency = ext.contains("AL_SOFT_source_latency") && checkExtension("AL_SOFT_source_latency", SOFTSourceLatency.isAvailable(this));
         AL_SOFT_source_length = ext.contains("AL_SOFT_source_length");
+        AL_SOFT_source_spatialize = ext.contains("AL_SOFT_source_spatialize");
 
         addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);
     }
