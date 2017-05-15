@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 40;
+    public static final int BGFX_API_VERSION = 41;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -3710,52 +3710,65 @@ public class BGFX {
 
     // --- [ bgfx_set_vertex_buffer ] ---
 
+    /** Unsafe version of: {@link #bgfx_set_vertex_buffer set_vertex_buffer} */
+    public static void nbgfx_set_vertex_buffer(byte _stream, short _handle, int _startVertex, int _numVertices) {
+        long __functionAddress = Functions.set_vertex_buffer;
+        invokeV(__functionAddress, _stream, _handle, _startVertex, _numVertices);
+    }
+
     /**
      * Sets vertex buffer for draw primitive.
      *
+     * @param _stream      vertex stream
      * @param _handle      vertex buffer
      * @param _startVertex first vertex to render
      * @param _numVertices number of vertices to render
      */
-    public static void bgfx_set_vertex_buffer(short _handle, int _startVertex, int _numVertices) {
-        long __functionAddress = Functions.set_vertex_buffer;
-        invokeV(__functionAddress, _handle, _startVertex, _numVertices);
+    public static void bgfx_set_vertex_buffer(int _stream, short _handle, int _startVertex, int _numVertices) {
+        nbgfx_set_vertex_buffer((byte)_stream, _handle, _startVertex, _numVertices);
     }
 
     // --- [ bgfx_set_dynamic_vertex_buffer ] ---
 
+    /** Unsafe version of: {@link #bgfx_set_dynamic_vertex_buffer set_dynamic_vertex_buffer} */
+    public static void nbgfx_set_dynamic_vertex_buffer(byte _stream, short _handle, int _startVertex, int _numVertices) {
+        long __functionAddress = Functions.set_dynamic_vertex_buffer;
+        invokeV(__functionAddress, _stream, _handle, _startVertex, _numVertices);
+    }
+
     /**
      * Sets vertex buffer for draw primitive.
      *
+     * @param _stream      vertex stream
      * @param _handle      dynamic vertex buffer
      * @param _startVertex first vertex to render
      * @param _numVertices number of vertices to render
      */
-    public static void bgfx_set_dynamic_vertex_buffer(short _handle, int _startVertex, int _numVertices) {
-        long __functionAddress = Functions.set_dynamic_vertex_buffer;
-        invokeV(__functionAddress, _handle, _startVertex, _numVertices);
+    public static void bgfx_set_dynamic_vertex_buffer(int _stream, short _handle, int _startVertex, int _numVertices) {
+        nbgfx_set_dynamic_vertex_buffer((byte)_stream, _handle, _startVertex, _numVertices);
     }
 
     // --- [ bgfx_set_transient_vertex_buffer ] ---
 
     /** Unsafe version of: {@link #bgfx_set_transient_vertex_buffer set_transient_vertex_buffer} */
-    public static void nbgfx_set_transient_vertex_buffer(long _tvb, int _startVertex, int _numVertices) {
+    public static void nbgfx_set_transient_vertex_buffer(byte _stream, long _tvb, int _startVertex, int _numVertices) {
         long __functionAddress = Functions.set_transient_vertex_buffer;
         if (CHECKS) {
             BGFXTransientVertexBuffer.validate(_tvb);
         }
-        invokePV(__functionAddress, _tvb, _startVertex, _numVertices);
+        invokePV(__functionAddress, _stream, _tvb, _startVertex, _numVertices);
     }
 
     /**
      * Sets vertex buffer for draw primitive.
      *
+     * @param _stream      vertex stream
      * @param _tvb         transient vertex buffer
      * @param _startVertex first vertex to render
      * @param _numVertices number of vertices to render
      */
-    public static void bgfx_set_transient_vertex_buffer(BGFXTransientVertexBuffer _tvb, int _startVertex, int _numVertices) {
-        nbgfx_set_transient_vertex_buffer(_tvb.address(), _startVertex, _numVertices);
+    public static void bgfx_set_transient_vertex_buffer(int _stream, BGFXTransientVertexBuffer _tvb, int _startVertex, int _numVertices) {
+        nbgfx_set_transient_vertex_buffer((byte)_stream, _tvb.address(), _startVertex, _numVertices);
     }
 
     // --- [ bgfx_set_instance_data_buffer ] ---
