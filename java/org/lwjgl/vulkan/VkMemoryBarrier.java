@@ -46,12 +46,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryBarrier {
-    VkStructureType sType;
-    const void * pNext;
-    VkAccessFlags srcAccessMask;
-    VkAccessFlags dstAccessMask;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryBarrier {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkAccessFlags srcAccessMask;
+ *     VkAccessFlags dstAccessMask;
+ * }</pre></code>
  */
 public class VkMemoryBarrier extends Struct implements NativeResource {
 

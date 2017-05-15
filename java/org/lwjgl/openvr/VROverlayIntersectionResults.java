@@ -16,12 +16,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VROverlayIntersectionResults_t {
-    {@link HmdVector3 HmdVector3_t} vPoint;
-    {@link HmdVector3 HmdVector3_t} vNormal;
-    {@link HmdVector2 HmdVector2_t} vUVs;
-    float fDistance;
-}</code></pre>
+ * <code><pre>
+ * struct VROverlayIntersectionResults_t {
+ *     {@link HmdVector3 HmdVector3_t} vPoint;
+ *     {@link HmdVector3 HmdVector3_t} vNormal;
+ *     {@link HmdVector2 HmdVector2_t} vUVs;
+ *     float fDistance;
+ * }</pre></code>
  */
 public class VROverlayIntersectionResults extends Struct implements NativeResource {
 

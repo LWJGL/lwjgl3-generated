@@ -16,14 +16,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct CameraVideoStreamFrameHeader_t {
-    EVRTrackedCameraFrameType eFrameType;
-    uint32_t nWidth;
-    uint32_t nHeight;
-    uint32_t nBytesPerPixel;
-    uint32_t nFrameSequence;
-    {@link TrackedDevicePose TrackedDevicePose_t} standingTrackedDevicePose;
-}</code></pre>
+ * <code><pre>
+ * struct CameraVideoStreamFrameHeader_t {
+ *     EVRTrackedCameraFrameType eFrameType;
+ *     uint32_t nWidth;
+ *     uint32_t nHeight;
+ *     uint32_t nBytesPerPixel;
+ *     uint32_t nFrameSequence;
+ *     {@link TrackedDevicePose TrackedDevicePose_t} standingTrackedDevicePose;
+ * }</pre></code>
  */
 public class CameraVideoStreamFrameHeader extends Struct implements NativeResource {
 

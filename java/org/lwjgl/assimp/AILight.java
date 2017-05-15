@@ -69,22 +69,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiLight {
-    {@link AIString struct aiString} mName;
-    aiLightSourceType mType;
-    {@link AIVector3D struct aiVector3D} mPosition;
-    {@link AIVector3D struct aiVector3D} mDirection;
-    {@link AIVector3D struct aiVector3D} mUp;
-    float mAttenuationConstant;
-    float mAttenuationLinear;
-    float mAttenuationQuadratic;
-    {@link AIColor3D struct aiColor3D} mColorDiffuse;
-    {@link AIColor3D struct aiColor3D} mColorSpecular;
-    {@link AIColor3D struct aiColor3D} mColorAmbient;
-    float mAngleInnerCone;
-    float mAngleOuterCone;
-    {@link AIVector2D struct aiVector2D} mSize;
-}</code></pre>
+ * <code><pre>
+ * struct aiLight {
+ *     {@link AIString struct aiString} mName;
+ *     aiLightSourceType mType;
+ *     {@link AIVector3D struct aiVector3D} mPosition;
+ *     {@link AIVector3D struct aiVector3D} mDirection;
+ *     {@link AIVector3D struct aiVector3D} mUp;
+ *     float mAttenuationConstant;
+ *     float mAttenuationLinear;
+ *     float mAttenuationQuadratic;
+ *     {@link AIColor3D struct aiColor3D} mColorDiffuse;
+ *     {@link AIColor3D struct aiColor3D} mColorSpecular;
+ *     {@link AIColor3D struct aiColor3D} mColorAmbient;
+ *     float mAngleInnerCone;
+ *     float mAngleOuterCone;
+ *     {@link AIVector2D struct aiVector2D} mSize;
+ * }</pre></code>
  */
 public class AILight extends Struct {
 

@@ -33,7 +33,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code maxExtent} &ndash; are the maximum image dimensions. See the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-extentperimagetype">Allowed Extent Values</a> section below for how these values are constrained by {@code type}.</li>
- * <li>{@code maxMipLevels} &ndash; the maximum number of mipmap levels. {@code maxMipLevels} <b>must</b> either be equal to 1 (valid only if {@code tiling} is {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}) or be equal to <code>⌈log<sub>2</sub>(max(width, height, depth))⌉ + 1</code>. <code>width</code>, <code>height</code>, and <code>depth</code> are taken from the corresponding members of {@code maxExtent}.</li>
+ * <li>{@code maxMipLevels} &ndash; the maximum number of mipmap levels. {@code maxMipLevels} <b>must</b> either be equal to 1 (valid only if {@code tiling} is {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}) or be equal to<code>⌈log<sub>2</sub>(max(width, height, depth))⌉ + 1</code>
+ * 
+ * <p>.</p><code>width</code>
+ * 
+ * <p>,</p><code>height</code>
+ * 
+ * <p>, and</p><code>depth</code>
+ * 
+ * <p>are taken from the corresponding members of {@code maxExtent}.</p></li>
  * <li>{@code maxArrayLayers} &ndash; the maximum number of array layers. {@code maxArrayLayers} <b>must</b> either be equal to 1 or be greater than or equal to the {@code maxImageArrayLayers} member of {@link VkPhysicalDeviceLimits}. A value of 1 is valid only if {@code tiling} is {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} or if {@code type} is {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}.</li>
  * <li>{@code sampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} specifying all the supported sample counts for this image as described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-supported-sample-counts">below</a>.</li>
  * <li>{@code maxResourceSize} &ndash; an upper bound on the total image size in bytes, inclusive of all image subresources. Implementations <b>may</b> have an address space limit on total size of a resource, which is advertised by this property. {@code maxResourceSize} <b>must</b> be at least 2<sup>31</sup>.</li>
@@ -41,13 +49,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageFormatProperties {
-    {@link VkExtent3D VkExtent3D} maxExtent;
-    uint32_t maxMipLevels;
-    uint32_t maxArrayLayers;
-    VkSampleCountFlags sampleCounts;
-    VkDeviceSize maxResourceSize;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageFormatProperties {
+ *     {@link VkExtent3D VkExtent3D} maxExtent;
+ *     uint32_t maxMipLevels;
+ *     uint32_t maxArrayLayers;
+ *     VkSampleCountFlags sampleCounts;
+ *     VkDeviceSize maxResourceSize;
+ * }</pre></code>
  */
 public class VkImageFormatProperties extends Struct implements NativeResource {
 

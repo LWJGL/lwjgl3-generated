@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_draw_vertex_layout_element {
-    enum nk_draw_vertex_layout_attribute attribute;
-    enum nk_draw_vertex_layout_format format;
-    nk_size offset;
-}</code></pre>
+ * <code><pre>
+ * struct nk_draw_vertex_layout_element {
+ *     enum nk_draw_vertex_layout_attribute attribute;
+ *     enum nk_draw_vertex_layout_format format;
+ *     nk_size offset;
+ * }</pre></code>
  */
 public class NkDrawVertexLayoutElement extends Struct implements NativeResource {
 

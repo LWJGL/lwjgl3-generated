@@ -18,10 +18,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Notification_t {
-    uint64_t ulUserValue;
-    uint32_t notificationId;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Notification_t {
+ *     uint64_t ulUserValue;
+ *     uint32_t notificationId;
+ * }</pre></code>
  */
 public class VREventNotification extends Struct implements NativeResource {
 

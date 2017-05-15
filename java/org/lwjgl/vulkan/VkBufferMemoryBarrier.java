@@ -70,17 +70,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBufferMemoryBarrier {
-    VkStructureType sType;
-    const void * pNext;
-    VkAccessFlags srcAccessMask;
-    VkAccessFlags dstAccessMask;
-    uint32_t srcQueueFamilyIndex;
-    uint32_t dstQueueFamilyIndex;
-    VkBuffer buffer;
-    VkDeviceSize offset;
-    VkDeviceSize size;
-}</code></pre>
+ * <code><pre>
+ * struct VkBufferMemoryBarrier {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkAccessFlags srcAccessMask;
+ *     VkAccessFlags dstAccessMask;
+ *     uint32_t srcQueueFamilyIndex;
+ *     uint32_t dstQueueFamilyIndex;
+ *     VkBuffer buffer;
+ *     VkDeviceSize offset;
+ *     VkDeviceSize size;
+ * }</pre></code>
  */
 public class VkBufferMemoryBarrier extends Struct implements NativeResource {
 

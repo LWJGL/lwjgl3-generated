@@ -47,10 +47,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRStream {
 
-    /**  */
     public static final long EGL_NO_STREAM_KHR = 0x0L;
 
-    /**  */
     public static final int
         EGL_CONSUMER_LATENCY_USEC_KHR            = 0x3210,
         EGL_PRODUCER_FRAME_KHR                   = 0x3212,

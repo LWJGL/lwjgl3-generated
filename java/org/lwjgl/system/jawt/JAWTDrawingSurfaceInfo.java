@@ -27,13 +27,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct JAWT_DrawingSurfaceInfo {
-    void * platformInfo;
-    {@link JAWTDrawingSurface JAWT_DrawingSurface} * ds;
-    {@link JAWTRectangle JAWT_Rectangle} bounds;
-    jint clipSize;
-    {@link JAWTRectangle JAWT_Rectangle} * clip;
-}</code></pre>
+ * <code><pre>
+ * struct JAWT_DrawingSurfaceInfo {
+ *     void * platformInfo;
+ *     {@link JAWTDrawingSurface JAWT_DrawingSurface} * ds;
+ *     {@link JAWTRectangle JAWT_Rectangle} bounds;
+ *     jint clipSize;
+ *     {@link JAWTRectangle JAWT_Rectangle} * clip;
+ * }</pre></code>
  */
 public class JAWTDrawingSurfaceInfo extends Struct {
 

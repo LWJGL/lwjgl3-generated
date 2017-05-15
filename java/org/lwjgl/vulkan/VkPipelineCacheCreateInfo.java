@@ -49,13 +49,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineCacheCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineCacheCreateFlags flags;
-    size_t initialDataSize;
-    const void * pInitialData;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineCacheCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineCacheCreateFlags flags;
+ *     size_t initialDataSize;
+ *     const void * pInitialData;
+ * }</pre></code>
  */
 public class VkPipelineCacheCreateInfo extends Struct implements NativeResource {
 

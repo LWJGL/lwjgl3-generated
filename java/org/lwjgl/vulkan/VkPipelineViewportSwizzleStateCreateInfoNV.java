@@ -47,13 +47,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineViewportSwizzleStateCreateInfoNV {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineViewportSwizzleStateCreateFlagsNV flags;
-    uint32_t viewportCount;
-    const {@link VkViewportSwizzleNV VkViewportSwizzleNV} * pViewportSwizzles;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineViewportSwizzleStateCreateInfoNV {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineViewportSwizzleStateCreateFlagsNV flags;
+ *     uint32_t viewportCount;
+ *     const {@link VkViewportSwizzleNV VkViewportSwizzleNV} * pViewportSwizzles;
+ * }</pre></code>
  */
 public class VkPipelineViewportSwizzleStateCreateInfoNV extends Struct implements NativeResource {
 

@@ -57,16 +57,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineColorBlendStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineColorBlendStateCreateFlags flags;
-    VkBool32 logicOpEnable;
-    VkLogicOp logicOp;
-    uint32_t attachmentCount;
-    const {@link VkPipelineColorBlendAttachmentState VkPipelineColorBlendAttachmentState} * pAttachments;
-    float blendConstants[4];
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineColorBlendStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineColorBlendStateCreateFlags flags;
+ *     VkBool32 logicOpEnable;
+ *     VkLogicOp logicOp;
+ *     uint32_t attachmentCount;
+ *     const {@link VkPipelineColorBlendAttachmentState VkPipelineColorBlendAttachmentState} * pAttachments;
+ *     float blendConstants[4];
+ * }</pre></code>
  */
 public class VkPipelineColorBlendStateCreateInfo extends Struct implements NativeResource {
 

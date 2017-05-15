@@ -21,7 +21,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class MESADRMImage {
 
-    /**  */
     public static final int
         EGL_DRM_BUFFER_FORMAT_MESA        = 0x31D0,
         EGL_DRM_BUFFER_USE_MESA           = 0x31D1,

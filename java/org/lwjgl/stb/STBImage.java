@@ -54,13 +54,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Basic usage (see HDR discussion below for HDR usage):</p>
  * 
- * <pre><code>int x,y,n;
-unsigned char *data = stbi_load(filename, &x, &y, &n, 0);
-// ... process data if not NULL ...
-// ... x = width, y = height, n = # 8-bit components per pixel ...
-// ... replace '0' with '1'..'4' to force that many components per pixel
-// ... but 'n' will always be the number that it would have been if you said 0
-stbi_image_free(data)</code></pre>
+ * <code><pre>
+ * int x,y,n;
+ * unsigned char *data = stbi_load(filename, &x, &y, &n, 0);
+ * // ... process data if not NULL ...
+ * // ... x = width, y = height, n = # 8-bit components per pixel ...
+ * // ... replace '0' with '1'..'4' to force that many components per pixel
+ * // ... but 'n' will always be the number that it would have been if you said 0
+ * stbi_image_free(data)</pre></code>
  * 
  * <h3>HDR image support</h3>
  * 
@@ -68,25 +69,29 @@ stbi_image_free(data)</code></pre>
  * can still load any file through the existing interface; if you attempt to load an HDR file, it will be automatically remapped to LDR, assuming gamma
  * 2.2 and an arbitrary scale factor defaulting to 1; both of these constants can be reconfigured through this interface:</p>
  * 
- * <pre><code>stbi_hdr_to_ldr_gamma(2.2f);
-stbi_hdr_to_ldr_scale(1.0f);</code></pre>
+ * <code><pre>
+ * stbi_hdr_to_ldr_gamma(2.2f);
+ * stbi_hdr_to_ldr_scale(1.0f);</pre></code>
  * 
  * <p>(note, do not use <em>inverse</em> constants; stbi_image will invert them appropriately).</p>
  * 
  * <p>Additionally, there is a new, parallel interface for loading files as (linear) floats to preserve the full dynamic range:</p>
  * 
- * <pre><code>float *data = stbi_loadf(filename, &x, &y, &n, 0);</code></pre>
+ * <code><pre>
+ * float *data = stbi_loadf(filename, &x, &y, &n, 0);</pre></code>
  * 
  * <p>If you load LDR images through this interface, those images will be promoted to floating point values, run through the inverse of constants
  * corresponding to the above:</p>
  * 
- * <pre><code>stbi_ldr_to_hdr_scale(1.0f);
-stbi_ldr_to_hdr_gamma(2.2f);</code></pre>
+ * <code><pre>
+ * stbi_ldr_to_hdr_scale(1.0f);
+ * stbi_ldr_to_hdr_gamma(2.2f);</pre></code>
  * 
  * <p>Finally, given a filename (or an open file or memory block) containing image data, you can query for the "most appropriate" interface to use (that is,
  * whether the image is HDR or not), using:</p>
  * 
- * <pre><code>stbi_is_hdr(char *filename);</code></pre>
+ * <code><pre>
+ * stbi_is_hdr(char *filename);</pre></code>
  * 
  * <h3>iPhone PNG support</h3>
  * 
@@ -141,11 +146,12 @@ public class STBImage {
      * 
      * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
      * 
-     * <pre><code>N=#channels_in_file     components
-  1                     grey
-  2                     grey, alpha
-  3                     red, green, blue
-  4                     red, green, blue, alpha</code></pre>
+     * <code><pre>
+     * N=#channels_in_file     components
+     *   1                     grey
+     *   2                     grey, alpha
+     *   3                     red, green, blue
+     *   4                     red, green, blue, alpha</pre></code>
      * 
      * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *channels_in_file} will be unchanged. The function
      * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
@@ -181,11 +187,12 @@ public class STBImage {
      * 
      * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
      * 
-     * <pre><code>N=#channels_in_file     components
-  1                     grey
-  2                     grey, alpha
-  3                     red, green, blue
-  4                     red, green, blue, alpha</code></pre>
+     * <code><pre>
+     * N=#channels_in_file     components
+     *   1                     grey
+     *   2                     grey, alpha
+     *   3                     red, green, blue
+     *   4                     red, green, blue, alpha</pre></code>
      * 
      * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *channels_in_file} will be unchanged. The function
      * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>

@@ -34,11 +34,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExternalMemoryImageCreateInfoNV {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalMemoryHandleTypeFlagsNV handleTypes;
-}</code></pre>
+ * <code><pre>
+ * struct VkExternalMemoryImageCreateInfoNV {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalMemoryHandleTypeFlagsNV handleTypes;
+ * }</pre></code>
  */
 public class VkExternalMemoryImageCreateInfoNV extends Struct implements NativeResource {
 

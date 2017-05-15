@@ -14,7 +14,6 @@ package org.lwjgl.egl;
  */
 public final class ANDROIDImageNativeBuffer {
 
-    /**  */
     public static final int EGL_NATIVE_BUFFER_ANDROID = 0x3140;
 
     private ANDROIDImageNativeBuffer() {}

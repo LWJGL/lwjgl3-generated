@@ -55,15 +55,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineVertexInputStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineVertexInputStateCreateFlags flags;
-    uint32_t vertexBindingDescriptionCount;
-    const {@link VkVertexInputBindingDescription VkVertexInputBindingDescription} * pVertexBindingDescriptions;
-    uint32_t vertexAttributeDescriptionCount;
-    const {@link VkVertexInputAttributeDescription VkVertexInputAttributeDescription} * pVertexAttributeDescriptions;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineVertexInputStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineVertexInputStateCreateFlags flags;
+ *     uint32_t vertexBindingDescriptionCount;
+ *     const {@link VkVertexInputBindingDescription VkVertexInputBindingDescription} * pVertexBindingDescriptions;
+ *     uint32_t vertexAttributeDescriptionCount;
+ *     const {@link VkVertexInputAttributeDescription VkVertexInputAttributeDescription} * pVertexAttributeDescriptions;
+ * }</pre></code>
  */
 public class VkPipelineVertexInputStateCreateInfo extends Struct implements NativeResource {
 

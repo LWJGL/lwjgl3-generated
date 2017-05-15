@@ -14,13 +14,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_popup_buffer {
-    nk_size begin;
-    nk_size parent;
-    nk_size last;
-    nk_size end;
-    int active;
-}</code></pre>
+ * <code><pre>
+ * struct nk_popup_buffer {
+ *     nk_size begin;
+ *     nk_size parent;
+ *     nk_size last;
+ *     nk_size end;
+ *     int active;
+ * }</pre></code>
  */
 public class NkPopupBuffer extends Struct {
 

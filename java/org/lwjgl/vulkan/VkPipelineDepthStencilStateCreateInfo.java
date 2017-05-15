@@ -56,20 +56,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineDepthStencilStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineDepthStencilStateCreateFlags flags;
-    VkBool32 depthTestEnable;
-    VkBool32 depthWriteEnable;
-    VkCompareOp depthCompareOp;
-    VkBool32 depthBoundsTestEnable;
-    VkBool32 stencilTestEnable;
-    {@link VkStencilOpState VkStencilOpState} front;
-    {@link VkStencilOpState VkStencilOpState} back;
-    float minDepthBounds;
-    float maxDepthBounds;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineDepthStencilStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineDepthStencilStateCreateFlags flags;
+ *     VkBool32 depthTestEnable;
+ *     VkBool32 depthWriteEnable;
+ *     VkCompareOp depthCompareOp;
+ *     VkBool32 depthBoundsTestEnable;
+ *     VkBool32 stencilTestEnable;
+ *     {@link VkStencilOpState VkStencilOpState} front;
+ *     {@link VkStencilOpState VkStencilOpState} back;
+ *     float minDepthBounds;
+ *     float maxDepthBounds;
+ * }</pre></code>
  */
 public class VkPipelineDepthStencilStateCreateInfo extends Struct implements NativeResource {
 

@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkFormatProperties2KHR {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkFormatProperties VkFormatProperties} formatProperties;
-}</code></pre>
+ * <code><pre>
+ * struct VkFormatProperties2KHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkFormatProperties VkFormatProperties} formatProperties;
+ * }</pre></code>
  */
 public class VkFormatProperties2KHR extends Struct implements NativeResource {
 

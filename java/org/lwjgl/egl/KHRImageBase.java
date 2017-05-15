@@ -22,10 +22,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRImageBase {
 
-    /**  */
     public static final int EGL_IMAGE_PRESERVED_KHR = 0x30D2;
 
-    /**  */
     public static final long EGL_NO_IMAGE_KHR = 0x0L;
 
     protected KHRImageBase() {

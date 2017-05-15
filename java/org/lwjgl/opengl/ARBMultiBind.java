@@ -59,13 +59,14 @@ public class ARBMultiBind {
      * corresponding to {@code target}. If {@code buffers} is not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name
      * of an existing buffer object. It is equivalent to:
      * 
-     * <pre><code>for ( i = 0; i < count; i++ ) {
-    if ( buffers == NULL ) {
-        glBindBufferBase(target, first + i, 0);
-    } else {
-        glBindBufferBase(target, first + i, buffers[i]);
-    }
-}</code></pre>
+     * <code><pre>
+     * for ( i = 0; i < count; i++ ) {
+     *     if ( buffers == NULL ) {
+     *         glBindBufferBase(target, first + i, 0);
+     *     } else {
+     *         glBindBufferBase(target, first + i, buffers[i]);
+     *     }
+     * }</pre></code>
      * 
      * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
      *
@@ -93,13 +94,14 @@ public class ARBMultiBind {
      * case, the offsets and sizes associated with the binding points are set to default values, ignoring {@code offsets} and {@code sizes}. It is equivalent
      * to:
      * 
-     * <pre><code>for ( i = 0; i < count; i++ ) {
-    if ( buffers == NULL ) {
-        glBindBufferRange(target, first + i, 0, 0, 0);
-    } else {
-        glBindBufferRange(target, first + i, buffers[i], offsets[i], sizes[i]);
-    }
-}</code></pre>
+     * <code><pre>
+     * for ( i = 0; i < count; i++ ) {
+     *     if ( buffers == NULL ) {
+     *         glBindBufferRange(target, first + i, 0, 0, 0);
+     *     } else {
+     *         glBindBufferRange(target, first + i, buffers[i], offsets[i], sizes[i]);
+     *     }
+     * }</pre></code>
      * 
      * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
      * 
@@ -140,23 +142,24 @@ public class ARBMultiBind {
      * 
      * <p>{@code BindTextures} is equivalent to:</p>
      * 
-     * <pre><code>for ( i = 0; i < count; i++ ) {
-    uint texture;
-    if ( textures == NULL ) {
-        texture = 0;
-    } else {
-        texture = textures[i];
-    }
-    ActiveTexture(TEXTURE0 + first + i);
-    if ( texture != 0 ) {
-        enum target; // target of texture object textures[i]
-        BindTexture(target, textures[i]);
-    } else {
-        for ( target in all supported targets ) {
-            BindTexture(target, 0);
-        }
-    }
-}</code></pre>
+     * <code><pre>
+     * for ( i = 0; i < count; i++ ) {
+     *     uint texture;
+     *     if ( textures == NULL ) {
+     *         texture = 0;
+     *     } else {
+     *         texture = textures[i];
+     *     }
+     *     ActiveTexture(TEXTURE0 + first + i);
+     *     if ( texture != 0 ) {
+     *         enum target; // target of texture object textures[i]
+     *         BindTexture(target, textures[i]);
+     *     } else {
+     *         for ( target in all supported targets ) {
+     *             BindTexture(target, 0);
+     *         }
+     *     }
+     * }</pre></code>
      * 
      * <p>except that the active texture selector retains its original value upon completion of the command, and that textures will not be created if they do not
      * exist.</p>
@@ -188,13 +191,14 @@ public class ARBMultiBind {
      * 
      * <p>{@code BindSamplers} is equivalent to:</p>
      * 
-     * <pre><code>for ( i = 0; i < count; i++ ) {
-    if ( samplers == NULL ) {
-        glBindSampler(first + i, 0);
-    } else {
-        glBindSampler(first + i, samplers[i]);
-    }
-}</code></pre>
+     * <code><pre>
+     * for ( i = 0; i < count; i++ ) {
+     *     if ( samplers == NULL ) {
+     *         glBindSampler(first + i, 0);
+     *     } else {
+     *         glBindSampler(first + i, samplers[i]);
+     *     }
+     * }</pre></code>
      * 
      * <p>The values specified in {@code samplers} will be checked separately for each texture image unit. When a value for a specific texture image unit is
      * invalid, the state for that texture image unit will be unchanged and an error will be generated. However, state for other texture image units will still
@@ -232,13 +236,14 @@ public class ARBMultiBind {
      * 
      * <p>{@code BindImageTextures} is equivalent to:</p>
      * 
-     * <pre><code>for ( i = 0; i < count; i++ ) {
-    if ( textures == NULL || textures[i] = 0 ) {
-        glBindImageTexture(first + i, 0, 0, FALSE, 0, READ_ONLY, R8);
-    } else {
-        glBindImageTexture(first + i, textures[i], 0, TRUE, 0, READ_WRITE, lookupInternalFormat(textures[i]));
-    }
-}</code></pre>
+     * <code><pre>
+     * for ( i = 0; i < count; i++ ) {
+     *     if ( textures == NULL || textures[i] = 0 ) {
+     *         glBindImageTexture(first + i, 0, 0, FALSE, 0, READ_ONLY, R8);
+     *     } else {
+     *         glBindImageTexture(first + i, textures[i], 0, TRUE, 0, READ_WRITE, lookupInternalFormat(textures[i]));
+     *     }
+     * }</pre></code>
      * 
      * <p>where {@code lookupInternalFormat} returns the internal format of the specified texture object.</p>
      * 
@@ -272,13 +277,14 @@ public class ARBMultiBind {
      * 
      * <p>{@code BindVertexBuffers} is equivalent to:</p>
      * 
-     * <pre><code>for ( i = 0; i < count; i++ ) {
-    if ( buffers == NULL ) {
-        glBindVertexBuffer(first + i, 0, 0, 16);
-    } else {
-        glBindVertexBuffer(first + i, buffers[i], offsets[i], strides[i]);
-    }
-}</code></pre>
+     * <code><pre>
+     * for ( i = 0; i < count; i++ ) {
+     *     if ( buffers == NULL ) {
+     *         glBindVertexBuffer(first + i, 0, 0, 16);
+     *     } else {
+     *         glBindVertexBuffer(first + i, buffers[i], offsets[i], strides[i]);
+     *     }
+     * }</pre></code>
      * 
      * <p>except that buffers will not be created if they do not exist.</p>
      * 

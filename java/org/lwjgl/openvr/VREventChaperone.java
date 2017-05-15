@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Chaperone_t {
-    uint64_t m_nPreviousUniverse;
-    uint64_t m_nCurrentUniverse;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Chaperone_t {
+ *     uint64_t m_nPreviousUniverse;
+ *     uint64_t m_nCurrentUniverse;
+ * }</pre></code>
  */
 public class VREventChaperone extends Struct implements NativeResource {
 

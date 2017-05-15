@@ -55,34 +55,35 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct PIXELFORMATDESCRIPTOR {
-    WORD nSize;
-    WORD nVersion;
-    DWORD dwFlags;
-    BYTE iPixelType;
-    BYTE cColorBits;
-    BYTE cRedBits;
-    BYTE cRedShift;
-    BYTE cGreenBits;
-    BYTE cGreenShift;
-    BYTE cBlueBits;
-    BYTE cBlueShift;
-    BYTE cAlphaBits;
-    BYTE cAlphaShift;
-    BYTE cAccumBits;
-    BYTE cAccumRedBits;
-    BYTE cAccumGreenBits;
-    BYTE cAccumBlueBits;
-    BYTE cAccumAlphaBits;
-    BYTE cDepthBits;
-    BYTE cStencilBits;
-    BYTE cAuxBuffers;
-    BYTE iLayerType;
-    BYTE bReserved;
-    DWORD dwLayerMask;
-    DWORD dwVisibleMask;
-    DWORD dwDamageMask;
-}</code></pre>
+ * <code><pre>
+ * struct PIXELFORMATDESCRIPTOR {
+ *     WORD nSize;
+ *     WORD nVersion;
+ *     DWORD dwFlags;
+ *     BYTE iPixelType;
+ *     BYTE cColorBits;
+ *     BYTE cRedBits;
+ *     BYTE cRedShift;
+ *     BYTE cGreenBits;
+ *     BYTE cGreenShift;
+ *     BYTE cBlueBits;
+ *     BYTE cBlueShift;
+ *     BYTE cAlphaBits;
+ *     BYTE cAlphaShift;
+ *     BYTE cAccumBits;
+ *     BYTE cAccumRedBits;
+ *     BYTE cAccumGreenBits;
+ *     BYTE cAccumBlueBits;
+ *     BYTE cAccumAlphaBits;
+ *     BYTE cDepthBits;
+ *     BYTE cStencilBits;
+ *     BYTE cAuxBuffers;
+ *     BYTE iLayerType;
+ *     BYTE bReserved;
+ *     DWORD dwLayerMask;
+ *     DWORD dwVisibleMask;
+ *     DWORD dwDamageMask;
+ * }</pre></code>
  */
 public class PIXELFORMATDESCRIPTOR extends Struct implements NativeResource {
 

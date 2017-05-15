@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExternalImageFormatPropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkExternalMemoryPropertiesKHX VkExternalMemoryPropertiesKHX} externalMemoryProperties;
-}</code></pre>
+ * <code><pre>
+ * struct VkExternalImageFormatPropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkExternalMemoryPropertiesKHX VkExternalMemoryPropertiesKHX} externalMemoryProperties;
+ * }</pre></code>
  */
 public class VkExternalImageFormatPropertiesKHX extends Struct {
 

@@ -70,9 +70,10 @@ public class EXTDirectModeDisplay {
      * 
      * <p>To release a previously acquired display, call:</p>
      * 
-     * <pre><code>VkResult vkReleaseDisplayEXT(
-    VkPhysicalDevice                            physicalDevice,
-    VkDisplayKHR                                display);</code></pre>
+     * <code><pre>
+     * VkResult vkReleaseDisplayEXT(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkDisplayKHR                                display);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

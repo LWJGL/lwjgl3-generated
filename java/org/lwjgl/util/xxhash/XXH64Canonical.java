@@ -25,9 +25,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct XXH64_canonical_t {
-    unsigned char digest[8];
-}</code></pre>
+ * <code><pre>
+ * struct XXH64_canonical_t {
+ *     unsigned char digest[8];
+ * }</pre></code>
  */
 public class XXH64Canonical extends Struct implements NativeResource {
 

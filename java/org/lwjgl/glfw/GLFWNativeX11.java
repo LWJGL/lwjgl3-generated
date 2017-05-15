@@ -33,11 +33,15 @@ public class GLFWNativeX11 {
     // --- [ glfwGetX11Display ] ---
 
     /**
-     * Returns the <code>Display</code> used by GLFW.
+     * Returns the<code>Display</code>
+     * 
+     * <p>used by GLFW.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
-     * @return The <code>Display</code> used by GLFW, or {@code NULL} if an error occurred.
+     * @return The<code>Display</code>
+     *         
+     *         <p>used by GLFW, or {@code NULL} if an error occurred.</p>
      *
      * @since version 3.0
      */
@@ -49,13 +53,17 @@ public class GLFWNativeX11 {
     // --- [ glfwGetX11Adapter ] ---
 
     /**
-     * Returns the <code>RRCrtc</code> of the specified monitor.
+     * Returns the<code>RRCrtc</code>
+     * 
+     * <p>of the specified monitor.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param monitor the GLFW monitor
      *
-     * @return The <code>RRCrtc</code> of the specified monitor, or {@code None} if an error occurred.
+     * @return The<code>RRCrtc</code>
+     *         
+     *         <p>of the specified monitor, or {@code None} if an error occurred.</p>
      *
      * @since version 3.1
      */
@@ -70,13 +78,17 @@ public class GLFWNativeX11 {
     // --- [ glfwGetX11Monitor ] ---
 
     /**
-     * Returns the <code>RROutput</code> of the specified monitor.
+     * Returns the<code>RROutput</code>
+     * 
+     * <p>of the specified monitor.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param monitor the GLFW monitor
      *
-     * @return The <code>RROutput</code> of the specified monitor, or {@code None} if an error occurred.
+     * @return The<code>RROutput</code>
+     *         
+     *         <p>of the specified monitor, or {@code None} if an error occurred.</p>
      *
      * @since version 3.1
      */
@@ -91,13 +103,17 @@ public class GLFWNativeX11 {
     // --- [ glfwGetX11Window ] ---
 
     /**
-     * Returns the <code>Window</code> of the specified window.
+     * Returns the<code>Window</code>
+     * 
+     * <p>of the specified window.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param window a GLFW window
      *
-     * @return The <code>Window</code> of the specified window, or {@code None} if an error occurred.
+     * @return The<code>Window</code>
+     *         
+     *         <p>of the specified window, or {@code None} if an error occurred.</p>
      *
      * @since version 3.0
      */

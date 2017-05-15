@@ -24,14 +24,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct EXRImage {
-    {@link EXRTile EXRTile} * tiles;
-    unsigned char ** images;
-    int width;
-    int height;
-    int num_channels;
-    int num_tiles;
-}</code></pre>
+ * <code><pre>
+ * struct EXRImage {
+ *     {@link EXRTile EXRTile} * tiles;
+ *     unsigned char ** images;
+ *     int width;
+ *     int height;
+ *     int num_channels;
+ *     int num_tiles;
+ * }</pre></code>
  */
 public class EXRImage extends Struct implements NativeResource {
 

@@ -20,15 +20,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Each of {@code r}, {@code g}, {@code b}, and {@code a} is one of the values:</p>
  * 
- * <pre><code>typedef enum VkComponentSwizzle {
-    VK_COMPONENT_SWIZZLE_IDENTITY = 0,
-    VK_COMPONENT_SWIZZLE_ZERO = 1,
-    VK_COMPONENT_SWIZZLE_ONE = 2,
-    VK_COMPONENT_SWIZZLE_R = 3,
-    VK_COMPONENT_SWIZZLE_G = 4,
-    VK_COMPONENT_SWIZZLE_B = 5,
-    VK_COMPONENT_SWIZZLE_A = 6,
-} VkComponentSwizzle;</code></pre>
+ * <code><pre>
+ * typedef enum VkComponentSwizzle {
+ *     VK_COMPONENT_SWIZZLE_IDENTITY = 0,
+ *     VK_COMPONENT_SWIZZLE_ZERO = 1,
+ *     VK_COMPONENT_SWIZZLE_ONE = 2,
+ *     VK_COMPONENT_SWIZZLE_R = 3,
+ *     VK_COMPONENT_SWIZZLE_G = 4,
+ *     VK_COMPONENT_SWIZZLE_B = 5,
+ *     VK_COMPONENT_SWIZZLE_A = 6,
+ * } VkComponentSwizzle;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}: the component is set to the identity swizzle.</li>
@@ -78,12 +79,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkComponentMapping {
-    VkComponentSwizzle r;
-    VkComponentSwizzle g;
-    VkComponentSwizzle b;
-    VkComponentSwizzle a;
-}</code></pre>
+ * <code><pre>
+ * struct VkComponentMapping {
+ *     VkComponentSwizzle r;
+ *     VkComponentSwizzle g;
+ *     VkComponentSwizzle b;
+ *     VkComponentSwizzle a;
+ * }</pre></code>
  */
 public class VkComponentMapping extends Struct implements NativeResource {
 

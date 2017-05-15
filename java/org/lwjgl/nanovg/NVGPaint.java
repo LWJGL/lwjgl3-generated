@@ -31,15 +31,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct NVGpaint {
-    float xform[6];
-    float extent[2];
-    float radius;
-    float feather;
-    {@link NVGColor NVGcolor} innerColor;
-    {@link NVGColor NVGcolor} outerColor;
-    int image;
-}</code></pre>
+ * <code><pre>
+ * struct NVGpaint {
+ *     float xform[6];
+ *     float extent[2];
+ *     float radius;
+ *     float feather;
+ *     {@link NVGColor NVGcolor} innerColor;
+ *     {@link NVGColor NVGcolor} outerColor;
+ *     int image;
+ * }</pre></code>
  */
 public class NVGPaint extends Struct implements NativeResource {
 

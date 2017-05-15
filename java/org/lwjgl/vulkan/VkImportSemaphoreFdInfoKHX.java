@@ -62,13 +62,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImportSemaphoreFdInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkSemaphore semaphore;
-    VkExternalSemaphoreHandleTypeFlagBitsKHX handleType;
-    int fd;
-}</code></pre>
+ * <code><pre>
+ * struct VkImportSemaphoreFdInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSemaphore semaphore;
+ *     VkExternalSemaphoreHandleTypeFlagBitsKHX handleType;
+ *     int fd;
+ * }</pre></code>
  */
 public class VkImportSemaphoreFdInfoKHX extends Struct implements NativeResource {
 

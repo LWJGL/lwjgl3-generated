@@ -26,13 +26,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct JAWT_X11DrawingSurfaceInfo {
-    Drawable drawable;
-    Display * display;
-    VisualID visualID;
-    Colormap colormapID;
-    int depth;
-}</code></pre>
+ * <code><pre>
+ * struct JAWT_X11DrawingSurfaceInfo {
+ *     Drawable drawable;
+ *     Display * display;
+ *     VisualID visualID;
+ *     Colormap colormapID;
+ *     int depth;
+ * }</pre></code>
  */
 public class JAWTX11DrawingSurfaceInfo extends Struct {
 

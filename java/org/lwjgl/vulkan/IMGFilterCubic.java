@@ -12,20 +12,21 @@ package org.lwjgl.vulkan;
  * 
  * <p>Creating a sampler with the new filter for both magnification and minification</p>
  * 
- * <pre><code>    VkSamplerCreateInfo createInfo =
-    {
-        VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO // sType
-        // Other members set to application-desired values
-    };
-
-    createInfo.magFilter = VK_FILTER_CUBIC_IMG;
-    createInfo.minFilter = VK_FILTER_CUBIC_IMG;
-
-    VkSampler sampler;
-    VkResult result = vkCreateSampler(
-        device,
-        &createInfo,
-        &sampler);</code></pre>
+ * <code><pre>
+ *     VkSamplerCreateInfo createInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO // sType
+ *         // Other members set to application-desired values
+ *     };
+ * 
+ *     createInfo.magFilter = VK_FILTER_CUBIC_IMG;
+ *     createInfo.minFilter = VK_FILTER_CUBIC_IMG;
+ * 
+ *     VkSampler sampler;
+ *     VkResult result = vkCreateSampler(
+ *         device,
+ *         &createInfo,
+ *         &sampler);</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

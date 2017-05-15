@@ -20,7 +20,6 @@ import static org.lwjgl.system.JNI.*;
  */
 public class NVPostSubBuffer {
 
-    /**  */
     public static final int EGL_POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;
 
     protected NVPostSubBuffer() {

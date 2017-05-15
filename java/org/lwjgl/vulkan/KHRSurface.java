@@ -186,34 +186,48 @@ public class KHRSurface {
      * </tbody>
      * </table>
      * 
-     * <p>For Opto-Electrical Transfer Function (OETF), unless otherwise specified, the values of <code>L</code> and <code>E</code> are defined as:</p>
+     * <p>For Opto-Electrical Transfer Function (OETF), unless otherwise specified, the values of</p><code>L</code>
      * 
-     * <p><code>L</code> - linear luminance of image 0 &le L &le; 1 for conventional colorimetry</p>
+     * <p>and</p><code>E</code>
      * 
-     * <p><code>E</code> - corresponding electrical signal (value stored in memory)</p>
+     * <p>are defined as:</p>
+     * 
+     * <code>L</code>
+     * 
+     * <p>- linear luminance of image 0 &le L &le; 1 for conventional colorimetry</p>
+     * 
+     * <code>E</code>
+     * 
+     * <p>- corresponding electrical signal (value stored in memory)</p>
      * 
      * <h5>sRGB OETF</h5>
      * 
-     * <pre><code>E =  1.055 &times; L<sup>1/2.4</sup> - 0.055 for 0.0031308 &le; L &le; 1
-    12.92  &times; L for 0 &le; L &lt 0.0031308</code></pre>
+     * <code><pre>
+     * E =  1.055 &times; L<sup>1/2.4</sup> - 0.055 for 0.0031308 &le; L &le; 1
+     *     12.92  &times; L for 0 &le; L &lt 0.0031308</pre></code>
      * 
      * <h5>Display-P3 EOTF</h5>
      * 
-     * <pre><code>E = (a &times; L + b)<sup>2.4</sup> for 0.039 &le; L &le; 1
-    b &times; L for 0 &le; L &lt; 0.039</code></pre>
+     * <code><pre>
+     * E = (a &times; L + b)<sup>2.4</sup> for 0.039 &le; L &le; 1
+     *     b &times; L for 0 &le; L &lt; 0.039</pre></code>
      * 
-     * <pre><code>a = 0.948</code></pre>
+     * <code><pre>
+     * a = 0.948</pre></code>
      * 
-     * <p>+</p><pre><code>b = 0.052</code></pre>
+     * <p>+</p><code><pre>
+     * b = 0.052</pre></code>
      * 
-     * <p>+</p><pre><code>c = 0.077</code></pre>
+     * <p>+</p><code><pre>
+     * c = 0.077</pre></code>
      * 
      * <p>+</p>
      * 
      * <h5>Display-P3 OETF</h5>
      * 
-     * <pre><code>E =  1.055 &times; L<sup>1/2.4</sup> - 0.055 for 0.0030186 &le; L &le; 1
-    12.92  &times; L for 0 &le; L &lt 0.0030186</code></pre>
+     * <code><pre>
+     * E =  1.055 &times; L<sup>1/2.4</sup> - 0.055 for 0.0030186 &le; L &le; 1
+     *     12.92  &times; L for 0 &le; L &lt 0.0030186</pre></code>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -222,59 +236,81 @@ public class KHRSurface {
      * 
      * <h5>Extended sRGB OETF</h5>
      * 
-     * <pre><code>     1.055 &times;  L<sup>1/2.4</sup> - 0.055 for 0.0031308 &le; L &le; 7.5913
-E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
-    -f(-L) for L &lt; 0</code></pre>
+     * <code><pre>
+     *      1.055 &times;  L<sup>1/2.4</sup> - 0.055 for 0.0031308 &le; L &le; 7.5913
+     * E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
+     *     -f(-L) for L &lt; 0</pre></code>
      * 
-     * <p><code>L</code> - luminance of image is within <code>[-0.6038, 7.5913]</code>.</p>
+     * <code>L</code>
      * 
-     * <p><code>E</code> can be negative and/or > 1. That is how extended sRGB specifies colors outside the standard sRGB gamut. This means extended sRGB needs a floating point pixel format to cover the intended color range.</p>
+     * <p>- luminance of image is within</p><code>[-0.6038, 7.5913]</code>
+     * 
+     * <p>.</p>
+     * 
+     * <code>E</code>
+     * 
+     * <p>can be negative and/or > 1. That is how extended sRGB specifies colors outside the standard sRGB gamut. This means extended sRGB needs a floating point pixel format to cover the intended color range.</p>
      * 
      * <h5>SMPTE 170M OETF</h5>
      * 
-     * <pre><code>E = α &times; L^<sup>0.45</sup> - (1 - α) for β &le; L &le; 1
-    4.5 &times; L for 0 &le; L &lt; β</code></pre>
+     * <code><pre>
+     * E = α &times; L^<sup>0.45</sup> - (1 - α) for β &le; L &le; 1
+     *     4.5 &times; L for 0 &le; L &lt; β</pre></code>
      * 
-     * <pre><code>α = 1.099 and β = 0.018 for 10-bits and less per sample system (the values given in Rec.709)</code></pre>
+     * <code><pre>
+     * α = 1.099 and β = 0.018 for 10-bits and less per sample system (the values given in Rec.709)</pre></code>
      * 
-     * <p>+</p><pre><code>α = 1.0993 and β = 0.0181 for 12-bits per sample system</code></pre>
+     * <p>+</p><code><pre>
+     * α = 1.0993 and β = 0.0181 for 12-bits per sample system</pre></code>
      * 
      * <h5>SMPTE ST2084 OETF (Inverse-EOTF)</h5>
      * 
-     * <pre><code>E = ((c_<sub>1</sub> + c_<sub>2</sub> &times; L^<sup>m_<sub>1</sub></sup>) / (1 + c_<sub>3</sub> &times; L^<sup>m_<sub>1</sub></sup>))^<sup>m_<sub>2</sub></sup></code></pre>
+     * <code><pre>
+     * E = ((c_<sub>1</sub> + c_<sub>2</sub> &times; L^<sup>m_<sub>1</sub></sup>) / (1 + c_<sub>3</sub> &times; L^<sup>m_<sub>1</sub></sup>))^<sup>m_<sub>2</sub></sup></pre></code>
      * 
      * <p>where:</p>
      * 
-     * <pre><code>m<sub>1</sub> = 2610 / 4096 &times; 1/4 = 0.1593017578125</code></pre>
+     * <code><pre>
+     * m<sub>1</sub> = 2610 / 4096 &times; 1/4 = 0.1593017578125</pre></code>
      * 
-     * <p>+</p><pre><code>m<sub>2</sub> = 2523 / 4096 &times; 128 = 78.84375</code></pre>
+     * <p>+</p><code><pre>
+     * m<sub>2</sub> = 2523 / 4096 &times; 128 = 78.84375</pre></code>
      * 
-     * <p>+</p><pre><code>c<sub>1</sub> = 3424 / 4096 = 0.8359375 = c3 - c2 + 1</code></pre>
+     * <p>+</p><code><pre>
+     * c<sub>1</sub> = 3424 / 4096 = 0.8359375 = c3 - c2 + 1</pre></code>
      * 
-     * <p>+</p><pre><code>c<sub>2</sub> = 2413 / 4096 &times; 32 = 18.8515625</code></pre>
+     * <p>+</p><code><pre>
+     * c<sub>2</sub> = 2413 / 4096 &times; 32 = 18.8515625</pre></code>
      * 
-     * <p>+</p><pre><code>c<sub>3</sub> = 2392 / 4096 &times; 32 = 18.6875</code></pre>
+     * <p>+</p><code><pre>
+     * c<sub>3</sub> = 2392 / 4096 &times; 32 = 18.6875</pre></code>
      * 
      * <p>+</p>
      * 
      * <h5>Hybrid Log Gamma (HLG)</h5>
      * 
-     * <pre><code>E = r &times; sqrt(L) for 0 &le; L &le; 1
-    a &times; ln(L - b) + c for 1 &lt L</code></pre>
+     * <code><pre>
+     * E = r &times; sqrt(L) for 0 &le; L &le; 1
+     *     a &times; ln(L - b) + c for 1 &lt L</pre></code>
      * 
-     * <pre><code>L - is the signal normalized by the reference white level</code></pre>
+     * <code><pre>
+     * L - is the signal normalized by the reference white level</pre></code>
      * 
-     * <p>+</p><pre><code>r - is the reference white level and has a signal value of 0.5</code></pre>
+     * <p>+</p><code><pre>
+     * r - is the reference white level and has a signal value of 0.5</pre></code>
      * 
-     * <p>+</p><pre><code>a = 0.17883277 and b = 0.28466892, and c = 0.55991073</code></pre>
+     * <p>+</p><code><pre>
+     * a = 0.17883277 and b = 0.28466892, and c = 0.55991073</pre></code>
      * 
      * <h5>AdobeRGB OETF</h5>
      * 
-     * <pre><code>E = L^<sup>1 / 2.19921875</sup></code></pre>
+     * <code><pre>
+     * E = L^<sup>1 / 2.19921875</sup></pre></code>
      * 
      * <h5>Gamma 2.6 OETF</h5>
      * 
-     * <pre><code>E = L^<sup>1 / 2.6</sup></code></pre>
+     * <code><pre>
+     * E = L^<sup>1 / 2.6</sup></pre></code>
      * 
      * <p>An implementation supporting this extension indicates support for these color spaces via {@link VkSurfaceFormatKHR} structures returned from {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR}.</p>
      * 
@@ -375,10 +411,11 @@ E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
      * 
      * <p>To destroy a {@code VkSurfaceKHR} object, call:</p>
      * 
-     * <pre><code>void vkDestroySurfaceKHR(
-    VkInstance                                  instance,
-    VkSurfaceKHR                                surface,
-    const VkAllocationCallbacks*                pAllocator);</code></pre>
+     * <code><pre>
+     * void vkDestroySurfaceKHR(
+     *     VkInstance                                  instance,
+     *     VkSurfaceKHR                                surface,
+     *     const VkAllocationCallbacks*                pAllocator);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -437,11 +474,12 @@ E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
      * 
      * <p>To determine whether a queue family of a physical device supports presentation to a given surface, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDeviceSurfaceSupportKHR(
-    VkPhysicalDevice                            physicalDevice,
-    uint32_t                                    queueFamilyIndex,
-    VkSurfaceKHR                                surface,
-    VkBool32*                                   pSupported);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDeviceSurfaceSupportKHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     uint32_t                                    queueFamilyIndex,
+     *     VkSurfaceKHR                                surface,
+     *     VkBool32*                                   pSupported);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -502,10 +540,11 @@ E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
      * 
      * <p>To query the basic capabilities of a surface, needed in order to create a swapchain, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkSurfaceKHR                                surface,
-    VkSurfaceCapabilitiesKHR*                   pSurfaceCapabilities);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkSurfaceKHR                                surface,
+     *     VkSurfaceCapabilitiesKHR*                   pSurfaceCapabilities);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -564,11 +603,12 @@ E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
      * 
      * <p>To query the supported swapchain format-color space pairs for a surface, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDeviceSurfaceFormatsKHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkSurfaceKHR                                surface,
-    uint32_t*                                   pSurfaceFormatCount,
-    VkSurfaceFormatKHR*                         pSurfaceFormats);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDeviceSurfaceFormatsKHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkSurfaceKHR                                surface,
+     *     uint32_t*                                   pSurfaceFormatCount,
+     *     VkSurfaceFormatKHR*                         pSurfaceFormats);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -638,11 +678,12 @@ E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
      * 
      * <p>To query the supported presentation modes for a surface, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDeviceSurfacePresentModesKHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkSurfaceKHR                                surface,
-    uint32_t*                                   pPresentModeCount,
-    VkPresentModeKHR*                           pPresentModes);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDeviceSurfacePresentModesKHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkSurfaceKHR                                surface,
+     *     uint32_t*                                   pPresentModeCount,
+     *     VkPresentModeKHR*                           pPresentModes);</pre></code>
      * 
      * <h5>Description</h5>
      * 

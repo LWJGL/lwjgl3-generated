@@ -16,20 +16,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct YGNode {
-    {@link YGStyle YGStyle} style;
-    {@link YGLayout YGLayout} layout;
-    uint32_t lineIndex;
-    YGNodeRef parent;
-    YGNodeListRef children;
-    {@link YGNode YGNode} * nextChild;
-    {@link YGMeasureFuncI YGMeasureFunc} measure;
-    {@link YGPrintFuncI YGPrintFunc} print;
-    void * context;
-    bool isDirty;
-    bool hasNewLayout;
-    {@link YGValue YGValue} * resolvedDimensions[2];
-}</code></pre>
+ * <code><pre>
+ * struct YGNode {
+ *     {@link YGStyle YGStyle} style;
+ *     {@link YGLayout YGLayout} layout;
+ *     uint32_t lineIndex;
+ *     YGNodeRef parent;
+ *     YGNodeListRef children;
+ *     {@link YGNode YGNode} * nextChild;
+ *     {@link YGMeasureFuncI YGMeasureFunc} measure;
+ *     {@link YGPrintFuncI YGPrintFunc} print;
+ *     void * context;
+ *     bool isDirty;
+ *     bool hasNewLayout;
+ *     {@link YGValue YGValue} * resolvedDimensions[2];
+ * }</pre></code>
  */
 public class YGNode extends Struct {
 

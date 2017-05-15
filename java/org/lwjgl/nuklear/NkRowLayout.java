@@ -21,20 +21,21 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_row_layout {
-    enum nk_panel_row_layout_type type;
-    int index;
-    float height;
-    int columns;
-    const float * ratio;
-    float item_width;
-    float item_height;
-    float item_offset;
-    float filled;
-    {@link NkRect struct nk_rect} item;
-    int tree_depth;
-    float templates[16];
-}</code></pre>
+ * <code><pre>
+ * struct nk_row_layout {
+ *     enum nk_panel_row_layout_type type;
+ *     int index;
+ *     float height;
+ *     int columns;
+ *     const float * ratio;
+ *     float item_width;
+ *     float item_height;
+ *     float item_offset;
+ *     float filled;
+ *     {@link NkRect struct nk_rect} item;
+ *     int tree_depth;
+ *     float templates[16];
+ * }</pre></code>
  */
 public class NkRowLayout extends Struct {
 

@@ -24,9 +24,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Controller_t {
-    uint32_t button;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Controller_t {
+ *     uint32_t button;
+ * }</pre></code>
  */
 public class VREventController extends Struct implements NativeResource {
 

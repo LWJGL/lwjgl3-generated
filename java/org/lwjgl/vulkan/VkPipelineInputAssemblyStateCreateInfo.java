@@ -53,13 +53,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineInputAssemblyStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineInputAssemblyStateCreateFlags flags;
-    VkPrimitiveTopology topology;
-    VkBool32 primitiveRestartEnable;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineInputAssemblyStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineInputAssemblyStateCreateFlags flags;
+ *     VkPrimitiveTopology topology;
+ *     VkBool32 primitiveRestartEnable;
+ * }</pre></code>
  */
 public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements NativeResource {
 

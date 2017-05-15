@@ -14,7 +14,6 @@ package org.lwjgl.opengles;
  */
 public final class EXTTextureSRGBRG8 {
 
-    /**  */
     public static final int GL_SRG8_EXT = 0x8FBE;
 
     private EXTTextureSRGBRG8() {}

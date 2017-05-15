@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSurfaceFormat2KHR {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkSurfaceFormatKHR VkSurfaceFormatKHR} surfaceFormat;
-}</code></pre>
+ * <code><pre>
+ * struct VkSurfaceFormat2KHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkSurfaceFormatKHR VkSurfaceFormatKHR} surfaceFormat;
+ * }</pre></code>
  */
 public class VkSurfaceFormat2KHR extends Struct implements NativeResource {
 

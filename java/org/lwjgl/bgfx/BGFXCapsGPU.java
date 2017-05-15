@@ -23,10 +23,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_caps_gpu_t {
-    uint16_t vendorId;
-    uint16_t deviceId;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_caps_gpu_t {
+ *     uint16_t vendorId;
+ *     uint16_t deviceId;
+ * }</pre></code>
  */
 public class BGFXCapsGPU extends Struct {
 

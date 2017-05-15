@@ -19,15 +19,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt>1</dt>
- * <dd><pre><code>typedef enum VkSampleCountFlagBits {
-    VK_SAMPLE_COUNT_1_BIT = 0x00000001,
-    VK_SAMPLE_COUNT_2_BIT = 0x00000002,
-    VK_SAMPLE_COUNT_4_BIT = 0x00000004,
-    VK_SAMPLE_COUNT_8_BIT = 0x00000008,
-    VK_SAMPLE_COUNT_16_BIT = 0x00000010,
-    VK_SAMPLE_COUNT_32_BIT = 0x00000020,
-    VK_SAMPLE_COUNT_64_BIT = 0x00000040,
-} VkSampleCountFlagBits;</code></pre>
+ * <dd><code><pre>
+ * typedef enum VkSampleCountFlagBits {
+ *     VK_SAMPLE_COUNT_1_BIT = 0x00000001,
+ *     VK_SAMPLE_COUNT_2_BIT = 0x00000002,
+ *     VK_SAMPLE_COUNT_4_BIT = 0x00000004,
+ *     VK_SAMPLE_COUNT_8_BIT = 0x00000008,
+ *     VK_SAMPLE_COUNT_16_BIT = 0x00000010,
+ *     VK_SAMPLE_COUNT_32_BIT = 0x00000020,
+ *     VK_SAMPLE_COUNT_64_BIT = 0x00000040,
+ * } VkSampleCountFlagBits;</pre></code>
  * 
  * <p>The sample count limits defined above represent the minimum supported sample counts for each image type. Individual images <b>may</b> support additional sample counts, which are queried using {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-supported-sample-counts">Supported Sample Counts</a>.</p></dd>
  * </dl>
@@ -94,9 +95,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code maxComputeWorkGroupCount} &ndash; the maximum number of local workgroups that <b>can</b> be dispatched by a single dispatch command. These three values represent the maximum number of local workgroups for the X, Y, and Z dimensions, respectively. The workgroup count parameters to the dispatch commands <b>must</b> be less than or equal to the corresponding limit. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#dispatch">the “Dispatching Commands” chapter</a>.</li>
  * <li>{@code maxComputeWorkGroupInvocations} &ndash; the maximum total number of compute shader invocations in a single local workgroup. The product of the X, Y, and Z sizes as specified by the {@code LocalSize} execution mode in shader modules and by the object decorated by the {@code WorkgroupSize} decoration <b>must</b> be less than or equal to this limit.</li>
  * <li>{@code maxComputeWorkGroupSize} &ndash; the maximum size of a local compute workgroup, per dimension. These three values represent the maximum local workgroup size in the X, Y, and Z dimensions, respectively. The {@code x}, {@code y}, and {@code z} sizes specified by the {@code LocalSize} execution mode and by the object decorated by the {@code WorkgroupSize} decoration in shader modules <b>must</b> be less than or equal to the corresponding limit.</li>
- * <li>{@code subPixelPrecisionBits} &ndash; the number of bits of subpixel precision in framebuffer coordinates <code>x<sub>f</sub></code> and <code>y<sub>f</sub></code>. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast">the “Rasterization” chapter</a>.</li>
- * <li>{@code subTexelPrecisionBits} &ndash; the number of bits of precision in the division along an axis of an image used for minification and magnification filters. <code>2<sup>subTexelPrecisionBits</sup></code> is the actual number of divisions along each axis of the image represented. The filtering hardware will snap to these locations when computing the filtered results.</li>
- * <li>{@code mipmapPrecisionBits} &ndash; the number of bits of division that the LOD calculation for mipmap fetching get snapped to when determining the contribution from each mip level to the mip filtered results. <code>2<sup>mipmapPrecisionBits</sup></code> is the actual number of divisions.
+ * <li>{@code subPixelPrecisionBits} &ndash; the number of bits of subpixel precision in framebuffer coordinates<code>x<sub>f</sub></code>
+ * 
+ * <p>and</p><code>y<sub>f</sub></code>
+ * 
+ * <p>. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast">the “Rasterization” chapter</a>.</p></li>
+ * <li>{@code subTexelPrecisionBits} &ndash; the number of bits of precision in the division along an axis of an image used for minification and magnification filters.<code>2<sup>subTexelPrecisionBits</sup></code>
+ * 
+ * <p>is the actual number of divisions along each axis of the image represented. The filtering hardware will snap to these locations when computing the filtered results.</p></li>
+ * <li>{@code mipmapPrecisionBits} &ndash; the number of bits of division that the LOD calculation for mipmap fetching get snapped to when determining the contribution from each mip level to the mip filtered results.<code>2<sup>mipmapPrecisionBits</sup></code>
+ * 
+ * <p>is the actual number of divisions.</p>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
@@ -104,15 +113,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * </div></li>
  * <li>{@code maxDrawIndexedIndexValue} &ndash; the maximum index value that <b>can</b> be used for indexed draw calls when using 32-bit indices. This excludes the primitive restart index value of 0xFFFFFFFF. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-fullDrawIndexUint32">fullDrawIndexUint32</a>.</li>
  * <li>{@code maxDrawIndirectCount} &ndash; the maximum draw count that is supported for indirect draw calls. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiDrawIndirect">multiDrawIndirect</a>.</li>
- * <li>{@code maxSamplerLodBias} &ndash; the maximum absolute sampler level of detail bias. The sum of the {@code mipLodBias} member of the {@link VkSamplerCreateInfo} structure and the {@code Bias} operand of image sampling operations in shader modules (or 0 if no {@code Bias} operand is provided to an image sampling operation) are clamped to the range <code>[-maxSamplerLodBias,+maxSamplerLodBias]</code>. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#samplers-mipLodBias">samplers-mipLodBias</a>.</li>
+ * <li>{@code maxSamplerLodBias} &ndash; the maximum absolute sampler level of detail bias. The sum of the {@code mipLodBias} member of the {@link VkSamplerCreateInfo} structure and the {@code Bias} operand of image sampling operations in shader modules (or 0 if no {@code Bias} operand is provided to an image sampling operation) are clamped to the range<code>[-maxSamplerLodBias,+maxSamplerLodBias]</code>
+ * 
+ * <p>. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#samplers-mipLodBias">samplers-mipLodBias</a>.</p></li>
  * <li>{@code maxSamplerAnisotropy} &ndash; the maximum degree of sampler anisotropy. The maximum degree of anisotropic filtering used for an image sampling operation is the minimum of the {@code maxAnisotropy} member of the {@link VkSamplerCreateInfo} structure and this limit. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#samplers-maxAnisotropy">samplers-maxAnisotropy</a>.</li>
  * <li>{@code maxViewports} &ndash; the maximum number of active viewports. The {@code viewportCount} member of the {@link VkPipelineViewportStateCreateInfo} structure that is provided at pipeline creation <b>must</b> be less than or equal to this limit.</li>
  * <li>{@code maxViewportDimensions} &ndash; are the maximum viewport dimensions in the X (width) and Y (height) dimensions, respectively. The maximum viewport dimensions <b>must</b> be greater than or equal to the largest image which <b>can</b> be created and used as a framebuffer attachment. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-viewport">Controlling the Viewport</a>.</li>
- * <li>{@code viewportBoundsRange} &ndash; the <code>[minimum, maximum]</code> range that the corners of a viewport <b>must</b> be contained in. This range <b>must</b> be at least <code>[-2 × size, 2 × size - 1]</code>, where <code>size = max(maxViewportDimensions[0], maxViewportDimensions[1])</code>. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-viewport">Controlling the Viewport</a>.
+ * <li>{@code viewportBoundsRange} &ndash; the<code>[minimum, maximum]</code>
+ * 
+ * <p>range that the corners of a viewport <b>must</b> be contained in. This range <b>must</b> be at least</p><code>[-2 × size, 2 × size - 1]</code>
+ * 
+ * <p>, where</p><code>size = max(maxViewportDimensions[0], maxViewportDimensions[1])</code>
+ * 
+ * <p>. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-viewport">Controlling the Viewport</a>.</p>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>The intent of the {@code viewportBoundsRange} limit is to allow a maximum sized viewport to be arbitrarily shifted relative to the output target as long as at least some portion intersects. This would give a bounds limit of <code>[-size + 1, 2 {times} size - 1]</code> which would allow all possible non-empty-set intersections of the output target and the viewport. Since these numbers are typically powers of two, picking the signed number range using the smallest possible number of bits ends up with the specified range.</p>
+ * <p>The intent of the {@code viewportBoundsRange} limit is to allow a maximum sized viewport to be arbitrarily shifted relative to the output target as long as at least some portion intersects. This would give a bounds limit of</p><code>[-size + 1, 2 {times} size - 1]</code>
+ * 
+ * <p>which would allow all possible non-empty-set intersections of the output target and the viewport. Since these numbers are typically powers of two, picking the signed number range using the smallest possible number of bits ends up with the specified range.</p>
  * </div></li>
  * <li>{@code viewportSubPixelBits} &ndash; the number of bits of subpixel precision for viewport bounds. The subpixel precision that floating-point viewport bounds are interpreted at is given by this limit.</li>
  * <li>{@code minMemoryMapAlignment} &ndash; the minimum required: alignment, in bytes, of host visible memory allocations within the host address space. When mapping a memory allocation with {@link VK10#vkMapMemory MapMemory}, subtracting {@code offset} bytes from the returned pointer will always produce an integer multiple of this limit. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-device-hostaccess">the “Host Access to Device Memory Objects” section</a>.</li>
@@ -146,8 +165,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code maxCullDistances} &ndash; the maximum number of cull distances that <b>can</b> be used in a single shader stage. The size of any array declared with the {@code CullDistance} built-in decoration in a shader module <b>must</b> be less than or equal to this limit.</li>
  * <li>{@code maxCombinedClipAndCullDistances} &ndash; the maximum combined number of clip and cull distances that <b>can</b> be used in a single shader stage. The sum of the sizes of any pair of arrays declared with the {@code ClipDistance} and {@code CullDistance} built-in decoration used by a single shader stage in a shader module <b>must</b> be less than or equal to this limit.</li>
  * <li>{@code discreteQueuePriorities} &ndash; the number of discrete priorities that <b>can</b> be assigned to a queue based on the value of each member of {@link VkDeviceQueueCreateInfo}{@code ::pQueuePriorities}. This <b>must</b> be at least 2, and levels <b>must</b> be spread evenly over the range, with at least one level at 1.0, and another at 0.0. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-priority">the “Queue Priority” section</a>.</li>
- * <li>{@code pointSizeRange} &ndash; the range <code>[minimum,maximum]</code> of supported sizes for points. Values written to variables decorated with the {@code PointSize} built-in decoration are clamped to this range.</li>
- * <li>{@code lineWidthRange} &ndash; the range <code>[minimum,maximum]</code> of supported widths for lines. Values specified by the {@code lineWidth} member of the {@link VkPipelineRasterizationStateCreateInfo} or the {@code lineWidth} parameter to {@link VK10#vkCmdSetLineWidth CmdSetLineWidth} are clamped to this range.</li>
+ * <li>{@code pointSizeRange} &ndash; the range<code>[minimum,maximum]</code>
+ * 
+ * <p>of supported sizes for points. Values written to variables decorated with the {@code PointSize} built-in decoration are clamped to this range.</p></li>
+ * <li>{@code lineWidthRange} &ndash; the range<code>[minimum,maximum]</code>
+ * 
+ * <p>of supported widths for lines. Values specified by the {@code lineWidth} member of the {@link VkPipelineRasterizationStateCreateInfo} or the {@code lineWidth} parameter to {@link VK10#vkCmdSetLineWidth CmdSetLineWidth} are clamped to this range.</p></li>
  * <li>{@code pointSizeGranularity} &ndash; the granularity of supported point sizes. Not all point sizes in the range defined by {@code pointSizeRange} are supported. This limit specifies the granularity (or increment) between successive supported point sizes.</li>
  * <li>{@code lineWidthGranularity} &ndash; the granularity of supported line widths. Not all line widths in the range defined by {@code lineWidthRange} are supported. This limit specifies the granularity (or increment) between successive supported line widths.</li>
  * <li>{@code strictLines} &ndash; indicates whether lines are rasterized according to the preferred method of rasterization. If set to {@link VK10#VK_FALSE FALSE}, lines <b>may</b> be rasterized under a relaxed set of rules. If set to {@link VK10#VK_TRUE TRUE}, lines are rasterized as per the strict definition. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast-lines-basic">Basic Line Segment Rasterization</a>.</li>
@@ -159,114 +182,115 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceLimits {
-    uint32_t maxImageDimension1D;
-    uint32_t maxImageDimension2D;
-    uint32_t maxImageDimension3D;
-    uint32_t maxImageDimensionCube;
-    uint32_t maxImageArrayLayers;
-    uint32_t maxTexelBufferElements;
-    uint32_t maxUniformBufferRange;
-    uint32_t maxStorageBufferRange;
-    uint32_t maxPushConstantsSize;
-    uint32_t maxMemoryAllocationCount;
-    uint32_t maxSamplerAllocationCount;
-    VkDeviceSize bufferImageGranularity;
-    VkDeviceSize sparseAddressSpaceSize;
-    uint32_t maxBoundDescriptorSets;
-    uint32_t maxPerStageDescriptorSamplers;
-    uint32_t maxPerStageDescriptorUniformBuffers;
-    uint32_t maxPerStageDescriptorStorageBuffers;
-    uint32_t maxPerStageDescriptorSampledImages;
-    uint32_t maxPerStageDescriptorStorageImages;
-    uint32_t maxPerStageDescriptorInputAttachments;
-    uint32_t maxPerStageResources;
-    uint32_t maxDescriptorSetSamplers;
-    uint32_t maxDescriptorSetUniformBuffers;
-    uint32_t maxDescriptorSetUniformBuffersDynamic;
-    uint32_t maxDescriptorSetStorageBuffers;
-    uint32_t maxDescriptorSetStorageBuffersDynamic;
-    uint32_t maxDescriptorSetSampledImages;
-    uint32_t maxDescriptorSetStorageImages;
-    uint32_t maxDescriptorSetInputAttachments;
-    uint32_t maxVertexInputAttributes;
-    uint32_t maxVertexInputBindings;
-    uint32_t maxVertexInputAttributeOffset;
-    uint32_t maxVertexInputBindingStride;
-    uint32_t maxVertexOutputComponents;
-    uint32_t maxTessellationGenerationLevel;
-    uint32_t maxTessellationPatchSize;
-    uint32_t maxTessellationControlPerVertexInputComponents;
-    uint32_t maxTessellationControlPerVertexOutputComponents;
-    uint32_t maxTessellationControlPerPatchOutputComponents;
-    uint32_t maxTessellationControlTotalOutputComponents;
-    uint32_t maxTessellationEvaluationInputComponents;
-    uint32_t maxTessellationEvaluationOutputComponents;
-    uint32_t maxGeometryShaderInvocations;
-    uint32_t maxGeometryInputComponents;
-    uint32_t maxGeometryOutputComponents;
-    uint32_t maxGeometryOutputVertices;
-    uint32_t maxGeometryTotalOutputComponents;
-    uint32_t maxFragmentInputComponents;
-    uint32_t maxFragmentOutputAttachments;
-    uint32_t maxFragmentDualSrcAttachments;
-    uint32_t maxFragmentCombinedOutputResources;
-    uint32_t maxComputeSharedMemorySize;
-    uint32_t maxComputeWorkGroupCount[3];
-    uint32_t maxComputeWorkGroupInvocations;
-    uint32_t maxComputeWorkGroupSize[3];
-    uint32_t subPixelPrecisionBits;
-    uint32_t subTexelPrecisionBits;
-    uint32_t mipmapPrecisionBits;
-    uint32_t maxDrawIndexedIndexValue;
-    uint32_t maxDrawIndirectCount;
-    float maxSamplerLodBias;
-    float maxSamplerAnisotropy;
-    uint32_t maxViewports;
-    uint32_t maxViewportDimensions[2];
-    float viewportBoundsRange[2];
-    uint32_t viewportSubPixelBits;
-    size_t minMemoryMapAlignment;
-    VkDeviceSize minTexelBufferOffsetAlignment;
-    VkDeviceSize minUniformBufferOffsetAlignment;
-    VkDeviceSize minStorageBufferOffsetAlignment;
-    int32_t minTexelOffset;
-    uint32_t maxTexelOffset;
-    int32_t minTexelGatherOffset;
-    uint32_t maxTexelGatherOffset;
-    float minInterpolationOffset;
-    float maxInterpolationOffset;
-    uint32_t subPixelInterpolationOffsetBits;
-    uint32_t maxFramebufferWidth;
-    uint32_t maxFramebufferHeight;
-    uint32_t maxFramebufferLayers;
-    VkSampleCountFlags framebufferColorSampleCounts;
-    VkSampleCountFlags framebufferDepthSampleCounts;
-    VkSampleCountFlags framebufferStencilSampleCounts;
-    VkSampleCountFlags framebufferNoAttachmentsSampleCounts;
-    uint32_t maxColorAttachments;
-    VkSampleCountFlags sampledImageColorSampleCounts;
-    VkSampleCountFlags sampledImageIntegerSampleCounts;
-    VkSampleCountFlags sampledImageDepthSampleCounts;
-    VkSampleCountFlags sampledImageStencilSampleCounts;
-    VkSampleCountFlags storageImageSampleCounts;
-    uint32_t maxSampleMaskWords;
-    VkBool32 timestampComputeAndGraphics;
-    float timestampPeriod;
-    uint32_t maxClipDistances;
-    uint32_t maxCullDistances;
-    uint32_t maxCombinedClipAndCullDistances;
-    uint32_t discreteQueuePriorities;
-    float pointSizeRange[2];
-    float lineWidthRange[2];
-    float pointSizeGranularity;
-    float lineWidthGranularity;
-    VkBool32 strictLines;
-    VkBool32 standardSampleLocations;
-    VkDeviceSize optimalBufferCopyOffsetAlignment;
-    VkDeviceSize optimalBufferCopyRowPitchAlignment;
-    VkDeviceSize nonCoherentAtomSize;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceLimits {
+ *     uint32_t maxImageDimension1D;
+ *     uint32_t maxImageDimension2D;
+ *     uint32_t maxImageDimension3D;
+ *     uint32_t maxImageDimensionCube;
+ *     uint32_t maxImageArrayLayers;
+ *     uint32_t maxTexelBufferElements;
+ *     uint32_t maxUniformBufferRange;
+ *     uint32_t maxStorageBufferRange;
+ *     uint32_t maxPushConstantsSize;
+ *     uint32_t maxMemoryAllocationCount;
+ *     uint32_t maxSamplerAllocationCount;
+ *     VkDeviceSize bufferImageGranularity;
+ *     VkDeviceSize sparseAddressSpaceSize;
+ *     uint32_t maxBoundDescriptorSets;
+ *     uint32_t maxPerStageDescriptorSamplers;
+ *     uint32_t maxPerStageDescriptorUniformBuffers;
+ *     uint32_t maxPerStageDescriptorStorageBuffers;
+ *     uint32_t maxPerStageDescriptorSampledImages;
+ *     uint32_t maxPerStageDescriptorStorageImages;
+ *     uint32_t maxPerStageDescriptorInputAttachments;
+ *     uint32_t maxPerStageResources;
+ *     uint32_t maxDescriptorSetSamplers;
+ *     uint32_t maxDescriptorSetUniformBuffers;
+ *     uint32_t maxDescriptorSetUniformBuffersDynamic;
+ *     uint32_t maxDescriptorSetStorageBuffers;
+ *     uint32_t maxDescriptorSetStorageBuffersDynamic;
+ *     uint32_t maxDescriptorSetSampledImages;
+ *     uint32_t maxDescriptorSetStorageImages;
+ *     uint32_t maxDescriptorSetInputAttachments;
+ *     uint32_t maxVertexInputAttributes;
+ *     uint32_t maxVertexInputBindings;
+ *     uint32_t maxVertexInputAttributeOffset;
+ *     uint32_t maxVertexInputBindingStride;
+ *     uint32_t maxVertexOutputComponents;
+ *     uint32_t maxTessellationGenerationLevel;
+ *     uint32_t maxTessellationPatchSize;
+ *     uint32_t maxTessellationControlPerVertexInputComponents;
+ *     uint32_t maxTessellationControlPerVertexOutputComponents;
+ *     uint32_t maxTessellationControlPerPatchOutputComponents;
+ *     uint32_t maxTessellationControlTotalOutputComponents;
+ *     uint32_t maxTessellationEvaluationInputComponents;
+ *     uint32_t maxTessellationEvaluationOutputComponents;
+ *     uint32_t maxGeometryShaderInvocations;
+ *     uint32_t maxGeometryInputComponents;
+ *     uint32_t maxGeometryOutputComponents;
+ *     uint32_t maxGeometryOutputVertices;
+ *     uint32_t maxGeometryTotalOutputComponents;
+ *     uint32_t maxFragmentInputComponents;
+ *     uint32_t maxFragmentOutputAttachments;
+ *     uint32_t maxFragmentDualSrcAttachments;
+ *     uint32_t maxFragmentCombinedOutputResources;
+ *     uint32_t maxComputeSharedMemorySize;
+ *     uint32_t maxComputeWorkGroupCount[3];
+ *     uint32_t maxComputeWorkGroupInvocations;
+ *     uint32_t maxComputeWorkGroupSize[3];
+ *     uint32_t subPixelPrecisionBits;
+ *     uint32_t subTexelPrecisionBits;
+ *     uint32_t mipmapPrecisionBits;
+ *     uint32_t maxDrawIndexedIndexValue;
+ *     uint32_t maxDrawIndirectCount;
+ *     float maxSamplerLodBias;
+ *     float maxSamplerAnisotropy;
+ *     uint32_t maxViewports;
+ *     uint32_t maxViewportDimensions[2];
+ *     float viewportBoundsRange[2];
+ *     uint32_t viewportSubPixelBits;
+ *     size_t minMemoryMapAlignment;
+ *     VkDeviceSize minTexelBufferOffsetAlignment;
+ *     VkDeviceSize minUniformBufferOffsetAlignment;
+ *     VkDeviceSize minStorageBufferOffsetAlignment;
+ *     int32_t minTexelOffset;
+ *     uint32_t maxTexelOffset;
+ *     int32_t minTexelGatherOffset;
+ *     uint32_t maxTexelGatherOffset;
+ *     float minInterpolationOffset;
+ *     float maxInterpolationOffset;
+ *     uint32_t subPixelInterpolationOffsetBits;
+ *     uint32_t maxFramebufferWidth;
+ *     uint32_t maxFramebufferHeight;
+ *     uint32_t maxFramebufferLayers;
+ *     VkSampleCountFlags framebufferColorSampleCounts;
+ *     VkSampleCountFlags framebufferDepthSampleCounts;
+ *     VkSampleCountFlags framebufferStencilSampleCounts;
+ *     VkSampleCountFlags framebufferNoAttachmentsSampleCounts;
+ *     uint32_t maxColorAttachments;
+ *     VkSampleCountFlags sampledImageColorSampleCounts;
+ *     VkSampleCountFlags sampledImageIntegerSampleCounts;
+ *     VkSampleCountFlags sampledImageDepthSampleCounts;
+ *     VkSampleCountFlags sampledImageStencilSampleCounts;
+ *     VkSampleCountFlags storageImageSampleCounts;
+ *     uint32_t maxSampleMaskWords;
+ *     VkBool32 timestampComputeAndGraphics;
+ *     float timestampPeriod;
+ *     uint32_t maxClipDistances;
+ *     uint32_t maxCullDistances;
+ *     uint32_t maxCombinedClipAndCullDistances;
+ *     uint32_t discreteQueuePriorities;
+ *     float pointSizeRange[2];
+ *     float lineWidthRange[2];
+ *     float pointSizeGranularity;
+ *     float lineWidthGranularity;
+ *     VkBool32 strictLines;
+ *     VkBool32 standardSampleLocations;
+ *     VkDeviceSize optimalBufferCopyOffsetAlignment;
+ *     VkDeviceSize optimalBufferCopyRowPitchAlignment;
+ *     VkDeviceSize nonCoherentAtomSize;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceLimits extends Struct {
 

@@ -12,70 +12,71 @@ package org.lwjgl.vulkan;
  * 
  * <h5>Examples</h5>
  * 
- * <pre><code>    // Create an image with
-    // VkDedicatedAllocationImageCreateInfoNV::dedicatedAllocation
-    // set to VK_TRUE
-
-    VkDedicatedAllocationImageCreateInfoNV dedicatedImageInfo =
-    {
-        VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,            // sType
-        NULL,                                                                   // pNext
-        VK_TRUE,                                                                // dedicatedAllocation
-    };
-
-    VkImageCreateInfo imageCreateInfo =
-    {
-        VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,    // sType
-        &dedicatedImageInfo                     // pNext
-        // Other members set as usual
-    };
-
-    VkImage image;
-    VkResult result = vkCreateImage(
-        device,
-        &imageCreateInfo,
-        NULL,                       // pAllocator
-        &image);
-
-    VkMemoryRequirements memoryRequirements;
-    vkGetImageMemoryRequirements(
-        device,
-        image,
-        &memoryRequirements);
-
-    // Allocate memory with VkDedicatedAllocationMemoryAllocateInfoNV::image
-    // pointing to the image we are allocating the memory for
-
-    VkDedicatedAllocationMemoryAllocateInfoNV dedicatedInfo =
-    {
-        VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,             // sType
-        NULL,                                                                       // pNext
-        image,                                                                      // image
-        VK_NULL_HANDLE,                                                             // buffer
-    };
-
-    VkMemoryAllocateInfo memoryAllocateInfo =
-    {
-        VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,                 // sType
-        &dedicatedInfo,                                         // pNext
-        memoryRequirements.size,                                // allocationSize
-        FindMemoryTypeIndex(memoryRequirements.memoryTypeBits), // memoryTypeIndex
-    };
-
-    VkDeviceMemory memory;
-    vkAllocateMemory(
-        device,
-        &memoryAllocateInfo,
-        NULL,                       // pAllocator
-        &memory);
-
-    // Bind the image to the memory
-
-    vkBindImageMemory(
-        device,
-        image,
-        memory,
-        0);</code></pre>
+ * <code><pre>
+ *     // Create an image with
+ *     // VkDedicatedAllocationImageCreateInfoNV::dedicatedAllocation
+ *     // set to VK_TRUE
+ * 
+ *     VkDedicatedAllocationImageCreateInfoNV dedicatedImageInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV,            // sType
+ *         NULL,                                                                   // pNext
+ *         VK_TRUE,                                                                // dedicatedAllocation
+ *     };
+ * 
+ *     VkImageCreateInfo imageCreateInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,    // sType
+ *         &dedicatedImageInfo                     // pNext
+ *         // Other members set as usual
+ *     };
+ * 
+ *     VkImage image;
+ *     VkResult result = vkCreateImage(
+ *         device,
+ *         &imageCreateInfo,
+ *         NULL,                       // pAllocator
+ *         &image);
+ * 
+ *     VkMemoryRequirements memoryRequirements;
+ *     vkGetImageMemoryRequirements(
+ *         device,
+ *         image,
+ *         &memoryRequirements);
+ * 
+ *     // Allocate memory with VkDedicatedAllocationMemoryAllocateInfoNV::image
+ *     // pointing to the image we are allocating the memory for
+ * 
+ *     VkDedicatedAllocationMemoryAllocateInfoNV dedicatedInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV,             // sType
+ *         NULL,                                                                       // pNext
+ *         image,                                                                      // image
+ *         VK_NULL_HANDLE,                                                             // buffer
+ *     };
+ * 
+ *     VkMemoryAllocateInfo memoryAllocateInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,                 // sType
+ *         &dedicatedInfo,                                         // pNext
+ *         memoryRequirements.size,                                // allocationSize
+ *         FindMemoryTypeIndex(memoryRequirements.memoryTypeBits), // memoryTypeIndex
+ *     };
+ * 
+ *     VkDeviceMemory memory;
+ *     vkAllocateMemory(
+ *         device,
+ *         &memoryAllocateInfo,
+ *         NULL,                       // pAllocator
+ *         &memory);
+ * 
+ *     // Bind the image to the memory
+ * 
+ *     vkBindImageMemory(
+ *         device,
+ *         image,
+ *         memory,
+ *         0);</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

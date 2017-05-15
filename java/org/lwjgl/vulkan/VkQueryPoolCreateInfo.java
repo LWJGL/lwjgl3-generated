@@ -44,25 +44,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} &ndash; reserved for future use.</li>
  * <li>{@code queryType} &ndash; the type of queries managed by the pool, and <b>must</b> be one of the values
  * 
- * <pre><code>typedef enum VkQueryType {
-    VK_QUERY_TYPE_OCCLUSION = 0,
-    VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
-    VK_QUERY_TYPE_TIMESTAMP = 2,
-} VkQueryType;</code></pre></li>
+ * <code><pre>
+ * typedef enum VkQueryType {
+ *     VK_QUERY_TYPE_OCCLUSION = 0,
+ *     VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
+ *     VK_QUERY_TYPE_TIMESTAMP = 2,
+ * } VkQueryType;</pre></code></li>
  * <li>{@code queryCount} &ndash; the number of queries managed by the pool.</li>
  * <li>{@code pipelineStatistics} &ndash; a bitmask indicating which counters will be returned in queries on the new pool, as described below in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-pipestats">the “Pipeline Statistics Queries” section</a>. {@code pipelineStatistics} is ignored if {@code queryType} is not {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkQueryPoolCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkQueryPoolCreateFlags flags;
-    VkQueryType queryType;
-    uint32_t queryCount;
-    VkQueryPipelineStatisticFlags pipelineStatistics;
-}</code></pre>
+ * <code><pre>
+ * struct VkQueryPoolCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkQueryPoolCreateFlags flags;
+ *     VkQueryType queryType;
+ *     uint32_t queryCount;
+ *     VkQueryPipelineStatisticFlags pipelineStatistics;
+ * }</pre></code>
  */
 public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
 

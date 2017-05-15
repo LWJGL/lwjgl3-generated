@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VRControllerState_t {
-    uint32_t unPacketNum;
-    uint64_t ulButtonPressed;
-    uint64_t ulButtonTouched;
-    {@link VRControllerAxis VRControllerAxis_t} rAxis[5];
-}</code></pre>
+ * <code><pre>
+ * struct VRControllerState_t {
+ *     uint32_t unPacketNum;
+ *     uint64_t ulButtonPressed;
+ *     uint64_t ulButtonTouched;
+ *     {@link VRControllerAxis VRControllerAxis_t} rAxis[5];
+ * }</pre></code>
  */
 public class VRControllerState extends Struct implements NativeResource {
 

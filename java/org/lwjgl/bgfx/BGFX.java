@@ -2625,22 +2625,23 @@ public class BGFX {
      * 
      * <p>Cubemap sides: 0 is +X, 1 is -X, 2 is +Y, 3 is -Y, 4 is +Z, and 5 is -Z.</p>
      * 
-     * <pre><code>           +----------+
-           |-z       2|
-           | ^  +y    |
-           | |        |
-           | +---->+x |
-+----------+----------+----------+----------+
-|+y       1|+y       4|+y       0|+y       5|
-| ^  -x    | ^  +z    | ^  +x    | ^  -z    |
-| |        | |        | |        | |        |
-| +---->+z | +---->+x | +---->-z | +---->-x |
-+----------+----------+----------+----------+
-           |+z       3|
-           | ^  -y    |
-           | |        |
-           | +---->+x |
-           +----------+</code></pre>
+     * <code><pre>
+     *            +----------+
+     *            |-z       2|
+     *            | ^  +y    |
+     *            | |        |
+     *            | +---->+x |
+     * +----------+----------+----------+----------+
+     * |+y       1|+y       4|+y       0|+y       5|
+     * | ^  -x    | ^  +z    | ^  +x    | ^  -z    |
+     * | |        | |        | |        | |        |
+     * | +---->+z | +---->+x | +---->-z | +---->-x |
+     * +----------+----------+----------+----------+
+     *            |+z       3|
+     *            | ^  -y    |
+     *            | |        |
+     *            | +---->+x |
+     *            +----------+</pre></code>
      *
      * @param _handle texture handle
      * @param _layer  layers in texture array
@@ -3078,11 +3079,12 @@ public class BGFX {
      * 
      * <p>This is debug only feature. In graphics debugger view name will appear as:</p>
      * 
-     * <pre><code>"nnnce <view name>"
- ^  ^^ ^
- |  |+-- eye (L/R)
- |  +--- compute (C)
- +------ view id</code></pre>
+     * <code><pre>
+     * "nnnce <view name>"
+     *  ^  ^^ ^
+     *  |  |+-- eye (L/R)
+     *  |  +--- compute (C)
+     *  +------ view id</pre></code>
      *
      * @param _id   view id
      * @param _name view name
@@ -3099,11 +3101,12 @@ public class BGFX {
      * 
      * <p>This is debug only feature. In graphics debugger view name will appear as:</p>
      * 
-     * <pre><code>"nnnce <view name>"
- ^  ^^ ^
- |  |+-- eye (L/R)
- |  +--- compute (C)
- +------ view id</code></pre>
+     * <code><pre>
+     * "nnnce <view name>"
+     *  ^  ^^ ^
+     *  |  |+-- eye (L/R)
+     *  |  +--- compute (C)
+     *  +------ view id</pre></code>
      *
      * @param _id   view id
      * @param _name view name

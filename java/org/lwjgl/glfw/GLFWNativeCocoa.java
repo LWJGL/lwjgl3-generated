@@ -31,13 +31,17 @@ public class GLFWNativeCocoa {
     // --- [ glfwGetCocoaMonitor ] ---
 
     /**
-     * Returns the <code>CGDirectDisplayID</code> of the specified monitor.
+     * Returns the<code>CGDirectDisplayID</code>
+     * 
+     * <p>of the specified monitor.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param monitor the GLFW monitor
      *
-     * @return The <code>CGDirectDisplayID</code> of the specified monitor, or {@code kCGNullDirectDisplay} if an error occurred.
+     * @return The<code>CGDirectDisplayID</code>
+     *         
+     *         <p>of the specified monitor, or {@code kCGNullDirectDisplay} if an error occurred.</p>
      *
      * @since version 3.1
      */
@@ -52,13 +56,17 @@ public class GLFWNativeCocoa {
     // --- [ glfwGetCocoaWindow ] ---
 
     /**
-     * Returns the <code>NSWindow</code> of the specified GLFW window.
+     * Returns the<code>NSWindow</code>
+     * 
+     * <p>of the specified GLFW window.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param window the GLFW window
      *
-     * @return The <code>NSWindow</code> of the specified window, or nil if an error occurred.
+     * @return The<code>NSWindow</code>
+     *         
+     *         <p>of the specified window, or nil if an error occurred.</p>
      *
      * @since version 3.0
      */

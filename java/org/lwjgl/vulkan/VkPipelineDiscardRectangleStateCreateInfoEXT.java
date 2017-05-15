@@ -48,14 +48,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineDiscardRectangleStateCreateInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineDiscardRectangleStateCreateFlagsEXT flags;
-    VkDiscardRectangleModeEXT discardRectangleMode;
-    uint32_t discardRectangleCount;
-    const {@link VkRect2D VkRect2D} * pDiscardRectangles;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineDiscardRectangleStateCreateInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineDiscardRectangleStateCreateFlagsEXT flags;
+ *     VkDiscardRectangleModeEXT discardRectangleMode;
+ *     uint32_t discardRectangleCount;
+ *     const {@link VkRect2D VkRect2D} * pDiscardRectangles;
+ * }</pre></code>
  */
 public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct implements NativeResource {
 

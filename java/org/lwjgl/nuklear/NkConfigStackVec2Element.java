@@ -14,10 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_config_stack_vec2_element {
-    {@link NkVec2 struct nk_vec2} * pValues;
-    {@link NkVec2 struct nk_vec2} old_value;
-}</code></pre>
+ * <code><pre>
+ * struct nk_config_stack_vec2_element {
+ *     {@link NkVec2 struct nk_vec2} * pValues;
+ *     {@link NkVec2 struct nk_vec2} old_value;
+ * }</pre></code>
  */
 class NkConfigStackVec2Element extends Struct {
 

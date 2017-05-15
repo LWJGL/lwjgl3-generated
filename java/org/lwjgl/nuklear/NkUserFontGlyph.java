@@ -27,13 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_user_font_glyph {
-    {@link NkVec2 struct nk_vec2} uv[2];
-    {@link NkVec2 struct nk_vec2} offset;
-    float width;
-    float height;
-    float xadvance;
-}</code></pre>
+ * <code><pre>
+ * struct nk_user_font_glyph {
+ *     {@link NkVec2 struct nk_vec2} uv[2];
+ *     {@link NkVec2 struct nk_vec2} offset;
+ *     float width;
+ *     float height;
+ *     float xadvance;
+ * }</pre></code>
  */
 public class NkUserFontGlyph extends Struct implements NativeResource {
 

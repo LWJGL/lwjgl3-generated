@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_ApplicationLaunch_t {
-    uint32_t pid;
-    uint32_t unArgsHandle;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_ApplicationLaunch_t {
+ *     uint32_t pid;
+ *     uint32_t unArgsHandle;
+ * }</pre></code>
  */
 public class VREventApplicationLaunch extends Struct implements NativeResource {
 

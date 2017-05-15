@@ -26,7 +26,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVSync {
 
-    /**  */
     public static final int
         EGL_SYNC_PRIOR_COMMANDS_COMPLETE_NV = 0x30E6,
         EGL_SYNC_STATUS_NV                  = 0x30E7,
@@ -40,7 +39,6 @@ public class NVSync {
         EGL_SYNC_CONDITION_NV               = 0x30EE,
         EGL_SYNC_FENCE_NV                   = 0x30EF;
 
-    /**  */
     public static final long
         EGL_FOREVER_NV = 0xFFFFFFFFFFFFFFFFL,
         EGL_NO_SYNC_NV = 0x0L;

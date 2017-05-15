@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkViewportWScalingNV {
-    float xcoeff;
-    float ycoeff;
-}</code></pre>
+ * <code><pre>
+ * struct VkViewportWScalingNV {
+ *     float xcoeff;
+ *     float ycoeff;
+ * }</pre></code>
  */
 public class VkViewportWScalingNV extends Struct implements NativeResource {
 

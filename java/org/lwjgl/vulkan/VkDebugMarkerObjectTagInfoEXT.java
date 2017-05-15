@@ -49,15 +49,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDebugMarkerObjectTagInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkDebugReportObjectTypeEXT objectType;
-    uint64_t object;
-    uint64_t tagName;
-    size_t tagSize;
-    const void * pTag;
-}</code></pre>
+ * <code><pre>
+ * struct VkDebugMarkerObjectTagInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDebugReportObjectTypeEXT objectType;
+ *     uint64_t object;
+ *     uint64_t tagName;
+ *     size_t tagSize;
+ *     const void * pTag;
+ * }</pre></code>
  */
 public class VkDebugMarkerObjectTagInfoEXT extends Struct implements NativeResource {
 

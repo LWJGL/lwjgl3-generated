@@ -16,15 +16,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_chart {
-    {@link NkStyleItem struct nk_style_item} background;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkColor struct nk_color} selected_color;
-    {@link NkColor struct nk_color} color;
-    float border;
-    float rounding;
-    {@link NkVec2 struct nk_vec2} padding;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_chart {
+ *     {@link NkStyleItem struct nk_style_item} background;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkColor struct nk_color} selected_color;
+ *     {@link NkColor struct nk_color} color;
+ *     float border;
+ *     float rounding;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ * }</pre></code>
  */
 public class NkStyleChart extends Struct implements NativeResource {
 

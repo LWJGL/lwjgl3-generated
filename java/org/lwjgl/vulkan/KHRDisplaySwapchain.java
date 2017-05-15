@@ -102,12 +102,13 @@ public class KHRDisplaySwapchain {
      * 
      * <p>When the {@code VK_KHR_display_swapchain} extension is enabled, multiple swapchains that share presentable images are created by calling:</p>
      * 
-     * <pre><code>VkResult vkCreateSharedSwapchainsKHR(
-    VkDevice                                    device,
-    uint32_t                                    swapchainCount,
-    const VkSwapchainCreateInfoKHR*             pCreateInfos,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSwapchainKHR*                             pSwapchains);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateSharedSwapchainsKHR(
+     *     VkDevice                                    device,
+     *     uint32_t                                    swapchainCount,
+     *     const VkSwapchainCreateInfoKHR*             pCreateInfos,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkSwapchainKHR*                             pSwapchains);</pre></code>
      * 
      * <h5>Description</h5>
      * 

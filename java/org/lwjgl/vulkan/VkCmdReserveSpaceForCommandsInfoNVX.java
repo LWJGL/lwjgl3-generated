@@ -48,13 +48,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCmdReserveSpaceForCommandsInfoNVX {
-    VkStructureType sType;
-    const void * pNext;
-    VkObjectTableNVX objectTable;
-    VkIndirectCommandsLayoutNVX indirectCommandsLayout;
-    uint32_t maxSequencesCount;
-}</code></pre>
+ * <code><pre>
+ * struct VkCmdReserveSpaceForCommandsInfoNVX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkObjectTableNVX objectTable;
+ *     VkIndirectCommandsLayoutNVX indirectCommandsLayout;
+ *     uint32_t maxSequencesCount;
+ * }</pre></code>
  */
 public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements NativeResource {
 

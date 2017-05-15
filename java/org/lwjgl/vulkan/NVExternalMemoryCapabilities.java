@@ -116,15 +116,16 @@ public class NVExternalMemoryCapabilities {
      * 
      * <p>To determine the image capabilities compatible with an external memory handle type, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDeviceExternalImageFormatPropertiesNV(
-    VkPhysicalDevice                            physicalDevice,
-    VkFormat                                    format,
-    VkImageType                                 type,
-    VkImageTiling                               tiling,
-    VkImageUsageFlags                           usage,
-    VkImageCreateFlags                          flags,
-    VkExternalMemoryHandleTypeFlagsNV           externalHandleType,
-    VkExternalImageFormatPropertiesNV*          pExternalImageFormatProperties);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDeviceExternalImageFormatPropertiesNV(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkFormat                                    format,
+     *     VkImageType                                 type,
+     *     VkImageTiling                               tiling,
+     *     VkImageUsageFlags                           usage,
+     *     VkImageCreateFlags                          flags,
+     *     VkExternalMemoryHandleTypeFlagsNV           externalHandleType,
+     *     VkExternalImageFormatPropertiesNV*          pExternalImageFormatProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 

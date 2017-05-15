@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct MDB_stat {
-    unsigned int ms_psize;
-    unsigned int ms_depth;
-    mdb_size_t ms_branch_pages;
-    mdb_size_t ms_leaf_pages;
-    mdb_size_t ms_overflow_pages;
-    mdb_size_t ms_entries;
-}</code></pre>
+ * <code><pre>
+ * struct MDB_stat {
+ *     unsigned int ms_psize;
+ *     unsigned int ms_depth;
+ *     mdb_size_t ms_branch_pages;
+ *     mdb_size_t ms_leaf_pages;
+ *     mdb_size_t ms_overflow_pages;
+ *     mdb_size_t ms_entries;
+ * }</pre></code>
  */
 public class MDBStat extends Struct implements NativeResource {
 

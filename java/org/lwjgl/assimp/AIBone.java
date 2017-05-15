@@ -31,12 +31,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiBone {
-    {@link AIString struct aiString} mName;
-    unsigned int mNumWeights;
-    {@link AIVertexWeight struct aiVertexWeight} * mWeights;
-    {@link AIMatrix4x4 struct aiMatrix4x4} mOffsetMatrix;
-}</code></pre>
+ * <code><pre>
+ * struct aiBone {
+ *     {@link AIString struct aiString} mName;
+ *     unsigned int mNumWeights;
+ *     {@link AIVertexWeight struct aiVertexWeight} * mWeights;
+ *     {@link AIMatrix4x4 struct aiMatrix4x4} mOffsetMatrix;
+ * }</pre></code>
  */
 public class AIBone extends Struct implements NativeResource {
 

@@ -39,11 +39,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceFeatures2KHR {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkPhysicalDeviceFeatures VkPhysicalDeviceFeatures} features;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceFeatures2KHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkPhysicalDeviceFeatures VkPhysicalDeviceFeatures} features;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceFeatures2KHR extends Struct implements NativeResource {
 

@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayModePropertiesKHR {
-    VkDisplayModeKHR displayMode;
-    {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayModePropertiesKHR {
+ *     VkDisplayModeKHR displayMode;
+ *     {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
+ * }</pre></code>
  */
 public class VkDisplayModePropertiesKHR extends Struct implements NativeResource {
 

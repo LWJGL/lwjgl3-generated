@@ -56,16 +56,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCommandBufferInheritanceInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkRenderPass renderPass;
-    uint32_t subpass;
-    VkFramebuffer framebuffer;
-    VkBool32 occlusionQueryEnable;
-    VkQueryControlFlags queryFlags;
-    VkQueryPipelineStatisticFlags pipelineStatistics;
-}</code></pre>
+ * <code><pre>
+ * struct VkCommandBufferInheritanceInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkRenderPass renderPass;
+ *     uint32_t subpass;
+ *     VkFramebuffer framebuffer;
+ *     VkBool32 occlusionQueryEnable;
+ *     VkQueryControlFlags queryFlags;
+ *     VkQueryPipelineStatisticFlags pipelineStatistics;
+ * }</pre></code>
  */
 public class VkCommandBufferInheritanceInfo extends Struct implements NativeResource {
 

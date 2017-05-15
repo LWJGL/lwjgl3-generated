@@ -15,30 +15,31 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct YGStyle {
-    YGDirection direction;
-    YGFlexDirection flexDirection;
-    YGJustify justifyContent;
-    YGAlign alignContent;
-    YGAlign alignItems;
-    YGAlign alignSelf;
-    YGPositionType positionType;
-    YGWrap flexWrap;
-    YGOverflow overflow;
-    YGDisplay display;
-    float flex;
-    float flexGrow;
-    float flexShrink;
-    {@link YGValue YGValue} flexBasis;
-    {@link YGValue YGValue} margin[9];
-    {@link YGValue YGValue} positions[9];
-    {@link YGValue YGValue} padding[9];
-    {@link YGValue YGValue} border[9];
-    {@link YGValue YGValue} dimensions[2];
-    {@link YGValue YGValue} minDimensions[2];
-    {@link YGValue YGValue} maxDimensions[2];
-    float aspectRatio;
-}</code></pre>
+ * <code><pre>
+ * struct YGStyle {
+ *     YGDirection direction;
+ *     YGFlexDirection flexDirection;
+ *     YGJustify justifyContent;
+ *     YGAlign alignContent;
+ *     YGAlign alignItems;
+ *     YGAlign alignSelf;
+ *     YGPositionType positionType;
+ *     YGWrap flexWrap;
+ *     YGOverflow overflow;
+ *     YGDisplay display;
+ *     float flex;
+ *     float flexGrow;
+ *     float flexShrink;
+ *     {@link YGValue YGValue} flexBasis;
+ *     {@link YGValue YGValue} margin[9];
+ *     {@link YGValue YGValue} positions[9];
+ *     {@link YGValue YGValue} padding[9];
+ *     {@link YGValue YGValue} border[9];
+ *     {@link YGValue YGValue} dimensions[2];
+ *     {@link YGValue YGValue} minDimensions[2];
+ *     {@link YGValue YGValue} maxDimensions[2];
+ *     float aspectRatio;
+ * }</pre></code>
  */
 public class YGStyle extends Struct {
 

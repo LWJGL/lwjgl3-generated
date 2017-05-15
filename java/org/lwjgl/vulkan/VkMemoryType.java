@@ -19,13 +19,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <ul>
  * <li>{@code propertyFlags} &ndash; a bitmask of properties for this memory type. The bits specified in {@code propertyFlags} are:
  * 
- * <pre><code>typedef enum VkMemoryPropertyFlagBits {
-    VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x00000001,
-    VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x00000002,
-    VK_MEMORY_PROPERTY_HOST_COHERENT_BIT = 0x00000004,
-    VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x00000008,
-    VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x00000010,
-} VkMemoryPropertyFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkMemoryPropertyFlagBits {
+ *     VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x00000001,
+ *     VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x00000002,
+ *     VK_MEMORY_PROPERTY_HOST_COHERENT_BIT = 0x00000004,
+ *     VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x00000008,
+ *     VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x00000010,
+ * } VkMemoryPropertyFlagBits;</pre></code>
  * 
  * <ul>
  * <li>if {@code propertyFlags} has the {@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit set, memory allocated with this type is the most efficient for device access. This property will only be set for memory types belonging to heaps with the {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} set.</li>
@@ -39,10 +40,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryType {
-    VkMemoryPropertyFlags propertyFlags;
-    uint32_t heapIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryType {
+ *     VkMemoryPropertyFlags propertyFlags;
+ *     uint32_t heapIndex;
+ * }</pre></code>
  */
 public class VkMemoryType extends Struct {
 

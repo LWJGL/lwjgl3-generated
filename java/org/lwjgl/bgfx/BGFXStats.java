@@ -36,23 +36,24 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_stats_t {
-    uint64_t cpuTimeBegin;
-    uint64_t cpuTimeEnd;
-    uint64_t cpuTimerFreq;
-    uint64_t gpuTimeBegin;
-    uint64_t gpuTimeEnd;
-    uint64_t gpuTimerFreq;
-    int64_t waitRender;
-    int64_t waitSubmit;
-    uint32_t numDraw;
-    uint32_t numCompute;
-    uint32_t maxGpuLatency;
-    uint16_t width;
-    uint16_t height;
-    uint16_t textWidth;
-    uint16_t textHeight;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_stats_t {
+ *     uint64_t cpuTimeBegin;
+ *     uint64_t cpuTimeEnd;
+ *     uint64_t cpuTimerFreq;
+ *     uint64_t gpuTimeBegin;
+ *     uint64_t gpuTimeEnd;
+ *     uint64_t gpuTimerFreq;
+ *     int64_t waitRender;
+ *     int64_t waitSubmit;
+ *     uint32_t numDraw;
+ *     uint32_t numCompute;
+ *     uint32_t maxGpuLatency;
+ *     uint16_t width;
+ *     uint16_t height;
+ *     uint16_t textWidth;
+ *     uint16_t textHeight;
+ * }</pre></code>
  */
 public class BGFXStats extends Struct {
 

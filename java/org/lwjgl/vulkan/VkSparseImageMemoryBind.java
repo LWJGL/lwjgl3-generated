@@ -47,7 +47,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code subresource} &ndash; the aspectMask and region of interest in the image.</li>
  * <li>{@code offset} &ndash; are the coordinates of the first texel within the image subresource to bind.</li>
- * <li>{@code extent} &ndash; the size in texels of the region within the image subresource to bind. The extent <b>must</b> be a multiple of the sparse image block dimensions, except when binding sparse image blocks along the edge of an image subresource it <b>can</b> instead be such that any coordinate of <code>offset + extent</code> equals the corresponding dimensions of the image subresource.</li>
+ * <li>{@code extent} &ndash; the size in texels of the region within the image subresource to bind. The extent <b>must</b> be a multiple of the sparse image block dimensions, except when binding sparse image blocks along the edge of an image subresource it <b>can</b> instead be such that any coordinate of<code>offset + extent</code>
+ * 
+ * <p>equals the corresponding dimensions of the image subresource.</p></li>
  * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the sparse image blocks of the image are bound to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the sparse image blocks are unbound.</li>
  * <li>{@code memoryOffset} &ndash; an offset into {@code VkDeviceMemory} object. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, this value is ignored.</li>
  * <li>{@code flags} &ndash; are sparse memory binding flags.</li>
@@ -55,14 +57,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSparseImageMemoryBind {
-    {@link VkImageSubresource VkImageSubresource} subresource;
-    {@link VkOffset3D VkOffset3D} offset;
-    {@link VkExtent3D VkExtent3D} extent;
-    VkDeviceMemory memory;
-    VkDeviceSize memoryOffset;
-    VkSparseMemoryBindFlags flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSparseImageMemoryBind {
+ *     {@link VkImageSubresource VkImageSubresource} subresource;
+ *     {@link VkOffset3D VkOffset3D} offset;
+ *     {@link VkExtent3D VkExtent3D} extent;
+ *     VkDeviceMemory memory;
+ *     VkDeviceSize memoryOffset;
+ *     VkSparseMemoryBindFlags flags;
+ * }</pre></code>
  */
 public class VkSparseImageMemoryBind extends Struct implements NativeResource {
 

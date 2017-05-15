@@ -14,7 +14,6 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
 public class VRNotifications {
 
     protected VRNotifications() {

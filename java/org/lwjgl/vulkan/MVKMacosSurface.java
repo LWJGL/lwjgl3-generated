@@ -83,11 +83,12 @@ public class MVKMacosSurface {
      * 
      * <p>To create a {@code VkSurfaceKHR} object for a macOS {@code NSView}, call:</p>
      * 
-     * <pre><code>VkResult vkCreateMacOSSurfaceMVK(
-    VkInstance                                  instance,
-    const VkMacOSSurfaceCreateInfoMVK*          pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateMacOSSurfaceMVK(
+     *     VkInstance                                  instance,
+     *     const VkMacOSSurfaceCreateInfoMVK*          pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkSurfaceKHR*                               pSurface);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

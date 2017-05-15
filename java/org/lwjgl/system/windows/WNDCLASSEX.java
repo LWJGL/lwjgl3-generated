@@ -44,20 +44,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct WNDCLASSEX {
-    UINT cbSize;
-    UINT style;
-    {@link WindowProcI WNDPROC} lpfnWndProc;
-    int cbClsExtra;
-    int cbWndExtra;
-    HINSTANCE hInstance;
-    HICON hIcon;
-    HCURSOR hCursor;
-    HBRUSH hbrBackground;
-    LPCTSTR lpszMenuName;
-    LPCTSTR lpszClassName;
-    HICON hIconSm;
-}</code></pre>
+ * <code><pre>
+ * struct WNDCLASSEX {
+ *     UINT cbSize;
+ *     UINT style;
+ *     {@link WindowProcI WNDPROC} lpfnWndProc;
+ *     int cbClsExtra;
+ *     int cbWndExtra;
+ *     HINSTANCE hInstance;
+ *     HICON hIcon;
+ *     HCURSOR hCursor;
+ *     HBRUSH hbrBackground;
+ *     LPCTSTR lpszMenuName;
+ *     LPCTSTR lpszClassName;
+ *     HICON hIconSm;
+ * }</pre></code>
  */
 public class WNDCLASSEX extends Struct implements NativeResource {
 

@@ -14,14 +14,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct YGCachedMeasurement {
-    float availableWidth;
-    float availableHeight;
-    YGMeasureMode widthMeasureMode;
-    YGMeasureMode heightMeasureMode;
-    float computedWidth;
-    float computedHeight;
-}</code></pre>
+ * <code><pre>
+ * struct YGCachedMeasurement {
+ *     float availableWidth;
+ *     float availableHeight;
+ *     YGMeasureMode widthMeasureMode;
+ *     YGMeasureMode heightMeasureMode;
+ *     float computedWidth;
+ *     float computedHeight;
+ * }</pre></code>
  */
 public class YGCachedMeasurement extends Struct {
 

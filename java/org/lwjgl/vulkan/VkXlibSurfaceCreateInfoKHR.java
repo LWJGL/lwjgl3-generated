@@ -50,13 +50,14 @@ import org.lwjgl.system.linux.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkXlibSurfaceCreateInfoKHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkXlibSurfaceCreateFlagsKHR flags;
-    Display * dpy;
-    Window window;
-}</code></pre>
+ * <code><pre>
+ * struct VkXlibSurfaceCreateInfoKHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkXlibSurfaceCreateFlagsKHR flags;
+ *     Display * dpy;
+ *     Window window;
+ * }</pre></code>
  */
 public class VkXlibSurfaceCreateInfoKHR extends Struct implements NativeResource {
 

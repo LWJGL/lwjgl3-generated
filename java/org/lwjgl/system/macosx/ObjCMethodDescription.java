@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct objc_method_description {
-    SEL name;
-    char * types;
-}</code></pre>
+ * <code><pre>
+ * struct objc_method_description {
+ *     SEL name;
+ *     char * types;
+ * }</pre></code>
  */
 public class ObjCMethodDescription extends Struct implements NativeResource {
 

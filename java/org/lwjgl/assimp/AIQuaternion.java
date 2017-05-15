@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiQuaternion {
-    float w;
-    float x;
-    float y;
-    float z;
-}</code></pre>
+ * <code><pre>
+ * struct aiQuaternion {
+ *     float w;
+ *     float x;
+ *     float y;
+ *     float z;
+ * }</pre></code>
  */
 public class AIQuaternion extends Struct implements NativeResource {
 

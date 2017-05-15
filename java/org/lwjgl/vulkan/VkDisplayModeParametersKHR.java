@@ -36,10 +36,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayModeParametersKHR {
-    {@link VkExtent2D VkExtent2D} visibleRegion;
-    uint32_t refreshRate;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayModeParametersKHR {
+ *     {@link VkExtent2D VkExtent2D} visibleRegion;
+ *     uint32_t refreshRate;
+ * }</pre></code>
  */
 public class VkDisplayModeParametersKHR extends Struct implements NativeResource {
 

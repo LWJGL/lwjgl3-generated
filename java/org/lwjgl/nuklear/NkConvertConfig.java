@@ -32,18 +32,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_convert_config {
-    float global_alpha;
-    enum nk_anti_aliasing line_AA;
-    enum nk_anti_aliasing shape_AA;
-    unsigned int circle_segment_count;
-    unsigned int arc_segment_count;
-    unsigned int curve_segment_count;
-    {@link NkDrawNullTexture struct nk_draw_null_texture} null_texture;
-    {@link NkDrawVertexLayoutElement struct nk_draw_vertex_layout_element} * vertex_layout;
-    nk_size vertex_size;
-    nk_size vertex_alignment;
-}</code></pre>
+ * <code><pre>
+ * struct nk_convert_config {
+ *     float global_alpha;
+ *     enum nk_anti_aliasing line_AA;
+ *     enum nk_anti_aliasing shape_AA;
+ *     unsigned int circle_segment_count;
+ *     unsigned int arc_segment_count;
+ *     unsigned int curve_segment_count;
+ *     {@link NkDrawNullTexture struct nk_draw_null_texture} null_texture;
+ *     {@link NkDrawVertexLayoutElement struct nk_draw_vertex_layout_element} * vertex_layout;
+ *     nk_size vertex_size;
+ *     nk_size vertex_alignment;
+ * }</pre></code>
  */
 public class NkConvertConfig extends Struct implements NativeResource {
 

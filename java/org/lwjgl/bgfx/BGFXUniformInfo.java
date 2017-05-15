@@ -27,11 +27,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_uniform_info_t {
-    char name[256];
-    bgfx_uniform_type_t type;
-    uint16_t num;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_uniform_info_t {
+ *     char name[256];
+ *     bgfx_uniform_type_t type;
+ *     uint16_t num;
+ * }</pre></code>
  */
 public class BGFXUniformInfo extends Struct implements NativeResource {
 

@@ -36,9 +36,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>{@code pCode} <b>must</b> be a pointer to an array of <code><pre><code>codeSize / 4</code></pre>
+ * <li>{@code pCode} <b>must</b> be a pointer to an array of<code><code><pre> ￿codeSize / 4</pre></code></code>
  * 
- * <p></code> {@code uint32_t} values</p></li>
+ * <p>{@code uint32_t} values</p></li>
  * </ul>
  * 
  * <h5>See Also</h5>
@@ -57,13 +57,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkShaderModuleCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkShaderModuleCreateFlags flags;
-    size_t codeSize;
-    const uint32_t * pCode;
-}</code></pre>
+ * <code><pre>
+ * struct VkShaderModuleCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkShaderModuleCreateFlags flags;
+ *     size_t codeSize;
+ *     const uint32_t * pCode;
+ * }</pre></code>
  */
 public class VkShaderModuleCreateInfo extends Struct implements NativeResource {
 

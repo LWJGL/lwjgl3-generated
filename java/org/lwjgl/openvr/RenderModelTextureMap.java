@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct RenderModel_TextureMap_t {
-    uint16_t unWidth;
-    uint16_t unHeight;
-    const uint8_t * rubTextureMapData;
-}</code></pre>
+ * <code><pre>
+ * struct RenderModel_TextureMap_t {
+ *     uint16_t unWidth;
+ *     uint16_t unHeight;
+ *     const uint8_t * rubTextureMapData;
+ * }</pre></code>
  */
 public class RenderModelTextureMap extends Struct implements NativeResource {
 

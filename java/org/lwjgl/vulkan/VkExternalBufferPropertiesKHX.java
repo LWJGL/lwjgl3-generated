@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExternalBufferPropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkExternalMemoryPropertiesKHX VkExternalMemoryPropertiesKHX} externalMemoryProperties;
-}</code></pre>
+ * <code><pre>
+ * struct VkExternalBufferPropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkExternalMemoryPropertiesKHX VkExternalMemoryPropertiesKHX} externalMemoryProperties;
+ * }</pre></code>
  */
 public class VkExternalBufferPropertiesKHX extends Struct implements NativeResource {
 

@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_transform_t {
-    float * data;
-    uint16_t num;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_transform_t {
+ *     float * data;
+ *     uint16_t num;
+ * }</pre></code>
  */
 public class BGFXTransform extends Struct implements NativeResource {
 

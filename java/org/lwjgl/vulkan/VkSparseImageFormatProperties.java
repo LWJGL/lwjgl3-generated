@@ -23,11 +23,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code imageGranularity} &ndash; the width, height, and depth of the sparse image block in texels or compressed texel blocks.</li>
  * <li>{@code flags} &ndash; a bitmask specifying additional information about the sparse resource. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkSparseImageFormatFlagBits {
-    VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 0x00000001,
-    VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT = 0x00000002,
-    VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x00000004,
-} VkSparseImageFormatFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkSparseImageFormatFlagBits {
+ *     VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 0x00000001,
+ *     VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT = 0x00000002,
+ *     VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x00000004,
+ * } VkSparseImageFormatFlagBits;</pre></code>
  * 
  * <ul>
  * <li>If {@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT} is set, the image uses a single mip tail region for all array layers.</li>
@@ -38,11 +39,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSparseImageFormatProperties {
-    VkImageAspectFlags aspectMask;
-    {@link VkExtent3D VkExtent3D} imageGranularity;
-    VkSparseImageFormatFlags flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSparseImageFormatProperties {
+ *     VkImageAspectFlags aspectMask;
+ *     {@link VkExtent3D VkExtent3D} imageGranularity;
+ *     VkSparseImageFormatFlags flags;
+ * }</pre></code>
  */
 public class VkSparseImageFormatProperties extends Struct implements NativeResource {
 

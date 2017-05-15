@@ -19,30 +19,31 @@ import static org.lwjgl.nuklear.Nuklear.NK_CURSOR_COUNT;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style {
-    {@link NkUserFont struct nk_user_font} * font;
-    {@link NkCursor struct nk_cursor} * cursors[NK_CURSOR_COUNT];
-    {@link NkCursor struct nk_cursor} * cursor_active;
-    {@link NkCursor struct nk_cursor} * cursor_last;
-    int cursor_visible;
-    {@link NkStyleText struct nk_style_text} text;
-    {@link NkStyleButton struct nk_style_button} button;
-    {@link NkStyleButton struct nk_style_button} contextual_button;
-    {@link NkStyleButton struct nk_style_button} menu_button;
-    {@link NkStyleToggle struct nk_style_toggle} option;
-    {@link NkStyleToggle struct nk_style_toggle} checkbox;
-    {@link NkStyleSelectable struct nk_style_selectable} selectable;
-    {@link NkStyleSlider struct nk_style_slider} slider;
-    {@link NkStyleProgress struct nk_style_progress} progress;
-    {@link NkStyleProperty struct nk_style_property} property;
-    {@link NkStyleEdit struct nk_style_edit} edit;
-    {@link NkStyleChart struct nk_style_chart} chart;
-    {@link NkStyleScrollbar struct nk_style_scrollbar} scrollh;
-    {@link NkStyleScrollbar struct nk_style_scrollbar} scrollv;
-    {@link NkStyleTab struct nk_style_tab} tab;
-    {@link NkStyleCombo struct nk_style_combo} combo;
-    {@link NkStyleWindow struct nk_style_window} window;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style {
+ *     {@link NkUserFont struct nk_user_font} * font;
+ *     {@link NkCursor struct nk_cursor} * cursors[NK_CURSOR_COUNT];
+ *     {@link NkCursor struct nk_cursor} * cursor_active;
+ *     {@link NkCursor struct nk_cursor} * cursor_last;
+ *     int cursor_visible;
+ *     {@link NkStyleText struct nk_style_text} text;
+ *     {@link NkStyleButton struct nk_style_button} button;
+ *     {@link NkStyleButton struct nk_style_button} contextual_button;
+ *     {@link NkStyleButton struct nk_style_button} menu_button;
+ *     {@link NkStyleToggle struct nk_style_toggle} option;
+ *     {@link NkStyleToggle struct nk_style_toggle} checkbox;
+ *     {@link NkStyleSelectable struct nk_style_selectable} selectable;
+ *     {@link NkStyleSlider struct nk_style_slider} slider;
+ *     {@link NkStyleProgress struct nk_style_progress} progress;
+ *     {@link NkStyleProperty struct nk_style_property} property;
+ *     {@link NkStyleEdit struct nk_style_edit} edit;
+ *     {@link NkStyleChart struct nk_style_chart} chart;
+ *     {@link NkStyleScrollbar struct nk_style_scrollbar} scrollh;
+ *     {@link NkStyleScrollbar struct nk_style_scrollbar} scrollv;
+ *     {@link NkStyleTab struct nk_style_tab} tab;
+ *     {@link NkStyleCombo struct nk_style_combo} combo;
+ *     {@link NkStyleWindow struct nk_style_window} window;
+ * }</pre></code>
  */
 public class NkStyle extends Struct implements NativeResource {
 

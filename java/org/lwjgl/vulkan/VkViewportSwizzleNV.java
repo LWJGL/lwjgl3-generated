@@ -40,12 +40,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkViewportSwizzleNV {
-    VkViewportCoordinateSwizzleNV x;
-    VkViewportCoordinateSwizzleNV y;
-    VkViewportCoordinateSwizzleNV z;
-    VkViewportCoordinateSwizzleNV w;
-}</code></pre>
+ * <code><pre>
+ * struct VkViewportSwizzleNV {
+ *     VkViewportCoordinateSwizzleNV x;
+ *     VkViewportCoordinateSwizzleNV y;
+ *     VkViewportCoordinateSwizzleNV z;
+ *     VkViewportCoordinateSwizzleNV w;
+ * }</pre></code>
  */
 public class VkViewportSwizzleNV extends Struct implements NativeResource {
 

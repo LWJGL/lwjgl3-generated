@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The core EGL 1.2 functionality. */
 public class EGL12 {
 
-    /**  */
     public static final int
         EGL_ALPHA_FORMAT          = 0x3088,
         EGL_ALPHA_FORMAT_NONPRE   = 0x308B,

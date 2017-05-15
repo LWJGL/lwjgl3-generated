@@ -40,11 +40,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExportSemaphoreCreateInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalSemaphoreHandleTypeFlagsKHX handleTypes;
-}</code></pre>
+ * <code><pre>
+ * struct VkExportSemaphoreCreateInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalSemaphoreHandleTypeFlagsKHX handleTypes;
+ * }</pre></code>
  */
 public class VkExportSemaphoreCreateInfoKHX extends Struct implements NativeResource {
 

@@ -23,7 +23,6 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ANDROIDNativeFenceSync {
 
-    /**  */
     public static final int
         EGL_SYNC_NATIVE_FENCE_ANDROID          = 0x3144,
         EGL_SYNC_NATIVE_FENCE_FD_ANDROID       = 0x3145,

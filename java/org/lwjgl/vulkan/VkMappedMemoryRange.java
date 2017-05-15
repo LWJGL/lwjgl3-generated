@@ -50,13 +50,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMappedMemoryRange {
-    VkStructureType sType;
-    const void * pNext;
-    VkDeviceMemory memory;
-    VkDeviceSize offset;
-    VkDeviceSize size;
-}</code></pre>
+ * <code><pre>
+ * struct VkMappedMemoryRange {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDeviceMemory memory;
+ *     VkDeviceSize offset;
+ *     VkDeviceSize size;
+ * }</pre></code>
  */
 public class VkMappedMemoryRange extends Struct implements NativeResource {
 

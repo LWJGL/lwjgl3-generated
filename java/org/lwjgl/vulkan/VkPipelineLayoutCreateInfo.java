@@ -63,15 +63,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineLayoutCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineLayoutCreateFlags flags;
-    uint32_t setLayoutCount;
-    const VkDescriptorSetLayout * pSetLayouts;
-    uint32_t pushConstantRangeCount;
-    const {@link VkPushConstantRange VkPushConstantRange} * pPushConstantRanges;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineLayoutCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineLayoutCreateFlags flags;
+ *     uint32_t setLayoutCount;
+ *     const VkDescriptorSetLayout * pSetLayouts;
+ *     uint32_t pushConstantRangeCount;
+ *     const {@link VkPushConstantRange VkPushConstantRange} * pPushConstantRanges;
+ * }</pre></code>
  */
 public class VkPipelineLayoutCreateInfo extends Struct implements NativeResource {
 

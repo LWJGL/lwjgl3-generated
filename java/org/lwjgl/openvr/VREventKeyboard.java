@@ -26,10 +26,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Keyboard_t {
-    char cNewInput[8];
-    uint64_t uUserValue;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Keyboard_t {
+ *     char cNewInput[8];
+ *     uint64_t uUserValue;
+ * }</pre></code>
  */
 public class VREventKeyboard extends Struct implements NativeResource {
 

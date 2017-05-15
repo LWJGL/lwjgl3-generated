@@ -19,7 +19,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The core OpenGL ES 2.0 functionality. */
 public class GLES20 {
 
-    /**  */
     public static final int
         GL_DEPTH_BUFFER_BIT                             = 0x100,
         GL_STENCIL_BUFFER_BIT                           = 0x400,

@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_scroll {
-    nk_uint x;
-    nk_uint y;
-}</code></pre>
+ * <code><pre>
+ * struct nk_scroll {
+ *     nk_uint x;
+ *     nk_uint y;
+ * }</pre></code>
  */
 public class NkScroll extends Struct implements NativeResource {
 

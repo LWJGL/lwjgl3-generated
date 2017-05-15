@@ -47,12 +47,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkIOSSurfaceCreateInfoMVK {
-    VkStructureType sType;
-    const void * pNext;
-    VkIOSSurfaceCreateFlagsMVK flags;
-    const void * pView;
-}</code></pre>
+ * <code><pre>
+ * struct VkIOSSurfaceCreateInfoMVK {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkIOSSurfaceCreateFlagsMVK flags;
+ *     const void * pView;
+ * }</pre></code>
  */
 public class VkIOSSurfaceCreateInfoMVK extends Struct implements NativeResource {
 

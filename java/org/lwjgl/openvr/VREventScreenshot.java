@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Screenshot_t {
-    uint32_t handle;
-    uint32_t type;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Screenshot_t {
+ *     uint32_t handle;
+ *     uint32_t type;
+ * }</pre></code>
  */
 public class VREventScreenshot extends Struct implements NativeResource {
 

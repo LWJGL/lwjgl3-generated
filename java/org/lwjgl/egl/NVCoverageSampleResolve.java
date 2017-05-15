@@ -18,7 +18,6 @@ package org.lwjgl.egl;
  */
 public final class NVCoverageSampleResolve {
 
-    /**  */
     public static final int
         EGL_COVERAGE_SAMPLE_RESOLVE_NV         = 0x3131,
         EGL_COVERAGE_SAMPLE_RESOLVE_DEFAULT_NV = 0x3132,

@@ -38,12 +38,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiExportDataBlob {
-    size_t size;
-    void * data;
-    {@link AIString struct aiString} name;
-    {@link AIExportDataBlob struct aiExportDataBlob} * next;
-}</code></pre>
+ * <code><pre>
+ * struct aiExportDataBlob {
+ *     size_t size;
+ *     void * data;
+ *     {@link AIString struct aiString} name;
+ *     {@link AIExportDataBlob struct aiExportDataBlob} * next;
+ * }</pre></code>
  */
 public class AIExportDataBlob extends Struct implements NativeResource {
 

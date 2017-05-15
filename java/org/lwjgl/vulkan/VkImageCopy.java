@@ -84,13 +84,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageCopy {
-    {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
-    {@link VkOffset3D VkOffset3D} srcOffset;
-    {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
-    {@link VkOffset3D VkOffset3D} dstOffset;
-    {@link VkExtent3D VkExtent3D} extent;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageCopy {
+ *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
+ *     {@link VkOffset3D VkOffset3D} srcOffset;
+ *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
+ *     {@link VkOffset3D VkOffset3D} dstOffset;
+ *     {@link VkExtent3D VkExtent3D} extent;
+ * }</pre></code>
  */
 public class VkImageCopy extends Struct implements NativeResource {
 

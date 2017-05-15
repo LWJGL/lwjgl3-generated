@@ -18,9 +18,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Status_t {
-    uint32_t statusState;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Status_t {
+ *     uint32_t statusState;
+ * }</pre></code>
  */
 public class VREventStatus extends Struct implements NativeResource {
 

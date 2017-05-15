@@ -40,32 +40,33 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct Compositor_FrameTiming {
-    uint32_t m_nSize;
-    uint32_t m_nFrameIndex;
-    uint32_t m_nNumFramePresents;
-    uint32_t m_nNumMisPresented;
-    uint32_t m_nNumDroppedFrames;
-    uint32_t m_nReprojectionFlags;
-    double m_flSystemTimeInSeconds;
-    float m_flPreSubmitGpuMs;
-    float m_flPostSubmitGpuMs;
-    float m_flTotalRenderGpuMs;
-    float m_flCompositorRenderGpuMs;
-    float m_flCompositorRenderCpuMs;
-    float m_flCompositorIdleCpuMs;
-    float m_flClientFrameIntervalMs;
-    float m_flPresentCallCpuMs;
-    float m_flWaitForPresentCpuMs;
-    float m_flSubmitFrameMs;
-    float m_flWaitGetPosesCalledMs;
-    float m_flNewPosesReadyMs;
-    float m_flNewFrameReadyMs;
-    float m_flCompositorUpdateStartMs;
-    float m_flCompositorUpdateEndMs;
-    float m_flCompositorRenderStartMs;
-    {@link TrackedDevicePose TrackedDevicePose_t} m_HmdPose;
-}</code></pre>
+ * <code><pre>
+ * struct Compositor_FrameTiming {
+ *     uint32_t m_nSize;
+ *     uint32_t m_nFrameIndex;
+ *     uint32_t m_nNumFramePresents;
+ *     uint32_t m_nNumMisPresented;
+ *     uint32_t m_nNumDroppedFrames;
+ *     uint32_t m_nReprojectionFlags;
+ *     double m_flSystemTimeInSeconds;
+ *     float m_flPreSubmitGpuMs;
+ *     float m_flPostSubmitGpuMs;
+ *     float m_flTotalRenderGpuMs;
+ *     float m_flCompositorRenderGpuMs;
+ *     float m_flCompositorRenderCpuMs;
+ *     float m_flCompositorIdleCpuMs;
+ *     float m_flClientFrameIntervalMs;
+ *     float m_flPresentCallCpuMs;
+ *     float m_flWaitForPresentCpuMs;
+ *     float m_flSubmitFrameMs;
+ *     float m_flWaitGetPosesCalledMs;
+ *     float m_flNewPosesReadyMs;
+ *     float m_flNewFrameReadyMs;
+ *     float m_flCompositorUpdateStartMs;
+ *     float m_flCompositorUpdateEndMs;
+ *     float m_flCompositorRenderStartMs;
+ *     {@link TrackedDevicePose TrackedDevicePose_t} m_HmdPose;
+ * }</pre></code>
  */
 public class CompositorFrameTiming extends Struct implements NativeResource {
 

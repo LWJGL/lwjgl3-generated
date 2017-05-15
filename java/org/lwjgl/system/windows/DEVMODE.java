@@ -91,54 +91,55 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct DEVMODE {
-    TCHAR dmDeviceName[32];
-    WORD dmSpecVersion;
-    WORD dmDriverVersion;
-    WORD dmSize;
-    WORD dmDriverExtra;
-    DWORD dmFields;
-    union {
-        struct {
-            short dmOrientation;
-            short dmPaperSize;
-            short dmPaperLength;
-            short dmPaperWidth;
-            short dmScale;
-            short dmCopies;
-            short dmDefaultSource;
-            short dmPrintQuality;
-        };
-        struct {
-            {@link POINTL POINTL} dmPosition;
-            DWORD dmDisplayOrientation;
-            DWORD dmDisplayFixedOutput;
-        };
-    };
-    short dmColor;
-    short dmDuplex;
-    short dmYResolution;
-    short dmTTOption;
-    short dmCollate;
-    TCHAR dmFormName[32];
-    WORD dmLogPixels;
-    DWORD dmBitsPerPel;
-    DWORD dmPelsWidth;
-    DWORD dmPelsHeight;
-    union {
-        DWORD dmDisplayFlags;
-        DWORD dmNup;
-    };
-    DWORD dmDisplayFrequency;
-    DWORD dmICMMethod;
-    DWORD dmICMIntent;
-    DWORD dmMediaType;
-    DWORD dmDitherType;
-    DWORD dmReserved1;
-    DWORD dmReserved2;
-    DWORD dmPanningWidth;
-    DWORD dmPanningHeight;
-}</code></pre>
+ * <code><pre>
+ * struct DEVMODE {
+ *     TCHAR dmDeviceName[32];
+ *     WORD dmSpecVersion;
+ *     WORD dmDriverVersion;
+ *     WORD dmSize;
+ *     WORD dmDriverExtra;
+ *     DWORD dmFields;
+ *     union {
+ *         struct {
+ *             short dmOrientation;
+ *             short dmPaperSize;
+ *             short dmPaperLength;
+ *             short dmPaperWidth;
+ *             short dmScale;
+ *             short dmCopies;
+ *             short dmDefaultSource;
+ *             short dmPrintQuality;
+ *         };
+ *         struct {
+ *             {@link POINTL POINTL} dmPosition;
+ *             DWORD dmDisplayOrientation;
+ *             DWORD dmDisplayFixedOutput;
+ *         };
+ *     };
+ *     short dmColor;
+ *     short dmDuplex;
+ *     short dmYResolution;
+ *     short dmTTOption;
+ *     short dmCollate;
+ *     TCHAR dmFormName[32];
+ *     WORD dmLogPixels;
+ *     DWORD dmBitsPerPel;
+ *     DWORD dmPelsWidth;
+ *     DWORD dmPelsHeight;
+ *     union {
+ *         DWORD dmDisplayFlags;
+ *         DWORD dmNup;
+ *     };
+ *     DWORD dmDisplayFrequency;
+ *     DWORD dmICMMethod;
+ *     DWORD dmICMIntent;
+ *     DWORD dmMediaType;
+ *     DWORD dmDitherType;
+ *     DWORD dmReserved1;
+ *     DWORD dmReserved2;
+ *     DWORD dmPanningWidth;
+ *     DWORD dmPanningHeight;
+ * }</pre></code>
  */
 public class DEVMODE extends Struct implements NativeResource {
 

@@ -11,7 +11,6 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
 public class VRExtendedDisplay {
 
     protected VRExtendedDisplay() {

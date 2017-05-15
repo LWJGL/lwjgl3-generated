@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Scroll_t {
-    float xdelta;
-    float ydelta;
-    uint32_t repeatCount;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Scroll_t {
+ *     float xdelta;
+ *     float ydelta;
+ *     uint32_t repeatCount;
+ * }</pre></code>
  */
 public class VREventScroll extends Struct implements NativeResource {
 

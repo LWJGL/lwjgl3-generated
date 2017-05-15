@@ -16,12 +16,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct HmdQuaternion_t {
-    double w;
-    double x;
-    double y;
-    double z;
-}</code></pre>
+ * <code><pre>
+ * struct HmdQuaternion_t {
+ *     double w;
+ *     double x;
+ *     double y;
+ *     double z;
+ * }</pre></code>
  */
 public class HmdQuaternion extends Struct implements NativeResource {
 

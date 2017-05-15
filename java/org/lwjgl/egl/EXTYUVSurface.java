@@ -20,7 +20,6 @@ package org.lwjgl.egl;
  */
 public final class EXTYUVSurface {
 
-    /**  */
     public static final int
         EGL_YUV_ORDER_EXT               = 0x3301,
         EGL_YUV_NUMBER_OF_PLANES_EXT    = 0x3311,

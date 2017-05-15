@@ -22,10 +22,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct HiddenAreaMesh_t {
-    {@link HmdVector2 HmdVector2_t} * pVertexData;
-    uint32_t unTriangleCount;
-}</code></pre>
+ * <code><pre>
+ * struct HiddenAreaMesh_t {
+ *     {@link HmdVector2 HmdVector2_t} * pVertexData;
+ *     uint32_t unTriangleCount;
+ * }</pre></code>
  */
 public class HiddenAreaMesh extends Struct implements NativeResource {
 

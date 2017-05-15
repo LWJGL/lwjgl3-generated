@@ -38,8 +38,6 @@ public class GLXNVSwapGroup {
     // --- [ glXJoinSwapGroupNV ] ---
 
     /**
-     * 
-     *
      * @param display  the connection to the X server
      * @param drawable 
      * @param group    
@@ -57,8 +55,6 @@ public class GLXNVSwapGroup {
     // --- [ glXBindSwapBarrierNV ] ---
 
     /**
-     * 
-     *
      * @param display the connection to the X server
      * @param group   
      * @param barrier 
@@ -86,8 +82,6 @@ public class GLXNVSwapGroup {
     }
 
     /**
-     * 
-     *
      * @param display  the connection to the X server
      * @param drawable 
      * @param group    
@@ -114,8 +108,6 @@ public class GLXNVSwapGroup {
     }
 
     /**
-     * 
-     *
      * @param display     the connection to the X server
      * @param screen      
      * @param maxGroups   
@@ -142,8 +134,6 @@ public class GLXNVSwapGroup {
     }
 
     /**
-     * 
-     *
      * @param display the connection to the X server
      * @param screen  
      * @param count   
@@ -158,8 +148,6 @@ public class GLXNVSwapGroup {
     // --- [ glXResetFrameCountNV ] ---
 
     /**
-     * 
-     *
      * @param display the connection to the X server
      * @param screen  
      */

@@ -19,7 +19,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The core OpenGL ES 3.1 functionality. */
 public class GLES31 {
 
-    /**  */
     public static final int
         GL_COMPUTE_SHADER                             = 0x91B9,
         GL_MAX_COMPUTE_UNIFORM_BLOCKS                 = 0x91BB,

@@ -99,11 +99,12 @@ public class KHRWin32Surface {
      * 
      * <p>To create a {@code VkSurfaceKHR} object for a Win32 window, call:</p>
      * 
-     * <pre><code>VkResult vkCreateWin32SurfaceKHR(
-    VkInstance                                  instance,
-    const VkWin32SurfaceCreateInfoKHR*          pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateWin32SurfaceKHR(
+     *     VkInstance                                  instance,
+     *     const VkWin32SurfaceCreateInfoKHR*          pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkSurfaceKHR*                               pSurface);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -153,9 +154,10 @@ public class KHRWin32Surface {
      * 
      * <p>To determine whether a queue family of a physical device supports presentation to the Microsoft Windows desktop, call:</p>
      * 
-     * <pre><code>VkBool32 vkGetPhysicalDeviceWin32PresentationSupportKHR(
-    VkPhysicalDevice                            physicalDevice,
-    uint32_t                                    queueFamilyIndex);</code></pre>
+     * <code><pre>
+     * VkBool32 vkGetPhysicalDeviceWin32PresentationSupportKHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     uint32_t                                    queueFamilyIndex);</pre></code>
      * 
      * <h5>Description</h5>
      * 

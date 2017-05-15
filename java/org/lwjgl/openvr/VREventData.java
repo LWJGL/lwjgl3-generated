@@ -16,28 +16,29 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>union VREvent_Data_t {
-    {@link VREventReserved VREvent_Reserved_t} reserved;
-    {@link VREventController VREvent_Controller_t} controller;
-    {@link VREventMouse VREvent_Mouse_t} mouse;
-    {@link VREventScroll VREvent_Scroll_t} scroll;
-    {@link VREventProcess VREvent_Process_t} process;
-    {@link VREventNotification VREvent_Notification_t} notification;
-    {@link VREventOverlay VREvent_Overlay_t} overlay;
-    {@link VREventStatus VREvent_Status_t} status;
-    {@link VREventKeyboard VREvent_Keyboard_t} keyboard;
-    {@link VREventIpd VREvent_Ipd_t} ipd;
-    {@link VREventChaperone VREvent_Chaperone_t} chaperone;
-    {@link VREventPerformanceTest VREvent_PerformanceTest_t} performanceTest;
-    {@link VREventTouchPadMove VREvent_TouchPadMove_t} touchPadMove;
-    {@link VREventSeatedZeroPoseReset VREvent_SeatedZeroPoseReset_t} seatedZeroPoseReset;
-    {@link VREventScreenshot VREvent_Screenshot_t} screenshot;
-    {@link VREventScreenshotProgress VREvent_ScreenshotProgress_t} screenshotProgress;
-    {@link VREventApplicationLaunch VREvent_ApplicationLaunch_t} applicationLaunch;
-    {@link VREventEditingCameraSurface VREvent_EditingCameraSurface_t} cameraSurface;
-    {@link VREventMessageOverlay VREvent_MessageOverlay_t} messageOverlay;
-    {@link VREventProperty VREvent_Property_t} property;
-}</code></pre>
+ * <code><pre>
+ * union VREvent_Data_t {
+ *     {@link VREventReserved VREvent_Reserved_t} reserved;
+ *     {@link VREventController VREvent_Controller_t} controller;
+ *     {@link VREventMouse VREvent_Mouse_t} mouse;
+ *     {@link VREventScroll VREvent_Scroll_t} scroll;
+ *     {@link VREventProcess VREvent_Process_t} process;
+ *     {@link VREventNotification VREvent_Notification_t} notification;
+ *     {@link VREventOverlay VREvent_Overlay_t} overlay;
+ *     {@link VREventStatus VREvent_Status_t} status;
+ *     {@link VREventKeyboard VREvent_Keyboard_t} keyboard;
+ *     {@link VREventIpd VREvent_Ipd_t} ipd;
+ *     {@link VREventChaperone VREvent_Chaperone_t} chaperone;
+ *     {@link VREventPerformanceTest VREvent_PerformanceTest_t} performanceTest;
+ *     {@link VREventTouchPadMove VREvent_TouchPadMove_t} touchPadMove;
+ *     {@link VREventSeatedZeroPoseReset VREvent_SeatedZeroPoseReset_t} seatedZeroPoseReset;
+ *     {@link VREventScreenshot VREvent_Screenshot_t} screenshot;
+ *     {@link VREventScreenshotProgress VREvent_ScreenshotProgress_t} screenshotProgress;
+ *     {@link VREventApplicationLaunch VREvent_ApplicationLaunch_t} applicationLaunch;
+ *     {@link VREventEditingCameraSurface VREvent_EditingCameraSurface_t} cameraSurface;
+ *     {@link VREventMessageOverlay VREvent_MessageOverlay_t} messageOverlay;
+ *     {@link VREventProperty VREvent_Property_t} property;
+ * }</pre></code>
  */
 public class VREventData extends Struct implements NativeResource {
 

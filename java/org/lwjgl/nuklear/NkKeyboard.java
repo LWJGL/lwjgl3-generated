@@ -17,11 +17,12 @@ import static org.lwjgl.nuklear.Nuklear.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_keyboard {
-    {@link NkKey struct nk_key} keys[NK_KEY_MAX];
-    char text[NK_INPUT_MAX];
-    int text_len;
-}</code></pre>
+ * <code><pre>
+ * struct nk_keyboard {
+ *     {@link NkKey struct nk_key} keys[NK_KEY_MAX];
+ *     char text[NK_INPUT_MAX];
+ *     int text_len;
+ * }</pre></code>
  */
 public class NkKeyboard extends Struct {
 

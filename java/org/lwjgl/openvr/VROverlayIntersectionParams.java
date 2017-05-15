@@ -16,11 +16,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VROverlayIntersectionParams_t {
-    {@link HmdVector3 HmdVector3_t} vSource;
-    {@link HmdVector3 HmdVector3_t} vDirection;
-    ETrackingUniverseOrigin eOrigin;
-}</code></pre>
+ * <code><pre>
+ * struct VROverlayIntersectionParams_t {
+ *     {@link HmdVector3 HmdVector3_t} vSource;
+ *     {@link HmdVector3 HmdVector3_t} vDirection;
+ *     ETrackingUniverseOrigin eOrigin;
+ * }</pre></code>
  */
 public class VROverlayIntersectionParams extends Struct implements NativeResource {
 

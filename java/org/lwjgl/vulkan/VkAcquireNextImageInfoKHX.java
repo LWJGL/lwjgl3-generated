@@ -65,15 +65,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkAcquireNextImageInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkSwapchainKHR swapchain;
-    uint64_t timeout;
-    VkSemaphore semaphore;
-    VkFence fence;
-    uint32_t deviceMask;
-}</code></pre>
+ * <code><pre>
+ * struct VkAcquireNextImageInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSwapchainKHR swapchain;
+ *     uint64_t timeout;
+ *     VkSemaphore semaphore;
+ *     VkFence fence;
+ *     uint32_t deviceMask;
+ * }</pre></code>
  */
 public class VkAcquireNextImageInfoKHX extends Struct implements NativeResource {
 

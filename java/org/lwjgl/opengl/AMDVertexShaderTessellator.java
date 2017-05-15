@@ -17,44 +17,45 @@ import static org.lwjgl.system.Checks.*;
  * 
  * <p>With vertex shading tessellation, additional vertex shader special values are available:</p>
  * 
- * <pre><code>        ivec3 gl_VertexTriangleIndex; // indices of the three control
-                                      // points for the vertex
-        vec3 gl_BarycentricCoord;     // barycentric coordinates
-                                      // of the vertex
-
-    i o
-      |\
-      | \
-      *--*
-      |\ |\
-      | \| \
-      *--*--*
-      |\ |\ |\
-      | \| \| \
-    j o--*--*--o k
-
-    Figure 1  A Tessellated Triangle
-    o = control point (and tessellated vertex)
-    * = tessellated vertex
-
-        ivec4 gl_VertexQuadIndex;   // indices for the four control
-                                    // points for the vertex
-        vec2 gl_UVCoord;            // UV coordinates of the vertex
-
-    i o--*--*--o k
-      |\ |\ |\ |
-      | \| \| \|
-      *--*--*--*
-      |\ |\ |\ |
-      | \| \| \|
-      *--*--*--*
-      |\ |\ |\ |
-      | \| \| \|
-    j o--*--*--o l
-
-    Figure 2  A Tessellated Quad
-    o = control point (and tessellated vertex)
-    * = tessellated vertex</code></pre>
+ * <code><pre>
+ *         ivec3 gl_VertexTriangleIndex; // indices of the three control
+ *                                       // points for the vertex
+ *         vec3 gl_BarycentricCoord;     // barycentric coordinates
+ *                                       // of the vertex
+ * 
+ *     i o
+ *       |\
+ *       | \
+ *       *--*
+ *       |\ |\
+ *       | \| \
+ *       *--*--*
+ *       |\ |\ |\
+ *       | \| \| \
+ *     j o--*--*--o k
+ * 
+ *     Figure 1  A Tessellated Triangle
+ *     o = control point (and tessellated vertex)
+ *     * = tessellated vertex
+ * 
+ *         ivec4 gl_VertexQuadIndex;   // indices for the four control
+ *                                     // points for the vertex
+ *         vec2 gl_UVCoord;            // UV coordinates of the vertex
+ * 
+ *     i o--*--*--o k
+ *       |\ |\ |\ |
+ *       | \| \| \|
+ *       *--*--*--*
+ *       |\ |\ |\ |
+ *       | \| \| \|
+ *       *--*--*--*
+ *       |\ |\ |\ |
+ *       | \| \| \|
+ *     j o--*--*--o l
+ * 
+ *     Figure 2  A Tessellated Quad
+ *     o = control point (and tessellated vertex)
+ *     * = tessellated vertex</pre></code>
  * 
  * <p>When this extension is enabled, conventional built-in attributes and user defined attributes are uninitialized. The shader writer is responsible for
  * explicitly fetching all other vertex data either from textures, uniform buffers, or vertex buffers.</p>

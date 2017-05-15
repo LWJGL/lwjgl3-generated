@@ -85,11 +85,12 @@ public class EXTHdrMetadata {
      * 
      * <h5>C Specification</h5>
      * 
-     * <pre><code>void vkSetHdrMetadataEXT(
-    VkDevice                                    device,
-    uint32_t                                    swapchainCount,
-    const VkSwapchainKHR*                       pSwapchains,
-    const VkHdrMetadataEXT*                     pMetadata);</code></pre>
+     * <code><pre>
+     * void vkSetHdrMetadataEXT(
+     *     VkDevice                                    device,
+     *     uint32_t                                    swapchainCount,
+     *     const VkSwapchainKHR*                       pSwapchains,
+     *     const VkHdrMetadataEXT*                     pMetadata);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

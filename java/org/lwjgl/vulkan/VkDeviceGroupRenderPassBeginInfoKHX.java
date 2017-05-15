@@ -57,13 +57,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupRenderPassBeginInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t deviceMask;
-    uint32_t deviceRenderAreaCount;
-    const {@link VkRect2D VkRect2D} * pDeviceRenderAreas;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupRenderPassBeginInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t deviceMask;
+ *     uint32_t deviceRenderAreaCount;
+ *     const {@link VkRect2D VkRect2D} * pDeviceRenderAreas;
+ * }</pre></code>
  */
 public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements NativeResource {
 

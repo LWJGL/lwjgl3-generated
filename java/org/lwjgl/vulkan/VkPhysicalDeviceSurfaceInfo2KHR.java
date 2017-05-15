@@ -42,11 +42,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceSurfaceInfo2KHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkSurfaceKHR surface;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceSurfaceInfo2KHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSurfaceKHR surface;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceSurfaceInfo2KHR extends Struct implements NativeResource {
 

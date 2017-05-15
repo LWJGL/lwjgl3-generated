@@ -14,19 +14,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_edit_state {
-    nk_hash name;
-    unsigned int seq;
-    unsigned int old;
-    int active;
-    int prev;
-    int cursor;
-    int sel_start;
-    int sel_end;
-    {@link NkScroll struct nk_scroll} scrollbar;
-    unsigned char mode;
-    bool single_line;
-}</code></pre>
+ * <code><pre>
+ * struct nk_edit_state {
+ *     nk_hash name;
+ *     unsigned int seq;
+ *     unsigned int old;
+ *     int active;
+ *     int prev;
+ *     int cursor;
+ *     int sel_start;
+ *     int sel_end;
+ *     {@link NkScroll struct nk_scroll} scrollbar;
+ *     unsigned char mode;
+ *     bool single_line;
+ * }</pre></code>
  */
 public class NkEditState extends Struct {
 

@@ -331,27 +331,28 @@ public class GL41 {
      * 
      * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
      * 
-     * <pre><code>const GLuint shader = glCreateShader(type);
-if (shader) {
-    glShaderSource(shader, count, strings, NULL);
-    glCompileShader(shader);
-    const GLuint program = glCreateProgram();
-    if (program) {
-        GLint compiled = GL_FALSE;
-        glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-        glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
-        if (compiled) {
-            glAttachShader(program, shader);
-            glLinkProgram(program);
-            glDetachShader(program, shader);
-        }
-        // append-shader-info-log-to-program-info-log
-    }
-    glDeleteShader(shader);
-    return program;
-} else {
-    return 0;
-}</code></pre>
+     * <code><pre>
+     * const GLuint shader = glCreateShader(type);
+     * if (shader) {
+     *     glShaderSource(shader, count, strings, NULL);
+     *     glCompileShader(shader);
+     *     const GLuint program = glCreateProgram();
+     *     if (program) {
+     *         GLint compiled = GL_FALSE;
+     *         glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+     *         glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
+     *         if (compiled) {
+     *             glAttachShader(program, shader);
+     *             glLinkProgram(program);
+     *             glDetachShader(program, shader);
+     *         }
+     *         // append-shader-info-log-to-program-info-log
+     *     }
+     *     glDeleteShader(shader);
+     *     return program;
+     * } else {
+     *     return 0;
+     * }</pre></code>
      * 
      * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
      *
@@ -369,27 +370,28 @@ if (shader) {
      * 
      * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
      * 
-     * <pre><code>const GLuint shader = glCreateShader(type);
-if (shader) {
-    glShaderSource(shader, count, strings, NULL);
-    glCompileShader(shader);
-    const GLuint program = glCreateProgram();
-    if (program) {
-        GLint compiled = GL_FALSE;
-        glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-        glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
-        if (compiled) {
-            glAttachShader(program, shader);
-            glLinkProgram(program);
-            glDetachShader(program, shader);
-        }
-        // append-shader-info-log-to-program-info-log
-    }
-    glDeleteShader(shader);
-    return program;
-} else {
-    return 0;
-}</code></pre>
+     * <code><pre>
+     * const GLuint shader = glCreateShader(type);
+     * if (shader) {
+     *     glShaderSource(shader, count, strings, NULL);
+     *     glCompileShader(shader);
+     *     const GLuint program = glCreateProgram();
+     *     if (program) {
+     *         GLint compiled = GL_FALSE;
+     *         glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+     *         glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
+     *         if (compiled) {
+     *             glAttachShader(program, shader);
+     *             glLinkProgram(program);
+     *             glDetachShader(program, shader);
+     *         }
+     *         // append-shader-info-log-to-program-info-log
+     *     }
+     *     glDeleteShader(shader);
+     *     return program;
+     * } else {
+     *     return 0;
+     * }</pre></code>
      * 
      * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
      *
@@ -415,27 +417,28 @@ if (shader) {
      * 
      * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
      * 
-     * <pre><code>const GLuint shader = glCreateShader(type);
-if (shader) {
-    glShaderSource(shader, count, strings, NULL);
-    glCompileShader(shader);
-    const GLuint program = glCreateProgram();
-    if (program) {
-        GLint compiled = GL_FALSE;
-        glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-        glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
-        if (compiled) {
-            glAttachShader(program, shader);
-            glLinkProgram(program);
-            glDetachShader(program, shader);
-        }
-        // append-shader-info-log-to-program-info-log
-    }
-    glDeleteShader(shader);
-    return program;
-} else {
-    return 0;
-}</code></pre>
+     * <code><pre>
+     * const GLuint shader = glCreateShader(type);
+     * if (shader) {
+     *     glShaderSource(shader, count, strings, NULL);
+     *     glCompileShader(shader);
+     *     const GLuint program = glCreateProgram();
+     *     if (program) {
+     *         GLint compiled = GL_FALSE;
+     *         glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+     *         glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
+     *         if (compiled) {
+     *             glAttachShader(program, shader);
+     *             glLinkProgram(program);
+     *             glDetachShader(program, shader);
+     *         }
+     *         // append-shader-info-log-to-program-info-log
+     *     }
+     *     glDeleteShader(shader);
+     *     return program;
+     * } else {
+     *     return 0;
+     * }</pre></code>
      * 
      * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
      *

@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct cl_mem_ext_host_ptr {
-    cl_uint allocation_type;
-    cl_uint host_cache_policy;
-}</code></pre>
+ * <code><pre>
+ * struct cl_mem_ext_host_ptr {
+ *     cl_uint allocation_type;
+ *     cl_uint host_cache_policy;
+ * }</pre></code>
  */
 public class CLMemEXTHostPtr extends Struct implements NativeResource {
 

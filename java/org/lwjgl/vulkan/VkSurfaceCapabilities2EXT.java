@@ -36,21 +36,22 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSurfaceCapabilities2EXT {
-    VkStructureType sType;
-    void * pNext;
-    uint32_t minImageCount;
-    uint32_t maxImageCount;
-    {@link VkExtent2D VkExtent2D} currentExtent;
-    {@link VkExtent2D VkExtent2D} minImageExtent;
-    {@link VkExtent2D VkExtent2D} maxImageExtent;
-    uint32_t maxImageArrayLayers;
-    VkSurfaceTransformFlagsKHR supportedTransforms;
-    VkSurfaceTransformFlagBitsKHR currentTransform;
-    VkCompositeAlphaFlagsKHR supportedCompositeAlpha;
-    VkImageUsageFlags supportedUsageFlags;
-    VkSurfaceCounterFlagsEXT supportedSurfaceCounters;
-}</code></pre>
+ * <code><pre>
+ * struct VkSurfaceCapabilities2EXT {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint32_t minImageCount;
+ *     uint32_t maxImageCount;
+ *     {@link VkExtent2D VkExtent2D} currentExtent;
+ *     {@link VkExtent2D VkExtent2D} minImageExtent;
+ *     {@link VkExtent2D VkExtent2D} maxImageExtent;
+ *     uint32_t maxImageArrayLayers;
+ *     VkSurfaceTransformFlagsKHR supportedTransforms;
+ *     VkSurfaceTransformFlagBitsKHR currentTransform;
+ *     VkCompositeAlphaFlagsKHR supportedCompositeAlpha;
+ *     VkImageUsageFlags supportedUsageFlags;
+ *     VkSurfaceCounterFlagsEXT supportedSurfaceCounters;
+ * }</pre></code>
  */
 public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource {
 

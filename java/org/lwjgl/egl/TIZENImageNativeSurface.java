@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class TIZENImageNativeSurface {
 
-    /**  */
     public static final int EGL_NATIVE_SURFACE_TIZEN = 0x32A1;
 
     private TIZENImageNativeSurface() {}

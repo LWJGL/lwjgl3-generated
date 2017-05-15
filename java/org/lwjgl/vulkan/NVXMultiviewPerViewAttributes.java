@@ -18,22 +18,23 @@ package org.lwjgl.vulkan;
  * 
  * <h5>Examples</h5>
  * 
- * <pre><code>#version 450 core
-
-#extension GL_KHX_multiview : enable
-#extension GL_NVX_multiview_per_view_attributes : enable
-
-layout(location = 0) in vec4 position;
-layout(set = 0, binding = 0) uniform Block { mat4 mvpPerView[2]; } buf;
-
-void main()
-{
-    // Output both per-view positions and gl_Position as a function
-    // of gl_ViewIndex
-    gl_PositionPerViewNV[0] = buf.mvpPerView[0] * position;
-    gl_PositionPerViewNV[1] = buf.mvpPerView[1] * position;
-    gl_Position = buf.mvpPerView[gl_ViewIndex] * position;
-}</code></pre>
+ * <code><pre>
+ * #version 450 core
+ * 
+ * #extension GL_KHX_multiview : enable
+ * #extension GL_NVX_multiview_per_view_attributes : enable
+ * 
+ * layout(location = 0) in vec4 position;
+ * layout(set = 0, binding = 0) uniform Block { mat4 mvpPerView[2]; } buf;
+ * 
+ * void main()
+ * {
+ *     // Output both per-view positions and gl_Position as a function
+ *     // of gl_ViewIndex
+ *     gl_PositionPerViewNV[0] = buf.mvpPerView[0] * position;
+ *     gl_PositionPerViewNV[1] = buf.mvpPerView[1] * position;
+ *     gl_Position = buf.mvpPerView[gl_ViewIndex] * position;
+ * }</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

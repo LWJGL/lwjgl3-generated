@@ -24,9 +24,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Overlay_t {
-    uint64_t overlayHandle;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Overlay_t {
+ *     uint64_t overlayHandle;
+ * }</pre></code>
  */
 public class VREventOverlay extends Struct implements NativeResource {
 

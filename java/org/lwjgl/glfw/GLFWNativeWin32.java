@@ -87,13 +87,17 @@ public class GLFWNativeWin32 {
     // --- [ glfwGetWin32Window ] ---
 
     /**
-     * Returns the <code>HWND</code> of the specified window.
+     * Returns the<code>HWND</code>
+     * 
+     * <p>of the specified window.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param window the GLFW window
      *
-     * @return The <code>HWND</code> of the specified window, or {@code NULL} if an error occurred.
+     * @return The<code>HWND</code>
+     *         
+     *         <p>of the specified window, or {@code NULL} if an error occurred.</p>
      *
      * @since version 3.0
      */

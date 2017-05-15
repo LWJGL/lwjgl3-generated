@@ -44,15 +44,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkApplicationInfo {
-    VkStructureType sType;
-    const void * pNext;
-    const char * pApplicationName;
-    uint32_t applicationVersion;
-    const char * pEngineName;
-    uint32_t engineVersion;
-    uint32_t apiVersion;
-}</code></pre>
+ * <code><pre>
+ * struct VkApplicationInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     const char * pApplicationName;
+ *     uint32_t applicationVersion;
+ *     const char * pEngineName;
+ *     uint32_t engineVersion;
+ *     uint32_t apiVersion;
+ * }</pre></code>
  */
 public class VkApplicationInfo extends Struct implements NativeResource {
 

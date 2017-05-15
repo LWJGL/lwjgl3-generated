@@ -17,7 +17,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class STBDXT {
 
-    /**  */
     public static final int STB_DXT_NORMAL = 0x0;
 
     /** Use dithering. Dubious win, never use for normal maps and the like! */

@@ -38,11 +38,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSemaphoreCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkSemaphoreCreateFlags flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSemaphoreCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSemaphoreCreateFlags flags;
+ * }</pre></code>
  */
 public class VkSemaphoreCreateInfo extends Struct implements NativeResource {
 

@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct RECT {
-    LONG left;
-    LONG top;
-    LONG right;
-    LONG bottom;
-}</code></pre>
+ * <code><pre>
+ * struct RECT {
+ *     LONG left;
+ *     LONG top;
+ *     LONG right;
+ *     LONG bottom;
+ * }</pre></code>
  */
 public class RECT extends Struct implements NativeResource {
 

@@ -53,17 +53,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiNodeAnim {
-    {@link AIString struct aiString} mNodeName;
-    unsigned int mNumPositionKeys;
-    {@link AIVectorKey struct aiVectorKey} * mPositionKeys;
-    unsigned int mNumRotationKeys;
-    {@link AIQuatKey struct aiQuatKey} * mRotationKeys;
-    unsigned int mNumScalingKeys;
-    {@link AIVectorKey struct aiVectorKey} * mScalingKeys;
-    aiAnimBehaviour mPreState;
-    aiAnimBehaviour mPostState;
-}</code></pre>
+ * <code><pre>
+ * struct aiNodeAnim {
+ *     {@link AIString struct aiString} mNodeName;
+ *     unsigned int mNumPositionKeys;
+ *     {@link AIVectorKey struct aiVectorKey} * mPositionKeys;
+ *     unsigned int mNumRotationKeys;
+ *     {@link AIQuatKey struct aiQuatKey} * mRotationKeys;
+ *     unsigned int mNumScalingKeys;
+ *     {@link AIVectorKey struct aiVectorKey} * mScalingKeys;
+ *     aiAnimBehaviour mPreState;
+ *     aiAnimBehaviour mPostState;
+ * }</pre></code>
  */
 public class AINodeAnim extends Struct implements NativeResource {
 

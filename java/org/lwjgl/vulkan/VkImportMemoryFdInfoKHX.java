@@ -48,12 +48,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImportMemoryFdInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalMemoryHandleTypeFlagBitsKHX handleType;
-    int fd;
-}</code></pre>
+ * <code><pre>
+ * struct VkImportMemoryFdInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalMemoryHandleTypeFlagBitsKHX handleType;
+ *     int fd;
+ * }</pre></code>
  */
 public class VkImportMemoryFdInfoKHX extends Struct implements NativeResource {
 

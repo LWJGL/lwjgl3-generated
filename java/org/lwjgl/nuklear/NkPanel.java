@@ -22,26 +22,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_panel {
-    enum nk_panel_type type;
-    nk_flags flags;
-    {@link NkRect struct nk_rect} bounds;
-    nk_uint * offset_x;
-    nk_uint * offset_y;
-    float at_x;
-    float at_y;
-    float max_x;
-    float footer_height;
-    float header_height;
-    float border;
-    unsigned int has_scrolling;
-    {@link NkRect struct nk_rect} clip;
-    {@link NkMenuState struct nk_menu_state} menu;
-    {@link NkRowLayout struct nk_row_layout} row;
-    {@link NkChart struct nk_chart} chart;
-    {@link NkCommandBuffer struct nk_command_buffer} * buffer;
-    {@link NkPanel struct nk_panel} * parent;
-}</code></pre>
+ * <code><pre>
+ * struct nk_panel {
+ *     enum nk_panel_type type;
+ *     nk_flags flags;
+ *     {@link NkRect struct nk_rect} bounds;
+ *     nk_uint * offset_x;
+ *     nk_uint * offset_y;
+ *     float at_x;
+ *     float at_y;
+ *     float max_x;
+ *     float footer_height;
+ *     float header_height;
+ *     float border;
+ *     unsigned int has_scrolling;
+ *     {@link NkRect struct nk_rect} clip;
+ *     {@link NkMenuState struct nk_menu_state} menu;
+ *     {@link NkRowLayout struct nk_row_layout} row;
+ *     {@link NkChart struct nk_chart} chart;
+ *     {@link NkCommandBuffer struct nk_command_buffer} * buffer;
+ *     {@link NkPanel struct nk_panel} * parent;
+ * }</pre></code>
  */
 public class NkPanel extends Struct implements NativeResource {
 

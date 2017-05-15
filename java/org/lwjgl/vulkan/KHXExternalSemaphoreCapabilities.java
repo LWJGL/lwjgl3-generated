@@ -155,10 +155,11 @@ public class KHXExternalSemaphoreCapabilities {
      * 
      * <p>Semaphores <b>may</b> support import and export of external semaphore handles. To query the external handle types supported by semaphores, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceExternalSemaphorePropertiesKHX(
-    VkPhysicalDevice                            physicalDevice,
-    const VkPhysicalDeviceExternalSemaphoreInfoKHX* pExternalSemaphoreInfo,
-    VkExternalSemaphorePropertiesKHX*           pExternalSemaphoreProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceExternalSemaphorePropertiesKHX(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     const VkPhysicalDeviceExternalSemaphoreInfoKHX* pExternalSemaphoreInfo,
+     *     VkExternalSemaphorePropertiesKHX*           pExternalSemaphoreProperties);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

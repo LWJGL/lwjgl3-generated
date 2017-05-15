@@ -34,11 +34,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageFormatProperties2KHR {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkImageFormatProperties VkImageFormatProperties} imageFormatProperties;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageFormatProperties2KHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkImageFormatProperties VkImageFormatProperties} imageFormatProperties;
+ * }</pre></code>
  */
 public class VkImageFormatProperties2KHR extends Struct implements NativeResource {
 

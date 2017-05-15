@@ -40,11 +40,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSwapchainCounterCreateInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkSurfaceCounterFlagsEXT surfaceCounters;
-}</code></pre>
+ * <code><pre>
+ * struct VkSwapchainCounterCreateInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSurfaceCounterFlagsEXT surfaceCounters;
+ * }</pre></code>
  */
 public class VkSwapchainCounterCreateInfoEXT extends Struct implements NativeResource {
 

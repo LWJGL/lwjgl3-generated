@@ -21,7 +21,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NVStreamSync {
 
-    /**  */
     public static final int
         EGL_SYNC_TYPE_KHR     = 0x30F7,
         EGL_SYNC_NEW_FRAME_NV = 0x321F;

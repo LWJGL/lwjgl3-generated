@@ -39,11 +39,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageSwapchainCreateInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkSwapchainKHR swapchain;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageSwapchainCreateInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSwapchainKHR swapchain;
+ * }</pre></code>
  */
 public class VkImageSwapchainCreateInfoKHX extends Struct implements NativeResource {
 

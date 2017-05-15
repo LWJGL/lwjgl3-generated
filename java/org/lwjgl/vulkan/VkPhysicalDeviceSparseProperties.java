@@ -26,13 +26,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceSparseProperties {
-    VkBool32 residencyStandard2DBlockShape;
-    VkBool32 residencyStandard2DMultisampleBlockShape;
-    VkBool32 residencyStandard3DBlockShape;
-    VkBool32 residencyAlignedMipSize;
-    VkBool32 residencyNonResidentStrict;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceSparseProperties {
+ *     VkBool32 residencyStandard2DBlockShape;
+ *     VkBool32 residencyStandard2DMultisampleBlockShape;
+ *     VkBool32 residencyStandard3DBlockShape;
+ *     VkBool32 residencyAlignedMipSize;
+ *     VkBool32 residencyNonResidentStrict;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceSparseProperties extends Struct {
 

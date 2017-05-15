@@ -49,15 +49,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayPropertiesKHR {
-    VkDisplayKHR display;
-    const char * displayName;
-    {@link VkExtent2D VkExtent2D} physicalDimensions;
-    {@link VkExtent2D VkExtent2D} physicalResolution;
-    VkSurfaceTransformFlagsKHR supportedTransforms;
-    VkBool32 planeReorderPossible;
-    VkBool32 persistentContent;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayPropertiesKHR {
+ *     VkDisplayKHR display;
+ *     const char * displayName;
+ *     {@link VkExtent2D VkExtent2D} physicalDimensions;
+ *     {@link VkExtent2D VkExtent2D} physicalResolution;
+ *     VkSurfaceTransformFlagsKHR supportedTransforms;
+ *     VkBool32 planeReorderPossible;
+ *     VkBool32 persistentContent;
+ * }</pre></code>
  */
 public class VkDisplayPropertiesKHR extends Struct implements NativeResource {
 

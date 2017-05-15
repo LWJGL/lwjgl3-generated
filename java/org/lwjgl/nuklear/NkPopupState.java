@@ -20,18 +20,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_popup_state {
-    {@link NkWindow struct nk_window} * win;
-    enum nk_panel_type type;
-    {@link NkPopupBuffer struct nk_popup_buffer} buf;
-    nk_hash name;
-    int active;
-    unsigned combo_count;
-    unsigned con_count;
-    unsigned con_old;
-    unsigned active_con;
-    {@link NkRect struct nk_rect} header;
-}</code></pre>
+ * <code><pre>
+ * struct nk_popup_state {
+ *     {@link NkWindow struct nk_window} * win;
+ *     enum nk_panel_type type;
+ *     {@link NkPopupBuffer struct nk_popup_buffer} buf;
+ *     nk_hash name;
+ *     int active;
+ *     unsigned combo_count;
+ *     unsigned con_count;
+ *     unsigned con_old;
+ *     unsigned active_con;
+ *     {@link NkRect struct nk_rect} header;
+ * }</pre></code>
  */
 public class NkPopupState extends Struct {
 

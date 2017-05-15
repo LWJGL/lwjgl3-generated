@@ -65,18 +65,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplaySurfaceCreateInfoKHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkDisplaySurfaceCreateFlagsKHR flags;
-    VkDisplayModeKHR displayMode;
-    uint32_t planeIndex;
-    uint32_t planeStackIndex;
-    VkSurfaceTransformFlagBitsKHR transform;
-    float globalAlpha;
-    VkDisplayPlaneAlphaFlagBitsKHR alphaMode;
-    {@link VkExtent2D VkExtent2D} imageExtent;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplaySurfaceCreateInfoKHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDisplaySurfaceCreateFlagsKHR flags;
+ *     VkDisplayModeKHR displayMode;
+ *     uint32_t planeIndex;
+ *     uint32_t planeStackIndex;
+ *     VkSurfaceTransformFlagBitsKHR transform;
+ *     float globalAlpha;
+ *     VkDisplayPlaneAlphaFlagBitsKHR alphaMode;
+ *     {@link VkExtent2D VkExtent2D} imageExtent;
+ * }</pre></code>
  */
 public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResource {
 

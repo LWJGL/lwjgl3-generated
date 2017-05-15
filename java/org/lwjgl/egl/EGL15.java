@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The core EGL 1.5 functionality. */
 public class EGL15 {
 
-    /**  */
     public static final int
         EGL_CONTEXT_MAJOR_VERSION                      = 0x3098,
         EGL_CONTEXT_MINOR_VERSION                      = 0x30FB,
@@ -57,7 +56,6 @@ public class EGL15 {
         EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z             = 0x30B8,
         EGL_IMAGE_PRESERVED                            = 0x30D2;
 
-    /**  */
     public static final long
         EGL_FOREVER  = 0xFFFFFFFFFFFFFFFFL,
         EGL_NO_SYNC  = 0x0L,

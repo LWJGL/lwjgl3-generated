@@ -394,7 +394,6 @@ public class Assimp {
      */
     public static final String AI_CONFIG_IMPORT_GLOBAL_KEYFRAME = "IMPORT_GLOBAL_KEYFRAME";
 
-    /**  */
     public static final String AI_CONFIG_IMPORT_MD3_KEYFRAME = "IMPORT_MD3_KEYFRAME";
 
     /** @see #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME */
@@ -520,9 +519,9 @@ public class Assimp {
     public static final String AI_CONFIG_IMPORT_LWS_ANIM_START = "IMPORT_LWS_ANIM_START";
 
     /**
-     * End of the imported time range. 
-     * 
-     * <p>@see \#AI_CONFIG_IMPORT_LWS_ANIM_START</p>
+     * End of the imported time range.
+     *
+     * @see #AI_CONFIG_IMPORT_LWS_ANIM_START
      */
     public static final String AI_CONFIG_IMPORT_LWS_ANIM_END = "IMPORT_LWS_ANIM_END";
 
@@ -1370,8 +1369,10 @@ public class Assimp {
      * <ul>
      * <li>Specify the {@link #aiProcess_FindDegenerates Process_FindDegenerates} flag.</li>
      * <li>Specify the {@link #aiProcess_SortByPType Process_SortByPType} flag. This moves line and point primitives to separate meshes.</li>
-     * <li>Set the {@link #AI_CONFIG_PP_SBP_REMOVE} importer property to <code>{@link #aiPrimitiveType_POINT PrimitiveType_POINT} | {@link #aiPrimitiveType_LINE PrimitiveType_LINE}</code> to cause
-     * {@link #aiProcess_SortByPType Process_SortByPType} to reject point and line meshes from the scene.</li>
+     * <li>Set the {@link #AI_CONFIG_PP_SBP_REMOVE} importer property to<code>{@link #aiPrimitiveType_POINT PrimitiveType_POINT} | {@link #aiPrimitiveType_LINE PrimitiveType_LINE}</code>
+     * 
+     * <p>to cause
+     * {@link #aiProcess_SortByPType Process_SortByPType} to reject point and line meshes from the scene.</p></li>
      * </ul></li>
      * </ol>
      * 
@@ -1457,11 +1458,12 @@ public class Assimp {
      * 
      * <p><b>Output UV coordinate system:</b></p>
      * 
-     * <pre><code>0y|0y ---------- 1x|0y
-  |                |
-  |                |
-  |                |
-0x|1y ---------- 1x|1y</code></pre>
+     * <code><pre>
+     * 0y|0y ---------- 1x|0y
+     *   |                |
+     *   |                |
+     *   |                |
+     * 0x|1y ---------- 1x|1y</pre></code>
      * 
      * <p>You'll probably want to consider this flag if you use Direct3D for rendering. The {@link #aiProcess_ConvertToLeftHanded Process_ConvertToLeftHanded} flag supersedes this setting and
      * bundles all conversions typically required for D3D-based applications.</p>
@@ -1473,10 +1475,11 @@ public class Assimp {
      * 
      * <p><b>Output face order:</b></p>
      * 
-     * <pre><code>    x2
-
-                  x0
-x1</code></pre>
+     * <code><pre>
+     *     x2
+     * 
+     *                   x0
+     * x1</pre></code>
      * </li>
      * <li>{@link #aiProcess_SplitByBoneCount Process_SplitByBoneCount} - 
      * This step splits meshes with many bones into sub-meshes so that each sub-mesh has fewer or as many bones as a given limit.

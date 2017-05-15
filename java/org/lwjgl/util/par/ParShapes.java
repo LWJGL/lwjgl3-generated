@@ -30,9 +30,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>When you’re done extracting the data you need from the mesh, be sure to free it:</p>
  * 
- * <pre><code>par_shapes_mesh* m = par_shapes_create_subdivided_sphere(1);
-// ...
-par_shapes_free_mesh(m);</code></pre>
+ * <code><pre>
+ * par_shapes_mesh* m = par_shapes_create_subdivided_sphere(1);
+ * // ...
+ * par_shapes_free_mesh(m);</pre></code>
  */
 public class ParShapes {
 

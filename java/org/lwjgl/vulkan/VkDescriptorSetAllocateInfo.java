@@ -44,13 +44,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorSetAllocateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkDescriptorPool descriptorPool;
-    uint32_t descriptorSetCount;
-    const VkDescriptorSetLayout * pSetLayouts;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorSetAllocateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDescriptorPool descriptorPool;
+ *     uint32_t descriptorSetCount;
+ *     const VkDescriptorSetLayout * pSetLayouts;
+ * }</pre></code>
  */
 public class VkDescriptorSetAllocateInfo extends Struct implements NativeResource {
 

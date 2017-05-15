@@ -14,16 +14,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_pool {
-    {@link NkAllocator struct nk_allocator} alloc;
-    enum nk_allocation_type type;
-    unsigned int page_count;
-    nk_page * pages;
-    nk_page_element * freelist;
-    unsigned capacity;
-    nk_size size;
-    nk_size cap;
-}</code></pre>
+ * <code><pre>
+ * struct nk_pool {
+ *     {@link NkAllocator struct nk_allocator} alloc;
+ *     enum nk_allocation_type type;
+ *     unsigned int page_count;
+ *     nk_page * pages;
+ *     nk_page_element * freelist;
+ *     unsigned capacity;
+ *     nk_size size;
+ *     nk_size cap;
+ * }</pre></code>
  */
 class NkPool extends Struct {
 

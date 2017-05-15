@@ -43,15 +43,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkStencilOpState {
-    VkStencilOp failOp;
-    VkStencilOp passOp;
-    VkStencilOp depthFailOp;
-    VkCompareOp compareOp;
-    uint32_t compareMask;
-    uint32_t writeMask;
-    uint32_t reference;
-}</code></pre>
+ * <code><pre>
+ * struct VkStencilOpState {
+ *     VkStencilOp failOp;
+ *     VkStencilOp passOp;
+ *     VkStencilOp depthFailOp;
+ *     VkCompareOp compareOp;
+ *     uint32_t compareMask;
+ *     uint32_t writeMask;
+ *     uint32_t reference;
+ * }</pre></code>
  */
 public class VkStencilOpState extends Struct implements NativeResource {
 

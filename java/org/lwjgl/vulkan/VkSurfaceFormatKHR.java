@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSurfaceFormatKHR {
-    VkFormat format;
-    VkColorSpaceKHR colorSpace;
-}</code></pre>
+ * <code><pre>
+ * struct VkSurfaceFormatKHR {
+ *     VkFormat format;
+ *     VkColorSpaceKHR colorSpace;
+ * }</pre></code>
  */
 public class VkSurfaceFormatKHR extends Struct implements NativeResource {
 

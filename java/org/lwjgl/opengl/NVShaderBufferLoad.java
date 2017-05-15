@@ -34,20 +34,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  * dereferences in the shading language.</p>
  * 
  * <p>As a very simple example, imagine packing a group of similar objects' constants into a single buffer object and pointing your program at object
- * &lt;i&gt; by setting <code>glVertexAttribI1iEXT(attrLoc, i);</code> and using a shader as such:</p>
+ * &lt;i&gt; by setting</p><code>glVertexAttribI1iEXT(attrLoc, i);</code>
  * 
- * <pre><code>struct MyObjectType {
-    mat4x4 modelView;
-    vec4 materialPropertyX;
-    // etc.
-};
-uniform MyObjectType *allObjects;
-in int objectID; // bound to attrLoc
-
-...
-
-mat4x4 thisObjectsMatrix = allObjects[objectID].modelView;
-// do transform, shading, etc.</code></pre>
+ * <p>and using a shader as such:</p>
+ * 
+ * <code><pre>
+ * struct MyObjectType {
+ *     mat4x4 modelView;
+ *     vec4 materialPropertyX;
+ *     // etc.
+ * };
+ * uniform MyObjectType *allObjects;
+ * in int objectID; // bound to attrLoc
+ * 
+ * ...
+ * 
+ * mat4x4 thisObjectsMatrix = allObjects[objectID].modelView;
+ * // do transform, shading, etc.</pre></code>
  * 
  * <p>This is beneficial in much the same way that texture arrays allow choosing between similar, but independent, texture maps with a single coordinate
  * identifying which slice of the texture to use. It also resembles instancing, where a lightweight change (incrementing the instance ID) can be used to
@@ -57,30 +60,31 @@ mat4x4 thisObjectsMatrix = allObjects[objectID].modelView;
  * the use of shaders. Another simple example, showing something you can't do with existing functionality, is to do dependent fetches into many buffer
  * objects:</p>
  * 
- * <pre><code>GenBuffers(N, dataBuffers);
-GenBuffers(1, &pointerBuffer);
-
-GLuint64EXT gpuAddrs[N];
-for (i = 0; i < N; ++i) {
-    BindBuffer(target, dataBuffers[i]);
-    BufferData(target, size[i], myData[i], STATIC_DRAW);
-
-    // get the address of this buffer and make it resident.
-    GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
-                              gpuaddrs[i]);
-    MakeBufferResidentNV(target, READ_ONLY);
-}
-
-GLuint64EXT pointerBufferAddr;
-BindBuffer(target, pointerBuffer);
-BufferData(target, sizeof(GLuint64EXT)*N, gpuAddrs, STATIC_DRAW);
-GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
-                          &pointerBufferAddr);
-MakeBufferResidentNV(target, READ_ONLY);
-
-// now in the shader, we can use a double indirection
-vec4 **ptrToBuffers = pointerBufferAddr;
-vec4 *ptrToBufferI = ptrToBuffers[i];</code></pre>
+ * <code><pre>
+ * GenBuffers(N, dataBuffers);
+ * GenBuffers(1, &pointerBuffer);
+ * 
+ * GLuint64EXT gpuAddrs[N];
+ * for (i = 0; i < N; ++i) {
+ *     BindBuffer(target, dataBuffers[i]);
+ *     BufferData(target, size[i], myData[i], STATIC_DRAW);
+ * 
+ *     // get the address of this buffer and make it resident.
+ *     GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
+ *                               gpuaddrs[i]);
+ *     MakeBufferResidentNV(target, READ_ONLY);
+ * }
+ * 
+ * GLuint64EXT pointerBufferAddr;
+ * BindBuffer(target, pointerBuffer);
+ * BufferData(target, sizeof(GLuint64EXT)*N, gpuAddrs, STATIC_DRAW);
+ * GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
+ *                           &pointerBufferAddr);
+ * MakeBufferResidentNV(target, READ_ONLY);
+ * 
+ * // now in the shader, we can use a double indirection
+ * vec4 **ptrToBuffers = pointerBufferAddr;
+ * vec4 *ptrToBufferI = ptrToBuffers[i];</pre></code>
  * 
  * <p>This allows simultaneous access to more buffers than <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> (MAX_VERTEX_BINDABLE_UNIFORMS, etc.) and each can be
  * larger than MAX_BINDABLE_UNIFORM_SIZE.</p>

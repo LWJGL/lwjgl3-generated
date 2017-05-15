@@ -19,7 +19,6 @@ import static org.lwjgl.system.JNI.*;
  */
 public class KHRStreamConsumerGLTexture {
 
-    /**  */
     public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
 
     protected KHRStreamConsumerGLTexture() {

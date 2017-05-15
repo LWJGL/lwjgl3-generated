@@ -17,14 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct EXRChannelInfo {
-    char name[256];
-    int pixel_type;
-    int x_sampling;
-    int y_sampling;
-    unsigned char p_linear;
-    char[3];
-}</code></pre>
+ * <code><pre>
+ * struct EXRChannelInfo {
+ *     char name[256];
+ *     int pixel_type;
+ *     int x_sampling;
+ *     int y_sampling;
+ *     unsigned char p_linear;
+ *     char[3];
+ * }</pre></code>
  */
 public class EXRChannelInfo extends Struct implements NativeResource {
 

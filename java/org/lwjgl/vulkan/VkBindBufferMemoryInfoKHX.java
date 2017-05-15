@@ -19,7 +19,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>If {@code deviceIndexCount} is greater than zero, then on device index <code>i</code> the buffer is attached to the instance of memory on the physical device with device index <code>pDeviceIndices[i]</code>.</p>
+ * <p>If {@code deviceIndexCount} is greater than zero, then on device index</p><code>i</code>
+ * 
+ * <p>the buffer is attached to the instance of memory on the physical device with device index</p><code>pDeviceIndices[i]</code>
+ * 
+ * <p>.</p>
  * 
  * <p>If {@code deviceIndexCount} is zero and the memory comes from a memory heap with the {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} bit set, then it is as if {@code pDeviceIndices} contains consecutive indices from zero to the number of physical devices in the logical device, minus one. In other words, by default each physical device attaches to its own instance of the memory.</p>
  * 
@@ -63,15 +67,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBindBufferMemoryInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkBuffer buffer;
-    VkDeviceMemory memory;
-    VkDeviceSize memoryOffset;
-    uint32_t deviceIndexCount;
-    const uint32_t * pDeviceIndices;
-}</code></pre>
+ * <code><pre>
+ * struct VkBindBufferMemoryInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBuffer buffer;
+ *     VkDeviceMemory memory;
+ *     VkDeviceSize memoryOffset;
+ *     uint32_t deviceIndexCount;
+ *     const uint32_t * pDeviceIndices;
+ * }</pre></code>
  */
 public class VkBindBufferMemoryInfoKHX extends Struct implements NativeResource {
 

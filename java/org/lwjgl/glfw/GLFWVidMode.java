@@ -27,14 +27,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct GLFWvidmode {
-    int width;
-    int height;
-    int redBits;
-    int greenBits;
-    int blueBits;
-    int refreshRate;
-}</code></pre>
+ * <code><pre>
+ * struct GLFWvidmode {
+ *     int width;
+ *     int height;
+ *     int redBits;
+ *     int greenBits;
+ *     int blueBits;
+ *     int refreshRate;
+ * }</pre></code>
  */
 public class GLFWVidMode extends Struct {
 

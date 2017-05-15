@@ -41,11 +41,7 @@ public class NVFragmentCoverageToColor {
 
     // --- [ glFragmentCoverageColorNV ] ---
 
-    /**
-     * 
-     *
-     * @param color the draw buffer index that the coverage value will be written to. Must be between 0 and the value of MAX_DRAW_BUFFERS minus one, inclusive.
-     */
+    /** @param color the draw buffer index that the coverage value will be written to. Must be between 0 and the value of MAX_DRAW_BUFFERS minus one, inclusive. */
     public static native void glFragmentCoverageColorNV(int color);
 
 }

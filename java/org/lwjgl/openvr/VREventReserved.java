@@ -18,10 +18,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Reserved_t {
-    uint64_t reserved0;
-    uint64_t reserved1;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Reserved_t {
+ *     uint64_t reserved0;
+ *     uint64_t reserved1;
+ * }</pre></code>
  */
 public class VREventReserved extends Struct implements NativeResource {
 

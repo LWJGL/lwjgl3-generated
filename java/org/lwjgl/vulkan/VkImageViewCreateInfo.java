@@ -96,16 +96,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageViewCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkImageViewCreateFlags flags;
-    VkImage image;
-    VkImageViewType viewType;
-    VkFormat format;
-    {@link VkComponentMapping VkComponentMapping} components;
-    {@link VkImageSubresourceRange VkImageSubresourceRange} subresourceRange;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageViewCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkImageViewCreateFlags flags;
+ *     VkImage image;
+ *     VkImageViewType viewType;
+ *     VkFormat format;
+ *     {@link VkComponentMapping VkComponentMapping} components;
+ *     {@link VkImageSubresourceRange VkImageSubresourceRange} subresourceRange;
+ * }</pre></code>
  */
 public class VkImageViewCreateInfo extends Struct implements NativeResource {
 

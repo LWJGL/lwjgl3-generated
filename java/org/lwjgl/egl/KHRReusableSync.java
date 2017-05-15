@@ -26,7 +26,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRReusableSync {
 
-    /**  */
     public static final int
         EGL_SYNC_STATUS_KHR             = 0x30F1,
         EGL_SIGNALED_KHR                = 0x30F2,
@@ -37,7 +36,6 @@ public class KHRReusableSync {
         EGL_SYNC_REUSABLE_KHR           = 0x30FA,
         EGL_SYNC_FLUSH_COMMANDS_BIT_KHR = 0x1;
 
-    /**  */
     public static final long
         EGL_FOREVER_KHR = 0xFFFFFFFFFFFFFFFFL,
         EGL_NO_SYNC_KHR = 0x0L;

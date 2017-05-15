@@ -16,24 +16,25 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_progress {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkStyleItem struct nk_style_item} cursor_normal;
-    {@link NkStyleItem struct nk_style_item} cursor_hover;
-    {@link NkStyleItem struct nk_style_item} cursor_active;
-    {@link NkColor struct nk_color} cursor_border_color;
-    float rounding;
-    float border;
-    float cursor_border;
-    float cursor_rounding;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkHandle nk_handle} userdata;
-    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
-    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_progress {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkStyleItem struct nk_style_item} cursor_normal;
+ *     {@link NkStyleItem struct nk_style_item} cursor_hover;
+ *     {@link NkStyleItem struct nk_style_item} cursor_active;
+ *     {@link NkColor struct nk_color} cursor_border_color;
+ *     float rounding;
+ *     float border;
+ *     float cursor_border;
+ *     float cursor_rounding;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+ *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
+ * }</pre></code>
  */
 public class NkStyleProgress extends Struct implements NativeResource {
 

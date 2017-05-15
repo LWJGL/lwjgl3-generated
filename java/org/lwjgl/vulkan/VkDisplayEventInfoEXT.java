@@ -35,9 +35,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code displayEvent} &ndash; specifies when the fence will be signaled. Possible values are:
  * 
- * <pre><code>typedef enum VkDisplayEventTypeEXT {
-    VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT = 0,
-} VkDisplayEventTypeEXT;</code></pre>
+ * <code><pre>
+ * typedef enum VkDisplayEventTypeEXT {
+ *     VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT = 0,
+ * } VkDisplayEventTypeEXT;</pre></code>
  * 
  * <ul>
  * <li>{@link EXTDisplayControl#VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT} occurs when the first pixel of the next display refresh cycle leaves the display engine for the display.</li>
@@ -46,11 +47,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayEventInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkDisplayEventTypeEXT displayEvent;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayEventInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDisplayEventTypeEXT displayEvent;
+ * }</pre></code>
  */
 public class VkDisplayEventInfoEXT extends Struct implements NativeResource {
 

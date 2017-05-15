@@ -41,13 +41,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceMultiviewFeaturesKHX {
-    VkStructureType sType;
-    void * pNext;
-    VkBool32 multiview;
-    VkBool32 multiviewGeometryShader;
-    VkBool32 multiviewTessellationShader;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceMultiviewFeaturesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     VkBool32 multiview;
+ *     VkBool32 multiviewGeometryShader;
+ *     VkBool32 multiviewTessellationShader;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceMultiviewFeaturesKHX extends Struct implements NativeResource {
 

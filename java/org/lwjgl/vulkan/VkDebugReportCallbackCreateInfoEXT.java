@@ -41,13 +41,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; indicate which event(s) will cause this callback to be called. Flags are interpreted as bitmasks and multiple may be set. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkDebugReportFlagBitsEXT {
-    VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001,
-    VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002,
-    VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x00000004,
-    VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x00000008,
-    VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x00000010,
-} VkDebugReportFlagBitsEXT;</code></pre>
+ * <code><pre>
+ * typedef enum VkDebugReportFlagBitsEXT {
+ *     VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001,
+ *     VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002,
+ *     VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x00000004,
+ *     VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x00000008,
+ *     VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x00000010,
+ * } VkDebugReportFlagBitsEXT;</pre></code>
  * 
  * <ul>
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_ERROR_BIT_EXT DEBUG_REPORT_ERROR_BIT_EXT} indicates an error that may cause undefined results, including an application crash.</li>
@@ -62,13 +63,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDebugReportCallbackCreateInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkDebugReportFlagsEXT flags;
-    {@link VkDebugReportCallbackEXTI PFN_vkDebugReportCallbackEXT} pfnCallback;
-    void * pUserData;
-}</code></pre>
+ * <code><pre>
+ * struct VkDebugReportCallbackCreateInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDebugReportFlagsEXT flags;
+ *     {@link VkDebugReportCallbackEXTI PFN_vkDebugReportCallbackEXT} pfnCallback;
+ *     void * pUserData;
+ * }</pre></code>
  */
 public class VkDebugReportCallbackCreateInfoEXT extends Struct implements NativeResource {
 

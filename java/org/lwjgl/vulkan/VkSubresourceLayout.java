@@ -20,13 +20,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>For images created with linear tiling, {@code rowPitch}, {@code arrayPitch} and {@code depthPitch} describe the layout of the image subresource in linear memory. For uncompressed formats, {@code rowPitch} is the number of bytes between texels with the same x coordinate in adjacent rows (y coordinates differ by one). {@code arrayPitch} is the number of bytes between texels with the same x and y coordinate in adjacent array layers of the image (array layer values differ by one). {@code depthPitch} is the number of bytes between texels with the same x and y coordinate in adjacent slices of a 3D image (z coordinates differ by one). Expressed as an addressing formula, the starting byte of a texel in the image subresource has address:</p>
  * 
- * <pre><code>// (x,y,z,layer) are in texel coordinates
-address(x,y,z,layer) = layer*arrayPitch + z*depthPitch + y*rowPitch + x*elementSize + offset</code></pre>
+ * <code><pre>
+ * // (x,y,z,layer) are in texel coordinates
+ * address(x,y,z,layer) = layer*arrayPitch + z*depthPitch + y*rowPitch + x*elementSize + offset</pre></code>
  * 
  * <p>For compressed formats, the {@code rowPitch} is the number of bytes between compressed texel blocks in adjacent rows. {@code arrayPitch} is the number of bytes between compressed texel blocks in adjacent array layers. {@code depthPitch} is the number of bytes between compressed texel blocks in adjacent slices of a 3D image.</p>
  * 
- * <pre><code>// (x,y,z,layer) are in compressed texel block coordinates
-address(x,y,z,layer) = layer*arrayPitch + z*depthPitch + y*rowPitch + x*compressedTexelBlockByteSize + offset;</code></pre>
+ * <code><pre>
+ * // (x,y,z,layer) are in compressed texel block coordinates
+ * address(x,y,z,layer) = layer*arrayPitch + z*depthPitch + y*rowPitch + x*compressedTexelBlockByteSize + offset;</pre></code>
  * 
  * <p>{@code arrayPitch} is undefined for images that were not created as arrays. {@code depthPitch} is defined only for 3D images.</p>
  * 
@@ -48,13 +50,14 @@ address(x,y,z,layer) = layer*arrayPitch + z*depthPitch + y*rowPitch + x*compress
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSubresourceLayout {
-    VkDeviceSize offset;
-    VkDeviceSize size;
-    VkDeviceSize rowPitch;
-    VkDeviceSize arrayPitch;
-    VkDeviceSize depthPitch;
-}</code></pre>
+ * <code><pre>
+ * struct VkSubresourceLayout {
+ *     VkDeviceSize offset;
+ *     VkDeviceSize size;
+ *     VkDeviceSize rowPitch;
+ *     VkDeviceSize arrayPitch;
+ *     VkDeviceSize depthPitch;
+ * }</pre></code>
  */
 public class VkSubresourceLayout extends Struct implements NativeResource {
 

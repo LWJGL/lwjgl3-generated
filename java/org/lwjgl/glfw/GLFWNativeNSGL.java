@@ -30,13 +30,17 @@ public class GLFWNativeNSGL {
     // --- [ glfwGetNSGLContext ] ---
 
     /**
-     * Returns the <code>NSOpenGLContext</code> of the specified GLFW window.
+     * Returns the<code>NSOpenGLContext</code>
+     * 
+     * <p>of the specified GLFW window.</p>
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param window the GLFW window
      *
-     * @return The <code>NSOpenGLContext</code> of the specified window, or nil if an error occurred.
+     * @return The<code>NSOpenGLContext</code>
+     *         
+     *         <p>of the specified window, or nil if an error occurred.</p>
      *
      * @since version 3.0
      */

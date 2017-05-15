@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class ANDROIDFramebufferTarget {
 
-    /**  */
     public static final int EGL_FRAMEBUFFER_TARGET_ANDROID = 0x3147;
 
     private ANDROIDFramebufferTarget() {}

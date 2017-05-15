@@ -16,9 +16,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_PerformanceTest_t {
-    uint32_t m_nFidelityLevel;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_PerformanceTest_t {
+ *     uint32_t m_nFidelityLevel;
+ * }</pre></code>
  */
 public class VREventPerformanceTest extends Struct implements NativeResource {
 

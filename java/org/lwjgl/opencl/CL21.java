@@ -404,8 +404,10 @@ public class CL21 {
      *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
      *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same</li>
      *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code num_svm_pointers} is zero or {@code svm_pointers} is {@code NULL}.</li>
-     *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code sizes[i]} is non-zero range <code>[svm_pointers[i], svm_pointers[i]+sizes[i])</code> is not contained within an existing
-     *         {@link CL20#clSVMAlloc SVMAlloc} allocation.</li>
+     *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code sizes[i]} is non-zero range<code>[svm_pointers[i], svm_pointers[i]+sizes[i])</code>
+     *         
+     *         <p>is not contained within an existing
+     *         {@link CL20#clSVMAlloc SVMAlloc} allocation.</p></li>
      *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
      *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
      *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>

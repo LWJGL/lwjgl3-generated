@@ -37,7 +37,6 @@ import static org.lwjgl.system.JNI.*;
  */
 public class KHRStreamCrossProcessFD {
 
-    /**  */
     public static final int EGL_NO_FILE_DESCRIPTOR_KHR = -1;
 
     protected KHRStreamCrossProcessFD() {

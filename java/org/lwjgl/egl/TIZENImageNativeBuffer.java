@@ -14,7 +14,6 @@ package org.lwjgl.egl;
  */
 public final class TIZENImageNativeBuffer {
 
-    /**  */
     public static final int EGL_NATIVE_BUFFER_TIZEN = 0x32A0;
 
     private TIZENImageNativeBuffer() {}

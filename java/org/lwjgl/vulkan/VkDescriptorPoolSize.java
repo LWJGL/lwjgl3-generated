@@ -41,10 +41,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorPoolSize {
-    VkDescriptorType type;
-    uint32_t descriptorCount;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorPoolSize {
+ *     VkDescriptorType type;
+ *     uint32_t descriptorCount;
+ * }</pre></code>
  */
 public class VkDescriptorPoolSize extends Struct implements NativeResource {
 

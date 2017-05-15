@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiQuatKey {
-    double mTime;
-    {@link AIQuaternion struct aiQuaternion} mValue;
-}</code></pre>
+ * <code><pre>
+ * struct aiQuatKey {
+ *     double mTime;
+ *     {@link AIQuaternion struct aiQuaternion} mValue;
+ * }</pre></code>
  */
 public class AIQuatKey extends Struct implements NativeResource {
 

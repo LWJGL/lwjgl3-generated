@@ -25,11 +25,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Mouse_t {
-    float x;
-    float y;
-    uint32_t button;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Mouse_t {
+ *     float x;
+ *     float y;
+ *     uint32_t button;
+ * }</pre></code>
  */
 public class VREventMouse extends Struct implements NativeResource {
 

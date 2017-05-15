@@ -24,9 +24,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkRefreshCycleDurationGOOGLE {
-    uint64_t refreshDuration;
-}</code></pre>
+ * <code><pre>
+ * struct VkRefreshCycleDurationGOOGLE {
+ *     uint64_t refreshDuration;
+ * }</pre></code>
  */
 public class VkRefreshCycleDurationGOOGLE extends Struct implements NativeResource {
 

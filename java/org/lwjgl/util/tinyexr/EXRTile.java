@@ -25,15 +25,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct EXRTile {
-    int offset_x;
-    int offset_y;
-    int level_x;
-    int level_y;
-    int width;
-    int height;
-    unsigned char ** images;
-}</code></pre>
+ * <code><pre>
+ * struct EXRTile {
+ *     int offset_x;
+ *     int offset_y;
+ *     int level_x;
+ *     int level_y;
+ *     int width;
+ *     int height;
+ *     unsigned char ** images;
+ * }</pre></code>
  */
 public class EXRTile extends Struct implements NativeResource {
 

@@ -25,11 +25,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct RenderModel_ComponentState_t {
-    {@link HmdMatrix34 HmdMatrix34_t} mTrackingToComponentRenderModel;
-    {@link HmdMatrix34 HmdMatrix34_t} mTrackingToComponentLocal;
-    VRComponentProperties uProperties;
-}</code></pre>
+ * <code><pre>
+ * struct RenderModel_ComponentState_t {
+ *     {@link HmdMatrix34 HmdMatrix34_t} mTrackingToComponentRenderModel;
+ *     {@link HmdMatrix34 HmdMatrix34_t} mTrackingToComponentLocal;
+ *     VRComponentProperties uProperties;
+ * }</pre></code>
  */
 public class RenderModelComponentState extends Struct implements NativeResource {
 

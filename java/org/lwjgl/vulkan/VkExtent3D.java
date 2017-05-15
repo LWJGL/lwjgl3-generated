@@ -18,11 +18,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExtent3D {
-    uint32_t width;
-    uint32_t height;
-    uint32_t depth;
-}</code></pre>
+ * <code><pre>
+ * struct VkExtent3D {
+ *     uint32_t width;
+ *     uint32_t height;
+ *     uint32_t depth;
+ * }</pre></code>
  */
 public class VkExtent3D extends Struct implements NativeResource {
 

@@ -95,13 +95,14 @@ public class KHRPushDescriptor {
      * 
      * <p>To push descriptor updates into a command buffer, call:</p>
      * 
-     * <pre><code>void vkCmdPushDescriptorSetKHR(
-    VkCommandBuffer                             commandBuffer,
-    VkPipelineBindPoint                         pipelineBindPoint,
-    VkPipelineLayout                            layout,
-    uint32_t                                    set,
-    uint32_t                                    descriptorWriteCount,
-    const VkWriteDescriptorSet*                 pDescriptorWrites);</code></pre>
+     * <code><pre>
+     * void vkCmdPushDescriptorSetKHR(
+     *     VkCommandBuffer                             commandBuffer,
+     *     VkPipelineBindPoint                         pipelineBindPoint,
+     *     VkPipelineLayout                            layout,
+     *     uint32_t                                    set,
+     *     uint32_t                                    descriptorWriteCount,
+     *     const VkWriteDescriptorSet*                 pDescriptorWrites);</pre></code>
      * 
      * <h5>Description</h5>
      * 

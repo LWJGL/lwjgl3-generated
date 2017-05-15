@@ -15,7 +15,6 @@ import static org.lwjgl.system.JNI.*;
  */
 public class HIClientpixmap {
 
-    /**  */
     public static final int EGL_CLIENT_PIXMAP_POINTER_HI = 0x8F74;
 
     protected HIClientpixmap() {

@@ -757,6 +757,8 @@ public class GLFW {
      * <li>This function must not be called from a callback.</li>
      * <li>No window's context may be current on another thread when this function is called.</li>
      * </ul></div>
+     *
+     * @since version 1.0
      */
     public static void glfwTerminate() {
         long __functionAddress = Functions.Terminate;
@@ -1279,6 +1281,8 @@ public class GLFW {
      * Resets all window hints to their default values. See {@link #glfwWindowHint WindowHint} for details.
      * 
      * <p>This function must only be called from the main thread.</p>
+     *
+     * @since version 3.0
      */
     public static void glfwDefaultWindowHints() {
         long __functionAddress = Functions.DefaultWindowHints;
@@ -2507,6 +2511,8 @@ public class GLFW {
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
      * </ul></div>
+     *
+     * @since version 1.0
      */
     public static void glfwPollEvents() {
         long __functionAddress = Functions.PollEvents;
@@ -2543,6 +2549,8 @@ public class GLFW {
      * <li>This function must only be called from the main thread.</li>
      * <li>This function must not be called from a callback.</li>
      * </ul></div>
+     *
+     * @since version 2.5
      */
     public static void glfwWaitEvents() {
         long __functionAddress = Functions.WaitEvents;
@@ -2600,6 +2608,8 @@ public class GLFW {
      * library of choice.</p>
      * 
      * <p>This function may be called from any thread.</p>
+     *
+     * @since version 3.1
      */
     public static void glfwPostEmptyEvent() {
         long __functionAddress = Functions.PostEmptyEvent;
@@ -3365,25 +3375,27 @@ public class GLFW {
      * 
      * <p>This function returns the state of all hats of the specified joystick. Each element in the array is one of the following values:</p>
      * 
-     * <pre><code>Name                | Value
-------------------- | ------------------------------
-GLFW_HAT_CENTERED   | 0
-GLFW_HAT_UP         | 1
-GLFW_HAT_RIGHT      | 2
-GLFW_HAT_DOWN       | 4
-GLFW_HAT_LEFT       | 8
-GLFW_HAT_RIGHT_UP   | GLFW_HAT_RIGHT | GLFW_HAT_UP
-GLFW_HAT_RIGHT_DOWN | GLFW_HAT_RIGHT | GLFW_HAT_DOWN
-GLFW_HAT_LEFT_UP    | GLFW_HAT_LEFT  | GLFW_HAT_UP
-GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
+     * <code><pre>
+     * Name                | Value
+     * ------------------- | ------------------------------
+     * GLFW_HAT_CENTERED   | 0
+     * GLFW_HAT_UP         | 1
+     * GLFW_HAT_RIGHT      | 2
+     * GLFW_HAT_DOWN       | 4
+     * GLFW_HAT_LEFT       | 8
+     * GLFW_HAT_RIGHT_UP   | GLFW_HAT_RIGHT | GLFW_HAT_UP
+     * GLFW_HAT_RIGHT_DOWN | GLFW_HAT_RIGHT | GLFW_HAT_DOWN
+     * GLFW_HAT_LEFT_UP    | GLFW_HAT_LEFT  | GLFW_HAT_UP
+     * GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</pre></code>
      * 
      * <p>The diagonal directions are bitwise combinations of the primary (up, right, down and left) directions and you can test for these individually by ANDing
      * it with the corresponding direction.</p>
      * 
-     * <pre><code>if (hats[2] & GLFW_HAT_RIGHT)
-{
-    // State of hat 2 could be right-up, right or right-down
-}</code></pre>
+     * <code><pre>
+     * if (hats[2] & GLFW_HAT_RIGHT)
+     * {
+     *     // State of hat 2 could be right-up, right or right-down
+     * }</pre></code>
      * 
      * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
      * presence.</p>
@@ -3583,7 +3595,9 @@ GLFW_HAT_LEFT_DOWN  | GLFW_HAT_LEFT  | GLFW_HAT_DOWN</code></pre>
      * Sets the value of the GLFW timer. It then continues to count up from that value. The value must be a positive finite number less than or equal to
      * 18446744073.0, which is approximately 584.5 years.
      * 
-     * <p>The upper limit of the timer is calculated as <code>floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
+     * <p>The upper limit of the timer is calculated as</p><code>floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code>
+     * 
+     * <p>and is due to implementations storing nanoseconds
      * in 64 bits. The limit may be increased in the future.</p>
      * 
      * <p>This function may be called from any thread. Reading and writing of the internal timer offset is not atomic, so it needs to be externally synchronized

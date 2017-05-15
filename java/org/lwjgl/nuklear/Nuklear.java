@@ -79,20 +79,21 @@ import static org.lwjgl.system.MemoryUtil.*;
  * IMPORTANT: the {@link NkUserFont} pointer provided to nuklear has to persist over the complete life time! I know this sucks but it is currently the only
  * way to switch between fonts.
  * 
- * <pre><code>float your_text_width_calculation(nk_handle handle, float height, const char *text, int len)
-{
-    your_font_type *type = handle.ptr;
-    float text_width = ...;
-    return text_width;
-}
-
-struct nk_user_font font;
-font.userdata.ptr = &your_font_class_or_struct;
-font.height = your_font_height;
-font.width = your_text_width_calculation;
-
-struct nk_context ctx;
-nk_init_default(&ctx, &font);</code></pre></li>
+ * <code><pre>
+ * float your_text_width_calculation(nk_handle handle, float height, const char *text, int len)
+ * {
+ *     your_font_type *type = handle.ptr;
+ *     float text_width = ...;
+ *     return text_width;
+ * }
+ * 
+ * struct nk_user_font font;
+ * font.userdata.ptr = &your_font_class_or_struct;
+ * font.height = your_font_height;
+ * font.width = your_text_width_calculation;
+ * 
+ * struct nk_context ctx;
+ * nk_init_default(&ctx, &font);</pre></code></li>
  * <li>Using your own implementation with vertex buffer output
  * <hr>
  * While the first approach works fine if you don't want to use the optional vertex buffer output it is not enough if you do. To get font handling
@@ -100,35 +101,36 @@ nk_init_default(&ctx, &font);</code></pre></li>
  * subimages of a bigger font atlas texture and a callback to query a character's glyph information (offset, size, ...). So it is still possible to
  * provide your own font and use the vertex buffer output.
  * 
- * <pre><code>float your_text_width_calculation(nk_handle handle, float height, const char *text, int len)
-{
-    your_font_type *type = handle.ptr;
-    float text_width = ...;
-    return text_width;
-}
-void query_your_font_glyph(nk_handle handle, float font_height, struct nk_user_font_glyph *glyph, nk_rune codepoint, nk_rune next_codepoint)
-{
-    your_font_type *type = handle.ptr;
-    glyph.width = ...;
-    glyph.height = ...;
-    glyph.xadvance = ...;
-    glyph.uv[0].x = ...;
-    glyph.uv[0].y = ...;
-    glyph.uv[1].x = ...;
-    glyph.uv[1].y = ...;
-    glyph.offset.x = ...;
-    glyph.offset.y = ...;
-}
-
-struct nk_user_font font;
-font.userdata.ptr = &your_font_class_or_struct;
-font.height = your_font_height;
-font.width = your_text_width_calculation;
-font.query = query_your_font_glyph;
-font.texture.id = your_font_texture;
-
-struct nk_context ctx;
-nk_init_default(&ctx, &font);</code></pre></li>
+ * <code><pre>
+ * float your_text_width_calculation(nk_handle handle, float height, const char *text, int len)
+ * {
+ *     your_font_type *type = handle.ptr;
+ *     float text_width = ...;
+ *     return text_width;
+ * }
+ * void query_your_font_glyph(nk_handle handle, float font_height, struct nk_user_font_glyph *glyph, nk_rune codepoint, nk_rune next_codepoint)
+ * {
+ *     your_font_type *type = handle.ptr;
+ *     glyph.width = ...;
+ *     glyph.height = ...;
+ *     glyph.xadvance = ...;
+ *     glyph.uv[0].x = ...;
+ *     glyph.uv[0].y = ...;
+ *     glyph.uv[1].x = ...;
+ *     glyph.uv[1].y = ...;
+ *     glyph.offset.x = ...;
+ *     glyph.offset.y = ...;
+ * }
+ * 
+ * struct nk_user_font font;
+ * font.userdata.ptr = &your_font_class_or_struct;
+ * font.height = your_font_height;
+ * font.width = your_text_width_calculation;
+ * font.query = query_your_font_glyph;
+ * font.texture.id = your_font_texture;
+ * 
+ * struct nk_context ctx;
+ * nk_init_default(&ctx, &font);</pre></code></li>
  * </ol>
  * 
  * <h3>MEMORY BUFFER</h3>
@@ -174,27 +176,28 @@ nk_init_default(&ctx, &font);</code></pre></li>
  * <p>To use the command queue to draw your own widgets you can access the command buffer of each window by calling {@link #nk_window_get_canvas window_get_canvas} after previously
  * having called {@link #nk_begin begin}:</p>
  * 
- * <pre><code>void draw_red_rectangle_widget(struct nk_context *ctx)
-{
-    struct nk_command_buffer *canvas;
-    struct nk_input *input = &ctx->input;
-    canvas = nk_window_get_canvas(ctx);
-
-    struct nk_rect space;
-    enum nk_widget_layout_states state;
-    state = nk_widget(&space, ctx);
-    if (!state) return;
-
-    if (state != NK_WIDGET_ROM)
-        update_your_widget_by_user_input(...);
-    nk_fill_rect(canvas, space, 0, nk_rgb(255,0,0));
-}
-
-if (nk_begin(...)) {
-    nk_layout_row_dynamic(ctx, 25, 1);
-    draw_red_rectangle_widget(ctx);
-}
-nk_end(..)</code></pre>
+ * <code><pre>
+ * void draw_red_rectangle_widget(struct nk_context *ctx)
+ * {
+ *     struct nk_command_buffer *canvas;
+ *     struct nk_input *input = &ctx->input;
+ *     canvas = nk_window_get_canvas(ctx);
+ * 
+ *     struct nk_rect space;
+ *     enum nk_widget_layout_states state;
+ *     state = nk_widget(&space, ctx);
+ *     if (!state) return;
+ * 
+ *     if (state != NK_WIDGET_ROM)
+ *         update_your_widget_by_user_input(...);
+ *     nk_fill_rect(canvas, space, 0, nk_rgb(255,0,0));
+ * }
+ * 
+ * if (nk_begin(...)) {
+ *     nk_layout_row_dynamic(ctx, 25, 1);
+ *     draw_red_rectangle_widget(ctx);
+ * }
+ * nk_end(..)</pre></code>
  * 
  * <p>Important to know if you want to create your own widgets is the {@link #nk_widget widget} call. It allocates space on the panel reserved for this widget to be used,
  * but also returns the state of the widget space. If your widget is not seen and does not have to be updated it is '0' and you can just return. If it
@@ -206,17 +209,18 @@ nk_end(..)</code></pre>
  * <p>The style modifier stack can be used to temporarily change a property inside `nk_style`. For example if you want a special red button you can
  * temporarily push the old button color onto a stack draw the button with a red color and then you just pop the old color back from the stack:</p>
  * 
- * <pre><code>nk_style_push_style_item(ctx, &ctx->style.button.normal, nk_style_item_color(nk_rgb(255,0,0)));
-nk_style_push_style_item(ctx, &ctx->style.button.hover, nk_style_item_color(nk_rgb(255,0,0)));
-nk_style_push_style_item(ctx, &ctx->style.button.active, nk_style_item_color(nk_rgb(255,0,0)));
-nk_style_push_vec2(ctx, &cx->style.button.padding, nk_vec2(2,2));
- 
-nk_button(...);
- 
-nk_style_pop_style_item(ctx);
-nk_style_pop_style_item(ctx);
-nk_style_pop_style_item(ctx);
-nk_style_pop_vec2(ctx);</code></pre>
+ * <code><pre>
+ * nk_style_push_style_item(ctx, &ctx->style.button.normal, nk_style_item_color(nk_rgb(255,0,0)));
+ * nk_style_push_style_item(ctx, &ctx->style.button.hover, nk_style_item_color(nk_rgb(255,0,0)));
+ * nk_style_push_style_item(ctx, &ctx->style.button.active, nk_style_item_color(nk_rgb(255,0,0)));
+ * nk_style_push_vec2(ctx, &cx->style.button.padding, nk_vec2(2,2));
+ *  
+ * nk_button(...);
+ *  
+ * nk_style_pop_style_item(ctx);
+ * nk_style_pop_style_item(ctx);
+ * nk_style_pop_style_item(ctx);
+ * nk_style_pop_vec2(ctx);</pre></code>
  * 
  * <p>Nuklear has a stack for style_items, float properties, vector properties, flags, colors, fonts and for button_behavior. Each has it's own fixed size
  * stack which can be changed in compile time.</p>
@@ -2073,8 +2077,6 @@ public class Nuklear {
     public static native void nnk_layout_row_dynamic(long ctx, float height, int cols);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param height 
      * @param cols   
@@ -2089,8 +2091,6 @@ public class Nuklear {
     public static native void nnk_layout_row_static(long ctx, float height, int item_width, int cols);
 
     /**
-     * 
-     *
      * @param ctx        the nuklear context
      * @param height     
      * @param item_width 
@@ -2106,8 +2106,6 @@ public class Nuklear {
     public static native void nnk_layout_row_begin(long ctx, int fmt, float row_height, int cols);
 
     /**
-     * 
-     *
      * @param ctx        the nuklear context
      * @param fmt        one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
      * @param row_height 
@@ -2123,8 +2121,6 @@ public class Nuklear {
     public static native void nnk_layout_row_push(long ctx, float value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param value 
      */
@@ -2137,11 +2133,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_row_end layout_row_end} */
     public static native void nnk_layout_row_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_layout_row_end(NkContext ctx) {
         nnk_layout_row_end(ctx.address());
     }
@@ -2152,8 +2144,6 @@ public class Nuklear {
     public static native void nnk_layout_row(long ctx, int fmt, float height, int cols, long ratio);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param fmt    one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
      * @param height 
@@ -2169,8 +2159,6 @@ public class Nuklear {
     public static native void nnk_layout_row_template_begin(long ctx, float height);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param height 
      */
@@ -2183,11 +2171,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_row_template_push_dynamic layout_row_template_push_dynamic} */
     public static native void nnk_layout_row_template_push_dynamic(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_layout_row_template_push_dynamic(NkContext ctx) {
         nnk_layout_row_template_push_dynamic(ctx.address());
     }
@@ -2198,8 +2182,6 @@ public class Nuklear {
     public static native void nnk_layout_row_template_push_variable(long ctx, float min_width);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param min_width 
      */
@@ -2213,8 +2195,6 @@ public class Nuklear {
     public static native void nnk_layout_row_template_push_static(long ctx, float width);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param width 
      */
@@ -2236,8 +2216,6 @@ public class Nuklear {
     public static native void nnk_layout_space_begin(long ctx, int fmt, float height, int widget_count);
 
     /**
-     * 
-     *
      * @param ctx          the nuklear context
      * @param fmt          one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
      * @param height       
@@ -2253,8 +2231,6 @@ public class Nuklear {
     public static native void nnk_layout_space_push(long ctx, long rect);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param rect 
      */
@@ -2267,11 +2243,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_space_end layout_space_end} */
     public static native void nnk_layout_space_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_layout_space_end(NkContext ctx) {
         nnk_layout_space_end(ctx.address());
     }
@@ -2281,11 +2253,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_space_bounds layout_space_bounds} */
     public static native void nnk_layout_space_bounds(long ctx, long __result);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static NkRect nk_layout_space_bounds(NkContext ctx, NkRect __result) {
         nnk_layout_space_bounds(ctx.address(), __result.address());
         return __result;
@@ -2297,8 +2265,6 @@ public class Nuklear {
     public static native void nnk_layout_space_to_screen(long ctx, long ret);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param ret 
      */
@@ -2313,8 +2279,6 @@ public class Nuklear {
     public static native void nnk_layout_space_to_local(long ctx, long ret);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param ret 
      */
@@ -2329,8 +2293,6 @@ public class Nuklear {
     public static native void nnk_layout_space_rect_to_screen(long ctx, long ret);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param ret 
      */
@@ -2345,8 +2307,6 @@ public class Nuklear {
     public static native void nnk_layout_space_rect_to_local(long ctx, long ret);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param ret 
      */
@@ -2361,8 +2321,6 @@ public class Nuklear {
     public static native float nnk_layout_ratio_from_pixel(long ctx, float pixel_width);
 
     /**
-     * 
-     *
      * @param ctx         the nuklear context
      * @param pixel_width 
      */
@@ -2376,8 +2334,6 @@ public class Nuklear {
     public static native int nnk_group_begin(long ctx, long title, int flags);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param title 
      * @param flags 
@@ -2390,8 +2346,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param title 
      * @param flags 
@@ -2412,8 +2366,6 @@ public class Nuklear {
     public static native int nnk_group_scrolled_offset_begin(long ctx, long x_offset, long y_offset, long title, int flags);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param x_offset 
      * @param y_offset 
@@ -2430,8 +2382,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param x_offset 
      * @param y_offset 
@@ -2458,8 +2408,6 @@ public class Nuklear {
     public static native int nnk_group_scrolled_begin(long ctx, long scroll, long title, int flags);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param scroll 
      * @param title  
@@ -2473,8 +2421,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param scroll 
      * @param title  
@@ -2495,11 +2441,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_group_scrolled_end group_scrolled_end} */
     public static native void nnk_group_scrolled_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_group_scrolled_end(NkContext ctx) {
         nnk_group_scrolled_end(ctx.address());
     }
@@ -2509,11 +2451,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_group_end group_end} */
     public static native void nnk_group_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_group_end(NkContext ctx) {
         nnk_group_end(ctx.address());
     }
@@ -2524,8 +2462,6 @@ public class Nuklear {
     public static native int nnk_list_view_begin(long ctx, long view, long title, int flags, int row_height, int row_count);
 
     /**
-     * 
-     *
      * @param ctx        the nuklear context
      * @param view       
      * @param title      
@@ -2541,8 +2477,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx        the nuklear context
      * @param view       
      * @param title      
@@ -2574,8 +2508,6 @@ public class Nuklear {
     public static native int nnk_tree_push_hashed(long ctx, int type, long title, int initial_state, long hash, int len, int seed);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
      * @param title         
@@ -2591,8 +2523,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
      * @param title         
@@ -2616,8 +2546,6 @@ public class Nuklear {
     public static native int nnk_tree_image_push_hashed(long ctx, int type, long img, long title, int initial_state, long hash, int len, int seed);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
      * @param img           
@@ -2634,8 +2562,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
      * @param img           
@@ -2660,11 +2586,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_tree_pop tree_pop} */
     public static native void nnk_tree_pop(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_tree_pop(NkContext ctx) {
         nnk_tree_pop(ctx.address());
     }
@@ -2675,8 +2597,6 @@ public class Nuklear {
     public static native int nnk_tree_state_push(long ctx, int type, long title, long state);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param type  
      * @param title 
@@ -2691,8 +2611,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param type  
      * @param title 
@@ -2717,8 +2635,6 @@ public class Nuklear {
     public static native int nnk_tree_state_image_push(long ctx, int type, long image, long title, long state);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param type  
      * @param image 
@@ -2734,8 +2650,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param type  
      * @param image 
@@ -2760,11 +2674,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_tree_state_pop tree_state_pop} */
     public static native void nnk_tree_state_pop(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_tree_state_pop(NkContext ctx) {
         nnk_tree_state_pop(ctx.address());
     }
@@ -2775,8 +2685,6 @@ public class Nuklear {
     public static native void nnk_text(long ctx, long str, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param str       
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2786,8 +2694,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param str       
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2808,8 +2714,6 @@ public class Nuklear {
     public static native void nnk_text_colored(long ctx, long str, int len, int alignment, long color);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param str       
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2820,8 +2724,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param str       
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2843,8 +2745,6 @@ public class Nuklear {
     public static native void nnk_text_wrap(long ctx, long str, int len);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param str 
      */
@@ -2853,8 +2753,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param str 
      */
@@ -2874,8 +2772,6 @@ public class Nuklear {
     public static native void nnk_text_wrap_colored(long ctx, long str, int len, long color);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param color 
@@ -2885,8 +2781,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param color 
@@ -2907,8 +2801,6 @@ public class Nuklear {
     public static native void nnk_label(long ctx, long str, int align);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2921,8 +2813,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2943,8 +2833,6 @@ public class Nuklear {
     public static native void nnk_label_colored(long ctx, long str, int align, long color);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2958,8 +2846,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2981,8 +2867,6 @@ public class Nuklear {
     public static native void nnk_label_wrap(long ctx, long str);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param str 
      */
@@ -2994,8 +2878,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param str 
      */
@@ -3015,8 +2897,6 @@ public class Nuklear {
     public static native void nnk_label_colored_wrap(long ctx, long str, long color);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param color 
@@ -3029,8 +2909,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param color 
@@ -3051,8 +2929,6 @@ public class Nuklear {
     public static native void nnk_image(long ctx, long img);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param img 
      */
@@ -3066,8 +2942,6 @@ public class Nuklear {
     public static native void nnk_button_set_behavior(long ctx, int behavior);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
      */
@@ -3081,8 +2955,6 @@ public class Nuklear {
     public static native int nnk_button_push_behavior(long ctx, int behavior);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
      */
@@ -3095,11 +2967,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_button_pop_behavior button_pop_behavior} */
     public static native int nnk_button_pop_behavior(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static boolean nk_button_pop_behavior(NkContext ctx) {
         return nnk_button_pop_behavior(ctx.address()) != 0;
     }
@@ -3110,8 +2978,6 @@ public class Nuklear {
     public static native int nnk_button_text(long ctx, long title, int len);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param title 
      */
@@ -3120,8 +2986,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param title 
      */
@@ -3141,8 +3005,6 @@ public class Nuklear {
     public static native int nnk_button_label(long ctx, long title);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param title 
      */
@@ -3154,8 +3016,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param title 
      */
@@ -3175,8 +3035,6 @@ public class Nuklear {
     public static native int nnk_button_color(long ctx, long color);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param color 
      */
@@ -3190,8 +3048,6 @@ public class Nuklear {
     public static native int nnk_button_symbol(long ctx, int symbol);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      */
@@ -3205,8 +3061,6 @@ public class Nuklear {
     public static native int nnk_button_image(long ctx, long img);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param img 
      */
@@ -3220,8 +3074,6 @@ public class Nuklear {
     public static native int nnk_button_symbol_label(long ctx, int symbol, long text, int text_alignment);
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text           
@@ -3235,8 +3087,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text           
@@ -3258,8 +3108,6 @@ public class Nuklear {
     public static native int nnk_button_symbol_text(long ctx, int symbol, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -3270,8 +3118,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -3293,8 +3139,6 @@ public class Nuklear {
     public static native int nnk_button_image_label(long ctx, long img, long text, int text_alignment);
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param img            
      * @param text           
@@ -3308,8 +3152,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param img            
      * @param text           
@@ -3331,8 +3173,6 @@ public class Nuklear {
     public static native int nnk_button_image_text(long ctx, long img, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -3343,8 +3183,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -3366,8 +3204,6 @@ public class Nuklear {
     public static native int nnk_button_text_styled(long ctx, long style, long title, int len);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param style 
      * @param title 
@@ -3381,8 +3217,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param style 
      * @param title 
@@ -3404,8 +3238,6 @@ public class Nuklear {
     public static native int nnk_button_label_styled(long ctx, long style, long title);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param style 
      * @param title 
@@ -3418,8 +3250,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param style 
      * @param title 
@@ -3440,8 +3270,6 @@ public class Nuklear {
     public static native int nnk_button_symbol_styled(long ctx, long style, int symbol);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param style  
      * @param symbol 
@@ -3456,8 +3284,6 @@ public class Nuklear {
     public static native int nnk_button_image_styled(long ctx, long style, long img);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param style 
      * @param img   
@@ -3472,8 +3298,6 @@ public class Nuklear {
     public static native int nnk_button_symbol_label_styled(long ctx, long style, int symbol, long title, int text_alignment);
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param style          
      * @param symbol         
@@ -3488,8 +3312,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param style          
      * @param symbol         
@@ -3512,8 +3334,6 @@ public class Nuklear {
     public static native int nnk_button_symbol_text_styled(long ctx, long style, int symbol, long title, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param style     
      * @param symbol    
@@ -3529,8 +3349,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param style     
      * @param symbol    
@@ -3554,8 +3372,6 @@ public class Nuklear {
     public static native int nnk_button_image_label_styled(long ctx, long style, long img, long title, int text_alignment);
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param style          
      * @param img            
@@ -3570,8 +3386,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param style          
      * @param img            
@@ -3594,8 +3408,6 @@ public class Nuklear {
     public static native int nnk_button_image_text_styled(long ctx, long style, long img, long title, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param style     
      * @param img       
@@ -3611,8 +3423,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param style     
      * @param img       
@@ -3636,8 +3446,6 @@ public class Nuklear {
     public static native int nnk_check_label(long ctx, long str, int active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3650,8 +3458,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3672,8 +3478,6 @@ public class Nuklear {
     public static native int nnk_check_text(long ctx, long str, int len, int active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3683,8 +3487,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3705,8 +3507,6 @@ public class Nuklear {
     public static native int nnk_check_flags_label(long ctx, long str, int flags, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3720,8 +3520,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3743,8 +3541,6 @@ public class Nuklear {
     public static native int nnk_check_flags_text(long ctx, long str, int len, int flags, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3755,8 +3551,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3778,8 +3572,6 @@ public class Nuklear {
     public static native int nnk_checkbox_label(long ctx, long str, long active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3793,8 +3585,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3818,8 +3608,6 @@ public class Nuklear {
     public static native int nnk_checkbox_text(long ctx, long str, int len, long active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3832,8 +3620,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3857,8 +3643,6 @@ public class Nuklear {
     public static native int nnk_checkbox_flags_label(long ctx, long str, long flags, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3873,8 +3657,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3899,8 +3681,6 @@ public class Nuklear {
     public static native int nnk_checkbox_flags_text(long ctx, long str, int len, long flags, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3914,8 +3694,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param flags 
@@ -3940,8 +3718,6 @@ public class Nuklear {
     public static native int nnk_radio_label(long ctx, long str, long active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3955,8 +3731,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3980,8 +3754,6 @@ public class Nuklear {
     public static native int nnk_radio_text(long ctx, long str, int len, long active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -3994,8 +3766,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -4019,8 +3789,6 @@ public class Nuklear {
     public static native int nnk_option_label(long ctx, long str, int active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -4033,8 +3801,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -4055,8 +3821,6 @@ public class Nuklear {
     public static native int nnk_option_text(long ctx, long str, int len, int active);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -4066,8 +3830,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param str    
      * @param active 
@@ -4088,8 +3850,6 @@ public class Nuklear {
     public static native int nnk_selectable_label(long ctx, long str, int align, long value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4104,8 +3864,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4130,8 +3888,6 @@ public class Nuklear {
     public static native int nnk_selectable_text(long ctx, long str, int len, int align, long value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4145,8 +3901,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4171,8 +3925,6 @@ public class Nuklear {
     public static native int nnk_selectable_image_label(long ctx, long img, long str, int align, long value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4188,8 +3940,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4215,8 +3965,6 @@ public class Nuklear {
     public static native int nnk_selectable_image_text(long ctx, long img, long str, int len, int align, long value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4231,8 +3979,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4258,8 +4004,6 @@ public class Nuklear {
     public static native int nnk_select_label(long ctx, long str, int align, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4273,8 +4017,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4296,8 +4038,6 @@ public class Nuklear {
     public static native int nnk_select_text(long ctx, long str, int len, int align, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4308,8 +4048,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param str   
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -4331,8 +4069,6 @@ public class Nuklear {
     public static native int nnk_select_image_label(long ctx, long img, long str, int align, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4347,8 +4083,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4371,8 +4105,6 @@ public class Nuklear {
     public static native int nnk_select_image_text(long ctx, long img, long str, int len, int align, int value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4384,8 +4116,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param img   
      * @param str   
@@ -4408,8 +4138,6 @@ public class Nuklear {
     public static native float nnk_slide_float(long ctx, float min, float val, float max, float step);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param min  
      * @param val  
@@ -4426,8 +4154,6 @@ public class Nuklear {
     public static native int nnk_slide_int(long ctx, int min, int val, int max, int step);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param min  
      * @param val  
@@ -4444,8 +4170,6 @@ public class Nuklear {
     public static native int nnk_slider_float(long ctx, float min, long val, float max, float step);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param min  
      * @param val  
@@ -4465,8 +4189,6 @@ public class Nuklear {
     public static native int nnk_slider_int(long ctx, int min, long val, int max, int step);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param min  
      * @param val  
@@ -4486,8 +4208,6 @@ public class Nuklear {
     public static native int nnk_progress(long ctx, long cur, long max, int modifyable);
 
     /**
-     * 
-     *
      * @param ctx        the nuklear context
      * @param cur        
      * @param max        
@@ -4506,8 +4226,6 @@ public class Nuklear {
     public static native long nnk_prog(long ctx, long cur, long max, int modifyable);
 
     /**
-     * 
-     *
      * @param ctx        the nuklear context
      * @param cur        
      * @param max        
@@ -4523,8 +4241,6 @@ public class Nuklear {
     public static native void nnk_color_picker(long ctx, long color, int fmt);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param color 
      * @param fmt   one of:<br><table><tr><td>{@link #NK_RGB RGB}</td><td>{@link #NK_RGBA RGBA}</td></tr></table>
@@ -4540,8 +4256,6 @@ public class Nuklear {
     public static native int nnk_color_pick(long ctx, long color, int fmt);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param color 
      * @param fmt   one of:<br><table><tr><td>{@link #NK_RGB RGB}</td><td>{@link #NK_RGBA RGBA}</td></tr></table>
@@ -4556,8 +4270,6 @@ public class Nuklear {
     public static native void nnk_property_int(long ctx, long name, int min, long val, int max, int step, float inc_per_pixel);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4575,8 +4287,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4604,8 +4314,6 @@ public class Nuklear {
     public static native void nnk_property_float(long ctx, long name, float min, long val, float max, float step, float inc_per_pixel);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4623,8 +4331,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4652,8 +4358,6 @@ public class Nuklear {
     public static native void nnk_property_double(long ctx, long name, double min, long val, double max, double step, float inc_per_pixel);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4671,8 +4375,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4700,8 +4402,6 @@ public class Nuklear {
     public static native int nnk_propertyi(long ctx, long name, int min, int val, int max, int step, float inc_per_pixel);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4718,8 +4418,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4744,8 +4442,6 @@ public class Nuklear {
     public static native float nnk_propertyf(long ctx, long name, float min, float val, float max, float step, float inc_per_pixel);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4762,8 +4458,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4788,8 +4482,6 @@ public class Nuklear {
     public static native double nnk_propertyd(long ctx, long name, double min, double val, double max, double step, float inc_per_pixel);
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4806,8 +4498,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx           the nuklear context
      * @param name          
      * @param min           
@@ -4832,8 +4522,6 @@ public class Nuklear {
     public static native void nnk_edit_focus(long ctx, int flags);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param flags one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
      */
@@ -4846,11 +4534,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_edit_unfocus edit_unfocus} */
     public static native void nnk_edit_unfocus(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_edit_unfocus(NkContext ctx) {
         nnk_edit_unfocus(ctx.address());
     }
@@ -4861,8 +4545,6 @@ public class Nuklear {
     public static native int nnk_edit_string(long ctx, int flags, long memory, long len, int max, long filter);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
      * @param memory 
@@ -4879,8 +4561,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
      * @param memory 
@@ -4907,8 +4587,6 @@ public class Nuklear {
     public static native int nnk_edit_buffer(long ctx, int flags, long edit, long filter);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
      * @param edit   
@@ -4924,8 +4602,6 @@ public class Nuklear {
     public static native int nnk_edit_string_zero_terminated(long ctx, int flags, long buffer, int max, long filter);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
      * @param buffer 
@@ -4940,8 +4616,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
      * @param buffer 
@@ -4964,8 +4638,6 @@ public class Nuklear {
     public static native int nnk_chart_begin(long ctx, int type, int num, float min, float max);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param type one of:<br><table><tr><td>{@link #NK_CHART_LINES CHART_LINES}</td><td>{@link #NK_CHART_COLUMN CHART_COLUMN}</td><td>{@link #NK_CHART_MAX CHART_MAX}</td></tr></table>
      * @param num  
@@ -4982,8 +4654,6 @@ public class Nuklear {
     public static native int nnk_chart_begin_colored(long ctx, int type, long color, long active, int num, float min, float max);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param type   one of:<br><table><tr><td>{@link #NK_CHART_LINES CHART_LINES}</td><td>{@link #NK_CHART_COLUMN CHART_COLUMN}</td><td>{@link #NK_CHART_MAX CHART_MAX}</td></tr></table>
      * @param color  
@@ -5002,8 +4672,6 @@ public class Nuklear {
     public static native void nnk_chart_add_slot(long ctx, int type, int count, float min_value, float max_value);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param type      one of:<br><table><tr><td>{@link #NK_CHART_LINES CHART_LINES}</td><td>{@link #NK_CHART_COLUMN CHART_COLUMN}</td><td>{@link #NK_CHART_MAX CHART_MAX}</td></tr></table>
      * @param count     
@@ -5020,8 +4688,6 @@ public class Nuklear {
     public static native void nnk_chart_add_slot_colored(long ctx, int type, long color, long active, int count, float min_value, float max_value);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param type      one of:<br><table><tr><td>{@link #NK_CHART_LINES CHART_LINES}</td><td>{@link #NK_CHART_COLUMN CHART_COLUMN}</td><td>{@link #NK_CHART_MAX CHART_MAX}</td></tr></table>
      * @param color     
@@ -5040,8 +4706,6 @@ public class Nuklear {
     public static native int nnk_chart_push(long ctx, float value);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param value 
      */
@@ -5055,8 +4719,6 @@ public class Nuklear {
     public static native int nnk_chart_push_slot(long ctx, float value, int slot);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param value 
      * @param slot  
@@ -5070,11 +4732,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_chart_end chart_end} */
     public static native void nnk_chart_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_chart_end(NkContext ctx) {
         nnk_chart_end(ctx.address());
     }
@@ -5085,8 +4743,6 @@ public class Nuklear {
     public static native void nnk_plot(long ctx, int type, long values, int count, int offset);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param type   one of:<br><table><tr><td>{@link #NK_CHART_LINES CHART_LINES}</td><td>{@link #NK_CHART_COLUMN CHART_COLUMN}</td><td>{@link #NK_CHART_MAX CHART_MAX}</td></tr></table>
      * @param values 
@@ -5106,8 +4762,6 @@ public class Nuklear {
     public static native void nnk_plot_function(long ctx, int type, long userdata, long value_getter, int count, int offset);
 
     /**
-     * 
-     *
      * @param ctx          the nuklear context
      * @param type         one of:<br><table><tr><td>{@link #NK_CHART_LINES CHART_LINES}</td><td>{@link #NK_CHART_COLUMN CHART_COLUMN}</td><td>{@link #NK_CHART_MAX CHART_MAX}</td></tr></table>
      * @param userdata     
@@ -5128,8 +4782,6 @@ public class Nuklear {
     public static native int nnk_popup_begin(long ctx, int type, long title, int flags, long rect);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param type  one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
      * @param title 
@@ -5144,8 +4796,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param type  one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
      * @param title 
@@ -5167,11 +4817,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_popup_close popup_close} */
     public static native void nnk_popup_close(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_popup_close(NkContext ctx) {
         nnk_popup_close(ctx.address());
     }
@@ -5181,11 +4827,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_popup_end popup_end} */
     public static native void nnk_popup_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_popup_end(NkContext ctx) {
         nnk_popup_end(ctx.address());
     }
@@ -5196,8 +4838,6 @@ public class Nuklear {
     public static native int nnk_combo(long ctx, long items, int count, int selected, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx         the nuklear context
      * @param items       
      * @param selected    
@@ -5214,8 +4854,6 @@ public class Nuklear {
     public static native int nnk_combo_separator(long ctx, long items_separated_by_separator, int separator, int selected, int count, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx                          the nuklear context
      * @param items_separated_by_separator 
      * @param separator                    
@@ -5232,8 +4870,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx                          the nuklear context
      * @param items_separated_by_separator 
      * @param separator                    
@@ -5258,8 +4894,6 @@ public class Nuklear {
     public static native int nnk_combo_string(long ctx, long items_separated_by_zeros, int selected, int count, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx                      the nuklear context
      * @param items_separated_by_zeros 
      * @param selected                 
@@ -5275,8 +4909,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx                      the nuklear context
      * @param items_separated_by_zeros 
      * @param selected                 
@@ -5300,8 +4932,6 @@ public class Nuklear {
     public static native int nnk_combo_callback(long ctx, long item_getter, long userdata, int selected, int count, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx         the nuklear context
      * @param item_getter 
      * @param userdata    
@@ -5323,8 +4953,6 @@ public class Nuklear {
     public static native void nnk_combobox(long ctx, long items, int count, long selected, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx         the nuklear context
      * @param items       
      * @param selected    
@@ -5344,8 +4972,6 @@ public class Nuklear {
     public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, long selected, int count, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx                      the nuklear context
      * @param items_separated_by_zeros 
      * @param selected                 
@@ -5362,8 +4988,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx                      the nuklear context
      * @param items_separated_by_zeros 
      * @param selected                 
@@ -5390,8 +5014,6 @@ public class Nuklear {
     public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, long selected, int count, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx                          the nuklear context
      * @param items_separated_by_separator 
      * @param separator                    
@@ -5409,8 +5031,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx                          the nuklear context
      * @param items_separated_by_separator 
      * @param separator                    
@@ -5438,8 +5058,6 @@ public class Nuklear {
     public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, long selected, int count, int item_height, long size);
 
     /**
-     * 
-     *
      * @param ctx         the nuklear context
      * @param item_getter 
      * @param userdata    
@@ -5462,8 +5080,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_text(long ctx, long selected, int len, long size);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param size     
@@ -5473,8 +5089,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param size     
@@ -5495,8 +5109,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_label(long ctx, long selected, long size);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param size     
@@ -5509,8 +5121,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param size     
@@ -5531,8 +5141,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_color(long ctx, long color, long size);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param color 
      * @param size  
@@ -5547,8 +5155,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_symbol(long ctx, int symbol, long size);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param size   
@@ -5563,8 +5169,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_symbol_label(long ctx, long selected, int symbol, long size);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
@@ -5578,8 +5182,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
@@ -5601,8 +5203,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_symbol_text(long ctx, long selected, int len, int symbol, long size);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
@@ -5613,8 +5213,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
@@ -5636,8 +5234,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_image(long ctx, long img, long size);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param img  
      * @param size 
@@ -5652,8 +5248,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_image_label(long ctx, long selected, long img, long size);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param img      
@@ -5667,8 +5261,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param img      
@@ -5690,8 +5282,6 @@ public class Nuklear {
     public static native int nnk_combo_begin_image_text(long ctx, long selected, int len, long img, long size);
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param img      
@@ -5702,8 +5292,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx      the nuklear context
      * @param selected 
      * @param img      
@@ -5725,8 +5313,6 @@ public class Nuklear {
     public static native int nnk_combo_item_label(long ctx, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param text      
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5739,8 +5325,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param text      
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5761,8 +5345,6 @@ public class Nuklear {
     public static native int nnk_combo_item_text(long ctx, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param text      
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5772,8 +5354,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param text      
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5794,8 +5374,6 @@ public class Nuklear {
     public static native int nnk_combo_item_image_label(long ctx, long img, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -5809,8 +5387,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -5832,8 +5408,6 @@ public class Nuklear {
     public static native int nnk_combo_item_image_text(long ctx, long img, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -5844,8 +5418,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -5867,8 +5439,6 @@ public class Nuklear {
     public static native int nnk_combo_item_symbol_label(long ctx, int symbol, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -5882,8 +5452,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -5905,8 +5473,6 @@ public class Nuklear {
     public static native int nnk_combo_item_symbol_text(long ctx, int symbol, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -5917,8 +5483,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -5939,11 +5503,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_combo_close combo_close} */
     public static native void nnk_combo_close(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_combo_close(NkContext ctx) {
         nnk_combo_close(ctx.address());
     }
@@ -5953,11 +5513,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_combo_end combo_end} */
     public static native void nnk_combo_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_combo_end(NkContext ctx) {
         nnk_combo_end(ctx.address());
     }
@@ -5968,8 +5524,6 @@ public class Nuklear {
     public static native int nnk_contextual_begin(long ctx, int flags, long size, long trigger_bounds);
 
     /**
-     * 
-     *
      * @param ctx            the nuklear context
      * @param flags          one of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
      * @param size           
@@ -5985,8 +5539,6 @@ public class Nuklear {
     public static native int nnk_contextual_item_text(long ctx, long text, int len, int align);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5996,8 +5548,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6018,8 +5568,6 @@ public class Nuklear {
     public static native int nnk_contextual_item_label(long ctx, long text, int align);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6032,8 +5580,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6054,8 +5600,6 @@ public class Nuklear {
     public static native int nnk_contextual_item_image_label(long ctx, long img, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6069,8 +5613,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6092,8 +5634,6 @@ public class Nuklear {
     public static native int nnk_contextual_item_image_text(long ctx, long img, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6104,8 +5644,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6127,8 +5665,6 @@ public class Nuklear {
     public static native int nnk_contextual_item_symbol_label(long ctx, int symbol, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6142,8 +5678,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6165,8 +5699,6 @@ public class Nuklear {
     public static native int nnk_contextual_item_symbol_text(long ctx, int symbol, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6177,8 +5709,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6199,11 +5729,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_contextual_close contextual_close} */
     public static native void nnk_contextual_close(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_contextual_close(NkContext ctx) {
         nnk_contextual_close(ctx.address());
     }
@@ -6213,11 +5739,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_contextual_end contextual_end} */
     public static native void nnk_contextual_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_contextual_end(NkContext ctx) {
         nnk_contextual_end(ctx.address());
     }
@@ -6228,8 +5750,6 @@ public class Nuklear {
     public static native void nnk_tooltip(long ctx, long text);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param text 
      */
@@ -6241,8 +5761,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param text 
      */
@@ -6262,8 +5780,6 @@ public class Nuklear {
     public static native int nnk_tooltip_begin(long ctx, float width);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param width 
      */
@@ -6276,11 +5792,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_tooltip_end tooltip_end} */
     public static native void nnk_tooltip_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_tooltip_end(NkContext ctx) {
         nnk_tooltip_end(ctx.address());
     }
@@ -6290,11 +5802,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_menubar_begin menubar_begin} */
     public static native void nnk_menubar_begin(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_menubar_begin(NkContext ctx) {
         nnk_menubar_begin(ctx.address());
     }
@@ -6304,11 +5812,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_menubar_end menubar_end} */
     public static native void nnk_menubar_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_menubar_end(NkContext ctx) {
         nnk_menubar_end(ctx.address());
     }
@@ -6319,8 +5823,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_text(long ctx, long text, int len, int align, long size);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6331,8 +5833,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6354,8 +5854,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_label(long ctx, long text, int align, long size);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6369,8 +5867,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6392,8 +5888,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_image(long ctx, long text, long img, long size);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param text 
      * @param img  
@@ -6407,8 +5901,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param text 
      * @param img  
@@ -6430,8 +5922,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_image_text(long ctx, long text, int len, int align, long img, long size);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6443,8 +5933,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6467,8 +5955,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_image_label(long ctx, long text, int align, long img, long size);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6483,8 +5969,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6507,8 +5991,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_symbol(long ctx, long text, int symbol, long size);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param text   
      * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
@@ -6522,8 +6004,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param text   
      * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
@@ -6545,8 +6025,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_symbol_text(long ctx, long text, int len, int align, int symbol, long size);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param text   
      * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6558,8 +6036,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param text   
      * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6582,8 +6058,6 @@ public class Nuklear {
     public static native int nnk_menu_begin_symbol_label(long ctx, long text, int align, int symbol, long size);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param text   
      * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6598,8 +6072,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param text   
      * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6622,8 +6094,6 @@ public class Nuklear {
     public static native int nnk_menu_item_text(long ctx, long text, int len, int align);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6633,8 +6103,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param text  
      * @param align one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6655,8 +6123,6 @@ public class Nuklear {
     public static native int nnk_menu_item_label(long ctx, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param text      
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6669,8 +6135,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param text      
      * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6691,8 +6155,6 @@ public class Nuklear {
     public static native int nnk_menu_item_image_label(long ctx, long img, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6706,8 +6168,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6729,8 +6189,6 @@ public class Nuklear {
     public static native int nnk_menu_item_image_text(long ctx, long img, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6741,8 +6199,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param img       
      * @param text      
@@ -6764,8 +6220,6 @@ public class Nuklear {
     public static native int nnk_menu_item_symbol_text(long ctx, int symbol, long text, int len, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6776,8 +6230,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6799,8 +6251,6 @@ public class Nuklear {
     public static native int nnk_menu_item_symbol_label(long ctx, int symbol, long text, int alignment);
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6814,8 +6264,6 @@ public class Nuklear {
     }
 
     /**
-     * 
-     *
      * @param ctx       the nuklear context
      * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
      * @param text      
@@ -6836,11 +6284,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_menu_close menu_close} */
     public static native void nnk_menu_close(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_menu_close(NkContext ctx) {
         nnk_menu_close(ctx.address());
     }
@@ -6850,11 +6294,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_menu_end menu_end} */
     public static native void nnk_menu_end(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_menu_end(NkContext ctx) {
         nnk_menu_end(ctx.address());
     }
@@ -7026,11 +6466,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_default style_default} */
     public static native void nnk_style_default(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_style_default(NkContext ctx) {
         nnk_style_default(ctx.address());
     }
@@ -7041,8 +6477,6 @@ public class Nuklear {
     public static native void nnk_style_from_table(long ctx, long table);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param table 
      */
@@ -7059,8 +6493,6 @@ public class Nuklear {
     public static native void nnk_style_load_cursor(long ctx, int style, long cursor);
 
     /**
-     * 
-     *
      * @param ctx    the nuklear context
      * @param style  one of:<br><table><tr><td>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</td><td>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</td><td>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</td><td>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</td><td>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</td></tr></table>
      * @param cursor 
@@ -7075,8 +6507,6 @@ public class Nuklear {
     public static native void nnk_style_load_all_cursors(long ctx, long cursors);
 
     /**
-     * 
-     *
      * @param ctx     the nuklear context
      * @param cursors 
      */
@@ -7092,11 +6522,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_get_color_by_name style_get_color_by_name} */
     public static native long nnk_style_get_color_by_name(int c);
 
-    /**
-     * 
-     *
-     * @param c one of:<br><table><tr><td>{@link #NK_COLOR_TEXT COLOR_TEXT}</td><td>{@link #NK_COLOR_WINDOW COLOR_WINDOW}</td><td>{@link #NK_COLOR_HEADER COLOR_HEADER}</td><td>{@link #NK_COLOR_BORDER COLOR_BORDER}</td></tr><tr><td>{@link #NK_COLOR_BUTTON COLOR_BUTTON}</td><td>{@link #NK_COLOR_BUTTON_HOVER COLOR_BUTTON_HOVER}</td><td>{@link #NK_COLOR_BUTTON_ACTIVE COLOR_BUTTON_ACTIVE}</td><td>{@link #NK_COLOR_TOGGLE COLOR_TOGGLE}</td></tr><tr><td>{@link #NK_COLOR_TOGGLE_HOVER COLOR_TOGGLE_HOVER}</td><td>{@link #NK_COLOR_TOGGLE_CURSOR COLOR_TOGGLE_CURSOR}</td><td>{@link #NK_COLOR_SELECT COLOR_SELECT}</td><td>{@link #NK_COLOR_SELECT_ACTIVE COLOR_SELECT_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_SLIDER COLOR_SLIDER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR COLOR_SLIDER_CURSOR}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_HOVER COLOR_SLIDER_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_ACTIVE COLOR_SLIDER_CURSOR_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_PROPERTY COLOR_PROPERTY}</td><td>{@link #NK_COLOR_EDIT COLOR_EDIT}</td><td>{@link #NK_COLOR_EDIT_CURSOR COLOR_EDIT_CURSOR}</td><td>{@link #NK_COLOR_COMBO COLOR_COMBO}</td></tr><tr><td>{@link #NK_COLOR_CHART COLOR_CHART}</td><td>{@link #NK_COLOR_CHART_COLOR COLOR_CHART_COLOR}</td><td>{@link #NK_COLOR_CHART_COLOR_HIGHLIGHT COLOR_CHART_COLOR_HIGHLIGHT}</td><td>{@link #NK_COLOR_SCROLLBAR COLOR_SCROLLBAR}</td></tr><tr><td>{@link #NK_COLOR_SCROLLBAR_CURSOR COLOR_SCROLLBAR_CURSOR}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_HOVER COLOR_SCROLLBAR_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_ACTIVE COLOR_SCROLLBAR_CURSOR_ACTIVE}</td><td>{@link #NK_COLOR_TAB_HEADER COLOR_TAB_HEADER}</td></tr></table>
-     */
+    /** @param c one of:<br><table><tr><td>{@link #NK_COLOR_TEXT COLOR_TEXT}</td><td>{@link #NK_COLOR_WINDOW COLOR_WINDOW}</td><td>{@link #NK_COLOR_HEADER COLOR_HEADER}</td><td>{@link #NK_COLOR_BORDER COLOR_BORDER}</td></tr><tr><td>{@link #NK_COLOR_BUTTON COLOR_BUTTON}</td><td>{@link #NK_COLOR_BUTTON_HOVER COLOR_BUTTON_HOVER}</td><td>{@link #NK_COLOR_BUTTON_ACTIVE COLOR_BUTTON_ACTIVE}</td><td>{@link #NK_COLOR_TOGGLE COLOR_TOGGLE}</td></tr><tr><td>{@link #NK_COLOR_TOGGLE_HOVER COLOR_TOGGLE_HOVER}</td><td>{@link #NK_COLOR_TOGGLE_CURSOR COLOR_TOGGLE_CURSOR}</td><td>{@link #NK_COLOR_SELECT COLOR_SELECT}</td><td>{@link #NK_COLOR_SELECT_ACTIVE COLOR_SELECT_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_SLIDER COLOR_SLIDER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR COLOR_SLIDER_CURSOR}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_HOVER COLOR_SLIDER_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_ACTIVE COLOR_SLIDER_CURSOR_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_PROPERTY COLOR_PROPERTY}</td><td>{@link #NK_COLOR_EDIT COLOR_EDIT}</td><td>{@link #NK_COLOR_EDIT_CURSOR COLOR_EDIT_CURSOR}</td><td>{@link #NK_COLOR_COMBO COLOR_COMBO}</td></tr><tr><td>{@link #NK_COLOR_CHART COLOR_CHART}</td><td>{@link #NK_COLOR_CHART_COLOR COLOR_CHART_COLOR}</td><td>{@link #NK_COLOR_CHART_COLOR_HIGHLIGHT COLOR_CHART_COLOR_HIGHLIGHT}</td><td>{@link #NK_COLOR_SCROLLBAR COLOR_SCROLLBAR}</td></tr><tr><td>{@link #NK_COLOR_SCROLLBAR_CURSOR COLOR_SCROLLBAR_CURSOR}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_HOVER COLOR_SCROLLBAR_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_ACTIVE COLOR_SCROLLBAR_CURSOR_ACTIVE}</td><td>{@link #NK_COLOR_TAB_HEADER COLOR_TAB_HEADER}</td></tr></table> */
     public static String nk_style_get_color_by_name(int c) {
         long __result = nnk_style_get_color_by_name(c);
         return memUTF8(__result);
@@ -7108,8 +6534,6 @@ public class Nuklear {
     public static native void nnk_style_set_font(long ctx, long font);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param font 
      */
@@ -7123,8 +6547,6 @@ public class Nuklear {
     public static native int nnk_style_set_cursor(long ctx, int style);
 
     /**
-     * 
-     *
      * @param ctx   the nuklear context
      * @param style one of:<br><table><tr><td>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</td><td>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</td><td>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</td><td>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</td><td>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</td></tr></table>
      */
@@ -7137,11 +6559,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_show_cursor style_show_cursor} */
     public static native void nnk_style_show_cursor(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_style_show_cursor(NkContext ctx) {
         nnk_style_show_cursor(ctx.address());
     }
@@ -7151,11 +6569,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_hide_cursor style_hide_cursor} */
     public static native void nnk_style_hide_cursor(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static void nk_style_hide_cursor(NkContext ctx) {
         nnk_style_hide_cursor(ctx.address());
     }
@@ -7166,8 +6580,6 @@ public class Nuklear {
     public static native int nnk_style_push_font(long ctx, long font);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param font 
      */
@@ -7181,8 +6593,6 @@ public class Nuklear {
     public static native int nnk_style_push_float(long ctx, long address, float value);
 
     /**
-     * 
-     *
      * @param ctx     the nuklear context
      * @param address 
      * @param value   
@@ -7200,8 +6610,6 @@ public class Nuklear {
     public static native int nnk_style_push_vec2(long ctx, long address, long value);
 
     /**
-     * 
-     *
      * @param ctx     the nuklear context
      * @param address 
      * @param value   
@@ -7216,8 +6624,6 @@ public class Nuklear {
     public static native int nnk_style_push_style_item(long ctx, long address, long value);
 
     /**
-     * 
-     *
      * @param ctx     the nuklear context
      * @param address 
      * @param value   
@@ -7232,8 +6638,6 @@ public class Nuklear {
     public static native int nnk_style_push_flags(long ctx, long address, int value);
 
     /**
-     * 
-     *
      * @param ctx     the nuklear context
      * @param address 
      * @param value   
@@ -7251,8 +6655,6 @@ public class Nuklear {
     public static native int nnk_style_push_color(long ctx, long address, long value);
 
     /**
-     * 
-     *
      * @param ctx     the nuklear context
      * @param address 
      * @param value   
@@ -7266,11 +6668,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_pop_font style_pop_font} */
     public static native int nnk_style_pop_font(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static int nk_style_pop_font(NkContext ctx) {
         return nnk_style_pop_font(ctx.address());
     }
@@ -7280,11 +6678,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_pop_float style_pop_float} */
     public static native int nnk_style_pop_float(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static int nk_style_pop_float(NkContext ctx) {
         return nnk_style_pop_float(ctx.address());
     }
@@ -7294,11 +6688,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_pop_vec2 style_pop_vec2} */
     public static native int nnk_style_pop_vec2(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static int nk_style_pop_vec2(NkContext ctx) {
         return nnk_style_pop_vec2(ctx.address());
     }
@@ -7308,11 +6698,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_pop_style_item style_pop_style_item} */
     public static native int nnk_style_pop_style_item(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static int nk_style_pop_style_item(NkContext ctx) {
         return nnk_style_pop_style_item(ctx.address());
     }
@@ -7322,11 +6708,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_pop_flags style_pop_flags} */
     public static native int nnk_style_pop_flags(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static int nk_style_pop_flags(NkContext ctx) {
         return nnk_style_pop_flags(ctx.address());
     }
@@ -7336,11 +6718,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_style_pop_color style_pop_color} */
     public static native int nnk_style_pop_color(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static int nk_style_pop_color(NkContext ctx) {
         return nnk_style_pop_color(ctx.address());
     }
@@ -7350,11 +6728,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_widget_bounds widget_bounds} */
     public static native void nnk_widget_bounds(long ctx, long __result);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static NkRect nk_widget_bounds(NkContext ctx, NkRect __result) {
         nnk_widget_bounds(ctx.address(), __result.address());
         return __result;
@@ -7365,11 +6739,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_widget_position widget_position} */
     public static native void nnk_widget_position(long ctx, long __result);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static NkVec2 nk_widget_position(NkContext ctx, NkVec2 __result) {
         nnk_widget_position(ctx.address(), __result.address());
         return __result;
@@ -7380,11 +6750,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_widget_size widget_size} */
     public static native void nnk_widget_size(long ctx, long __result);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static NkVec2 nk_widget_size(NkContext ctx, NkVec2 __result) {
         nnk_widget_size(ctx.address(), __result.address());
         return __result;
@@ -7395,11 +6761,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_widget_width widget_width} */
     public static native float nnk_widget_width(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static float nk_widget_width(NkContext ctx) {
         return nnk_widget_width(ctx.address());
     }
@@ -7409,11 +6771,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_widget_height widget_height} */
     public static native float nnk_widget_height(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static float nk_widget_height(NkContext ctx) {
         return nnk_widget_height(ctx.address());
     }
@@ -7423,11 +6781,7 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_widget_is_hovered widget_is_hovered} */
     public static native int nnk_widget_is_hovered(long ctx);
 
-    /**
-     * 
-     *
-     * @param ctx the nuklear context
-     */
+    /** @param ctx the nuklear context */
     public static boolean nk_widget_is_hovered(NkContext ctx) {
         return nnk_widget_is_hovered(ctx.address()) != 0;
     }
@@ -7438,8 +6792,6 @@ public class Nuklear {
     public static native int nnk_widget_is_mouse_clicked(long ctx, int btn);
 
     /**
-     * 
-     *
      * @param ctx the nuklear context
      * @param btn 
      */
@@ -7453,8 +6805,6 @@ public class Nuklear {
     public static native int nnk_widget_has_mouse_click_down(long ctx, int btn, int down);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param btn  one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      * @param down 
@@ -7469,8 +6819,6 @@ public class Nuklear {
     public static native void nnk_spacing(long ctx, int cols);
 
     /**
-     * 
-     *
      * @param ctx  the nuklear context
      * @param cols 
      */
@@ -7484,8 +6832,6 @@ public class Nuklear {
     public static native int nnk_widget(long bounds, long ctx);
 
     /**
-     * 
-     *
      * @param bounds 
      * @param ctx    the nuklear context
      */
@@ -7499,8 +6845,6 @@ public class Nuklear {
     public static native int nnk_widget_fitting(long bounds, long ctx, long item_padding);
 
     /**
-     * 
-     *
      * @param bounds       
      * @param ctx          the nuklear context
      * @param item_padding 
@@ -8116,8 +7460,6 @@ public class Nuklear {
     public static native void nnk_triangle_from_direction(long result, long r, float pad_x, float pad_y, int direction);
 
     /**
-     * 
-     *
      * @param result    
      * @param r         
      * @param pad_x     
@@ -8583,8 +7925,6 @@ public class Nuklear {
     public static native void nnk_buffer_push(long buffer, int type, long memory, long size, long align);
 
     /**
-     * 
-     *
      * @param buffer 
      * @param type   one of:<br><table><tr><td>{@link #NK_BUFFER_FRONT BUFFER_FRONT}</td><td>{@link #NK_BUFFER_BACK BUFFER_BACK}</td><td>{@link #NK_BUFFER_MAX BUFFER_MAX}</td></tr></table>
      * @param memory 
@@ -8600,8 +7940,6 @@ public class Nuklear {
     public static native void nnk_buffer_mark(long buffer, int type);
 
     /**
-     * 
-     *
      * @param buffer 
      * @param type   one of:<br><table><tr><td>{@link #NK_BUFFER_FRONT BUFFER_FRONT}</td><td>{@link #NK_BUFFER_BACK BUFFER_BACK}</td><td>{@link #NK_BUFFER_MAX BUFFER_MAX}</td></tr></table>
      */
@@ -8615,8 +7953,6 @@ public class Nuklear {
     public static native void nnk_buffer_reset(long buffer, int type);
 
     /**
-     * 
-     *
      * @param buffer 
      * @param type   one of:<br><table><tr><td>{@link #NK_BUFFER_FRONT BUFFER_FRONT}</td><td>{@link #NK_BUFFER_BACK BUFFER_BACK}</td><td>{@link #NK_BUFFER_MAX BUFFER_MAX}</td></tr></table>
      */
@@ -9309,8 +8645,6 @@ public class Nuklear {
     public static native int nnk_input_has_mouse_click(long i, int id);
 
     /**
-     * 
-     *
      * @param i  
      * @param id one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      */
@@ -9324,8 +8658,6 @@ public class Nuklear {
     public static native int nnk_input_has_mouse_click_in_rect(long i, int id, long rect);
 
     /**
-     * 
-     *
      * @param i    
      * @param id   one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      * @param rect 
@@ -9340,8 +8672,6 @@ public class Nuklear {
     public static native int nnk_input_has_mouse_click_down_in_rect(long i, int id, long rect, int down);
 
     /**
-     * 
-     *
      * @param i    
      * @param id   one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      * @param rect 
@@ -9357,8 +8687,6 @@ public class Nuklear {
     public static native int nnk_input_is_mouse_click_in_rect(long i, int id, long rect);
 
     /**
-     * 
-     *
      * @param i    
      * @param id   one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      * @param rect 
@@ -9373,8 +8701,6 @@ public class Nuklear {
     public static native int nnk_input_is_mouse_click_down_in_rect(long i, int id, long b, int down);
 
     /**
-     * 
-     *
      * @param i    
      * @param id   one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      * @param b    
@@ -9414,8 +8740,6 @@ public class Nuklear {
     public static native int nnk_input_mouse_clicked(long i, int id, long rect);
 
     /**
-     * 
-     *
      * @param i    
      * @param id   one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      * @param rect 
@@ -9430,8 +8754,6 @@ public class Nuklear {
     public static native int nnk_input_is_mouse_down(long i, int id);
 
     /**
-     * 
-     *
      * @param i  
      * @param id one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      */
@@ -9445,8 +8767,6 @@ public class Nuklear {
     public static native int nnk_input_is_mouse_pressed(long i, int id);
 
     /**
-     * 
-     *
      * @param i  
      * @param id one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      */
@@ -9460,8 +8780,6 @@ public class Nuklear {
     public static native int nnk_input_is_mouse_released(long i, int id);
 
     /**
-     * 
-     *
      * @param i  
      * @param id one of:<br><table><tr><td>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</td><td>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</td><td>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</td><td>{@link #NK_BUTTON_DOUBLE BUTTON_DOUBLE}</td></tr></table>
      */
@@ -9475,8 +8793,6 @@ public class Nuklear {
     public static native int nnk_input_is_key_pressed(long i, int key);
 
     /**
-     * 
-     *
      * @param i   
      * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
      */
@@ -9490,8 +8806,6 @@ public class Nuklear {
     public static native int nnk_input_is_key_released(long i, int key);
 
     /**
-     * 
-     *
      * @param i   
      * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
      */
@@ -9505,8 +8819,6 @@ public class Nuklear {
     public static native int nnk_input_is_key_down(long i, int key);
 
     /**
-     * 
-     *
      * @param i   
      * @param key one of:<br><table><tr><td>{@link #NK_KEY_NONE KEY_NONE}</td><td>{@link #NK_KEY_SHIFT KEY_SHIFT}</td><td>{@link #NK_KEY_CTRL KEY_CTRL}</td><td>{@link #NK_KEY_DEL KEY_DEL}</td><td>{@link #NK_KEY_ENTER KEY_ENTER}</td><td>{@link #NK_KEY_TAB KEY_TAB}</td></tr><tr><td>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</td><td>{@link #NK_KEY_COPY KEY_COPY}</td><td>{@link #NK_KEY_CUT KEY_CUT}</td><td>{@link #NK_KEY_PASTE KEY_PASTE}</td><td>{@link #NK_KEY_UP KEY_UP}</td><td>{@link #NK_KEY_DOWN KEY_DOWN}</td></tr><tr><td>{@link #NK_KEY_LEFT KEY_LEFT}</td><td>{@link #NK_KEY_RIGHT KEY_RIGHT}</td><td>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</td><td>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</td><td>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</td><td>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</td></tr><tr><td>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</td><td>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</td><td>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</td><td>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</td><td>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</td><td>{@link #NK_KEY_TEXT_SELECT_ALL KEY_TEXT_SELECT_ALL}</td></tr><tr><td>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</td><td>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</td><td>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</td><td>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</td><td>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</td><td>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</td></tr></table>
      */
@@ -9670,8 +8982,6 @@ public class Nuklear {
     public static native void nnk_draw_list_path_stroke(long list, long color, int closed, float thickness);
 
     /**
-     * 
-     *
      * @param list      
      * @param color     
      * @param closed    one of:<br><table><tr><td>{@link #NK_STROKE_OPEN STROKE_OPEN}</td><td>{@link #NK_STROKE_CLOSED STROKE_CLOSED}</td></tr></table>
@@ -9727,8 +9037,6 @@ public class Nuklear {
     public static native void nnk_draw_list_stroke_poly_line(long list, long pnts, int cnt, long color, int closed, float thickness, int aliasing);
 
     /**
-     * 
-     *
      * @param list      
      * @param pnts      
      * @param cnt       
@@ -9779,8 +9087,6 @@ public class Nuklear {
     public static native void nnk_draw_list_fill_poly_convex(long list, long points, int count, long color, int aliasing);
 
     /**
-     * 
-     *
      * @param list     
      * @param points   
      * @param color    

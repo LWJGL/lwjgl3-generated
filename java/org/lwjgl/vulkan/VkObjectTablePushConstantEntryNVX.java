@@ -35,12 +35,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkObjectTablePushConstantEntryNVX {
-    VkObjectEntryTypeNVX type;
-    VkObjectEntryUsageFlagsNVX flags;
-    VkPipelineLayout pipelineLayout;
-    VkShaderStageFlags stageFlags;
-}</code></pre>
+ * <code><pre>
+ * struct VkObjectTablePushConstantEntryNVX {
+ *     VkObjectEntryTypeNVX type;
+ *     VkObjectEntryUsageFlagsNVX flags;
+ *     VkPipelineLayout pipelineLayout;
+ *     VkShaderStageFlags stageFlags;
+ * }</pre></code>
  */
 public class VkObjectTablePushConstantEntryNVX extends Struct implements NativeResource {
 

@@ -34,9 +34,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code disabledValidationCheckCount} &ndash; the number of checks to disable.</li>
  * <li>{@code pDisabledValidationChecks} &ndash; a pointer to an array of values specifying the validation checks to be disabled. Checks which <b>may</b> be specified include:
  * 
- * <pre><code>typedef enum VkValidationCheckEXT {
-    VK_VALIDATION_CHECK_ALL_EXT = 0,
-} VkValidationCheckEXT;</code></pre>
+ * <code><pre>
+ * typedef enum VkValidationCheckEXT {
+ *     VK_VALIDATION_CHECK_ALL_EXT = 0,
+ * } VkValidationCheckEXT;</pre></code>
  * 
  * <ul>
  * <li>{@link EXTValidationFlags#VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT} disables all validation checks.</li>
@@ -45,12 +46,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkValidationFlagsEXT {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t disabledValidationCheckCount;
-    VkValidationCheckEXT * pDisabledValidationChecks;
-}</code></pre>
+ * <code><pre>
+ * struct VkValidationFlagsEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t disabledValidationCheckCount;
+ *     VkValidationCheckEXT * pDisabledValidationChecks;
+ * }</pre></code>
  */
 public class VkValidationFlagsEXT extends Struct implements NativeResource {
 

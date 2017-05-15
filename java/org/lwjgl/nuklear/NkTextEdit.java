@@ -14,24 +14,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_text_edit {
-    {@link NkClipboard struct nk_clipboard} clip;
-    {@link NkStr struct nk_str} string;
-    {@link NkPluginFilterI nk_plugin_filter} filter;
-    {@link NkVec2 struct nk_vec2} scrollbar;
-    int cursor;
-    int select_start;
-    int select_end;
-    unsigned char mode;
-    bool cursor_at_end_of_line;
-    bool initialized;
-    bool has_preferred_x;
-    bool single_line;
-    bool active;
-    char[1];
-    float preferred_x;
-    {@link NkTextUndoState struct nk_text_undo_state} undo;
-}</code></pre>
+ * <code><pre>
+ * struct nk_text_edit {
+ *     {@link NkClipboard struct nk_clipboard} clip;
+ *     {@link NkStr struct nk_str} string;
+ *     {@link NkPluginFilterI nk_plugin_filter} filter;
+ *     {@link NkVec2 struct nk_vec2} scrollbar;
+ *     int cursor;
+ *     int select_start;
+ *     int select_end;
+ *     unsigned char mode;
+ *     bool cursor_at_end_of_line;
+ *     bool initialized;
+ *     bool has_preferred_x;
+ *     bool single_line;
+ *     bool active;
+ *     char[1];
+ *     float preferred_x;
+ *     {@link NkTextUndoState struct nk_text_undo_state} undo;
+ * }</pre></code>
  */
 class NkTextEdit extends Struct {
 

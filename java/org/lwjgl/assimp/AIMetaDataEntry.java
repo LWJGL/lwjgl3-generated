@@ -17,10 +17,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMetadataEntry {
-    aiMetadataType mType;
-    void * mData;
-}</code></pre>
+ * <code><pre>
+ * struct aiMetadataEntry {
+ *     aiMetadataType mType;
+ *     void * mData;
+ * }</pre></code>
  */
 public class AIMetaDataEntry extends Struct implements NativeResource {
 

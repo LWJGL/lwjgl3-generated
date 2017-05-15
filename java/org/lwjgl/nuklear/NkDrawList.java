@@ -17,21 +17,22 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_draw_list {
-    {@link NkRect struct nk_rect} clip_rect;
-    {@link NkVec2 struct nk_vec2} circle_vtx[12];
-    {@link NkConvertConfig struct nk_convert_config} config;
-    {@link NkBuffer struct nk_buffer} * buffer;
-    {@link NkBuffer struct nk_buffer} * vertices;
-    {@link NkBuffer struct nk_buffer} * elements;
-    unsigned int element_count;
-    unsigned int vertex_count;
-    unsigned int cmd_count;
-    nk_size cmd_offset;
-    unsigned int path_count;
-    unsigned int path_offset;
-    {@link NkHandle nk_handle} userdata;
-}</code></pre>
+ * <code><pre>
+ * struct nk_draw_list {
+ *     {@link NkRect struct nk_rect} clip_rect;
+ *     {@link NkVec2 struct nk_vec2} circle_vtx[12];
+ *     {@link NkConvertConfig struct nk_convert_config} config;
+ *     {@link NkBuffer struct nk_buffer} * buffer;
+ *     {@link NkBuffer struct nk_buffer} * vertices;
+ *     {@link NkBuffer struct nk_buffer} * elements;
+ *     unsigned int element_count;
+ *     unsigned int vertex_count;
+ *     unsigned int cmd_count;
+ *     nk_size cmd_offset;
+ *     unsigned int path_count;
+ *     unsigned int path_offset;
+ *     {@link NkHandle nk_handle} userdata;
+ * }</pre></code>
  */
 public class NkDrawList extends Struct implements NativeResource {
 

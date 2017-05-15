@@ -27,10 +27,11 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExtensionProperties {
-    char extensionName[VK_MAX_EXTENSION_NAME_SIZE];
-    uint32_t specVersion;
-}</code></pre>
+ * <code><pre>
+ * struct VkExtensionProperties {
+ *     char extensionName[VK_MAX_EXTENSION_NAME_SIZE];
+ *     uint32_t specVersion;
+ * }</pre></code>
  */
 public class VkExtensionProperties extends Struct implements NativeResource {
 

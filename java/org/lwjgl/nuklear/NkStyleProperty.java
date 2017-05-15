@@ -23,26 +23,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_property {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkColor struct nk_color} label_normal;
-    {@link NkColor struct nk_color} label_hover;
-    {@link NkColor struct nk_color} label_active;
-    enum nk_symbol_type sym_left;
-    enum nk_symbol_type sym_right;
-    float border;
-    float rounding;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkStyleEdit struct nk_style_edit} edit;
-    {@link NkStyleButton struct nk_style_button} inc_button;
-    {@link NkStyleButton struct nk_style_button} dec_button;
-    {@link NkHandle nk_handle} userdata;
-    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
-    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_property {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkColor struct nk_color} label_normal;
+ *     {@link NkColor struct nk_color} label_hover;
+ *     {@link NkColor struct nk_color} label_active;
+ *     enum nk_symbol_type sym_left;
+ *     enum nk_symbol_type sym_right;
+ *     float border;
+ *     float rounding;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkStyleEdit struct nk_style_edit} edit;
+ *     {@link NkStyleButton struct nk_style_button} inc_button;
+ *     {@link NkStyleButton struct nk_style_button} dec_button;
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+ *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
+ * }</pre></code>
  */
 public class NkStyleProperty extends Struct implements NativeResource {
 

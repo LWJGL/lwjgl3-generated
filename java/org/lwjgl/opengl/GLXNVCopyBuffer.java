@@ -28,8 +28,6 @@ public class GLXNVCopyBuffer {
     // --- [ glXCopyBufferSubDataNV ] ---
 
     /**
-     * 
-     *
      * @param display     the connection to the X server
      * @param readCtx     
      * @param writeCtx    
@@ -53,8 +51,6 @@ public class GLXNVCopyBuffer {
     // --- [ glXNamedCopyBufferSubDataNV ] ---
 
     /**
-     * 
-     *
      * @param display     the connection to the X server
      * @param readCtx     
      * @param writeCtx    

@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBufferCopy {
-    VkDeviceSize srcOffset;
-    VkDeviceSize dstOffset;
-    VkDeviceSize size;
-}</code></pre>
+ * <code><pre>
+ * struct VkBufferCopy {
+ *     VkDeviceSize srcOffset;
+ *     VkDeviceSize dstOffset;
+ *     VkDeviceSize size;
+ * }</pre></code>
  */
 public class VkBufferCopy extends Struct implements NativeResource {
 

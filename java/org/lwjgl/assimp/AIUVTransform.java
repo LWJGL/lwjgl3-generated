@@ -31,11 +31,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiUVTransform {
-    {@link AIVector2D struct aiVector2D} mTranslation;
-    {@link AIVector2D struct aiVector2D} mScaling;
-    float mRotation;
-}</code></pre>
+ * <code><pre>
+ * struct aiUVTransform {
+ *     {@link AIVector2D struct aiVector2D} mTranslation;
+ *     {@link AIVector2D struct aiVector2D} mScaling;
+ *     float mRotation;
+ * }</pre></code>
  */
 public class AIUVTransform extends Struct implements NativeResource {
 

@@ -27,22 +27,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>There are four functions, one for each image file format:</p>
  * 
- * <pre><code>int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes);
-int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
-int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
-int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</code></pre>
+ * <code><pre>
+ * int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes);
+ * int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
+ * int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
+ * int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</pre></code>
  * 
  * <p>There are also four equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
  * calling these:</p>
  * 
- * <pre><code>int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
-int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
-int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
-int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</code></pre>
+ * <code><pre>
+ * int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
+ * int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+ * int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+ * int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</pre></code>
  * 
  * <p>where the callback is:</p>
  * 
- * <pre><code>void stbi_write_func(void *context, void *data, int size);</code></pre>
+ * <code><pre>
+ * void stbi_write_func(void *context, void *data, int size);</pre></code>
  * 
  * <p>The functions create an image file defined by the parameters. The image is a rectangle of pixels stored from left-to-right, top-to-bottom. Each pixel
  * contains {@code comp} channels of data stored interleaved with 8-bits per channel, in the following order: 1=Y, 2=YA, 3=RGB, 4=RGBA. (Y is monochrome

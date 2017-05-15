@@ -55,13 +55,14 @@ If a shader stage is not included in {@code stageFlags}, then a resource <b>must
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorSetLayoutBinding {
-    uint32_t binding;
-    VkDescriptorType descriptorType;
-    uint32_t descriptorCount;
-    VkShaderStageFlags stageFlags;
-    const VkSampler * pImmutableSamplers;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorSetLayoutBinding {
+ *     uint32_t binding;
+ *     VkDescriptorType descriptorType;
+ *     uint32_t descriptorCount;
+ *     VkShaderStageFlags stageFlags;
+ *     const VkSampler * pImmutableSamplers;
+ * }</pre></code>
  */
 public class VkDescriptorSetLayoutBinding extends Struct implements NativeResource {
 

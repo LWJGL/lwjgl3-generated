@@ -25,13 +25,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Bits which <b>can</b> be set in {@code flags} are:</p>
  * 
- * <pre><code>typedef enum VkPipelineCreateFlagBits {
-    VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x00000001,
-    VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x00000002,
-    VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x00000004,
-    VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX = 0x00000008,
-    VK_PIPELINE_CREATE_DISPATCH_BASE_KHX = 0x00000010,
-} VkPipelineCreateFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkPipelineCreateFlagBits {
+ *     VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x00000001,
+ *     VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT = 0x00000002,
+ *     VK_PIPELINE_CREATE_DERIVATIVE_BIT = 0x00000004,
+ *     VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX = 0x00000008,
+ *     VK_PIPELINE_CREATE_DISPATCH_BASE_KHX = 0x00000010,
+ * } VkPipelineCreateFlagBits;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT} specifies that the created pipeline will not be optimized. Using this flag <b>may</b> reduce the time taken to create the pipeline.</li>
@@ -142,27 +143,28 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkGraphicsPipelineCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineCreateFlags flags;
-    uint32_t stageCount;
-    const {@link VkPipelineShaderStageCreateInfo VkPipelineShaderStageCreateInfo} * pStages;
-    const {@link VkPipelineVertexInputStateCreateInfo VkPipelineVertexInputStateCreateInfo} * pVertexInputState;
-    const {@link VkPipelineInputAssemblyStateCreateInfo VkPipelineInputAssemblyStateCreateInfo} * pInputAssemblyState;
-    const {@link VkPipelineTessellationStateCreateInfo VkPipelineTessellationStateCreateInfo} * pTessellationState;
-    const {@link VkPipelineViewportStateCreateInfo VkPipelineViewportStateCreateInfo} * pViewportState;
-    const {@link VkPipelineRasterizationStateCreateInfo VkPipelineRasterizationStateCreateInfo} * pRasterizationState;
-    const {@link VkPipelineMultisampleStateCreateInfo VkPipelineMultisampleStateCreateInfo} * pMultisampleState;
-    const {@link VkPipelineDepthStencilStateCreateInfo VkPipelineDepthStencilStateCreateInfo} * pDepthStencilState;
-    const {@link VkPipelineColorBlendStateCreateInfo VkPipelineColorBlendStateCreateInfo} * pColorBlendState;
-    const {@link VkPipelineDynamicStateCreateInfo VkPipelineDynamicStateCreateInfo} * pDynamicState;
-    VkPipelineLayout layout;
-    VkRenderPass renderPass;
-    uint32_t subpass;
-    VkPipeline basePipelineHandle;
-    int32_t basePipelineIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkGraphicsPipelineCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineCreateFlags flags;
+ *     uint32_t stageCount;
+ *     const {@link VkPipelineShaderStageCreateInfo VkPipelineShaderStageCreateInfo} * pStages;
+ *     const {@link VkPipelineVertexInputStateCreateInfo VkPipelineVertexInputStateCreateInfo} * pVertexInputState;
+ *     const {@link VkPipelineInputAssemblyStateCreateInfo VkPipelineInputAssemblyStateCreateInfo} * pInputAssemblyState;
+ *     const {@link VkPipelineTessellationStateCreateInfo VkPipelineTessellationStateCreateInfo} * pTessellationState;
+ *     const {@link VkPipelineViewportStateCreateInfo VkPipelineViewportStateCreateInfo} * pViewportState;
+ *     const {@link VkPipelineRasterizationStateCreateInfo VkPipelineRasterizationStateCreateInfo} * pRasterizationState;
+ *     const {@link VkPipelineMultisampleStateCreateInfo VkPipelineMultisampleStateCreateInfo} * pMultisampleState;
+ *     const {@link VkPipelineDepthStencilStateCreateInfo VkPipelineDepthStencilStateCreateInfo} * pDepthStencilState;
+ *     const {@link VkPipelineColorBlendStateCreateInfo VkPipelineColorBlendStateCreateInfo} * pColorBlendState;
+ *     const {@link VkPipelineDynamicStateCreateInfo VkPipelineDynamicStateCreateInfo} * pDynamicState;
+ *     VkPipelineLayout layout;
+ *     VkRenderPass renderPass;
+ *     uint32_t subpass;
+ *     VkPipeline basePipelineHandle;
+ *     int32_t basePipelineIndex;
+ * }</pre></code>
  */
 public class VkGraphicsPipelineCreateInfo extends Struct implements NativeResource {
 

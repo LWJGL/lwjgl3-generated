@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VRControllerAxis_t {
-    float x;
-    float y;
-}</code></pre>
+ * <code><pre>
+ * struct VRControllerAxis_t {
+ *     float x;
+ *     float y;
+ * }</pre></code>
  */
 public class VRControllerAxis extends Struct implements NativeResource {
 

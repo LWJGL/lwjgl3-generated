@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_attachment_t {
-    bgfx_texture_handle_t handle;
-    uint16_t mip;
-    uint16_t layer;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_attachment_t {
+ *     bgfx_texture_handle_t handle;
+ *     uint16_t mip;
+ *     uint16_t layer;
+ * }</pre></code>
  */
 public class BGFXAttachment extends Struct implements NativeResource {
 

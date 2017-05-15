@@ -47,11 +47,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorImageInfo {
-    VkSampler sampler;
-    VkImageView imageView;
-    VkImageLayout imageLayout;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorImageInfo {
+ *     VkSampler sampler;
+ *     VkImageView imageView;
+ *     VkImageLayout imageLayout;
+ * }</pre></code>
  */
 public class VkDescriptorImageInfo extends Struct implements NativeResource {
 

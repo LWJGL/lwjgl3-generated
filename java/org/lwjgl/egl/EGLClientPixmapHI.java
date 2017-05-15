@@ -33,12 +33,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct EGLClientPixmapHI {
-    void * pData;
-    EGLint iWidth;
-    EGLint iHeight;
-    EGLint iStride;
-}</code></pre>
+ * <code><pre>
+ * struct EGLClientPixmapHI {
+ *     void * pData;
+ *     EGLint iWidth;
+ *     EGLint iHeight;
+ *     EGLint iStride;
+ * }</pre></code>
  */
 public class EGLClientPixmapHI extends Struct implements NativeResource {
 

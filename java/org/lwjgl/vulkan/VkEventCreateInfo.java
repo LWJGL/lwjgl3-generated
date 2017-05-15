@@ -38,11 +38,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkEventCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkEventCreateFlags flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkEventCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkEventCreateFlags flags;
+ * }</pre></code>
  */
 public class VkEventCreateInfo extends Struct implements NativeResource {
 

@@ -27,10 +27,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_str {
-    {@link NkBuffer struct nk_buffer} buffer;
-    int len;
-}</code></pre>
+ * <code><pre>
+ * struct nk_str {
+ *     {@link NkBuffer struct nk_buffer} buffer;
+ *     int len;
+ * }</pre></code>
  */
 public class NkStr extends Struct implements NativeResource {
 

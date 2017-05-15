@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class KHRGLTexture2DImage {
 
-    /**  */
     public static final int
         EGL_GL_TEXTURE_2D_KHR    = 0x30B1,
         EGL_GL_TEXTURE_LEVEL_KHR = 0x30BC;

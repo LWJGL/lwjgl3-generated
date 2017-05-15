@@ -52,14 +52,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceQueueCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkDeviceQueueCreateFlags flags;
-    uint32_t queueFamilyIndex;
-    uint32_t queueCount;
-    const float * pQueuePriorities;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceQueueCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDeviceQueueCreateFlags flags;
+ *     uint32_t queueFamilyIndex;
+ *     uint32_t queueCount;
+ *     const float * pQueuePriorities;
+ * }</pre></code>
  */
 public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
 

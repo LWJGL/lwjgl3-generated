@@ -14,10 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_buffer_marker {
-    int active;
-    nk_size offset;
-}</code></pre>
+ * <code><pre>
+ * struct nk_buffer_marker {
+ *     int active;
+ *     nk_size offset;
+ * }</pre></code>
  */
 public class NkBufferMarker extends Struct {
 

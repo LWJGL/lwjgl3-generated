@@ -38,11 +38,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDedicatedAllocationBufferCreateInfoNV {
-    VkStructureType sType;
-    const void * pNext;
-    VkBool32 dedicatedAllocation;
-}</code></pre>
+ * <code><pre>
+ * struct VkDedicatedAllocationBufferCreateInfoNV {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBool32 dedicatedAllocation;
+ * }</pre></code>
  */
 public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements NativeResource {
 

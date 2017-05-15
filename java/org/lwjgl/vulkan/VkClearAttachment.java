@@ -53,11 +53,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkClearAttachment {
-    VkImageAspectFlags aspectMask;
-    uint32_t colorAttachment;
-    {@link VkClearValue VkClearValue} clearValue;
-}</code></pre>
+ * <code><pre>
+ * struct VkClearAttachment {
+ *     VkImageAspectFlags aspectMask;
+ *     uint32_t colorAttachment;
+ *     {@link VkClearValue VkClearValue} clearValue;
+ * }</pre></code>
  */
 public class VkClearAttachment extends Struct implements NativeResource {
 

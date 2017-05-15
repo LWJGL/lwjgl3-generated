@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiColor3D {
-    float r;
-    float g;
-    float b;
-}</code></pre>
+ * <code><pre>
+ * struct aiColor3D {
+ *     float r;
+ *     float g;
+ *     float b;
+ * }</pre></code>
  */
 public class AIColor3D extends Struct {
 

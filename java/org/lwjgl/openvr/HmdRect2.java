@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct HmdRect2_t {
-    {@link HmdVector2 HmdVector2_t} vTopLeft;
-    {@link HmdVector2 HmdVector2_t} vBottomRight;
-}</code></pre>
+ * <code><pre>
+ * struct HmdRect2_t {
+ *     {@link HmdVector2 HmdVector2_t} vTopLeft;
+ *     {@link HmdVector2 HmdVector2_t} vBottomRight;
+ * }</pre></code>
  */
 public class HmdRect2 extends Struct implements NativeResource {
 

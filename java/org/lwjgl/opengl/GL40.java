@@ -277,15 +277,16 @@ public class GL40 {
      * 
      * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
      * 
-     * <pre><code>typedef struct {
-    uint count;
-    uint primCount;
-    uint first;
-    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
-} DrawArraysIndirectCommand;
-
-const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
-glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+     * <code><pre>
+     * typedef struct {
+     *     uint count;
+     *     uint primCount;
+     *     uint first;
+     *     uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+     * } DrawArraysIndirectCommand;
+     * 
+     * const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+     * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</pre></code>
      *
      * @param mode     what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
      * @param indirect a structure containing the draw parameters
@@ -307,15 +308,16 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
      * 
      * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
      * 
-     * <pre><code>typedef struct {
-    uint count;
-    uint primCount;
-    uint first;
-    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
-} DrawArraysIndirectCommand;
-
-const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
-glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+     * <code><pre>
+     * typedef struct {
+     *     uint count;
+     *     uint primCount;
+     *     uint first;
+     *     uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+     * } DrawArraysIndirectCommand;
+     * 
+     * const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+     * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</pre></code>
      *
      * @param mode     what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
      * @param indirect a structure containing the draw parameters
@@ -334,15 +336,16 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
      * 
      * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
      * 
-     * <pre><code>typedef struct {
-    uint count;
-    uint primCount;
-    uint first;
-    uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
-} DrawArraysIndirectCommand;
-
-const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
-glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+     * <code><pre>
+     * typedef struct {
+     *     uint count;
+     *     uint primCount;
+     *     uint first;
+     *     uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
+     * } DrawArraysIndirectCommand;
+     * 
+     * const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+     * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</pre></code>
      *
      * @param mode     what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
      * @param indirect a structure containing the draw parameters
@@ -369,28 +372,30 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
      * 
      * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
      * 
-     * <pre><code>typedef struct {
-    uint count;
-    uint primCount;
-    uint firstIndex;
-    uint baseVertex;
-    uint baseInstance;
-} DrawElementsIndirectCommand;</code></pre>
+     * <code><pre>
+     * typedef struct {
+     *     uint count;
+     *     uint primCount;
+     *     uint firstIndex;
+     *     uint baseVertex;
+     *     uint baseInstance;
+     * } DrawElementsIndirectCommand;</pre></code>
      * 
      * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
      * 
-     * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
-    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
-    glDrawElementsInstancedBaseVertexBaseInstance(
-        mode,
-        cmd->count,
-        type,
-        cmd->firstIndex + size-of-type,
-        cmd->primCount,
-        cmd->baseVertex,
-        cmd->baseInstance
-    );
-}</code></pre>
+     * <code><pre>
+     * void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+     *     const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+     *     glDrawElementsInstancedBaseVertexBaseInstance(
+     *         mode,
+     *         cmd->count,
+     *         type,
+     *         cmd->firstIndex + size-of-type,
+     *         cmd->primCount,
+     *         cmd->baseVertex,
+     *         cmd->baseInstance
+     *     );
+     * }</pre></code>
      *
      * @param mode     what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
      * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
@@ -413,28 +418,30 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
      * 
      * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
      * 
-     * <pre><code>typedef struct {
-    uint count;
-    uint primCount;
-    uint firstIndex;
-    uint baseVertex;
-    uint baseInstance;
-} DrawElementsIndirectCommand;</code></pre>
+     * <code><pre>
+     * typedef struct {
+     *     uint count;
+     *     uint primCount;
+     *     uint firstIndex;
+     *     uint baseVertex;
+     *     uint baseInstance;
+     * } DrawElementsIndirectCommand;</pre></code>
      * 
      * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
      * 
-     * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
-    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
-    glDrawElementsInstancedBaseVertexBaseInstance(
-        mode,
-        cmd->count,
-        type,
-        cmd->firstIndex + size-of-type,
-        cmd->primCount,
-        cmd->baseVertex,
-        cmd->baseInstance
-    );
-}</code></pre>
+     * <code><pre>
+     * void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+     *     const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+     *     glDrawElementsInstancedBaseVertexBaseInstance(
+     *         mode,
+     *         cmd->count,
+     *         type,
+     *         cmd->firstIndex + size-of-type,
+     *         cmd->primCount,
+     *         cmd->baseVertex,
+     *         cmd->baseInstance
+     *     );
+     * }</pre></code>
      *
      * @param mode     what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
      * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
@@ -454,28 +461,30 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
      * 
      * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
      * 
-     * <pre><code>typedef struct {
-    uint count;
-    uint primCount;
-    uint firstIndex;
-    uint baseVertex;
-    uint baseInstance;
-} DrawElementsIndirectCommand;</code></pre>
+     * <code><pre>
+     * typedef struct {
+     *     uint count;
+     *     uint primCount;
+     *     uint firstIndex;
+     *     uint baseVertex;
+     *     uint baseInstance;
+     * } DrawElementsIndirectCommand;</pre></code>
      * 
      * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
      * 
-     * <pre><code>void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
-    const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
-    glDrawElementsInstancedBaseVertexBaseInstance(
-        mode,
-        cmd->count,
-        type,
-        cmd->firstIndex + size-of-type,
-        cmd->primCount,
-        cmd->baseVertex,
-        cmd->baseInstance
-    );
-}</code></pre>
+     * <code><pre>
+     * void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
+     *     const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
+     *     glDrawElementsInstancedBaseVertexBaseInstance(
+     *         mode,
+     *         cmd->count,
+     *         type,
+     *         cmd->firstIndex + size-of-type,
+     *         cmd->primCount,
+     *         cmd->baseVertex,
+     *         cmd->baseInstance
+     *     );
+     * }</pre></code>
      *
      * @param mode     what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link #GL_PATCHES PATCHES}</td></tr></table>
      * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>

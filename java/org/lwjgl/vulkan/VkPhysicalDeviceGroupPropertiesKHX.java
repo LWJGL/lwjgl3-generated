@@ -32,13 +32,14 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceGroupPropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    uint32_t physicalDeviceCount;
-    VkPhysicalDevice physicalDevices[VK_MAX_DEVICE_GROUP_SIZE_KHX];
-    VkBool32 subsetAllocation;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceGroupPropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint32_t physicalDeviceCount;
+ *     VkPhysicalDevice physicalDevices[VK_MAX_DEVICE_GROUP_SIZE_KHX];
+ *     VkBool32 subsetAllocation;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceGroupPropertiesKHX extends Struct implements NativeResource {
 

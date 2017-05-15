@@ -97,9 +97,10 @@ public class KHXExternalSemaphoreWin32 {
      * 
      * <p>To import semaphore state from a Windows handle, call:</p>
      * 
-     * <pre><code>VkResult vkImportSemaphoreWin32HandleKHX(
-    VkDevice                                    device,
-    const VkImportSemaphoreWin32HandleInfoKHX*  pImportSemaphoreWin32HandleInfo);</code></pre>
+     * <code><pre>
+     * VkResult vkImportSemaphoreWin32HandleKHX(
+     *     VkDevice                                    device,
+     *     const VkImportSemaphoreWin32HandleInfoKHX*  pImportSemaphoreWin32HandleInfo);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -155,11 +156,12 @@ public class KHXExternalSemaphoreWin32 {
      * 
      * <p>To export a Windows handle representing the state of a semaphore, call:</p>
      * 
-     * <pre><code>VkResult vkGetSemaphoreWin32HandleKHX(
-    VkDevice                                    device,
-    VkSemaphore                                 semaphore,
-    VkExternalSemaphoreHandleTypeFlagBitsKHX    handleType,
-    HANDLE*                                     pHandle);</code></pre>
+     * <code><pre>
+     * VkResult vkGetSemaphoreWin32HandleKHX(
+     *     VkDevice                                    device,
+     *     VkSemaphore                                 semaphore,
+     *     VkExternalSemaphoreHandleTypeFlagBitsKHX    handleType,
+     *     HANDLE*                                     pHandle);</pre></code>
      * 
      * <h5>Description</h5>
      * 

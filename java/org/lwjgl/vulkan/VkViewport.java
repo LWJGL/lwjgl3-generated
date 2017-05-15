@@ -18,9 +18,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The framebuffer depth coordinate <code>z<sub>f</sub></code> <b>may</b> be represented using either a fixed-point or floating-point representation. However, a floating-point representation <b>must</b> be used if the depth/stencil attachment has a floating-point depth component. If an <code>m</code>-bit fixed-point representation is used, we assume that it represents each value</p><pre><code>k / (2<sup>m</sup> - 1)</code></pre>
+ * <p>The framebuffer depth coordinate</p><code>z<sub>f</sub></code>
  * 
- * <p>, where <code>k {elem} { 0, 1, ..., 2<sup>m</sup>-1 }</code>, as <code>k</code> (e.g. 1.0 is represented in binary as a string of all ones).</p>
+ * <p><b>may</b> be represented using either a fixed-point or floating-point representation. However, a floating-point representation <b>must</b> be used if the depth/stencil attachment has a floating-point depth component. If an</p><code>m</code>
+ * 
+ * <p>-bit fixed-point representation is used, we assume that it represents each value</p><code><pre>
+ * k / (2<sup>m</sup> - 1)</pre></code>
+ * 
+ * <p>, where</p><code>k {elem} { 0, 1, ..., 2<sup>m</sup>-1 }</code>
+ * 
+ * <p>, as</p><code>k</code>
+ * 
+ * <p>(e.g. 1.0 is represented in binary as a string of all ones).</p>
  * 
  * <p>The viewport parameters shown in the above equations are found from these values as</p>
  * 
@@ -30,7 +39,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <dd><code>o<sub>z</sub> = minDepth</code></dd>
  * <dd><code>p<sub>x</sub> = width</code></dd>
  * <dd><code>p<sub>y</sub> = height</code></dd>
- * <dd><code>p<sub>z</sub> = maxDepth - minDepth</code>.</dd>
+ * <dd><code>p<sub>z</sub> = maxDepth - minDepth</code>
+ * 
+ * <p>.</p></dd>
  * </dl>
  * 
  * <p>The application <b>can</b> specify a negative term for {@code height}, which has the effect of negating the y coordinate in clip space before performing the transform. When using a negative {@code height}, the application <b>should</b> also adjust the {@code y} value to point to the lower left corner of the viewport instead of the upper left corner. Using the negative {@code height} allows the application to avoid having to negate the y component of the {@code Position} output from the last vertex processing stage in shaders that also target other graphics APIs.</p>
@@ -59,7 +70,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code x} &ndash; {@code x} and {@code y} are the viewport&#8217;s upper left corner <code>(x,y)</code>.</li>
+ * <li>{@code x} &ndash; {@code x} and {@code y} are the viewport&#8217;s upper left corner<code>(x,y)</code>
+ * 
+ * <p>.</p></li>
  * <li>{@code y} &ndash; see {@code x}</li>
  * <li>{@code width} &ndash; {@code width} and {@code height} are the viewport&#8217;s width and height, respectively.</li>
  * <li>{@code height} &ndash; see {@code width}</li>
@@ -69,14 +82,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkViewport {
-    float x;
-    float y;
-    float width;
-    float height;
-    float minDepth;
-    float maxDepth;
-}</code></pre>
+ * <code><pre>
+ * struct VkViewport {
+ *     float x;
+ *     float y;
+ *     float width;
+ *     float height;
+ *     float minDepth;
+ *     float maxDepth;
+ * }</pre></code>
  */
 public class VkViewport extends Struct implements NativeResource {
 

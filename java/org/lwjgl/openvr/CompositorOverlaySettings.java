@@ -24,22 +24,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct Compositor_OverlaySettings {
-    uint32_t size;
-    bool curved;
-    bool antialias;
-    float scale;
-    float distance;
-    float alpha;
-    float uOffset;
-    float vOffset;
-    float uScale;
-    float vScale;
-    float gridDivs;
-    float gridWidth;
-    float gridScale;
-    {@link HmdMatrix44 HmdMatrix44_t} transform;
-}</code></pre>
+ * <code><pre>
+ * struct Compositor_OverlaySettings {
+ *     uint32_t size;
+ *     bool curved;
+ *     bool antialias;
+ *     float scale;
+ *     float distance;
+ *     float alpha;
+ *     float uOffset;
+ *     float vOffset;
+ *     float uScale;
+ *     float vScale;
+ *     float gridDivs;
+ *     float gridWidth;
+ *     float gridScale;
+ *     {@link HmdMatrix44 HmdMatrix44_t} transform;
+ * }</pre></code>
  */
 public class CompositorOverlaySettings extends Struct implements NativeResource {
 

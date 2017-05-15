@@ -20,10 +20,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code size} &ndash; the total memory size in bytes in the heap.</li>
  * <li>{@code flags} &ndash; a bitmask of attribute flags for the heap. The bits specified in {@code flags} are:
  * 
- * <pre><code>typedef enum VkMemoryHeapFlagBits {
-    VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
-    VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX = 0x00000002,
-} VkMemoryHeapFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkMemoryHeapFlagBits {
+ *     VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
+ *     VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX = 0x00000002,
+ * } VkMemoryHeapFlagBits;</pre></code>
  * 
  * <ul>
  * <li>if {@code flags} contains {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}, it means the heap corresponds to device local memory. Device local memory <b>may</b> have different performance characteristics than host local memory, and <b>may</b> support different memory property flags.</li>
@@ -33,10 +34,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryHeap {
-    VkDeviceSize size;
-    VkMemoryHeapFlags flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryHeap {
+ *     VkDeviceSize size;
+ *     VkMemoryHeapFlags flags;
+ * }</pre></code>
  */
 public class VkMemoryHeap extends Struct {
 

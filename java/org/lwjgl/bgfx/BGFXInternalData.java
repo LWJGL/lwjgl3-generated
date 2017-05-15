@@ -22,9 +22,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_internal_data_t {
-    {@link BGFXCaps bgfx_caps_t} * caps;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_internal_data_t {
+ *     {@link BGFXCaps bgfx_caps_t} * caps;
+ * }</pre></code>
  */
 public class BGFXInternalData extends Struct {
 

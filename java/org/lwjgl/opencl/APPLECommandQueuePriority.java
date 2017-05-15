@@ -16,7 +16,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to the <strong>APPLE_command_queue_priority</strong> extension. */
 public class APPLECommandQueuePriority {
 
-    /**  */
     public static final int
         CL_QUEUE_PRIORITY_APPLE            = 0x10000013,
         CL_QUEUE_PRIORITY_BACKGROUND_APPLE = 0x10000015,
@@ -46,8 +45,6 @@ public class APPLECommandQueuePriority {
     }
 
     /**
-     * 
-     *
      * @param context     
      * @param device      
      * @param properties  

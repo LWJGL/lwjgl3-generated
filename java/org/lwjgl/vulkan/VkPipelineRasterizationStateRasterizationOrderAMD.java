@@ -33,11 +33,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineRasterizationStateRasterizationOrderAMD {
-    VkStructureType sType;
-    const void * pNext;
-    VkRasterizationOrderAMD rasterizationOrder;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineRasterizationStateRasterizationOrderAMD {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkRasterizationOrderAMD rasterizationOrder;
+ * }</pre></code>
  */
 public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct implements NativeResource {
 

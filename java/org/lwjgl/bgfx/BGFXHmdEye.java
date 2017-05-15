@@ -28,14 +28,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_hmd_eye_t {
-    float rotation[4];
-    float translation[3];
-    float fov[4];
-    float viewOffset[3];
-    float projection[16];
-    float pixelsPerTanAngle[2];
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_hmd_eye_t {
+ *     float rotation[4];
+ *     float translation[3];
+ *     float fov[4];
+ *     float viewOffset[3];
+ *     float projection[16];
+ *     float pixelsPerTanAngle[2];
+ * }</pre></code>
  */
 public class BGFXHmdEye extends Struct {
 

@@ -31,11 +31,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDevicePushDescriptorPropertiesKHR {
-    VkStructureType sType;
-    void * pNext;
-    uint32_t maxPushDescriptors;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDevicePushDescriptorPropertiesKHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint32_t maxPushDescriptors;
+ * }</pre></code>
  */
 public class VkPhysicalDevicePushDescriptorPropertiesKHR extends Struct implements NativeResource {
 

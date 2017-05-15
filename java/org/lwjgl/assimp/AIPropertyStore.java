@@ -18,9 +18,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiPropertyStore {
-    char sentinel;
-}</code></pre>
+ * <code><pre>
+ * struct aiPropertyStore {
+ *     char sentinel;
+ * }</pre></code>
  */
 public class AIPropertyStore extends Struct implements NativeResource {
 

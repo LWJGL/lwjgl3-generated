@@ -25,7 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Some implementations <b>may</b> not support multiview in conjunction with <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiview-gs">geometry shaders</a> or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiview-tess">tessellation shaders</a>.</p>
  * 
- * <p>When multiview is enabled, the {@link KHXMultiview#VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX DEPENDENCY_VIEW_LOCAL_BIT_KHX} bit in a dependency <b>can</b> be used to express a view-local dependency, meaning that each view in the destination subpass depends on a single view in the source subpass. Unlike pipeline barriers, a subpass dependency <b>can</b> potentially have a different view mask in the source subpass and the destination subpass. If the dependency is view-local, then each view (<code>dstView</code>) in the destination subpass depends on the view <code>dstView {plus} pViewOffsets[dependency]</code> in the source subpass. If there is not such a view in the source subpass, then this dependency does not affect that view in the destination subpass. If the dependency is not view-local, then all views in the destination subpass depend on all views in the source subpass, and the view offset is ignored. A non-zero view offset is not allowed in a self-dependency.</p>
+ * <p>When multiview is enabled, the {@link KHXMultiview#VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX DEPENDENCY_VIEW_LOCAL_BIT_KHX} bit in a dependency <b>can</b> be used to express a view-local dependency, meaning that each view in the destination subpass depends on a single view in the source subpass. Unlike pipeline barriers, a subpass dependency <b>can</b> potentially have a different view mask in the source subpass and the destination subpass. If the dependency is view-local, then each view (</p><code>dstView</code>
+ * 
+ * <p>) in the destination subpass depends on the view</p><code>dstView {plus} pViewOffsets[dependency]</code>
+ * 
+ * <p>in the source subpass. If there is not such a view in the source subpass, then this dependency does not affect that view in the destination subpass. If the dependency is not view-local, then all views in the destination subpass depend on all views in the source subpass, and the view offset is ignored. A non-zero view offset is not allowed in a self-dependency.</p>
  * 
  * <p>The elements of {@code pCorrelationMasks} are a set of masks of views indicating that views in the same mask <b>may</b> exhibit spatial coherency between the views, making it more efficient to render them concurrently. Correlation masks <b>must</b> not have a functional effect on the results of the multiview rendering.</p>
  * 
@@ -69,16 +73,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkRenderPassMultiviewCreateInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t subpassCount;
-    const uint32_t * pViewMasks;
-    uint32_t dependencyCount;
-    const int32_t * pViewOffsets;
-    uint32_t correlationMaskCount;
-    const uint32_t * pCorrelationMasks;
-}</code></pre>
+ * <code><pre>
+ * struct VkRenderPassMultiviewCreateInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t subpassCount;
+ *     const uint32_t * pViewMasks;
+ *     uint32_t dependencyCount;
+ *     const int32_t * pViewOffsets;
+ *     uint32_t correlationMaskCount;
+ *     const uint32_t * pCorrelationMasks;
+ * }</pre></code>
  */
 public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements NativeResource {
 

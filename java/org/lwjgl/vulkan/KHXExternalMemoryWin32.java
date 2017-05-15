@@ -96,11 +96,12 @@ public class KHXExternalMemoryWin32 {
      * 
      * <p>To export a Windows handle representing the underlying resources of a Vulkan device memory object, call:</p>
      * 
-     * <pre><code>VkResult vkGetMemoryWin32HandleKHX(
-    VkDevice                                    device,
-    VkDeviceMemory                              memory,
-    VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
-    HANDLE*                                     pHandle);</code></pre>
+     * <code><pre>
+     * VkResult vkGetMemoryWin32HandleKHX(
+     *     VkDevice                                    device,
+     *     VkDeviceMemory                              memory,
+     *     VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
+     *     HANDLE*                                     pHandle);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -171,11 +172,12 @@ public class KHXExternalMemoryWin32 {
      * 
      * <p>Windows memory handles compatible with Vulkan <b>may</b> also be created by non-Vulkan APIs using methods beyond the scope of this specification. To determine the correct parameters to use when importing such handles, call:</p>
      * 
-     * <pre><code>VkResult vkGetMemoryWin32HandlePropertiesKHX(
-    VkDevice                                    device,
-    VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
-    HANDLE                                      handle,
-    VkMemoryWin32HandlePropertiesKHX*           pMemoryWin32HandleProperties);</code></pre>
+     * <code><pre>
+     * VkResult vkGetMemoryWin32HandlePropertiesKHX(
+     *     VkDevice                                    device,
+     *     VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
+     *     HANDLE                                      handle,
+     *     VkMemoryWin32HandlePropertiesKHX*           pMemoryWin32HandleProperties);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 

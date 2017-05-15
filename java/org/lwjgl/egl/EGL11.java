@@ -11,7 +11,6 @@ import static org.lwjgl.system.JNI.*;
 /** The core EGL 1.1 functionality. */
 public class EGL11 {
 
-    /**  */
     public static final int
         EGL_BACK_BUFFER          = 0x3084,
         EGL_BIND_TO_TEXTURE_RGB  = 0x3039,

@@ -42,11 +42,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDispatchIndirectCommand {
-    uint32_t x;
-    uint32_t y;
-    uint32_t z;
-}</code></pre>
+ * <code><pre>
+ * struct VkDispatchIndirectCommand {
+ *     uint32_t x;
+ *     uint32_t y;
+ *     uint32_t z;
+ * }</pre></code>
  */
 public class VkDispatchIndirectCommand extends Struct implements NativeResource {
 

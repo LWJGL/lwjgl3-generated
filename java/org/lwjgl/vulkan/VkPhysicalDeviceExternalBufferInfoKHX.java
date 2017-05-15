@@ -43,13 +43,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceExternalBufferInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkBufferCreateFlags flags;
-    VkBufferUsageFlags usage;
-    VkExternalMemoryHandleTypeFlagBitsKHX handleType;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceExternalBufferInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBufferCreateFlags flags;
+ *     VkBufferUsageFlags usage;
+ *     VkExternalMemoryHandleTypeFlagBitsKHX handleType;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceExternalBufferInfoKHX extends Struct implements NativeResource {
 

@@ -17,11 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct Texture_t {
-    void * handle;
-    ETextureType eType;
-    EColorSpace eColorSpace;
-}</code></pre>
+ * <code><pre>
+ * struct Texture_t {
+ *     void * handle;
+ *     ETextureType eType;
+ *     EColorSpace eColorSpace;
+ * }</pre></code>
  */
 public class Texture extends Struct implements NativeResource {
 

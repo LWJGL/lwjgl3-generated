@@ -18,16 +18,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct Visual {
-    void * ext_data;
-    VisualID visualid;
-    int class;
-    unsigned long red_mask;
-    unsigned long green_mask;
-    unsigned long blue_mask;
-    int bits_per_rgb;
-    int map_entries;
-}</code></pre>
+ * <code><pre>
+ * struct Visual {
+ *     void * ext_data;
+ *     VisualID visualid;
+ *     int class;
+ *     unsigned long red_mask;
+ *     unsigned long green_mask;
+ *     unsigned long blue_mask;
+ *     int bits_per_rgb;
+ *     int map_entries;
+ * }</pre></code>
  */
 public class Visual extends Struct implements NativeResource {
 

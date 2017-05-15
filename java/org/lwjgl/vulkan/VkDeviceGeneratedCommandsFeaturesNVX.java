@@ -37,11 +37,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGeneratedCommandsFeaturesNVX {
-    VkStructureType sType;
-    const void * pNext;
-    VkBool32 computeBindingPointSupport;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGeneratedCommandsFeaturesNVX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBool32 computeBindingPointSupport;
+ * }</pre></code>
  */
 public class VkDeviceGeneratedCommandsFeaturesNVX extends Struct implements NativeResource {
 

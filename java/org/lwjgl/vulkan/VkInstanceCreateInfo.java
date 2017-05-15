@@ -47,16 +47,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkInstanceCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkInstanceCreateFlags flags;
-    const {@link VkApplicationInfo VkApplicationInfo} * pApplicationInfo;
-    uint32_t enabledLayerCount;
-    const char * const * ppEnabledLayerNames;
-    uint32_t enabledExtensionCount;
-    const char * const * ppEnabledExtensionNames;
-}</code></pre>
+ * <code><pre>
+ * struct VkInstanceCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkInstanceCreateFlags flags;
+ *     const {@link VkApplicationInfo VkApplicationInfo} * pApplicationInfo;
+ *     uint32_t enabledLayerCount;
+ *     const char * const * ppEnabledLayerNames;
+ *     uint32_t enabledExtensionCount;
+ *     const char * const * ppEnabledExtensionNames;
+ * }</pre></code>
  */
 public class VkInstanceCreateInfo extends Struct implements NativeResource {
 

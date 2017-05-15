@@ -41,12 +41,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkObjectTableIndexBufferEntryNVX {
-    VkObjectEntryTypeNVX type;
-    VkObjectEntryUsageFlagsNVX flags;
-    VkBuffer buffer;
-    VkIndexType indexType;
-}</code></pre>
+ * <code><pre>
+ * struct VkObjectTableIndexBufferEntryNVX {
+ *     VkObjectEntryTypeNVX type;
+ *     VkObjectEntryUsageFlagsNVX flags;
+ *     VkBuffer buffer;
+ *     VkIndexType indexType;
+ * }</pre></code>
  */
 public class VkObjectTableIndexBufferEntryNVX extends Struct implements NativeResource {
 

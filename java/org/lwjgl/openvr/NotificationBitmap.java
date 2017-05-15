@@ -19,12 +19,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct NotificationBitmap_t {
-    void * m_pImageData;
-    int32_t m_nWidth;
-    int32_t m_nHeight;
-    int32_t m_nBytesPerPixel;
-}</code></pre>
+ * <code><pre>
+ * struct NotificationBitmap_t {
+ *     void * m_pImageData;
+ *     int32_t m_nWidth;
+ *     int32_t m_nHeight;
+ *     int32_t m_nBytesPerPixel;
+ * }</pre></code>
  */
 public class NotificationBitmap extends Struct implements NativeResource {
 

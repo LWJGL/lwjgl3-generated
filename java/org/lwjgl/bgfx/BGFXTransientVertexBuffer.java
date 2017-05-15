@@ -30,14 +30,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_transient_vertex_buffer_t {
-    uint8_t * data;
-    uint32_t size;
-    uint32_t startVertex;
-    uint16_t stride;
-    bgfx_vertex_buffer_handle_t handle;
-    bgfx_vertex_decl_handle_t decl;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_transient_vertex_buffer_t {
+ *     uint8_t * data;
+ *     uint32_t size;
+ *     uint32_t startVertex;
+ *     uint16_t stride;
+ *     bgfx_vertex_buffer_handle_t handle;
+ *     bgfx_vertex_decl_handle_t decl;
+ * }</pre></code>
  */
 public class BGFXTransientVertexBuffer extends Struct implements NativeResource {
 

@@ -27,10 +27,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMeshKey {
-    double mTime;
-    unsigned int mValue;
-}</code></pre>
+ * <code><pre>
+ * struct aiMeshKey {
+ *     double mTime;
+ *     unsigned int mValue;
+ * }</pre></code>
  */
 public class AIMeshKey extends Struct implements NativeResource {
 

@@ -39,11 +39,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkObjectTablePipelineEntryNVX {
-    VkObjectEntryTypeNVX type;
-    VkObjectEntryUsageFlagsNVX flags;
-    VkPipeline pipeline;
-}</code></pre>
+ * <code><pre>
+ * struct VkObjectTablePipelineEntryNVX {
+ *     VkObjectEntryTypeNVX type;
+ *     VkObjectEntryUsageFlagsNVX flags;
+ *     VkPipeline pipeline;
+ * }</pre></code>
  */
 public class VkObjectTablePipelineEntryNVX extends Struct implements NativeResource {
 

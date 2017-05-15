@@ -17,16 +17,17 @@ import static org.lwjgl.nuklear.Nuklear.NK_BUTTON_MAX;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_mouse {
-    {@link NkMouseButton struct nk_mouse_button} buttons[NK_BUTTON_MAX];
-    {@link NkVec2 struct nk_vec2} pos;
-    {@link NkVec2 struct nk_vec2} prev;
-    {@link NkVec2 struct nk_vec2} delta;
-    {@link NkVec2 struct nk_vec2} scroll_delta;
-    bool grab;
-    bool grabbed;
-    bool ungrab;
-}</code></pre>
+ * <code><pre>
+ * struct nk_mouse {
+ *     {@link NkMouseButton struct nk_mouse_button} buttons[NK_BUTTON_MAX];
+ *     {@link NkVec2 struct nk_vec2} pos;
+ *     {@link NkVec2 struct nk_vec2} prev;
+ *     {@link NkVec2 struct nk_vec2} delta;
+ *     {@link NkVec2 struct nk_vec2} scroll_delta;
+ *     bool grab;
+ *     bool grabbed;
+ *     bool ungrab;
+ * }</pre></code>
  */
 public class NkMouse extends Struct {
 

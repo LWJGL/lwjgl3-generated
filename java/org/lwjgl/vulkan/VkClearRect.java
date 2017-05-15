@@ -18,7 +18,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The layers <code>[baseArrayLayer, baseArrayLayer {plus} layerCount)</code> counting from the base layer of the attachment image view are cleared.</p>
+ * <p>The layers</p><code>[baseArrayLayer, baseArrayLayer {plus} layerCount)</code>
+ * 
+ * <p>counting from the base layer of the attachment image view are cleared.</p>
  * 
  * <h5>See Also</h5>
  * 
@@ -34,11 +36,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkClearRect {
-    {@link VkRect2D VkRect2D} rect;
-    uint32_t baseArrayLayer;
-    uint32_t layerCount;
-}</code></pre>
+ * <code><pre>
+ * struct VkClearRect {
+ *     {@link VkRect2D VkRect2D} rect;
+ *     uint32_t baseArrayLayer;
+ *     uint32_t layerCount;
+ * }</pre></code>
  */
 public class VkClearRect extends Struct implements NativeResource {
 

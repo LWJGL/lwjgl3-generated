@@ -15,14 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_chart {
-    int slot;
-    float x;
-    float y;
-    float w;
-    float h;
-    {@link NkChartSlot struct nk_chart_slot} slots[4];
-}</code></pre>
+ * <code><pre>
+ * struct nk_chart {
+ *     int slot;
+ *     float x;
+ *     float y;
+ *     float w;
+ *     float h;
+ *     {@link NkChartSlot struct nk_chart_slot} slots[4];
+ * }</pre></code>
  */
 public class NkChart extends Struct {
 

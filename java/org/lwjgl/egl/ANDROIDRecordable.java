@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class ANDROIDRecordable {
 
-    /**  */
     public static final int EGL_RECORDABLE_ANDROID = 0x3142;
 
     private ANDROIDRecordable() {}

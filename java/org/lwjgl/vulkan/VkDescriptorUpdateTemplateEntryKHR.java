@@ -46,14 +46,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorUpdateTemplateEntryKHR {
-    uint32_t dstBinding;
-    uint32_t dstArrayElement;
-    uint32_t descriptorCount;
-    VkDescriptorType descriptorType;
-    size_t offset;
-    size_t stride;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorUpdateTemplateEntryKHR {
+ *     uint32_t dstBinding;
+ *     uint32_t dstArrayElement;
+ *     uint32_t descriptorCount;
+ *     VkDescriptorType descriptorType;
+ *     size_t offset;
+ *     size_t stride;
+ * }</pre></code>
  */
 public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements NativeResource {
 

@@ -19,19 +19,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>union cl_device_topology_amd {
-    struct {
-        cl_uint type;
-        cl_uint data[5];
-    } raw;
-    struct {
-        cl_uint type;
-        char[17];
-        cl_char bus;
-        cl_char device;
-        cl_char function;
-    } pcie;
-}</code></pre>
+ * <code><pre>
+ * union cl_device_topology_amd {
+ *     struct {
+ *         cl_uint type;
+ *         cl_uint data[5];
+ *     } raw;
+ *     struct {
+ *         cl_uint type;
+ *         char[17];
+ *         cl_char bus;
+ *         cl_char device;
+ *         cl_char function;
+ *     } pcie;
+ * }</pre></code>
  */
 public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 

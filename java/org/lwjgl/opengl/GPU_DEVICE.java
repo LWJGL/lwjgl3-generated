@@ -37,13 +37,14 @@ import org.lwjgl.system.windows.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct GPU_DEVICE {
-    DWORD cb;
-    CHAR DeviceName[32];
-    CHAR DeviceString[128];
-    DWORD Flags;
-    {@link RECT RECT} rcVirtualScreen;
-}</code></pre>
+ * <code><pre>
+ * struct GPU_DEVICE {
+ *     DWORD cb;
+ *     CHAR DeviceName[32];
+ *     CHAR DeviceString[128];
+ *     DWORD Flags;
+ *     {@link RECT RECT} rcVirtualScreen;
+ * }</pre></code>
  */
 public class GPU_DEVICE extends Struct implements NativeResource {
 

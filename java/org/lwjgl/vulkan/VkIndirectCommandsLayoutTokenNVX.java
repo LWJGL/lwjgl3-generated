@@ -44,12 +44,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkIndirectCommandsLayoutTokenNVX {
-    VkIndirectCommandsTokenTypeNVX tokenType;
-    uint32_t bindingUnit;
-    uint32_t dynamicCount;
-    uint32_t divisor;
-}</code></pre>
+ * <code><pre>
+ * struct VkIndirectCommandsLayoutTokenNVX {
+ *     VkIndirectCommandsTokenTypeNVX tokenType;
+ *     uint32_t bindingUnit;
+ *     uint32_t dynamicCount;
+ *     uint32_t divisor;
+ * }</pre></code>
  */
 public class VkIndirectCommandsLayoutTokenNVX extends Struct implements NativeResource {
 

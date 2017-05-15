@@ -24,7 +24,6 @@ package org.lwjgl.egl;
  */
 public final class EXTOutputDRM {
 
-    /**  */
     public static final int
         EGL_DRM_CRTC_EXT      = 0x3234,
         EGL_DRM_PLANE_EXT     = 0x3235,

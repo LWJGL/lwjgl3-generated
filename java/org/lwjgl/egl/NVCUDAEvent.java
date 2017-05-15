@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class NVCUDAEvent {
 
-    /**  */
     public static final int
         EGL_CUDA_EVENT_HANDLE_NV        = 0x323B,
         EGL_SYNC_CUDA_EVENT_NV          = 0x323C,

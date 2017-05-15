@@ -129,15 +129,24 @@ public class EXTDiscardRectangles {
      * 
      * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled, discard rectangles are specified using the {@code pDiscardRectangles} member of {@link VkPipelineDiscardRectangleStateCreateInfoEXT} linked to the pipeline state object. If the pipeline state object was created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled, the discard rectangles are dynamically set and changed with the command:</p>
      * 
-     * <pre><code>void vkCmdSetDiscardRectangleEXT(
-    VkCommandBuffer                             commandBuffer,
-    uint32_t                                    firstDiscardRectangle,
-    uint32_t                                    discardRectangleCount,
-    const VkRect2D*                             pDiscardRectangles);</code></pre>
+     * <code><pre>
+     * void vkCmdSetDiscardRectangleEXT(
+     *     VkCommandBuffer                             commandBuffer,
+     *     uint32_t                                    firstDiscardRectangle,
+     *     uint32_t                                    discardRectangleCount,
+     *     const VkRect2D*                             pDiscardRectangles);</pre></code>
      * 
      * <h5>Description</h5>
      * 
-     * <p>The discard rectangle taken from element <code>i</code> of {@code pDiscardRectangles} replace the current state for the discard rectangle index <code>firstDiscardRectangle {plus} i</code>, for <code>i</code> in <code>[0, discardRectangleCount)</code>.</p>
+     * <p>The discard rectangle taken from element</p><code>i</code>
+     * 
+     * <p>of {@code pDiscardRectangles} replace the current state for the discard rectangle index</p><code>firstDiscardRectangle {plus} i</code>
+     * 
+     * <p>, for</p><code>i</code>
+     * 
+     * <p>in</p><code>[0, discardRectangleCount)</code>
+     * 
+     * <p>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 

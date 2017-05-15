@@ -15,22 +15,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct YGLayout {
-    float positions[4];
-    float dimensions[2];
-    float margin[6];
-    float border[6];
-    float padding[6];
-    YGDirection direction;
-    uint32_t computedFlexBasisGeneration;
-    float computedFlexBasis;
-    uint32_t generationCount;
-    YGDirection lastParentDirection;
-    uint32_t nextCachedMeasurementsIndex;
-    {@link YGCachedMeasurement YGCachedMeasurement} cachedMeasurements[16];
-    float measuredDimensions[2];
-    {@link YGCachedMeasurement YGCachedMeasurement} cachedLayout;
-}</code></pre>
+ * <code><pre>
+ * struct YGLayout {
+ *     float positions[4];
+ *     float dimensions[2];
+ *     float margin[6];
+ *     float border[6];
+ *     float padding[6];
+ *     YGDirection direction;
+ *     uint32_t computedFlexBasisGeneration;
+ *     float computedFlexBasis;
+ *     uint32_t generationCount;
+ *     YGDirection lastParentDirection;
+ *     uint32_t nextCachedMeasurementsIndex;
+ *     {@link YGCachedMeasurement YGCachedMeasurement} cachedMeasurements[16];
+ *     float measuredDimensions[2];
+ *     {@link YGCachedMeasurement YGCachedMeasurement} cachedLayout;
+ * }</pre></code>
  */
 public class YGLayout extends Struct {
 

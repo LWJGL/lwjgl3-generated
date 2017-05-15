@@ -21,7 +21,6 @@ package org.lwjgl.egl;
  */
 public final class ARMPixmapMultisampleDiscard {
 
-    /**  */
     public static final int EGL_DISCARD_SAMPLES_ARM = 0x3286;
 
     private ARMPixmapMultisampleDiscard() {}

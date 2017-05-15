@@ -23,12 +23,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTDeviceQuery {
 
-    /**  */
     public static final int
         EGL_BAD_DEVICE_EXT = 0x322B,
         EGL_DEVICE_EXT     = 0x322C;
 
-    /**  */
     public static final long EGL_NO_DEVICE_EXT = 0x0L;
 
     protected EXTDeviceQuery() {

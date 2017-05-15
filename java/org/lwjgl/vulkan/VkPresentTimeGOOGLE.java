@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPresentTimeGOOGLE {
-    uint32_t presentID;
-    uint64_t desiredPresentTime;
-}</code></pre>
+ * <code><pre>
+ * struct VkPresentTimeGOOGLE {
+ *     uint32_t presentID;
+ *     uint64_t desiredPresentTime;
+ * }</pre></code>
  */
 public class VkPresentTimeGOOGLE extends Struct implements NativeResource {
 

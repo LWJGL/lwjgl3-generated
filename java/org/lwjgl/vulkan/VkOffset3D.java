@@ -18,11 +18,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkOffset3D {
-    int32_t x;
-    int32_t y;
-    int32_t z;
-}</code></pre>
+ * <code><pre>
+ * struct VkOffset3D {
+ *     int32_t x;
+ *     int32_t y;
+ *     int32_t z;
+ * }</pre></code>
  */
 public class VkOffset3D extends Struct implements NativeResource {
 

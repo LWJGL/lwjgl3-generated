@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct YGValue {
-    float value;
-    YGUnit unit;
-}</code></pre>
+ * <code><pre>
+ * struct YGValue {
+ *     float value;
+ *     YGUnit unit;
+ * }</pre></code>
  */
 public class YGValue extends Struct implements NativeResource {
 

@@ -16,12 +16,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_rect {
-    float x;
-    float y;
-    float w;
-    float h;
-}</code></pre>
+ * <code><pre>
+ * struct nk_rect {
+ *     float x;
+ *     float y;
+ *     float w;
+ *     float h;
+ * }</pre></code>
  */
 public class NkRect extends Struct implements NativeResource {
 

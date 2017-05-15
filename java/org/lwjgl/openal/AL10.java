@@ -372,31 +372,32 @@ public class AL10 {
      * of frequency shift (pitch change) is proportional to the speed of listener and source along their line of sight. The Doppler Effect as implemented by
      * OpenAL is described by the formula below. Effects of the medium (air, water) moving with respect to listener and source are ignored.</p>
      * 
-     * <pre><code>SS: AL_SPEED_OF_SOUND = speed of sound (default value 343.3)
-DF: AL_DOPPLER_FACTOR = Doppler factor (default 1.0)
-vls: Listener velocity scalar (scalar, projected on source-to-listener vector)
-vss: Source velocity scalar (scalar, projected on source-to-listener vector)
-f: Frequency of sample
-f': effective Doppler shifted frequency
-
-3D Mathematical representation of vls and vss:
-
-Mag(vector) = sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z)
-DotProduct(v1, v2) = (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z)
-
-SL = source to listener vector
-SV = Source velocity vector
-LV = Listener velocity vector
-
-vls = DotProduct(SL, LV) / Mag(SL)
-vss = DotProduct(SL, SV) / Mag(SL)
-
-Dopper Calculation:
-
-vss = min(vss, SS / DF)
-vls = min(vls, SS / DF)
-
-f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
+     * <code><pre>
+     * SS: AL_SPEED_OF_SOUND = speed of sound (default value 343.3)
+     * DF: AL_DOPPLER_FACTOR = Doppler factor (default 1.0)
+     * vls: Listener velocity scalar (scalar, projected on source-to-listener vector)
+     * vss: Source velocity scalar (scalar, projected on source-to-listener vector)
+     * f: Frequency of sample
+     * f': effective Doppler shifted frequency
+     * 
+     * 3D Mathematical representation of vls and vss:
+     * 
+     * Mag(vector) = sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z)
+     * DotProduct(v1, v2) = (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z)
+     * 
+     * SL = source to listener vector
+     * SV = Source velocity vector
+     * LV = Listener velocity vector
+     * 
+     * vls = DotProduct(SL, LV) / Mag(SL)
+     * vss = DotProduct(SL, SV) / Mag(SL)
+     * 
+     * Dopper Calculation:
+     * 
+     * vss = min(vss, SS / DF)
+     * vls = min(vls, SS / DF)
+     * 
+     * f' = f * (SS - DF * vls) / (SS - DF * vss)</pre></code>
      * 
      * <p>The {@code dopplerFactor} is a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from
      * the calculation.</p>
@@ -418,10 +419,11 @@ f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
      * support the AL_DOPPLER_VELOCITY parameter (the alDopplerVelocity call will remain as an entry point so that 1.0 applications can link with a 1.1
      * library), the above formula can be changed to the following:</p>
      * 
-     * <pre><code>vss = min(vss, (SS * DV)/DF)
-vls = min(vls, (SS * DV)/DF)
-
-f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
+     * <code><pre>
+     * vss = min(vss, (SS * DV)/DF)
+     * vls = min(vls, (SS * DV)/DF)
+     * 
+     * f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</pre></code>
      * 
      * <p>OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).</p>
      *

@@ -55,16 +55,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPresentInfoKHR {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t waitSemaphoreCount;
-    const VkSemaphore * pWaitSemaphores;
-    uint32_t swapchainCount;
-    const VkSwapchainKHR * pSwapchains;
-    const uint32_t * pImageIndices;
-    VkResult * pResults;
-}</code></pre>
+ * <code><pre>
+ * struct VkPresentInfoKHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t waitSemaphoreCount;
+ *     const VkSemaphore * pWaitSemaphores;
+ *     uint32_t swapchainCount;
+ *     const VkSwapchainKHR * pSwapchains;
+ *     const uint32_t * pImageIndices;
+ *     VkResult * pResults;
+ * }</pre></code>
  */
 public class VkPresentInfoKHR extends Struct implements NativeResource {
 

@@ -18,20 +18,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMatrix3x3 {
-    float a1;
-    float a2;
-    float a3;
-    float b1;
-    float b2;
-    float b3;
-    float c1;
-    float c2;
-    float c3;
-    float d1;
-    float d2;
-    float d3;
-}</code></pre>
+ * <code><pre>
+ * struct aiMatrix3x3 {
+ *     float a1;
+ *     float a2;
+ *     float a3;
+ *     float b1;
+ *     float b2;
+ *     float b3;
+ *     float c1;
+ *     float c2;
+ *     float c3;
+ *     float d1;
+ *     float d2;
+ *     float d3;
+ * }</pre></code>
  */
 public class AIMatrix3x3 extends Struct implements NativeResource {
 

@@ -28,31 +28,32 @@ import static org.lwjgl.util.tinyexr.TinyEXR.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct EXRHeader {
-    float pixel_aspect_ratio;
-    int line_order;
-    int data_window[4];
-    int display_window[4];
-    float screen_window_center[2];
-    float screen_window_width;
-    int chunk_count;
-    int tiled;
-    int tile_size_x;
-    int tile_size_y;
-    int tile_level_mode;
-    int tile_rounding_mode;
-    int long_name;
-    int non_image;
-    int multipart;
-    unsigned int header_len;
-    int num_custom_attributes;
-    {@link EXRAttribute EXRAttribute} custom_attributes[TINYEXR_MAX_ATTRIBUTES];
-    {@link EXRChannelInfo EXRChannelInfo} * channels;
-    int * pixel_types;
-    int num_channels;
-    int compression_type;
-    int * requested_pixel_types;
-}</code></pre>
+ * <code><pre>
+ * struct EXRHeader {
+ *     float pixel_aspect_ratio;
+ *     int line_order;
+ *     int data_window[4];
+ *     int display_window[4];
+ *     float screen_window_center[2];
+ *     float screen_window_width;
+ *     int chunk_count;
+ *     int tiled;
+ *     int tile_size_x;
+ *     int tile_size_y;
+ *     int tile_level_mode;
+ *     int tile_rounding_mode;
+ *     int long_name;
+ *     int non_image;
+ *     int multipart;
+ *     unsigned int header_len;
+ *     int num_custom_attributes;
+ *     {@link EXRAttribute EXRAttribute} custom_attributes[TINYEXR_MAX_ATTRIBUTES];
+ *     {@link EXRChannelInfo EXRChannelInfo} * channels;
+ *     int * pixel_types;
+ *     int num_channels;
+ *     int compression_type;
+ *     int * requested_pixel_types;
+ * }</pre></code>
  */
 public class EXRHeader extends Struct implements NativeResource {
 

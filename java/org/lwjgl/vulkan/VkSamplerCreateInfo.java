@@ -24,20 +24,25 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>There are no Vulkan filter modes that directly correspond to OpenGL minification filters of {@code GL_LINEAR} or {@code GL_NEAREST}, but they <b>can</b> be emulated using {@link VK10#VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST}, {@code minLod} = 0, and {@code maxLod} = 0.25, and using {@code minFilter} = {@link VK10#VK_FILTER_LINEAR FILTER_LINEAR} or {@code minFilter} = {@link VK10#VK_FILTER_NEAREST FILTER_NEAREST}, respectively.</p>
  * 
- * <p>Note that using a {@code maxLod} of zero would cause <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">magnification</a> to always be performed, and the {@code magFilter} to always be used. This is valid, just not an exact match for OpenGL behavior. Clamping the maximum LOD to 0.25 allows the <code>{lambda}</code> value to be non-zero and minification to be performed, while still always rounding down to the base level. If the {@code minFilter} and {@code magFilter} are equal, then using a {@code maxLod} of zero also works.</p>
+ * <p>Note that using a {@code maxLod} of zero would cause <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">magnification</a> to always be performed, and the {@code magFilter} to always be used. This is valid, just not an exact match for OpenGL behavior. Clamping the maximum LOD to 0.25 allows the</p><code>{lambda}</code>
+ * 
+ * <p>value to be non-zero and minification to be performed, while still always rounding down to the base level. If the {@code minFilter} and {@code magFilter} are equal, then using a {@code maxLod} of zero also works.</p>
  * </div>
  * 
  * <p>{@code addressModeU}, {@code addressModeV}, and {@code addressModeW} <b>must</b> each have one of the following values:</p>
  * 
- * <pre><code>typedef enum VkSamplerAddressMode {
-    VK_SAMPLER_ADDRESS_MODE_REPEAT = 0,
-    VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 1,
-    VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE = 2,
-    VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 3,
-    VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
-} VkSamplerAddressMode;</code></pre>
+ * <code><pre>
+ * typedef enum VkSamplerAddressMode {
+ *     VK_SAMPLER_ADDRESS_MODE_REPEAT = 0,
+ *     VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT = 1,
+ *     VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE = 2,
+ *     VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER = 3,
+ *     VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4,
+ * } VkSamplerAddressMode;</pre></code>
  * 
- * <p>These values control the behavior of sampling with coordinates outside the range <code>[0,1]</code> for the respective u, v, or w coordinate as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-wrapping-operation">Wrapping Operation</a> section.</p>
+ * <p>These values control the behavior of sampling with coordinates outside the range</p><code>[0,1]</code>
+ * 
+ * <p>for the respective u, v, or w coordinate as defined in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-wrapping-operation">Wrapping Operation</a> section.</p>
  * 
  * <ul>
  * <li>{@link VK10#VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT} indicates that the repeat wrap mode will be used.</li>
@@ -95,18 +100,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} &ndash; reserved for future use.</li>
  * <li>{@code magFilter} &ndash; the magnification filter to apply to lookups, and is of type:
  * 
- * <pre><code>typedef enum VkFilter {
-    VK_FILTER_NEAREST = 0,
-    VK_FILTER_LINEAR = 1,
-    VK_FILTER_CUBIC_IMG = 1000015000,
-} VkFilter;</code></pre></li>
+ * <code><pre>
+ * typedef enum VkFilter {
+ *     VK_FILTER_NEAREST = 0,
+ *     VK_FILTER_LINEAR = 1,
+ *     VK_FILTER_CUBIC_IMG = 1000015000,
+ * } VkFilter;</pre></code></li>
  * <li>{@code minFilter} &ndash; the minification filter to apply to lookups, and is of type {@code VkFilter}.</li>
  * <li>{@code mipmapMode} &ndash; the mipmap filter to apply to lookups as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">Texel Filtering</a> section, and is of type:
  * 
- * <pre><code>typedef enum VkSamplerMipmapMode {
-    VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
-    VK_SAMPLER_MIPMAP_MODE_LINEAR = 1,
-} VkSamplerMipmapMode;</code></pre></li>
+ * <code><pre>
+ * typedef enum VkSamplerMipmapMode {
+ *     VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
+ *     VK_SAMPLER_MIPMAP_MODE_LINEAR = 1,
+ * } VkSamplerMipmapMode;</pre></code></li>
  * <li>{@code addressModeU} &ndash; the addressing mode for outside [0..1] range for U coordinate. See {@code VkSamplerAddressMode}.</li>
  * <li>{@code addressModeV} &ndash; the addressing mode for outside [0..1] range for V coordinate. See {@code VkSamplerAddressMode}.</li>
  * <li>{@code addressModeW} &ndash; the addressing mode for outside [0..1] range for W coordinate. See {@code VkSamplerAddressMode}.</li>
@@ -123,14 +130,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxLod} &ndash; see {@code minLod}</li>
  * <li>{@code borderColor} &ndash; the predefined border color to use, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-replacement">Texel Replacement</a> section, and is of type:
  * 
- * <pre><code>typedef enum VkBorderColor {
-    VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
-    VK_BORDER_COLOR_INT_TRANSPARENT_BLACK = 1,
-    VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK = 2,
-    VK_BORDER_COLOR_INT_OPAQUE_BLACK = 3,
-    VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE = 4,
-    VK_BORDER_COLOR_INT_OPAQUE_WHITE = 5,
-} VkBorderColor;</code></pre></li>
+ * <code><pre>
+ * typedef enum VkBorderColor {
+ *     VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
+ *     VK_BORDER_COLOR_INT_TRANSPARENT_BLACK = 1,
+ *     VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK = 2,
+ *     VK_BORDER_COLOR_INT_OPAQUE_BLACK = 3,
+ *     VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE = 4,
+ *     VK_BORDER_COLOR_INT_OPAQUE_WHITE = 5,
+ * } VkBorderColor;</pre></code></li>
  * <li>{@code unnormalizedCoordinates} &ndash; controls whether to use unnormalized or normalized texel coordinates to address texels of the image. When set to {@link VK10#VK_TRUE TRUE}, the range of the image coordinates used to lookup the texel is in the range of zero to the image dimensions for x, y and z. When set to {@link VK10#VK_FALSE FALSE} the range of image coordinates is zero to one. When {@code unnormalizedCoordinates} is {@link VK10#VK_TRUE TRUE}, samplers have the following requirements:
  * 
  * <ul>
@@ -159,26 +167,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSamplerCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkSamplerCreateFlags flags;
-    VkFilter magFilter;
-    VkFilter minFilter;
-    VkSamplerMipmapMode mipmapMode;
-    VkSamplerAddressMode addressModeU;
-    VkSamplerAddressMode addressModeV;
-    VkSamplerAddressMode addressModeW;
-    float mipLodBias;
-    VkBool32 anisotropyEnable;
-    float maxAnisotropy;
-    VkBool32 compareEnable;
-    VkCompareOp compareOp;
-    float minLod;
-    float maxLod;
-    VkBorderColor borderColor;
-    VkBool32 unnormalizedCoordinates;
-}</code></pre>
+ * <code><pre>
+ * struct VkSamplerCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSamplerCreateFlags flags;
+ *     VkFilter magFilter;
+ *     VkFilter minFilter;
+ *     VkSamplerMipmapMode mipmapMode;
+ *     VkSamplerAddressMode addressModeU;
+ *     VkSamplerAddressMode addressModeV;
+ *     VkSamplerAddressMode addressModeW;
+ *     float mipLodBias;
+ *     VkBool32 anisotropyEnable;
+ *     float maxAnisotropy;
+ *     VkBool32 compareEnable;
+ *     VkCompareOp compareOp;
+ *     float minLod;
+ *     float maxLod;
+ *     VkBorderColor borderColor;
+ *     VkBool32 unnormalizedCoordinates;
+ * }</pre></code>
  */
 public class VkSamplerCreateInfo extends Struct implements NativeResource {
 

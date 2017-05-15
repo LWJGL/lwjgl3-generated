@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_EditingCameraSurface_t {
-    uint64_t overlayHandle;
-    uint32_t nVisualMode;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_EditingCameraSurface_t {
+ *     uint64_t overlayHandle;
+ *     uint32_t nVisualMode;
+ * }</pre></code>
  */
 public class VREventEditingCameraSurface extends Struct implements NativeResource {
 

@@ -84,9 +84,10 @@ public class KHXExternalSemaphoreFd {
      * 
      * <p>To import semaphore state from a POSIX file descriptor, call:</p>
      * 
-     * <pre><code>VkResult vkImportSemaphoreFdKHX(
-    VkDevice                                    device,
-    const VkImportSemaphoreFdInfoKHX*           pImportSemaphoreFdInfo);</code></pre>
+     * <code><pre>
+     * VkResult vkImportSemaphoreFdKHX(
+     *     VkDevice                                    device,
+     *     const VkImportSemaphoreFdInfoKHX*           pImportSemaphoreFdInfo);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -148,11 +149,12 @@ public class KHXExternalSemaphoreFd {
      * 
      * <p>To export a POSIX file descriptor representing the state of a semaphore, call:</p>
      * 
-     * <pre><code>VkResult vkGetSemaphoreFdKHX(
-    VkDevice                                    device,
-    VkSemaphore                                 semaphore,
-    VkExternalSemaphoreHandleTypeFlagBitsKHX    handleType,
-    int*                                        pFd);</code></pre>
+     * <code><pre>
+     * VkResult vkGetSemaphoreFdKHX(
+     *     VkDevice                                    device,
+     *     VkSemaphore                                 semaphore,
+     *     VkExternalSemaphoreHandleTypeFlagBitsKHX    handleType,
+     *     int*                                        pFd);</pre></code>
      * 
      * <h5>Description</h5>
      * 

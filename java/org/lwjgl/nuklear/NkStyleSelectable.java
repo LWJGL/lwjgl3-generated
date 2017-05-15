@@ -16,29 +16,30 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_selectable {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} pressed;
-    {@link NkStyleItem struct nk_style_item} normal_active;
-    {@link NkStyleItem struct nk_style_item} hover_active;
-    {@link NkStyleItem struct nk_style_item} pressed_active;
-    {@link NkColor struct nk_color} text_normal;
-    {@link NkColor struct nk_color} text_hover;
-    {@link NkColor struct nk_color} text_pressed;
-    {@link NkColor struct nk_color} text_normal_active;
-    {@link NkColor struct nk_color} text_hover_active;
-    {@link NkColor struct nk_color} text_pressed_active;
-    {@link NkColor struct nk_color} text_background;
-    nk_flags text_alignment;
-    float rounding;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkVec2 struct nk_vec2} touch_padding;
-    {@link NkVec2 struct nk_vec2} image_padding;
-    {@link NkHandle nk_handle} userdata;
-    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
-    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_selectable {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} pressed;
+ *     {@link NkStyleItem struct nk_style_item} normal_active;
+ *     {@link NkStyleItem struct nk_style_item} hover_active;
+ *     {@link NkStyleItem struct nk_style_item} pressed_active;
+ *     {@link NkColor struct nk_color} text_normal;
+ *     {@link NkColor struct nk_color} text_hover;
+ *     {@link NkColor struct nk_color} text_pressed;
+ *     {@link NkColor struct nk_color} text_normal_active;
+ *     {@link NkColor struct nk_color} text_hover_active;
+ *     {@link NkColor struct nk_color} text_pressed_active;
+ *     {@link NkColor struct nk_color} text_background;
+ *     nk_flags text_alignment;
+ *     float rounding;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkVec2 struct nk_vec2} touch_padding;
+ *     {@link NkVec2 struct nk_vec2} image_padding;
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+ *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
+ * }</pre></code>
  */
 public class NkStyleSelectable extends Struct implements NativeResource {
 

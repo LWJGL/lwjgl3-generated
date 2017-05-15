@@ -38,11 +38,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupSwapchainCreateInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkDeviceGroupPresentModeFlagsKHX modes;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupSwapchainCreateInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDeviceGroupPresentModeFlagsKHX modes;
+ * }</pre></code>
  */
 public class VkDeviceGroupSwapchainCreateInfoKHX extends Struct implements NativeResource {
 

@@ -1004,7 +1004,8 @@ public class VR {
     /**
      * {@code EVRControllerAxisType}: Identifies what kind of axis is on the controller at index {@code n}. Read this type with:
      * 
-     * <pre><code>pVRSystem->Get(nControllerDeviceIndex, Prop_Axis0Type_Int32+n);</code></pre>
+     * <code><pre>
+     * pVRSystem->Get(nControllerDeviceIndex, Prop_Axis0Type_Int32+n);</pre></code>
      * 
      * <h5>Enum values:</h5>
      * 

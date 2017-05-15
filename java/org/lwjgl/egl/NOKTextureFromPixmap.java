@@ -31,7 +31,6 @@ package org.lwjgl.egl;
  */
 public final class NOKTextureFromPixmap {
 
-    /**  */
     public static final int EGL_Y_INVERTED_NOK = 0x307F;
 
     private NOKTextureFromPixmap() {}

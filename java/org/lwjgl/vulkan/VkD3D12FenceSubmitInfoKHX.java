@@ -48,14 +48,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkD3D12FenceSubmitInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t waitSemaphoreValuesCount;
-    const uint64_t * pWaitSemaphoreValues;
-    uint32_t signalSemaphoreValuesCount;
-    const uint64_t * pSignalSemaphoreValues;
-}</code></pre>
+ * <code><pre>
+ * struct VkD3D12FenceSubmitInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t waitSemaphoreValuesCount;
+ *     const uint64_t * pWaitSemaphoreValues;
+ *     uint32_t signalSemaphoreValuesCount;
+ *     const uint64_t * pSignalSemaphoreValues;
+ * }</pre></code>
  */
 public class VkD3D12FenceSubmitInfoKHX extends Struct implements NativeResource {
 

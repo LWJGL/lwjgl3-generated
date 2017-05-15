@@ -32,7 +32,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <p>To copy both the depth and stencil aspects of a depth/stencil format, two entries in {@code pRegions} <b>can</b> be used, where one specifies the depth aspect in {@code imageSubresource}, and the other specifies the stencil aspect.</p>
  * </div>
  * 
- * <p>Because depth or stencil aspect buffer to image copies <b>may</b> require format conversions on some implementations, they are not supported on queues that do not support graphics. When copying to a depth aspect, the data in buffer memory <b>must</b> be in the the range <code>[0,1]</code> or undefined results occur.</p>
+ * <p>Because depth or stencil aspect buffer to image copies <b>may</b> require format conversions on some implementations, they are not supported on queues that do not support graphics. When copying to a depth aspect, the data in buffer memory <b>must</b> be in the the range</p><code>[0,1]</code>
+ * 
+ * <p>or undefined results occur.</p>
  * 
  * <p>Copies are done layer by layer starting with image layer {@code baseArrayLayer} member of {@code imageSubresource}. {@code layerCount} layers are copied from the source image or to the destination image.</p>
  * 
@@ -64,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> specify aspects present in the calling command&#8217;s {@code VkImage} parameter</li>
  * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> only have a single bit set</li>
  * <li>If the calling command&#8217;s {@code VkImage} parameter is of {@code VkImageType} {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, the {@code baseArrayLayer} and {@code layerCount} members of {@code imageSubresource} <b>must</b> be 0 and 1, respectively</li>
- * <li>When copying to the depth aspect of an image subresource, the data in the source buffer <b>must</b> be in the range <code>[0,1]</code></li>
+ * <li>When copying to the depth aspect of an image subresource, the data in the source buffer <b>must</b> be in the range<code>[0,1]</code></li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -90,14 +92,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBufferImageCopy {
-    VkDeviceSize bufferOffset;
-    uint32_t bufferRowLength;
-    uint32_t bufferImageHeight;
-    {@link VkImageSubresourceLayers VkImageSubresourceLayers} imageSubresource;
-    {@link VkOffset3D VkOffset3D} imageOffset;
-    {@link VkExtent3D VkExtent3D} imageExtent;
-}</code></pre>
+ * <code><pre>
+ * struct VkBufferImageCopy {
+ *     VkDeviceSize bufferOffset;
+ *     uint32_t bufferRowLength;
+ *     uint32_t bufferImageHeight;
+ *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} imageSubresource;
+ *     {@link VkOffset3D VkOffset3D} imageOffset;
+ *     {@link VkExtent3D VkExtent3D} imageExtent;
+ * }</pre></code>
  */
 public class VkBufferImageCopy extends Struct implements NativeResource {
 

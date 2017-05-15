@@ -16,7 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h5>Examples</h5>
  * 
- * <pre><code>    // TODO: Write some sample code here.</code></pre>
+ * <code><pre>
+ *     // TODO: Write some sample code here.</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
@@ -119,11 +120,12 @@ public class KHRDescriptorUpdateTemplate {
      * 
      * <p>To create a descriptor update template, call:</p>
      * 
-     * <pre><code>VkResult vkCreateDescriptorUpdateTemplateKHR(
-    VkDevice                                    device,
-    const VkDescriptorUpdateTemplateCreateInfoKHR* pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkDescriptorUpdateTemplateKHR*              pDescriptorUpdateTemplate);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateDescriptorUpdateTemplateKHR(
+     *     VkDevice                                    device,
+     *     const VkDescriptorUpdateTemplateCreateInfoKHR* pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkDescriptorUpdateTemplateKHR*              pDescriptorUpdateTemplate);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -183,10 +185,11 @@ public class KHRDescriptorUpdateTemplate {
      * 
      * <p>To destroy a descriptor update template, call:</p>
      * 
-     * <pre><code>void vkDestroyDescriptorUpdateTemplateKHR(
-    VkDevice                                    device,
-    VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
-    const VkAllocationCallbacks*                pAllocator);</code></pre>
+     * <code><pre>
+     * void vkDestroyDescriptorUpdateTemplateKHR(
+     *     VkDevice                                    device,
+     *     VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
+     *     const VkAllocationCallbacks*                pAllocator);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -231,11 +234,12 @@ public class KHRDescriptorUpdateTemplate {
      * 
      * <p>Once a {@code VkDescriptorUpdateTemplateKHR} has been created, descriptor sets <b>can</b> be updated by calling:</p>
      * 
-     * <pre><code>void vkUpdateDescriptorSetWithTemplateKHR(
-    VkDevice                                    device,
-    VkDescriptorSet                             descriptorSet,
-    VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
-    const void*                                 pData);</code></pre>
+     * <code><pre>
+     * void vkUpdateDescriptorSetWithTemplateKHR(
+     *     VkDevice                                    device,
+     *     VkDescriptorSet                             descriptorSet,
+     *     VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
+     *     const void*                                 pData);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -253,80 +257,81 @@ public class KHRDescriptorUpdateTemplate {
      * <li>Host access to {@code descriptorSet} <b>must</b> be externally synchronized</li>
      * </ul>
      * 
-     * <pre><code>struct AppBufferView {
-    VkBufferView bufferView;
-    uint32_t     applicationRelatedInformation;
-};
-
-struct AppDataStructure
-{
-    VkDescriptorImageInfo  imageInfo;          // a single image info
-    VkDescriptorBufferInfo bufferInfoArray[3]; // 3 buffer infos in an array
-    AppBufferView          bufferView[2];      // An application defined structure containing a bufferView
-    // ... some more application related data
-};
-
-const VkDescriptorUpdateTemplateEntryKHR descriptorUpdateTemplateEntries[] =
-{
-    // binding to a single image descriptor
-    {
-        0,                                           // binding
-        0,                                           // dstArrayElement
-        1,                                           // descriptorCount
-        VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER,   // descriptorType
-        offsetof(AppDataStructure, imageInfo),       // offset
-        0                                            // stride is not required if descriptorCount is 1.
-    },
-
-    // binding to an array of buffer descriptors
-    {
-        0,                                           // binding
-        0,                                           // dstArrayElement
-        3,                                           // descriptorCount
-        VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,           // descriptorType
-        offsetof(AppDataStructure, bufferInfoArray), // offset
-        sizeof(VkDescriptorBufferInfo)               // stride, descriptor buffer infos are compact
-    },
-
-    // binding to an array of buffer views
-    {
-        0,                                           // binding
-        3,                                           // dstArrayElement
-        1,                                           // descriptorCount
-        VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER,     // descriptorType
-        offsetof(AppDataStructure, bufferView),      // offset
-        sizeof(AppBufferView)                        // stride, bufferViews do not have to be compact
-    },
-};
-
-// create an descriptor update template for descriptor set updates
-const VkDescriptorUpdateTemplateCreateInfoKHR createInfo =
-{
-    VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,  // sType
-    NULL,                                                          // pNext
-    0,                                                             // flags
-    3,                                                             // descriptorUpdateEntryCount
-    descriptorUpdateTemplateEntries,                               // pDescriptorUpdateEntries
-    VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET_KHR,         // templateType
-    myLayout,                                                      // descriptorSetLayout
-    0,                                                             // pipelineBindPoint, ignored by given templateType
-    0,                                                             // pipelineLayout, ignored by given templateType
-    0,                                                             // set, ignored by given templateType
-};
-
-VkDescriptorUpdateTemplateKHR myDescriptorUpdateTemplate;
-myResult = vkCreatePipelineLayout(
-    myDevice,
-    &createInfo,
-    NULL,
-    &myDescriptorUpdateTemplate);
-}
-
-
-AppDataStructure appData;
-
-// fill appData here or cache it in your engine
-vkUpdateDescriptorSetWithTemplateKHR(myDevice, myDescriptorSet, myDescriptorUpdateTemplate, &appData);</code></pre>
+     * <code><pre>
+     * struct AppBufferView {
+     *     VkBufferView bufferView;
+     *     uint32_t     applicationRelatedInformation;
+     * };
+     * 
+     * struct AppDataStructure
+     * {
+     *     VkDescriptorImageInfo  imageInfo;          // a single image info
+     *     VkDescriptorBufferInfo bufferInfoArray[3]; // 3 buffer infos in an array
+     *     AppBufferView          bufferView[2];      // An application defined structure containing a bufferView
+     *     // ... some more application related data
+     * };
+     * 
+     * const VkDescriptorUpdateTemplateEntryKHR descriptorUpdateTemplateEntries[] =
+     * {
+     *     // binding to a single image descriptor
+     *     {
+     *         0,                                           // binding
+     *         0,                                           // dstArrayElement
+     *         1,                                           // descriptorCount
+     *         VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER,   // descriptorType
+     *         offsetof(AppDataStructure, imageInfo),       // offset
+     *         0                                            // stride is not required if descriptorCount is 1.
+     *     },
+     * 
+     *     // binding to an array of buffer descriptors
+     *     {
+     *         0,                                           // binding
+     *         0,                                           // dstArrayElement
+     *         3,                                           // descriptorCount
+     *         VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,           // descriptorType
+     *         offsetof(AppDataStructure, bufferInfoArray), // offset
+     *         sizeof(VkDescriptorBufferInfo)               // stride, descriptor buffer infos are compact
+     *     },
+     * 
+     *     // binding to an array of buffer views
+     *     {
+     *         0,                                           // binding
+     *         3,                                           // dstArrayElement
+     *         1,                                           // descriptorCount
+     *         VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER,     // descriptorType
+     *         offsetof(AppDataStructure, bufferView),      // offset
+     *         sizeof(AppBufferView)                        // stride, bufferViews do not have to be compact
+     *     },
+     * };
+     * 
+     * // create an descriptor update template for descriptor set updates
+     * const VkDescriptorUpdateTemplateCreateInfoKHR createInfo =
+     * {
+     *     VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,  // sType
+     *     NULL,                                                          // pNext
+     *     0,                                                             // flags
+     *     3,                                                             // descriptorUpdateEntryCount
+     *     descriptorUpdateTemplateEntries,                               // pDescriptorUpdateEntries
+     *     VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET_KHR,         // templateType
+     *     myLayout,                                                      // descriptorSetLayout
+     *     0,                                                             // pipelineBindPoint, ignored by given templateType
+     *     0,                                                             // pipelineLayout, ignored by given templateType
+     *     0,                                                             // set, ignored by given templateType
+     * };
+     * 
+     * VkDescriptorUpdateTemplateKHR myDescriptorUpdateTemplate;
+     * myResult = vkCreatePipelineLayout(
+     *     myDevice,
+     *     &createInfo,
+     *     NULL,
+     *     &myDescriptorUpdateTemplate);
+     * }
+     * 
+     * 
+     * AppDataStructure appData;
+     * 
+     * // fill appData here or cache it in your engine
+     * vkUpdateDescriptorSetWithTemplateKHR(myDevice, myDescriptorSet, myDescriptorUpdateTemplate, &appData);</pre></code>
      *
      * @param device                   the logical device that updates the descriptor sets.
      * @param descriptorSet            the descriptor set to update
@@ -351,12 +356,13 @@ vkUpdateDescriptorSetWithTemplateKHR(myDevice, myDescriptorSet, myDescriptorUpda
      * 
      * <p>It is also possible to use a descriptor update template to specify the push descriptors to update. To do so, call:</p>
      * 
-     * <pre><code>void vkCmdPushDescriptorSetWithTemplateKHR(
-    VkCommandBuffer                             commandBuffer,
-    VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
-    VkPipelineLayout                            layout,
-    uint32_t                                    set,
-    const void*                                 pData);</code></pre>
+     * <code><pre>
+     * void vkCmdPushDescriptorSetWithTemplateKHR(
+     *     VkCommandBuffer                             commandBuffer,
+     *     VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
+     *     VkPipelineLayout                            layout,
+     *     uint32_t                                    set,
+     *     const void*                                 pData);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -390,57 +396,58 @@ vkUpdateDescriptorSetWithTemplateKHR(myDevice, myDescriptorSet, myDescriptorUpda
      * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
      * </table>
      * 
-     * <pre><code>struct AppBufferView {
-    VkBufferView bufferView;
-    uint32_t     applicationRelatedInformation;
-};
-
-struct AppDataStructure
-{
-    VkDescriptorImageInfo  imageInfo;          // a single image info
-    // ... some more application related data
-};
-
-const VkDescriptorUpdateTemplateEntryKHR descriptorUpdateTemplateEntries[] =
-{
-    // binding to a single image descriptor
-    {
-        0,                                           // binding
-        0,                                           // dstArrayElement
-        1,                                           // descriptorCount
-        VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER,   // descriptorType
-        offsetof(AppDataStructure, imageInfo),       // offset
-        0                                            // stride is not required if descriptorCount is 1.
-    }
-
-};
-
-// create an descriptor update template for descriptor set updates
-const VkDescriptorUpdateTemplateCreateInfoKHR createInfo =
-{
-    VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,  // sType
-    NULL,                                                          // pNext
-    0,                                                             // flags
-    1,                                                             // descriptorUpdateEntryCount
-    descriptorUpdateTemplateEntries,                               // pDescriptorUpdateEntries
-    VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS_KHR,       // templateType
-    0,                                                             // descriptorSetLayout, ignored by given templateType
-    VK_PIPELINE_BIND_POINT_GRAPHICS,                               // pipelineBindPoint
-    myPipelineLayout,                                              // pipelineLayout
-    0,                                                             // set
-};
-
-VkDescriptorUpdateTemplateKHR myDescriptorUpdateTemplate;
-myResult = vkCreatePipelineLayout(
-    myDevice,
-    &createInfo,
-    NULL,
-    &myDescriptorUpdateTemplate);
-}
-
-AppDataStructure appData;
-// fill appData here or cache it in your engine
-vkCmdPushDescriptorSetWithTemplateKHR(myCmdBuffer, myDescriptorUpdateTemplate, myPipelineLayout, 0,&appData);</code></pre>
+     * <code><pre>
+     * struct AppBufferView {
+     *     VkBufferView bufferView;
+     *     uint32_t     applicationRelatedInformation;
+     * };
+     * 
+     * struct AppDataStructure
+     * {
+     *     VkDescriptorImageInfo  imageInfo;          // a single image info
+     *     // ... some more application related data
+     * };
+     * 
+     * const VkDescriptorUpdateTemplateEntryKHR descriptorUpdateTemplateEntries[] =
+     * {
+     *     // binding to a single image descriptor
+     *     {
+     *         0,                                           // binding
+     *         0,                                           // dstArrayElement
+     *         1,                                           // descriptorCount
+     *         VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER,   // descriptorType
+     *         offsetof(AppDataStructure, imageInfo),       // offset
+     *         0                                            // stride is not required if descriptorCount is 1.
+     *     }
+     * 
+     * };
+     * 
+     * // create an descriptor update template for descriptor set updates
+     * const VkDescriptorUpdateTemplateCreateInfoKHR createInfo =
+     * {
+     *     VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR,  // sType
+     *     NULL,                                                          // pNext
+     *     0,                                                             // flags
+     *     1,                                                             // descriptorUpdateEntryCount
+     *     descriptorUpdateTemplateEntries,                               // pDescriptorUpdateEntries
+     *     VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS_KHR,       // templateType
+     *     0,                                                             // descriptorSetLayout, ignored by given templateType
+     *     VK_PIPELINE_BIND_POINT_GRAPHICS,                               // pipelineBindPoint
+     *     myPipelineLayout,                                              // pipelineLayout
+     *     0,                                                             // set
+     * };
+     * 
+     * VkDescriptorUpdateTemplateKHR myDescriptorUpdateTemplate;
+     * myResult = vkCreatePipelineLayout(
+     *     myDevice,
+     *     &createInfo,
+     *     NULL,
+     *     &myDescriptorUpdateTemplate);
+     * }
+     * 
+     * AppDataStructure appData;
+     * // fill appData here or cache it in your engine
+     * vkCmdPushDescriptorSetWithTemplateKHR(myCmdBuffer, myDescriptorUpdateTemplate, myPipelineLayout, 0,&appData);</pre></code>
      *
      * @param commandBuffer            the command buffer that the descriptors will be recorded in.
      * @param descriptorUpdateTemplate A descriptor update template which defines how to interpret the descriptor information in pData.

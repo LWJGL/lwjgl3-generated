@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct MSG {
-    HWND hwnd;
-    UINT message;
-    WPARAM wParam;
-    LPARAM lParam;
-    DWORD time;
-    {@link POINT POINT} pt;
-}</code></pre>
+ * <code><pre>
+ * struct MSG {
+ *     HWND hwnd;
+ *     UINT message;
+ *     WPARAM wParam;
+ *     LPARAM lParam;
+ *     DWORD time;
+ *     {@link POINT POINT} pt;
+ * }</pre></code>
  */
 public class MSG extends Struct implements NativeResource {
 

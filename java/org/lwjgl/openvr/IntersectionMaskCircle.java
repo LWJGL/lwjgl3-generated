@@ -16,11 +16,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct IntersectionMaskCircle_t {
-    float m_flCenterX;
-    float m_flCenterY;
-    float m_flRadius;
-}</code></pre>
+ * <code><pre>
+ * struct IntersectionMaskCircle_t {
+ *     float m_flCenterX;
+ *     float m_flCenterY;
+ *     float m_flRadius;
+ * }</pre></code>
  */
 public class IntersectionMaskCircle extends Struct implements NativeResource {
 

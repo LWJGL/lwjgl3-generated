@@ -18,15 +18,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stbtt_vertex {
-    stbtt_vertex_type x;
-    stbtt_vertex_type y;
-    stbtt_vertex_type cx;
-    stbtt_vertex_type cy;
-    stbtt_vertex_type cx1;
-    stbtt_vertex_type cy1;
-    unsigned char type;
-}</code></pre>
+ * <code><pre>
+ * struct stbtt_vertex {
+ *     stbtt_vertex_type x;
+ *     stbtt_vertex_type y;
+ *     stbtt_vertex_type cx;
+ *     stbtt_vertex_type cy;
+ *     stbtt_vertex_type cx1;
+ *     stbtt_vertex_type cy1;
+ *     unsigned char type;
+ * }</pre></code>
  */
 public class STBTTVertex extends Struct implements NativeResource {
 

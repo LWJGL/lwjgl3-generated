@@ -25,7 +25,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>Formulas such as <code>min(N, maxImageCount)</code> are not correct, since {@code maxImageCount} <b>may</b> be zero.</p>
+ * <p>Formulas such as</p><code>min(N, maxImageCount)</code>
+ * 
+ * <p>are not correct, since {@code maxImageCount} <b>may</b> be zero.</p>
  * </div>
  * 
  * <h5>See Also</h5>
@@ -37,7 +39,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code minImageCount} &ndash; the minimum number of images the specified device supports for a swapchain created for the surface, and will be at least one.</li>
  * <li>{@code maxImageCount} &ndash; the maximum number of images the specified device supports for a swapchain created for the surface, and will be either 0, or greater than or equal to {@code minImageCount}. A value of 0 means that there is no limit on the number of images, though there <b>may</b> be limits related to the total amount of memory used by presentable images.</li>
- * <li>{@code currentExtent} &ndash; the current width and height of the surface, or the special value <code>(0xFFFFFFFF, 0xFFFFFFFF)</code> indicating that the surface size will be determined by the extent of a swapchain targeting the surface.</li>
+ * <li>{@code currentExtent} &ndash; the current width and height of the surface, or the special value<code>(0xFFFFFFFF, 0xFFFFFFFF)</code>
+ * 
+ * <p>indicating that the surface size will be determined by the extent of a swapchain targeting the surface.</p></li>
  * <li>{@code minImageExtent} &ndash; contains the smallest valid swapchain extent for the surface on the specified device. The {@code width} and {@code height} of the extent will each be less than or equal to the corresponding {@code width} and {@code height} of {@code currentExtent}, unless {@code currentExtent} has the special value described above.</li>
  * <li>{@code maxImageExtent} &ndash; contains the largest valid swapchain extent for the surface on the specified device. The {@code width} and {@code height} of the extent will each be greater than or equal to the corresponding {@code width} and {@code height} of {@code minImageExtent}. The {@code width} and {@code height} of the extent will each be greater than or equal to the corresponding {@code width} and {@code height} of {@code currentExtent}, unless {@code currentExtent} has the special value described above.</li>
  * <li>{@code maxImageArrayLayers} &ndash; the maximum number of layers presentable images <b>can</b> have for a swapchain created for this device and surface, and will be at least one.</li>
@@ -49,18 +53,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSurfaceCapabilitiesKHR {
-    uint32_t minImageCount;
-    uint32_t maxImageCount;
-    {@link VkExtent2D VkExtent2D} currentExtent;
-    {@link VkExtent2D VkExtent2D} minImageExtent;
-    {@link VkExtent2D VkExtent2D} maxImageExtent;
-    uint32_t maxImageArrayLayers;
-    VkSurfaceTransformFlagsKHR supportedTransforms;
-    VkSurfaceTransformFlagBitsKHR currentTransform;
-    VkCompositeAlphaFlagsKHR supportedCompositeAlpha;
-    VkImageUsageFlags supportedUsageFlags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSurfaceCapabilitiesKHR {
+ *     uint32_t minImageCount;
+ *     uint32_t maxImageCount;
+ *     {@link VkExtent2D VkExtent2D} currentExtent;
+ *     {@link VkExtent2D VkExtent2D} minImageExtent;
+ *     {@link VkExtent2D VkExtent2D} maxImageExtent;
+ *     uint32_t maxImageArrayLayers;
+ *     VkSurfaceTransformFlagsKHR supportedTransforms;
+ *     VkSurfaceTransformFlagBitsKHR currentTransform;
+ *     VkCompositeAlphaFlagsKHR supportedCompositeAlpha;
+ *     VkImageUsageFlags supportedUsageFlags;
+ * }</pre></code>
  */
 public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
 

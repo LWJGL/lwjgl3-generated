@@ -111,10 +111,11 @@ public class KHRMaintenance1 {
      * 
      * <p>To trim a command pool, call:</p>
      * 
-     * <pre><code>void vkTrimCommandPoolKHR(
-    VkDevice                                    device,
-    VkCommandPool                               commandPool,
-    VkCommandPoolTrimFlagsKHR                   flags);</code></pre>
+     * <code><pre>
+     * void vkTrimCommandPoolKHR(
+     *     VkDevice                                    device,
+     *     VkCommandPool                               commandPool,
+     *     VkCommandPoolTrimFlagsKHR                   flags);</pre></code>
      * 
      * <h5>Description</h5>
      * 

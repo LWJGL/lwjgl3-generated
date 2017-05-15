@@ -27,12 +27,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiTexel {
-    unsigned char b;
-    unsigned char g;
-    unsigned char r;
-    unsigned char a;
-}</code></pre>
+ * <code><pre>
+ * struct aiTexel {
+ *     unsigned char b;
+ *     unsigned char g;
+ *     unsigned char r;
+ *     unsigned char a;
+ * }</pre></code>
  */
 public class AITexel extends Struct implements NativeResource {
 

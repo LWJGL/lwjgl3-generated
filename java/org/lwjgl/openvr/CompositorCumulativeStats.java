@@ -28,23 +28,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct Compositor_CumulativeStats {
-    uint32_t m_nPid;
-    uint32_t m_nNumFramePresents;
-    uint32_t m_nNumDroppedFrames;
-    uint32_t m_nNumReprojectedFrames;
-    uint32_t m_nNumFramePresentsOnStartup;
-    uint32_t m_nNumDroppedFramesOnStartup;
-    uint32_t m_nNumReprojectedFramesOnStartup;
-    uint32_t m_nNumLoading;
-    uint32_t m_nNumFramePresentsLoading;
-    uint32_t m_nNumDroppedFramesLoading;
-    uint32_t m_nNumReprojectedFramesLoading;
-    uint32_t m_nNumTimedOut;
-    uint32_t m_nNumFramePresentsTimedOut;
-    uint32_t m_nNumDroppedFramesTimedOut;
-    uint32_t m_nNumReprojectedFramesTimedOut;
-}</code></pre>
+ * <code><pre>
+ * struct Compositor_CumulativeStats {
+ *     uint32_t m_nPid;
+ *     uint32_t m_nNumFramePresents;
+ *     uint32_t m_nNumDroppedFrames;
+ *     uint32_t m_nNumReprojectedFrames;
+ *     uint32_t m_nNumFramePresentsOnStartup;
+ *     uint32_t m_nNumDroppedFramesOnStartup;
+ *     uint32_t m_nNumReprojectedFramesOnStartup;
+ *     uint32_t m_nNumLoading;
+ *     uint32_t m_nNumFramePresentsLoading;
+ *     uint32_t m_nNumDroppedFramesLoading;
+ *     uint32_t m_nNumReprojectedFramesLoading;
+ *     uint32_t m_nNumTimedOut;
+ *     uint32_t m_nNumFramePresentsTimedOut;
+ *     uint32_t m_nNumDroppedFramesTimedOut;
+ *     uint32_t m_nNumReprojectedFramesTimedOut;
+ * }</pre></code>
  */
 public class CompositorCumulativeStats extends Struct implements NativeResource {
 

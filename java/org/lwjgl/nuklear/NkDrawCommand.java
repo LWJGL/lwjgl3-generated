@@ -14,12 +14,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_draw_command {
-    unsigned int elem_count;
-    {@link NkRect struct nk_rect} clip_rect;
-    {@link NkHandle nk_handle} texture;
-    {@link NkHandle nk_handle} userdata;
-}</code></pre>
+ * <code><pre>
+ * struct nk_draw_command {
+ *     unsigned int elem_count;
+ *     {@link NkRect struct nk_rect} clip_rect;
+ *     {@link NkHandle nk_handle} texture;
+ *     {@link NkHandle nk_handle} userdata;
+ * }</pre></code>
  */
 public class NkDrawCommand extends Struct {
 

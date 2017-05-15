@@ -23,12 +23,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Due to the nature of the {@code objc_msgSend*} functions, they are not directly exposed in this binding. Advanced users with good understanding of the
  * complexity involved with using these functions, may access them via the {@link #getLibrary} method:</p>
  * 
- * <pre><code>SharedLibrary objc = ObjCRuntime.getLibrary();
-long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
-
-// example usage
-long NSThread = objc_getClass("NSThread");
-long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
+ * <code><pre>
+ * SharedLibrary objc = ObjCRuntime.getLibrary();
+ * long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
+ * 
+ * // example usage
+ * long NSThread = objc_getClass("NSThread");
+ * long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</pre></code>
  * 
  * <p>The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the {@link org.lwjgl.system.JNI JNI}
  * class does. If a particular function signature is not available, {@link org.lwjgl.system.dyncall.DynCall DynCall} may be used to invoke it.</p>
@@ -984,7 +985,9 @@ public class ObjCRuntime {
     /**
      * Returns the function pointer that would be called if a particular message were sent to an instance of a class.
      * 
-     * <p>class_getMethodImplementation may be faster than <code>method_getImplementation(class_getInstanceMethod(cls, name))</code>.</p>
+     * <p>class_getMethodImplementation may be faster than</p><code>method_getImplementation(class_getInstanceMethod(cls, name))</code>
+     * 
+     * <p>.</p>
      * 
      * <p>The function pointer returned may be a function internal to the runtime instead of an actual method implementation. For example, if instances of the
      * class do not respond to the selector, the function pointer returned will be part of the runtime's message forwarding machinery.</p>
@@ -992,7 +995,9 @@ public class ObjCRuntime {
      * @param cls  the class you want to inspect
      * @param name a selector
      *
-     * @return the function pointer that would be called if <code>[object name]</code> were called with an instance of the class, or {@code NULL} if {@code cls} is Nil
+     * @return the function pointer that would be called if<code>[object name]</code>
+     *         
+     *         <p>were called with an instance of the class, or {@code NULL} if {@code cls} is Nil</p>
      */
     public static long class_getMethodImplementation(long cls, long name) {
         long __functionAddress = Functions.class_getMethodImplementation;
@@ -1256,14 +1261,16 @@ public class ObjCRuntime {
      * <p>An Objective-C method is simply a C function that takes at least two arguments &ndash; {@code self} and {@code _cmd}. For example, given the following
      * function:</p>
      * 
-     * <pre><code>void myMethodIMP(id self, SEL _cmd)
-{
-    // implementation ....
-}</code></pre>
+     * <code><pre>
+     * void myMethodIMP(id self, SEL _cmd)
+     * {
+     *     // implementation ....
+     * }</pre></code>
      * 
      * <p>you can dynamically add it to a class as a method (called {@code resolveThisMethodDynamically}) like this:</p>
      * 
-     * <pre><code>class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</code></pre>
+     * <code><pre>
+     * class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</pre></code>
      *
      * @param cls   the class to which to add a method
      * @param name  a selector that specifies the name of the method being added
@@ -1292,14 +1299,16 @@ public class ObjCRuntime {
      * <p>An Objective-C method is simply a C function that takes at least two arguments &ndash; {@code self} and {@code _cmd}. For example, given the following
      * function:</p>
      * 
-     * <pre><code>void myMethodIMP(id self, SEL _cmd)
-{
-    // implementation ....
-}</code></pre>
+     * <code><pre>
+     * void myMethodIMP(id self, SEL _cmd)
+     * {
+     *     // implementation ....
+     * }</pre></code>
      * 
      * <p>you can dynamically add it to a class as a method (called {@code resolveThisMethodDynamically}) like this:</p>
      * 
-     * <pre><code>class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</code></pre>
+     * <code><pre>
+     * class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</pre></code>
      *
      * @param cls   the class to which to add a method
      * @param name  a selector that specifies the name of the method being added
@@ -1415,8 +1424,12 @@ public class ObjCRuntime {
      * 
      * <p>The class must not be a metaclass. Adding an instance variable to a metaclass is not supported.</p>
      * 
-     * <p>The instance variable's minimum alignment in bytes is <code>1<<align</code>. The minimum alignment of an instance variable depends on the ivar's type and
-     * the machine architecture. For variables of any pointer type, pass <code>log2(sizeof(pointer_type))</code>.</p>
+     * <p>The instance variable's minimum alignment in bytes is</p><code>1<<align</code>
+     * 
+     * <p>. The minimum alignment of an instance variable depends on the ivar's type and
+     * the machine architecture. For variables of any pointer type, pass</p><code>log2(sizeof(pointer_type))</code>
+     * 
+     * <p>.</p>
      *
      * @param cls       
      * @param name      
@@ -1442,8 +1455,12 @@ public class ObjCRuntime {
      * 
      * <p>The class must not be a metaclass. Adding an instance variable to a metaclass is not supported.</p>
      * 
-     * <p>The instance variable's minimum alignment in bytes is <code>1<<align</code>. The minimum alignment of an instance variable depends on the ivar's type and
-     * the machine architecture. For variables of any pointer type, pass <code>log2(sizeof(pointer_type))</code>.</p>
+     * <p>The instance variable's minimum alignment in bytes is</p><code>1<<align</code>
+     * 
+     * <p>. The minimum alignment of an instance variable depends on the ivar's type and
+     * the machine architecture. For variables of any pointer type, pass</p><code>log2(sizeof(pointer_type))</code>
+     * 
+     * <p>.</p>
      *
      * @param cls       
      * @param name      
@@ -1692,8 +1709,9 @@ public class ObjCRuntime {
      * Creates an instance of a class at the specified location.
      *
      * @param cls   the class that you want to allocate an instance of
-     * @param bytes the location at which to allocate an instance of the {@code cls} class. {@code bytes} must point to at least <code>class_getInstanceSize(cls)</code>
-     *              bytes of well-aligned, zero-filled memory.
+     * @param bytes the location at which to allocate an instance of the {@code cls} class. {@code bytes} must point to at least<code>class_getInstanceSize(cls)</code>
+     *              
+     *              <p>bytes of well-aligned, zero-filled memory.</p>
      *
      * @return an instance of the class {@code cls} at {@code bytes}, if successful; otherwise {@link #nil} (for example, if {@code cls} or {@code bytes} are themselves {@link #nil})
      */
@@ -1739,7 +1757,9 @@ public class ObjCRuntime {
     /**
      * Creates a new class and metaclass.
      * 
-     * <p>You can get a pointer to the new metaclass by calling <code>object_getClass(newClass)</code>.</p>
+     * <p>You can get a pointer to the new metaclass by calling</p><code>object_getClass(newClass)</code>
+     * 
+     * <p>.</p>
      * 
      * <p>To create a new class, start by calling objc_allocateClassPair. Then set the class's attributes with functions like {@link #class_addMethod} and
      * {@link #class_addIvar}. When you are done building the class, call {@link #objc_registerClassPair}. The new class is now ready for use.</p>
@@ -1762,7 +1782,9 @@ public class ObjCRuntime {
     /**
      * Creates a new class and metaclass.
      * 
-     * <p>You can get a pointer to the new metaclass by calling <code>object_getClass(newClass)</code>.</p>
+     * <p>You can get a pointer to the new metaclass by calling</p><code>object_getClass(newClass)</code>
+     * 
+     * <p>.</p>
      * 
      * <p>To create a new class, start by calling objc_allocateClassPair. Then set the class's attributes with functions like {@link #class_addMethod} and
      * {@link #class_addIvar}. When you are done building the class, call {@link #objc_registerClassPair}. The new class is now ready for use.</p>
@@ -1822,7 +1844,9 @@ public class ObjCRuntime {
     /**
      * Returns the name of a method.
      * 
-     * <p>To get the method name as a C string, call <code>sel_getName(method_getName(method))</code>.</p>
+     * <p>To get the method name as a C string, call</p><code>sel_getName(method_getName(method))</code>
+     * 
+     * <p>.</p>
      *
      * @param m the method to inspect
      *
@@ -1959,7 +1983,9 @@ public class ObjCRuntime {
     /**
      * Returns by reference a string describing a method's return type.
      * 
-     * <p>The method's return type string is copied to {@code dst}. {@code dst} is filled as if <code>strncpy(dst, parameter_type, dst_len)</code> were called.</p>
+     * <p>The method's return type string is copied to {@code dst}. {@code dst} is filled as if</p><code>strncpy(dst, parameter_type, dst_len)</code>
+     * 
+     * <p>were called.</p>
      *
      * @param m   the method to inspect
      * @param dst the reference string to store the description
@@ -1971,7 +1997,9 @@ public class ObjCRuntime {
     /**
      * Returns by reference a string describing a method's return type.
      * 
-     * <p>The method's return type string is copied to {@code dst}. {@code dst} is filled as if <code>strncpy(dst, parameter_type, dst_len)</code> were called.</p>
+     * <p>The method's return type string is copied to {@code dst}. {@code dst} is filled as if</p><code>strncpy(dst, parameter_type, dst_len)</code>
+     * 
+     * <p>were called.</p>
      *
      * @param m       the method to inspect
      * @param dst_len the maximum number of characters that can be stored in {@code dst}
@@ -2005,8 +2033,12 @@ public class ObjCRuntime {
     /**
      * Returns by reference a string describing a single parameter type of a method.
      * 
-     * <p>The parameter type string is copied to {@code dst}. {@code dst} is filled as if <code>strncpy(dst, parameter_type, dst_len)</code> were called. If the
-     * method contains no parameter with that index, {@code dst} is filled as if <code>strncpy(dst, "", dst_len)</code> were called.</p>
+     * <p>The parameter type string is copied to {@code dst}. {@code dst} is filled as if</p><code>strncpy(dst, parameter_type, dst_len)</code>
+     * 
+     * <p>were called. If the
+     * method contains no parameter with that index, {@code dst} is filled as if</p><code>strncpy(dst, "", dst_len)</code>
+     * 
+     * <p>were called.</p>
      *
      * @param m     the method you want to inquire about
      * @param index the index of the parameter you want to inquire about
@@ -2019,8 +2051,12 @@ public class ObjCRuntime {
     /**
      * Returns by reference a string describing a single parameter type of a method.
      * 
-     * <p>The parameter type string is copied to {@code dst}. {@code dst} is filled as if <code>strncpy(dst, parameter_type, dst_len)</code> were called. If the
-     * method contains no parameter with that index, {@code dst} is filled as if <code>strncpy(dst, "", dst_len)</code> were called.</p>
+     * <p>The parameter type string is copied to {@code dst}. {@code dst} is filled as if</p><code>strncpy(dst, parameter_type, dst_len)</code>
+     * 
+     * <p>were called. If the
+     * method contains no parameter with that index, {@code dst} is filled as if</p><code>strncpy(dst, "", dst_len)</code>
+     * 
+     * <p>were called.</p>
      *
      * @param m       the method you want to inquire about
      * @param index   the index of the parameter you want to inquire about
@@ -2347,7 +2383,7 @@ public class ObjCRuntime {
      * 
      * <p>One protocol can incorporate other protocols using the same syntax that classes use to adopt a protocol:</p>
      * 
-     * <p><code>@protocol ProtocolName < protocol list ></code></p>
+     * <code>@protocol ProtocolName < protocol list ></code>
      * 
      * <p>All the protocols listed between angle brackets are considered part of the {@code ProtocolName} protocol.</p>
      *
@@ -2432,7 +2468,9 @@ public class ObjCRuntime {
      * @param __result         an objc_method_description structure that describes the method specified by {@code aSel}, {@code isRequiredMethod}, and {@code isInstanceMethod} for
      *                         the protocol {@code p}.
      *                         
-     *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code>{NULL, NULL}</code>.</p>
+     *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value</p><code>{NULL, NULL}</code>
+     *                         
+     *                         <p>.</p>
      */
     public static ObjCMethodDescription protocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, ObjCMethodDescription __result) {
         nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
@@ -3078,8 +3116,12 @@ public class ObjCRuntime {
     /**
      * Creates a pointer to a function that calls the specified block when the method is called.
      *
-     * @param block the block that implements this method. The signature of {@code block} should be <code>method_return_type ^(id self, self, method_args …)</code>. The
-     *              selector of the method is not available to {@code block}. {@code block} is copied with <code>Block_copy()</code>.
+     * @param block the block that implements this method. The signature of {@code block} should be<code>method_return_type ^(id self, self, method_args …)</code>
+     *              
+     *              <p>. The
+     *              selector of the method is not available to {@code block}. {@code block} is copied with</p><code>Block_copy()</code>
+     *              
+     *              <p>.</p>
      *
      * @return the IMP that calls {@code block}. You must dispose of the returned IMP using the function.
      */

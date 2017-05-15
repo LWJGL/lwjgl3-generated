@@ -14,15 +14,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_configuration_stacks {
-    {@link NkConfigStackStyleItem struct nk_config_stack_style_item} style_items;
-    {@link NkConfigStackFloat struct nk_config_stack_float} floats;
-    {@link NkConfigStackVec2 struct nk_config_stack_vec2} vectors;
-    {@link NkConfigStackFlags struct nk_config_stack_flags} flags;
-    {@link NkConfigStackColor struct nk_config_stack_color} colors;
-    {@link NkConfigStackUserFont struct nk_config_stack_user_font} fonts;
-    {@link NkConfigStackButtonBehavior struct nk_config_stack_button_behavior} button_behaviors;
-}</code></pre>
+ * <code><pre>
+ * struct nk_configuration_stacks {
+ *     {@link NkConfigStackStyleItem struct nk_config_stack_style_item} style_items;
+ *     {@link NkConfigStackFloat struct nk_config_stack_float} floats;
+ *     {@link NkConfigStackVec2 struct nk_config_stack_vec2} vectors;
+ *     {@link NkConfigStackFlags struct nk_config_stack_flags} flags;
+ *     {@link NkConfigStackColor struct nk_config_stack_color} colors;
+ *     {@link NkConfigStackUserFont struct nk_config_stack_user_font} fonts;
+ *     {@link NkConfigStackButtonBehavior struct nk_config_stack_button_behavior} button_behaviors;
+ * }</pre></code>
  */
 class NkConfigurationStacks extends Struct {
 

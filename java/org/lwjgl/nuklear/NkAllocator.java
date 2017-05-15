@@ -16,11 +16,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_allocator {
-    {@link NkHandle nk_handle} userdata;
-    {@link NkPluginAllocI nk_plugin_alloc} alloc;
-    {@link NkPluginFreeI nk_plugin_free} mfree;
-}</code></pre>
+ * <code><pre>
+ * struct nk_allocator {
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkPluginAllocI nk_plugin_alloc} alloc;
+ *     {@link NkPluginFreeI nk_plugin_free} mfree;
+ * }</pre></code>
  */
 public class NkAllocator extends Struct implements NativeResource {
 

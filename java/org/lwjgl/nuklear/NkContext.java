@@ -16,30 +16,31 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_context {
-    {@link NkInput struct nk_input} input;
-    {@link NkStyle struct nk_style} style;
-    {@link NkBuffer struct nk_buffer} memory;
-    {@link NkClipboard struct nk_clipboard} clip;
-    nk_flags last_widget_state;
-    enum nk_button_behavior button_behavior;
-    {@link NkConfigurationStacks struct nk_configuration_stacks} stacks;
-    float delta_time_seconds;
-    {@link NkDrawList struct nk_draw_list} draw_list;
-    {@link NkHandle nk_handle} userdata;
-    {@link NkTextEdit struct nk_text_edit} text_edit;
-    {@link NkCommandBuffer struct nk_command_buffer} overlay;
-    int build;
-    int use_pool;
-    {@link NkPool struct nk_pool} pool;
-    {@link NkWindow struct nk_window} * begin;
-    {@link NkWindow struct nk_window} * end;
-    {@link NkWindow struct nk_window} * active;
-    {@link NkWindow struct nk_window} * current;
-    nk_page_element * freelist;
-    unsigned int count;
-    unsigned int seq;
-}</code></pre>
+ * <code><pre>
+ * struct nk_context {
+ *     {@link NkInput struct nk_input} input;
+ *     {@link NkStyle struct nk_style} style;
+ *     {@link NkBuffer struct nk_buffer} memory;
+ *     {@link NkClipboard struct nk_clipboard} clip;
+ *     nk_flags last_widget_state;
+ *     enum nk_button_behavior button_behavior;
+ *     {@link NkConfigurationStacks struct nk_configuration_stacks} stacks;
+ *     float delta_time_seconds;
+ *     {@link NkDrawList struct nk_draw_list} draw_list;
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkTextEdit struct nk_text_edit} text_edit;
+ *     {@link NkCommandBuffer struct nk_command_buffer} overlay;
+ *     int build;
+ *     int use_pool;
+ *     {@link NkPool struct nk_pool} pool;
+ *     {@link NkWindow struct nk_window} * begin;
+ *     {@link NkWindow struct nk_window} * end;
+ *     {@link NkWindow struct nk_window} * active;
+ *     {@link NkWindow struct nk_window} * current;
+ *     nk_page_element * freelist;
+ *     unsigned int count;
+ *     unsigned int seq;
+ * }</pre></code>
  */
 public class NkContext extends Struct implements NativeResource {
 

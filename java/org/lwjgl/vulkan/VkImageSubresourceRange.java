@@ -24,12 +24,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>{@code aspectMask} is a bitmask indicating the format being used. Bits which <b>may</b> be set include:</p>
  * 
- * <pre><code>typedef enum VkImageAspectFlagBits {
-    VK_IMAGE_ASPECT_COLOR_BIT = 0x00000001,
-    VK_IMAGE_ASPECT_DEPTH_BIT = 0x00000002,
-    VK_IMAGE_ASPECT_STENCIL_BIT = 0x00000004,
-    VK_IMAGE_ASPECT_METADATA_BIT = 0x00000008,
-} VkImageAspectFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkImageAspectFlagBits {
+ *     VK_IMAGE_ASPECT_COLOR_BIT = 0x00000001,
+ *     VK_IMAGE_ASPECT_DEPTH_BIT = 0x00000002,
+ *     VK_IMAGE_ASPECT_STENCIL_BIT = 0x00000004,
+ *     VK_IMAGE_ASPECT_METADATA_BIT = 0x00000008,
+ * } VkImageAspectFlagBits;</pre></code>
  * 
  * <p>The mask <b>must</b> be only {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} or {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if {@code format} is a color, depth-only or stencil-only format, respectively. If using a depth/stencil format with both depth and stencil components, {@code aspectMask} <b>must</b> include at least one of {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}, and <b>can</b> include both.</p>
  * 
@@ -40,9 +41,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, <code>levelCount</code> <b>must</b> be non-zero and <code>(baseMipLevel + levelCount)</code> <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
- * <li>If the {@code imageType} specified in {@link VkImageCreateInfo} when the image was created was {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} and the image view is created with the {@code viewType} of {@link VkImageViewCreateInfo} set to {@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} then {@code layerCount} <b>must</b> be {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, or <code>layerCount</code> <b>must</b> be non-zero and <code>(baseArrayLayer + layerCount)</code> <b>must</b> be less than or equal to the {@code extent.depth} specified in {@link VkImageCreateInfo} when the image was created</li>
- * <li>If the {@code imageType} specified in {@link VkImageCreateInfo} when the image was created was not {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} or the image view is not created with the {@code viewType} of {@link VkImageViewCreateInfo} set to {@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} then {@code layerCount} <b>must</b> be {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, or <code>layerCount</code> <b>must</b> be non-zero and <code>(baseArrayLayer + layerCount)</code> <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS},<code>levelCount</code>
+ * 
+ * <p><b>must</b> be non-zero and</p><code>(baseMipLevel + levelCount)</code>
+ * 
+ * <p><b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</p></li>
+ * <li>If the {@code imageType} specified in {@link VkImageCreateInfo} when the image was created was {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} and the image view is created with the {@code viewType} of {@link VkImageViewCreateInfo} set to {@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} then {@code layerCount} <b>must</b> be {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, or<code>layerCount</code>
+ * 
+ * <p><b>must</b> be non-zero and</p><code>(baseArrayLayer + layerCount)</code>
+ * 
+ * <p><b>must</b> be less than or equal to the {@code extent.depth} specified in {@link VkImageCreateInfo} when the image was created</p></li>
+ * <li>If the {@code imageType} specified in {@link VkImageCreateInfo} when the image was created was not {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} or the image view is not created with the {@code viewType} of {@link VkImageViewCreateInfo} set to {@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} then {@code layerCount} <b>must</b> be {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, or<code>layerCount</code>
+ * 
+ * <p><b>must</b> be non-zero and</p><code>(baseArrayLayer + layerCount)</code>
+ * 
+ * <p><b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</p></li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -68,13 +81,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageSubresourceRange {
-    VkImageAspectFlags aspectMask;
-    uint32_t baseMipLevel;
-    uint32_t levelCount;
-    uint32_t baseArrayLayer;
-    uint32_t layerCount;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageSubresourceRange {
+ *     VkImageAspectFlags aspectMask;
+ *     uint32_t baseMipLevel;
+ *     uint32_t levelCount;
+ *     uint32_t baseArrayLayer;
+ *     uint32_t layerCount;
+ * }</pre></code>
  */
 public class VkImageSubresourceRange extends Struct implements NativeResource {
 

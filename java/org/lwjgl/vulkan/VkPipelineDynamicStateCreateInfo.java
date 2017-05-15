@@ -43,13 +43,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineDynamicStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineDynamicStateCreateFlags flags;
-    uint32_t dynamicStateCount;
-    const VkDynamicState * pDynamicStates;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineDynamicStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineDynamicStateCreateFlags flags;
+ *     uint32_t dynamicStateCount;
+ *     const VkDynamicState * pDynamicStates;
+ * }</pre></code>
  */
 public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeResource {
 

@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryRequirements {
-    VkDeviceSize size;
-    VkDeviceSize alignment;
-    uint32_t memoryTypeBits;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryRequirements {
+ *     VkDeviceSize size;
+ *     VkDeviceSize alignment;
+ *     uint32_t memoryTypeBits;
+ * }</pre></code>
  */
 public class VkMemoryRequirements extends Struct implements NativeResource {
 

@@ -18,16 +18,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stbtt_aligned_quad {
-    float x0;
-    float y0;
-    float s0;
-    float t0;
-    float x1;
-    float y1;
-    float s1;
-    float t1;
-}</code></pre>
+ * <code><pre>
+ * struct stbtt_aligned_quad {
+ *     float x0;
+ *     float y0;
+ *     float s0;
+ *     float t0;
+ *     float x1;
+ *     float y1;
+ *     float s1;
+ *     float t1;
+ * }</pre></code>
  */
 public class STBTTAlignedQuad extends Struct implements NativeResource {
 

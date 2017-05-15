@@ -65,7 +65,7 @@ public class GLXSGIVideoSync {
     /**
      * Puts the calling process to sleep until
      * 
-     * <p><code>(C mod D) = R</code></p>
+     * <code>(C mod D) = R</code>
      * 
      * <p>where {@code C} is the video sync counter, {@code D} is specified by the {@code divisor} parameter of {@code glXWaitVideoSyncSGI}, and {@code R} is
      * specified by the {@code remainder} parameter of {@code glXWaitVideoSyncSGI}. {@code glXWaitVideoSyncSGI} returns the current video sync counter value in

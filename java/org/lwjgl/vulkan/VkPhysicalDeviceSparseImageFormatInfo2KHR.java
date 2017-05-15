@@ -53,15 +53,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceSparseImageFormatInfo2KHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkFormat format;
-    VkImageType type;
-    VkSampleCountFlagBits samples;
-    VkImageUsageFlags usage;
-    VkImageTiling tiling;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceSparseImageFormatInfo2KHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkFormat format;
+ *     VkImageType type;
+ *     VkSampleCountFlagBits samples;
+ *     VkImageUsageFlags usage;
+ *     VkImageTiling tiling;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements NativeResource {
 

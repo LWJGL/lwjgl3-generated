@@ -42,12 +42,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDrawIndirectCommand {
-    uint32_t vertexCount;
-    uint32_t instanceCount;
-    uint32_t firstVertex;
-    uint32_t firstInstance;
-}</code></pre>
+ * <code><pre>
+ * struct VkDrawIndirectCommand {
+ *     uint32_t vertexCount;
+ *     uint32_t instanceCount;
+ *     uint32_t firstVertex;
+ *     uint32_t firstInstance;
+ * }</pre></code>
  */
 public class VkDrawIndirectCommand extends Struct implements NativeResource {
 

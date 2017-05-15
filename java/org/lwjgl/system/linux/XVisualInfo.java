@@ -19,18 +19,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct XVisualInfo {
-    {@link Visual Visual} * visual;
-    VisualID visualid;
-    int screen;
-    int depth;
-    int class;
-    unsigned long red_mask;
-    unsigned long green_mask;
-    unsigned long blue_mask;
-    int colormap_size;
-    int bits_per_rgb;
-}</code></pre>
+ * <code><pre>
+ * struct XVisualInfo {
+ *     {@link Visual Visual} * visual;
+ *     VisualID visualid;
+ *     int screen;
+ *     int depth;
+ *     int class;
+ *     unsigned long red_mask;
+ *     unsigned long green_mask;
+ *     unsigned long blue_mask;
+ *     int colormap_size;
+ *     int bits_per_rgb;
+ * }</pre></code>
  */
 public class XVisualInfo extends Struct implements NativeResource {
 

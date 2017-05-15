@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct YGSize {
-    float width;
-    float height;
-}</code></pre>
+ * <code><pre>
+ * struct YGSize {
+ *     float width;
+ *     float height;
+ * }</pre></code>
  */
 public class YGSize extends Struct implements NativeResource {
 

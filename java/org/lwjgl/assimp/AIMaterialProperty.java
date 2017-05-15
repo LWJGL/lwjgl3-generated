@@ -19,13 +19,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Material property names follow a simple scheme:</p>
  * 
- * <pre><code>$<name>
-?<name>
-    A public property, there must be corresponding AI_MATKEY_XXX define
-    2nd: Public, but ignored by the aiProcess_RemoveRedundantMaterials
-    post-processing step.
-~<name>
-    A temporary property for internal use.</code></pre>
+ * <code><pre>
+ * $&lt;name&gt;
+ * ?&lt;name&gt;
+ *     A public property, there must be corresponding AI_MATKEY_XXX define
+ *     2nd: Public, but ignored by the aiProcess_RemoveRedundantMaterials
+ *     post-processing step.
+ * ~&lt;name&gt;
+ *     A temporary property for internal use.</pre></code>
  * 
  * <h3>Member documentation</h3>
  * 
@@ -42,14 +43,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMaterialProperty {
-    {@link AIString struct aiString} mKey;
-    unsigned int mSemantic;
-    unsigned int mIndex;
-    unsigned int mDataLength;
-    aiPropertyTypeInfo mType;
-    char * mData;
-}</code></pre>
+ * <code><pre>
+ * struct aiMaterialProperty {
+ *     {@link AIString struct aiString} mKey;
+ *     unsigned int mSemantic;
+ *     unsigned int mIndex;
+ *     unsigned int mDataLength;
+ *     aiPropertyTypeInfo mType;
+ *     char * mData;
+ * }</pre></code>
  */
 public class AIMaterialProperty extends Struct {
 

@@ -27,11 +27,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stbi_io_callbacks {
-    {@link STBIReadCallbackI stbi_io_callbacks.read} read;
-    {@link STBISkipCallbackI stbi_io_callbacks.skip} skip;
-    {@link STBIEOFCallbackI stbi_io_callbacks.eof} eof;
-}</code></pre>
+ * <code><pre>
+ * struct stbi_io_callbacks {
+ *     {@link STBIReadCallbackI stbi_io_callbacks.read} read;
+ *     {@link STBISkipCallbackI stbi_io_callbacks.skip} skip;
+ *     {@link STBIEOFCallbackI stbi_io_callbacks.eof} eof;
+ * }</pre></code>
  */
 public class STBIIOCallbacks extends Struct implements NativeResource {
 

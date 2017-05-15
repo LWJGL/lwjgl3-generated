@@ -2426,21 +2426,24 @@ public final class GLCapabilities {
      * 
      * <p>To select the coarse derivative, use:</p>
      * 
-     * <pre><code>dFdxCoarse(p)
-dFdyCoarse(p)
-fwidthCoarse(p)</code></pre>
+     * <code><pre>
+     * dFdxCoarse(p)
+     * dFdyCoarse(p)
+     * fwidthCoarse(p)</pre></code>
      * 
      * <p>To select the fine derivative, use:</p>
      * 
-     * <pre><code>dFdxFine(p)
-dFdyFine(p)
-fwidthFine(p)</code></pre>
+     * <code><pre>
+     * dFdxFine(p)
+     * dFdyFine(p)
+     * fwidthFine(p)</pre></code>
      * 
      * <p>To select which ever is "better" (based on performance, API hints, or other factors), use:</p>
      * 
-     * <pre><code>dFdx(p)
-dFdy(p)
-fwidth(p)</code></pre>
+     * <code><pre>
+     * dFdx(p)
+     * dFdy(p)
+     * fwidth(p)</pre></code>
      * 
      * <p>This last set is the set of previously existing built-ins for derivatives, and continues to work in a backward compatible way.</p>
      * 
@@ -2654,7 +2657,8 @@ fwidth(p)</code></pre>
      * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
      * depth and stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:</p>
      * 
-     * <pre><code>        layout(post_depth_coverage) in;</code></pre>
+     * <code><pre>
+     *         layout(post_depth_coverage) in;</pre></code>
      * 
      * <p>Use of this feature implicitly enables early fragment tests.</p>
      */
@@ -2781,11 +2785,12 @@ fwidth(p)</code></pre>
      * <p>Compute shaders operate on an explicitly specified group of threads (a local work group), but many implementations of OpenGL 4.3 will even group
      * non-compute shader invocations and execute them in a SIMD fashion. When executing code like</p>
      * 
-     * <pre><code>if (condition) {
-    result = do_fast_path();
-} else {
-    result = do_general_path();
-}</code></pre>
+     * <code><pre>
+     * if (condition) {
+     *     result = do_fast_path();
+     * } else {
+     *     result = do_general_path();
+     * }</pre></code>
      * 
      * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
      * is true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where {@code condition} is
@@ -2794,11 +2799,12 @@ fwidth(p)</code></pre>
      * 
      * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
      * 
-     * <pre><code>if (allInvocationsARB(condition)) {
-    result = do_fast_path();
-} else {
-    result = do_general_path();
-}</code></pre>
+     * <code><pre>
+     * if (allInvocationsARB(condition)) {
+     *     result = do_fast_path();
+     * } else {
+     *     result = do_general_path();
+     * }</pre></code>
      * 
      * <p>The built-in function allInvocationsARB() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
      * or do_general_path(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation
@@ -2874,74 +2880,76 @@ fwidth(p)</code></pre>
      * 
      * <p>The existing isotropic vertex texture functions:</p>
      * 
-     * <pre><code>texture1DLod,   texture1DProjLod,
-texture2DLod,   texture2DProjLod,
-texture3DLod,   texture3DProjLod,
-textureCubeLod,
-shadow1DLod,    shadow1DProjLod,
-shadow2DLod,    shadow2DProjLod</code></pre>
+     * <code><pre>
+     * texture1DLod,   texture1DProjLod,
+     * texture2DLod,   texture2DProjLod,
+     * texture3DLod,   texture3DProjLod,
+     * textureCubeLod,
+     * shadow1DLod,    shadow1DProjLod,
+     * shadow2DLod,    shadow2DProjLod</pre></code>
      * 
      * <p>are added to the built-in functions for fragment shaders.</p>
      * 
      * <p>New anisotropic texture functions, providing explicit derivatives:</p>
      * 
-     * <pre><code>texture1DGradARB(
-    sampler1D sampler,
-    float P, float dPdx, float dPdy);
-texture1DProjGradARB(
-    sampler1D sampler,
-    vec2 P, float dPdx, float dPdy);
-texture1DProjGradARB(
-    sampler1D sampler,
-    vec4 P, float dPdx, float dPdy);
-texture2DGradARB(
-    sampler2D sampler,
-    vec2 P, vec2 dPdx, vec2 dPdy);
-texture2DProjGradARB(
-    sampler2D sampler,
-    vec3 P, vec2 dPdx, vec2 dPdy);
-texture2DProjGradARB(
-    sampler2D sampler,
-    vec4 P, vec2 dPdx, vec2 dPdy);
-texture3DGradARB(
-    sampler3D sampler,
-    vec3 P, vec3 dPdx, vec3 dPdy);
-texture3DProjGradARB(
-    sampler3D sampler,
-    vec4 P, vec3 dPdx, vec3 dPdy);
-textureCubeGradARB(
-    samplerCube sampler,
-    vec3 P, vec3 dPdx, vec3 dPdy);
-
-shadow1DGradARB(
-    sampler1DShadow sampler,
-    vec3 P, float dPdx, float dPdy);
-shadow1DProjGradARB(
-    sampler1DShadow sampler,
-    vec4 P, float dPdx, float dPdy);
-shadow2DGradARB(
-    sampler2DShadow sampler,
-    vec3 P, vec2 dPdx, vec2 dPdy);
-shadow2DProjGradARB(
-    sampler2DShadow sampler,
-    vec4 P, vec2 dPdx, vec2 dPdy);
-
-texture2DRectGradARB(
-    sampler2DRect sampler,
-    vec2 P, vec2 dPdx, vec2 dPdy);
-texture2DRectProjGradARB(
-    sampler2DRect sampler,
-    vec3 P, vec2 dPdx, vec2 dPdy);
-texture2DRectProjGradARB(
-    sampler2DRect sampler,
-    vec4 P, vec2 dPdx, vec2 dPdy);
-
-shadow2DRectGradARB(
-    sampler2DRectShadow sampler,
-    vec3 P, vec2 dPdx, vec2 dPdy);
-shadow2DRectProjGradARB(
-    sampler2DRectShadow sampler,
-    vec4 P, vec2 dPdx, vec2 dPdy);</code></pre>
+     * <code><pre>
+     * texture1DGradARB(
+     *     sampler1D sampler,
+     *     float P, float dPdx, float dPdy);
+     * texture1DProjGradARB(
+     *     sampler1D sampler,
+     *     vec2 P, float dPdx, float dPdy);
+     * texture1DProjGradARB(
+     *     sampler1D sampler,
+     *     vec4 P, float dPdx, float dPdy);
+     * texture2DGradARB(
+     *     sampler2D sampler,
+     *     vec2 P, vec2 dPdx, vec2 dPdy);
+     * texture2DProjGradARB(
+     *     sampler2D sampler,
+     *     vec3 P, vec2 dPdx, vec2 dPdy);
+     * texture2DProjGradARB(
+     *     sampler2D sampler,
+     *     vec4 P, vec2 dPdx, vec2 dPdy);
+     * texture3DGradARB(
+     *     sampler3D sampler,
+     *     vec3 P, vec3 dPdx, vec3 dPdy);
+     * texture3DProjGradARB(
+     *     sampler3D sampler,
+     *     vec4 P, vec3 dPdx, vec3 dPdy);
+     * textureCubeGradARB(
+     *     samplerCube sampler,
+     *     vec3 P, vec3 dPdx, vec3 dPdy);
+     * 
+     * shadow1DGradARB(
+     *     sampler1DShadow sampler,
+     *     vec3 P, float dPdx, float dPdy);
+     * shadow1DProjGradARB(
+     *     sampler1DShadow sampler,
+     *     vec4 P, float dPdx, float dPdy);
+     * shadow2DGradARB(
+     *     sampler2DShadow sampler,
+     *     vec3 P, vec2 dPdx, vec2 dPdy);
+     * shadow2DProjGradARB(
+     *     sampler2DShadow sampler,
+     *     vec4 P, vec2 dPdx, vec2 dPdy);
+     * 
+     * texture2DRectGradARB(
+     *     sampler2DRect sampler,
+     *     vec2 P, vec2 dPdx, vec2 dPdy);
+     * texture2DRectProjGradARB(
+     *     sampler2DRect sampler,
+     *     vec3 P, vec2 dPdx, vec2 dPdy);
+     * texture2DRectProjGradARB(
+     *     sampler2DRect sampler,
+     *     vec4 P, vec2 dPdx, vec2 dPdy);
+     * 
+     * shadow2DRectGradARB(
+     *     sampler2DRectShadow sampler,
+     *     vec3 P, vec2 dPdx, vec2 dPdy);
+     * shadow2DRectProjGradARB(
+     *     sampler2DRectShadow sampler,
+     *     vec4 P, vec2 dPdx, vec2 dPdy);</pre></code>
      * 
      * <p>are added to the built-in functions for vertex shaders and fragment shaders.</p>
      * 
@@ -3301,11 +3309,13 @@ shadow2DRectProjGradARB(
      * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
      * depth and stencil tests.  This feature can be enabled with the following layout qualifier in the fragment shader:</p>
      * 
-     * <pre><code>layout(post_depth_coverage) in;</code></pre>
+     * <code><pre>
+     * layout(post_depth_coverage) in;</pre></code>
      * 
      * <p>To use this feature, early fragment tests must also be enabled in the fragment shader via:</p>
      * 
-     * <pre><code>layout(early_fragment_tests) in;</code></pre>
+     * <code><pre>
+     * layout(early_fragment_tests) in;</pre></code>
      */
     public final boolean GL_EXT_post_depth_coverage;
     /** When true, {@link EXTProvokingVertex} is supported. */

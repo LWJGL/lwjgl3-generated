@@ -44,14 +44,15 @@ import static org.lwjgl.vulkan.KHXExternalMemoryCapabilities.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceIDPropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    uint8_t deviceUUID[VK_UUID_SIZE];
-    uint8_t driverUUID[VK_UUID_SIZE];
-    uint8_t deviceLUID[VK_LUID_SIZE_KHX];
-    VkBool32 deviceLUIDValid;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceIDPropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint8_t deviceUUID[VK_UUID_SIZE];
+ *     uint8_t driverUUID[VK_UUID_SIZE];
+ *     uint8_t deviceLUID[VK_LUID_SIZE_KHX];
+ *     VkBool32 deviceLUIDValid;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceIDPropertiesKHX extends Struct {
 

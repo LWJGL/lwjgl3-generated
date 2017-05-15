@@ -34,13 +34,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExternalSemaphorePropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    VkExternalSemaphoreHandleTypeFlagsKHX exportFromImportedHandleTypes;
-    VkExternalSemaphoreHandleTypeFlagsKHX compatibleHandleTypes;
-    VkExternalSemaphoreFeatureFlagsKHX externalSemaphoreFeatures;
-}</code></pre>
+ * <code><pre>
+ * struct VkExternalSemaphorePropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     VkExternalSemaphoreHandleTypeFlagsKHX exportFromImportedHandleTypes;
+ *     VkExternalSemaphoreHandleTypeFlagsKHX compatibleHandleTypes;
+ *     VkExternalSemaphoreFeatureFlagsKHX externalSemaphoreFeatures;
+ * }</pre></code>
  */
 public class VkExternalSemaphorePropertiesKHX extends Struct implements NativeResource {
 

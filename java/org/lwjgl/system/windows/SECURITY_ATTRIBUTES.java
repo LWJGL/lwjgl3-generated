@@ -33,11 +33,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct SECURITY_ATTRIBUTES {
-    DWORD nLength;
-    LPVOID lpSecurityDescriptor;
-    BOOL bInheritHandle;
-}</code></pre>
+ * <code><pre>
+ * struct SECURITY_ATTRIBUTES {
+ *     DWORD nLength;
+ *     LPVOID lpSecurityDescriptor;
+ *     BOOL bInheritHandle;
+ * }</pre></code>
  */
 public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
 

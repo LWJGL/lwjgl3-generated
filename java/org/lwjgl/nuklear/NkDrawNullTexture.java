@@ -23,10 +23,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_draw_null_texture {
-    {@link NkHandle nk_handle} texture;
-    {@link NkVec2 struct nk_vec2} uv;
-}</code></pre>
+ * <code><pre>
+ * struct nk_draw_null_texture {
+ *     {@link NkHandle nk_handle} texture;
+ *     {@link NkVec2 struct nk_vec2} uv;
+ * }</pre></code>
  */
 public class NkDrawNullTexture extends Struct implements NativeResource {
 

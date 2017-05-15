@@ -29,12 +29,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_t {
-    uint32_t eventType;
-    TrackedDeviceIndex_t trackedDeviceIndex;
-    float eventAgeSeconds;
-    {@link VREventData VREvent_Data_t} data;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_t {
+ *     uint32_t eventType;
+ *     TrackedDeviceIndex_t trackedDeviceIndex;
+ *     float eventAgeSeconds;
+ *     {@link VREventData VREvent_Data_t} data;
+ * }</pre></code>
  */
 public class VREvent extends Struct implements NativeResource {
 

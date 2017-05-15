@@ -67,10 +67,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * (for example, glTexImage2D or glReadPixels respectively), the current unpack and pack pixel store state determines how the pixels are unpacked
  * from/packed to client memory or pixel buffer objects. For example, consider:</p>
  * 
- * <pre><code>glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_TRUE);
-glPixelStorei(GL_UNPACK_ROW_LENGTH, 640);
-glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 47);
-glDrawPixels(100, 100, GL_RGB, GL_FLOAT, pixels);</code></pre>
+ * <code><pre>
+ * glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_TRUE);
+ * glPixelStorei(GL_UNPACK_ROW_LENGTH, 640);
+ * glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 47);
+ * glDrawPixels(100, 100, GL_RGB, GL_FLOAT, pixels);</pre></code>
  * 
  * <p>The unpack swap bytes and row length state set by the preceding glPixelStorei commands (as well as the 6 other unpack pixel store state variables)
  * control how data is read (unpacked) from buffer of data pointed to by pixels. The glBindBuffer command also specifies an unpack buffer object (47) so
@@ -79,8 +80,9 @@ glDrawPixels(100, 100, GL_RGB, GL_FLOAT, pixels);</code></pre>
  * <p>When an application issues a command to configure a vertex array, the current array buffer state is latched as the binding for the particular vertex
  * array being specified. For example, consider:</p>
  * 
- * <pre><code>glBindBuffer(GL_ARRAY_BUFFER, 23);
-glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
+ * <code><pre>
+ * glBindBuffer(GL_ARRAY_BUFFER, 23);
+ * glVertexPointer(3, GL_FLOAT, 12, pointer);</pre></code>
  * 
  * <p>The glBindBuffer command updates the array buffering binding (GL_ARRAY_BUFFER_BINDING) to the buffer object named 23. The subsequent glVertexPointer
  * command specifies explicit parameters for the size, type, stride, and pointer to access the position vertex array BUT ALSO latches the current array
@@ -101,15 +103,16 @@ glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <p>Consider the following routine to set the modelview matrix involving the matrix mode selector:</p>
  * 
- * <pre><code>void setModelviewMatrix(const GLfloat matrix[16])
-{
-    GLenum savedMatrixMode;
-
-    glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadMatrixf(matrix);
-    glMatrixMode(savedMatrixMode);
-}</code></pre>
+ * <code><pre>
+ * void setModelviewMatrix(const GLfloat matrix[16])
+ * {
+ *     GLenum savedMatrixMode;
+ * 
+ *     glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
+ *     glMatrixMode(GL_MODELVIEW);
+ *     glLoadMatrixf(matrix);
+ *     glMatrixMode(savedMatrixMode);
+ * }</pre></code>
  * 
  * <p>Notice that four OpenGL commands are required to update the current modelview matrix without disturbing the matrix mode selector.</p>
  * 
@@ -126,18 +129,20 @@ glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <p>The above example can be reimplemented more efficiently and without selector side-effects:</p>
  * 
- * <pre><code>void setModelviewMatrix(const GLfloat matrix[16])
-{
-    glMatrixLoadfEXT(GL_MODELVIEW, matrix);
-}</code></pre>
+ * <code><pre>
+ * void setModelviewMatrix(const GLfloat matrix[16])
+ * {
+ *     glMatrixLoadfEXT(GL_MODELVIEW, matrix);
+ * }</pre></code>
  * 
  * <p>Consider a layered library seeking to load a texture:</p>
  * 
- * <pre><code>void loadTexture(GLint texobj, GLint width, GLint height, void *data)
-{
-    glBindTexture(GL_TEXTURE_2D, texobj);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
-}</code></pre>
+ * <code><pre>
+ * void loadTexture(GLint texobj, GLint width, GLint height, void *data)
+ * {
+ *     glBindTexture(GL_TEXTURE_2D, texobj);
+ *     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
+ * }</pre></code>
  * 
  * <p>The library expects the data to be packed into the buffer pointed to by data. But what if the current pixel unpack buffer binding is not zero so the
  * current pixel unpack buffer, rather than client memory, will be read? Or what if the application has modified the GL_UNPACK_ROW_LENGTH pixel store state
@@ -149,12 +154,13 @@ glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
  * 
  * <p>We can more efficiently implement this routine without disturbing selector or latched state as follows:</p>
  * 
- * <pre><code>void loadTexture(GLint texobj, GLint width, GLint height, void *data)
-{
-    glPushClientAttribDefaultEXT(GL_CLIENT_PIXEL_STORE_BIT);
-    glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
-    glPopClientAttrib();
-}</code></pre>
+ * <code><pre>
+ * void loadTexture(GLint texobj, GLint width, GLint height, void *data)
+ * {
+ *     glPushClientAttribDefaultEXT(GL_CLIENT_PIXEL_STORE_BIT);
+ *     glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
+ *     glPopClientAttrib();
+ * }</pre></code>
  * 
  * <p>Now loadTexture does not have to worry about inappropriately configured pixel store state or a non-zero pixel unpack buffer binding. And loadTexture has
  * no unintended side-effects for selector or latched state (assuming the client attrib state does not overflow).</p>

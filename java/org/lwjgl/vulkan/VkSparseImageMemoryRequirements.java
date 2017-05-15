@@ -38,13 +38,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSparseImageMemoryRequirements {
-    {@link VkSparseImageFormatProperties VkSparseImageFormatProperties} formatProperties;
-    uint32_t imageMipTailFirstLod;
-    VkDeviceSize imageMipTailSize;
-    VkDeviceSize imageMipTailOffset;
-    VkDeviceSize imageMipTailStride;
-}</code></pre>
+ * <code><pre>
+ * struct VkSparseImageMemoryRequirements {
+ *     {@link VkSparseImageFormatProperties VkSparseImageFormatProperties} formatProperties;
+ *     uint32_t imageMipTailFirstLod;
+ *     VkDeviceSize imageMipTailSize;
+ *     VkDeviceSize imageMipTailOffset;
+ *     VkDeviceSize imageMipTailStride;
+ * }</pre></code>
  */
 public class VkSparseImageMemoryRequirements extends Struct implements NativeResource {
 

@@ -24,17 +24,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct JAWT {
-    jint version;
-    void * GetDrawingSurface;
-    void * FreeDrawingSurface;
-    void * Lock;
-    void * Unlock;
-    void * GetComponent;
-    void * CreateEmbeddedFrame;
-    void * SetBounds;
-    void * SynthesizeWindowActivation;
-}</code></pre>
+ * <code><pre>
+ * struct JAWT {
+ *     jint version;
+ *     void * GetDrawingSurface;
+ *     void * FreeDrawingSurface;
+ *     void * Lock;
+ *     void * Unlock;
+ *     void * GetComponent;
+ *     void * CreateEmbeddedFrame;
+ *     void * SetBounds;
+ *     void * SynthesizeWindowActivation;
+ * }</pre></code>
  */
 public class JAWT extends Struct implements NativeResource {
 

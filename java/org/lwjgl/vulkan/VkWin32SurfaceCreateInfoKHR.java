@@ -50,13 +50,14 @@ import org.lwjgl.system.windows.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkWin32SurfaceCreateInfoKHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkWin32SurfaceCreateFlagsKHR flags;
-    HINSTANCE hinstance;
-    HWND hwnd;
-}</code></pre>
+ * <code><pre>
+ * struct VkWin32SurfaceCreateInfoKHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkWin32SurfaceCreateFlagsKHR flags;
+ *     HINSTANCE hinstance;
+ *     HWND hwnd;
+ * }</pre></code>
  */
 public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResource {
 

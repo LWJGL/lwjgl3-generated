@@ -31,10 +31,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct MDB_val {
-    size_t mv_size;
-    void * mv_data;
-}</code></pre>
+ * <code><pre>
+ * struct MDB_val {
+ *     size_t mv_size;
+ *     void * mv_data;
+ * }</pre></code>
  */
 public class MDBVal extends Struct implements NativeResource {
 

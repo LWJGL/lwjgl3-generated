@@ -48,13 +48,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineViewportWScalingStateCreateInfoNV {
-    VkStructureType sType;
-    const void * pNext;
-    VkBool32 viewportWScalingEnable;
-    uint32_t viewportCount;
-    const {@link VkViewportWScalingNV VkViewportWScalingNV} * pViewportWScalings;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineViewportWScalingStateCreateInfoNV {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBool32 viewportWScalingEnable;
+ *     uint32_t viewportCount;
+ *     const {@link VkViewportWScalingNV VkViewportWScalingNV} * pViewportWScalings;
+ * }</pre></code>
  */
 public class VkPipelineViewportWScalingStateCreateInfoNV extends Struct implements NativeResource {
 

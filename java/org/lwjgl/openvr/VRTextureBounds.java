@@ -18,12 +18,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VRTextureBounds_t {
-    float uMin;
-    float vMin;
-    float uMax;
-    float vMax;
-}</code></pre>
+ * <code><pre>
+ * struct VRTextureBounds_t {
+ *     float uMin;
+ *     float vMin;
+ *     float uMax;
+ *     float vMax;
+ * }</pre></code>
  */
 public class VRTextureBounds extends Struct implements NativeResource {
 

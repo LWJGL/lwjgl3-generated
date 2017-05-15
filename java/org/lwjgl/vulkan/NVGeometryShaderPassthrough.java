@@ -22,59 +22,61 @@ package org.lwjgl.vulkan;
  * 
  * <p>Consider the following simple geometry shader in unextended GLSL:</p>
  * 
- * <pre><code>layout(triangles) in;
-layout(triangle_strip) out;
-layout(max_vertices=3) out;
-
-in Inputs {
-    vec2 texcoord;
-    vec4 baseColor;
-} v_in[];
-out Outputs {
-    vec2 texcoord;
-    vec4 baseColor;
-};
-
-void main()
-{
-    int layer = compute_layer();
-    for (int i = 0; i < 3; i++) {
-        gl_Position = gl_in[i].gl_Position;
-        texcoord = v_in[i].texcoord;
-        baseColor = v_in[i].baseColor;
-        gl_Layer = layer;
-        EmitVertex();
-    }
-}</code></pre>
+ * <code><pre>
+ * layout(triangles) in;
+ * layout(triangle_strip) out;
+ * layout(max_vertices=3) out;
+ * 
+ * in Inputs {
+ *     vec2 texcoord;
+ *     vec4 baseColor;
+ * } v_in[];
+ * out Outputs {
+ *     vec2 texcoord;
+ *     vec4 baseColor;
+ * };
+ * 
+ * void main()
+ * {
+ *     int layer = compute_layer();
+ *     for (int i = 0; i < 3; i++) {
+ *         gl_Position = gl_in[i].gl_Position;
+ *         texcoord = v_in[i].texcoord;
+ *         baseColor = v_in[i].baseColor;
+ *         gl_Layer = layer;
+ *         EmitVertex();
+ *     }
+ * }</pre></code>
  * 
  * <p>In this shader, the inputs "gl_Position", "Inputs.texcoord", and "Inputs.baseColor" are simply copied from the input vertex to the corresponding output vertex. The only "interesting" work done by the geometry shader is computing and emitting a gl_Layer value for the primitive.</p>
  * 
  * <p>The following geometry shader, using this extension, is equivalent:</p>
  * 
- * <pre><code>#extension GL_NV_geometry_shader_passthrough : require
-
-layout(triangles) in;
-// No output primitive layout qualifiers required.
-
-// Redeclare gl_PerVertex to pass through "gl_Position".
-layout(passthrough) in gl_PerVertex {
-    vec4 gl_Position;
-} gl_in[];
-
-// Declare "Inputs" with "passthrough" to automatically copy members.
-layout(passthrough) in Inputs {
-    vec2 texcoord;
-    vec4 baseColor;
-} v_in[];
-
-// No output block declaration required.
-
-void main()
-{
-    // The shader simply computes and writes gl_Layer.  We don't
-    // loop over three vertices or call EmitVertex().
-    gl_Layer = compute_layer();
-}</code></pre>
+ * <code><pre>
+ * #extension GL_NV_geometry_shader_passthrough : require
+ * 
+ * layout(triangles) in;
+ * // No output primitive layout qualifiers required.
+ * 
+ * // Redeclare gl_PerVertex to pass through "gl_Position".
+ * layout(passthrough) in gl_PerVertex {
+ *     vec4 gl_Position;
+ * } gl_in[];
+ * 
+ * // Declare "Inputs" with "passthrough" to automatically copy members.
+ * layout(passthrough) in Inputs {
+ *     vec2 texcoord;
+ *     vec4 baseColor;
+ * } v_in[];
+ * 
+ * // No output block declaration required.
+ * 
+ * void main()
+ * {
+ *     // The shader simply computes and writes gl_Layer.  We don't
+ *     // loop over three vertices or call EmitVertex().
+ *     gl_Layer = compute_layer();
+ * }</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

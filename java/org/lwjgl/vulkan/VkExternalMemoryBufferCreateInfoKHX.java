@@ -34,11 +34,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExternalMemoryBufferCreateInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalMemoryHandleTypeFlagsKHX handleTypes;
-}</code></pre>
+ * <code><pre>
+ * struct VkExternalMemoryBufferCreateInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalMemoryHandleTypeFlagsKHX handleTypes;
+ * }</pre></code>
  */
 public class VkExternalMemoryBufferCreateInfoKHX extends Struct implements NativeResource {
 

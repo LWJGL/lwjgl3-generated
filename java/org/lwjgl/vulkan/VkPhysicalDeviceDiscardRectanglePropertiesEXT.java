@@ -33,11 +33,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
-    VkStructureType sType;
-    void * pNext;
-    uint32_t maxDiscardRectangles;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint32_t maxDiscardRectangles;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceDiscardRectanglePropertiesEXT extends Struct implements NativeResource {
 

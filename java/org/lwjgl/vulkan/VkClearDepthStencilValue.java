@@ -35,10 +35,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkClearDepthStencilValue {
-    float depth;
-    uint32_t stencil;
-}</code></pre>
+ * <code><pre>
+ * struct VkClearDepthStencilValue {
+ *     float depth;
+ *     uint32_t stencil;
+ * }</pre></code>
  */
 public class VkClearDepthStencilValue extends Struct implements NativeResource {
 

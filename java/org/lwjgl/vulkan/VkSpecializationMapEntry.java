@@ -40,11 +40,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSpecializationMapEntry {
-    uint32_t constantID;
-    uint32_t offset;
-    size_t size;
-}</code></pre>
+ * <code><pre>
+ * struct VkSpecializationMapEntry {
+ *     uint32_t constantID;
+ *     uint32_t offset;
+ *     size_t size;
+ * }</pre></code>
  */
 public class VkSpecializationMapEntry extends Struct implements NativeResource {
 

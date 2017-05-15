@@ -32,7 +32,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRPartialUpdate {
 
-    /**  */
     public static final int EGL_BUFFER_AGE_KHR = 0x313D;
 
     protected KHRPartialUpdate() {

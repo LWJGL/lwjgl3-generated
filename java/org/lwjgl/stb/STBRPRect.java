@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stbrp_rect {
-    int id;
-    stbrp_coord w;
-    stbrp_coord h;
-    stbrp_coord x;
-    stbrp_coord y;
-    int was_packed;
-}</code></pre>
+ * <code><pre>
+ * struct stbrp_rect {
+ *     int id;
+ *     stbrp_coord w;
+ *     stbrp_coord h;
+ *     stbrp_coord x;
+ *     stbrp_coord y;
+ *     int was_packed;
+ * }</pre></code>
  */
 public class STBRPRect extends Struct implements NativeResource {
 

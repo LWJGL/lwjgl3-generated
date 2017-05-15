@@ -41,10 +41,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkAttachmentReference {
-    uint32_t attachment;
-    VkImageLayout layout;
-}</code></pre>
+ * <code><pre>
+ * struct VkAttachmentReference {
+ *     uint32_t attachment;
+ *     VkImageLayout layout;
+ * }</pre></code>
  */
 public class VkAttachmentReference extends Struct implements NativeResource {
 

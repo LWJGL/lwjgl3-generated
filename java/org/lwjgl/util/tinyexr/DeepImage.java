@@ -24,15 +24,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct DeepImage {
-    const char ** channel_names;
-    float *** image;
-    int ** offset_table;
-    int num_channels;
-    int width;
-    int height;
-    char[4];
-}</code></pre>
+ * <code><pre>
+ * struct DeepImage {
+ *     const char ** channel_names;
+ *     float *** image;
+ *     int ** offset_table;
+ *     int num_channels;
+ *     int width;
+ *     int height;
+ *     char[4];
+ * }</pre></code>
  */
 public class DeepImage extends Struct implements NativeResource {
 

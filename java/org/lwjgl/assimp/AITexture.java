@@ -47,12 +47,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiTexture {
-    unsigned int mWidth;
-    unsigned int mHeight;
-    char achFormatHint[4];
-    {@link AITexel struct aiTexel} * pcData;
-}</code></pre>
+ * <code><pre>
+ * struct aiTexture {
+ *     unsigned int mWidth;
+ *     unsigned int mHeight;
+ *     char achFormatHint[4];
+ *     {@link AITexel struct aiTexel} * pcData;
+ * }</pre></code>
  */
 public class AITexture extends Struct {
 

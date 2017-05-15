@@ -56,17 +56,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCopyDescriptorSet {
-    VkStructureType sType;
-    const void * pNext;
-    VkDescriptorSet srcSet;
-    uint32_t srcBinding;
-    uint32_t srcArrayElement;
-    VkDescriptorSet dstSet;
-    uint32_t dstBinding;
-    uint32_t dstArrayElement;
-    uint32_t descriptorCount;
-}</code></pre>
+ * <code><pre>
+ * struct VkCopyDescriptorSet {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDescriptorSet srcSet;
+ *     uint32_t srcBinding;
+ *     uint32_t srcArrayElement;
+ *     VkDescriptorSet dstSet;
+ *     uint32_t dstBinding;
+ *     uint32_t dstArrayElement;
+ *     uint32_t descriptorCount;
+ * }</pre></code>
  */
 public class VkCopyDescriptorSet extends Struct implements NativeResource {
 

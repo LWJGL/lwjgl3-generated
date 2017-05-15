@@ -45,11 +45,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupCommandBufferBeginInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t deviceMask;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupCommandBufferBeginInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t deviceMask;
+ * }</pre></code>
  */
 public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements NativeResource {
 

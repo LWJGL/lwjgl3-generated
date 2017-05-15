@@ -16,9 +16,10 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <p>The type of {@code pfnFree} is:</p>
  * 
- * <pre><code>typedef void (VKAPI_PTR *PFN_vkFreeFunction)(
-    void*                                       pUserData,
-    void*                                       pMemory);</code></pre>
+ * <code><pre>
+ * typedef void (VKAPI_PTR *PFN_vkFreeFunction)(
+ *     void*                                       pUserData,
+ *     void*                                       pMemory);</pre></code>
  * 
  * <h5>Description</h5>
  * 

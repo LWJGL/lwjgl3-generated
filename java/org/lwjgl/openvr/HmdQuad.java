@@ -17,9 +17,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct HmdQuad_t {
-    {@link HmdVector3 HmdVector3_t} vCorners[4];
-}</code></pre>
+ * <code><pre>
+ * struct HmdQuad_t {
+ *     {@link HmdVector3 HmdVector3_t} vCorners[4];
+ * }</pre></code>
  */
 public class HmdQuad extends Struct implements NativeResource {
 

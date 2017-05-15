@@ -30,11 +30,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiExportFormatDesc {
-    const char * id;
-    const char * description;
-    const char * fileExtension;
-}</code></pre>
+ * <code><pre>
+ * struct aiExportFormatDesc {
+ *     const char * id;
+ *     const char * description;
+ *     const char * fileExtension;
+ * }</pre></code>
  */
 public class AIExportFormatDesc extends Struct implements NativeResource {
 

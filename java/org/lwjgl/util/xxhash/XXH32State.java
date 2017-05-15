@@ -19,17 +19,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct XXH32_state_t {
-    unsigned total_len_32;
-    unsigned large_len;
-    unsigned v1;
-    unsigned v2;
-    unsigned v3;
-    unsigned v4;
-    unsigned mem32[4];
-    unsigned memsize;
-    unsigned reserved;
-}</code></pre>
+ * <code><pre>
+ * struct XXH32_state_t {
+ *     unsigned total_len_32;
+ *     unsigned large_len;
+ *     unsigned v1;
+ *     unsigned v2;
+ *     unsigned v3;
+ *     unsigned v4;
+ *     unsigned mem32[4];
+ *     unsigned memsize;
+ *     unsigned reserved;
+ * }</pre></code>
  */
 public class XXH32State extends Struct implements NativeResource {
 

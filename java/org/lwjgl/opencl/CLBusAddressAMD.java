@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct cl_bus_address_amd {
-    cl_long surfbusaddress;
-    cl_long signalbusaddress;
-}</code></pre>
+ * <code><pre>
+ * struct cl_bus_address_amd {
+ *     cl_long surfbusaddress;
+ *     cl_long signalbusaddress;
+ * }</pre></code>
  */
 public class CLBusAddressAMD extends Struct implements NativeResource {
 

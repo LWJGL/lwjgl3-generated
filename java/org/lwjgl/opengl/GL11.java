@@ -1076,8 +1076,10 @@ public class GL11 {
      * <p><a target="_blank" href="http://docs.gl/gl3/glClearIndex">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
      * 
      * sets the clear color index. index is converted to a fixed-point value with unspecified precision to the left of the binary point; the integer part of
-     * this value is then masked with <code>2<sup>m</sup> &ndash; 1</code>, where {@code m} is the number of bits in a color index value stored in the
-     * framebuffer.
+     * this value is then masked with<code>2<sup>m</sup> &ndash; 1</code>
+     * 
+     * <p>, where {@code m} is the number of bits in a color index value stored in the
+     * framebuffer.</p>
      *
      * @param index the value to which to clear the color buffer in color index mode
      */
@@ -1833,7 +1835,10 @@ public class GL11 {
      * <p><a target="_blank" href="http://docs.gl/gl4/glDrawArrays">Reference Page</a></p>
      * 
      * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices. Elements {@code first} through
-     * <code>first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
+     * 
+     * <code>first + count &ndash; 1</code>
+     * 
+     * <p>of each enabled non-instanced array are transferred to the GL.</p>
      * 
      * <p>If an array corresponding to an attribute required by a vertex shader is not enabled, then the corresponding element is taken from the current attribute
      * state. If an array is enabled, the corresponding current vertex attribute value is unaffected by the execution of this function.</p>
@@ -4292,7 +4297,9 @@ public class GL11 {
      * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
      * @param vstride the number of values in the v-dimension in each block of storage
      * @param vorder  the polynomial order in the v-dimension
-     * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
+     * @param points  a set of<code>uorder &times; vorder</code>
+     *                
+     *                <p>blocks of storage containing control points</p>
      */
     public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
         if (CHECKS) {
@@ -4320,7 +4327,9 @@ public class GL11 {
      * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
      * @param vstride the number of values in the v-dimension in each block of storage
      * @param vorder  the polynomial order in the v-dimension
-     * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
+     * @param points  a set of<code>uorder &times; vorder</code>
+     *                
+     *                <p>blocks of storage containing control points</p>
      */
     public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
         if (CHECKS) {
@@ -4509,10 +4518,15 @@ public class GL11 {
     /**
      * <p><a target="_blank" href="http://docs.gl/gl3/glFrustum">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
      * 
-     * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
-     * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
-     * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
-     * plane.
+     * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates<code>(lb &ndash; n)<sup>T</sup></code>
+     * 
+     * <p>and</p><code>(rt &ndash; n)<sup>T</sup></code>
+     * 
+     * <p>specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
+     * window, respectively (assuming that the eye is located at</p><code>(0 0 0)<sup>T</sup></code>
+     * 
+     * <p>). {@code f} gives the distance from the eye to the far clipping
+     * plane.</p>
      * 
      * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
      * 
@@ -4789,10 +4803,15 @@ public class GL11 {
     /**
      * <p><a target="_blank" href="http://docs.gl/gl3/glOrtho">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
      * 
-     * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
-     * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
-     * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
-     * plane.
+     * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates<code>(lb &ndash; n)<sup>T</sup></code>
+     * 
+     * <p>and</p><code>(rt &ndash; n)<sup>T</sup></code>
+     * 
+     * <p>specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
+     * window, respectively (assuming that the eye is located at</p><code>(0 0 0)<sup>T</sup></code>
+     * 
+     * <p>). {@code f} gives the distance from the eye to the far clipping
+     * plane.</p>
      * 
      * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
      * 
@@ -5884,7 +5903,9 @@ public class GL11 {
      * 
      * Manipulates the current matrix with a rotation matrix.
      * 
-     * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code>v = (x y z)<sup>T</sup></code>. The computed matrix
+     * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by</p><code>v = (x y z)<sup>T</sup></code>
+     * 
+     * <p>. The computed matrix
      * is a counter-clockwise rotation about the line through the origin with the specified axis when that axis is pointing up (i.e. the right-hand rule
      * determines the sense of the rotation angle). The matrix is thus</p>
      * 
@@ -5895,7 +5916,9 @@ public class GL11 {
      * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
      * </table>
      * 
-     * <p>Let <code>u = v / ||v|| = (x' y' z')<sup>T</sup></code>. If <b>S</b> =</p>
+     * <p>Let</p><code>u = v / ||v|| = (x' y' z')<sup>T</sup></code>
+     * 
+     * <p>. If <b>S</b> =</p>
      * 
      * <table class="lwjgl matrix">
      * <tr><td>0</td><td>-z'</td><td>y'</td></tr>
@@ -5903,7 +5926,7 @@ public class GL11 {
      * <tr><td>-y'</td><td>x'</td><td>0</td></tr>
      * </table>
      * 
-     * <p>then <code><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code></p>
+     * <p>then</p><code><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code>
      *
      * @param angle the angle of rotation in degrees
      * @param x     the x coordinate of the rotation vector
@@ -5968,8 +5991,13 @@ public class GL11 {
      * 
      * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
      * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
-     * <code>left <= x<sub>w</sub> < left + width</code> and <code>bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
-     * test passes. Otherwise, the test fails and the fragment is discarded.
+     * 
+     * <code>left <= x<sub>w</sub> < left + width</code>
+     * 
+     * <p>and</p><code>bottom <= y<sub>w</sub> < bottom + height</code>
+     * 
+     * <p>for the scissor rectangle, then the scissor
+     * test passes. Otherwise, the test fails and the fragment is discarded.</p>
      *
      * @param x      the left scissor rectangle coordinate
      * @param y      the bottom scissor rectangle coordinate

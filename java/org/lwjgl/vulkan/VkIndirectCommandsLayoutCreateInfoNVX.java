@@ -21,12 +21,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Bits which <b>can</b> be set in {@code flags} are:</p>
  * 
- * <pre><code>typedef enum VkIndirectCommandsLayoutUsageFlagBitsNVX {
-    VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x00000001,
-    VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX = 0x00000002,
-    VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX = 0x00000004,
-    VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX = 0x00000008,
-} VkIndirectCommandsLayoutUsageFlagBitsNVX;</code></pre>
+ * <code><pre>
+ * typedef enum VkIndirectCommandsLayoutUsageFlagBitsNVX {
+ *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x00000001,
+ *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX = 0x00000002,
+ *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX = 0x00000004,
+ *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX = 0x00000008,
+ * } VkIndirectCommandsLayoutUsageFlagBitsNVX;</pre></code>
  * 
  * <ul>
  * <li>{@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX} indicates that the processing of sequences <b>can</b> happen at an implementation-dependent order, which is not guaranteed to be coherent across multiple invocations.</li>
@@ -37,22 +38,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>The following code illustrates some of the key flags:</p>
  * 
- * <pre><code>void cmdProcessAllSequences(cmd, objectTable, indirectCommandsLayout, pIndirectCommandsTokens, sequencesCount, indexbuffer, indexbufferoffset)
-{
-  for (s = 0; s < sequencesCount; s++)
-  {
-    sequence = s;
-
-    if (indirectCommandsLayout.flags & VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX) {
-      sequence = incoherent_implementation_dependent_permutation[ sequence ];
-    }
-    if (indirectCommandsLayout.flags & VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX) {
-      sequence = indexbuffer.load_uint32( sequence * sizeof(uint32_t) + indexbufferoffset);
-    }
-
-    cmdProcessSequence( cmd, objectTable, indirectCommandsLayout, pIndirectCommandsTokens, sequence );
-  }
-}</code></pre>
+ * <code><pre>
+ * void cmdProcessAllSequences(cmd, objectTable, indirectCommandsLayout, pIndirectCommandsTokens, sequencesCount, indexbuffer, indexbufferoffset)
+ * {
+ *   for (s = 0; s < sequencesCount; s++)
+ *   {
+ *     sequence = s;
+ * 
+ *     if (indirectCommandsLayout.flags & VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX) {
+ *       sequence = incoherent_implementation_dependent_permutation[ sequence ];
+ *     }
+ *     if (indirectCommandsLayout.flags & VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX) {
+ *       sequence = indexbuffer.load_uint32( sequence * sizeof(uint32_t) + indexbufferoffset);
+ *     }
+ * 
+ *     cmdProcessSequence( cmd, objectTable, indirectCommandsLayout, pIndirectCommandsTokens, sequence );
+ *   }
+ * }</pre></code>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -93,14 +95,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkIndirectCommandsLayoutCreateInfoNVX {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineBindPoint pipelineBindPoint;
-    VkIndirectCommandsLayoutUsageFlagsNVX flags;
-    uint32_t tokenCount;
-    const {@link VkIndirectCommandsLayoutTokenNVX VkIndirectCommandsLayoutTokenNVX} * pTokens;
-}</code></pre>
+ * <code><pre>
+ * struct VkIndirectCommandsLayoutCreateInfoNVX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineBindPoint pipelineBindPoint;
+ *     VkIndirectCommandsLayoutUsageFlagsNVX flags;
+ *     uint32_t tokenCount;
+ *     const {@link VkIndirectCommandsLayoutTokenNVX VkIndirectCommandsLayoutTokenNVX} * pTokens;
+ * }</pre></code>
  */
 public class VkIndirectCommandsLayoutCreateInfoNVX extends Struct implements NativeResource {
 

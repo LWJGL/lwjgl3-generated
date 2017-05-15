@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_vec2 {
-    float x;
-    float y;
-}</code></pre>
+ * <code><pre>
+ * struct nk_vec2 {
+ *     float x;
+ *     float y;
+ * }</pre></code>
  */
 public class NkVec2 extends Struct implements NativeResource {
 

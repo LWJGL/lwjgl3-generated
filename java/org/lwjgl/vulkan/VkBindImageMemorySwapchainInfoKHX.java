@@ -53,12 +53,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBindImageMemorySwapchainInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkSwapchainKHR swapchain;
-    uint32_t imageIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkBindImageMemorySwapchainInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSwapchainKHR swapchain;
+ *     uint32_t imageIndex;
+ * }</pre></code>
  */
 public class VkBindImageMemorySwapchainInfoKHX extends Struct implements NativeResource {
 

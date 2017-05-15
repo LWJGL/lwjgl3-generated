@@ -55,16 +55,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupSubmitInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t waitSemaphoreCount;
-    const uint32_t * pWaitSemaphoreDeviceIndices;
-    uint32_t commandBufferCount;
-    const uint32_t * pCommandBufferDeviceMasks;
-    uint32_t signalSemaphoreCount;
-    const uint32_t * pSignalSemaphoreDeviceIndices;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupSubmitInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t waitSemaphoreCount;
+ *     const uint32_t * pWaitSemaphoreDeviceIndices;
+ *     uint32_t commandBufferCount;
+ *     const uint32_t * pCommandBufferDeviceMasks;
+ *     uint32_t signalSemaphoreCount;
+ *     const uint32_t * pSignalSemaphoreDeviceIndices;
+ * }</pre></code>
  */
 public class VkDeviceGroupSubmitInfoKHX extends Struct implements NativeResource {
 

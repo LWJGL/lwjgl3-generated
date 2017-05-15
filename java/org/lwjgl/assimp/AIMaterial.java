@@ -31,11 +31,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMaterial {
-    {@link AIMaterialProperty struct aiMaterialProperty} ** mProperties;
-    unsigned int mNumProperties;
-    unsigned int mStorageAllocated;
-}</code></pre>
+ * <code><pre>
+ * struct aiMaterial {
+ *     {@link AIMaterialProperty struct aiMaterialProperty} ** mProperties;
+ *     unsigned int mNumProperties;
+ *     unsigned int mStorageAllocated;
+ * }</pre></code>
  */
 public class AIMaterial extends Struct implements NativeResource {
 

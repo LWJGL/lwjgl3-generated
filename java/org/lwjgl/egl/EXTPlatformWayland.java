@@ -14,7 +14,6 @@ package org.lwjgl.egl;
  */
 public final class EXTPlatformWayland {
 
-    /**  */
     public static final int EGL_PLATFORM_WAYLAND_EXT = 0x31D8;
 
     private EXTPlatformWayland() {}

@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct NVGtextRow {
-    char * start;
-    char * end;
-    char * next;
-    float width;
-    float minx;
-    float maxx;
-}</code></pre>
+ * <code><pre>
+ * struct NVGtextRow {
+ *     char * start;
+ *     char * end;
+ *     char * next;
+ *     float width;
+ *     float minx;
+ *     float maxx;
+ * }</pre></code>
  */
 public class NVGTextRow extends Struct implements NativeResource {
 

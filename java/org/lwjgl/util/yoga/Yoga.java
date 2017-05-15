@@ -30,21 +30,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Yoga has chosen to change the default values of some properties to better fit mobile layout use cases. The following CSS block describes the
  * differences in default values from the Flexbox w3 specification:</p>
  * 
- * <pre><code>div {
-  box-sizing: border-box;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex-shrink: 0;
-  align-content: flex-start;
-
-  border-width: 0px;
-  margin: 0px;
-  padding: 0px;
-  min-width: 0px;
-}</code></pre>
+ * <code><pre>
+ * div {
+ *   box-sizing: border-box;
+ *   position: relative;
+ * 
+ *   display: flex;
+ *   flex-direction: column;
+ *   align-items: stretch;
+ *   flex-shrink: 0;
+ *   align-content: flex-start;
+ * 
+ *   border-width: 0px;
+ *   margin: 0px;
+ *   padding: 0px;
+ *   min-width: 0px;
+ * }</pre></code>
  * 
  * <h3>Right-to-Left</h3>
  * 
@@ -59,7 +60,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class Yoga {
 
-    /**  */
     public static final float YGUndefined = Float.NaN;
 
     /**
@@ -440,8 +440,6 @@ public class Yoga {
     public static native void nYGNodeCalculateLayout(long node, float availableWidth, float availableHeight, int parentDirection);
 
     /**
-     * 
-     *
      * @param node            
      * @param availableWidth  
      * @param availableHeight 
@@ -491,8 +489,6 @@ public class Yoga {
     public static native void nYGNodePrint(long node, int options);
 
     /**
-     * 
-     *
      * @param node    
      * @param options one of:<br><table><tr><td>{@link #YGPrintOptionsLayout PrintOptionsLayout}</td><td>{@link #YGPrintOptionsStyle PrintOptionsStyle}</td><td>{@link #YGPrintOptionsChildren PrintOptionsChildren}</td></tr></table>
      */
@@ -510,8 +506,6 @@ public class Yoga {
     // --- [ YGNodeCanUseCachedMeasurement ] ---
 
     /**
-     * 
-     *
      * @param widthMode          one of:<br><table><tr><td>{@link #YGMeasureModeUndefined MeasureModeUndefined}</td><td>{@link #YGMeasureModeExactly MeasureModeExactly}</td><td>{@link #YGMeasureModeAtMost MeasureModeAtMost}</td></tr></table>
      * @param width              
      * @param heightMode         
@@ -656,8 +650,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetDirection(long node, int direction);
 
     /**
-     * 
-     *
      * @param node      
      * @param direction one of:<br><table><tr><td>{@link #YGDirectionInherit DirectionInherit}</td><td>{@link #YGDirectionLTR DirectionLTR}</td><td>{@link #YGDirectionRTL DirectionRTL}</td></tr></table>
      */
@@ -685,8 +677,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetFlexDirection(long node, int flexDirection);
 
     /**
-     * 
-     *
      * @param node          
      * @param flexDirection one of:<br><table><tr><td>{@link #YGFlexDirectionColumn FlexDirectionColumn}</td><td>{@link #YGFlexDirectionColumnReverse FlexDirectionColumnReverse}</td><td>{@link #YGFlexDirectionRow FlexDirectionRow}</td></tr><tr><td>{@link #YGFlexDirectionRowReverse FlexDirectionRowReverse}</td></tr></table>
      */
@@ -714,8 +704,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetJustifyContent(long node, int justifyContent);
 
     /**
-     * 
-     *
      * @param node           
      * @param justifyContent one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr></table>
      */
@@ -743,8 +731,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetAlignContent(long node, int alignContent);
 
     /**
-     * 
-     *
      * @param node         
      * @param alignContent one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
      */
@@ -772,8 +758,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetAlignItems(long node, int alignItems);
 
     /**
-     * 
-     *
      * @param node       
      * @param alignItems one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
      */
@@ -801,8 +785,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetAlignSelf(long node, int alignSelf);
 
     /**
-     * 
-     *
      * @param node      
      * @param alignSelf one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
      */
@@ -830,8 +812,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetPositionType(long node, int positionType);
 
     /**
-     * 
-     *
      * @param node         
      * @param positionType one of:<br><table><tr><td>{@link #YGPositionTypeRelative PositionTypeRelative}</td><td>{@link #YGPositionTypeAbsolute PositionTypeAbsolute}</td></tr></table>
      */
@@ -859,8 +839,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetFlexWrap(long node, int flexWrap);
 
     /**
-     * 
-     *
      * @param node     
      * @param flexWrap one of:<br><table><tr><td>{@link #YGWrapNoWrap WrapNoWrap}</td><td>{@link #YGWrapWrap WrapWrap}</td><td>{@link #YGWrapReverse WrapReverse}</td></tr></table>
      */
@@ -888,8 +866,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetOverflow(long node, int overflow);
 
     /**
-     * 
-     *
      * @param node     
      * @param overflow one of:<br><table><tr><td>{@link #YGOverflowVisible OverflowVisible}</td><td>{@link #YGOverflowHidden OverflowHidden}</td><td>{@link #YGOverflowScroll OverflowScroll}</td></tr></table>
      */
@@ -917,8 +893,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetDisplay(long node, int display);
 
     /**
-     * 
-     *
      * @param node    
      * @param display one of:<br><table><tr><td>{@link #YGDisplayFlex DisplayFlex}</td><td>{@link #YGDisplayNone DisplayNone}</td></tr></table>
      */
@@ -1057,8 +1031,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetPosition(long node, int edge, float position);
 
     /**
-     * 
-     *
      * @param node     
      * @param edge     one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param position 
@@ -1076,8 +1048,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetPositionPercent(long node, int edge, float position);
 
     /**
-     * 
-     *
      * @param node     
      * @param edge     one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param position 
@@ -1095,8 +1065,6 @@ public class Yoga {
     public static native void nYGNodeStyleGetPosition(long node, int edge, long __result);
 
     /**
-     * 
-     *
      * @param node 
      * @param edge one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      */
@@ -1114,8 +1082,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetMargin(long node, int edge, float margin);
 
     /**
-     * 
-     *
      * @param node   
      * @param edge   one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param margin 
@@ -1133,8 +1099,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetMarginPercent(long node, int edge, float margin);
 
     /**
-     * 
-     *
      * @param node   
      * @param edge   one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param margin 
@@ -1152,8 +1116,6 @@ public class Yoga {
     public static native void nYGNodeStyleGetMargin(long node, int edge, long __result);
 
     /**
-     * 
-     *
      * @param node 
      * @param edge one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      */
@@ -1171,8 +1133,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetMarginAuto(long node, int edge);
 
     /**
-     * 
-     *
      * @param node 
      * @param edge one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      */
@@ -1189,8 +1149,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetPadding(long node, int edge, float padding);
 
     /**
-     * 
-     *
      * @param node    
      * @param edge    one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param padding 
@@ -1208,8 +1166,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetPaddingPercent(long node, int edge, float padding);
 
     /**
-     * 
-     *
      * @param node    
      * @param edge    one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param padding 
@@ -1227,8 +1183,6 @@ public class Yoga {
     public static native void nYGNodeStyleGetPadding(long node, int edge, long __result);
 
     /**
-     * 
-     *
      * @param node 
      * @param edge one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      */
@@ -1246,8 +1200,6 @@ public class Yoga {
     public static native void nYGNodeStyleSetBorder(long node, int edge, float border);
 
     /**
-     * 
-     *
      * @param node   
      * @param edge   one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      * @param border 
@@ -1265,8 +1217,6 @@ public class Yoga {
     public static native float nYGNodeStyleGetBorder(long node, int edge);
 
     /**
-     * 
-     *
      * @param node 
      * @param edge one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
      */
@@ -1711,8 +1661,6 @@ public class Yoga {
     public static native void nYGLog(long node, int level, long message);
 
     /**
-     * 
-     *
      * @param node    
      * @param level   one of:<br><table><tr><td>{@link #YGLogLevelError LogLevelError}</td><td>{@link #YGLogLevelWarn LogLevelWarn}</td><td>{@link #YGLogLevelInfo LogLevelInfo}</td><td>{@link #YGLogLevelDebug LogLevelDebug}</td><td>{@link #YGLogLevelVerbose LogLevelVerbose}</td><td>{@link #YGLogLevelFatal LogLevelFatal}</td></tr></table>
      * @param message 
@@ -1726,8 +1674,6 @@ public class Yoga {
     }
 
     /**
-     * 
-     *
      * @param node    
      * @param level   one of:<br><table><tr><td>{@link #YGLogLevelError LogLevelError}</td><td>{@link #YGLogLevelWarn LogLevelWarn}</td><td>{@link #YGLogLevelInfo LogLevelInfo}</td><td>{@link #YGLogLevelDebug LogLevelDebug}</td><td>{@link #YGLogLevelVerbose LogLevelVerbose}</td><td>{@link #YGLogLevelFatal LogLevelFatal}</td></tr></table>
      * @param message 
@@ -1916,8 +1862,6 @@ public class Yoga {
     public static native void nYGConfigSetExperimentalFeatureEnabled(long config, int feature, boolean enabled);
 
     /**
-     * 
-     *
      * @param config  
      * @param feature must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
      * @param enabled 
@@ -1935,8 +1879,6 @@ public class Yoga {
     public static native boolean nYGConfigIsExperimentalFeatureEnabled(long config, int feature);
 
     /**
-     * 
-     *
      * @param config  
      * @param feature must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
      */
@@ -2016,11 +1958,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGAlignToString AlignToString} */
     public static native long nYGAlignToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGAlignAuto AlignAuto}</td><td>{@link #YGAlignFlexStart AlignFlexStart}</td><td>{@link #YGAlignCenter AlignCenter}</td><td>{@link #YGAlignFlexEnd AlignFlexEnd}</td><td>{@link #YGAlignStretch AlignStretch}</td><td>{@link #YGAlignBaseline AlignBaseline}</td></tr><tr><td>{@link #YGAlignSpaceBetween AlignSpaceBetween}</td><td>{@link #YGAlignSpaceAround AlignSpaceAround}</td></tr></table> */
     public static String YGAlignToString(int value) {
         long __result = nYGAlignToString(value);
         return memASCII(__result);
@@ -2031,11 +1969,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGDimensionToString DimensionToString} */
     public static native long nYGDimensionToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGDimensionWidth DimensionWidth}</td><td>{@link #YGDimensionHeight DimensionHeight}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGDimensionWidth DimensionWidth}</td><td>{@link #YGDimensionHeight DimensionHeight}</td></tr></table> */
     public static String YGDimensionToString(int value) {
         long __result = nYGDimensionToString(value);
         return memASCII(__result);
@@ -2046,11 +1980,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGDirectionToString DirectionToString} */
     public static native long nYGDirectionToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGDirectionInherit DirectionInherit}</td><td>{@link #YGDirectionLTR DirectionLTR}</td><td>{@link #YGDirectionRTL DirectionRTL}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGDirectionInherit DirectionInherit}</td><td>{@link #YGDirectionLTR DirectionLTR}</td><td>{@link #YGDirectionRTL DirectionRTL}</td></tr></table> */
     public static String YGDirectionToString(int value) {
         long __result = nYGDirectionToString(value);
         return memASCII(__result);
@@ -2061,11 +1991,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGDisplayToString DisplayToString} */
     public static native long nYGDisplayToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGDisplayFlex DisplayFlex}</td><td>{@link #YGDisplayNone DisplayNone}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGDisplayFlex DisplayFlex}</td><td>{@link #YGDisplayNone DisplayNone}</td></tr></table> */
     public static String YGDisplayToString(int value) {
         long __result = nYGDisplayToString(value);
         return memASCII(__result);
@@ -2076,11 +2002,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGEdgeToString EdgeToString} */
     public static native long nYGEdgeToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGEdgeLeft EdgeLeft}</td><td>{@link #YGEdgeTop EdgeTop}</td><td>{@link #YGEdgeRight EdgeRight}</td><td>{@link #YGEdgeBottom EdgeBottom}</td><td>{@link #YGEdgeStart EdgeStart}</td><td>{@link #YGEdgeEnd EdgeEnd}</td><td>{@link #YGEdgeHorizontal EdgeHorizontal}</td><td>{@link #YGEdgeVertical EdgeVertical}</td></tr><tr><td>{@link #YGEdgeAll EdgeAll}</td></tr></table> */
     public static String YGEdgeToString(int value) {
         long __result = nYGEdgeToString(value);
         return memASCII(__result);
@@ -2091,11 +2013,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGExperimentalFeatureToString ExperimentalFeatureToString} */
     public static native long nYGExperimentalFeatureToString(int value);
 
-    /**
-     * 
-     *
-     * @param value must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table>
-     */
+    /** @param value must be:<br><table><tr><td>{@link #YGExperimentalFeatureWebFlexBasis ExperimentalFeatureWebFlexBasis}</td></tr></table> */
     public static String YGExperimentalFeatureToString(int value) {
         long __result = nYGExperimentalFeatureToString(value);
         return memASCII(__result);
@@ -2106,11 +2024,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGFlexDirectionToString FlexDirectionToString} */
     public static native long nYGFlexDirectionToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGFlexDirectionColumn FlexDirectionColumn}</td><td>{@link #YGFlexDirectionColumnReverse FlexDirectionColumnReverse}</td><td>{@link #YGFlexDirectionRow FlexDirectionRow}</td></tr><tr><td>{@link #YGFlexDirectionRowReverse FlexDirectionRowReverse}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGFlexDirectionColumn FlexDirectionColumn}</td><td>{@link #YGFlexDirectionColumnReverse FlexDirectionColumnReverse}</td><td>{@link #YGFlexDirectionRow FlexDirectionRow}</td></tr><tr><td>{@link #YGFlexDirectionRowReverse FlexDirectionRowReverse}</td></tr></table> */
     public static String YGFlexDirectionToString(int value) {
         long __result = nYGFlexDirectionToString(value);
         return memASCII(__result);
@@ -2121,11 +2035,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGJustifyToString JustifyToString} */
     public static native long nYGJustifyToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr></table> */
     public static String YGJustifyToString(int value) {
         long __result = nYGJustifyToString(value);
         return memASCII(__result);
@@ -2136,11 +2046,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGLogLevelToString LogLevelToString} */
     public static native long nYGLogLevelToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGLogLevelError LogLevelError}</td><td>{@link #YGLogLevelWarn LogLevelWarn}</td><td>{@link #YGLogLevelInfo LogLevelInfo}</td><td>{@link #YGLogLevelDebug LogLevelDebug}</td><td>{@link #YGLogLevelVerbose LogLevelVerbose}</td><td>{@link #YGLogLevelFatal LogLevelFatal}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGLogLevelError LogLevelError}</td><td>{@link #YGLogLevelWarn LogLevelWarn}</td><td>{@link #YGLogLevelInfo LogLevelInfo}</td><td>{@link #YGLogLevelDebug LogLevelDebug}</td><td>{@link #YGLogLevelVerbose LogLevelVerbose}</td><td>{@link #YGLogLevelFatal LogLevelFatal}</td></tr></table> */
     public static String YGLogLevelToString(int value) {
         long __result = nYGLogLevelToString(value);
         return memASCII(__result);
@@ -2151,11 +2057,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGMeasureModeToString MeasureModeToString} */
     public static native long nYGMeasureModeToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGMeasureModeUndefined MeasureModeUndefined}</td><td>{@link #YGMeasureModeExactly MeasureModeExactly}</td><td>{@link #YGMeasureModeAtMost MeasureModeAtMost}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGMeasureModeUndefined MeasureModeUndefined}</td><td>{@link #YGMeasureModeExactly MeasureModeExactly}</td><td>{@link #YGMeasureModeAtMost MeasureModeAtMost}</td></tr></table> */
     public static String YGMeasureModeToString(int value) {
         long __result = nYGMeasureModeToString(value);
         return memASCII(__result);
@@ -2166,11 +2068,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGOverflowToString OverflowToString} */
     public static native long nYGOverflowToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGOverflowVisible OverflowVisible}</td><td>{@link #YGOverflowHidden OverflowHidden}</td><td>{@link #YGOverflowScroll OverflowScroll}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGOverflowVisible OverflowVisible}</td><td>{@link #YGOverflowHidden OverflowHidden}</td><td>{@link #YGOverflowScroll OverflowScroll}</td></tr></table> */
     public static String YGOverflowToString(int value) {
         long __result = nYGOverflowToString(value);
         return memASCII(__result);
@@ -2181,11 +2079,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGPositionTypeToString PositionTypeToString} */
     public static native long nYGPositionTypeToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGPositionTypeRelative PositionTypeRelative}</td><td>{@link #YGPositionTypeAbsolute PositionTypeAbsolute}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGPositionTypeRelative PositionTypeRelative}</td><td>{@link #YGPositionTypeAbsolute PositionTypeAbsolute}</td></tr></table> */
     public static String YGPositionTypeToString(int value) {
         long __result = nYGPositionTypeToString(value);
         return memASCII(__result);
@@ -2196,11 +2090,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGPrintOptionsToString PrintOptionsToString} */
     public static native long nYGPrintOptionsToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGPrintOptionsLayout PrintOptionsLayout}</td><td>{@link #YGPrintOptionsStyle PrintOptionsStyle}</td><td>{@link #YGPrintOptionsChildren PrintOptionsChildren}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGPrintOptionsLayout PrintOptionsLayout}</td><td>{@link #YGPrintOptionsStyle PrintOptionsStyle}</td><td>{@link #YGPrintOptionsChildren PrintOptionsChildren}</td></tr></table> */
     public static String YGPrintOptionsToString(int value) {
         long __result = nYGPrintOptionsToString(value);
         return memASCII(__result);
@@ -2211,11 +2101,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGUnitToString UnitToString} */
     public static native long nYGUnitToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGUnitUndefined UnitUndefined}</td><td>{@link #YGUnitPoint UnitPoint}</td><td>{@link #YGUnitPercent UnitPercent}</td><td>{@link #YGUnitAuto UnitAuto}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGUnitUndefined UnitUndefined}</td><td>{@link #YGUnitPoint UnitPoint}</td><td>{@link #YGUnitPercent UnitPercent}</td><td>{@link #YGUnitAuto UnitAuto}</td></tr></table> */
     public static String YGUnitToString(int value) {
         long __result = nYGUnitToString(value);
         return memASCII(__result);
@@ -2226,11 +2112,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGWrapToString WrapToString} */
     public static native long nYGWrapToString(int value);
 
-    /**
-     * 
-     *
-     * @param value one of:<br><table><tr><td>{@link #YGWrapNoWrap WrapNoWrap}</td><td>{@link #YGWrapWrap WrapWrap}</td><td>{@link #YGWrapReverse WrapReverse}</td></tr></table>
-     */
+    /** @param value one of:<br><table><tr><td>{@link #YGWrapNoWrap WrapNoWrap}</td><td>{@link #YGWrapWrap WrapWrap}</td><td>{@link #YGWrapReverse WrapReverse}</td></tr></table> */
     public static String YGWrapToString(int value) {
         long __result = nYGWrapToString(value);
         return memASCII(__result);

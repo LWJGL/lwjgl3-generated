@@ -14,15 +14,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_command_buffer {
-    {@link NkBuffer struct nk_buffer} * base;
-    {@link NkRect struct nk_rect} clip;
-    int use_clipping;
-    {@link NkHandle nk_handle} userdata;
-    nk_size begin;
-    nk_size end;
-    nk_size last;
-}</code></pre>
+ * <code><pre>
+ * struct nk_command_buffer {
+ *     {@link NkBuffer struct nk_buffer} * base;
+ *     {@link NkRect struct nk_rect} clip;
+ *     int use_clipping;
+ *     {@link NkHandle nk_handle} userdata;
+ *     nk_size begin;
+ *     nk_size end;
+ *     nk_size last;
+ * }</pre></code>
  */
 public class NkCommandBuffer extends Struct {
 

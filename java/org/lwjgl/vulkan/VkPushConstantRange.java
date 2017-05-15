@@ -47,11 +47,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPushConstantRange {
-    VkShaderStageFlags stageFlags;
-    uint32_t offset;
-    uint32_t size;
-}</code></pre>
+ * <code><pre>
+ * struct VkPushConstantRange {
+ *     VkShaderStageFlags stageFlags;
+ *     uint32_t offset;
+ *     uint32_t size;
+ * }</pre></code>
  */
 public class VkPushConstantRange extends Struct implements NativeResource {
 

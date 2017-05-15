@@ -40,10 +40,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code stride} &ndash; the distance in bytes between two consecutive elements within the buffer.</li>
  * <li>{@code inputRate} &ndash; specifies whether vertex attribute addressing is a function of the vertex index or of the instance index. Possible values include:
  * 
- * <pre><code>typedef enum VkVertexInputRate {
-    VK_VERTEX_INPUT_RATE_VERTEX = 0,
-    VK_VERTEX_INPUT_RATE_INSTANCE = 1,
-} VkVertexInputRate;</code></pre>
+ * <code><pre>
+ * typedef enum VkVertexInputRate {
+ *     VK_VERTEX_INPUT_RATE_VERTEX = 0,
+ *     VK_VERTEX_INPUT_RATE_INSTANCE = 1,
+ * } VkVertexInputRate;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX} indicates that vertex attribute addressing is a function of the vertex index.</li>
@@ -53,11 +54,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkVertexInputBindingDescription {
-    uint32_t binding;
-    uint32_t stride;
-    VkVertexInputRate inputRate;
-}</code></pre>
+ * <code><pre>
+ * struct VkVertexInputBindingDescription {
+ *     uint32_t binding;
+ *     uint32_t stride;
+ *     VkVertexInputRate inputRate;
+ * }</pre></code>
  */
 public class VkVertexInputBindingDescription extends Struct implements NativeResource {
 

@@ -18,23 +18,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct XSetWindowAttributes {
-    Pixmap background_pixmap;
-    unsigned long background_pixel;
-    Pixmap border_pixmap;
-    unsigned long border_pixel;
-    int bit_gravity;
-    int win_gravity;
-    int backing_store;
-    unsigned long backing_planes;
-    unsigned long backing_pixel;
-    Bool save_under;
-    long event_mask;
-    long do_not_propagate_mask;
-    Bool override_redirect;
-    Colormap colormap;
-    Cursor cursor;
-}</code></pre>
+ * <code><pre>
+ * struct XSetWindowAttributes {
+ *     Pixmap background_pixmap;
+ *     unsigned long background_pixel;
+ *     Pixmap border_pixmap;
+ *     unsigned long border_pixel;
+ *     int bit_gravity;
+ *     int win_gravity;
+ *     int backing_store;
+ *     unsigned long backing_planes;
+ *     unsigned long backing_pixel;
+ *     Bool save_under;
+ *     long event_mask;
+ *     long do_not_propagate_mask;
+ *     Bool override_redirect;
+ *     Colormap colormap;
+ *     Cursor cursor;
+ * }</pre></code>
  */
 public class XSetWindowAttributes extends Struct implements NativeResource {
 

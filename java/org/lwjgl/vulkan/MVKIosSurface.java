@@ -83,11 +83,12 @@ public class MVKIosSurface {
      * 
      * <p>To create a {@code VkSurfaceKHR} object for an iOS {@code UIView}, call:</p>
      * 
-     * <pre><code>VkResult vkCreateIOSSurfaceMVK(
-    VkInstance                                  instance,
-    const VkIOSSurfaceCreateInfoMVK*            pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateIOSSurfaceMVK(
+     *     VkInstance                                  instance,
+     *     const VkIOSSurfaceCreateInfoMVK*            pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkSurfaceKHR*                               pSurface);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiVertexWeight {
-    unsigned int mVertexId;
-    float mWeight;
-}</code></pre>
+ * <code><pre>
+ * struct aiVertexWeight {
+ *     unsigned int mVertexId;
+ *     float mWeight;
+ * }</pre></code>
  */
 public class AIVertexWeight extends Struct implements NativeResource {
 

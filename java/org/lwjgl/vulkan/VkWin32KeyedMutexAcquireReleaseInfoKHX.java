@@ -48,17 +48,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkWin32KeyedMutexAcquireReleaseInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t acquireCount;
-    const VkDeviceMemory * pAcquireSyncs;
-    const uint64_t * pAcquireKeys;
-    const uint32_t * pAcquireTimeouts;
-    uint32_t releaseCount;
-    const VkDeviceMemory * pReleaseSyncs;
-    const uint64_t * pReleaseKeys;
-}</code></pre>
+ * <code><pre>
+ * struct VkWin32KeyedMutexAcquireReleaseInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t acquireCount;
+ *     const VkDeviceMemory * pAcquireSyncs;
+ *     const uint64_t * pAcquireKeys;
+ *     const uint32_t * pAcquireTimeouts;
+ *     uint32_t releaseCount;
+ *     const VkDeviceMemory * pReleaseSyncs;
+ *     const uint64_t * pReleaseKeys;
+ * }</pre></code>
  */
 public class VkWin32KeyedMutexAcquireReleaseInfoKHX extends Struct implements NativeResource {
 

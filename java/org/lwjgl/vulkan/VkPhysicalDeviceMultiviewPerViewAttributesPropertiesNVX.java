@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
-    VkStructureType sType;
-    void * pNext;
-    VkBool32 perViewPositionAllComponents;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     VkBool32 perViewPositionAllComponents;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX extends Struct {
 

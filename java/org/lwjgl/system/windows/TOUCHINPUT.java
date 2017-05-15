@@ -47,18 +47,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct TOUCHINPUT {
-    LONG x;
-    LONG y;
-    HANDLE hSource;
-    DWORD dwID;
-    DWORD dwFlags;
-    DWORD dwMask;
-    DWORD dwTime;
-    ULONG_PTR dwExtraInfo;
-    DWORD cxContact;
-    DWORD cyContact;
-}</code></pre>
+ * <code><pre>
+ * struct TOUCHINPUT {
+ *     LONG x;
+ *     LONG y;
+ *     HANDLE hSource;
+ *     DWORD dwID;
+ *     DWORD dwFlags;
+ *     DWORD dwMask;
+ *     DWORD dwTime;
+ *     ULONG_PTR dwExtraInfo;
+ *     DWORD cxContact;
+ *     DWORD cyContact;
+ * }</pre></code>
  */
 public class TOUCHINPUT extends Struct implements NativeResource {
 

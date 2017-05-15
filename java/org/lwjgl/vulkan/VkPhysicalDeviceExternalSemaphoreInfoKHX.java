@@ -42,13 +42,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; NULL or a pointer to an extension-specific structure.</li>
  * <li>{@code handleType} &ndash; a bit indicating an external semaphore handle type for which capabilities will be returned. Bits which can be set include:
  * 
- * <pre><code>typedef enum VkExternalSemaphoreHandleTypeFlagBitsKHX {
-    VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
-    VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
-    VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX = 0x00000004,
-    VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX = 0x00000008,
-    VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX = 0x00000010,
-} VkExternalSemaphoreHandleTypeFlagBitsKHX;</code></pre>
+ * <code><pre>
+ * typedef enum VkExternalSemaphoreHandleTypeFlagBitsKHX {
+ *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
+ *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
+ *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX = 0x00000004,
+ *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX = 0x00000008,
+ *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX = 0x00000010,
+ * } VkExternalSemaphoreHandleTypeFlagBitsKHX;</pre></code>
  * 
  * <ul>
  * <li>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX} is a POSIX file descriptor handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the POSIX system calls fname:dup, fname:dup2, fname:close, and the non-standard system call fname:dup3. Additionally, it <b>must</b> be transportable over a socket using an {@code SCM_RIGHTS} control message. It owns a reference to the underlying synchronization primitive represented by its Vulkan semaphore object.</li>
@@ -61,11 +62,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceExternalSemaphoreInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalSemaphoreHandleTypeFlagBitsKHX handleType;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceExternalSemaphoreInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalSemaphoreHandleTypeFlagBitsKHX handleType;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceExternalSemaphoreInfoKHX extends Struct implements NativeResource {
 

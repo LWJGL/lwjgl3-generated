@@ -31,17 +31,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_buffer {
-    {@link NkBufferMarker struct nk_buffer_marker} marker[2];
-    {@link NkAllocator struct nk_allocator} pool;
-    enum nk_allocation_type type;
-    {@link NkMemory struct nk_memory} memory;
-    float grow_factor;
-    nk_size allocated;
-    nk_size needed;
-    nk_size calls;
-    nk_size size;
-}</code></pre>
+ * <code><pre>
+ * struct nk_buffer {
+ *     {@link NkBufferMarker struct nk_buffer_marker} marker[2];
+ *     {@link NkAllocator struct nk_allocator} pool;
+ *     enum nk_allocation_type type;
+ *     {@link NkMemory struct nk_memory} memory;
+ *     float grow_factor;
+ *     nk_size allocated;
+ *     nk_size needed;
+ *     nk_size calls;
+ *     nk_size size;
+ * }</pre></code>
  */
 public class NkBuffer extends Struct implements NativeResource {
 

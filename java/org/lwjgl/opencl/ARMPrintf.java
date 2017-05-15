@@ -19,7 +19,7 @@ public final class ARMPrintf {
     /**
      * Accepted by the {@code properties} argument to {@link CL10#clCreateContext CreateContext}.
      * 
-     * <p>Property value: <code>void printf_callback(const char *buffer, size_t len, size_t complete, void *user_data)</code></p>
+     * <p>Property value:</p><code>void printf_callback(const char *buffer, size_t len, size_t complete, void *user_data)</code>
      * 
      * <p>Specifies a pointer to function to be invoked when printf data is available. Upon invocation the arguments are set to the following values.</p>
      * 

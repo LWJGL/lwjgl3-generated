@@ -19,9 +19,25 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>If {@code deviceIndexCount} is greater than zero, then on device index <code>i</code> the image is attached to the instance of memory on the physical device with device index <code>pDeviceIndices[i]</code>.</p>
+ * <p>If {@code deviceIndexCount} is greater than zero, then on device index</p><code>i</code>
  * 
- * <p>Let <code>N</code> be the number of physical devices in the logical device. If {@code SFRRectCount} is greater than zero, then {@code pSFRRects} is an array of <code>N<sup>2</sup></code> rectangles, where the image region specified by the rectangle at element <code>i*N+j</code> in resource instance <code>i</code> is bound to memory instance <code>j</code>. The blocks of memory that are bound to each sparse image block region use an offset in memory, relative to {@code memoryOffset}, computed as if the whole image were being bound to a contiguous range of memory. In other words, horizontally adjacent image blocks use consecutive blocks of memory, vertically adjacent image blocks are separated by the number of bytes per block multiplied by the width in blocks of the image, and the block at <code>(0,0)</code> corresponds to memory starting at {@code memoryOffset}.</p>
+ * <p>the image is attached to the instance of memory on the physical device with device index</p><code>pDeviceIndices[i]</code>
+ * 
+ * <p>.</p>
+ * 
+ * <p>Let</p><code>N</code>
+ * 
+ * <p>be the number of physical devices in the logical device. If {@code SFRRectCount} is greater than zero, then {@code pSFRRects} is an array of</p><code>N<sup>2</sup></code>
+ * 
+ * <p>rectangles, where the image region specified by the rectangle at element</p><code>i*N+j</code>
+ * 
+ * <p>in resource instance</p><code>i</code>
+ * 
+ * <p>is bound to memory instance</p><code>j</code>
+ * 
+ * <p>. The blocks of memory that are bound to each sparse image block region use an offset in memory, relative to {@code memoryOffset}, computed as if the whole image were being bound to a contiguous range of memory. In other words, horizontally adjacent image blocks use consecutive blocks of memory, vertically adjacent image blocks are separated by the number of bytes per block multiplied by the width in blocks of the image, and the block at</p><code>(0,0)</code>
+ * 
+ * <p>corresponds to memory starting at {@code memoryOffset}.</p>
  * 
  * <p>If {@code SFRRectCount} and {@code deviceIndexCount} are zero and the memory comes from a memory heap with the {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} bit set, then it is as if {@code pDeviceIndices} contains consecutive indices from zero to the number of physical devices in the logical device, minus one. In other words, by default each physical device attaches to its own instance of the memory.</p>
  * 
@@ -83,17 +99,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBindImageMemoryInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkImage image;
-    VkDeviceMemory memory;
-    VkDeviceSize memoryOffset;
-    uint32_t deviceIndexCount;
-    const uint32_t * pDeviceIndices;
-    uint32_t SFRRectCount;
-    const {@link VkRect2D VkRect2D} * pSFRRects;
-}</code></pre>
+ * <code><pre>
+ * struct VkBindImageMemoryInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkImage image;
+ *     VkDeviceMemory memory;
+ *     VkDeviceSize memoryOffset;
+ *     uint32_t deviceIndexCount;
+ *     const uint32_t * pDeviceIndices;
+ *     uint32_t SFRRectCount;
+ *     const {@link VkRect2D VkRect2D} * pSFRRects;
+ * }</pre></code>
  */
 public class VkBindImageMemoryInfoKHX extends Struct implements NativeResource {
 

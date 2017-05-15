@@ -40,11 +40,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExportMemoryAllocateInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalMemoryHandleTypeFlagsKHX handleTypes;
-}</code></pre>
+ * <code><pre>
+ * struct VkExportMemoryAllocateInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalMemoryHandleTypeFlagsKHX handleTypes;
+ * }</pre></code>
  */
 public class VkExportMemoryAllocateInfoKHX extends Struct implements NativeResource {
 

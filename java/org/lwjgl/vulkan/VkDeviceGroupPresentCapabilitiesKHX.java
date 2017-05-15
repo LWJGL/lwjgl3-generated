@@ -37,15 +37,32 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code presentMask} &ndash; an array of masks, where the mask at element <code>i</code> is non-zero if physical device <code>i</code> has a presentation engine, and where bit <code>j</code> is set in element <code>i</code> if physical device <code>i</code> <b>can</b> present swapchain images from physical device <code>j</code>. If element <code>i</code> is non-zero, then bit <code>i</code> <b>must</b> be set.</li>
+ * <li>{@code presentMask} &ndash; an array of masks, where the mask at element<code>i</code>
+ * 
+ * <p>is non-zero if physical device</p><code>i</code>
+ * 
+ * <p>has a presentation engine, and where bit</p><code>j</code>
+ * 
+ * <p>is set in element</p><code>i</code>
+ * 
+ * <p>if physical device</p><code>i</code>
+ * 
+ * <p><b>can</b> present swapchain images from physical device</p><code>j</code>
+ * 
+ * <p>. If element</p><code>i</code>
+ * 
+ * <p>is non-zero, then bit</p><code>i</code>
+ * 
+ * <p><b>must</b> be set.</p></li>
  * <li>{@code modes} &ndash; a bitmask indicating which device group presentation modes are supported. The bits returned in {@code modes} are:
  * 
- * <pre><code>typedef enum VkDeviceGroupPresentModeFlagBitsKHX {
-    VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX = 0x00000001,
-    VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX = 0x00000002,
-    VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX = 0x00000004,
-    VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX = 0x00000008,
-} VkDeviceGroupPresentModeFlagBitsKHX;</code></pre>
+ * <code><pre>
+ * typedef enum VkDeviceGroupPresentModeFlagBitsKHX {
+ *     VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX = 0x00000001,
+ *     VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX = 0x00000002,
+ *     VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX = 0x00000004,
+ *     VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX = 0x00000008,
+ * } VkDeviceGroupPresentModeFlagBitsKHX;</pre></code>
  * 
  * <ul>
  * <li>if {@code modes} contains {@link KHXDeviceGroup#VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX}, any physical device with a presentation engine <b>can</b> present its own swapchain images.</li>
@@ -57,12 +74,13 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupPresentCapabilitiesKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t presentMask[VK_MAX_DEVICE_GROUP_SIZE_KHX];
-    VkDeviceGroupPresentModeFlagsKHX modes;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupPresentCapabilitiesKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t presentMask[VK_MAX_DEVICE_GROUP_SIZE_KHX];
+ *     VkDeviceGroupPresentModeFlagsKHX modes;
+ * }</pre></code>
  */
 public class VkDeviceGroupPresentCapabilitiesKHX extends Struct implements NativeResource {
 

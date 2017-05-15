@@ -22,23 +22,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_window_header {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkStyleButton struct nk_style_button} close_button;
-    {@link NkStyleButton struct nk_style_button} minimize_button;
-    enum nk_symbol_type close_symbol;
-    enum nk_symbol_type minimize_symbol;
-    enum nk_symbol_type maximize_symbol;
-    {@link NkColor struct nk_color} label_normal;
-    {@link NkColor struct nk_color} label_hover;
-    {@link NkColor struct nk_color} label_active;
-    enum nk_style_header_align align;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkVec2 struct nk_vec2} label_padding;
-    {@link NkVec2 struct nk_vec2} spacing;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_window_header {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkStyleButton struct nk_style_button} close_button;
+ *     {@link NkStyleButton struct nk_style_button} minimize_button;
+ *     enum nk_symbol_type close_symbol;
+ *     enum nk_symbol_type minimize_symbol;
+ *     enum nk_symbol_type maximize_symbol;
+ *     {@link NkColor struct nk_color} label_normal;
+ *     {@link NkColor struct nk_color} label_hover;
+ *     {@link NkColor struct nk_color} label_active;
+ *     enum nk_style_header_align align;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkVec2 struct nk_vec2} label_padding;
+ *     {@link NkVec2 struct nk_vec2} spacing;
+ * }</pre></code>
  */
 public class NkStyleWindowHeader extends Struct implements NativeResource {
 

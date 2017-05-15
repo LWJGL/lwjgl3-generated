@@ -23,7 +23,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRLockSurface3 {
 
-    /**  */
     public static final int
         EGL_READ_SURFACE_BIT_KHR              = 0x1,
         EGL_WRITE_SURFACE_BIT_KHR             = 0x2,

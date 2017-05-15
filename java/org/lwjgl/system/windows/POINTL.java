@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct POINTL {
-    LONG x;
-    LONG y;
-}</code></pre>
+ * <code><pre>
+ * struct POINTL {
+ *     LONG x;
+ *     LONG y;
+ * }</pre></code>
  */
 public class POINTL extends Struct implements NativeResource {
 

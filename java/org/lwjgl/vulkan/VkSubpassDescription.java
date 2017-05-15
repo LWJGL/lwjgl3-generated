@@ -68,10 +68,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code flags} &ndash; a bitmask indicating usage of the subpass. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkSubpassDescriptionFlagBits {
-    VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX = 0x00000001,
-    VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX = 0x00000002,
-} VkSubpassDescriptionFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkSubpassDescriptionFlagBits {
+ *     VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX = 0x00000001,
+ *     VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX = 0x00000002,
+ * } VkSubpassDescriptionFlagBits;</pre></code>
  * 
  * <ul>
  * <li>{@link NVXMultiviewPerViewAttributes#VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX} indicates that shaders compiled for this subpass write the attributes for all views in a single invocation of each vertex processing stage. All pipelines compiled against a subpass that includes this bit <b>must</b> write per-view attributes to the *PerViewNV[] shader outputs, in addition to the non-per-view (e.g. {@code Position}) outputs.</li>
@@ -90,18 +91,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSubpassDescription {
-    VkSubpassDescriptionFlags flags;
-    VkPipelineBindPoint pipelineBindPoint;
-    uint32_t inputAttachmentCount;
-    const {@link VkAttachmentReference VkAttachmentReference} * pInputAttachments;
-    uint32_t colorAttachmentCount;
-    const {@link VkAttachmentReference VkAttachmentReference} * pColorAttachments;
-    const {@link VkAttachmentReference VkAttachmentReference} * pResolveAttachments;
-    const {@link VkAttachmentReference VkAttachmentReference} * pDepthStencilAttachment;
-    uint32_t preserveAttachmentCount;
-    const uint32_t * pPreserveAttachments;
-}</code></pre>
+ * <code><pre>
+ * struct VkSubpassDescription {
+ *     VkSubpassDescriptionFlags flags;
+ *     VkPipelineBindPoint pipelineBindPoint;
+ *     uint32_t inputAttachmentCount;
+ *     const {@link VkAttachmentReference VkAttachmentReference} * pInputAttachments;
+ *     uint32_t colorAttachmentCount;
+ *     const {@link VkAttachmentReference VkAttachmentReference} * pColorAttachments;
+ *     const {@link VkAttachmentReference VkAttachmentReference} * pResolveAttachments;
+ *     const {@link VkAttachmentReference VkAttachmentReference} * pDepthStencilAttachment;
+ *     uint32_t preserveAttachmentCount;
+ *     const uint32_t * pPreserveAttachments;
+ * }</pre></code>
  */
 public class VkSubpassDescription extends Struct implements NativeResource {
 

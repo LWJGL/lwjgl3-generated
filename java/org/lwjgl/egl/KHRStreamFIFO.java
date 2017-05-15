@@ -36,7 +36,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRStreamFIFO {
 
-    /**  */
     public static final int
         EGL_STREAM_FIFO_LENGTH_KHR   = 0x31FC,
         EGL_STREAM_TIME_NOW_KHR      = 0x31FD,

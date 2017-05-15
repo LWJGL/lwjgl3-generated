@@ -11,7 +11,6 @@ import static org.lwjgl.system.JNI.*;
 /** The core EGL 1.4 functionality. */
 public class EGL14 {
 
-    /**  */
     public static final int
         EGL_MULTISAMPLE_RESOLVE_BOX_BIT = 0x200,
         EGL_MULTISAMPLE_RESOLVE         = 0x3099,
@@ -21,7 +20,6 @@ public class EGL14 {
         EGL_OPENGL_BIT                  = 0x8,
         EGL_SWAP_BEHAVIOR_PRESERVED_BIT = 0x400;
 
-    /**  */
     public static final long EGL_DEFAULT_DISPLAY = 0x0L;
 
     protected EGL14() {

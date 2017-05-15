@@ -114,8 +114,6 @@ public class WGLARBPixelFormat {
     }
 
     /**
-     * 
-     *
      * @param hdc         the device context on which the pixel format is supported
      * @param pixelFormat an index that specifies the pixel format
      * @param layerPlane  the plane being queried
@@ -130,8 +128,6 @@ public class WGLARBPixelFormat {
     }
 
     /**
-     * 
-     *
      * @param hdc         the device context on which the pixel format is supported
      * @param pixelFormat an index that specifies the pixel format
      * @param layerPlane  the plane being queried

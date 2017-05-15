@@ -985,7 +985,8 @@ public final class GLESCapabilities {
      * capabilities of version 3.10 of the OpenGL ES Shading Language. Shaders using the new functionality provided by this extension should enable this
      * functionality via the construct</p>
      * 
-     * <pre><code>    #extension GL_EXT_gpu_shader5 : require (or enable)</code></pre>
+     * <code><pre>
+     *     #extension GL_EXT_gpu_shader5 : require (or enable)</pre></code>
      * 
      * <p>This extension provides a variety of new features for all shader types, including:</p>
      * 
@@ -1035,11 +1036,13 @@ public final class GLESCapabilities {
      * <p>This extension allows the fragment shader to control whether values in gl_SampleMaskIn[] reflect the coverage after application of the early depth and
      * stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:</p>
      * 
-     * <pre><code>    layout(post_depth_coverage) in;</code></pre>
+     * <code><pre>
+     *     layout(post_depth_coverage) in;</pre></code>
      * 
      * <p>To use this feature, early fragment tests must also be enabled in the fragment shader via:</p>
      * 
-     * <pre><code>    layout(early_fragment_tests) in;</code></pre>
+     * <code><pre>
+     *     layout(early_fragment_tests) in;</pre></code>
      * 
      * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
      */
@@ -1072,11 +1075,12 @@ public final class GLESCapabilities {
      * <p>Compute shaders operate on an explicitly specified group of threads (a local work group), but many implementations of OpenGL ES 3.0 will even group
      * non-compute shader invocations and execute them in a SIMD fashion. When executing code like</p>
      * 
-     * <pre><code>if (condition) {
-    result = do_fast_path();
-} else {
-    result = do_general_path();
-}</code></pre>
+     * <code><pre>
+     * if (condition) {
+     *     result = do_fast_path();
+     * } else {
+     *     result = do_general_path();
+     * }</pre></code>
      * 
      * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
      * is true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where {@code condition}
@@ -1085,11 +1089,12 @@ public final class GLESCapabilities {
      * 
      * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
      * 
-     * <pre><code>if (allInvocationsEXT(condition)) {
-    result = do_fast_path();
-} else {
-    result = do_general_path();
-}</code></pre>
+     * <code><pre>
+     * if (allInvocationsEXT(condition)) {
+     *     result = do_fast_path();
+     * } else {
+     *     result = do_general_path();
+     * }</pre></code>
      * 
      * <p>The built-in function allInvocationsEXT() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
      * or do_general_path(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation
@@ -1165,41 +1170,43 @@ public final class GLESCapabilities {
      * 
      * <p>The existing isotropic vertex texture functions:</p>
      * 
-     * <pre><code>    vec4 texture2DLodEXT(sampler2D sampler,
-                         vec2 coord,
-                         float lod);
-    vec4 texture2DProjLodEXT(sampler2D sampler,
-                             vec3 coord,
-                             float lod);
-    vec4 texture2DProjLodEXT(sampler2D sampler,
-                             vec4 coord,
-                             float lod);
-
-    vec4 textureCubeLodEXT(samplerCube sampler,
-                           vec3 coord,
-                           float lod);</code></pre>
+     * <code><pre>
+     *     vec4 texture2DLodEXT(sampler2D sampler,
+     *                          vec2 coord,
+     *                          float lod);
+     *     vec4 texture2DProjLodEXT(sampler2D sampler,
+     *                              vec3 coord,
+     *                              float lod);
+     *     vec4 texture2DProjLodEXT(sampler2D sampler,
+     *                              vec4 coord,
+     *                              float lod);
+     * 
+     *     vec4 textureCubeLodEXT(samplerCube sampler,
+     *                            vec3 coord,
+     *                            float lod);</pre></code>
      * 
      * <p>are added to the built-in functions for fragment shaders with "EXT" suffix appended.</p>
      * 
      * <p>New anisotropic texture functions, providing explicit derivatives:</p>
      * 
-     * <pre><code>    vec4 texture2DGradEXT(sampler2D sampler,
-                          vec2 P,
-                          vec2 dPdx,
-                          vec2  dPdy);
-    vec4 texture2DProjGradEXT(sampler2D sampler,
-                              vec3 P,
-                              vec2 dPdx,
-                              vec2 dPdy);
-    vec4 texture2DProjGradEXT(sampler2D sampler,
-                              vec4 P,
-                              vec2 dPdx,
-                              vec2 dPdy);
-
-    vec4 textureCubeGradEXT(samplerCube sampler,
-                            vec3 P,
-                            vec3 dPdx,
-                            vec3 dPdy);</code></pre>
+     * <code><pre>
+     *     vec4 texture2DGradEXT(sampler2D sampler,
+     *                           vec2 P,
+     *                           vec2 dPdx,
+     *                           vec2  dPdy);
+     *     vec4 texture2DProjGradEXT(sampler2D sampler,
+     *                               vec3 P,
+     *                               vec2 dPdx,
+     *                               vec2 dPdy);
+     *     vec4 texture2DProjGradEXT(sampler2D sampler,
+     *                               vec4 P,
+     *                               vec2 dPdx,
+     *                               vec2 dPdy);
+     * 
+     *     vec4 textureCubeGradEXT(samplerCube sampler,
+     *                             vec3 P,
+     *                             vec3 dPdx,
+     *                             vec3 dPdy);</pre></code>
      * 
      * <p>are added to the built-in functions for vertex shaders and fragment shaders.</p>
      */
@@ -1447,60 +1454,62 @@ public final class GLESCapabilities {
      * <p>This extension provides a shading language abstraction to express such shaders without requiring explicit logic to manually copy attributes from input
      * vertices to output vertices. For example, consider the following simple geometry shader in unextended OpenGL:</p>
      * 
-     * <pre><code>      layout(triangles) in;
-      layout(triangle_strip) out;
-      layout(max_vertices=3) out;
-
-      in Inputs {
-        vec2 texcoord;
-        vec4 baseColor;
-      } v_in[];
-      out Outputs {
-        vec2 texcoord;
-        vec4 baseColor;
-      };
-
-      void main()
-      {
-        int layer = compute_layer();
-        for (int i = 0; i < 3; i++) {
-          gl_Position = gl_in[i].gl_Position;
-          texcoord = v_in[i].texcoord;
-          baseColor = v_in[i].baseColor;
-          gl_Layer = layer;
-          EmitVertex();
-        }
-      }</code></pre>
+     * <code><pre>
+     *       layout(triangles) in;
+     *       layout(triangle_strip) out;
+     *       layout(max_vertices=3) out;
+     * 
+     *       in Inputs {
+     *         vec2 texcoord;
+     *         vec4 baseColor;
+     *       } v_in[];
+     *       out Outputs {
+     *         vec2 texcoord;
+     *         vec4 baseColor;
+     *       };
+     * 
+     *       void main()
+     *       {
+     *         int layer = compute_layer();
+     *         for (int i = 0; i < 3; i++) {
+     *           gl_Position = gl_in[i].gl_Position;
+     *           texcoord = v_in[i].texcoord;
+     *           baseColor = v_in[i].baseColor;
+     *           gl_Layer = layer;
+     *           EmitVertex();
+     *         }
+     *       }</pre></code>
      * 
      * <p>In this shader, the inputs "gl_Position", "Inputs.texcoord", and "Inputs.baseColor" are simply copied from the input vertex to the corresponding output
      * vertex. The only "interesting" work done by the geometry shader is computing and emitting a gl_Layer value for the primitive.</p>
      * 
      * <p>The following geometry shader, using this extension, is equivalent:</p>
      * 
-     * <pre><code>      #extension GL_NV_geometry_shader_passthrough : require
-
-      layout(triangles) in;
-      // No output primitive layout qualifiers required.
-
-      // Redeclare gl_PerVertex to pass through "gl_Position".
-      layout(passthrough) in gl_PerVertex {
-        vec4 gl_Position;
-      };
-
-      // Declare "Inputs" with "passthrough" to automatically copy members.
-      layout(passthrough) in Inputs {
-        vec2 texcoord;
-        vec4 baseColor;
-      };
-
-      // No output block declaration required.
-
-      void main()
-      {
-        // The shader simply computes and writes gl_Layer.  We don't
-        // loop over three vertices or call EmitVertex().
-        gl_Layer = compute_layer();
-      }</code></pre>
+     * <code><pre>
+     *       #extension GL_NV_geometry_shader_passthrough : require
+     * 
+     *       layout(triangles) in;
+     *       // No output primitive layout qualifiers required.
+     * 
+     *       // Redeclare gl_PerVertex to pass through "gl_Position".
+     *       layout(passthrough) in gl_PerVertex {
+     *         vec4 gl_Position;
+     *       };
+     * 
+     *       // Declare "Inputs" with "passthrough" to automatically copy members.
+     *       layout(passthrough) in Inputs {
+     *         vec2 texcoord;
+     *         vec4 baseColor;
+     *       };
+     * 
+     *       // No output block declaration required.
+     * 
+     *       void main()
+     *       {
+     *         // The shader simply computes and writes gl_Layer.  We don't
+     *         // loop over three vertices or call EmitVertex().
+     *         gl_Layer = compute_layer();
+     *       }</pre></code>
      * 
      * <p>Requires {@link GLES31 GLES 3.1}.</p>
      */
@@ -1575,7 +1584,8 @@ public final class GLESCapabilities {
      * primitive, or that failed the early depth/stencil tests. This can be enabled by redeclaring the gl_SampleMask output with the "override_coverage"
      * layout qualifier:</p>
      * 
-     * <pre><code>    layout(override_coverage) out int gl_SampleMask[];</code></pre>
+     * <code><pre>
+     *     layout(override_coverage) out int gl_SampleMask[];</pre></code>
      * 
      * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
      */
@@ -1747,7 +1757,8 @@ public final class GLESCapabilities {
      * capabilities of version 3.10 of the OpenGL ES Shading Language. Shaders using the new functionality provided by this extension should enable this
      * functionality via the construct</p>
      * 
-     * <pre><code>    #extension GL_OES_gpu_shader5 : require (or enable)</code></pre>
+     * <code><pre>
+     *     #extension GL_OES_gpu_shader5 : require (or enable)</pre></code>
      * 
      * <p>This extension provides a variety of new features for all shader types, including:</p>
      * 

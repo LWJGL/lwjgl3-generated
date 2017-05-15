@@ -18,7 +18,6 @@ package org.lwjgl.egl;
  */
 public final class KHRCreateContext {
 
-    /**  */
     public static final int
         EGL_CONTEXT_MAJOR_VERSION_KHR                      = 0x3098,
         EGL_CONTEXT_MINOR_VERSION_KHR                      = 0x30FB,

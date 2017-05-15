@@ -16,15 +16,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_list_view {
-    int begin;
-    int end;
-    int count;
-    int total_height;
-    {@link NkContext struct nk_context} * ctx;
-    nk_uint * scroll_pointer;
-    nk_uint scroll_value;
-}</code></pre>
+ * <code><pre>
+ * struct nk_list_view {
+ *     int begin;
+ *     int end;
+ *     int count;
+ *     int total_height;
+ *     {@link NkContext struct nk_context} * ctx;
+ *     nk_uint * scroll_pointer;
+ *     nk_uint scroll_value;
+ * }</pre></code>
  */
 public class NkListView extends Struct implements NativeResource {
 

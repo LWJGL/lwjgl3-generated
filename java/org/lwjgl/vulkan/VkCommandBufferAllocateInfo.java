@@ -43,22 +43,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code commandPool} &ndash; the command pool from which the command buffers are allocated.</li>
  * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers. Possible values include:
  * 
- * <pre><code>typedef enum VkCommandBufferLevel {
-    VK_COMMAND_BUFFER_LEVEL_PRIMARY = 0,
-    VK_COMMAND_BUFFER_LEVEL_SECONDARY = 1,
-} VkCommandBufferLevel;</code></pre></li>
+ * <code><pre>
+ * typedef enum VkCommandBufferLevel {
+ *     VK_COMMAND_BUFFER_LEVEL_PRIMARY = 0,
+ *     VK_COMMAND_BUFFER_LEVEL_SECONDARY = 1,
+ * } VkCommandBufferLevel;</pre></code></li>
  * <li>{@code commandBufferCount} &ndash; the number of command buffers to allocate from the pool.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCommandBufferAllocateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkCommandPool commandPool;
-    VkCommandBufferLevel level;
-    uint32_t commandBufferCount;
-}</code></pre>
+ * <code><pre>
+ * struct VkCommandBufferAllocateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkCommandPool commandPool;
+ *     VkCommandBufferLevel level;
+ *     uint32_t commandBufferCount;
+ * }</pre></code>
  */
 public class VkCommandBufferAllocateInfo extends Struct implements NativeResource {
 

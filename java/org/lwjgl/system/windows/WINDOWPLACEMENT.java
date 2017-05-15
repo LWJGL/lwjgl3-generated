@@ -31,14 +31,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct WINDOWPLACEMENT {
-    UINT length;
-    UINT flags;
-    UINT showCmd;
-    {@link POINT POINT} ptMinPosition;
-    {@link POINT POINT} ptMaxPosition;
-    {@link RECT RECT} rcNormalPosition;
-}</code></pre>
+ * <code><pre>
+ * struct WINDOWPLACEMENT {
+ *     UINT length;
+ *     UINT flags;
+ *     UINT showCmd;
+ *     {@link POINT POINT} ptMinPosition;
+ *     {@link POINT POINT} ptMaxPosition;
+ *     {@link RECT RECT} rcNormalPosition;
+ * }</pre></code>
  */
 public class WINDOWPLACEMENT extends Struct implements NativeResource {
 

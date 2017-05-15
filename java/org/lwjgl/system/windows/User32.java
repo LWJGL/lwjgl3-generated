@@ -1707,8 +1707,6 @@ public class User32 {
     public static native int nSetLayeredWindowAttributes(long __functionAddress, long hwnd, int crKey, byte bAlpha, int dwFlags);
 
     /**
-     * 
-     *
      * @param hwnd    a handle to the layered window. A layered window is created by specifying {@link #WS_EX_LAYERED} when creating the window with the {@link #CreateWindowEx}
      *                function or by setting {@link #WS_EX_LAYERED} via {@link #SetWindowLongPtr} after the window has been created.
      * @param crKey   the transparency color key (0x00bbggrr) to be used when composing the layered window. All pixels painted by the window in this color will be

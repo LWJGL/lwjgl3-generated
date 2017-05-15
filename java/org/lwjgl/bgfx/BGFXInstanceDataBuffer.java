@@ -30,14 +30,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_instance_data_buffer_t {
-    uint8_t * data;
-    uint32_t size;
-    uint32_t offset;
-    uint32_t num;
-    uint16_t stride;
-    bgfx_vertex_buffer_handle_t handle;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_instance_data_buffer_t {
+ *     uint8_t * data;
+ *     uint32_t size;
+ *     uint32_t offset;
+ *     uint32_t num;
+ *     uint16_t stride;
+ *     bgfx_vertex_buffer_handle_t handle;
+ * }</pre></code>
  */
 public class BGFXInstanceDataBuffer extends Struct implements NativeResource {
 

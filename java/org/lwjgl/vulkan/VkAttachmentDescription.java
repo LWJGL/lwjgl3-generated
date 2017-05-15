@@ -61,18 +61,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code flags} &ndash; a bitmask describing additional properties of the attachment. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkAttachmentDescriptionFlagBits {
-    VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x00000001,
-} VkAttachmentDescriptionFlagBits;</code></pre></li>
+ * <code><pre>
+ * typedef enum VkAttachmentDescriptionFlagBits {
+ *     VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x00000001,
+ * } VkAttachmentDescriptionFlagBits;</pre></code></li>
  * <li>{@code format} &ndash; a {@code VkFormat} value specifying the format of the image that will be used for the attachment.</li>
  * <li>{@code samples} &ndash; the number of samples of the image as defined in {@code VkSampleCountFlagBits}.</li>
  * <li>{@code loadOp} &ndash; specifies how the contents of color and depth components of the attachment are treated at the beginning of the subpass where it is first used:
  * 
- * <pre><code>typedef enum VkAttachmentLoadOp {
-    VK_ATTACHMENT_LOAD_OP_LOAD = 0,
-    VK_ATTACHMENT_LOAD_OP_CLEAR = 1,
-    VK_ATTACHMENT_LOAD_OP_DONT_CARE = 2,
-} VkAttachmentLoadOp;</code></pre>
+ * <code><pre>
+ * typedef enum VkAttachmentLoadOp {
+ *     VK_ATTACHMENT_LOAD_OP_LOAD = 0,
+ *     VK_ATTACHMENT_LOAD_OP_CLEAR = 1,
+ *     VK_ATTACHMENT_LOAD_OP_DONT_CARE = 2,
+ * } VkAttachmentLoadOp;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_ATTACHMENT_LOAD_OP_LOAD ATTACHMENT_LOAD_OP_LOAD} means the previous contents of the image within the render area will be preserved. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT}.</li>
@@ -81,10 +83,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * </ul></li>
  * <li>{@code storeOp} &ndash; specifies how the contents of color and depth components of the attachment are treated at the end of the subpass where it is last used:
  * 
- * <pre><code>typedef enum VkAttachmentStoreOp {
-    VK_ATTACHMENT_STORE_OP_STORE = 0,
-    VK_ATTACHMENT_STORE_OP_DONT_CARE = 1,
-} VkAttachmentStoreOp;</code></pre>
+ * <code><pre>
+ * typedef enum VkAttachmentStoreOp {
+ *     VK_ATTACHMENT_STORE_OP_STORE = 0,
+ *     VK_ATTACHMENT_STORE_OP_DONT_CARE = 1,
+ * } VkAttachmentStoreOp;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_ATTACHMENT_STORE_OP_STORE ATTACHMENT_STORE_OP_STORE} means the contents generated during the render pass and within the render area are written to memory. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
@@ -98,17 +101,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkAttachmentDescription {
-    VkAttachmentDescriptionFlags flags;
-    VkFormat format;
-    VkSampleCountFlagBits samples;
-    VkAttachmentLoadOp loadOp;
-    VkAttachmentStoreOp storeOp;
-    VkAttachmentLoadOp stencilLoadOp;
-    VkAttachmentStoreOp stencilStoreOp;
-    VkImageLayout initialLayout;
-    VkImageLayout finalLayout;
-}</code></pre>
+ * <code><pre>
+ * struct VkAttachmentDescription {
+ *     VkAttachmentDescriptionFlags flags;
+ *     VkFormat format;
+ *     VkSampleCountFlagBits samples;
+ *     VkAttachmentLoadOp loadOp;
+ *     VkAttachmentStoreOp storeOp;
+ *     VkAttachmentLoadOp stencilLoadOp;
+ *     VkAttachmentStoreOp stencilStoreOp;
+ *     VkImageLayout initialLayout;
+ *     VkImageLayout finalLayout;
+ * }</pre></code>
  */
 public class VkAttachmentDescription extends Struct implements NativeResource {
 

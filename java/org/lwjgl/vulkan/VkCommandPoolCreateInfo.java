@@ -41,10 +41,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; a bitmask indicating usage behavior for the pool and command buffers allocated from it. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkCommandPoolCreateFlagBits {
-    VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x00000001,
-    VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x00000002,
-} VkCommandPoolCreateFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkCommandPoolCreateFlagBits {
+ *     VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x00000001,
+ *     VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x00000002,
+ * } VkCommandPoolCreateFlagBits;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT} indicates that command buffers allocated from the pool will be short-lived, meaning that they will be reset or freed in a relatively short timeframe. This flag <b>may</b> be used by the implementation to control memory allocation behavior within the pool.</li>
@@ -55,12 +56,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCommandPoolCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkCommandPoolCreateFlags flags;
-    uint32_t queueFamilyIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkCommandPoolCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkCommandPoolCreateFlags flags;
+ *     uint32_t queueFamilyIndex;
+ * }</pre></code>
  */
 public class VkCommandPoolCreateInfo extends Struct implements NativeResource {
 

@@ -235,12 +235,13 @@ public class KHXDeviceGroup {
      * 
      * <p>To determine how peer memory <b>can</b> be accessed, call:</p>
      * 
-     * <pre><code>void vkGetDeviceGroupPeerMemoryFeaturesKHX(
-    VkDevice                                    device,
-    uint32_t                                    heapIndex,
-    uint32_t                                    localDeviceIndex,
-    uint32_t                                    remoteDeviceIndex,
-    VkPeerMemoryFeatureFlagsKHX*                pPeerMemoryFeatures);</code></pre>
+     * <code><pre>
+     * void vkGetDeviceGroupPeerMemoryFeaturesKHX(
+     *     VkDevice                                    device,
+     *     uint32_t                                    heapIndex,
+     *     uint32_t                                    localDeviceIndex,
+     *     uint32_t                                    remoteDeviceIndex,
+     *     VkPeerMemoryFeatureFlagsKHX*                pPeerMemoryFeatures);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -271,12 +272,13 @@ public class KHXDeviceGroup {
      * @param remoteDeviceIndex   the device index of the physical device that the memory is allocated for.
      * @param pPeerMemoryFeatures a pointer to a bitmask indicating which types of memory accesses are supported for the combination of heap, local, and remote devices. The bits returned in {@code pPeerMemoryFeatures} are:
      *                            
-     *                            <pre><code>typedef enum VkPeerMemoryFeatureFlagBitsKHX {
-    VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX = 0x00000001,
-    VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX = 0x00000002,
-    VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX = 0x00000004,
-    VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX = 0x00000008,
-} VkPeerMemoryFeatureFlagBitsKHX;</code></pre>
+     *                            <code><pre>
+     *                            typedef enum VkPeerMemoryFeatureFlagBitsKHX {
+     *                                VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX = 0x00000001,
+     *                                VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX = 0x00000002,
+     *                                VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX = 0x00000004,
+     *                                VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX = 0x00000008,
+     *                            } VkPeerMemoryFeatureFlagBitsKHX;</pre></code>
      *                            
      *                            <ul>
      *                            <li>if {@code pPeerMemoryFeatures} contains {@link #VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX}, the memory <b>can</b> be accessed as the source of a ftext:vkCmdCopy* command.</li>
@@ -315,10 +317,11 @@ public class KHXDeviceGroup {
      * 
      * <p>To attach memory to buffer objects for one or more buffers at a time, call:</p>
      * 
-     * <pre><code>VkResult vkBindBufferMemory2KHX(
-    VkDevice                                    device,
-    uint32_t                                    bindInfoCount,
-    const VkBindBufferMemoryInfoKHX*            pBindInfos);</code></pre>
+     * <code><pre>
+     * VkResult vkBindBufferMemory2KHX(
+     *     VkDevice                                    device,
+     *     uint32_t                                    bindInfoCount,
+     *     const VkBindBufferMemoryInfoKHX*            pBindInfos);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -380,10 +383,11 @@ public class KHXDeviceGroup {
      * 
      * <p>To attach memory to image objects for one or more images at a time, call:</p>
      * 
-     * <pre><code>VkResult vkBindImageMemory2KHX(
-    VkDevice                                    device,
-    uint32_t                                    bindInfoCount,
-    const VkBindImageMemoryInfoKHX*             pBindInfos);</code></pre>
+     * <code><pre>
+     * VkResult vkBindImageMemory2KHX(
+     *     VkDevice                                    device,
+     *     uint32_t                                    bindInfoCount,
+     *     const VkBindImageMemoryInfoKHX*             pBindInfos);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -431,9 +435,10 @@ public class KHXDeviceGroup {
      * 
      * <p>To update the current device mask of a command buffer, call:</p>
      * 
-     * <pre><code>void vkCmdSetDeviceMaskKHX(
-    VkCommandBuffer                             commandBuffer,
-    uint32_t                                    deviceMask);</code></pre>
+     * <code><pre>
+     * void vkCmdSetDeviceMaskKHX(
+     *     VkCommandBuffer                             commandBuffer,
+     *     uint32_t                                    deviceMask);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -501,9 +506,10 @@ public class KHXDeviceGroup {
      * 
      * <p>To query these capabilities, call:</p>
      * 
-     * <pre><code>VkResult vkGetDeviceGroupPresentCapabilitiesKHX(
-    VkDevice                                    device,
-    VkDeviceGroupPresentCapabilitiesKHX*        pDeviceGroupPresentCapabilities);</code></pre>
+     * <code><pre>
+     * VkResult vkGetDeviceGroupPresentCapabilitiesKHX(
+     *     VkDevice                                    device,
+     *     VkDeviceGroupPresentCapabilitiesKHX*        pDeviceGroupPresentCapabilities);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -557,10 +563,11 @@ public class KHXDeviceGroup {
      * 
      * <p>To query the supported device group present modes for a particular surface, call:</p>
      * 
-     * <pre><code>VkResult vkGetDeviceGroupSurfacePresentModesKHX(
-    VkDevice                                    device,
-    VkSurfaceKHR                                surface,
-    VkDeviceGroupPresentModeFlagsKHX*           pModes);</code></pre>
+     * <code><pre>
+     * VkResult vkGetDeviceGroupSurfacePresentModesKHX(
+     *     VkDevice                                    device,
+     *     VkSurfaceKHR                                surface,
+     *     VkDeviceGroupPresentModeFlagsKHX*           pModes);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -625,10 +632,11 @@ public class KHXDeviceGroup {
      * 
      * <p>To acquire an available presentable image to use, and retrieve the index of that image, call:</p>
      * 
-     * <pre><code>VkResult vkAcquireNextImage2KHX(
-    VkDevice                                    device,
-    const VkAcquireNextImageInfoKHX*            pAcquireInfo,
-    uint32_t*                                   pImageIndex);</code></pre>
+     * <code><pre>
+     * VkResult vkAcquireNextImage2KHX(
+     *     VkDevice                                    device,
+     *     const VkAcquireNextImageInfoKHX*            pAcquireInfo,
+     *     uint32_t*                                   pImageIndex);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -682,18 +690,23 @@ public class KHXDeviceGroup {
      * 
      * <p>To record a dispatch using non-zero base values for the components of {@code WorkgroupId}, call:</p>
      * 
-     * <pre><code>void vkCmdDispatchBaseKHX(
-    VkCommandBuffer                             commandBuffer,
-    uint32_t                                    baseGroupX,
-    uint32_t                                    baseGroupY,
-    uint32_t                                    baseGroupZ,
-    uint32_t                                    groupCountX,
-    uint32_t                                    groupCountY,
-    uint32_t                                    groupCountZ);</code></pre>
+     * <code><pre>
+     * void vkCmdDispatchBaseKHX(
+     *     VkCommandBuffer                             commandBuffer,
+     *     uint32_t                                    baseGroupX,
+     *     uint32_t                                    baseGroupY,
+     *     uint32_t                                    baseGroupZ,
+     *     uint32_t                                    groupCountX,
+     *     uint32_t                                    groupCountY,
+     *     uint32_t                                    groupCountZ);</pre></code>
      * 
      * <h5>Description</h5>
      * 
-     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX {times} groupCountY {times} groupCountZ</code> local workgroups is assembled, with {@code WorkgroupId} values ranging from <code>[baseGroup, baseGroup {plus} groupCount)</code> in each component. {@link VK10#vkCmdDispatch CmdDispatch} is equivalent to vkCmdDispatchBaseKHX(0,0,0,groupCountX,groupCountY,groupCountZ).</p>
+     * <p>When the command is executed, a global workgroup consisting of</p><code>groupCountX {times} groupCountY {times} groupCountZ</code>
+     * 
+     * <p>local workgroups is assembled, with {@code WorkgroupId} values ranging from</p><code>[baseGroup, baseGroup {plus} groupCount)</code>
+     * 
+     * <p>in each component. {@link VK10#vkCmdDispatch CmdDispatch} is equivalent to vkCmdDispatchBaseKHX(0,0,0,groupCountX,groupCountY,groupCountZ).</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -771,11 +784,12 @@ public class KHXDeviceGroup {
      * 
      * <p>To query a set of rectangles used in presentation on the physical device, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDevicePresentRectanglesKHX(
-    VkPhysicalDevice                            physicalDevice,
-    VkSurfaceKHR                                surface,
-    uint32_t*                                   pRectCount,
-    VkRect2D*                                   pRects);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDevicePresentRectanglesKHX(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkSurfaceKHR                                surface,
+     *     uint32_t*                                   pRectCount,
+     *     VkRect2D*                                   pRects);</pre></code>
      * 
      * <h5>Description</h5>
      * 

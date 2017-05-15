@@ -37,11 +37,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceEventInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkDeviceEventTypeEXT deviceEvent;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceEventInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDeviceEventTypeEXT deviceEvent;
+ * }</pre></code>
  */
 public class VkDeviceEventInfoEXT extends Struct implements NativeResource {
 

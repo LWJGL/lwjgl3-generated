@@ -62,21 +62,22 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineRasterizationStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineRasterizationStateCreateFlags flags;
-    VkBool32 depthClampEnable;
-    VkBool32 rasterizerDiscardEnable;
-    VkPolygonMode polygonMode;
-    VkCullModeFlags cullMode;
-    VkFrontFace frontFace;
-    VkBool32 depthBiasEnable;
-    float depthBiasConstantFactor;
-    float depthBiasClamp;
-    float depthBiasSlopeFactor;
-    float lineWidth;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineRasterizationStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineRasterizationStateCreateFlags flags;
+ *     VkBool32 depthClampEnable;
+ *     VkBool32 rasterizerDiscardEnable;
+ *     VkPolygonMode polygonMode;
+ *     VkCullModeFlags cullMode;
+ *     VkFrontFace frontFace;
+ *     VkBool32 depthBiasEnable;
+ *     float depthBiasConstantFactor;
+ *     float depthBiasClamp;
+ *     float depthBiasSlopeFactor;
+ *     float lineWidth;
+ * }</pre></code>
  */
 public class VkPipelineRasterizationStateCreateInfo extends Struct implements NativeResource {
 

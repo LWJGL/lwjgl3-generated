@@ -44,11 +44,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageSubresource {
-    VkImageAspectFlags aspectMask;
-    uint32_t mipLevel;
-    uint32_t arrayLayer;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageSubresource {
+ *     VkImageAspectFlags aspectMask;
+ *     uint32_t mipLevel;
+ *     uint32_t arrayLayer;
+ * }</pre></code>
  */
 public class VkImageSubresource extends Struct implements NativeResource {
 

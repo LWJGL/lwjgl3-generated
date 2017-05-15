@@ -83,18 +83,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkWriteDescriptorSet {
-    VkStructureType sType;
-    const void * pNext;
-    VkDescriptorSet dstSet;
-    uint32_t dstBinding;
-    uint32_t dstArrayElement;
-    uint32_t descriptorCount;
-    VkDescriptorType descriptorType;
-    const {@link VkDescriptorImageInfo VkDescriptorImageInfo} * pImageInfo;
-    const {@link VkDescriptorBufferInfo VkDescriptorBufferInfo} * pBufferInfo;
-    const VkBufferView * pTexelBufferView;
-}</code></pre>
+ * <code><pre>
+ * struct VkWriteDescriptorSet {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDescriptorSet dstSet;
+ *     uint32_t dstBinding;
+ *     uint32_t dstArrayElement;
+ *     uint32_t descriptorCount;
+ *     VkDescriptorType descriptorType;
+ *     const {@link VkDescriptorImageInfo VkDescriptorImageInfo} * pImageInfo;
+ *     const {@link VkDescriptorBufferInfo VkDescriptorBufferInfo} * pBufferInfo;
+ *     const VkBufferView * pTexelBufferView;
+ * }</pre></code>
  */
 public class VkWriteDescriptorSet extends Struct implements NativeResource {
 

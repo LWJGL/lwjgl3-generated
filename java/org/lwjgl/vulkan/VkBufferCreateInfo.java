@@ -21,17 +21,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Bits which <b>can</b> be set in {@code usage} are:</p>
  * 
- * <pre><code>typedef enum VkBufferUsageFlagBits {
-    VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 0x00000001,
-    VK_BUFFER_USAGE_TRANSFER_DST_BIT = 0x00000002,
-    VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x00000004,
-    VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x00000008,
-    VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT = 0x00000010,
-    VK_BUFFER_USAGE_STORAGE_BUFFER_BIT = 0x00000020,
-    VK_BUFFER_USAGE_INDEX_BUFFER_BIT = 0x00000040,
-    VK_BUFFER_USAGE_VERTEX_BUFFER_BIT = 0x00000080,
-    VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT = 0x00000100,
-} VkBufferUsageFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkBufferUsageFlagBits {
+ *     VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 0x00000001,
+ *     VK_BUFFER_USAGE_TRANSFER_DST_BIT = 0x00000002,
+ *     VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x00000004,
+ *     VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x00000008,
+ *     VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT = 0x00000010,
+ *     VK_BUFFER_USAGE_STORAGE_BUFFER_BIT = 0x00000020,
+ *     VK_BUFFER_USAGE_INDEX_BUFFER_BIT = 0x00000040,
+ *     VK_BUFFER_USAGE_VERTEX_BUFFER_BIT = 0x00000080,
+ *     VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT = 0x00000100,
+ * } VkBufferUsageFlagBits;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} indicates that the buffer <b>can</b> be used as the source of a <em>transfer command</em> (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link VK10#VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>).</li>
@@ -49,11 +50,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Bits which <b>can</b> be set in {@code flags} are:</p>
  * 
- * <pre><code>typedef enum VkBufferCreateFlagBits {
-    VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x00000001,
-    VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x00000002,
-    VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x00000004,
-} VkBufferCreateFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkBufferCreateFlagBits {
+ *     VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x00000001,
+ *     VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x00000002,
+ *     VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x00000004,
+ * } VkBufferCreateFlagBits;</pre></code>
  * 
  * <p>These bits have the following meanings:</p>
  * 
@@ -109,16 +111,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBufferCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkBufferCreateFlags flags;
-    VkDeviceSize size;
-    VkBufferUsageFlags usage;
-    VkSharingMode sharingMode;
-    uint32_t queueFamilyIndexCount;
-    const uint32_t * pQueueFamilyIndices;
-}</code></pre>
+ * <code><pre>
+ * struct VkBufferCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBufferCreateFlags flags;
+ *     VkDeviceSize size;
+ *     VkBufferUsageFlags usage;
+ *     VkSharingMode sharingMode;
+ *     uint32_t queueFamilyIndexCount;
+ *     const uint32_t * pQueueFamilyIndices;
+ * }</pre></code>
  */
 public class VkBufferCreateInfo extends Struct implements NativeResource {
 

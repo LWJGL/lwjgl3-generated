@@ -17,10 +17,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct AppOverrideKeys_t {
-    char * pchKey;
-    char * pchValue;
-}</code></pre>
+ * <code><pre>
+ * struct AppOverrideKeys_t {
+ *     char * pchKey;
+ *     char * pchValue;
+ * }</pre></code>
  */
 public class AppOverrideKeys extends Struct implements NativeResource {
 

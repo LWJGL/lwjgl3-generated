@@ -63,15 +63,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkComputePipelineCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineCreateFlags flags;
-    {@link VkPipelineShaderStageCreateInfo VkPipelineShaderStageCreateInfo} stage;
-    VkPipelineLayout layout;
-    VkPipeline basePipelineHandle;
-    int32_t basePipelineIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkComputePipelineCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineCreateFlags flags;
+ *     {@link VkPipelineShaderStageCreateInfo VkPipelineShaderStageCreateInfo} stage;
+ *     VkPipelineLayout layout;
+ *     VkPipeline basePipelineHandle;
+ *     int32_t basePipelineIndex;
+ * }</pre></code>
  */
 public class VkComputePipelineCreateInfo extends Struct implements NativeResource {
 

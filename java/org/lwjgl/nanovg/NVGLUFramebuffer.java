@@ -25,12 +25,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct NVGLUframebuffer {
-    GLuint fbo;
-    GLuint rbo;
-    GLuint texture;
-    int image;
-}</code></pre>
+ * <code><pre>
+ * struct NVGLUframebuffer {
+ *     GLuint fbo;
+ *     GLuint rbo;
+ *     GLuint texture;
+ *     int image;
+ * }</pre></code>
  */
 public class NVGLUFramebuffer extends Struct {
 

@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class EXTImageDMABufImport {
 
-    /**  */
     public static final int
         EGL_LINUX_DMA_BUF_EXT                     = 0x3270,
         EGL_LINUX_DRM_FOURCC_EXT                  = 0x3271,

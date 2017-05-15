@@ -14,17 +14,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_chart_slot {
-    enum nk_chart_type type;
-    {@link NkColor struct nk_color} color;
-    {@link NkColor struct nk_color} highlight;
-    float min;
-    float max;
-    float range;
-    int count;
-    {@link NkVec2 struct nk_vec2} last;
-    int index;
-}</code></pre>
+ * <code><pre>
+ * struct nk_chart_slot {
+ *     enum nk_chart_type type;
+ *     {@link NkColor struct nk_color} color;
+ *     {@link NkColor struct nk_color} highlight;
+ *     float min;
+ *     float max;
+ *     float range;
+ *     int count;
+ *     {@link NkVec2 struct nk_vec2} last;
+ *     int index;
+ * }</pre></code>
  */
 public class NkChartSlot extends Struct {
 

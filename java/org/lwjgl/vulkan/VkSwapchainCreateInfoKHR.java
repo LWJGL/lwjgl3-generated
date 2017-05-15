@@ -28,9 +28,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; a bitmask indicating parameters of swapchain creation. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkSwapchainCreateFlagBitsKHR {
-    VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX = 0x00000001,
-} VkSwapchainCreateFlagBitsKHR;</code></pre>
+ * <code><pre>
+ * typedef enum VkSwapchainCreateFlagBitsKHR {
+ *     VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX = 0x00000001,
+ * } VkSwapchainCreateFlagBitsKHR;</pre></code>
  * 
  * <p>== Description</p>
  * 
@@ -58,26 +59,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSwapchainCreateInfoKHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkSwapchainCreateFlagsKHR flags;
-    VkSurfaceKHR surface;
-    uint32_t minImageCount;
-    VkFormat imageFormat;
-    VkColorSpaceKHR imageColorSpace;
-    {@link VkExtent2D VkExtent2D} imageExtent;
-    uint32_t imageArrayLayers;
-    VkImageUsageFlags imageUsage;
-    VkSharingMode imageSharingMode;
-    uint32_t queueFamilyIndexCount;
-    const uint32_t * pQueueFamilyIndices;
-    VkSurfaceTransformFlagBitsKHR preTransform;
-    VkCompositeAlphaFlagBitsKHR compositeAlpha;
-    VkPresentModeKHR presentMode;
-    VkBool32 clipped;
-    VkSwapchainKHR oldSwapchain;
-}</code></pre>
+ * <code><pre>
+ * struct VkSwapchainCreateInfoKHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSwapchainCreateFlagsKHR flags;
+ *     VkSurfaceKHR surface;
+ *     uint32_t minImageCount;
+ *     VkFormat imageFormat;
+ *     VkColorSpaceKHR imageColorSpace;
+ *     {@link VkExtent2D VkExtent2D} imageExtent;
+ *     uint32_t imageArrayLayers;
+ *     VkImageUsageFlags imageUsage;
+ *     VkSharingMode imageSharingMode;
+ *     uint32_t queueFamilyIndexCount;
+ *     const uint32_t * pQueueFamilyIndices;
+ *     VkSurfaceTransformFlagBitsKHR preTransform;
+ *     VkCompositeAlphaFlagBitsKHR compositeAlpha;
+ *     VkPresentModeKHR presentMode;
+ *     VkBool32 clipped;
+ *     VkSwapchainKHR oldSwapchain;
+ * }</pre></code>
  */
 public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 

@@ -50,16 +50,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiCamera {
-    {@link AIString struct aiString} mName;
-    {@link AIVector3D struct aiVector3D} mPosition;
-    {@link AIVector3D struct aiVector3D} mUp;
-    {@link AIVector3D struct aiVector3D} mLookAt;
-    float mHorizontalFOV;
-    float mClipPlaneNear;
-    float mClipPlaneFar;
-    float mAspect;
-}</code></pre>
+ * <code><pre>
+ * struct aiCamera {
+ *     {@link AIString struct aiString} mName;
+ *     {@link AIVector3D struct aiVector3D} mPosition;
+ *     {@link AIVector3D struct aiVector3D} mUp;
+ *     {@link AIVector3D struct aiVector3D} mLookAt;
+ *     float mHorizontalFOV;
+ *     float mClipPlaneNear;
+ *     float mClipPlaneFar;
+ *     float mAspect;
+ * }</pre></code>
  */
 public class AICamera extends Struct implements NativeResource {
 

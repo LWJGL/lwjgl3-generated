@@ -16,7 +16,6 @@ package org.lwjgl.egl;
  */
 public final class EXTMultiviewWindow {
 
-    /**  */
     public static final int EGL_MULTIVIEW_VIEW_COUNT_EXT = 0x3134;
 
     private EXTMultiviewWindow() {}

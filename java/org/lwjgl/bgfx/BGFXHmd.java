@@ -27,14 +27,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_hmd_t {
-    {@link BGFXHmdEye bgfx_hmd_eye_t} eye[2];
-    uint16_t width;
-    uint16_t height;
-    uint32_t deviceWidth;
-    uint32_t deviceHeight;
-    uint8_t flags;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_hmd_t {
+ *     {@link BGFXHmdEye bgfx_hmd_eye_t} eye[2];
+ *     uint16_t width;
+ *     uint16_t height;
+ *     uint32_t deviceWidth;
+ *     uint32_t deviceHeight;
+ *     uint8_t flags;
+ * }</pre></code>
  */
 public class BGFXHmd extends Struct {
 

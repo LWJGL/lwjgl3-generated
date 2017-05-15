@@ -16,27 +16,28 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_combo {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkColor struct nk_color} label_normal;
-    {@link NkColor struct nk_color} label_hover;
-    {@link NkColor struct nk_color} label_active;
-    {@link NkColor struct nk_color} symbol_normal;
-    {@link NkColor struct nk_color} symbol_hover;
-    {@link NkColor struct nk_color} symbol_active;
-    {@link NkStyleButton struct nk_style_button} button;
-    enum nk_symbol_type sym_normal;
-    enum nk_symbol_type sym_hover;
-    enum nk_symbol_type sym_active;
-    float border;
-    float rounding;
-    {@link NkVec2 struct nk_vec2} content_padding;
-    {@link NkVec2 struct nk_vec2} button_padding;
-    {@link NkVec2 struct nk_vec2} spacing;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_combo {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkColor struct nk_color} label_normal;
+ *     {@link NkColor struct nk_color} label_hover;
+ *     {@link NkColor struct nk_color} label_active;
+ *     {@link NkColor struct nk_color} symbol_normal;
+ *     {@link NkColor struct nk_color} symbol_hover;
+ *     {@link NkColor struct nk_color} symbol_active;
+ *     {@link NkStyleButton struct nk_style_button} button;
+ *     enum nk_symbol_type sym_normal;
+ *     enum nk_symbol_type sym_hover;
+ *     enum nk_symbol_type sym_active;
+ *     float border;
+ *     float rounding;
+ *     {@link NkVec2 struct nk_vec2} content_padding;
+ *     {@link NkVec2 struct nk_vec2} button_padding;
+ *     {@link NkVec2 struct nk_vec2} spacing;
+ * }</pre></code>
  */
 public class NkStyleCombo extends Struct implements NativeResource {
 

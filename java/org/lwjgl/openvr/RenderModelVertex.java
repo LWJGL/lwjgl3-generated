@@ -25,11 +25,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct RenderModel_Vertex_t {
-    {@link HmdVector3 HmdVector3_t} vPosition;
-    {@link HmdVector3 HmdVector3_t} vNormal;
-    float rfTextureCoord[2];
-}</code></pre>
+ * <code><pre>
+ * struct RenderModel_Vertex_t {
+ *     {@link HmdVector3 HmdVector3_t} vPosition;
+ *     {@link HmdVector3 HmdVector3_t} vNormal;
+ *     float rfTextureCoord[2];
+ * }</pre></code>
  */
 public class RenderModelVertex extends Struct implements NativeResource {
 

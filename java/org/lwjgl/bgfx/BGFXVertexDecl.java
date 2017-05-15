@@ -28,12 +28,13 @@ import static org.lwjgl.bgfx.BGFX.BGFX_ATTRIB_COUNT;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_vertex_decl_t {
-    uint32_t hash;
-    uint16_t stride;
-    uint16_t offset[BGFX_ATTRIB_COUNT];
-    uint16_t attributes[BGFX_ATTRIB_COUNT];
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_vertex_decl_t {
+ *     uint32_t hash;
+ *     uint16_t stride;
+ *     uint16_t offset[BGFX_ATTRIB_COUNT];
+ *     uint16_t attributes[BGFX_ATTRIB_COUNT];
+ * }</pre></code>
  */
 public class BGFXVertexDecl extends Struct implements NativeResource {
 

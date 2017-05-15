@@ -64,15 +64,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkRenderPassBeginInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkRenderPass renderPass;
-    VkFramebuffer framebuffer;
-    {@link VkRect2D VkRect2D} renderArea;
-    uint32_t clearValueCount;
-    const {@link VkClearValue VkClearValue} * pClearValues;
-}</code></pre>
+ * <code><pre>
+ * struct VkRenderPassBeginInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkRenderPass renderPass;
+ *     VkFramebuffer framebuffer;
+ *     {@link VkRect2D VkRect2D} renderArea;
+ *     uint32_t clearValueCount;
+ *     const {@link VkClearValue VkClearValue} * pClearValues;
+ * }</pre></code>
  */
 public class VkRenderPassBeginInfo extends Struct implements NativeResource {
 

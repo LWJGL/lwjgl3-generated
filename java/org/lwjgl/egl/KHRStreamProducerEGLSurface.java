@@ -21,7 +21,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRStreamProducerEGLSurface {
 
-    /**  */
     public static final int EGL_STREAM_BIT_KHR = 0x800;
 
     protected KHRStreamProducerEGLSurface() {

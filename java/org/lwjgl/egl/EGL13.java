@@ -8,7 +8,6 @@ package org.lwjgl.egl;
 /** The core EGL 1.3 functionality. */
 public final class EGL13 {
 
-    /**  */
     public static final int
         EGL_CONFORMANT               = 0x3042,
         EGL_CONTEXT_CLIENT_VERSION   = 0x3098,

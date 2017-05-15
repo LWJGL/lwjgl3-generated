@@ -15,7 +15,6 @@ package org.lwjgl.egl;
  */
 public final class KHRGLRenderbufferImage {
 
-    /**  */
     public static final int EGL_GL_RENDERBUFFER_KHR = 0x30B9;
 
     private KHRGLRenderbufferImage() {}

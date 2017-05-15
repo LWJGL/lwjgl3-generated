@@ -18,10 +18,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkXYColorEXT {
-    float x;
-    float y;
-}</code></pre>
+ * <code><pre>
+ * struct VkXYColorEXT {
+ *     float x;
+ *     float y;
+ * }</pre></code>
  */
 public class VkXYColorEXT extends Struct implements NativeResource {
 

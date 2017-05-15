@@ -16,26 +16,27 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_toggle {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkStyleItem struct nk_style_item} cursor_normal;
-    {@link NkStyleItem struct nk_style_item} cursor_hover;
-    {@link NkColor struct nk_color} text_normal;
-    {@link NkColor struct nk_color} text_hover;
-    {@link NkColor struct nk_color} text_active;
-    {@link NkColor struct nk_color} text_background;
-    nk_flags text_alignment;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkVec2 struct nk_vec2} touch_padding;
-    float spacing;
-    float border;
-    {@link NkHandle nk_handle} userdata;
-    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
-    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_toggle {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkStyleItem struct nk_style_item} cursor_normal;
+ *     {@link NkStyleItem struct nk_style_item} cursor_hover;
+ *     {@link NkColor struct nk_color} text_normal;
+ *     {@link NkColor struct nk_color} text_hover;
+ *     {@link NkColor struct nk_color} text_active;
+ *     {@link NkColor struct nk_color} text_background;
+ *     nk_flags text_alignment;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkVec2 struct nk_vec2} touch_padding;
+ *     float spacing;
+ *     float border;
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+ *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
+ * }</pre></code>
  */
 public class NkStyleToggle extends Struct implements NativeResource {
 

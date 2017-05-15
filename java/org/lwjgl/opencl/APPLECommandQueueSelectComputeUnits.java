@@ -16,7 +16,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to the <strong>APPLE_command_queue_select_compute_units</strong> extension. */
 public class APPLECommandQueueSelectComputeUnits {
 
-    /**  */
     public static final int CL_QUEUE_NUM_COMPUTE_UNITS_APPLE = 0x10000014;
 
     protected APPLECommandQueueSelectComputeUnits() {
@@ -43,8 +42,6 @@ public class APPLECommandQueueSelectComputeUnits {
     }
 
     /**
-     * 
-     *
      * @param context     
      * @param device      
      * @param properties  

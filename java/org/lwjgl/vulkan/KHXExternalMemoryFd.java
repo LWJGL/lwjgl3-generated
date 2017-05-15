@@ -93,11 +93,12 @@ public class KHXExternalMemoryFd {
      * 
      * <p>To export a POSIX file descriptor representing the underlying resources of a Vulkan device memory object, call:</p>
      * 
-     * <pre><code>VkResult vkGetMemoryFdKHX(
-    VkDevice                                    device,
-    VkDeviceMemory                              memory,
-    VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
-    int*                                        pFd);</code></pre>
+     * <code><pre>
+     * VkResult vkGetMemoryFdKHX(
+     *     VkDevice                                    device,
+     *     VkDeviceMemory                              memory,
+     *     VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
+     *     int*                                        pFd);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -166,11 +167,12 @@ public class KHXExternalMemoryFd {
      * 
      * <p>POSIX file descriptor memory handles compatible with Vulkan <b>may</b> also be created by non-Vulkan APIs using methods beyond the scope of this specification. To determine the correct parameters to use when importing such handles, call:</p>
      * 
-     * <pre><code>VkResult vkGetMemoryFdPropertiesKHX(
-    VkDevice                                    device,
-    VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
-    int                                         fd,
-    VkMemoryFdPropertiesKHX*                    pMemoryFdProperties);</code></pre>
+     * <code><pre>
+     * VkResult vkGetMemoryFdPropertiesKHX(
+     *     VkDevice                                    device,
+     *     VkExternalMemoryHandleTypeFlagBitsKHX       handleType,
+     *     int                                         fd,
+     *     VkMemoryFdPropertiesKHX*                    pMemoryFdProperties);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 

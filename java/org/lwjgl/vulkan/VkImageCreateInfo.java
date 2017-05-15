@@ -57,7 +57,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code imageType} is {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, {@code extent.width}, {@code extent.height} and {@code extent.depth} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxImageDimension3D}, or {@link VkImageFormatProperties}{@code ::maxExtent}.width/height/depth (as returned by {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} with {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} equal to those in this structure) - whichever is higher</li>
  * <li>If {@code imageType} is {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, both {@code extent.height} and {@code extent.depth} <b>must</b> be 1</li>
  * <li>If {@code imageType} is {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, {@code extent.depth} <b>must</b> be 1</li>
- * <li>{@code mipLevels} <b>must</b> be less than or equal to <code>⌊log<sub>2</sub>(max(extent.width, extent.height, extent.depth))⌋ + 1</code>.</li>
+ * <li>{@code mipLevels} <b>must</b> be less than or equal to<code>⌊log<sub>2</sub>(max(extent.width, extent.height, extent.depth))⌋ + 1</code>
+ * 
+ * <p>.</p></li>
  * <li>If any of {@code extent.width}, {@code extent.height}, or {@code extent.depth} are greater than the equivalently named members of {@link VkPhysicalDeviceLimits}{@code ::maxImageDimension3D}, {@code mipLevels} <b>must</b> be less than or equal to {@link VkImageFormatProperties}{@code ::maxMipLevels} (as returned by {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} with {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} equal to those in this structure)</li>
  * <li>{@code arrayLayers} <b>must</b> be less than or equal to {@link VkImageFormatProperties}{@code ::maxArrayLayers} (as returned by {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} with {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} equal to those in this structure)</li>
  * <li>If {@code imageType} is {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, {@code arrayLayers} <b>must</b> be 1.</li>
@@ -138,23 +140,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkImageCreateFlags flags;
-    VkImageType imageType;
-    VkFormat format;
-    {@link VkExtent3D VkExtent3D} extent;
-    uint32_t mipLevels;
-    uint32_t arrayLayers;
-    VkSampleCountFlagBits samples;
-    VkImageTiling tiling;
-    VkImageUsageFlags usage;
-    VkSharingMode sharingMode;
-    uint32_t queueFamilyIndexCount;
-    const uint32_t * pQueueFamilyIndices;
-    VkImageLayout initialLayout;
-}</code></pre>
+ * <code><pre>
+ * struct VkImageCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkImageCreateFlags flags;
+ *     VkImageType imageType;
+ *     VkFormat format;
+ *     {@link VkExtent3D VkExtent3D} extent;
+ *     uint32_t mipLevels;
+ *     uint32_t arrayLayers;
+ *     VkSampleCountFlagBits samples;
+ *     VkImageTiling tiling;
+ *     VkImageUsageFlags usage;
+ *     VkSharingMode sharingMode;
+ *     uint32_t queueFamilyIndexCount;
+ *     const uint32_t * pQueueFamilyIndices;
+ *     VkImageLayout initialLayout;
+ * }</pre></code>
  */
 public class VkImageCreateInfo extends Struct implements NativeResource {
 

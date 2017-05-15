@@ -26,14 +26,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct TrackedDevicePose_t {
-    {@link HmdMatrix34 HmdMatrix34_t} mDeviceToAbsoluteTracking;
-    {@link HmdVector3 HmdVector3_t} vVelocity;
-    {@link HmdVector3 HmdVector3_t} vAngularVelocity;
-    ETrackingResult eTrackingResult;
-    bool bPoseIsValid;
-    bool bDeviceIsConnected;
-}</code></pre>
+ * <code><pre>
+ * struct TrackedDevicePose_t {
+ *     {@link HmdMatrix34 HmdMatrix34_t} mDeviceToAbsoluteTracking;
+ *     {@link HmdVector3 HmdVector3_t} vVelocity;
+ *     {@link HmdVector3 HmdVector3_t} vAngularVelocity;
+ *     ETrackingResult eTrackingResult;
+ *     bool bPoseIsValid;
+ *     bool bDeviceIsConnected;
+ * }</pre></code>
  */
 public class TrackedDevicePose extends Struct implements NativeResource {
 

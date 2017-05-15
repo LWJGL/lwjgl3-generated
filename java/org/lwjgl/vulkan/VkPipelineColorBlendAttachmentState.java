@@ -45,27 +45,36 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code blendEnable} &ndash; controls whether blending is enabled for the corresponding color attachment. If blending is not enabled, the source fragment&#8217;s color for that attachment is passed through unmodified.</li>
- * <li>{@code srcColorBlendFactor} &ndash; selects which blend factor is used to determine the source factors <code>(S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>)</code>.</li>
- * <li>{@code dstColorBlendFactor} &ndash; selects which blend factor is used to determine the destination factors <code>(D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>)</code>.</li>
+ * <li>{@code srcColorBlendFactor} &ndash; selects which blend factor is used to determine the source factors<code>(S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>)</code>
+ * 
+ * <p>.</p></li>
+ * <li>{@code dstColorBlendFactor} &ndash; selects which blend factor is used to determine the destination factors<code>(D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>)</code>
+ * 
+ * <p>.</p></li>
  * <li>{@code colorBlendOp} &ndash; selects which blend operation is used to calculate the RGB values to write to the color attachment.</li>
- * <li>{@code srcAlphaBlendFactor} &ndash; selects which blend factor is used to determine the source factor <code>S<sub>a</sub></code>.</li>
- * <li>{@code dstAlphaBlendFactor} &ndash; selects which blend factor is used to determine the destination factor <code>D<sub>a</sub></code>.</li>
+ * <li>{@code srcAlphaBlendFactor} &ndash; selects which blend factor is used to determine the source factor<code>S<sub>a</sub></code>
+ * 
+ * <p>.</p></li>
+ * <li>{@code dstAlphaBlendFactor} &ndash; selects which blend factor is used to determine the destination factor<code>D<sub>a</sub></code>
+ * 
+ * <p>.</p></li>
  * <li>{@code alphaBlendOp} &ndash; selects which blend operation is use to calculate the alpha values to write to the color attachment.</li>
  * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-color-write-mask">Color Write Mask</a> section.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineColorBlendAttachmentState {
-    VkBool32 blendEnable;
-    VkBlendFactor srcColorBlendFactor;
-    VkBlendFactor dstColorBlendFactor;
-    VkBlendOp colorBlendOp;
-    VkBlendFactor srcAlphaBlendFactor;
-    VkBlendFactor dstAlphaBlendFactor;
-    VkBlendOp alphaBlendOp;
-    VkColorComponentFlags colorWriteMask;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineColorBlendAttachmentState {
+ *     VkBool32 blendEnable;
+ *     VkBlendFactor srcColorBlendFactor;
+ *     VkBlendFactor dstColorBlendFactor;
+ *     VkBlendOp colorBlendOp;
+ *     VkBlendFactor srcAlphaBlendFactor;
+ *     VkBlendFactor dstAlphaBlendFactor;
+ *     VkBlendOp alphaBlendOp;
+ *     VkColorComponentFlags colorWriteMask;
+ * }</pre></code>
  */
 public class VkPipelineColorBlendAttachmentState extends Struct implements NativeResource {
 

@@ -45,12 +45,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineTessellationStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineTessellationStateCreateFlags flags;
-    uint32_t patchControlPoints;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineTessellationStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineTessellationStateCreateFlags flags;
+ *     uint32_t patchControlPoints;
+ * }</pre></code>
  */
 public class VkPipelineTessellationStateCreateInfo extends Struct implements NativeResource {
 

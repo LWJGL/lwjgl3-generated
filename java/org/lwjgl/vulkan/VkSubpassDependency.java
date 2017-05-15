@@ -80,15 +80,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSubpassDependency {
-    uint32_t srcSubpass;
-    uint32_t dstSubpass;
-    VkPipelineStageFlags srcStageMask;
-    VkPipelineStageFlags dstStageMask;
-    VkAccessFlags srcAccessMask;
-    VkAccessFlags dstAccessMask;
-    VkDependencyFlags dependencyFlags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSubpassDependency {
+ *     uint32_t srcSubpass;
+ *     uint32_t dstSubpass;
+ *     VkPipelineStageFlags srcStageMask;
+ *     VkPipelineStageFlags dstStageMask;
+ *     VkAccessFlags srcAccessMask;
+ *     VkAccessFlags dstAccessMask;
+ *     VkDependencyFlags dependencyFlags;
+ * }</pre></code>
  */
 public class VkSubpassDependency extends Struct implements NativeResource {
 

@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct MDB_envinfo {
-    void * me_mapaddr;
-    mdb_size_t me_mapsize;
-    mdb_size_t me_last_pgno;
-    mdb_size_t me_last_txnid;
-    unsigned int me_maxreaders;
-    unsigned int me_numreaders;
-}</code></pre>
+ * <code><pre>
+ * struct MDB_envinfo {
+ *     void * me_mapaddr;
+ *     mdb_size_t me_mapsize;
+ *     mdb_size_t me_last_pgno;
+ *     mdb_size_t me_last_txnid;
+ *     unsigned int me_maxreaders;
+ *     unsigned int me_numreaders;
+ * }</pre></code>
  */
 public class MDBEnvInfo extends Struct implements NativeResource {
 

@@ -18,17 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>QUICKSTART</h3>
  * 
- * <pre><code>stbir_resize_uint8(      input_pixels , in_w , in_h , 0,
-                         output_pixels, out_w, out_h, 0, num_channels)
-stbir_resize_float(...)
-stbir_resize_uint8_srgb( input_pixels , in_w , in_h , 0,
-                         output_pixels, out_w, out_h, 0,
-                         num_channels , alpha_chan  , 0)
-stbir_resize_uint8_srgb_edgemode(
-                         input_pixels , in_w , in_h , 0,
-                         output_pixels, out_w, out_h, 0,
-                         num_channels , alpha_chan  , 0, STBIR_EDGE_CLAMP)
-                                                      // WRAP/REFLECT/ZERO</code></pre>
+ * <code><pre>
+ * stbir_resize_uint8(      input_pixels , in_w , in_h , 0,
+ *                          output_pixels, out_w, out_h, 0, num_channels)
+ * stbir_resize_float(...)
+ * stbir_resize_uint8_srgb( input_pixels , in_w , in_h , 0,
+ *                          output_pixels, out_w, out_h, 0,
+ *                          num_channels , alpha_chan  , 0)
+ * stbir_resize_uint8_srgb_edgemode(
+ *                          input_pixels , in_w , in_h , 0,
+ *                          output_pixels, out_w, out_h, 0,
+ *                          num_channels , alpha_chan  , 0, STBIR_EDGE_CLAMP)
+ *                                                       // WRAP/REFLECT/ZERO</pre></code>
  * 
  * <h3>ALPHA CHANNEL</h3>
  * 

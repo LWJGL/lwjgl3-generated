@@ -46,12 +46,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupBindSparseInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t resourceDeviceIndex;
-    uint32_t memoryDeviceIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupBindSparseInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t resourceDeviceIndex;
+ *     uint32_t memoryDeviceIndex;
+ * }</pre></code>
  */
 public class VkDeviceGroupBindSparseInfoKHX extends Struct implements NativeResource {
 

@@ -28,14 +28,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_TouchPadMove_t {
-    bool bFingerDown;
-    float flSecondsFingerDown;
-    float fValueXFirst;
-    float fValueYFirst;
-    float fValueXRaw;
-    float fValueYRaw;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_TouchPadMove_t {
+ *     bool bFingerDown;
+ *     float flSecondsFingerDown;
+ *     float fValueXFirst;
+ *     float fValueYFirst;
+ *     float fValueXRaw;
+ *     float fValueYRaw;
+ * }</pre></code>
  */
 public class VREventTouchPadMove extends Struct implements NativeResource {
 

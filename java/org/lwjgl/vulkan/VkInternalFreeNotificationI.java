@@ -16,11 +16,12 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <p>The type of {@code pfnInternalFree} is:</p>
  * 
- * <pre><code>typedef void (VKAPI_PTR *PFN_vkInternalFreeNotification)(
-    void*                                       pUserData,
-    size_t                                      size,
-    VkInternalAllocationType                    allocationType,
-    VkSystemAllocationScope                     allocationScope);</code></pre>
+ * <code><pre>
+ * typedef void (VKAPI_PTR *PFN_vkInternalFreeNotification)(
+ *     void*                                       pUserData,
+ *     size_t                                      size,
+ *     VkInternalAllocationType                    allocationType,
+ *     VkSystemAllocationScope                     allocationScope);</pre></code>
  * 
  * <h5>See Also</h5>
  * 

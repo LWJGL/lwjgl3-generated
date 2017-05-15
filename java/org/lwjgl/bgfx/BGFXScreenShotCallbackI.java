@@ -33,8 +33,6 @@ public interface BGFXScreenShotCallbackI extends CallbackI.V {
     }
 
     /**
-     * 
-     *
      * @param _this     the callback interface
      * @param _filePath file path
      * @param _width    image width

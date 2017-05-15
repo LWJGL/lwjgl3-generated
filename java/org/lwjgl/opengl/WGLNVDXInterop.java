@@ -41,8 +41,6 @@ public class WGLNVDXInterop {
     // --- [ wglDXSetResourceShareHandleNV ] ---
 
     /**
-     * 
-     *
      * @param dxObject    a pointer to the DirectX resource that will be shared
      * @param shareHandle the share handle that the OS generated for the resource
      */

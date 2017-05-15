@@ -14,10 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiVector2D {
-    float x;
-    float y;
-}</code></pre>
+ * <code><pre>
+ * struct aiVector2D {
+ *     float x;
+ *     float y;
+ * }</pre></code>
  */
 public class AIVector2D extends Struct {
 

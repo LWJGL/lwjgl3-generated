@@ -16,33 +16,34 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h5>Examples</h5>
  * 
- * <pre><code>    VkDeviceCreateInfo devCreateInfo = { VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO };
-    // (not shown) fill out devCreateInfo as usual.
-    uint32_t deviceGroupCount = 0;
-    VkPhysicalDeviceGroupPropertiesKHX *props = NULL;
-
-    // Query the number of device groups
-    vkEnumeratePhysicalDeviceGroupsKHX(g_vkInstance, &deviceGroupCount, NULL);
-
-    // Allocate and initialize structures to query the device groups
-    props = (VkPhysicalDeviceGroupPropertiesKHX *)malloc(deviceGroupCount*sizeof(VkPhysicalDeviceGroupPropertiesKHX));
-    for (i = 0; i < deviceGroupCount; ++i) {
-        props[i].sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX;
-        props[i].pNext = NULL;
-    }
-    vkEnumeratePhysicalDeviceGroupsKHX(g_vkInstance, &deviceGroupCount, props);
-
-    // If the first device group has more than one physical device. create
-    // a logical device using all of the physical devices.
-    VkDeviceGroupDeviceCreateInfoKHX deviceGroupInfo = { VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX };
-    if (props[0].physicalDeviceCount > 1) {
-        deviceGroupInfo.physicalDeviceCount = props[0].physicalDeviceCount;
-        deviceGroupInfo.pPhysicalDevices = props[0].physicalDevices;
-        devCreateInfo.pNext = &deviceGroupInfo;
-    }
-
-    vkCreateDevice(props[0].physicalDevices[0], &devCreateInfo, NULL, &g_vkDevice);
-    free(props);</code></pre>
+ * <code><pre>
+ *     VkDeviceCreateInfo devCreateInfo = { VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO };
+ *     // (not shown) fill out devCreateInfo as usual.
+ *     uint32_t deviceGroupCount = 0;
+ *     VkPhysicalDeviceGroupPropertiesKHX *props = NULL;
+ * 
+ *     // Query the number of device groups
+ *     vkEnumeratePhysicalDeviceGroupsKHX(g_vkInstance, &deviceGroupCount, NULL);
+ * 
+ *     // Allocate and initialize structures to query the device groups
+ *     props = (VkPhysicalDeviceGroupPropertiesKHX *)malloc(deviceGroupCount*sizeof(VkPhysicalDeviceGroupPropertiesKHX));
+ *     for (i = 0; i < deviceGroupCount; ++i) {
+ *         props[i].sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES_KHX;
+ *         props[i].pNext = NULL;
+ *     }
+ *     vkEnumeratePhysicalDeviceGroupsKHX(g_vkInstance, &deviceGroupCount, props);
+ * 
+ *     // If the first device group has more than one physical device. create
+ *     // a logical device using all of the physical devices.
+ *     VkDeviceGroupDeviceCreateInfoKHX deviceGroupInfo = { VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX };
+ *     if (props[0].physicalDeviceCount > 1) {
+ *         deviceGroupInfo.physicalDeviceCount = props[0].physicalDeviceCount;
+ *         deviceGroupInfo.pPhysicalDevices = props[0].physicalDevices;
+ *         devCreateInfo.pNext = &deviceGroupInfo;
+ *     }
+ * 
+ *     vkCreateDevice(props[0].physicalDevices[0], &devCreateInfo, NULL, &g_vkDevice);
+ *     free(props);</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
@@ -133,10 +134,11 @@ public class KHXDeviceGroupCreation {
      * 
      * <p>To retrieve a list of the device groups present in the system, call:</p>
      * 
-     * <pre><code>VkResult vkEnumeratePhysicalDeviceGroupsKHX(
-    VkInstance                                  instance,
-    uint32_t*                                   pPhysicalDeviceGroupCount,
-    VkPhysicalDeviceGroupPropertiesKHX*         pPhysicalDeviceGroupProperties);</code></pre>
+     * <code><pre>
+     * VkResult vkEnumeratePhysicalDeviceGroupsKHX(
+     *     VkInstance                                  instance,
+     *     uint32_t*                                   pPhysicalDeviceGroupCount,
+     *     VkPhysicalDeviceGroupPropertiesKHX*         pPhysicalDeviceGroupProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 

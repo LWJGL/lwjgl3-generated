@@ -53,20 +53,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBindSparseInfo {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t waitSemaphoreCount;
-    const VkSemaphore * pWaitSemaphores;
-    uint32_t bufferBindCount;
-    const {@link VkSparseBufferMemoryBindInfo VkSparseBufferMemoryBindInfo} * pBufferBinds;
-    uint32_t imageOpaqueBindCount;
-    const {@link VkSparseImageOpaqueMemoryBindInfo VkSparseImageOpaqueMemoryBindInfo} * pImageOpaqueBinds;
-    uint32_t imageBindCount;
-    const {@link VkSparseImageMemoryBindInfo VkSparseImageMemoryBindInfo} * pImageBinds;
-    uint32_t signalSemaphoreCount;
-    const VkSemaphore * pSignalSemaphores;
-}</code></pre>
+ * <code><pre>
+ * struct VkBindSparseInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t waitSemaphoreCount;
+ *     const VkSemaphore * pWaitSemaphores;
+ *     uint32_t bufferBindCount;
+ *     const {@link VkSparseBufferMemoryBindInfo VkSparseBufferMemoryBindInfo} * pBufferBinds;
+ *     uint32_t imageOpaqueBindCount;
+ *     const {@link VkSparseImageOpaqueMemoryBindInfo VkSparseImageOpaqueMemoryBindInfo} * pImageOpaqueBinds;
+ *     uint32_t imageBindCount;
+ *     const {@link VkSparseImageMemoryBindInfo VkSparseImageMemoryBindInfo} * pImageBinds;
+ *     uint32_t signalSemaphoreCount;
+ *     const VkSemaphore * pSignalSemaphores;
+ * }</pre></code>
  */
 public class VkBindSparseInfo extends Struct implements NativeResource {
 

@@ -16,11 +16,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_clipboard {
-    {@link NkHandle nk_handle} userdata;
-    {@link NkPluginPasteI nk_plugin_paste} paste;
-    {@link NkPluginCopyI nk_plugin_copy} copy;
-}</code></pre>
+ * <code><pre>
+ * struct nk_clipboard {
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkPluginPasteI nk_plugin_paste} paste;
+ *     {@link NkPluginCopyI nk_plugin_copy} copy;
+ * }</pre></code>
  */
 public class NkClipboard extends Struct implements NativeResource {
 

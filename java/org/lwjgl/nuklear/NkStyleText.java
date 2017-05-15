@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_text {
-    {@link NkColor struct nk_color} color;
-    {@link NkVec2 struct nk_vec2} padding;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_text {
+ *     {@link NkColor struct nk_color} color;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ * }</pre></code>
  */
 public class NkStyleText extends Struct implements NativeResource {
 

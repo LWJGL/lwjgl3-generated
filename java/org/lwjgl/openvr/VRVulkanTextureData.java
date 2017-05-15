@@ -25,18 +25,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VRVulkanTextureData_t {
-    uint64_t m_nImage;
-    VkDevice_T * m_pDevice;
-    VkPhysicalDevice_T * m_pPhysicalDevice;
-    VkInstance_T * m_pInstance;
-    VkQueue_T * m_pQueue;
-    uint32_t m_nQueueFamilyIndex;
-    uint32_t m_nWidth;
-    uint32_t m_nHeight;
-    uint32_t m_nFormat;
-    uint32_t m_nSampleCount;
-}</code></pre>
+ * <code><pre>
+ * struct VRVulkanTextureData_t {
+ *     uint64_t m_nImage;
+ *     VkDevice_T * m_pDevice;
+ *     VkPhysicalDevice_T * m_pPhysicalDevice;
+ *     VkInstance_T * m_pInstance;
+ *     VkQueue_T * m_pQueue;
+ *     uint32_t m_nQueueFamilyIndex;
+ *     uint32_t m_nWidth;
+ *     uint32_t m_nHeight;
+ *     uint32_t m_nFormat;
+ *     uint32_t m_nSampleCount;
+ * }</pre></code>
  */
 public class VRVulkanTextureData extends Struct implements NativeResource {
 

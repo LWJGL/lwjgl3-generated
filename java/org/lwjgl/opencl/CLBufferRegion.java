@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct cl_buffer_region {
-    size_t origin;
-    size_t size;
-}</code></pre>
+ * <code><pre>
+ * struct cl_buffer_region {
+ *     size_t origin;
+ *     size_t size;
+ * }</pre></code>
  */
 public class CLBufferRegion extends Struct implements NativeResource {
 

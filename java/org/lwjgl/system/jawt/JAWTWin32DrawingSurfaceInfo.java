@@ -28,15 +28,16 @@ import org.lwjgl.system.windows.User32;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct JAWT_Win32DrawingSurfaceInfo {
-    union {
-        HWND hwnd;
-        HBITMAP hbitmap;
-        void * pbits;
-    };
-    HDC hdc;
-    HPALETTE hpalette;
-}</code></pre>
+ * <code><pre>
+ * struct JAWT_Win32DrawingSurfaceInfo {
+ *     union {
+ *         HWND hwnd;
+ *         HBITMAP hbitmap;
+ *         void * pbits;
+ *     };
+ *     HDC hdc;
+ *     HPALETTE hpalette;
+ * }</pre></code>
  */
 public class JAWTWin32DrawingSurfaceInfo extends Struct {
 

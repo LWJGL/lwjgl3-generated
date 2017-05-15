@@ -77,25 +77,26 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMesh {
-    unsigned int mPrimitiveTypes;
-    unsigned int mNumVertices;
-    unsigned int mNumFaces;
-    {@link AIVector3D struct aiVector3D} * mVertices;
-    {@link AIVector3D struct aiVector3D} * mNormals;
-    {@link AIVector3D struct aiVector3D} * mTangents;
-    {@link AIVector3D struct aiVector3D} * mBitangents;
-    {@link AIColor4D struct aiColor4D} * mColors[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS];
-    {@link AIVector3D struct aiVector3D} * mTextureCoords[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS];
-    unsigned int mNumUVComponents[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS];
-    {@link AIFace struct aiFace} * mFaces;
-    unsigned int mNumBones;
-    {@link AIBone struct aiBone} ** mBones;
-    unsigned int mMaterialIndex;
-    {@link AIString struct aiString} mName;
-    unsigned int mNumAnimMeshes;
-    {@link AIAnimMesh struct aiAnimMesh} ** mAnimMeshes;
-}</code></pre>
+ * <code><pre>
+ * struct aiMesh {
+ *     unsigned int mPrimitiveTypes;
+ *     unsigned int mNumVertices;
+ *     unsigned int mNumFaces;
+ *     {@link AIVector3D struct aiVector3D} * mVertices;
+ *     {@link AIVector3D struct aiVector3D} * mNormals;
+ *     {@link AIVector3D struct aiVector3D} * mTangents;
+ *     {@link AIVector3D struct aiVector3D} * mBitangents;
+ *     {@link AIColor4D struct aiColor4D} * mColors[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS];
+ *     {@link AIVector3D struct aiVector3D} * mTextureCoords[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS];
+ *     unsigned int mNumUVComponents[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS];
+ *     {@link AIFace struct aiFace} * mFaces;
+ *     unsigned int mNumBones;
+ *     {@link AIBone struct aiBone} ** mBones;
+ *     unsigned int mMaterialIndex;
+ *     {@link AIString struct aiString} mName;
+ *     unsigned int mNumAnimMeshes;
+ *     {@link AIAnimMesh struct aiAnimMesh} ** mAnimMeshes;
+ * }</pre></code>
  */
 public class AIMesh extends Struct implements NativeResource {
 

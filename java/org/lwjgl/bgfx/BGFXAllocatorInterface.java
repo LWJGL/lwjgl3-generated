@@ -25,9 +25,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_allocator_interface_t {
-    const {@link BGFXAllocatorVtbl bgfx_allocator_vtbl_t} * vtbl;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_allocator_interface_t {
+ *     const {@link BGFXAllocatorVtbl bgfx_allocator_vtbl_t} * vtbl;
+ * }</pre></code>
  */
 public class BGFXAllocatorInterface extends Struct implements NativeResource {
 

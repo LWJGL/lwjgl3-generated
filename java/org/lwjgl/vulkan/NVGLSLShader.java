@@ -14,22 +14,23 @@ package org.lwjgl.vulkan;
  * 
  * <p>Passing in GLSL code</p>
  * 
- * <pre><code>    char const vss[] =
-        "#version 450 core\n"
-        "layout(location = 0) in vec2 aVertex;\n"
-        "layout(location = 1) in vec4 aColor;\n"
-        "out vec4 vColor;\n"
-        "void main()\n"
-        "{\n"
-        "    vColor = aColor;\n"
-        "    gl_Position = vec4(aVertex, 0, 1);\n"
-        "}\n"
-    ;
-    VkShaderModuleCreateInfo vertexShaderInfo = { VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO };
-    vertexShaderInfo.codeSize = sizeof vss;
-    vertexShaderInfo.pCode = vss;
-    VkShaderModule vertexShader;
-    vkCreateShaderModule(device, &vertexShaderInfo, 0, &vertexShader);</code></pre>
+ * <code><pre>
+ *     char const vss[] =
+ *         "#version 450 core\n"
+ *         "layout(location = 0) in vec2 aVertex;\n"
+ *         "layout(location = 1) in vec4 aColor;\n"
+ *         "out vec4 vColor;\n"
+ *         "void main()\n"
+ *         "{\n"
+ *         "    vColor = aColor;\n"
+ *         "    gl_Position = vec4(aVertex, 0, 1);\n"
+ *         "}\n"
+ *     ;
+ *     VkShaderModuleCreateInfo vertexShaderInfo = { VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO };
+ *     vertexShaderInfo.codeSize = sizeof vss;
+ *     vertexShaderInfo.pCode = vss;
+ *     VkShaderModule vertexShader;
+ *     vkCreateShaderModule(device, &vertexShaderInfo, 0, &vertexShader);</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

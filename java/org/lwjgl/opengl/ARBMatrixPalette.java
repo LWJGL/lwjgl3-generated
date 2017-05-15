@@ -137,8 +137,6 @@ public class ARBMatrixPalette {
     public static native void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer);
 
     /**
-     * 
-     *
      * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
      * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
@@ -149,8 +147,6 @@ public class ARBMatrixPalette {
     }
 
     /**
-     * 
-     *
      * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
      * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
@@ -161,8 +157,6 @@ public class ARBMatrixPalette {
     }
 
     /**
-     * 
-     *
      * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
@@ -172,8 +166,6 @@ public class ARBMatrixPalette {
     }
 
     /**
-     * 
-     *
      * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
@@ -183,8 +175,6 @@ public class ARBMatrixPalette {
     }
 
     /**
-     * 
-     *
      * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data

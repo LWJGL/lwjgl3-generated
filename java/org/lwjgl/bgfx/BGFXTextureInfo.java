@@ -32,17 +32,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_texture_info_t {
-    bgfx_texture_format_t format;
-    uint32_t storageSize;
-    uint16_t width;
-    uint16_t height;
-    uint16_t depth;
-    uint16_t numLayers;
-    uint8_t numMips;
-    uint8_t bitsPerPixel;
-    bool cubeMap;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_texture_info_t {
+ *     bgfx_texture_format_t format;
+ *     uint32_t storageSize;
+ *     uint16_t width;
+ *     uint16_t height;
+ *     uint16_t depth;
+ *     uint16_t numLayers;
+ *     uint8_t numMips;
+ *     uint8_t bitsPerPixel;
+ *     bool cubeMap;
+ * }</pre></code>
  */
 public class BGFXTextureInfo extends Struct implements NativeResource {
 

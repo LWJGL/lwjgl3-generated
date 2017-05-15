@@ -24,11 +24,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSharedPresentSurfaceCapabilitiesKHR {
-    VkStructureType sType;
-    void * pNext;
-    VkImageUsageFlags sharedPresentSupportedUsageFlags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSharedPresentSurfaceCapabilitiesKHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     VkImageUsageFlags sharedPresentSupportedUsageFlags;
+ * }</pre></code>
  */
 public class VkSharedPresentSurfaceCapabilitiesKHR extends Struct {
 

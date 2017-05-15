@@ -76,10 +76,11 @@ public class EXTAcquireXlibDisplay {
      * 
      * <p>To acquire permission to directly access a display in Vulkan from an X11 server, call:</p>
      * 
-     * <pre><code>VkResult vkAcquireXlibDisplayEXT(
-    VkPhysicalDevice                            physicalDevice,
-    Display*                                    dpy,
-    VkDisplayKHR                                display);</code></pre>
+     * <code><pre>
+     * VkResult vkAcquireXlibDisplayEXT(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     Display*                                    dpy,
+     *     VkDisplayKHR                                display);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -139,11 +140,12 @@ public class EXTAcquireXlibDisplay {
      * 
      * <p>When acquiring displays from an X11 server, an application may also wish to enumerate and identify them using a native handle rather than a {@code VkDisplayKHR} handle. To determine the {@code VkDisplayKHR} handle corresponding to an X11 RandR Output, call:</p>
      * 
-     * <pre><code>VkResult vkGetRandROutputDisplayEXT(
-    VkPhysicalDevice                            physicalDevice,
-    Display*                                    dpy,
-    RROutput                                    rrOutput,
-    VkDisplayKHR*                               pDisplay);</code></pre>
+     * <code><pre>
+     * VkResult vkGetRandROutputDisplayEXT(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     Display*                                    dpy,
+     *     RROutput                                    rrOutput,
+     *     VkDisplayKHR*                               pDisplay);</pre></code>
      * 
      * <h5>Description</h5>
      * 

@@ -31,16 +31,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMemoryInfo {
-    unsigned int textures;
-    unsigned int materials;
-    unsigned int meshes;
-    unsigned int nodes;
-    unsigned int animations;
-    unsigned int cameras;
-    unsigned int lights;
-    unsigned int total;
-}</code></pre>
+ * <code><pre>
+ * struct aiMemoryInfo {
+ *     unsigned int textures;
+ *     unsigned int materials;
+ *     unsigned int meshes;
+ *     unsigned int nodes;
+ *     unsigned int animations;
+ *     unsigned int cameras;
+ *     unsigned int lights;
+ *     unsigned int total;
+ * }</pre></code>
  */
 public class AIMemoryInfo extends Struct implements NativeResource {
 

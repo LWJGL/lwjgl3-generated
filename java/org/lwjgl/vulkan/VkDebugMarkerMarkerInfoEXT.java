@@ -40,12 +40,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDebugMarkerMarkerInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    const char * pMarkerName;
-    float color[4];
-}</code></pre>
+ * <code><pre>
+ * struct VkDebugMarkerMarkerInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     const char * pMarkerName;
+ *     float color[4];
+ * }</pre></code>
  */
 public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource {
 

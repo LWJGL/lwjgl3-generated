@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceMemoryProperties2KHR {
-    VkStructureType sType;
-    void * pNext;
-    {@link VkPhysicalDeviceMemoryProperties VkPhysicalDeviceMemoryProperties} memoryProperties;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceMemoryProperties2KHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     {@link VkPhysicalDeviceMemoryProperties VkPhysicalDeviceMemoryProperties} memoryProperties;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceMemoryProperties2KHR extends Struct implements NativeResource {
 

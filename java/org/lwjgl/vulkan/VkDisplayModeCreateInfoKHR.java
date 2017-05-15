@@ -46,12 +46,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayModeCreateInfoKHR {
-    VkStructureType sType;
-    const void * pNext;
-    VkDisplayModeCreateFlagsKHR flags;
-    {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayModeCreateInfoKHR {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDisplayModeCreateFlagsKHR flags;
+ *     {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
+ * }</pre></code>
  */
 public class VkDisplayModeCreateInfoKHR extends Struct implements NativeResource {
 

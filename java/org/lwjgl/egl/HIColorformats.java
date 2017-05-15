@@ -12,7 +12,6 @@ package org.lwjgl.egl;
  */
 public final class HIColorformats {
 
-    /**  */
     public static final int
         EGL_COLOR_FORMAT_HI = 0x8F70,
         EGL_COLOR_RGB_HI    = 0x8F71,

@@ -27,16 +27,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct GLXStereoNotifyEventEXT {
-    int type;
-    unsigned long serial;
-    Bool send_event;
-    Display * display;
-    int extension;
-    int evtype;
-    GLXDrawable window;
-    Bool stereo_tree;
-}</code></pre>
+ * <code><pre>
+ * struct GLXStereoNotifyEventEXT {
+ *     int type;
+ *     unsigned long serial;
+ *     Bool send_event;
+ *     Display * display;
+ *     int extension;
+ *     int evtype;
+ *     GLXDrawable window;
+ *     Bool stereo_tree;
+ * }</pre></code>
  */
 public class GLXStereoNotifyEventEXT extends Struct {
 

@@ -22,7 +22,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Vendors <b>may</b> also support mapping the presentable images' content to a subset or superset of the visible region in the specified display mode. This is expressed by returning {@code minDstPosition}, {@code maxDstPosition}, {@code minDstExtent} and {@code maxDstExtent} values that indicate a range of possible positions and sizes <b>may</b> be used to describe the region within the display mode that the source pixels will be mapped to.</p>
  * 
- * <p>Other vendors <b>may</b> support only a 1-1 mapping between pixels in the presentable images and the display mode. This <b>may</b> be indicated by returning <code>(0,0)</code> for {@code minSrcPosition}, {@code maxSrcPosition}, {@code minDstPosition}, and {@code maxDstPosition}, and (display mode width, display mode height) for {@code minSrcExtent}, {@code maxSrcExtent}, {@code minDstExtent}, and {@code maxDstExtent}.</p>
+ * <p>Other vendors <b>may</b> support only a 1-1 mapping between pixels in the presentable images and the display mode. This <b>may</b> be indicated by returning</p><code>(0,0)</code>
+ * 
+ * <p>for {@code minSrcPosition}, {@code maxSrcPosition}, {@code minDstPosition}, and {@code maxDstPosition}, and (display mode width, display mode height) for {@code minSrcExtent}, {@code maxSrcExtent}, {@code minDstExtent}, and {@code maxDstExtent}.</p>
  * 
  * <p>These values indicate the limits of the hardware's individual fields. Not all combinations of values within the offset and extent ranges returned in {@link VkDisplayPlaneCapabilitiesKHR} are guaranteed to be supported. Vendors <b>may</b> still fail presentation requests that specify unsupported combinations.</p>
  * 
@@ -46,17 +48,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayPlaneCapabilitiesKHR {
-    VkDisplayPlaneAlphaFlagsKHR supportedAlpha;
-    {@link VkOffset2D VkOffset2D} minSrcPosition;
-    {@link VkOffset2D VkOffset2D} maxSrcPosition;
-    {@link VkExtent2D VkExtent2D} minSrcExtent;
-    {@link VkExtent2D VkExtent2D} maxSrcExtent;
-    {@link VkOffset2D VkOffset2D} minDstPosition;
-    {@link VkOffset2D VkOffset2D} maxDstPosition;
-    {@link VkExtent2D VkExtent2D} minDstExtent;
-    {@link VkExtent2D VkExtent2D} maxDstExtent;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayPlaneCapabilitiesKHR {
+ *     VkDisplayPlaneAlphaFlagsKHR supportedAlpha;
+ *     {@link VkOffset2D VkOffset2D} minSrcPosition;
+ *     {@link VkOffset2D VkOffset2D} maxSrcPosition;
+ *     {@link VkExtent2D VkExtent2D} minSrcExtent;
+ *     {@link VkExtent2D VkExtent2D} maxSrcExtent;
+ *     {@link VkOffset2D VkOffset2D} minDstPosition;
+ *     {@link VkOffset2D VkOffset2D} maxDstPosition;
+ *     {@link VkExtent2D VkExtent2D} minDstExtent;
+ *     {@link VkExtent2D VkExtent2D} maxDstExtent;
+ * }</pre></code>
  */
 public class VkDisplayPlaneCapabilitiesKHR extends Struct implements NativeResource {
 

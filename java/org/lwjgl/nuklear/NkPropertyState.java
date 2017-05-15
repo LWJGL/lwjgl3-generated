@@ -17,19 +17,20 @@ import static org.lwjgl.nuklear.Nuklear.NK_MAX_NUMBER_BUFFER;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_property_state {
-    int active;
-    int prev;
-    char buffer[NK_MAX_NUMBER_BUFFER];
-    int length;
-    int cursor;
-    int select_start;
-    int select_end;
-    nk_hash name;
-    unsigned int seq;
-    unsigned int old;
-    int state;
-}</code></pre>
+ * <code><pre>
+ * struct nk_property_state {
+ *     int active;
+ *     int prev;
+ *     char buffer[NK_MAX_NUMBER_BUFFER];
+ *     int length;
+ *     int cursor;
+ *     int select_start;
+ *     int select_end;
+ *     nk_hash name;
+ *     unsigned int seq;
+ *     unsigned int old;
+ *     int state;
+ * }</pre></code>
  */
 public class NkPropertyState extends Struct {
 

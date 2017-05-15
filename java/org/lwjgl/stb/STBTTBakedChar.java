@@ -18,15 +18,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stbtt_bakedchar {
-    unsigned short x0;
-    unsigned short y0;
-    unsigned short x1;
-    unsigned short y1;
-    float xoff;
-    float yoff;
-    float xadvance;
-}</code></pre>
+ * <code><pre>
+ * struct stbtt_bakedchar {
+ *     unsigned short x0;
+ *     unsigned short y0;
+ *     unsigned short x1;
+ *     unsigned short y1;
+ *     float xoff;
+ *     float yoff;
+ *     float xadvance;
+ * }</pre></code>
  */
 public class STBTTBakedChar extends Struct implements NativeResource {
 

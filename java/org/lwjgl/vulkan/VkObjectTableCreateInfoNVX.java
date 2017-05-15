@@ -21,13 +21,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Types which <b>can</b> be set in {@code pObjectEntryTypes} are:</p>
  * 
- * <pre><code>typedef enum VkObjectEntryTypeNVX {
-    VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX = 0,
-    VK_OBJECT_ENTRY_PIPELINE_NVX = 1,
-    VK_OBJECT_ENTRY_INDEX_BUFFER_NVX = 2,
-    VK_OBJECT_ENTRY_VERTEX_BUFFER_NVX = 3,
-    VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX = 4,
-} VkObjectEntryTypeNVX;</code></pre>
+ * <code><pre>
+ * typedef enum VkObjectEntryTypeNVX {
+ *     VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX = 0,
+ *     VK_OBJECT_ENTRY_PIPELINE_NVX = 1,
+ *     VK_OBJECT_ENTRY_INDEX_BUFFER_NVX = 2,
+ *     VK_OBJECT_ENTRY_VERTEX_BUFFER_NVX = 3,
+ *     VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX = 4,
+ * } VkObjectEntryTypeNVX;</pre></code>
  * 
  * <ul>
  * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX OBJECT_ENTRY_DESCRIPTOR_SET_NVX} indicates a {@code VkDescriptorSet} resource entry that is registered via {@link VkObjectTableDescriptorSetEntryNVX}.</li>
@@ -39,10 +40,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Bits which <b>can</b> be set in {@code pObjectEntryUsageFlags} are:</p>
  * 
- * <pre><code>typedef enum VkObjectEntryUsageFlagBitsNVX {
-    VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x00000001,
-    VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX = 0x00000002,
-} VkObjectEntryUsageFlagBitsNVX;</code></pre>
+ * <code><pre>
+ * typedef enum VkObjectEntryUsageFlagBitsNVX {
+ *     VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x00000001,
+ *     VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX = 0x00000002,
+ * } VkObjectEntryUsageFlagBitsNVX;</pre></code>
  * 
  * <ul>
  * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
@@ -94,19 +96,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkObjectTableCreateInfoNVX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t objectCount;
-    const VkObjectEntryTypeNVX * pObjectEntryTypes;
-    const uint32_t * pObjectEntryCounts;
-    const VkObjectEntryUsageFlagsNVX * pObjectEntryUsageFlags;
-    uint32_t maxUniformBuffersPerDescriptor;
-    uint32_t maxStorageBuffersPerDescriptor;
-    uint32_t maxStorageImagesPerDescriptor;
-    uint32_t maxSampledImagesPerDescriptor;
-    uint32_t maxPipelineLayouts;
-}</code></pre>
+ * <code><pre>
+ * struct VkObjectTableCreateInfoNVX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t objectCount;
+ *     const VkObjectEntryTypeNVX * pObjectEntryTypes;
+ *     const uint32_t * pObjectEntryCounts;
+ *     const VkObjectEntryUsageFlagsNVX * pObjectEntryUsageFlags;
+ *     uint32_t maxUniformBuffersPerDescriptor;
+ *     uint32_t maxStorageBuffersPerDescriptor;
+ *     uint32_t maxStorageImagesPerDescriptor;
+ *     uint32_t maxSampledImagesPerDescriptor;
+ *     uint32_t maxPipelineLayouts;
+ * }</pre></code>
  */
 public class VkObjectTableCreateInfoNVX extends Struct implements NativeResource {
 

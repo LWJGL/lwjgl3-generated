@@ -43,11 +43,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; a bitmask indicating usage behavior for the command buffer. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkCommandBufferUsageFlagBits {
-    VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 0x00000001,
-    VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x00000002,
-    VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT = 0x00000004,
-} VkCommandBufferUsageFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkCommandBufferUsageFlagBits {
+ *     VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 0x00000001,
+ *     VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x00000002,
+ *     VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT = 0x00000004,
+ * } VkCommandBufferUsageFlagBits;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} indicates that each recording of the command buffer will only be submitted once, and the command buffer will be reset and recorded again between each submission.</li>
@@ -59,12 +60,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCommandBufferBeginInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkCommandBufferUsageFlags flags;
-    const {@link VkCommandBufferInheritanceInfo VkCommandBufferInheritanceInfo} * pInheritanceInfo;
-}</code></pre>
+ * <code><pre>
+ * struct VkCommandBufferBeginInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkCommandBufferUsageFlags flags;
+ *     const {@link VkCommandBufferInheritanceInfo VkCommandBufferInheritanceInfo} * pInheritanceInfo;
+ * }</pre></code>
  */
 public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
 

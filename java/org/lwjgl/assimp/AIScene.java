@@ -53,23 +53,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiScene {
-    unsigned int mFlags;
-    {@link AINode struct aiNode} * mRootNode;
-    unsigned int mNumMeshes;
-    {@link AIMesh struct aiMesh} ** mMeshes;
-    unsigned int mNumMaterials;
-    {@link AIMaterial struct aiMaterial} ** mMaterials;
-    unsigned int mNumAnimations;
-    {@link AIAnimation struct aiAnimation} ** mAnimations;
-    unsigned int mNumTextures;
-    {@link AITexture struct aiTexture} ** mTextures;
-    unsigned int mNumLights;
-    {@link AILight struct aiLight} ** mLights;
-    unsigned int mNumCameras;
-    {@link AICamera struct aiCamera} ** mCameras;
-    char * mPrivate;
-}</code></pre>
+ * <code><pre>
+ * struct aiScene {
+ *     unsigned int mFlags;
+ *     {@link AINode struct aiNode} * mRootNode;
+ *     unsigned int mNumMeshes;
+ *     {@link AIMesh struct aiMesh} ** mMeshes;
+ *     unsigned int mNumMaterials;
+ *     {@link AIMaterial struct aiMaterial} ** mMaterials;
+ *     unsigned int mNumAnimations;
+ *     {@link AIAnimation struct aiAnimation} ** mAnimations;
+ *     unsigned int mNumTextures;
+ *     {@link AITexture struct aiTexture} ** mTextures;
+ *     unsigned int mNumLights;
+ *     {@link AILight struct aiLight} ** mLights;
+ *     unsigned int mNumCameras;
+ *     {@link AICamera struct aiCamera} ** mCameras;
+ *     char * mPrivate;
+ * }</pre></code>
  */
 public class AIScene extends Struct implements NativeResource {
 

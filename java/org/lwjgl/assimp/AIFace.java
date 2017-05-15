@@ -33,10 +33,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiFace {
-    unsigned int mNumIndices;
-    unsigned int * mIndices;
-}</code></pre>
+ * <code><pre>
+ * struct aiFace {
+ *     unsigned int mNumIndices;
+ *     unsigned int * mIndices;
+ * }</pre></code>
  */
 public class AIFace extends Struct implements NativeResource {
 

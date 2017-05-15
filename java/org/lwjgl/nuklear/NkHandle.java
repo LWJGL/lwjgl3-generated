@@ -16,10 +16,11 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>union nk_handle {
-    void * ptr;
-    int id;
-}</code></pre>
+ * <code><pre>
+ * union nk_handle {
+ *     void * ptr;
+ *     int id;
+ * }</pre></code>
  */
 public class NkHandle extends Struct implements NativeResource {
 

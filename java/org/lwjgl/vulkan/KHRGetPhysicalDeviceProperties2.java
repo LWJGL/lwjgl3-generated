@@ -18,50 +18,51 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h5>Examples</h5>
  * 
- * <pre><code>    // Get features with a hypothetical future extension.
-    VkHypotheticalExtensionFeaturesKHR hypotheticalFeatures =
-    {
-        VK_STRUCTURE_TYPE_HYPOTHETICAL_FEATURES_KHR,                            // sType
-        NULL,                                                                   // pNext
-    };
-
-    VkPhysicalDeviceFeatures2KHR features =
-    {
-        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR,                       // sType
-        &hypotheticalFeatures,                                                  // pNext
-    };
-
-    // After this call, features and hypotheticalFeatures have been filled out.
-    vkGetPhysicalDeviceFeatures2KHR(physicalDevice, &features);
-
-    // Properties/limits can be chained and queried similarly.
-
-    // Enable some features:
-    VkHypotheticalExtensionFeaturesKHR enabledHypotheticalFeatures =
-    {
-        VK_STRUCTURE_TYPE_HYPOTHETICAL_FEATURES_KHR,                            // sType
-        NULL,                                                                   // pNext
-    };
-
-    VkPhysicalDeviceFeatures2KHR enabledFeatures =
-    {
-        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR,                       // sType
-        &enabledHypotheticalFeatures,                                           // pNext
-    };
-
-    enabledFeatures.features.xyz = VK_TRUE;
-    enabledHypotheticalFeatures.abc = VK_TRUE;
-
-    VkDeviceCreateInfo deviceCreateInfo =
-    {
-        VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO,                                   // sType
-        &enabledFeatures,                                                       // pNext
-        ...
-        NULL,                                                                   // pEnabledFeatures
-    }
-
-    VkDevice device;
-    vkCreateDevice(physicalDevice, &deviceCreateInfo, NULL, &device);</code></pre>
+ * <code><pre>
+ *     // Get features with a hypothetical future extension.
+ *     VkHypotheticalExtensionFeaturesKHR hypotheticalFeatures =
+ *     {
+ *         VK_STRUCTURE_TYPE_HYPOTHETICAL_FEATURES_KHR,                            // sType
+ *         NULL,                                                                   // pNext
+ *     };
+ * 
+ *     VkPhysicalDeviceFeatures2KHR features =
+ *     {
+ *         VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR,                       // sType
+ *         &hypotheticalFeatures,                                                  // pNext
+ *     };
+ * 
+ *     // After this call, features and hypotheticalFeatures have been filled out.
+ *     vkGetPhysicalDeviceFeatures2KHR(physicalDevice, &features);
+ * 
+ *     // Properties/limits can be chained and queried similarly.
+ * 
+ *     // Enable some features:
+ *     VkHypotheticalExtensionFeaturesKHR enabledHypotheticalFeatures =
+ *     {
+ *         VK_STRUCTURE_TYPE_HYPOTHETICAL_FEATURES_KHR,                            // sType
+ *         NULL,                                                                   // pNext
+ *     };
+ * 
+ *     VkPhysicalDeviceFeatures2KHR enabledFeatures =
+ *     {
+ *         VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR,                       // sType
+ *         &enabledHypotheticalFeatures,                                           // pNext
+ *     };
+ * 
+ *     enabledFeatures.features.xyz = VK_TRUE;
+ *     enabledHypotheticalFeatures.abc = VK_TRUE;
+ * 
+ *     VkDeviceCreateInfo deviceCreateInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO,                                   // sType
+ *         &enabledFeatures,                                                       // pNext
+ *         ...
+ *         NULL,                                                                   // pEnabledFeatures
+ *     }
+ * 
+ *     VkDevice device;
+ *     vkCreateDevice(physicalDevice, &deviceCreateInfo, NULL, &device);</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
@@ -159,9 +160,10 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>To query supported features defined by the core or extensions, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceFeatures2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkPhysicalDeviceFeatures2KHR*               pFeatures);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceFeatures2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkPhysicalDeviceFeatures2KHR*               pFeatures);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -203,9 +205,10 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>To query general properties of physical devices once enumerated, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceProperties2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkPhysicalDeviceProperties2KHR*             pProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceProperties2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkPhysicalDeviceProperties2KHR*             pProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -247,10 +250,11 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>To query supported format features which are properties of the physical device, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceFormatProperties2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkFormat                                    format,
-    VkFormatProperties2KHR*                     pFormatProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceFormatProperties2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkFormat                                    format,
+     *     VkFormatProperties2KHR*                     pFormatProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -294,10 +298,11 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>To query additional capabilities specific to image types, call:</p>
      * 
-     * <pre><code>VkResult vkGetPhysicalDeviceImageFormatProperties2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    const VkPhysicalDeviceImageFormatInfo2KHR*  pImageFormatInfo,
-    VkImageFormatProperties2KHR*                pImageFormatProperties);</code></pre>
+     * <code><pre>
+     * VkResult vkGetPhysicalDeviceImageFormatProperties2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     const VkPhysicalDeviceImageFormatInfo2KHR*  pImageFormatInfo,
+     *     VkImageFormatProperties2KHR*                pImageFormatProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -362,10 +367,11 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>To query properties of queues available on a physical device, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceQueueFamilyProperties2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    uint32_t*                                   pQueueFamilyPropertyCount,
-    VkQueueFamilyProperties2KHR*                pQueueFamilyProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceQueueFamilyProperties2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     uint32_t*                                   pQueueFamilyPropertyCount,
+     *     VkQueueFamilyProperties2KHR*                pQueueFamilyProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -413,9 +419,10 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>To query memory properties, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceMemoryProperties2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    VkPhysicalDeviceMemoryProperties2KHR*       pMemoryProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceMemoryProperties2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     VkPhysicalDeviceMemoryProperties2KHR*       pMemoryProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -461,11 +468,12 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <p>{@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} returns an array of {@link VkSparseImageFormatProperties2KHR}. Each element will describe properties for one set of image aspects that are bound simultaneously in the image. This is usually one element for each aspect in the image, but for interleaved depth/stencil images there is only one element describing the combined aspects.</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(
-    VkPhysicalDevice                            physicalDevice,
-    const VkPhysicalDeviceSparseImageFormatInfo2KHR* pFormatInfo,
-    uint32_t*                                   pPropertyCount,
-    VkSparseImageFormatProperties2KHR*          pProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     const VkPhysicalDeviceSparseImageFormatInfo2KHR* pFormatInfo,
+     *     uint32_t*                                   pPropertyCount,
+     *     VkSparseImageFormatProperties2KHR*          pProperties);</pre></code>
      * 
      * <h5>Description</h5>
      * 

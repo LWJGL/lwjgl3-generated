@@ -355,8 +355,6 @@ public class NVPathRendering {
     public static native void nglPathCommandsNV(int path, int numCommands, long commands, int numCoords, int coordType, long coords);
 
     /**
-     * 
-     *
      * @param path      
      * @param commands  
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
@@ -367,8 +365,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path      
      * @param commands  
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
@@ -379,8 +375,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path      
      * @param commands  
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
@@ -396,8 +390,6 @@ public class NVPathRendering {
     public static native void nglPathCoordsNV(int path, int numCoords, int coordType, long coords);
 
     /**
-     * 
-     *
      * @param path      
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
@@ -407,8 +399,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path      
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
@@ -418,8 +408,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path      
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
@@ -434,8 +422,6 @@ public class NVPathRendering {
     public static native void nglPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, long commands, int numCoords, int coordType, long coords);
 
     /**
-     * 
-     *
      * @param path             
      * @param commandStart     
      * @param commandsToDelete 
@@ -448,8 +434,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path             
      * @param commandStart     
      * @param commandsToDelete 
@@ -462,8 +446,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path             
      * @param commandStart     
      * @param commandsToDelete 
@@ -481,8 +463,6 @@ public class NVPathRendering {
     public static native void nglPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, long coords);
 
     /**
-     * 
-     *
      * @param path       
      * @param coordStart 
      * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
@@ -493,8 +473,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path       
      * @param coordStart 
      * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
@@ -505,8 +483,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path       
      * @param coordStart 
      * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
@@ -522,8 +498,6 @@ public class NVPathRendering {
     public static native void nglPathStringNV(int path, int format, int length, long pathString);
 
     /**
-     * 
-     *
      * @param path       
      * @param format     one of:<br><table><tr><td>{@link #GL_PATH_FORMAT_SVG_NV PATH_FORMAT_SVG_NV}</td><td>{@link #GL_PATH_FORMAT_PS_NV PATH_FORMAT_PS_NV}</td></tr></table>
      * @param pathString 
@@ -538,8 +512,6 @@ public class NVPathRendering {
     public static native void nglPathGlyphsNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int numGlyphs, int type, long charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale);
 
     /**
-     * 
-     *
      * @param firstPathName         
      * @param fontTarget            one of:<br><table><tr><td>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}</td><td>{@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}</td><td>{@link #GL_FILE_NAME_NV FILE_NAME_NV}</td></tr></table>
      * @param fontName              
@@ -563,8 +535,6 @@ public class NVPathRendering {
     public static native void nglPathGlyphRangeNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyph, int numGlyphs, int handleMissingGlyphs, int pathParameterTemplate, float emScale);
 
     /**
-     * 
-     *
      * @param firstPathName         
      * @param fontTarget            one of:<br><table><tr><td>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}</td><td>{@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}</td><td>{@link #GL_FILE_NAME_NV FILE_NAME_NV}</td></tr></table>
      * @param fontName              
@@ -588,8 +558,6 @@ public class NVPathRendering {
     public static native int nglPathGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale);
 
     /**
-     * 
-     *
      * @param firstPathName         
      * @param fontTarget            one of:<br><table><tr><td>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}</td><td>{@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}</td><td>{@link #GL_FILE_NAME_NV FILE_NAME_NV}</td></tr></table>
      * @param fontName              
@@ -612,8 +580,6 @@ public class NVPathRendering {
     public static native int nglPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, long fontSize, long fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale);
 
     /**
-     * 
-     *
      * @param firstPathName         
      * @param fontTarget            one of:<br><table><tr><td>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}</td><td>{@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}</td><td>{@link #GL_FILE_NAME_NV FILE_NAME_NV}</td></tr></table>
      * @param fontData              
@@ -652,8 +618,6 @@ public class NVPathRendering {
     public static native void nglTransformPathNV(int resultPath, int srcPath, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param resultPath      
      * @param srcPath         
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
@@ -672,8 +636,6 @@ public class NVPathRendering {
     public static native void nglPathParameterivNV(int path, int pname, long value);
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td></tr></table>
      * @param value 
@@ -688,8 +650,6 @@ public class NVPathRendering {
     // --- [ glPathParameteriNV ] ---
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td></tr></table>
      * @param value 
@@ -702,8 +662,6 @@ public class NVPathRendering {
     public static native void nglPathParameterfvNV(int path, int pname, long value);
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_END_CAPS_NV PATH_END_CAPS_NV}</td><td>{@link #GL_PATH_DASH_CAPS_NV PATH_DASH_CAPS_NV}</td></tr></table>
      * @param value 
@@ -718,8 +676,6 @@ public class NVPathRendering {
     // --- [ glPathParameterfNV ] ---
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_END_CAPS_NV PATH_END_CAPS_NV}</td><td>{@link #GL_PATH_DASH_CAPS_NV PATH_DASH_CAPS_NV}</td></tr></table>
      * @param value 
@@ -757,8 +713,6 @@ public class NVPathRendering {
     // --- [ glStencilFillPathNV ] ---
 
     /**
-     * 
-     *
      * @param path     
      * @param fillMode one of:<br><table><tr><td>{@link GLES20#GL_INVERT INVERT}</td><td>{@link #GL_COUNT_UP_NV COUNT_UP_NV}</td><td>{@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td></tr></table>
      * @param mask     
@@ -775,8 +729,6 @@ public class NVPathRendering {
     public static native void nglStencilFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
      * @param pathBase        
@@ -799,8 +751,6 @@ public class NVPathRendering {
     public static native void nglStencilStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
      * @param pathBase        
@@ -824,8 +774,6 @@ public class NVPathRendering {
     // --- [ glCoverFillPathNV ] ---
 
     /**
-     * 
-     *
      * @param path      
      * @param coverMode one of:<br><table><tr><td>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}</td><td>{@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}</td></tr></table>
      */
@@ -834,8 +782,6 @@ public class NVPathRendering {
     // --- [ glCoverStrokePathNV ] ---
 
     /**
-     * 
-     *
      * @param path      
      * @param coverMode one of:<br><table><tr><td>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}</td><td>{@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}</td></tr></table>
      */
@@ -847,8 +793,6 @@ public class NVPathRendering {
     public static native void nglCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
      * @param pathBase        
@@ -870,8 +814,6 @@ public class NVPathRendering {
     public static native void nglCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
      * @param pathBase        
@@ -890,8 +832,6 @@ public class NVPathRendering {
     // --- [ glStencilThenCoverFillPathNV ] ---
 
     /**
-     * 
-     *
      * @param path      
      * @param fillMode  one of:<br><table><tr><td>{@link GLES20#GL_INVERT INVERT}</td><td>{@link #GL_COUNT_UP_NV COUNT_UP_NV}</td><td>{@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td></tr></table>
      * @param mask      
@@ -902,8 +842,6 @@ public class NVPathRendering {
     // --- [ glStencilThenCoverStrokePathNV ] ---
 
     /**
-     * 
-     *
      * @param path      
      * @param reference 
      * @param mask      
@@ -917,8 +855,6 @@ public class NVPathRendering {
     public static native void nglStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
      * @param pathBase        
@@ -942,8 +878,6 @@ public class NVPathRendering {
     public static native void nglStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int coverMode, int transformType, long transformValues);
 
     /**
-     * 
-     *
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
      * @param pathBase        
@@ -967,8 +901,6 @@ public class NVPathRendering {
     public static native int nglPathGlyphIndexRangeNV(int fontTarget, long fontName, int fontStyle, int pathParameterTemplate, float emScale, int baseAndCount);
 
     /**
-     * 
-     *
      * @param fontTarget            one of:<br><table><tr><td>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}</td><td>{@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}</td><td>{@link #GL_FILE_NAME_NV FILE_NAME_NV}</td></tr></table>
      * @param fontName              
      * @param fontStyle             one or more of:<br><table><tr><td>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}</td><td>{@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}</td></tr></table>
@@ -1000,8 +932,6 @@ public class NVPathRendering {
     public static native void nglGetPathParameterivNV(int path, int pname, long value);
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}</td><td>{@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}</td><td>{@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}</td><td>{@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}</td></tr></table>
      * @param value 
@@ -1014,8 +944,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}</td><td>{@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}</td><td>{@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}</td><td>{@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}</td></tr></table>
      */
@@ -1036,8 +964,6 @@ public class NVPathRendering {
     public static native void nglGetPathParameterfvNV(int path, int pname, long value);
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}</td><td>{@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}</td><td>{@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}</td><td>{@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}</td></tr></table>
      * @param value 
@@ -1050,8 +976,6 @@ public class NVPathRendering {
     }
 
     /**
-     * 
-     *
      * @param path  
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_COMMAND_COUNT_NV PATH_COMMAND_COUNT_NV}</td><td>{@link #GL_PATH_COORD_COUNT_NV PATH_COORD_COUNT_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_ARRAY_COUNT_NV PATH_DASH_ARRAY_COUNT_NV}</td><td>{@link #GL_PATH_COMPUTED_LENGTH_NV PATH_COMPUTED_LENGTH_NV}</td><td>{@link #GL_PATH_FILL_BOUNDING_BOX_NV PATH_FILL_BOUNDING_BOX_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUNDING_BOX_NV PATH_STROKE_BOUNDING_BOX_NV}</td></tr></table>
      */
@@ -1111,8 +1035,6 @@ public class NVPathRendering {
     public static native void nglGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, long paths, int pathBase, int stride, long metrics);
 
     /**
-     * 
-     *
      * @param metricQueryMask one or more of:<br><table><tr><td>{@link #GL_GLYPH_WIDTH_BIT_NV GLYPH_WIDTH_BIT_NV}</td><td>{@link #GL_GLYPH_HEIGHT_BIT_NV GLYPH_HEIGHT_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV GLYPH_HORIZONTAL_BEARING_X_BIT_NV}</td><td>{@link #GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV GLYPH_HORIZONTAL_BEARING_Y_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV}</td><td>{@link #GL_GLYPH_VERTICAL_BEARING_X_BIT_NV GLYPH_VERTICAL_BEARING_X_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV GLYPH_VERTICAL_BEARING_Y_BIT_NV}</td><td>{@link #GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_HAS_KERNING_BIT_NV GLYPH_HAS_KERNING_BIT_NV}</td><td>{@link #GL_FONT_X_MIN_BOUNDS_BIT_NV FONT_X_MIN_BOUNDS_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_Y_MIN_BOUNDS_BIT_NV FONT_Y_MIN_BOUNDS_BIT_NV}</td><td>{@link #GL_FONT_X_MAX_BOUNDS_BIT_NV FONT_X_MAX_BOUNDS_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_Y_MAX_BOUNDS_BIT_NV FONT_Y_MAX_BOUNDS_BIT_NV}</td><td>{@link #GL_FONT_UNITS_PER_EM_BIT_NV FONT_UNITS_PER_EM_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_ASCENDER_BIT_NV FONT_ASCENDER_BIT_NV}</td><td>{@link #GL_FONT_DESCENDER_BIT_NV FONT_DESCENDER_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_HEIGHT_BIT_NV FONT_HEIGHT_BIT_NV}</td><td>{@link #GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV FONT_MAX_ADVANCE_WIDTH_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV FONT_MAX_ADVANCE_HEIGHT_BIT_NV}</td><td>{@link #GL_FONT_UNDERLINE_POSITION_BIT_NV FONT_UNDERLINE_POSITION_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_UNDERLINE_THICKNESS_BIT_NV FONT_UNDERLINE_THICKNESS_BIT_NV}</td><td>{@link #GL_FONT_HAS_KERNING_BIT_NV FONT_HAS_KERNING_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_NUM_GLYPH_INDICES_BIT_NV FONT_NUM_GLYPH_INDICES_BIT_NV}</td></tr></table>
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
@@ -1134,8 +1056,6 @@ public class NVPathRendering {
     public static native void nglGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, long metrics);
 
     /**
-     * 
-     *
      * @param metricQueryMask one or more of:<br><table><tr><td>{@link #GL_GLYPH_WIDTH_BIT_NV GLYPH_WIDTH_BIT_NV}</td><td>{@link #GL_GLYPH_HEIGHT_BIT_NV GLYPH_HEIGHT_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV GLYPH_HORIZONTAL_BEARING_X_BIT_NV}</td><td>{@link #GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV GLYPH_HORIZONTAL_BEARING_Y_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV}</td><td>{@link #GL_GLYPH_VERTICAL_BEARING_X_BIT_NV GLYPH_VERTICAL_BEARING_X_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV GLYPH_VERTICAL_BEARING_Y_BIT_NV}</td><td>{@link #GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV}</td></tr><tr><td>{@link #GL_GLYPH_HAS_KERNING_BIT_NV GLYPH_HAS_KERNING_BIT_NV}</td><td>{@link #GL_FONT_X_MIN_BOUNDS_BIT_NV FONT_X_MIN_BOUNDS_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_Y_MIN_BOUNDS_BIT_NV FONT_Y_MIN_BOUNDS_BIT_NV}</td><td>{@link #GL_FONT_X_MAX_BOUNDS_BIT_NV FONT_X_MAX_BOUNDS_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_Y_MAX_BOUNDS_BIT_NV FONT_Y_MAX_BOUNDS_BIT_NV}</td><td>{@link #GL_FONT_UNITS_PER_EM_BIT_NV FONT_UNITS_PER_EM_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_ASCENDER_BIT_NV FONT_ASCENDER_BIT_NV}</td><td>{@link #GL_FONT_DESCENDER_BIT_NV FONT_DESCENDER_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_HEIGHT_BIT_NV FONT_HEIGHT_BIT_NV}</td><td>{@link #GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV FONT_MAX_ADVANCE_WIDTH_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV FONT_MAX_ADVANCE_HEIGHT_BIT_NV}</td><td>{@link #GL_FONT_UNDERLINE_POSITION_BIT_NV FONT_UNDERLINE_POSITION_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_UNDERLINE_THICKNESS_BIT_NV FONT_UNDERLINE_THICKNESS_BIT_NV}</td><td>{@link #GL_FONT_HAS_KERNING_BIT_NV FONT_HAS_KERNING_BIT_NV}</td></tr><tr><td>{@link #GL_FONT_NUM_GLYPH_INDICES_BIT_NV FONT_NUM_GLYPH_INDICES_BIT_NV}</td></tr></table>
      * @param firstPathName   
      * @param numPaths        
@@ -1155,8 +1075,6 @@ public class NVPathRendering {
     public static native void nglGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, long paths, int pathBase, float advanceScale, float kerningScale, int transformType, long returnedSpacing);
 
     /**
-     * 
-     *
      * @param pathListMode    one of:<br><table><tr><td>{@link #GL_ACCUM_ADJACENT_PAIRS_NV ACCUM_ADJACENT_PAIRS_NV}</td><td>{@link #GL_ADJACENT_PAIRS_NV ADJACENT_PAIRS_NV}</td><td>{@link #GL_FIRST_TO_REST_NV FIRST_TO_REST_NV}</td></tr></table>
      * @param pathNameType    one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_INT INT}</td><td>{@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td><td>{@link #GL_UTF8_NV UTF8_NV}</td><td>{@link #GL_UTF16_NV UTF16_NV}</td><td>{@link #GL_2_BYTES_NV 2_BYTES_NV}</td></tr><tr><td>{@link #GL_3_BYTES_NV 3_BYTES_NV}</td><td>{@link #GL_4_BYTES_NV 4_BYTES_NV}</td></tr></table>
      * @param paths           
@@ -1206,8 +1124,6 @@ public class NVPathRendering {
     public static native void nglMatrixLoad3x2fNV(int matrixMode, long m);
 
     /**
-     * 
-     *
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
@@ -1224,8 +1140,6 @@ public class NVPathRendering {
     public static native void nglMatrixLoad3x3fNV(int matrixMode, long m);
 
     /**
-     * 
-     *
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
@@ -1242,8 +1156,6 @@ public class NVPathRendering {
     public static native void nglMatrixLoadTranspose3x3fNV(int matrixMode, long m);
 
     /**
-     * 
-     *
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
@@ -1260,8 +1172,6 @@ public class NVPathRendering {
     public static native void nglMatrixMult3x2fNV(int matrixMode, long m);
 
     /**
-     * 
-     *
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
@@ -1278,8 +1188,6 @@ public class NVPathRendering {
     public static native void nglMatrixMult3x3fNV(int matrixMode, long m);
 
     /**
-     * 
-     *
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
@@ -1296,8 +1204,6 @@ public class NVPathRendering {
     public static native void nglMatrixMultTranspose3x3fNV(int matrixMode, long m);
 
     /**
-     * 
-     *
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */

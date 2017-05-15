@@ -61,13 +61,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGroupPresentInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t swapchainCount;
-    const uint32_t * pDeviceMasks;
-    VkDeviceGroupPresentModeFlagBitsKHX mode;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGroupPresentInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t swapchainCount;
+ *     const uint32_t * pDeviceMasks;
+ *     VkDeviceGroupPresentModeFlagBitsKHX mode;
+ * }</pre></code>
  */
 public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResource {
 

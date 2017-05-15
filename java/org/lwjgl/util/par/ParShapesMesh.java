@@ -27,14 +27,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct par_shapes_mesh {
-    float * points;
-    int npoints;
-    PAR_SHAPES_T * triangles;
-    int ntriangles;
-    float * normals;
-    float * tcoords;
-}</code></pre>
+ * <code><pre>
+ * struct par_shapes_mesh {
+ *     float * points;
+ *     int npoints;
+ *     PAR_SHAPES_T * triangles;
+ *     int ntriangles;
+ *     float * normals;
+ *     float * tcoords;
+ * }</pre></code>
  */
 public class ParShapesMesh extends Struct {
 

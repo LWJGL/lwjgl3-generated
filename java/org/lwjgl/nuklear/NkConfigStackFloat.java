@@ -15,10 +15,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_config_stack_float {
-    int head;
-    {@link NkConfigStackFloatElement struct nk_config_stack_float_element} elements[32];
-}</code></pre>
+ * <code><pre>
+ * struct nk_config_stack_float {
+ *     int head;
+ *     {@link NkConfigStackFloatElement struct nk_config_stack_float_element} elements[32];
+ * }</pre></code>
  */
 class NkConfigStackFloat extends Struct {
 

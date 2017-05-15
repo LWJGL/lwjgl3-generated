@@ -18,18 +18,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The <em>binding range</em> <code>[resourceOffset, resourceOffset {plus} size)</code> has different constraints based on {@code flags}. If {@code flags} contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the mip tail region of the metadata aspect. This metadata region is defined by:</p>
+ * <p>The <em>binding range</em></p><code>[resourceOffset, resourceOffset {plus} size)</code>
+ * 
+ * <p>has different constraints based on {@code flags}. If {@code flags} contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the mip tail region of the metadata aspect. This metadata region is defined by:</p>
  * 
  * <dl>
  * <dd><code>metadataRegion = [base, base + imageMipTailSize)</code></dd>
  * <dd><code>base = imageMipTailOffset + imageMipTailStride × n</code></dd>
  * </dl>
  * 
- * <p>and {@code imageMipTailOffset}, {@code imageMipTailSize}, and {@code imageMipTailStride} values are from the {@link VkSparseImageMemoryRequirements} corresponding to the metadata aspect of the image, and <code>n</code> is a valid array layer index for the image,</p>
+ * <p>and {@code imageMipTailOffset}, {@code imageMipTailSize}, and {@code imageMipTailStride} values are from the {@link VkSparseImageMemoryRequirements} corresponding to the metadata aspect of the image, and</p><code>n</code>
+ * 
+ * <p>is a valid array layer index for the image,</p>
  * 
  * <p>{@code imageMipTailStride} is considered to be zero for aspects where {@link VkSparseImageMemoryRequirements}{@code ::formatProperties}.flags contains {@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}.</p>
  * 
- * <p>If {@code flags} does not contain {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the range <code>[0,{@link VkMemoryRequirements}::size)</code>.</p>
+ * <p>If {@code flags} does not contain {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the range</p><code>[0,{@link VkMemoryRequirements}::size)</code>
+ * 
+ * <p>.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -63,9 +69,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code memoryOffset} &ndash; the offset into the {@code VkDeviceMemory} object to bind the resource range to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, this value is ignored.</li>
  * <li>{@code flags} &ndash; a bitmask specifying usage of the binding operation. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkSparseMemoryBindFlagBits {
-    VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x00000001,
-} VkSparseMemoryBindFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkSparseMemoryBindFlagBits {
+ *     VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x00000001,
+ * } VkSparseMemoryBindFlagBits;</pre></code>
  * 
  * <ul>
  * <li>{@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT} indicates that the memory being bound is only for the metadata aspect.</li>
@@ -74,13 +81,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkSparseMemoryBind {
-    VkDeviceSize resourceOffset;
-    VkDeviceSize size;
-    VkDeviceMemory memory;
-    VkDeviceSize memoryOffset;
-    VkSparseMemoryBindFlags flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkSparseMemoryBind {
+ *     VkDeviceSize resourceOffset;
+ *     VkDeviceSize size;
+ *     VkDeviceMemory memory;
+ *     VkDeviceSize memoryOffset;
+ *     VkSparseMemoryBindFlags flags;
+ * }</pre></code>
  */
 public class VkSparseMemoryBind extends Struct implements NativeResource {
 

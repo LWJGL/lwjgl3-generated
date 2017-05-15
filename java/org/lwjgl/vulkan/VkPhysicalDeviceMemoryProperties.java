@@ -43,34 +43,39 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <p>There <b>must</b> be at least one memory type with both the {@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} and {@link VK10#VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} bits set in its {@code propertyFlags}. There <b>must</b> be at least one memory type with the {@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit set in its {@code propertyFlags}.</p>
  * 
- * <p>The memory types are sorted according to a preorder which serves to aid in easily selecting an appropriate memory type. Given two memory types X and Y, the preorder defines <code>X {leq} Y</code> if:</p>
+ * <p>The memory types are sorted according to a preorder which serves to aid in easily selecting an appropriate memory type. Given two memory types X and Y, the preorder defines</p><code>X {leq} Y</code>
+ * 
+ * <p>if:</p>
  * 
  * <ul>
  * <li>the memory property bits set for X are a strict subset of the memory property bits set for Y. Or,</li>
  * <li>the memory property bits set for X are the same as the memory property bits set for Y, and X uses a memory heap with greater or equal performance (as determined in an implementation-specific manner).</li>
  * </ul>
  * 
- * <p>Memory types are ordered in the list such that X is assigned a lesser {@code memoryTypeIndex} than Y if <code>(X {leq} Y) {land} {lnot} (Y {leq} X)</code> according to the preorder. Note that the list of all allowed memory property flag combinations above satisfies this preorder, but other orders would as well. The goal of this ordering is to enable applications to use a simple search loop in selecting the proper memory type, along the lines of:</p>
+ * <p>Memory types are ordered in the list such that X is assigned a lesser {@code memoryTypeIndex} than Y if</p><code>(X {leq} Y) {land} {lnot} (Y {leq} X)</code>
  * 
- * <pre><code>// Find a memory type in "memoryTypeBits" that includes all of "properties"
-int32_t FindProperties(uint32_t memoryTypeBits, VkMemoryPropertyFlags properties)
-{
-    for (int32_t i = 0; i < memoryTypeCount; ++i)
-    {
-        if ((memoryTypeBits & (1 << i)) &&
-            ((memoryTypes[i].propertyFlags & properties) == properties))
-            return i;
-    }
-    return -1;
-}
-
-// Try to find an optimal memory type, or if it does not exist
-// find any compatible memory type
-VkMemoryRequirements memoryRequirements;
-vkGetImageMemoryRequirements(device, image, &memoryRequirements);
-int32_t memoryType = FindProperties(memoryRequirements.memoryTypeBits, optimalProperties);
-if (memoryType == -1)
-    memoryType = FindProperties(memoryRequirements.memoryTypeBits, requiredProperties);</code></pre>
+ * <p>according to the preorder. Note that the list of all allowed memory property flag combinations above satisfies this preorder, but other orders would as well. The goal of this ordering is to enable applications to use a simple search loop in selecting the proper memory type, along the lines of:</p>
+ * 
+ * <code><pre>
+ * // Find a memory type in "memoryTypeBits" that includes all of "properties"
+ * int32_t FindProperties(uint32_t memoryTypeBits, VkMemoryPropertyFlags properties)
+ * {
+ *     for (int32_t i = 0; i < memoryTypeCount; ++i)
+ *     {
+ *         if ((memoryTypeBits & (1 << i)) &&
+ *             ((memoryTypes[i].propertyFlags & properties) == properties))
+ *             return i;
+ *     }
+ *     return -1;
+ * }
+ * 
+ * // Try to find an optimal memory type, or if it does not exist
+ * // find any compatible memory type
+ * VkMemoryRequirements memoryRequirements;
+ * vkGetImageMemoryRequirements(device, image, &memoryRequirements);
+ * int32_t memoryType = FindProperties(memoryRequirements.memoryTypeBits, optimalProperties);
+ * if (memoryType == -1)
+ *     memoryType = FindProperties(memoryRequirements.memoryTypeBits, requiredProperties);</pre></code>
  * 
  * <p>The loop will find the first supported memory type that has all bits requested in {@code properties} set. If there is no exact match, it will find a closest match (i.e. a memory type with the fewest additional bits set), which has some additional bits set but which are not detrimental to the behaviors requested by {@code properties}. The application <b>can</b> first search for the optimal properties, e.g. a memory type that is device-local or supports coherent cached accesses, as appropriate for the intended usage, and if such a memory type is not present <b>can</b> fallback to searching for a less optimal but guaranteed set of properties such as "0" or "host-visible and coherent".</p>
  * 
@@ -89,12 +94,13 @@ if (memoryType == -1)
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceMemoryProperties {
-    uint32_t memoryTypeCount;
-    {@link VkMemoryType VkMemoryType} memoryTypes[VK_MAX_MEMORY_TYPES];
-    uint32_t memoryHeapCount;
-    {@link VkMemoryHeap VkMemoryHeap} memoryHeaps[VK_MAX_MEMORY_HEAPS];
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceMemoryProperties {
+ *     uint32_t memoryTypeCount;
+ *     {@link VkMemoryType VkMemoryType} memoryTypes[VK_MAX_MEMORY_TYPES];
+ *     uint32_t memoryHeapCount;
+ *     {@link VkMemoryHeap VkMemoryHeap} memoryHeaps[VK_MAX_MEMORY_HEAPS];
+ * }</pre></code>
  */
 public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeResource {
 

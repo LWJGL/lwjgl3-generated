@@ -16,16 +16,19 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <p>The type of {@code pfnReallocation} is:</p>
  * 
- * <pre><code>typedef void* (VKAPI_PTR *PFN_vkReallocationFunction)(
-    void*                                       pUserData,
-    void*                                       pOriginal,
-    size_t                                      size,
-    size_t                                      alignment,
-    VkSystemAllocationScope                     allocationScope);</code></pre>
+ * <code><pre>
+ * typedef void* (VKAPI_PTR *PFN_vkReallocationFunction)(
+ *     void*                                       pUserData,
+ *     void*                                       pOriginal,
+ *     size_t                                      size,
+ *     size_t                                      alignment,
+ *     VkSystemAllocationScope                     allocationScope);</pre></code>
  * 
  * <h5>Description</h5>
  * 
- * <p>{@code pfnReallocation} <b>must</b> return an allocation with enough space for {@code size} bytes, and the contents of the original allocation from bytes zero to <code>min(original size, new size) - 1</code> <b>must</b> be preserved in the returned allocation. If {@code size} is larger than the old size, the contents of the additional space are undefined. If satisfying these requirements involves creating a new allocation, then the old allocation <b>should</b> be freed.</p>
+ * <p>{@code pfnReallocation} <b>must</b> return an allocation with enough space for {@code size} bytes, and the contents of the original allocation from bytes zero to</p><code>min(original size, new size) - 1</code>
+ * 
+ * <p><b>must</b> be preserved in the returned allocation. If {@code size} is larger than the old size, the contents of the additional space are undefined. If satisfying these requirements involves creating a new allocation, then the old allocation <b>should</b> be freed.</p>
  * 
  * <p>If {@code pOriginal} is {@code NULL}, then {@code pfnReallocation} <b>must</b> behave equivalently to a call to {@link VkAllocationFunction} with the same parameter values (without {@code pOriginal}).</p>
  * 

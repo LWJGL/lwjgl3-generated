@@ -41,15 +41,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDeviceGeneratedCommandsLimitsNVX {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t maxIndirectCommandsLayoutTokenCount;
-    uint32_t maxObjectEntryCounts;
-    uint32_t minSequenceCountBufferOffsetAlignment;
-    uint32_t minSequenceIndexBufferOffsetAlignment;
-    uint32_t minCommandsTokenBufferOffsetAlignment;
-}</code></pre>
+ * <code><pre>
+ * struct VkDeviceGeneratedCommandsLimitsNVX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t maxIndirectCommandsLayoutTokenCount;
+ *     uint32_t maxObjectEntryCounts;
+ *     uint32_t minSequenceCountBufferOffsetAlignment;
+ *     uint32_t minSequenceIndexBufferOffsetAlignment;
+ *     uint32_t minCommandsTokenBufferOffsetAlignment;
+ * }</pre></code>
  */
 public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements NativeResource {
 

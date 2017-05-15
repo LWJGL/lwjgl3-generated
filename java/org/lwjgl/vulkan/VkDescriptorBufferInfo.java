@@ -51,11 +51,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorBufferInfo {
-    VkBuffer buffer;
-    VkDeviceSize offset;
-    VkDeviceSize range;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorBufferInfo {
+ *     VkBuffer buffer;
+ *     VkDeviceSize offset;
+ *     VkDeviceSize range;
+ * }</pre></code>
  */
 public class VkDescriptorBufferInfo extends Struct implements NativeResource {
 

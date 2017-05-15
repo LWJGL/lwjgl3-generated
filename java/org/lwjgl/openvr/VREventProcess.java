@@ -18,11 +18,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Process_t {
-    uint32_t pid;
-    uint32_t oldPid;
-    bool bForced;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Process_t {
+ *     uint32_t pid;
+ *     uint32_t oldPid;
+ *     bool bForced;
+ * }</pre></code>
  */
 public class VREventProcess extends Struct implements NativeResource {
 

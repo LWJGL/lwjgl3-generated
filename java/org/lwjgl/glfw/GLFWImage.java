@@ -27,11 +27,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct GLFWimage {
-    int width;
-    int height;
-    unsigned char * pixels;
-}</code></pre>
+ * <code><pre>
+ * struct GLFWimage {
+ *     int width;
+ *     int height;
+ *     unsigned char * pixels;
+ * }</pre></code>
  */
 public class GLFWImage extends Struct implements NativeResource {
 

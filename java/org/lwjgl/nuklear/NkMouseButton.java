@@ -14,11 +14,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_mouse_button {
-    int down;
-    unsigned int clicked;
-    {@link NkVec2 struct nk_vec2} clicked_pos;
-}</code></pre>
+ * <code><pre>
+ * struct nk_mouse_button {
+ *     int down;
+ *     unsigned int clicked;
+ *     {@link NkVec2 struct nk_vec2} clicked_pos;
+ * }</pre></code>
  */
 public class NkMouseButton extends Struct {
 

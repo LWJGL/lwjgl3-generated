@@ -35,11 +35,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code powerState} &ndash; the new power state of the display. Possible values are:
  * 
- * <pre><code>typedef enum VkDisplayPowerStateEXT {
-    VK_DISPLAY_POWER_STATE_OFF_EXT = 0,
-    VK_DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
-    VK_DISPLAY_POWER_STATE_ON_EXT = 2,
-} VkDisplayPowerStateEXT;</code></pre>
+ * <code><pre>
+ * typedef enum VkDisplayPowerStateEXT {
+ *     VK_DISPLAY_POWER_STATE_OFF_EXT = 0,
+ *     VK_DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
+ *     VK_DISPLAY_POWER_STATE_ON_EXT = 2,
+ * } VkDisplayPowerStateEXT;</pre></code>
  * 
  * <ul>
  * <li>{@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT} means the display is powered down.</li>
@@ -50,11 +51,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayPowerInfoEXT {
-    VkStructureType sType;
-    const void * pNext;
-    VkDisplayPowerStateEXT powerState;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayPowerInfoEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDisplayPowerStateEXT powerState;
+ * }</pre></code>
  */
 public class VkDisplayPowerInfoEXT extends Struct implements NativeResource {
 

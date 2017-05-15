@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct JAWT_DrawingSurface {
-    JNIEnv * env;
-    jobject target;
-    void * Lock;
-    void * GetDrawingSurfaceInfo;
-    void * FreeDrawingSurfaceInfo;
-    void * Unlock;
-}</code></pre>
+ * <code><pre>
+ * struct JAWT_DrawingSurface {
+ *     JNIEnv * env;
+ *     jobject target;
+ *     void * Lock;
+ *     void * GetDrawingSurfaceInfo;
+ *     void * FreeDrawingSurfaceInfo;
+ *     void * Unlock;
+ * }</pre></code>
  */
 public class JAWTDrawingSurface extends Struct {
 

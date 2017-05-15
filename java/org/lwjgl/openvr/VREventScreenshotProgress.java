@@ -16,9 +16,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_ScreenshotProgress_t {
-    float progress;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_ScreenshotProgress_t {
+ *     float progress;
+ * }</pre></code>
  */
 public class VREventScreenshotProgress extends Struct implements NativeResource {
 

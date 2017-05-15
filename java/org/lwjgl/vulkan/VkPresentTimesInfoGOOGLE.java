@@ -45,12 +45,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPresentTimesInfoGOOGLE {
-    VkStructureType sType;
-    const void * pNext;
-    uint32_t swapchainCount;
-    const {@link VkPresentTimeGOOGLE VkPresentTimeGOOGLE} * pTimes;
-}</code></pre>
+ * <code><pre>
+ * struct VkPresentTimesInfoGOOGLE {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     uint32_t swapchainCount;
+ *     const {@link VkPresentTimeGOOGLE VkPresentTimeGOOGLE} * pTimes;
+ * }</pre></code>
  */
 public class VkPresentTimesInfoGOOGLE extends Struct implements NativeResource {
 

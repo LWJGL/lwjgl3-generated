@@ -16,14 +16,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_memory_status {
-    void * memory;
-    unsigned int type;
-    nk_size size;
-    nk_size allocated;
-    nk_size needed;
-    nk_size calls;
-}</code></pre>
+ * <code><pre>
+ * struct nk_memory_status {
+ *     void * memory;
+ *     unsigned int type;
+ *     nk_size size;
+ *     nk_size allocated;
+ *     nk_size needed;
+ *     nk_size calls;
+ * }</pre></code>
  */
 public class NkMemoryStatus extends Struct implements NativeResource {
 

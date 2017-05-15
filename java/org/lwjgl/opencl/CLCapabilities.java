@@ -245,102 +245,103 @@ public class CLCapabilities {
      * 
      * <p>The directive when enabled adds the following built-in functions to the OpenCL language.</p>
      * 
-     * <pre><code>Note: typen denote opencl scalar type {n = 1} and vector types {n = 4, 8, 16}.
-
-Build-in Function
-  uint  amd_pack(float4 src)
-Description
-  dst =   ((((uint)src.s0) & 0xff)      )
-        + ((((uint)src.s1) & 0xff) <<  8)
-        + ((((uint)src.s2) & 0xff) << 16)
-        + ((((uint)src.s3) & 0xff) << 24)
-
-Build-in Function
-  floatn  amd_unpack3(unitn src)
-Description
-  dst.s0 = (float)((src.s0 >> 24) & 0xff)
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  floatn   amd_unpack2 (unitn src)
-Description
-  dst.s0 = (float)((src.s0 >> 16) & 0xff)
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  floatn   amd_unpack1 (unitn src)
-Description
-  dst.s0 = (float)((src.s0 >> 8) & 0xff)
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  floatn   amd_unpack0 (unitn src)
-Description
-  dst.s0 = (float)(src.s0 & 0xff)
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uintn  amd_bitalign (uintn src0, uintn src1, uintn src2)
-Description
-  dst.s0 =  (uint) (((((long)src0.s0) << 32) | (long)src1.s0) >> (src2.s0 & 31))
-  similar operation applied to other components of the vectors.
-
-
-Build-in Function
-  uintn  amd_bytealign (uintn src0, uintn src1, uintn src2)
-Description
-  dst.s0 =  (uint) (((((long)src0.s0) << 32) | (long)src1.s0) >> ((src2.s0 & 3)*8))
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uintn  amd_lerp (uintn src0, uintn src1, uintn src2)
-Description
-  dst.s0 = (((((src0.s0 >>  0) & 0xff) + ((src1.s0 >>  0) & 0xff) + ((src2.s0 >>  0) & 1)) >> 1) <<  0) +
-           (((((src0.s0 >>  8) & 0xff) + ((src1.s0 >>  8) & 0xff) + ((src2.s0 >>  8) & 1)) >> 1) <<  8) +
-           (((((src0.s0 >> 16) & 0xff) + ((src1.s0 >> 16) & 0xff) + ((src2.s0 >> 16) & 1)) >> 1) << 16) +
-           (((((src0.s0 >> 24) & 0xff) + ((src1.s0 >> 24) & 0xff) + ((src2.s0 >> 24) & 1)) >> 1) << 24);
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uintn  amd_sad (uintn src0, uintn src1, uintn src2)
-Description
-  dst.s0 = src2.s0 +
-           abs(((src0.s0 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) +
-           abs(((src0.s0 >>  8) & 0xff) - ((src1.s0 >>  8) & 0xff)) +
-           abs(((src0.s0 >> 16) & 0xff) - ((src1.s0 >> 16) & 0xff)) +
-           abs(((src0.s0 >> 24) & 0xff) - ((src1.s0 >> 24) & 0xff));
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uintn  amd_sadhi (uintn src0, uintn src1n, uintn src2)
-Description
-  dst.s0 = src2.s0 +
-           (abs(((src0.s0 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) << 16) +
-           (abs(((src0.s0 >>  8) & 0xff) - ((src1.s0 >>  8) & 0xff)) << 16) +
-           (abs(((src0.s0 >> 16) & 0xff) - ((src1.s0 >> 16) & 0xff)) << 16) +
-           (abs(((src0.s0 >> 24) & 0xff) - ((src1.s0 >> 24) & 0xff)) << 16);
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uint  amd_sad4(uint4 src0, uint4 src1, uint src2)
-Description
-  dst   = src2   +
-           abs(((src0.s0 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) +
-           abs(((src0.s0 >>  8) & 0xff) - ((src1.s0 >>  8) & 0xff)) +
-           abs(((src0.s0 >> 16) & 0xff) - ((src1.s0 >> 16) & 0xff)) +
-           abs(((src0.s0 >> 24) & 0xff) - ((src1.s0 >> 24) & 0xff)) +
-           abs(((src0.s1 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) +
-           abs(((src0.s1 >>  8) & 0xff) - ((src1.s1 >>  8) & 0xff)) +
-           abs(((src0.s1 >> 16) & 0xff) - ((src1.s1 >> 16) & 0xff)) +
-           abs(((src0.s1 >> 24) & 0xff) - ((src1.s1 >> 24) & 0xff)) +
-           abs(((src0.s2 >>  0) & 0xff) - ((src1.s2 >>  0) & 0xff)) +
-           abs(((src0.s2 >>  8) & 0xff) - ((src1.s2 >>  8) & 0xff)) +
-           abs(((src0.s2 >> 16) & 0xff) - ((src1.s2 >> 16) & 0xff)) +
-           abs(((src0.s2 >> 24) & 0xff) - ((src1.s2 >> 24) & 0xff)) +
-           abs(((src0.s3 >>  0) & 0xff) - ((src1.s3 >>  0) & 0xff)) +
-           abs(((src0.s3 >>  8) & 0xff) - ((src1.s3 >>  8) & 0xff)) +
-           abs(((src0.s3 >> 16) & 0xff) - ((src1.s3 >> 16) & 0xff)) +
-           abs(((src0.s3 >> 24) & 0xff) - ((src1.s3 >> 24) & 0xff));</code></pre>
+     * <code><pre>
+     * Note: typen denote opencl scalar type {n = 1} and vector types {n = 4, 8, 16}.
+     * 
+     * Build-in Function
+     *   uint  amd_pack(float4 src)
+     * Description
+     *   dst =   ((((uint)src.s0) & 0xff)      )
+     *         + ((((uint)src.s1) & 0xff) <<  8)
+     *         + ((((uint)src.s2) & 0xff) << 16)
+     *         + ((((uint)src.s3) & 0xff) << 24)
+     * 
+     * Build-in Function
+     *   floatn  amd_unpack3(unitn src)
+     * Description
+     *   dst.s0 = (float)((src.s0 >> 24) & 0xff)
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   floatn   amd_unpack2 (unitn src)
+     * Description
+     *   dst.s0 = (float)((src.s0 >> 16) & 0xff)
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   floatn   amd_unpack1 (unitn src)
+     * Description
+     *   dst.s0 = (float)((src.s0 >> 8) & 0xff)
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   floatn   amd_unpack0 (unitn src)
+     * Description
+     *   dst.s0 = (float)(src.s0 & 0xff)
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uintn  amd_bitalign (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   dst.s0 =  (uint) (((((long)src0.s0) << 32) | (long)src1.s0) >> (src2.s0 & 31))
+     *   similar operation applied to other components of the vectors.
+     * 
+     * 
+     * Build-in Function
+     *   uintn  amd_bytealign (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   dst.s0 =  (uint) (((((long)src0.s0) << 32) | (long)src1.s0) >> ((src2.s0 & 3)*8))
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uintn  amd_lerp (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   dst.s0 = (((((src0.s0 >>  0) & 0xff) + ((src1.s0 >>  0) & 0xff) + ((src2.s0 >>  0) & 1)) >> 1) <<  0) +
+     *            (((((src0.s0 >>  8) & 0xff) + ((src1.s0 >>  8) & 0xff) + ((src2.s0 >>  8) & 1)) >> 1) <<  8) +
+     *            (((((src0.s0 >> 16) & 0xff) + ((src1.s0 >> 16) & 0xff) + ((src2.s0 >> 16) & 1)) >> 1) << 16) +
+     *            (((((src0.s0 >> 24) & 0xff) + ((src1.s0 >> 24) & 0xff) + ((src2.s0 >> 24) & 1)) >> 1) << 24);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uintn  amd_sad (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   dst.s0 = src2.s0 +
+     *            abs(((src0.s0 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) +
+     *            abs(((src0.s0 >>  8) & 0xff) - ((src1.s0 >>  8) & 0xff)) +
+     *            abs(((src0.s0 >> 16) & 0xff) - ((src1.s0 >> 16) & 0xff)) +
+     *            abs(((src0.s0 >> 24) & 0xff) - ((src1.s0 >> 24) & 0xff));
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uintn  amd_sadhi (uintn src0, uintn src1n, uintn src2)
+     * Description
+     *   dst.s0 = src2.s0 +
+     *            (abs(((src0.s0 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) << 16) +
+     *            (abs(((src0.s0 >>  8) & 0xff) - ((src1.s0 >>  8) & 0xff)) << 16) +
+     *            (abs(((src0.s0 >> 16) & 0xff) - ((src1.s0 >> 16) & 0xff)) << 16) +
+     *            (abs(((src0.s0 >> 24) & 0xff) - ((src1.s0 >> 24) & 0xff)) << 16);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uint  amd_sad4(uint4 src0, uint4 src1, uint src2)
+     * Description
+     *   dst   = src2   +
+     *            abs(((src0.s0 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) +
+     *            abs(((src0.s0 >>  8) & 0xff) - ((src1.s0 >>  8) & 0xff)) +
+     *            abs(((src0.s0 >> 16) & 0xff) - ((src1.s0 >> 16) & 0xff)) +
+     *            abs(((src0.s0 >> 24) & 0xff) - ((src1.s0 >> 24) & 0xff)) +
+     *            abs(((src0.s1 >>  0) & 0xff) - ((src1.s0 >>  0) & 0xff)) +
+     *            abs(((src0.s1 >>  8) & 0xff) - ((src1.s1 >>  8) & 0xff)) +
+     *            abs(((src0.s1 >> 16) & 0xff) - ((src1.s1 >> 16) & 0xff)) +
+     *            abs(((src0.s1 >> 24) & 0xff) - ((src1.s1 >> 24) & 0xff)) +
+     *            abs(((src0.s2 >>  0) & 0xff) - ((src1.s2 >>  0) & 0xff)) +
+     *            abs(((src0.s2 >>  8) & 0xff) - ((src1.s2 >>  8) & 0xff)) +
+     *            abs(((src0.s2 >> 16) & 0xff) - ((src1.s2 >> 16) & 0xff)) +
+     *            abs(((src0.s2 >> 24) & 0xff) - ((src1.s2 >> 24) & 0xff)) +
+     *            abs(((src0.s3 >>  0) & 0xff) - ((src1.s3 >>  0) & 0xff)) +
+     *            abs(((src0.s3 >>  8) & 0xff) - ((src1.s3 >>  8) & 0xff)) +
+     *            abs(((src0.s3 >> 16) & 0xff) - ((src1.s3 >> 16) & 0xff)) +
+     *            abs(((src0.s3 >> 24) & 0xff) - ((src1.s3 >> 24) & 0xff));</pre></code>
      */
     public final boolean cl_amd_media_ops;
     /**
@@ -348,116 +349,117 @@ Description
      * 
      * <p>The directive when enabled adds the following built-in functions to the OpenCL language.</p>
      * 
-     * <pre><code>Note: typen denote open scalar type { n = 1 } and vector types { n = 2, 4, 8, 16 }.
-
-Build-in Function
-  uintn  amd_msad (uintn src0, uintn src1, uintn src2)
-Description
-  uchar4 src0u8 = as_uchar4(src0.s0);
-  uchar4 src1u8 = as_uchar4(src1.s0);
-  dst.s0 = src2.s0 +
-           ((src1u8.s0 == 0) ? 0 : abs(src0u8.s0 - src1u8.s0)) +
-           ((src1u8.s1 == 0) ? 0 : abs(src0u8.s1 - src1u8.s1)) +
-           ((src1u8.s2 == 0) ? 0 : abs(src0u8.s2 - src1u8.s2)) +
-           ((src1u8.s3 == 0) ? 0 : abs(src0u8.s3 - src1u8.s3));
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  ulongn amd_qsad (ulongn src0, uintn src1, ulongn src2)
-Description
-  uchar8 src0u8 = as_uchar8(src0.s0);
-  ushort4 src2u16 = as_ushort4(src2.s0);
-  ushort4 dstu16;
-  dstu16.s0 = amd_sad(as_uint(src0u8.s0123), src1.s0, src2u16.s0);
-  dstu16.s1 = amd_sad(as_uint(src0u8.s1234), src1.s0, src2u16.s1);
-  dstu16.s2 = amd_sad(as_uint(src0u8.s2345), src1.s0, src2u16.s2);
-  dstu16.s3 = amd_sad(as_uint(src0u8.s3456), src1.s0, src2u16.s3);
-  dst.s0 = as_uint2(dstu16);
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  ulongn amd_mqsad (ulongn src0, uintn src1, ulongn src2)
-Description
-  uchar8 src0u8 = as_uchar8(src0.s0);
-  ushort4 src2u16 = as_ushort4(src2.s0);
-  ushort4 dstu16;
-  dstu16.s0 = amd_msad(as_uint(src0u8.s0123), src1.s0, src2u16.s0);
-  dstu16.s1 = amd_msad(as_uint(src0u8.s1234), src1.s0, src2u16.s1);
-  dstu16.s2 = amd_msad(as_uint(src0u8.s2345), src1.s0, src2u16.s2);
-  dstu16.s3 = amd_msad(as_uint(src0u8.s3456), src1.s0, src2u16.s3);
-  dst.s0 = as_uint2(dstu16);
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uintn  amd_sadw (uintn src0, uintn src1, uintn src2)
-Description
-  ushort2 src0u16 = as_ushort2(src0.s0);
-  ushort2 src1u16 = as_ushort2(src1.s0);
-  dst.s0 = src2.s0 +
-           abs(src0u16.s0 - src1u16.s0) +
-           abs(src0u16.s1 - src1u16.s1);
-  similar operation applied to other components of the vectors
-
-Build-in Function
-  uintn  amd_sadd (uintn src0, uintn src1, uintn src2)
-Description
-  dst.s0 = src2.s0 +  abs(src0.s0 - src1.s0);
-  similar operation applied to other components of the vectors
-
-Built-in Function:
-  uintn amd_bfm (uintn src0, uintn src1)
-Description
-  dst.s0 = ((1 << (src0.s0 & 0x1f)) - 1) << (src1.s0 & 0x1f);
-  similar operation applied to other components of the vectors
-
-Built-in Function:
-  uintn amd_bfe (uintn src0, uintn src1, uintn src2)
-Description
-  NOTE: operator >> below represent logical right shift
-  offset = src1.s0 & 31;
-  width = src2.s0 & 31;
-  if width = 0
-      dst.s0 = 0;
-  else if (offset + width) < 32
-      dst.s0 = (src0.s0 << (32 - offset - width)) >> (32 - width);
-  else
-      dst.s0 = src0.s0 >> offset;
-  similar operation applied to other components of the vectors
-
-Built-in Function:
-   intn amd_bfe (intn src0, uintn src1, uintn src2)
-Description
-  NOTE: operator >> below represent arithmetic right shift
-  offset = src1.s0 & 31;
-  width = src2.s0 & 31;
-  if width = 0
-      dst.s0 = 0;
-  else if (offset + width) < 32
-      dst.s0 = src0.s0 << (32-offset-width) >> 32-width;
-  else
-      dst.s0 = src0.s0 >> offset;
-  similar operation applied to other components of the vectors
-
-Built-in Function:
-   intn amd_median3 (intn src0, intn src1, intn src2)
-   uintn amd_median3 (uintn src0, uintn src1, uintn src2)
-   floatn amd_median3 (floatn src0, floatn src1, floattn src2)
-Description
-   returns median of src0, src1, and src2
-
-Built-in Function:
-   intn amd_min3 (intn src0, intn src1, intn src2)
-   uintn amd_min3 (uintn src0, uintn src1, uintn src2)
-   floatn amd_min3 (floatn src0, floatn src1, floattn src2)
-Description
-   returns min of src0, src1, and src2
-
-Built-in Function:
-   intn amd_max3 (intn src0, intn src1, intn src2)
-   uintn amd_max3 (uintn src0, uintn src1, uintn src2)
-   floatn amd_max3 (floatn src0, floatn src1, floattn src2)
-Description
-   returns max of src0, src1, and src2</code></pre>
+     * <code><pre>
+     * Note: typen denote open scalar type { n = 1 } and vector types { n = 2, 4, 8, 16 }.
+     * 
+     * Build-in Function
+     *   uintn  amd_msad (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   uchar4 src0u8 = as_uchar4(src0.s0);
+     *   uchar4 src1u8 = as_uchar4(src1.s0);
+     *   dst.s0 = src2.s0 +
+     *            ((src1u8.s0 == 0) ? 0 : abs(src0u8.s0 - src1u8.s0)) +
+     *            ((src1u8.s1 == 0) ? 0 : abs(src0u8.s1 - src1u8.s1)) +
+     *            ((src1u8.s2 == 0) ? 0 : abs(src0u8.s2 - src1u8.s2)) +
+     *            ((src1u8.s3 == 0) ? 0 : abs(src0u8.s3 - src1u8.s3));
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   ulongn amd_qsad (ulongn src0, uintn src1, ulongn src2)
+     * Description
+     *   uchar8 src0u8 = as_uchar8(src0.s0);
+     *   ushort4 src2u16 = as_ushort4(src2.s0);
+     *   ushort4 dstu16;
+     *   dstu16.s0 = amd_sad(as_uint(src0u8.s0123), src1.s0, src2u16.s0);
+     *   dstu16.s1 = amd_sad(as_uint(src0u8.s1234), src1.s0, src2u16.s1);
+     *   dstu16.s2 = amd_sad(as_uint(src0u8.s2345), src1.s0, src2u16.s2);
+     *   dstu16.s3 = amd_sad(as_uint(src0u8.s3456), src1.s0, src2u16.s3);
+     *   dst.s0 = as_uint2(dstu16);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   ulongn amd_mqsad (ulongn src0, uintn src1, ulongn src2)
+     * Description
+     *   uchar8 src0u8 = as_uchar8(src0.s0);
+     *   ushort4 src2u16 = as_ushort4(src2.s0);
+     *   ushort4 dstu16;
+     *   dstu16.s0 = amd_msad(as_uint(src0u8.s0123), src1.s0, src2u16.s0);
+     *   dstu16.s1 = amd_msad(as_uint(src0u8.s1234), src1.s0, src2u16.s1);
+     *   dstu16.s2 = amd_msad(as_uint(src0u8.s2345), src1.s0, src2u16.s2);
+     *   dstu16.s3 = amd_msad(as_uint(src0u8.s3456), src1.s0, src2u16.s3);
+     *   dst.s0 = as_uint2(dstu16);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uintn  amd_sadw (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   ushort2 src0u16 = as_ushort2(src0.s0);
+     *   ushort2 src1u16 = as_ushort2(src1.s0);
+     *   dst.s0 = src2.s0 +
+     *            abs(src0u16.s0 - src1u16.s0) +
+     *            abs(src0u16.s1 - src1u16.s1);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Build-in Function
+     *   uintn  amd_sadd (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   dst.s0 = src2.s0 +  abs(src0.s0 - src1.s0);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Built-in Function:
+     *   uintn amd_bfm (uintn src0, uintn src1)
+     * Description
+     *   dst.s0 = ((1 << (src0.s0 & 0x1f)) - 1) << (src1.s0 & 0x1f);
+     *   similar operation applied to other components of the vectors
+     * 
+     * Built-in Function:
+     *   uintn amd_bfe (uintn src0, uintn src1, uintn src2)
+     * Description
+     *   NOTE: operator >> below represent logical right shift
+     *   offset = src1.s0 & 31;
+     *   width = src2.s0 & 31;
+     *   if width = 0
+     *       dst.s0 = 0;
+     *   else if (offset + width) < 32
+     *       dst.s0 = (src0.s0 << (32 - offset - width)) >> (32 - width);
+     *   else
+     *       dst.s0 = src0.s0 >> offset;
+     *   similar operation applied to other components of the vectors
+     * 
+     * Built-in Function:
+     *    intn amd_bfe (intn src0, uintn src1, uintn src2)
+     * Description
+     *   NOTE: operator >> below represent arithmetic right shift
+     *   offset = src1.s0 & 31;
+     *   width = src2.s0 & 31;
+     *   if width = 0
+     *       dst.s0 = 0;
+     *   else if (offset + width) < 32
+     *       dst.s0 = src0.s0 << (32-offset-width) >> 32-width;
+     *   else
+     *       dst.s0 = src0.s0 >> offset;
+     *   similar operation applied to other components of the vectors
+     * 
+     * Built-in Function:
+     *    intn amd_median3 (intn src0, intn src1, intn src2)
+     *    uintn amd_median3 (uintn src0, uintn src1, uintn src2)
+     *    floatn amd_median3 (floatn src0, floatn src1, floattn src2)
+     * Description
+     *    returns median of src0, src1, and src2
+     * 
+     * Built-in Function:
+     *    intn amd_min3 (intn src0, intn src1, intn src2)
+     *    uintn amd_min3 (uintn src0, uintn src1, uintn src2)
+     *    floatn amd_min3 (floatn src0, floatn src1, floattn src2)
+     * Description
+     *    returns min of src0, src1, and src2
+     * 
+     * Built-in Function:
+     *    intn amd_max3 (intn src0, intn src1, intn src2)
+     *    uintn amd_max3 (uintn src0, uintn src1, uintn src2)
+     *    floatn amd_max3 (floatn src0, floatn src1, floattn src2)
+     * Description
+     *    returns max of src0, src1, and src2</pre></code>
      */
     public final boolean cl_amd_media_ops2;
     /** When true, {@link AMDOfflineDevices} is supported. */
@@ -529,7 +531,7 @@ Description
     /**
      * When true, the <a target="_blank" href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_printf.txt">amd_printf</a> extension is supported.
      * 
-     * <p>This extension adds the built-in function <code>printf(__constant char * restrict format, …);</code></p>
+     * <p>This extension adds the built-in function</p><code>printf(__constant char * restrict format, …);</code>
      * 
      * <p>This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:</p>
      * 
@@ -660,7 +662,9 @@ Description
      * When true, the <strong>khr_device_enqueue_local_arg_types</strong> extension is supported.
      * 
      * <p>This extension allows arguments to blocks passed to enqueue_kernel functions to be declared as a pointer to any type (built-in or user-defined) in
-     * local memory instead of just <code>local void *</code>.</p>
+     * local memory instead of just</p><code>local void *</code>
+     * 
+     * <p>.</p>
      */
     public final boolean cl_khr_device_enqueue_local_arg_types;
     /** When true, {@link KHREGLEvent} is supported. */
@@ -736,20 +740,27 @@ Description
      * 
      * <p>This extension adds support for specifying the rounding mode for an instruction or group of instructions in the program source.</p>
      * 
-     * <p>The appropriate rounding mode can be specified using <code>#pragma OPENCL SELECT_ROUNDING_MODE</code> rounding-mode in the program source.</p>
+     * <p>The appropriate rounding mode can be specified using</p><code>#pragma OPENCL SELECT_ROUNDING_MODE</code>
      * 
-     * <p>The <code>#pragma OPENCL SELECT_ROUNDING_MODE</code> sets the rounding mode for all instructions that operate on floating-point types (scalar or vector
-     * types) or produce floating-point values that follow this pragma in the program source until the next <code>#pragma OPENCL SELECT_ROUNDING_MODE</code> is
+     * <p>rounding-mode in the program source.</p>
+     * 
+     * <p>The</p><code>#pragma OPENCL SELECT_ROUNDING_MODE</code>
+     * 
+     * <p>sets the rounding mode for all instructions that operate on floating-point types (scalar or vector
+     * types) or produce floating-point values that follow this pragma in the program source until the next</p><code>#pragma OPENCL SELECT_ROUNDING_MODE</code>
+     * 
+     * <p>is
      * encountered. Note that the rounding mode specified for a block of code is known at compile time. Except where otherwise documented, the callee
      * functions do not inherit the rounding mode of the caller function.</p>
      * 
      * <p>If this extension is enabled, the {@code __ROUNDING_MODE__} preprocessor symbol shall be defined to be one of the following according to the current
      * rounding mode:</p>
      * 
-     * <pre><code>#define __ROUNDING_MODE__ rte
-#define __ROUNDING_MODE__ rtz
-#define __ROUNDING_MODE__ rtp
-#define __ROUNDING_MODE__ rtz</code></pre>
+     * <code><pre>
+     * #define __ROUNDING_MODE__ rte
+     * #define __ROUNDING_MODE__ rtz
+     * #define __ROUNDING_MODE__ rtp
+     * #define __ROUNDING_MODE__ rtz</pre></code>
      * 
      * <p>The default rounding mode is round to nearest even. The built-in math functions, the common functions, and the geometric functions are implemented with
      * the round to nearest even rounding mode.</p>
@@ -774,32 +785,33 @@ Description
      * 
      * <p>This extension allows the programmer to pass options to the PTX assembler allowing greater control over code generation.</p>
      * 
-     * <pre><code>-cl-nv-maxrregcount <N>
-    Passed on to ptxas as --maxrregcount <N>
-        N is a positive integer.
-    Specify the maximum number of registers that GPU functions can use.
-    Until a function-specific limit, a higher value will generally increase
-    the performance of individual GPU threads that execute this function.
-    However, because thread registers are allocated from a global register
-    pool on each GPU, a higher value of this option will also reduce the
-    maximum thread block size, thereby reducing the amount of thread
-    parallelism. Hence, a good maxrregcount value is the result of a
-    trade-off.
-    If this option is not specified, then no maximum is assumed. Otherwise
-    the specified value will be rounded to the next multiple of 4 registers
-    until the GPU specific maximum of 128 registers.
-
--cl-nv-opt-level <N>
-    Passed on to ptxas as --opt-level <N>
-        N is a positive integer, or 0 (no optimization).
-    Specify optimization level.
-    Default value:  3.
-
--cl-nv-verbose
-    Passed on to ptxas as --verbose
-    Enable verbose mode.
-    Output will be reported in the build log (accessible through the
-    callback parameter to clBuildProgram).</code></pre>
+     * <code><pre>
+     * -cl-nv-maxrregcount <N>
+     *     Passed on to ptxas as --maxrregcount <N>
+     *         N is a positive integer.
+     *     Specify the maximum number of registers that GPU functions can use.
+     *     Until a function-specific limit, a higher value will generally increase
+     *     the performance of individual GPU threads that execute this function.
+     *     However, because thread registers are allocated from a global register
+     *     pool on each GPU, a higher value of this option will also reduce the
+     *     maximum thread block size, thereby reducing the amount of thread
+     *     parallelism. Hence, a good maxrregcount value is the result of a
+     *     trade-off.
+     *     If this option is not specified, then no maximum is assumed. Otherwise
+     *     the specified value will be rounded to the next multiple of 4 registers
+     *     until the GPU specific maximum of 128 registers.
+     * 
+     * -cl-nv-opt-level <N>
+     *     Passed on to ptxas as --opt-level <N>
+     *         N is a positive integer, or 0 (no optimization).
+     *     Specify optimization level.
+     *     Default value:  3.
+     * 
+     * -cl-nv-verbose
+     *     Passed on to ptxas as --verbose
+     *     Enable verbose mode.
+     *     Output will be reported in the build log (accessible through the
+     *     callback parameter to clBuildProgram).</pre></code>
      */
     public final boolean cl_nv_compiler_options;
     /** When true, {@link NVDeviceAttributeQuery} is supported. */
@@ -821,7 +833,7 @@ Description
      * 
      * <p>A user may specify that a loop in the source program be unrolled. This is done via a pragma. The syntax of this pragma is as follows</p>
      * 
-     * <p><code>#pragma unroll [unroll-factor]</code></p>
+     * <code>#pragma unroll [unroll-factor]</code>
      * 
      * <p>The pragma unroll may optionally specify an unroll factor. The pragma must be placed immediately before the loop and only applies to that loop.</p>
      * 

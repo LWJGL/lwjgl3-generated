@@ -32,11 +32,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExternalMemoryPropertiesKHX {
-    VkExternalMemoryFeatureFlagsKHX externalMemoryFeatures;
-    VkExternalMemoryHandleTypeFlagsKHX exportFromImportedHandleTypes;
-    VkExternalMemoryHandleTypeFlagsKHX compatibleHandleTypes;
-}</code></pre>
+ * <code><pre>
+ * struct VkExternalMemoryPropertiesKHX {
+ *     VkExternalMemoryFeatureFlagsKHX externalMemoryFeatures;
+ *     VkExternalMemoryHandleTypeFlagsKHX exportFromImportedHandleTypes;
+ *     VkExternalMemoryHandleTypeFlagsKHX compatibleHandleTypes;
+ * }</pre></code>
  */
 public class VkExternalMemoryPropertiesKHX extends Struct {
 

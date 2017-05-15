@@ -49,17 +49,18 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceProperties {
-    uint32_t apiVersion;
-    uint32_t driverVersion;
-    uint32_t vendorID;
-    uint32_t deviceID;
-    VkPhysicalDeviceType deviceType;
-    char deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE];
-    uint8_t pipelineCacheUUID[VK_UUID_SIZE];
-    {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
-    {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceProperties {
+ *     uint32_t apiVersion;
+ *     uint32_t driverVersion;
+ *     uint32_t vendorID;
+ *     uint32_t deviceID;
+ *     VkPhysicalDeviceType deviceType;
+ *     char deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE];
+ *     uint8_t pipelineCacheUUID[VK_UUID_SIZE];
+ *     {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
+ *     {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceProperties extends Struct implements NativeResource {
 

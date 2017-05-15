@@ -31,11 +31,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiMeshAnim {
-    {@link AIString struct aiString} mName;
-    unsigned int mNumKeys;
-    {@link AIMeshKey struct aiMeshKey} * mKeys;
-}</code></pre>
+ * <code><pre>
+ * struct aiMeshAnim {
+ *     {@link AIString struct aiString} mName;
+ *     unsigned int mNumKeys;
+ *     {@link AIMeshKey struct aiMeshKey} * mKeys;
+ * }</pre></code>
  */
 public class AIMeshAnim extends Struct implements NativeResource {
 

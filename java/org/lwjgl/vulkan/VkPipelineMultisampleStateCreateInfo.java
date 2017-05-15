@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sampleRateShading">sample rate shading</a> feature is not enabled, {@code sampleShadingEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-alphaToOne">alpha to one</a> feature is not enabled, {@code alphaToOneEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
- * <li>{@code minSampleShading} <b>must</b> be in the range <code>[0,1]</code></li>
+ * <li>{@code minSampleShading} <b>must</b> be in the range<code>[0,1]</code></li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -31,9 +31,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code rasterizationSamples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
- * <li>If {@code pSampleMask} is not {@code NULL}, {@code pSampleMask} <b>must</b> be a pointer to an array of <code><pre><code>ceil(rasterizationSamples / 32)</code></pre>
+ * <li>If {@code pSampleMask} is not {@code NULL}, {@code pSampleMask} <b>must</b> be a pointer to an array of<code><code><pre> ￿ceil(rasterizationSamples / 32)</pre></code></code>
  * 
- * <p></code> {@code VkSampleMask} values</p></li>
+ * <p>{@code VkSampleMask} values</p></li>
  * </ul>
  * 
  * <h5>See Also</h5>
@@ -56,17 +56,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPipelineMultisampleStateCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkPipelineMultisampleStateCreateFlags flags;
-    VkSampleCountFlagBits rasterizationSamples;
-    VkBool32 sampleShadingEnable;
-    float minSampleShading;
-    const VkSampleMask * pSampleMask;
-    VkBool32 alphaToCoverageEnable;
-    VkBool32 alphaToOneEnable;
-}</code></pre>
+ * <code><pre>
+ * struct VkPipelineMultisampleStateCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkPipelineMultisampleStateCreateFlags flags;
+ *     VkSampleCountFlagBits rasterizationSamples;
+ *     VkBool32 sampleShadingEnable;
+ *     float minSampleShading;
+ *     const VkSampleMask * pSampleMask;
+ *     VkBool32 alphaToCoverageEnable;
+ *     VkBool32 alphaToOneEnable;
+ * }</pre></code>
  */
 public class VkPipelineMultisampleStateCreateInfo extends Struct implements NativeResource {
 

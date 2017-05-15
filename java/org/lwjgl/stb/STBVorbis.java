@@ -629,11 +629,12 @@ public class STBVorbis {
      * <p>Let M be the number of channels requested, and N the number of channels present, and Cn be the nth channel; let stereo L be the sum of all L and center
      * channels, and stereo R be the sum of all R and center channels (channel assignment from the vorbis spec).</p>
      * 
-     * <pre><code>M    N      output
-1    k      sum(Ck) for all k
-2    *      stereo L, stereo R
-k    l      k > l, the first l channels, then 0s
-k    l      k <= l, the first k channels</code></pre>
+     * <code><pre>
+     * M    N      output
+     * 1    k      sum(Ck) for all k
+     * 2    *      stereo L, stereo R
+     * k    l      k > l, the first l channels, then 0s
+     * k    l      k <= l, the first k channels</pre></code>
      * 
      * <p>Note that this is not <b>good</b> surround etc. mixing at all! It's just so you get something useful.</p>
      *

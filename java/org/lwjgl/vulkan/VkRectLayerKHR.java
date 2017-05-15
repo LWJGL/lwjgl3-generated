@@ -39,11 +39,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkRectLayerKHR {
-    {@link VkOffset2D VkOffset2D} offset;
-    {@link VkExtent2D VkExtent2D} extent;
-    uint32_t layer;
-}</code></pre>
+ * <code><pre>
+ * struct VkRectLayerKHR {
+ *     {@link VkOffset2D VkOffset2D} offset;
+ *     {@link VkExtent2D VkExtent2D} extent;
+ *     uint32_t layer;
+ * }</pre></code>
  */
 public class VkRectLayerKHR extends Struct implements NativeResource {
 

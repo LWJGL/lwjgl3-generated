@@ -25,12 +25,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkPhysicalDeviceMultiviewPropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    uint32_t maxMultiviewViewCount;
-    uint32_t maxMultiviewInstanceIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkPhysicalDeviceMultiviewPropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint32_t maxMultiviewViewCount;
+ *     uint32_t maxMultiviewInstanceIndex;
+ * }</pre></code>
  */
 public class VkPhysicalDeviceMultiviewPropertiesKHX extends Struct {
 

@@ -34,15 +34,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiFile {
-    {@link AIFileReadProcI aiFileReadProc} ReadProc;
-    {@link AIFileWriteProcI aiFileWriteProc} WriteProc;
-    {@link AIFileTellProcI aiFileTellProc} TellProc;
-    {@link AIFileTellProcI aiFileTellProc} FileSizeProc;
-    {@link AIFileSeekI aiFileSeek} SeekProc;
-    {@link AIFileFlushProcI aiFileFlushProc} FlushProc;
-    aiUserData UserData;
-}</code></pre>
+ * <code><pre>
+ * struct aiFile {
+ *     {@link AIFileReadProcI aiFileReadProc} ReadProc;
+ *     {@link AIFileWriteProcI aiFileWriteProc} WriteProc;
+ *     {@link AIFileTellProcI aiFileTellProc} TellProc;
+ *     {@link AIFileTellProcI aiFileTellProc} FileSizeProc;
+ *     {@link AIFileSeekI aiFileSeek} SeekProc;
+ *     {@link AIFileFlushProcI aiFileFlushProc} FlushProc;
+ *     aiUserData UserData;
+ * }</pre></code>
  */
 public class AIFile extends Struct implements NativeResource {
 

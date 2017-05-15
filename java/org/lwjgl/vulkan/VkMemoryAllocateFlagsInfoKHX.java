@@ -48,9 +48,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; a bitmask of flags controlling the allocation. The bits specified in {@code flags} are:
  * 
- * <pre><code>typedef enum VkMemoryAllocateFlagBitsKHX {
-    VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX = 0x00000001,
-} VkMemoryAllocateFlagBitsKHX;</code></pre>
+ * <code><pre>
+ * typedef enum VkMemoryAllocateFlagBitsKHX {
+ *     VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX = 0x00000001,
+ * } VkMemoryAllocateFlagBitsKHX;</pre></code>
  * 
  * <ul>
  * <li>if {@code flags} contains {@link KHXDeviceGroup#VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX}, memory will be allocated for the devices in {@code deviceMask}.</li>
@@ -60,12 +61,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryAllocateFlagsInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkMemoryAllocateFlagsKHX flags;
-    uint32_t deviceMask;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryAllocateFlagsInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkMemoryAllocateFlagsKHX flags;
+ *     uint32_t deviceMask;
+ * }</pre></code>
  */
 public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResource {
 

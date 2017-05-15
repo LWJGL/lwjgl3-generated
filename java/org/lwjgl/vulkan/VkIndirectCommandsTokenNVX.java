@@ -44,11 +44,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkIndirectCommandsTokenNVX {
-    VkIndirectCommandsTokenTypeNVX tokenType;
-    VkBuffer buffer;
-    VkDeviceSize offset;
-}</code></pre>
+ * <code><pre>
+ * struct VkIndirectCommandsTokenNVX {
+ *     VkIndirectCommandsTokenTypeNVX tokenType;
+ *     VkBuffer buffer;
+ *     VkDeviceSize offset;
+ * }</pre></code>
  */
 public class VkIndirectCommandsTokenNVX extends Struct implements NativeResource {
 

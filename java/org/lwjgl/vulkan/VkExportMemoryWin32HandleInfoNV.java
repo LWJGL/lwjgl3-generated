@@ -45,12 +45,13 @@ import org.lwjgl.system.windows.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkExportMemoryWin32HandleInfoNV {
-    VkStructureType sType;
-    const void * pNext;
-    const {@link SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES} * pAttributes;
-    DWORD dwAccess;
-}</code></pre>
+ * <code><pre>
+ * struct VkExportMemoryWin32HandleInfoNV {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     const {@link SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES} * pAttributes;
+ *     DWORD dwAccess;
+ * }</pre></code>
  */
 public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeResource {
 

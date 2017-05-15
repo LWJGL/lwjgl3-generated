@@ -16,22 +16,23 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_tab {
-    {@link NkStyleItem struct nk_style_item} background;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkColor struct nk_color} text;
-    {@link NkStyleButton struct nk_style_button} tab_maximize_button;
-    {@link NkStyleButton struct nk_style_button} tab_minimize_button;
-    {@link NkStyleButton struct nk_style_button} node_maximize_button;
-    {@link NkStyleButton struct nk_style_button} node_minimize_button;
-    enum nk_symbol_type sym_minimize;
-    enum nk_symbol_type sym_maximize;
-    float border;
-    float rounding;
-    float indent;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkVec2 struct nk_vec2} spacing;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_tab {
+ *     {@link NkStyleItem struct nk_style_item} background;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkColor struct nk_color} text;
+ *     {@link NkStyleButton struct nk_style_button} tab_maximize_button;
+ *     {@link NkStyleButton struct nk_style_button} tab_minimize_button;
+ *     {@link NkStyleButton struct nk_style_button} node_maximize_button;
+ *     {@link NkStyleButton struct nk_style_button} node_minimize_button;
+ *     enum nk_symbol_type sym_minimize;
+ *     enum nk_symbol_type sym_maximize;
+ *     float border;
+ *     float rounding;
+ *     float indent;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkVec2 struct nk_vec2} spacing;
+ * }</pre></code>
  */
 public class NkStyleTab extends Struct implements NativeResource {
 

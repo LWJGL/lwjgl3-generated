@@ -29,15 +29,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stbtt_pack_range {
-    float font_size;
-    int first_unicode_codepoint_in_range;
-    int * array_of_unicode_codepoints;
-    int num_chars;
-    {@link STBTTPackedchar stbtt_packedchar} * chardata_for_range;
-    unsigned char h_oversample;
-    unsigned char v_oversample;
-}</code></pre>
+ * <code><pre>
+ * struct stbtt_pack_range {
+ *     float font_size;
+ *     int first_unicode_codepoint_in_range;
+ *     int * array_of_unicode_codepoints;
+ *     int num_chars;
+ *     {@link STBTTPackedchar stbtt_packedchar} * chardata_for_range;
+ *     unsigned char h_oversample;
+ *     unsigned char v_oversample;
+ * }</pre></code>
  */
 public class STBTTPackRange extends Struct implements NativeResource {
 

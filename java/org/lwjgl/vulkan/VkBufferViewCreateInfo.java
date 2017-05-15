@@ -64,15 +64,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkBufferViewCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkBufferViewCreateFlags flags;
-    VkBuffer buffer;
-    VkFormat format;
-    VkDeviceSize offset;
-    VkDeviceSize range;
-}</code></pre>
+ * <code><pre>
+ * struct VkBufferViewCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkBufferViewCreateFlags flags;
+ *     VkBuffer buffer;
+ *     VkFormat format;
+ *     VkDeviceSize offset;
+ *     VkDeviceSize range;
+ * }</pre></code>
  */
 public class VkBufferViewCreateInfo extends Struct implements NativeResource {
 

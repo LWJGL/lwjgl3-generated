@@ -44,18 +44,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkHdrMetadataEXT {
-    VkStructureType sType;
-    const void * pNext;
-    {@link VkXYColorEXT VkXYColorEXT} displayPrimaryRed;
-    {@link VkXYColorEXT VkXYColorEXT} displayPrimaryGreen;
-    {@link VkXYColorEXT VkXYColorEXT} displayPrimaryBlue;
-    {@link VkXYColorEXT VkXYColorEXT} whitePoint;
-    float maxLuminance;
-    float minLuminance;
-    float maxContentLightLevel;
-    float maxFrameAverageLightLevel;
-}</code></pre>
+ * <code><pre>
+ * struct VkHdrMetadataEXT {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     {@link VkXYColorEXT VkXYColorEXT} displayPrimaryRed;
+ *     {@link VkXYColorEXT VkXYColorEXT} displayPrimaryGreen;
+ *     {@link VkXYColorEXT VkXYColorEXT} displayPrimaryBlue;
+ *     {@link VkXYColorEXT VkXYColorEXT} whitePoint;
+ *     float maxLuminance;
+ *     float minLuminance;
+ *     float maxContentLightLevel;
+ *     float maxFrameAverageLightLevel;
+ * }</pre></code>
  */
 public class VkHdrMetadataEXT extends Struct implements NativeResource {
 

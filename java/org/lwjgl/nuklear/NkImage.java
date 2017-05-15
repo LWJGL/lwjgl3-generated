@@ -17,12 +17,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_image {
-    {@link NkHandle nk_handle} handle;
-    unsigned short w;
-    unsigned short h;
-    unsigned short region[4];
-}</code></pre>
+ * <code><pre>
+ * struct nk_image {
+ *     {@link NkHandle nk_handle} handle;
+ *     unsigned short w;
+ *     unsigned short h;
+ *     unsigned short region[4];
+ * }</pre></code>
  */
 public class NkImage extends Struct implements NativeResource {
 

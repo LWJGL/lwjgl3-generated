@@ -26,11 +26,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryFdPropertiesKHX {
-    VkStructureType sType;
-    void * pNext;
-    uint32_t memoryTypeBits;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryFdPropertiesKHX {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     uint32_t memoryTypeBits;
+ * }</pre></code>
  */
 public class VkMemoryFdPropertiesKHX extends Struct implements NativeResource {
 

@@ -46,12 +46,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkVertexInputAttributeDescription {
-    uint32_t location;
-    uint32_t binding;
-    VkFormat format;
-    uint32_t offset;
-}</code></pre>
+ * <code><pre>
+ * struct VkVertexInputAttributeDescription {
+ *     uint32_t location;
+ *     uint32_t binding;
+ *     VkFormat format;
+ *     uint32_t offset;
+ * }</pre></code>
  */
 public class VkVertexInputAttributeDescription extends Struct implements NativeResource {
 

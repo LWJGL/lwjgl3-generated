@@ -26,10 +26,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiString {
-    size_t length;
-    char data[Assimp.MAXLEN];
-}</code></pre>
+ * <code><pre>
+ * struct aiString {
+ *     size_t length;
+ *     char data[Assimp.MAXLEN];
+ * }</pre></code>
  */
 public class AIString extends Struct implements NativeResource {
 

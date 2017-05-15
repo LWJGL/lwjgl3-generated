@@ -25,10 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDisplayPlanePropertiesKHR {
-    VkDisplayKHR currentDisplay;
-    uint32_t currentStackIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkDisplayPlanePropertiesKHR {
+ *     VkDisplayKHR currentDisplay;
+ *     uint32_t currentStackIndex;
+ * }</pre></code>
  */
 public class VkDisplayPlanePropertiesKHR extends Struct implements NativeResource {
 

@@ -16,9 +16,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Ipd_t {
-    float ipdMeters;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Ipd_t {
+ *     float ipdMeters;
+ * }</pre></code>
  */
 public class VREventIpd extends Struct implements NativeResource {
 

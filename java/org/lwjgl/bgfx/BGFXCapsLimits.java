@@ -39,26 +39,27 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_caps_limits_t {
-    uint32_t maxDrawCalls;
-    uint32_t maxBlits;
-    uint32_t maxTextureSize;
-    uint32_t maxViews;
-    uint32_t maxFrameBuffers;
-    uint32_t maxFBAttachments;
-    uint32_t maxPrograms;
-    uint32_t maxShaders;
-    uint32_t maxTextures;
-    uint32_t maxTextureSamplers;
-    uint32_t maxVertexDecls;
-    uint32_t maxVertexStreams;
-    uint32_t maxIndexBuffers;
-    uint32_t maxVertexBuffers;
-    uint32_t maxDynamicIndexBuffers;
-    uint32_t maxDynamicVertexBuffers;
-    uint32_t maxUniforms;
-    uint32_t maxOcclusionQueries;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_caps_limits_t {
+ *     uint32_t maxDrawCalls;
+ *     uint32_t maxBlits;
+ *     uint32_t maxTextureSize;
+ *     uint32_t maxViews;
+ *     uint32_t maxFrameBuffers;
+ *     uint32_t maxFBAttachments;
+ *     uint32_t maxPrograms;
+ *     uint32_t maxShaders;
+ *     uint32_t maxTextures;
+ *     uint32_t maxTextureSamplers;
+ *     uint32_t maxVertexDecls;
+ *     uint32_t maxVertexStreams;
+ *     uint32_t maxIndexBuffers;
+ *     uint32_t maxVertexBuffers;
+ *     uint32_t maxDynamicIndexBuffers;
+ *     uint32_t maxDynamicVertexBuffers;
+ *     uint32_t maxUniforms;
+ *     uint32_t maxOcclusionQueries;
+ * }</pre></code>
  */
 public class BGFXCapsLimits extends Struct {
 

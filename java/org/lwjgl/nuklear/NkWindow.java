@@ -14,27 +14,28 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_window {
-    unsigned int seq;
-    nk_hash name;
-    char name_string[64];
-    nk_flags flags;
-    {@link NkRect struct nk_rect} bounds;
-    {@link NkScroll struct nk_scroll} scrollbar;
-    {@link NkCommandBuffer struct nk_command_buffer} buffer;
-    {@link NkPanel struct nk_panel} * layout;
-    float scrollbar_hiding_timer;
-    {@link NkPropertyState struct nk_property_state} property;
-    {@link NkPopupState struct nk_popup_state} popup;
-    {@link NkEditState struct nk_edit_state} edit;
-    unsigned int scrolled;
-    nk_table * tables;
-    unsigned short table_count;
-    unsigned short table_size;
-    {@link NkWindow struct nk_window} * next;
-    {@link NkWindow struct nk_window} * prev;
-    {@link NkWindow struct nk_window} * parent;
-}</code></pre>
+ * <code><pre>
+ * struct nk_window {
+ *     unsigned int seq;
+ *     nk_hash name;
+ *     char name_string[64];
+ *     nk_flags flags;
+ *     {@link NkRect struct nk_rect} bounds;
+ *     {@link NkScroll struct nk_scroll} scrollbar;
+ *     {@link NkCommandBuffer struct nk_command_buffer} buffer;
+ *     {@link NkPanel struct nk_panel} * layout;
+ *     float scrollbar_hiding_timer;
+ *     {@link NkPropertyState struct nk_property_state} property;
+ *     {@link NkPopupState struct nk_popup_state} popup;
+ *     {@link NkEditState struct nk_edit_state} edit;
+ *     unsigned int scrolled;
+ *     nk_table * tables;
+ *     unsigned short table_count;
+ *     unsigned short table_size;
+ *     {@link NkWindow struct nk_window} * next;
+ *     {@link NkWindow struct nk_window} * prev;
+ *     {@link NkWindow struct nk_window} * parent;
+ * }</pre></code>
  */
 public class NkWindow extends Struct {
 

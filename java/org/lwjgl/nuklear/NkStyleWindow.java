@@ -16,37 +16,38 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_window {
-    {@link NkStyleWindowHeader struct nk_style_window_header} header;
-    {@link NkStyleItem struct nk_style_item} fixed_background;
-    {@link NkColor struct nk_color} background;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkColor struct nk_color} popup_border_color;
-    {@link NkColor struct nk_color} combo_border_color;
-    {@link NkColor struct nk_color} contextual_border_color;
-    {@link NkColor struct nk_color} menu_border_color;
-    {@link NkColor struct nk_color} group_border_color;
-    {@link NkColor struct nk_color} tooltip_border_color;
-    {@link NkStyleItem struct nk_style_item} scaler;
-    float border;
-    float combo_border;
-    float contextual_border;
-    float menu_border;
-    float group_border;
-    float tooltip_border;
-    float popup_border;
-    float rounding;
-    {@link NkVec2 struct nk_vec2} spacing;
-    {@link NkVec2 struct nk_vec2} scrollbar_size;
-    {@link NkVec2 struct nk_vec2} min_size;
-    {@link NkVec2 struct nk_vec2} padding;
-    {@link NkVec2 struct nk_vec2} group_padding;
-    {@link NkVec2 struct nk_vec2} popup_padding;
-    {@link NkVec2 struct nk_vec2} combo_padding;
-    {@link NkVec2 struct nk_vec2} contextual_padding;
-    {@link NkVec2 struct nk_vec2} menu_padding;
-    {@link NkVec2 struct nk_vec2} tooltip_padding;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_window {
+ *     {@link NkStyleWindowHeader struct nk_style_window_header} header;
+ *     {@link NkStyleItem struct nk_style_item} fixed_background;
+ *     {@link NkColor struct nk_color} background;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkColor struct nk_color} popup_border_color;
+ *     {@link NkColor struct nk_color} combo_border_color;
+ *     {@link NkColor struct nk_color} contextual_border_color;
+ *     {@link NkColor struct nk_color} menu_border_color;
+ *     {@link NkColor struct nk_color} group_border_color;
+ *     {@link NkColor struct nk_color} tooltip_border_color;
+ *     {@link NkStyleItem struct nk_style_item} scaler;
+ *     float border;
+ *     float combo_border;
+ *     float contextual_border;
+ *     float menu_border;
+ *     float group_border;
+ *     float tooltip_border;
+ *     float popup_border;
+ *     float rounding;
+ *     {@link NkVec2 struct nk_vec2} spacing;
+ *     {@link NkVec2 struct nk_vec2} scrollbar_size;
+ *     {@link NkVec2 struct nk_vec2} min_size;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     {@link NkVec2 struct nk_vec2} group_padding;
+ *     {@link NkVec2 struct nk_vec2} popup_padding;
+ *     {@link NkVec2 struct nk_vec2} combo_padding;
+ *     {@link NkVec2 struct nk_vec2} contextual_padding;
+ *     {@link NkVec2 struct nk_vec2} menu_padding;
+ *     {@link NkVec2 struct nk_vec2} tooltip_padding;
+ * }</pre></code>
  */
 public class NkStyleWindow extends Struct implements NativeResource {
 

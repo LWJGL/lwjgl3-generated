@@ -67,13 +67,14 @@ import org.lwjgl.system.windows.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImportSemaphoreWin32HandleInfoKHX {
-    VkStructureType sType;
-    const void * pNext;
-    VkSemaphore semaphore;
-    VkExternalSemaphoreHandleTypeFlagsKHX handleType;
-    HANDLE handle;
-}</code></pre>
+ * <code><pre>
+ * struct VkImportSemaphoreWin32HandleInfoKHX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkSemaphore semaphore;
+ *     VkExternalSemaphoreHandleTypeFlagsKHX handleType;
+ *     HANDLE handle;
+ * }</pre></code>
  */
 public class VkImportSemaphoreWin32HandleInfoKHX extends Struct implements NativeResource {
 

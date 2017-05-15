@@ -27,10 +27,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct cl_image_format {
-    cl_channel_order image_channel_order;
-    cl_channel_type image_channel_data_type;
-}</code></pre>
+ * <code><pre>
+ * struct cl_image_format {
+ *     cl_channel_order image_channel_order;
+ *     cl_channel_type image_channel_data_type;
+ * }</pre></code>
  */
 public class CLImageFormat extends Struct implements NativeResource {
 

@@ -101,9 +101,10 @@ public class KHRSharedPresentableImage {
      * 
      * <p>In order to query a swapchain's status when rendering to a shared presentable image, call:</p>
      * 
-     * <pre><code>VkResult vkGetSwapchainStatusKHR(
-    VkDevice                                    device,
-    VkSwapchainKHR                              swapchain);</code></pre>
+     * <code><pre>
+     * VkResult vkGetSwapchainStatusKHR(
+     *     VkDevice                                    device,
+     *     VkSwapchainKHR                              swapchain);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

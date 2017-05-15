@@ -22,9 +22,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_MessageOverlay_t {
-    uint32_t unVRMessageOverlayResponse;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_MessageOverlay_t {
+ *     uint32_t unVRMessageOverlayResponse;
+ * }</pre></code>
  */
 public class VREventMessageOverlay extends Struct implements NativeResource {
 

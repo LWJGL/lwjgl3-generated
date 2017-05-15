@@ -99,11 +99,12 @@ public class KHRXlibSurface {
      * 
      * <p>To create a {@code VkSurfaceKHR} object for an X11 window, using the Xlib client-side library, call:</p>
      * 
-     * <pre><code>VkResult vkCreateXlibSurfaceKHR(
-    VkInstance                                  instance,
-    const VkXlibSurfaceCreateInfoKHR*           pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSurfaceKHR*                               pSurface);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateXlibSurfaceKHR(
+     *     VkInstance                                  instance,
+     *     const VkXlibSurfaceCreateInfoKHR*           pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkSurfaceKHR*                               pSurface);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -153,11 +154,12 @@ public class KHRXlibSurface {
      * 
      * <p>To determine whether a queue family of a physical device supports presentation to an X11 server, using the Xlib client-side library, call:</p>
      * 
-     * <pre><code>VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR(
-    VkPhysicalDevice                            physicalDevice,
-    uint32_t                                    queueFamilyIndex,
-    Display*                                    dpy,
-    VisualID                                    visualID);</code></pre>
+     * <code><pre>
+     * VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     uint32_t                                    queueFamilyIndex,
+     *     Display*                                    dpy,
+     *     VisualID                                    visualID);</pre></code>
      * 
      * <h5>Description</h5>
      * 

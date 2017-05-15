@@ -236,9 +236,13 @@ public class CL11 {
      *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
      *                           the buffer that {@code ptr} points to can be used by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -322,9 +326,13 @@ public class CL11 {
      *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
      *                           the buffer that {@code ptr} points to can be used by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -408,9 +416,13 @@ public class CL11 {
      *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
      *                           the buffer that {@code ptr} points to can be used by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -494,9 +506,13 @@ public class CL11 {
      *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
      *                           the buffer that {@code ptr} points to can be used by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -580,9 +596,13 @@ public class CL11 {
      *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
      *                           the buffer that {@code ptr} points to can be used by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -683,9 +703,13 @@ public class CL11 {
      *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
      *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -769,9 +793,13 @@ public class CL11 {
      *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
      *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -855,9 +883,13 @@ public class CL11 {
      *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
      *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -941,9 +973,13 @@ public class CL11 {
      *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
      *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -1027,9 +1063,13 @@ public class CL11 {
      *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
      *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
      * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
-     *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+     *                           should be 0. The offset in bytes is computed as<code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>
+     *                           
+     *                           <p>.</p>
      * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
      *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
      * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
@@ -1120,9 +1160,13 @@ public class CL11 {
      * @param src_buffer      the source buffer
      * @param dst_buffer      the destination buffer
      * @param src_origin      the {@code (x, y, z)} offset in the memory region associated with {@code src_buffer}. For a 2D rectangle region, the z value given by {@code src_origin[2]}
-     *                        should be 0. The offset in bytes is computed as <code>src_origin[2] * src_slice_pitch + src_origin[1] * src_row_pitch + src_origin[0]</code>.
+     *                        should be 0. The offset in bytes is computed as<code>src_origin[2] * src_slice_pitch + src_origin[1] * src_row_pitch + src_origin[0]</code>
+     *                        
+     *                        <p>.</p>
      * @param dst_origin      the {@code (x, y, z)} offset in the memory region associated with {@code dst_buffer}. For a 2D rectangle region, the z value given by {@code dst_origin[2]}
-     *                        should be 0. The offset in bytes is computed as <code>dst_origin[2] * dst_slice_pitch + dst_origin[1] * dst_row_pitch + dst_origin[0]</code>.
+     *                        should be 0. The offset in bytes is computed as<code>dst_origin[2] * dst_slice_pitch + dst_origin[1] * dst_row_pitch + dst_origin[0]</code>
+     *                        
+     *                        <p>.</p>
      * @param region          the ({@code width} in bytes, {@code height} in rows, {@code depth} in slices) of the 2D or 3D rectangle being copied. For a 2D rectangle, the depth
      *                        value given by {@code region[2]} should be 1. The values in {@code region} cannot be 0.
      * @param src_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code src_buffer}. If {@code src_row_pitch} is 0, {@code src_row_pitch}
@@ -1234,19 +1278,21 @@ public class CL11 {
      * 
      * <p>For example, the following code sequence will result in undefined behavior of {@link CL10#clReleaseMemObject ReleaseMemObject}.</p>
      * 
-     * <pre><code>ev1 = clCreateUserEvent(ctx, NULL);
-clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
-clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
-clReleaseMemObject(buf2);
-clSetUserEventStatus(ev1, CL_COMPLETE);</code></pre>
+     * <code><pre>
+     * ev1 = clCreateUserEvent(ctx, NULL);
+     * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
+     * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
+     * clReleaseMemObject(buf2);
+     * clSetUserEventStatus(ev1, CL_COMPLETE);</pre></code>
      * 
      * <p>The following code sequence, however, works correctly.</p>
      * 
-     * <pre><code>ev1 = clCreateUserEvent(ctx, NULL);
-clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
-clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
-clSetUserEventStatus(ev1, CL_COMPLETE);
-clReleaseMemObject(buf2);</code></pre>
+     * <code><pre>
+     * ev1 = clCreateUserEvent(ctx, NULL);
+     * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
+     * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
+     * clSetUserEventStatus(ev1, CL_COMPLETE);
+     * clReleaseMemObject(buf2);</pre></code>
      *
      * @param event            a user event object created using {@link #clCreateUserEvent CreateUserEvent}
      * @param execution_status the new execution status to be set and can be {@link CL10#CL_COMPLETE COMPLETE} or a negative integer value to indicate an error. A negative integer value

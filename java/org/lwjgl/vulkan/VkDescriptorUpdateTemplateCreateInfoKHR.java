@@ -62,18 +62,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorUpdateTemplateCreateInfoKHR {
-    VkStructureType sType;
-    void * pNext;
-    VkDescriptorUpdateTemplateCreateFlagsKHR flags;
-    uint32_t descriptorUpdateEntryCount;
-    const {@link VkDescriptorUpdateTemplateEntryKHR VkDescriptorUpdateTemplateEntryKHR} * pDescriptorUpdateEntries;
-    VkDescriptorUpdateTemplateTypeKHR templateType;
-    VkDescriptorSetLayout descriptorSetLayout;
-    VkPipelineBindPoint pipelineBindPoint;
-    VkPipelineLayout pipelineLayout;
-    uint32_t set;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorUpdateTemplateCreateInfoKHR {
+ *     VkStructureType sType;
+ *     void * pNext;
+ *     VkDescriptorUpdateTemplateCreateFlagsKHR flags;
+ *     uint32_t descriptorUpdateEntryCount;
+ *     const {@link VkDescriptorUpdateTemplateEntryKHR VkDescriptorUpdateTemplateEntryKHR} * pDescriptorUpdateEntries;
+ *     VkDescriptorUpdateTemplateTypeKHR templateType;
+ *     VkDescriptorSetLayout descriptorSetLayout;
+ *     VkPipelineBindPoint pipelineBindPoint;
+ *     VkPipelineLayout pipelineLayout;
+ *     uint32_t set;
+ * }</pre></code>
  */
 public class VkDescriptorUpdateTemplateCreateInfoKHR extends Struct implements NativeResource {
 

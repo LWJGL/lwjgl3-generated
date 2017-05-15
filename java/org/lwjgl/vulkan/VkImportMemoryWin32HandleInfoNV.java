@@ -49,12 +49,13 @@ import org.lwjgl.system.windows.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImportMemoryWin32HandleInfoNV {
-    VkStructureType sType;
-    const void * pNext;
-    VkExternalMemoryHandleTypeFlagsNV handleType;
-    HANDLE handle;
-}</code></pre>
+ * <code><pre>
+ * struct VkImportMemoryWin32HandleInfoNV {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkExternalMemoryHandleTypeFlagsNV handleType;
+ *     HANDLE handle;
+ * }</pre></code>
  */
 public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeResource {
 

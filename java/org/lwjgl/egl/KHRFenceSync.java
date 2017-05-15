@@ -35,7 +35,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRFenceSync {
 
-    /**  */
     public static final int
         EGL_SYNC_PRIOR_COMMANDS_COMPLETE_KHR = 0x30F0,
         EGL_SYNC_CONDITION_KHR               = 0x30F8,

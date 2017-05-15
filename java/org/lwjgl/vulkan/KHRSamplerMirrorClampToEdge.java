@@ -14,21 +14,22 @@ package org.lwjgl.vulkan;
  * 
  * <p>Creating a sampler with the new address mode in each dimension</p>
  * 
- * <pre><code>    VkSamplerCreateInfo createInfo =
-    {
-        VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO // sType
-        // Other members set to application-desired values
-    };
-
-    createInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
-    createInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
-    createInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
-
-    VkSampler sampler;
-    VkResult result = vkCreateSampler(
-        device,
-        &createInfo,
-        &sampler);</code></pre>
+ * <code><pre>
+ *     VkSamplerCreateInfo createInfo =
+ *     {
+ *         VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO // sType
+ *         // Other members set to application-desired values
+ *     };
+ * 
+ *     createInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
+ *     createInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
+ *     createInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE;
+ * 
+ *     VkSampler sampler;
+ *     VkResult result = vkCreateSampler(
+ *         device,
+ *         &createInfo,
+ *         &sampler);</pre></code>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
@@ -65,7 +66,6 @@ public final class KHRSamplerMirrorClampToEdge {
     /** The extension name. */
     public static final String VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME = "VK_KHR_sampler_mirror_clamp_to_edge";
 
-    /**  */
     public static final int VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE = 4;
 
     private KHRSamplerMirrorClampToEdge() {}

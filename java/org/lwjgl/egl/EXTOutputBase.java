@@ -31,13 +31,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class EXTOutputBase {
 
-    /**  */
     public static final int
         EGL_BAD_OUTPUT_LAYER_EXT = 0x322D,
         EGL_BAD_OUTPUT_PORT_EXT  = 0x322E,
         EGL_SWAP_INTERVAL_EXT    = 0x322F;
 
-    /**  */
     public static final long
         EGL_NO_OUTPUT_LAYER_EXT = 0x0L,
         EGL_NO_OUTPUT_PORT_EXT  = 0x0L;

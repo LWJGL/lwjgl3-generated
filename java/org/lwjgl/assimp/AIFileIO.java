@@ -28,11 +28,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiFileIO {
-    {@link AIFileOpenProcI aiFileOpenProc} OpenProc;
-    {@link AIFileCloseProcI aiFileCloseProc} CloseProc;
-    aiUserData UserData;
-}</code></pre>
+ * <code><pre>
+ * struct aiFileIO {
+ *     {@link AIFileOpenProcI aiFileOpenProc} OpenProc;
+ *     {@link AIFileCloseProcI aiFileCloseProc} CloseProc;
+ *     aiUserData UserData;
+ * }</pre></code>
  */
 public class AIFileIO extends Struct implements NativeResource {
 

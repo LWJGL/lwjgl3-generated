@@ -19,10 +19,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct stb_vorbis_alloc {
-    char * alloc_buffer;
-    int alloc_buffer_length_in_bytes;
-}</code></pre>
+ * <code><pre>
+ * struct stb_vorbis_alloc {
+ *     char * alloc_buffer;
+ *     int alloc_buffer_length_in_bytes;
+ * }</pre></code>
  */
 public class STBVorbisAlloc extends Struct implements NativeResource {
 

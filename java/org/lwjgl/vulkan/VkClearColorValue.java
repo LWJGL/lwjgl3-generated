@@ -37,11 +37,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>union VkClearColorValue {
-    float float32[4];
-    int32_t int32[4];
-    uint32_t uint32[4];
-}</code></pre>
+ * <code><pre>
+ * union VkClearColorValue {
+ *     float float32[4];
+ *     int32_t int32[4];
+ *     uint32_t uint32[4];
+ * }</pre></code>
  */
 public class VkClearColorValue extends Struct implements NativeResource {
 

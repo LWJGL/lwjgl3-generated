@@ -16,30 +16,31 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_edit {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkStyleScrollbar struct nk_style_scrollbar} scrollbar;
-    {@link NkColor struct nk_color} cursor_normal;
-    {@link NkColor struct nk_color} cursor_hover;
-    {@link NkColor struct nk_color} cursor_text_normal;
-    {@link NkColor struct nk_color} cursor_text_hover;
-    {@link NkColor struct nk_color} text_normal;
-    {@link NkColor struct nk_color} text_hover;
-    {@link NkColor struct nk_color} text_active;
-    {@link NkColor struct nk_color} selected_normal;
-    {@link NkColor struct nk_color} selected_hover;
-    {@link NkColor struct nk_color} selected_text_normal;
-    {@link NkColor struct nk_color} selected_text_hover;
-    float border;
-    float rounding;
-    float cursor_size;
-    {@link NkVec2 struct nk_vec2} scrollbar_size;
-    {@link NkVec2 struct nk_vec2} padding;
-    float row_padding;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_edit {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkStyleScrollbar struct nk_style_scrollbar} scrollbar;
+ *     {@link NkColor struct nk_color} cursor_normal;
+ *     {@link NkColor struct nk_color} cursor_hover;
+ *     {@link NkColor struct nk_color} cursor_text_normal;
+ *     {@link NkColor struct nk_color} cursor_text_hover;
+ *     {@link NkColor struct nk_color} text_normal;
+ *     {@link NkColor struct nk_color} text_hover;
+ *     {@link NkColor struct nk_color} text_active;
+ *     {@link NkColor struct nk_color} selected_normal;
+ *     {@link NkColor struct nk_color} selected_hover;
+ *     {@link NkColor struct nk_color} selected_text_normal;
+ *     {@link NkColor struct nk_color} selected_text_hover;
+ *     float border;
+ *     float rounding;
+ *     float cursor_size;
+ *     {@link NkVec2 struct nk_vec2} scrollbar_size;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     float row_padding;
+ * }</pre></code>
  */
 public class NkStyleEdit extends Struct implements NativeResource {
 

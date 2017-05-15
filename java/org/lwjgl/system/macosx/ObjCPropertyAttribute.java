@@ -26,10 +26,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct objc_property_attribute_t {
-    char * name;
-    char * value;
-}</code></pre>
+ * <code><pre>
+ * struct objc_property_attribute_t {
+ *     char * name;
+ *     char * value;
+ * }</pre></code>
  */
 public class ObjCPropertyAttribute extends Struct implements NativeResource {
 

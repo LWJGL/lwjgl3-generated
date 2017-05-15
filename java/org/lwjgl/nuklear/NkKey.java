@@ -14,10 +14,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_key {
-    int down;
-    unsigned int clicked;
-}</code></pre>
+ * <code><pre>
+ * struct nk_key {
+ *     int down;
+ *     unsigned int clicked;
+ * }</pre></code>
  */
 public class NkKey extends Struct {
 

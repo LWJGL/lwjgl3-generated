@@ -26,13 +26,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct EXRVersion {
-    int version;
-    int tiled;
-    int long_name;
-    int non_image;
-    int multipart;
-}</code></pre>
+ * <code><pre>
+ * struct EXRVersion {
+ *     int version;
+ *     int tiled;
+ *     int long_name;
+ *     int non_image;
+ *     int multipart;
+ * }</pre></code>
  */
 public class EXRVersion extends Struct implements NativeResource {
 

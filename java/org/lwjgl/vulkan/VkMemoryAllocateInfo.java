@@ -67,12 +67,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMemoryAllocateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkDeviceSize allocationSize;
-    uint32_t memoryTypeIndex;
-}</code></pre>
+ * <code><pre>
+ * struct VkMemoryAllocateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDeviceSize allocationSize;
+ *     uint32_t memoryTypeIndex;
+ * }</pre></code>
  */
 public class VkMemoryAllocateInfo extends Struct implements NativeResource {
 

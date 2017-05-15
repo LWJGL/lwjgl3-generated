@@ -63,12 +63,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkImageBlit {
-    {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
-    {@link VkOffset3D VkOffset3D} srcOffsets[2];
-    {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
-    {@link VkOffset3D VkOffset3D} dstOffsets[2];
-}</code></pre>
+ * <code><pre>
+ * struct VkImageBlit {
+ *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
+ *     {@link VkOffset3D VkOffset3D} srcOffsets[2];
+ *     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
+ *     {@link VkOffset3D VkOffset3D} dstOffsets[2];
+ * }</pre></code>
  */
 public class VkImageBlit extends Struct implements NativeResource {
 

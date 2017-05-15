@@ -54,9 +54,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; specifies certain supported operations on the pool. Bits which <b>can</b> be set include:
  * 
- * <pre><code>typedef enum VkDescriptorPoolCreateFlagBits {
-    VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x00000001,
-} VkDescriptorPoolCreateFlagBits;</code></pre>
+ * <code><pre>
+ * typedef enum VkDescriptorPoolCreateFlagBits {
+ *     VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x00000001,
+ * } VkDescriptorPoolCreateFlagBits;</pre></code>
  * 
  * <p>If {@code flags} includes {@link VK10#VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT}, then descriptor sets <b>can</b> return their individual allocations to the pool, i.e. all of {@link VK10#vkAllocateDescriptorSets AllocateDescriptorSets}, {@link VK10#vkFreeDescriptorSets FreeDescriptorSets}, and {@link VK10#vkResetDescriptorPool ResetDescriptorPool} are allowed. Otherwise, descriptor sets allocated from the pool <b>must</b> not be individually freed back to the pool, i.e. only {@link VK10#vkAllocateDescriptorSets AllocateDescriptorSets} and {@link VK10#vkResetDescriptorPool ResetDescriptorPool} are allowed.</p></li>
  * <li>{@code maxSets} &ndash; the maximum number of descriptor sets that <b>can</b> be allocated from the pool.</li>
@@ -66,14 +67,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkDescriptorPoolCreateInfo {
-    VkStructureType sType;
-    const void * pNext;
-    VkDescriptorPoolCreateFlags flags;
-    uint32_t maxSets;
-    uint32_t poolSizeCount;
-    const {@link VkDescriptorPoolSize VkDescriptorPoolSize} * pPoolSizes;
-}</code></pre>
+ * <code><pre>
+ * struct VkDescriptorPoolCreateInfo {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkDescriptorPoolCreateFlags flags;
+ *     uint32_t maxSets;
+ *     uint32_t poolSizeCount;
+ *     const {@link VkDescriptorPoolSize VkDescriptorPoolSize} * pPoolSizes;
+ * }</pre></code>
  */
 public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource {
 

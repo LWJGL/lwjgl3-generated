@@ -27,13 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct RenderModel_t {
-    const {@link RenderModelVertex RenderModel_Vertex_t} * rVertexData;
-    uint32_t unVertexCount;
-    const uint16_t * IndexData;
-    uint32_t unTriangleCount;
-    TextureID_t diffuseTextureId;
-}</code></pre>
+ * <code><pre>
+ * struct RenderModel_t {
+ *     const {@link RenderModelVertex RenderModel_Vertex_t} * rVertexData;
+ *     uint32_t unVertexCount;
+ *     const uint16_t * IndexData;
+ *     uint32_t unTriangleCount;
+ *     TextureID_t diffuseTextureId;
+ * }</pre></code>
  */
 public class RenderModel extends Struct implements NativeResource {
 

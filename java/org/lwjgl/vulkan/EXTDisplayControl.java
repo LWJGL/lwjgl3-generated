@@ -170,10 +170,11 @@ public class EXTDisplayControl {
      * 
      * <p>To set the power state of a display, call:</p>
      * 
-     * <pre><code>VkResult vkDisplayPowerControlEXT(
-    VkDevice                                    device,
-    VkDisplayKHR                                display,
-    const VkDisplayPowerInfoEXT*                pDisplayPowerInfo);</code></pre>
+     * <code><pre>
+     * VkResult vkDisplayPowerControlEXT(
+     *     VkDevice                                    device,
+     *     VkDisplayKHR                                display,
+     *     const VkDisplayPowerInfoEXT*                pDisplayPowerInfo);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -223,11 +224,12 @@ public class EXTDisplayControl {
      * 
      * <p>To create a fence that will be signaled when an event occurs on a device, call:</p>
      * 
-     * <pre><code>VkResult vkRegisterDeviceEventEXT(
-    VkDevice                                    device,
-    const VkDeviceEventInfoEXT*                 pDeviceEventInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkFence*                                    pFence);</code></pre>
+     * <code><pre>
+     * VkResult vkRegisterDeviceEventEXT(
+     *     VkDevice                                    device,
+     *     const VkDeviceEventInfoEXT*                 pDeviceEventInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkFence*                                    pFence);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -282,12 +284,13 @@ public class EXTDisplayControl {
      * 
      * <p>To create a fence that will be signaled when an event occurs on a VkDisplayKHR object, call:</p>
      * 
-     * <pre><code>VkResult vkRegisterDisplayEventEXT(
-    VkDevice                                    device,
-    VkDisplayKHR                                display,
-    const VkDisplayEventInfoEXT*                pDisplayEventInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkFence*                                    pFence);</code></pre>
+     * <code><pre>
+     * VkResult vkRegisterDisplayEventEXT(
+     *     VkDevice                                    device,
+     *     VkDisplayKHR                                display,
+     *     const VkDisplayEventInfoEXT*                pDisplayEventInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkFence*                                    pFence);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -343,11 +346,12 @@ public class EXTDisplayControl {
      * 
      * <p>The requested counters become active when the first presentation command for the associated swapchain is processed by the presentation engine. To query the value of an active counter, use:</p>
      * 
-     * <pre><code>VkResult vkGetSwapchainCounterEXT(
-    VkDevice                                    device,
-    VkSwapchainKHR                              swapchain,
-    VkSurfaceCounterFlagBitsEXT                 counter,
-    uint64_t*                                   pCounterValue);</code></pre>
+     * <code><pre>
+     * VkResult vkGetSwapchainCounterEXT(
+     *     VkDevice                                    device,
+     *     VkSwapchainKHR                              swapchain,
+     *     VkSurfaceCounterFlagBitsEXT                 counter,
+     *     uint64_t*                                   pCounterValue);</pre></code>
      * 
      * <h5>Description</h5>
      * 

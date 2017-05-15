@@ -34,18 +34,19 @@ import static org.lwjgl.bgfx.BGFX.BGFX_TEXTURE_FORMAT_COUNT;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_caps_t {
-    bgfx_renderer_type_t rendererType;
-    uint64_t supported;
-    uint16_t vendorId;
-    uint16_t deviceId;
-    bool homogeneousDepth;
-    bool originBottomLeft;
-    uint8_t numGPUs;
-    {@link BGFXCapsGPU bgfx_caps_gpu_t} gpu[4];
-    {@link BGFXCapsLimits bgfx_caps_limits_t} limits;
-    uint16_t formats[BGFX_TEXTURE_FORMAT_COUNT];
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_caps_t {
+ *     bgfx_renderer_type_t rendererType;
+ *     uint64_t supported;
+ *     uint16_t vendorId;
+ *     uint16_t deviceId;
+ *     bool homogeneousDepth;
+ *     bool originBottomLeft;
+ *     uint8_t numGPUs;
+ *     {@link BGFXCapsGPU bgfx_caps_gpu_t} gpu[4];
+ *     {@link BGFXCapsLimits bgfx_caps_limits_t} limits;
+ *     uint16_t formats[BGFX_TEXTURE_FORMAT_COUNT];
+ * }</pre></code>
  */
 public class BGFXCaps extends Struct {
 

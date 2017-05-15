@@ -136,11 +136,12 @@ public class KHRSwapchain {
      * 
      * <p>To create a swapchain, call:</p>
      * 
-     * <pre><code>VkResult vkCreateSwapchainKHR(
-    VkDevice                                    device,
-    const VkSwapchainCreateInfoKHR*             pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkSwapchainKHR*                             pSwapchain);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateSwapchainKHR(
+     *     VkDevice                                    device,
+     *     const VkSwapchainCreateInfoKHR*             pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkSwapchainKHR*                             pSwapchain);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -210,10 +211,11 @@ public class KHRSwapchain {
      * 
      * <p>To destroy a swapchain object call:</p>
      * 
-     * <pre><code>void vkDestroySwapchainKHR(
-    VkDevice                                    device,
-    VkSwapchainKHR                              swapchain,
-    const VkAllocationCallbacks*                pAllocator);</code></pre>
+     * <code><pre>
+     * void vkDestroySwapchainKHR(
+     *     VkDevice                                    device,
+     *     VkSwapchainKHR                              swapchain,
+     *     const VkAllocationCallbacks*                pAllocator);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -277,11 +279,12 @@ public class KHRSwapchain {
      * 
      * <p>To obtain the array of presentable images associated with a swapchain, call:</p>
      * 
-     * <pre><code>VkResult vkGetSwapchainImagesKHR(
-    VkDevice                                    device,
-    VkSwapchainKHR                              swapchain,
-    uint32_t*                                   pSwapchainImageCount,
-    VkImage*                                    pSwapchainImages);</code></pre>
+     * <code><pre>
+     * VkResult vkGetSwapchainImagesKHR(
+     *     VkDevice                                    device,
+     *     VkSwapchainKHR                              swapchain,
+     *     uint32_t*                                   pSwapchainImageCount,
+     *     VkImage*                                    pSwapchainImages);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -342,13 +345,14 @@ public class KHRSwapchain {
      * 
      * <p>To acquire an available presentable image to use, and retrieve the index of that image, call:</p>
      * 
-     * <pre><code>VkResult vkAcquireNextImageKHR(
-    VkDevice                                    device,
-    VkSwapchainKHR                              swapchain,
-    uint64_t                                    timeout,
-    VkSemaphore                                 semaphore,
-    VkFence                                     fence,
-    uint32_t*                                   pImageIndex);</code></pre>
+     * <code><pre>
+     * VkResult vkAcquireNextImageKHR(
+     *     VkDevice                                    device,
+     *     VkSwapchainKHR                              swapchain,
+     *     uint64_t                                    timeout,
+     *     VkSemaphore                                 semaphore,
+     *     VkFence                                     fence,
+     *     uint32_t*                                   pImageIndex);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -431,9 +435,10 @@ public class KHRSwapchain {
      * 
      * <p>After queueing all rendering commands and transitioning the image to the correct layout, to queue an image for presentation, call:</p>
      * 
-     * <pre><code>VkResult vkQueuePresentKHR(
-    VkQueue                                     queue,
-    const VkPresentInfoKHR*                     pPresentInfo);</code></pre>
+     * <code><pre>
+     * VkResult vkQueuePresentKHR(
+     *     VkQueue                                     queue,
+     *     const VkPresentInfoKHR*                     pPresentInfo);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 

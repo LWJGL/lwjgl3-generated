@@ -25,45 +25,46 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Example uses: Create three callback objects. One will log errors and warnings to the debug console using Windows {@code OutputDebugString}. The second will cause the debugger to break at that callback when an error happens and the third will log warnings to stdout.</p>
  * 
- * <pre><code>    VkResult res;
-    VkDebugReportCallbackEXT cb1, cb2, cb3;
-
-    VkDebugReportCallbackCreateInfoEXT callback1 = {
-            VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,    // sType
-            NULL,                                                       // pNext
-            VK_DEBUG_REPORT_ERROR_BIT_EXT |                             // flags
-            VK_DEBUG_REPORT_WARNING_BIT_EXT,
-            myOutputDebugString,                                        // pfnCallback
-            NULL                                                        // pUserData
-    };
-    res = vkCreateDebugReportCallbackEXT(instance, &callback1, &cb1);
-    if (res != VK_SUCCESS)
-       // Do error handling for VK_ERROR_OUT_OF_MEMORY 
-
-    callback.flags = VK_DEBUG_REPORT_ERROR_BIT_EXT;
-    callback.pfnCallback = myDebugBreak;
-    callback.pUserData = NULL;
-    res = vkCreateDebugReportCallbackEXT(instance, &callback, &cb2);
-    if (res != VK_SUCCESS)
-       // Do error handling for VK_ERROR_OUT_OF_MEMORY 
-
-    VkDebugReportCallbackCreateInfoEXT callback3 = {
-            VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,    // sType
-            NULL,                                                       // pNext
-            VK_DEBUG_REPORT_WARNING_BIT_EXT,                            // flags
-            mystdOutLogger,                                             // pfnCallback
-            NULL                                                        // pUserData
-    };
-    res = vkCreateDebugReportCallbackEXT(instance, &callback3, &cb3);
-    if (res != VK_SUCCESS)
-       // Do error handling for VK_ERROR_OUT_OF_MEMORY 
-
-    ...
-
-    // remove callbacks when cleaning up 
-    vkDestroyDebugReportCallbackEXT(instance, cb1);
-    vkDestroyDebugReportCallbackEXT(instance, cb2);
-    vkDestroyDebugReportCallbackEXT(instance, cb3);</code></pre>
+ * <code><pre>
+ *     VkResult res;
+ *     VkDebugReportCallbackEXT cb1, cb2, cb3;
+ * 
+ *     VkDebugReportCallbackCreateInfoEXT callback1 = {
+ *             VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,    // sType
+ *             NULL,                                                       // pNext
+ *             VK_DEBUG_REPORT_ERROR_BIT_EXT |                             // flags
+ *             VK_DEBUG_REPORT_WARNING_BIT_EXT,
+ *             myOutputDebugString,                                        // pfnCallback
+ *             NULL                                                        // pUserData
+ *     };
+ *     res = vkCreateDebugReportCallbackEXT(instance, &callback1, &cb1);
+ *     if (res != VK_SUCCESS)
+ *        // Do error handling for VK_ERROR_OUT_OF_MEMORY 
+ * 
+ *     callback.flags = VK_DEBUG_REPORT_ERROR_BIT_EXT;
+ *     callback.pfnCallback = myDebugBreak;
+ *     callback.pUserData = NULL;
+ *     res = vkCreateDebugReportCallbackEXT(instance, &callback, &cb2);
+ *     if (res != VK_SUCCESS)
+ *        // Do error handling for VK_ERROR_OUT_OF_MEMORY 
+ * 
+ *     VkDebugReportCallbackCreateInfoEXT callback3 = {
+ *             VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT,    // sType
+ *             NULL,                                                       // pNext
+ *             VK_DEBUG_REPORT_WARNING_BIT_EXT,                            // flags
+ *             mystdOutLogger,                                             // pfnCallback
+ *             NULL                                                        // pUserData
+ *     };
+ *     res = vkCreateDebugReportCallbackEXT(instance, &callback3, &cb3);
+ *     if (res != VK_SUCCESS)
+ *        // Do error handling for VK_ERROR_OUT_OF_MEMORY 
+ * 
+ *     ...
+ * 
+ *     // remove callbacks when cleaning up 
+ *     vkDestroyDebugReportCallbackEXT(instance, cb1);
+ *     vkDestroyDebugReportCallbackEXT(instance, cb2);
+ *     vkDestroyDebugReportCallbackEXT(instance, cb3);</pre></code>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
@@ -300,11 +301,12 @@ public class EXTDebugReport {
      * 
      * <p>To register a debug report callback, an application uses {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT}.</p>
      * 
-     * <pre><code>VkResult vkCreateDebugReportCallbackEXT(
-    VkInstance                                  instance,
-    const VkDebugReportCallbackCreateInfoEXT*   pCreateInfo,
-    const VkAllocationCallbacks*                pAllocator,
-    VkDebugReportCallbackEXT*                   pCallback);</code></pre>
+     * <code><pre>
+     * VkResult vkCreateDebugReportCallbackEXT(
+     *     VkInstance                                  instance,
+     *     const VkDebugReportCallbackCreateInfoEXT*   pCreateInfo,
+     *     const VkAllocationCallbacks*                pAllocator,
+     *     VkDebugReportCallbackEXT*                   pCallback);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -363,10 +365,11 @@ public class EXTDebugReport {
      * 
      * <p>To destroy a {@code VkDebugReportCallbackEXT} object, call:</p>
      * 
-     * <pre><code>void vkDestroyDebugReportCallbackEXT(
-    VkInstance                                  instance,
-    VkDebugReportCallbackEXT                    callback,
-    const VkAllocationCallbacks*                pAllocator);</code></pre>
+     * <code><pre>
+     * void vkDestroyDebugReportCallbackEXT(
+     *     VkInstance                                  instance,
+     *     VkDebugReportCallbackEXT                    callback,
+     *     const VkAllocationCallbacks*                pAllocator);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -420,15 +423,16 @@ public class EXTDebugReport {
      * 
      * <p>To inject its own messages into the debug stream, call:</p>
      * 
-     * <pre><code>void vkDebugReportMessageEXT(
-    VkInstance                                  instance,
-    VkDebugReportFlagsEXT                       flags,
-    VkDebugReportObjectTypeEXT                  objectType,
-    uint64_t                                    object,
-    size_t                                      location,
-    int32_t                                     messageCode,
-    const char*                                 pLayerPrefix,
-    const char*                                 pMessage);</code></pre>
+     * <code><pre>
+     * void vkDebugReportMessageEXT(
+     *     VkInstance                                  instance,
+     *     VkDebugReportFlagsEXT                       flags,
+     *     VkDebugReportObjectTypeEXT                  objectType,
+     *     uint64_t                                    object,
+     *     size_t                                      location,
+     *     int32_t                                     messageCode,
+     *     const char*                                 pLayerPrefix,
+     *     const char*                                 pMessage);</pre></code>
      * 
      * <h5>Description</h5>
      * 
@@ -475,15 +479,16 @@ public class EXTDebugReport {
      * 
      * <p>To inject its own messages into the debug stream, call:</p>
      * 
-     * <pre><code>void vkDebugReportMessageEXT(
-    VkInstance                                  instance,
-    VkDebugReportFlagsEXT                       flags,
-    VkDebugReportObjectTypeEXT                  objectType,
-    uint64_t                                    object,
-    size_t                                      location,
-    int32_t                                     messageCode,
-    const char*                                 pLayerPrefix,
-    const char*                                 pMessage);</code></pre>
+     * <code><pre>
+     * void vkDebugReportMessageEXT(
+     *     VkInstance                                  instance,
+     *     VkDebugReportFlagsEXT                       flags,
+     *     VkDebugReportObjectTypeEXT                  objectType,
+     *     uint64_t                                    object,
+     *     size_t                                      location,
+     *     int32_t                                     messageCode,
+     *     const char*                                 pLayerPrefix,
+     *     const char*                                 pMessage);</pre></code>
      * 
      * <h5>Description</h5>
      * 

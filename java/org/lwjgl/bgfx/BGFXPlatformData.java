@@ -29,14 +29,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_platform_data_t {
-    void * ndt;
-    void * nwh;
-    void * context;
-    void * backBuffer;
-    void * backBufferDS;
-    void * session;
-}</code></pre>
+ * <code><pre>
+ * struct bgfx_platform_data_t {
+ *     void * ndt;
+ *     void * nwh;
+ *     void * context;
+ *     void * backBuffer;
+ *     void * backBufferDS;
+ *     void * session;
+ * }</pre></code>
  */
 public class BGFXPlatformData extends Struct implements NativeResource {
 

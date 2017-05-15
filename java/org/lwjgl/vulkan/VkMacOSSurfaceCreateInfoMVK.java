@@ -47,12 +47,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkMacOSSurfaceCreateInfoMVK {
-    VkStructureType sType;
-    const void * pNext;
-    VkMacOSSurfaceCreateFlagsMVK flags;
-    const void * pView;
-}</code></pre>
+ * <code><pre>
+ * struct VkMacOSSurfaceCreateInfoMVK {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkMacOSSurfaceCreateFlagsMVK flags;
+ *     const void * pView;
+ * }</pre></code>
  */
 public class VkMacOSSurfaceCreateInfoMVK extends Struct implements NativeResource {
 

@@ -34,19 +34,20 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Here's sample code for old OpenGL; it's a lot more complicated to make work on modern APIs, and that's your problem.</p>
  * 
- * <pre><code>void print_string(float x, float y, char *text, float r, float g, float b)
-{
-    static char buffer[99999]; // ~500 chars
-    int num_quads;
-
-    num_quads = stb_easy_font_print(x, y, text, NULL, buffer, sizeof(buffer));
-
-    glColor3f(r,g,b);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(2, GL_FLOAT, 16, buffer);
-    glDrawArrays(GL_QUADS, 0, num_quads*4);
-    glDisableClientState(GL_VERTEX_ARRAY);
-}</code></pre>
+ * <code><pre>
+ * void print_string(float x, float y, char *text, float r, float g, float b)
+ * {
+ *     static char buffer[99999]; // ~500 chars
+ *     int num_quads;
+ * 
+ *     num_quads = stb_easy_font_print(x, y, text, NULL, buffer, sizeof(buffer));
+ * 
+ *     glColor3f(r,g,b);
+ *     glEnableClientState(GL_VERTEX_ARRAY);
+ *     glVertexPointer(2, GL_FLOAT, 16, buffer);
+ *     glDrawArrays(GL_QUADS, 0, num_quads*4);
+ *     glDisableClientState(GL_VERTEX_ARRAY);
+ * }</pre></code>
  */
 public class STBEasyFont {
 
@@ -145,10 +146,11 @@ public class STBEasyFont {
      * 
      * <p>The vertices are stored in an interleaved format:</p>
      * 
-     * <pre><code>x:float
-y:float
-z:float
-color:uint8[4]</code></pre>
+     * <code><pre>
+     * x:float
+     * y:float
+     * z:float
+     * color:uint8[4]</pre></code>
      * 
      * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
      * buffer-drawing code.</p>
@@ -183,10 +185,11 @@ color:uint8[4]</code></pre>
      * 
      * <p>The vertices are stored in an interleaved format:</p>
      * 
-     * <pre><code>x:float
-y:float
-z:float
-color:uint8[4]</code></pre>
+     * <code><pre>
+     * x:float
+     * y:float
+     * z:float
+     * color:uint8[4]</pre></code>
      * 
      * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
      * buffer-drawing code.</p>

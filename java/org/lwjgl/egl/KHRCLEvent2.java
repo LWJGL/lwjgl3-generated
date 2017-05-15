@@ -27,7 +27,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class KHRCLEvent2 {
 
-    /**  */
     public static final int
         EGL_CL_EVENT_HANDLE_KHR        = 0x309C,
         EGL_SYNC_CL_EVENT_KHR          = 0x30FE,

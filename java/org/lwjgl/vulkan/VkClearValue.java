@@ -39,10 +39,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>union VkClearValue {
-    {@link VkClearColorValue VkClearColorValue} color;
-    {@link VkClearDepthStencilValue VkClearDepthStencilValue} depthStencil;
-}</code></pre>
+ * <code><pre>
+ * union VkClearValue {
+ *     {@link VkClearColorValue VkClearColorValue} color;
+ *     {@link VkClearDepthStencilValue VkClearDepthStencilValue} depthStencil;
+ * }</pre></code>
  */
 public class VkClearValue extends Struct implements NativeResource {
 

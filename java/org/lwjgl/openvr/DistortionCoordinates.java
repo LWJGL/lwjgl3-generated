@@ -29,11 +29,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct DistortionCoordinates_t {
-    float rfRed[2];
-    float rfGreen[2];
-    float rfBlue[2];
-}</code></pre>
+ * <code><pre>
+ * struct DistortionCoordinates_t {
+ *     float rfRed[2];
+ *     float rfGreen[2];
+ *     float rfBlue[2];
+ * }</pre></code>
  */
 public class DistortionCoordinates extends Struct implements NativeResource {
 

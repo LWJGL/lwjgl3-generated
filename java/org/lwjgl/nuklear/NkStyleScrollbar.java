@@ -23,29 +23,30 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_style_scrollbar {
-    {@link NkStyleItem struct nk_style_item} normal;
-    {@link NkStyleItem struct nk_style_item} hover;
-    {@link NkStyleItem struct nk_style_item} active;
-    {@link NkColor struct nk_color} border_color;
-    {@link NkStyleItem struct nk_style_item} cursor_normal;
-    {@link NkStyleItem struct nk_style_item} cursor_hover;
-    {@link NkStyleItem struct nk_style_item} cursor_active;
-    {@link NkColor struct nk_color} cursor_border_color;
-    float border;
-    float rounding;
-    float border_cursor;
-    float rounding_cursor;
-    {@link NkVec2 struct nk_vec2} padding;
-    int show_buttons;
-    {@link NkStyleButton struct nk_style_button} inc_button;
-    {@link NkStyleButton struct nk_style_button} dec_button;
-    enum nk_symbol_type inc_symbol;
-    enum nk_symbol_type dec_symbol;
-    {@link NkHandle nk_handle} userdata;
-    {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
-    {@link NkDrawEndCallbackI nk_draw_end} draw_end;
-}</code></pre>
+ * <code><pre>
+ * struct nk_style_scrollbar {
+ *     {@link NkStyleItem struct nk_style_item} normal;
+ *     {@link NkStyleItem struct nk_style_item} hover;
+ *     {@link NkStyleItem struct nk_style_item} active;
+ *     {@link NkColor struct nk_color} border_color;
+ *     {@link NkStyleItem struct nk_style_item} cursor_normal;
+ *     {@link NkStyleItem struct nk_style_item} cursor_hover;
+ *     {@link NkStyleItem struct nk_style_item} cursor_active;
+ *     {@link NkColor struct nk_color} cursor_border_color;
+ *     float border;
+ *     float rounding;
+ *     float border_cursor;
+ *     float rounding_cursor;
+ *     {@link NkVec2 struct nk_vec2} padding;
+ *     int show_buttons;
+ *     {@link NkStyleButton struct nk_style_button} inc_button;
+ *     {@link NkStyleButton struct nk_style_button} dec_button;
+ *     enum nk_symbol_type inc_symbol;
+ *     enum nk_symbol_type dec_symbol;
+ *     {@link NkHandle nk_handle} userdata;
+ *     {@link NkDrawBeginCallbackI nk_draw_begin} draw_begin;
+ *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
+ * }</pre></code>
  */
 public class NkStyleScrollbar extends Struct implements NativeResource {
 

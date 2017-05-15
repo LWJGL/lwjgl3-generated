@@ -175,10 +175,11 @@ public class KHXExternalMemoryCapabilities {
      * 
      * <p>To query the external handle types supported by buffers, call:</p>
      * 
-     * <pre><code>void vkGetPhysicalDeviceExternalBufferPropertiesKHX(
-    VkPhysicalDevice                            physicalDevice,
-    const VkPhysicalDeviceExternalBufferInfoKHX* pExternalBufferInfo,
-    VkExternalBufferPropertiesKHX*              pExternalBufferProperties);</code></pre>
+     * <code><pre>
+     * void vkGetPhysicalDeviceExternalBufferPropertiesKHX(
+     *     VkPhysicalDevice                            physicalDevice,
+     *     const VkPhysicalDeviceExternalBufferInfoKHX* pExternalBufferInfo,
+     *     VkExternalBufferPropertiesKHX*              pExternalBufferProperties);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

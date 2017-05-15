@@ -28,12 +28,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct GLFWgammaramp {
-    unsigned short * red;
-    unsigned short * green;
-    unsigned short * blue;
-    unsigned int size;
-}</code></pre>
+ * <code><pre>
+ * struct GLFWgammaramp {
+ *     unsigned short * red;
+ *     unsigned short * green;
+ *     unsigned short * blue;
+ *     unsigned int size;
+ * }</pre></code>
  */
 public class GLFWGammaRamp extends Struct implements NativeResource {
 

@@ -43,10 +43,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkObjectTableEntryNVX {
-    VkObjectEntryTypeNVX type;
-    VkObjectEntryUsageFlagsNVX flags;
-}</code></pre>
+ * <code><pre>
+ * struct VkObjectTableEntryNVX {
+ *     VkObjectEntryTypeNVX type;
+ *     VkObjectEntryUsageFlagsNVX flags;
+ * }</pre></code>
  */
 public class VkObjectTableEntryNVX extends Struct implements NativeResource {
 

@@ -22,10 +22,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_Property_t {
-    PropertyContainerHandle_t container;
-    ETrackedDeviceProperty prop;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_Property_t {
+ *     PropertyContainerHandle_t container;
+ *     ETrackedDeviceProperty prop;
+ * }</pre></code>
  */
 public class VREventProperty extends Struct implements NativeResource {
 

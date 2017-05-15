@@ -14,13 +14,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct nk_menu_state {
-    float x;
-    float y;
-    float w;
-    float h;
-    {@link NkScroll struct nk_scroll} offset;
-}</code></pre>
+ * <code><pre>
+ * struct nk_menu_state {
+ *     float x;
+ *     float y;
+ *     float w;
+ *     float h;
+ *     {@link NkScroll struct nk_scroll} offset;
+ * }</pre></code>
  */
 public class NkMenuState extends Struct {
 

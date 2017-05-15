@@ -42,18 +42,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiImporterDesc {
-    const char * mName;
-    const char * mAuthor;
-    const char * mMaintainer;
-    const char * mComments;
-    unsigned int mFlags;
-    unsigned int mMinMajor;
-    unsigned int mMinMinor;
-    unsigned int mMaxMajor;
-    unsigned int mMaxMinor;
-    const char * mFileExtensions;
-}</code></pre>
+ * <code><pre>
+ * struct aiImporterDesc {
+ *     const char * mName;
+ *     const char * mAuthor;
+ *     const char * mMaintainer;
+ *     const char * mComments;
+ *     unsigned int mFlags;
+ *     unsigned int mMinMajor;
+ *     unsigned int mMinMinor;
+ *     unsigned int mMaxMajor;
+ *     unsigned int mMaxMinor;
+ *     const char * mFileExtensions;
+ * }</pre></code>
  */
 public class AIImporterDesc extends Struct implements NativeResource {
 

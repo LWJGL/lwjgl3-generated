@@ -78,20 +78,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VkCmdProcessCommandsInfoNVX {
-    VkStructureType sType;
-    const void * pNext;
-    VkObjectTableNVX objectTable;
-    VkIndirectCommandsLayoutNVX indirectCommandsLayout;
-    uint32_t indirectCommandsTokenCount;
-    const {@link VkIndirectCommandsTokenNVX VkIndirectCommandsTokenNVX} * pIndirectCommandsTokens;
-    uint32_t maxSequencesCount;
-    VkCommandBuffer targetCommandBuffer;
-    VkBuffer sequencesCountBuffer;
-    VkDeviceSize sequencesCountOffset;
-    VkBuffer sequencesIndexBuffer;
-    VkDeviceSize sequencesIndexOffset;
-}</code></pre>
+ * <code><pre>
+ * struct VkCmdProcessCommandsInfoNVX {
+ *     VkStructureType sType;
+ *     const void * pNext;
+ *     VkObjectTableNVX objectTable;
+ *     VkIndirectCommandsLayoutNVX indirectCommandsLayout;
+ *     uint32_t indirectCommandsTokenCount;
+ *     const {@link VkIndirectCommandsTokenNVX VkIndirectCommandsTokenNVX} * pIndirectCommandsTokens;
+ *     uint32_t maxSequencesCount;
+ *     VkCommandBuffer targetCommandBuffer;
+ *     VkBuffer sequencesCountBuffer;
+ *     VkDeviceSize sequencesCountOffset;
+ *     VkBuffer sequencesIndexBuffer;
+ *     VkDeviceSize sequencesIndexOffset;
+ * }</pre></code>
  */
 public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResource {
 

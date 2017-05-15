@@ -16,9 +16,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>struct VREvent_SeatedZeroPoseReset_t {
-    bool bResetBySystemMenu;
-}</code></pre>
+ * <code><pre>
+ * struct VREvent_SeatedZeroPoseReset_t {
+ *     bool bResetBySystemMenu;
+ * }</pre></code>
  */
 public class VREventSeatedZeroPoseReset extends Struct implements NativeResource {
 

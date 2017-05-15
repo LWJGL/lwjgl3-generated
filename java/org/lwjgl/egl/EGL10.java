@@ -19,7 +19,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The core EGL 1.0 functionality. */
 public class EGL10 {
 
-    /**  */
     public static final int
         EGL_ALPHA_SIZE              = 0x3021,
         EGL_BAD_ACCESS              = 0x3002,

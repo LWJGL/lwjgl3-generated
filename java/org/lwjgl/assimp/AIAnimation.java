@@ -33,15 +33,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct aiAnimation {
-    {@link AIString struct aiString} mName;
-    double mDuration;
-    double mTicksPerSecond;
-    unsigned int mNumChannels;
-    {@link AINodeAnim struct aiNodeAnim} ** mChannels;
-    unsigned int mNumMeshChannels;
-    {@link AIMeshAnim struct aiMeshAnim} ** mMeshChannels;
-}</code></pre>
+ * <code><pre>
+ * struct aiAnimation {
+ *     {@link AIString struct aiString} mName;
+ *     double mDuration;
+ *     double mTicksPerSecond;
+ *     unsigned int mNumChannels;
+ *     {@link AINodeAnim struct aiNodeAnim} ** mChannels;
+ *     unsigned int mNumMeshChannels;
+ *     {@link AIMeshAnim struct aiMeshAnim} ** mMeshChannels;
+ * }</pre></code>
  */
 public class AIAnimation extends Struct implements NativeResource {
 
