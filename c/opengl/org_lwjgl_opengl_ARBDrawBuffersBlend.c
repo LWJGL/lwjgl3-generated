@@ -14,25 +14,25 @@ typedef void (APIENTRY *glBlendFuncSeparateiARBPROC) (jint, jint, jint, jint, ji
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawBuffersBlend_glBlendEquationiARB(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
-    glBlendEquationiARBPROC glBlendEquationiARB = (glBlendEquationiARBPROC)tlsGetFunction(76);
+    glBlendEquationiARBPROC glBlendEquationiARB = (glBlendEquationiARBPROC)tlsGetFunction(77);
     UNUSED_PARAM(clazz)
     glBlendEquationiARB(buf, mode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawBuffersBlend_glBlendEquationSeparateiARB(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
-    glBlendEquationSeparateiARBPROC glBlendEquationSeparateiARB = (glBlendEquationSeparateiARBPROC)tlsGetFunction(74);
+    glBlendEquationSeparateiARBPROC glBlendEquationSeparateiARB = (glBlendEquationSeparateiARBPROC)tlsGetFunction(75);
     UNUSED_PARAM(clazz)
     glBlendEquationSeparateiARB(buf, modeRGB, modeAlpha);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawBuffersBlend_glBlendFunciARB(JNIEnv *__env, jclass clazz, jint buf, jint src, jint dst) {
-    glBlendFunciARBPROC glBlendFunciARB = (glBlendFunciARBPROC)tlsGetFunction(85);
+    glBlendFunciARBPROC glBlendFunciARB = (glBlendFunciARBPROC)tlsGetFunction(86);
     UNUSED_PARAM(clazz)
     glBlendFunciARB(buf, src, dst);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawBuffersBlend_glBlendFuncSeparateiARB(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
-    glBlendFuncSeparateiARBPROC glBlendFuncSeparateiARB = (glBlendFuncSeparateiARBPROC)tlsGetFunction(83);
+    glBlendFuncSeparateiARBPROC glBlendFuncSeparateiARB = (glBlendFuncSeparateiARBPROC)tlsGetFunction(84);
     UNUSED_PARAM(clazz)
     glBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 }

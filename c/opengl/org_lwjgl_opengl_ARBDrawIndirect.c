@@ -12,14 +12,14 @@ typedef void (APIENTRY *glDrawElementsIndirectPROC) (jint, jint, const intptr_t)
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawIndirect_nglDrawArraysIndirect__IJ(JNIEnv *__env, jclass clazz, jint mode, jlong indirectAddress) {
-    glDrawArraysIndirectPROC glDrawArraysIndirect = (glDrawArraysIndirectPROC)tlsGetFunction(345);
+    glDrawArraysIndirectPROC glDrawArraysIndirect = (glDrawArraysIndirectPROC)tlsGetFunction(346);
     const intptr_t indirect = (const intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glDrawArraysIndirect(mode, indirect);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawIndirect_nglDrawElementsIndirect__IIJ(JNIEnv *__env, jclass clazz, jint mode, jint type, jlong indirectAddress) {
-    glDrawElementsIndirectPROC glDrawElementsIndirect = (glDrawElementsIndirectPROC)tlsGetFunction(359);
+    glDrawElementsIndirectPROC glDrawElementsIndirect = (glDrawElementsIndirectPROC)tlsGetFunction(360);
     const intptr_t indirect = (const intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsIndirect(mode, type, indirect);

@@ -20,6 +20,7 @@ public final class GLESCapabilities {
         glActiveShaderProgramEXT,
         glActiveTexture,
         glAlphaFuncQCOM,
+        glAlphaToCoverageDitherControlNV,
         glApplyFramebufferAttachmentCMAAINTEL,
         glAttachShader,
         glBeginConditionalRenderNV,
@@ -199,6 +200,9 @@ public final class GLESCapabilities {
         glDrawRangeElementsBaseVertex,
         glDrawRangeElementsBaseVertexEXT,
         glDrawRangeElementsBaseVertexOES,
+        glDrawTransformFeedbackEXT,
+        glDrawTransformFeedbackInstancedEXT,
+        glDrawVkImageNV,
         glEGLImageTargetRenderbufferStorageOES,
         glEGLImageTargetTexture2DOES,
         glEnable,
@@ -235,6 +239,9 @@ public final class GLESCapabilities {
         glFlushMappedBufferRange,
         glFlushMappedBufferRangeEXT,
         glFragmentCoverageColorNV,
+        glFramebufferFetchBarrierQCOM,
+        glFramebufferFoveationConfigQCOM,
+        glFramebufferFoveationParametersQCOM,
         glFramebufferParameteri,
         glFramebufferPixelLocalStorageSizeEXT,
         glFramebufferRenderbuffer,
@@ -404,6 +411,7 @@ public final class GLESCapabilities {
         glGetVertexAttribPointerv,
         glGetVertexAttribfv,
         glGetVertexAttribiv,
+        glGetVkProcAddrNV,
         glGetnUniformfv,
         glGetnUniformfvEXT,
         glGetnUniformfvKHR,
@@ -643,6 +651,8 @@ public final class GLESCapabilities {
         glSetFenceNV,
         glShaderBinary,
         glShaderSource,
+        glSignalVkFenceNV,
+        glSignalVkSemaphoreNV,
         glStartTilingQCOM,
         glStencilFillPathInstancedNV,
         glStencilFillPathNV,
@@ -799,6 +809,7 @@ public final class GLESCapabilities {
         glViewportSwizzleNV,
         glWaitSync,
         glWaitSyncAPPLE,
+        glWaitVkSemaphoreNV,
         glWeightPathsNV,
         glWindowRectanglesEXT;
 
@@ -966,6 +977,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_draw_elements_base_vertex;
     /** When true, {@link EXTDrawInstanced} is supported. */
     public final boolean GL_EXT_draw_instanced;
+    /** When true, {@link EXTDrawTransformFeedback} is supported. */
+    public final boolean GL_EXT_draw_transform_feedback;
     /**
      * When true, the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_float_blend.txt">EXT_float_blend</a> extension is supported.
      * 
@@ -1024,6 +1037,15 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_multisample_compatibility;
     /** When true, {@link EXTMultisampledRenderToTexture} is supported. */
     public final boolean GL_EXT_multisampled_render_to_texture;
+    /**
+     * The {@code attachment} parameters for {@link EXTMultisampledRenderToTexture#glFramebufferTexture2DMultisampleEXT FramebufferTexture2DMultisampleEXT} is no longer required to be {@link GLES20#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}. The attachment parameter
+     * now matches what is allowed in {@link GLES20#glFramebufferTexture2D FramebufferTexture2D}. This means values like {@code GL_COLOR_ATTACHMENTi}, {@link GLES20#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GLES20#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, or
+     * {@link GLES30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT} may be used. After the application has rendered into the mutisampled buffer, the application should be careful to not
+     * trigger an implicit flush by performing a client side read of the buffer (readpixels, copyteximage, blitframebuffer, etc) before any subsequent
+     * rendering which uses the contents of the buffer. This may cause the attachment to be downsampled before the following draw, which would potentially
+     * cause corruption.
+     */
+    public final boolean GL_EXT_multisampled_render_to_texture2;
     /** When true, {@link EXTMultiviewDrawBuffers} is supported. */
     public final boolean GL_EXT_multiview_draw_buffers;
     /** When true, {@link EXTOcclusionQueryBoolean} is supported. */
@@ -1248,6 +1270,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_texture_border_clamp;
     /** When true, {@link EXTTextureBuffer} is supported. */
     public final boolean GL_EXT_texture_buffer;
+    /** When true, {@link EXTTextureCompressionASTCDecodeMode} is supported. */
+    public final boolean GL_EXT_texture_compression_astc_decode_mode;
     /** When true, {@link EXTTextureCompressionDXT1} is supported. */
     public final boolean GL_EXT_texture_compression_dxt1;
     /** When true, {@link EXTTextureCompressionS3TC} is supported. */
@@ -1284,6 +1308,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_YUV_target;
     /** When true, {@link FJShaderBinaryGCCSO} is supported. */
     public final boolean GL_FJ_shader_binary_GCCSO;
+    /** See {@link EXTTextureCompressionASTCDecodeMode EXT_texture_compression_astc_decode_mode}. */
+    public final boolean GL_EXT_texture_compression_astc_decode_mode_rgb9e5;
     /** When true, {@link IMGFramebufferDownsample} is supported. */
     public final boolean GL_IMG_framebuffer_downsample;
     /** When true, {@link IMGMultisampledRenderToTexture} is supported. */
@@ -1350,6 +1376,8 @@ public final class GLESCapabilities {
      * <p>Requires {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr}.</p>
      */
     public final boolean GL_KHR_texture_compression_astc_sliced_3d;
+    /** When true, {@link NVAlphaToCoverageDitherControl} is supported. */
+    public final boolean GL_NV_alpha_to_coverage_dither_control;
     /** When true, {@link NVBindlessTexture} is supported. */
     public final boolean GL_NV_bindless_texture;
     /** When true, {@link NVBlendEquationAdvanced} is supported. */
@@ -1372,6 +1400,8 @@ public final class GLESCapabilities {
     public final boolean GL_NV_draw_buffers;
     /** When true, {@link NVDrawInstanced} is supported. */
     public final boolean GL_NV_draw_instanced;
+    /** When true, {@link NVDrawVulkanImage} is supported. */
+    public final boolean GL_NV_draw_vulkan_image;
     /**
      * When true, the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/NV/NV_explicit_attrib_location.txt">NV_explicit_attrib_location</a> extension is supported.
      * 
@@ -1965,8 +1995,12 @@ public final class GLESCapabilities {
     public final boolean GL_QCOM_extended_get;
     /** When true, {@link QCOMExtendedGet2} is supported. */
     public final boolean GL_QCOM_extended_get2;
+    /** When true, {@link QCOMFramebufferFoveated} is supported. */
+    public final boolean GL_QCOM_framebuffer_foveated;
     /** When true, {@link QCOMPerfmonGlobalMode} is supported. */
     public final boolean GL_QCOM_perfmon_global_mode;
+    /** When true, {@link QCOMShaderFramebufferFetchNoncoherent} is supported. */
+    public final boolean GL_QCOM_shader_framebuffer_fetch_noncoherent;
     /** When true, {@link QCOMTiledRendering} is supported. */
     public final boolean GL_QCOM_tiled_rendering;
     /** When true, {@link QCOMWriteonlyRendering} is supported. */
@@ -1982,6 +2016,7 @@ public final class GLESCapabilities {
         glActiveShaderProgramEXT = provider.getFunctionAddress("glActiveShaderProgramEXT");
         glActiveTexture = provider.getFunctionAddress("glActiveTexture");
         glAlphaFuncQCOM = provider.getFunctionAddress("glAlphaFuncQCOM");
+        glAlphaToCoverageDitherControlNV = provider.getFunctionAddress("glAlphaToCoverageDitherControlNV");
         glApplyFramebufferAttachmentCMAAINTEL = provider.getFunctionAddress("glApplyFramebufferAttachmentCMAAINTEL");
         glAttachShader = provider.getFunctionAddress("glAttachShader");
         glBeginConditionalRenderNV = provider.getFunctionAddress("glBeginConditionalRenderNV");
@@ -2161,6 +2196,9 @@ public final class GLESCapabilities {
         glDrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
         glDrawRangeElementsBaseVertexEXT = provider.getFunctionAddress("glDrawRangeElementsBaseVertexEXT");
         glDrawRangeElementsBaseVertexOES = provider.getFunctionAddress("glDrawRangeElementsBaseVertexOES");
+        glDrawTransformFeedbackEXT = provider.getFunctionAddress("glDrawTransformFeedbackEXT");
+        glDrawTransformFeedbackInstancedEXT = provider.getFunctionAddress("glDrawTransformFeedbackInstancedEXT");
+        glDrawVkImageNV = provider.getFunctionAddress("glDrawVkImageNV");
         glEGLImageTargetRenderbufferStorageOES = provider.getFunctionAddress("glEGLImageTargetRenderbufferStorageOES");
         glEGLImageTargetTexture2DOES = provider.getFunctionAddress("glEGLImageTargetTexture2DOES");
         glEnable = provider.getFunctionAddress("glEnable");
@@ -2197,6 +2235,9 @@ public final class GLESCapabilities {
         glFlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
         glFlushMappedBufferRangeEXT = provider.getFunctionAddress("glFlushMappedBufferRangeEXT");
         glFragmentCoverageColorNV = provider.getFunctionAddress("glFragmentCoverageColorNV");
+        glFramebufferFetchBarrierQCOM = provider.getFunctionAddress("glFramebufferFetchBarrierQCOM");
+        glFramebufferFoveationConfigQCOM = provider.getFunctionAddress("glFramebufferFoveationConfigQCOM");
+        glFramebufferFoveationParametersQCOM = provider.getFunctionAddress("glFramebufferFoveationParametersQCOM");
         glFramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
         glFramebufferPixelLocalStorageSizeEXT = provider.getFunctionAddress("glFramebufferPixelLocalStorageSizeEXT");
         glFramebufferRenderbuffer = provider.getFunctionAddress("glFramebufferRenderbuffer");
@@ -2366,6 +2407,7 @@ public final class GLESCapabilities {
         glGetVertexAttribPointerv = provider.getFunctionAddress("glGetVertexAttribPointerv");
         glGetVertexAttribfv = provider.getFunctionAddress("glGetVertexAttribfv");
         glGetVertexAttribiv = provider.getFunctionAddress("glGetVertexAttribiv");
+        glGetVkProcAddrNV = provider.getFunctionAddress("glGetVkProcAddrNV");
         glGetnUniformfv = provider.getFunctionAddress("glGetnUniformfv");
         glGetnUniformfvEXT = provider.getFunctionAddress("glGetnUniformfvEXT");
         glGetnUniformfvKHR = provider.getFunctionAddress("glGetnUniformfvKHR");
@@ -2605,6 +2647,8 @@ public final class GLESCapabilities {
         glSetFenceNV = provider.getFunctionAddress("glSetFenceNV");
         glShaderBinary = provider.getFunctionAddress("glShaderBinary");
         glShaderSource = provider.getFunctionAddress("glShaderSource");
+        glSignalVkFenceNV = provider.getFunctionAddress("glSignalVkFenceNV");
+        glSignalVkSemaphoreNV = provider.getFunctionAddress("glSignalVkSemaphoreNV");
         glStartTilingQCOM = provider.getFunctionAddress("glStartTilingQCOM");
         glStencilFillPathInstancedNV = provider.getFunctionAddress("glStencilFillPathInstancedNV");
         glStencilFillPathNV = provider.getFunctionAddress("glStencilFillPathNV");
@@ -2761,6 +2805,7 @@ public final class GLESCapabilities {
         glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
         glWaitSync = provider.getFunctionAddress("glWaitSync");
         glWaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
+        glWaitVkSemaphoreNV = provider.getFunctionAddress("glWaitVkSemaphoreNV");
         glWeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
         glWindowRectanglesEXT = provider.getFunctionAddress("glWindowRectanglesEXT");
 
@@ -2818,6 +2863,7 @@ public final class GLESCapabilities {
         GL_EXT_draw_buffers_indexed = ext.contains("GL_EXT_draw_buffers_indexed") && checkExtension("GL_EXT_draw_buffers_indexed", EXTDrawBuffersIndexed.isAvailable(this));
         GL_EXT_draw_elements_base_vertex = ext.contains("GL_EXT_draw_elements_base_vertex") && checkExtension("GL_EXT_draw_elements_base_vertex", EXTDrawElementsBaseVertex.isAvailable(this, ext));
         GL_EXT_draw_instanced = ext.contains("GL_EXT_draw_instanced") && checkExtension("GL_EXT_draw_instanced", EXTDrawInstanced.isAvailable(this));
+        GL_EXT_draw_transform_feedback = ext.contains("GL_EXT_draw_transform_feedback") && checkExtension("GL_EXT_draw_transform_feedback", EXTDrawTransformFeedback.isAvailable(this));
         GL_EXT_float_blend = ext.contains("GL_EXT_float_blend");
         GL_EXT_geometry_point_size = ext.contains("GL_EXT_geometry_point_size");
         GL_EXT_geometry_shader = ext.contains("GL_EXT_geometry_shader") && checkExtension("GL_EXT_geometry_shader", EXTGeometryShader.isAvailable(this));
@@ -2828,6 +2874,7 @@ public final class GLESCapabilities {
         GL_EXT_multi_draw_indirect = ext.contains("GL_EXT_multi_draw_indirect") && checkExtension("GL_EXT_multi_draw_indirect", EXTMultiDrawIndirect.isAvailable(this));
         GL_EXT_multisample_compatibility = ext.contains("GL_EXT_multisample_compatibility");
         GL_EXT_multisampled_render_to_texture = ext.contains("GL_EXT_multisampled_render_to_texture") && checkExtension("GL_EXT_multisampled_render_to_texture", EXTMultisampledRenderToTexture.isAvailable(this));
+        GL_EXT_multisampled_render_to_texture2 = ext.contains("GL_EXT_multisampled_render_to_texture2");
         GL_EXT_multiview_draw_buffers = ext.contains("GL_EXT_multiview_draw_buffers") && checkExtension("GL_EXT_multiview_draw_buffers", EXTMultiviewDrawBuffers.isAvailable(this));
         GL_EXT_occlusion_query_boolean = ext.contains("GL_EXT_occlusion_query_boolean") && checkExtension("GL_EXT_occlusion_query_boolean", EXTOcclusionQueryBoolean.isAvailable(this));
         GL_EXT_polygon_offset_clamp = ext.contains("GL_EXT_polygon_offset_clamp") && checkExtension("GL_EXT_polygon_offset_clamp", EXTPolygonOffsetClamp.isAvailable(this));
@@ -2858,6 +2905,7 @@ public final class GLESCapabilities {
         GL_EXT_tessellation_shader = ext.contains("GL_EXT_tessellation_shader") && checkExtension("GL_EXT_tessellation_shader", EXTTessellationShader.isAvailable(this));
         GL_EXT_texture_border_clamp = ext.contains("GL_EXT_texture_border_clamp") && checkExtension("GL_EXT_texture_border_clamp", EXTTextureBorderClamp.isAvailable(this));
         GL_EXT_texture_buffer = ext.contains("GL_EXT_texture_buffer") && checkExtension("GL_EXT_texture_buffer", EXTTextureBuffer.isAvailable(this));
+        GL_EXT_texture_compression_astc_decode_mode = ext.contains("GL_EXT_texture_compression_astc_decode_mode");
         GL_EXT_texture_compression_dxt1 = ext.contains("GL_EXT_texture_compression_dxt1");
         GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
         GL_EXT_texture_cube_map_array = ext.contains("GL_EXT_texture_cube_map_array");
@@ -2876,6 +2924,7 @@ public final class GLESCapabilities {
         GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
         GL_EXT_YUV_target = ext.contains("GL_EXT_YUV_target");
         GL_FJ_shader_binary_GCCSO = ext.contains("GL_FJ_shader_binary_GCCSO");
+        GL_EXT_texture_compression_astc_decode_mode_rgb9e5 = ext.contains("GL_EXT_texture_compression_astc_decode_mode_rgb9e5");
         GL_IMG_framebuffer_downsample = ext.contains("GL_IMG_framebuffer_downsample") && checkExtension("GL_IMG_framebuffer_downsample", IMGFramebufferDownsample.isAvailable(this));
         GL_IMG_multisampled_render_to_texture = ext.contains("GL_IMG_multisampled_render_to_texture") && checkExtension("GL_IMG_multisampled_render_to_texture", IMGMultisampledRenderToTexture.isAvailable(this));
         GL_IMG_program_binary = ext.contains("GL_IMG_program_binary");
@@ -2897,6 +2946,7 @@ public final class GLESCapabilities {
         GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
         GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
         GL_KHR_texture_compression_astc_sliced_3d = ext.contains("GL_KHR_texture_compression_astc_sliced_3d");
+        GL_NV_alpha_to_coverage_dither_control = ext.contains("GL_NV_alpha_to_coverage_dither_control") && checkExtension("GL_NV_alpha_to_coverage_dither_control", NVAlphaToCoverageDitherControl.isAvailable(this));
         GL_NV_bindless_texture = ext.contains("GL_NV_bindless_texture") && checkExtension("GL_NV_bindless_texture", NVBindlessTexture.isAvailable(this));
         GL_NV_blend_equation_advanced = ext.contains("GL_NV_blend_equation_advanced") && checkExtension("GL_NV_blend_equation_advanced", NVBlendEquationAdvanced.isAvailable(this));
         GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
@@ -2908,6 +2958,7 @@ public final class GLESCapabilities {
         GL_NV_depth_nonlinear = ext.contains("GL_NV_depth_nonlinear");
         GL_NV_draw_buffers = ext.contains("GL_NV_draw_buffers") && checkExtension("GL_NV_draw_buffers", NVDrawBuffers.isAvailable(this));
         GL_NV_draw_instanced = ext.contains("GL_NV_draw_instanced") && checkExtension("GL_NV_draw_instanced", NVDrawInstanced.isAvailable(this));
+        GL_NV_draw_vulkan_image = ext.contains("GL_NV_draw_vulkan_image") && checkExtension("GL_NV_draw_vulkan_image", NVDrawVulkanImage.isAvailable(this));
         GL_NV_explicit_attrib_location = ext.contains("GL_NV_explicit_attrib_location");
         GL_NV_fbo_color_attachments = ext.contains("GL_NV_fbo_color_attachments");
         GL_NV_fence = ext.contains("GL_NV_fence") && checkExtension("GL_NV_fence", NVFence.isAvailable(this));
@@ -3010,7 +3061,9 @@ public final class GLESCapabilities {
         GL_QCOM_driver_control = ext.contains("GL_QCOM_driver_control") && checkExtension("GL_QCOM_driver_control", QCOMDriverControl.isAvailable(this));
         GL_QCOM_extended_get = ext.contains("GL_QCOM_extended_get") && checkExtension("GL_QCOM_extended_get", QCOMExtendedGet.isAvailable(this));
         GL_QCOM_extended_get2 = ext.contains("GL_QCOM_extended_get2") && checkExtension("GL_QCOM_extended_get2", QCOMExtendedGet2.isAvailable(this));
+        GL_QCOM_framebuffer_foveated = ext.contains("GL_QCOM_framebuffer_foveated") && checkExtension("GL_QCOM_framebuffer_foveated", QCOMFramebufferFoveated.isAvailable(this));
         GL_QCOM_perfmon_global_mode = ext.contains("GL_QCOM_perfmon_global_mode");
+        GL_QCOM_shader_framebuffer_fetch_noncoherent = ext.contains("GL_QCOM_shader_framebuffer_fetch_noncoherent") && checkExtension("GL_QCOM_shader_framebuffer_fetch_noncoherent", QCOMShaderFramebufferFetchNoncoherent.isAvailable(this));
         GL_QCOM_tiled_rendering = ext.contains("GL_QCOM_tiled_rendering") && checkExtension("GL_QCOM_tiled_rendering", QCOMTiledRendering.isAvailable(this));
         GL_QCOM_writeonly_rendering = ext.contains("GL_QCOM_writeonly_rendering");
         GL_VIV_shader_binary = ext.contains("GL_VIV_shader_binary");

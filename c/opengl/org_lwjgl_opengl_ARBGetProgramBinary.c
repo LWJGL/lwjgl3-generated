@@ -13,7 +13,7 @@ typedef void (APIENTRY *glProgramParameteriPROC) (jint, jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglGetProgramBinary__IIJJJ(JNIEnv *__env, jclass clazz, jint program, jint bufSize, jlong lengthAddress, jlong binaryFormatAddress, jlong binaryAddress) {
-    glGetProgramBinaryPROC glGetProgramBinary = (glGetProgramBinaryPROC)tlsGetFunction(653);
+    glGetProgramBinaryPROC glGetProgramBinary = (glGetProgramBinaryPROC)tlsGetFunction(654);
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t binaryFormat = (intptr_t)binaryFormatAddress;
     intptr_t binary = (intptr_t)binaryAddress;
@@ -22,14 +22,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglGetProgramBi
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglProgramBinary(JNIEnv *__env, jclass clazz, jint program, jint binaryFormat, jlong binaryAddress, jint length) {
-    glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1242);
+    glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1243);
     const intptr_t binary = (const intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)
     glProgramBinary(program, binaryFormat, binary, length);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_glProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
-    glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1253);
+    glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1254);
     UNUSED_PARAM(clazz)
     glProgramParameteri(program, pname, value);
 }

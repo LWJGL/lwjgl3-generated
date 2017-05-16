@@ -13,21 +13,21 @@ typedef void (APIENTRY *glEvaluateDepthValuesARBPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSampleLocations_nglFramebufferSampleLocationsfvARB__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint start, jint count, jlong vAddress) {
-    glFramebufferSampleLocationsfvARBPROC glFramebufferSampleLocationsfvARB = (glFramebufferSampleLocationsfvARBPROC)tlsGetFunction(446);
+    glFramebufferSampleLocationsfvARBPROC glFramebufferSampleLocationsfvARB = (glFramebufferSampleLocationsfvARBPROC)tlsGetFunction(447);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glFramebufferSampleLocationsfvARB(target, start, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSampleLocations_nglNamedFramebufferSampleLocationsfvARB__IIIJ(JNIEnv *__env, jclass clazz, jint framebuffer, jint start, jint count, jlong vAddress) {
-    glNamedFramebufferSampleLocationsfvARBPROC glNamedFramebufferSampleLocationsfvARB = (glNamedFramebufferSampleLocationsfvARBPROC)tlsGetFunction(1132);
+    glNamedFramebufferSampleLocationsfvARBPROC glNamedFramebufferSampleLocationsfvARB = (glNamedFramebufferSampleLocationsfvARBPROC)tlsGetFunction(1133);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glNamedFramebufferSampleLocationsfvARB(framebuffer, start, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSampleLocations_glEvaluateDepthValuesARB(JNIEnv *__env, jclass clazz) {
-    glEvaluateDepthValuesARBPROC glEvaluateDepthValuesARB = (glEvaluateDepthValuesARBPROC)tlsGetFunction(416);
+    glEvaluateDepthValuesARBPROC glEvaluateDepthValuesARB = (glEvaluateDepthValuesARBPROC)tlsGetFunction(417);
     UNUSED_PARAM(clazz)
     glEvaluateDepthValuesARB();
 }

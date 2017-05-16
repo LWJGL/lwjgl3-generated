@@ -11,7 +11,7 @@ typedef void (APIENTRY *glMemoryBarrierByRegionPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES31Compatibility_glMemoryBarrierByRegion(JNIEnv *__env, jclass clazz, jint barriers) {
-    glMemoryBarrierByRegionPROC glMemoryBarrierByRegion = (glMemoryBarrierByRegionPROC)tlsGetFunction(978);
+    glMemoryBarrierByRegionPROC glMemoryBarrierByRegion = (glMemoryBarrierByRegionPROC)tlsGetFunction(979);
     UNUSED_PARAM(clazz)
     glMemoryBarrierByRegion(barriers);
 }

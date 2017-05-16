@@ -11,7 +11,7 @@ typedef void (APIENTRY *glTextureBarrierPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureBarrier_glTextureBarrier(JNIEnv *__env, jclass clazz) {
-    glTextureBarrierPROC glTextureBarrier = (glTextureBarrierPROC)tlsGetFunction(1639);
+    glTextureBarrierPROC glTextureBarrier = (glTextureBarrierPROC)tlsGetFunction(1640);
     UNUSED_PARAM(clazz)
     glTextureBarrier();
 }

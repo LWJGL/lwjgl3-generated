@@ -30,90 +30,90 @@ typedef void (APIENTRY *glGetnUniformdvARBPROC) (jint, jint, jint, intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBRobustness_glGetGraphicsResetStatusARB(JNIEnv *__env, jclass clazz) {
-    glGetGraphicsResetStatusARBPROC glGetGraphicsResetStatusARB = (glGetGraphicsResetStatusARBPROC)tlsGetFunction(554);
+    glGetGraphicsResetStatusARBPROC glGetGraphicsResetStatusARB = (glGetGraphicsResetStatusARBPROC)tlsGetFunction(555);
     UNUSED_PARAM(clazz)
     return (jint)glGetGraphicsResetStatusARB();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnMapdvARB__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint query, jint bufSize, jlong dataAddress) {
-    glGetnMapdvARBPROC glGetnMapdvARB = (glGetnMapdvARBPROC)tlsGetFunction(797);
+    glGetnMapdvARBPROC glGetnMapdvARB = (glGetnMapdvARBPROC)tlsGetFunction(798);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetnMapdvARB(target, query, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnMapfvARB__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint query, jint bufSize, jlong dataAddress) {
-    glGetnMapfvARBPROC glGetnMapfvARB = (glGetnMapfvARBPROC)tlsGetFunction(799);
+    glGetnMapfvARBPROC glGetnMapfvARB = (glGetnMapfvARBPROC)tlsGetFunction(800);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetnMapfvARB(target, query, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnMapivARB__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint query, jint bufSize, jlong dataAddress) {
-    glGetnMapivARBPROC glGetnMapivARB = (glGetnMapivARBPROC)tlsGetFunction(801);
+    glGetnMapivARBPROC glGetnMapivARB = (glGetnMapivARBPROC)tlsGetFunction(802);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetnMapivARB(target, query, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnPixelMapfvARB__IIJ(JNIEnv *__env, jclass clazz, jint map, jint bufSize, jlong dataAddress) {
-    glGetnPixelMapfvARBPROC glGetnPixelMapfvARB = (glGetnPixelMapfvARBPROC)tlsGetFunction(805);
+    glGetnPixelMapfvARBPROC glGetnPixelMapfvARB = (glGetnPixelMapfvARBPROC)tlsGetFunction(806);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetnPixelMapfvARB(map, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnPixelMapuivARB__IIJ(JNIEnv *__env, jclass clazz, jint map, jint bufSize, jlong dataAddress) {
-    glGetnPixelMapuivARBPROC glGetnPixelMapuivARB = (glGetnPixelMapuivARBPROC)tlsGetFunction(807);
+    glGetnPixelMapuivARBPROC glGetnPixelMapuivARB = (glGetnPixelMapuivARBPROC)tlsGetFunction(808);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetnPixelMapuivARB(map, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnPixelMapusvARB__IIJ(JNIEnv *__env, jclass clazz, jint map, jint bufSize, jlong dataAddress) {
-    glGetnPixelMapusvARBPROC glGetnPixelMapusvARB = (glGetnPixelMapusvARBPROC)tlsGetFunction(809);
+    glGetnPixelMapusvARBPROC glGetnPixelMapusvARB = (glGetnPixelMapusvARBPROC)tlsGetFunction(810);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetnPixelMapusvARB(map, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnPolygonStippleARB(JNIEnv *__env, jclass clazz, jint bufSize, jlong patternAddress) {
-    glGetnPolygonStippleARBPROC glGetnPolygonStippleARB = (glGetnPolygonStippleARBPROC)tlsGetFunction(811);
+    glGetnPolygonStippleARBPROC glGetnPolygonStippleARB = (glGetnPolygonStippleARBPROC)tlsGetFunction(812);
     intptr_t pattern = (intptr_t)patternAddress;
     UNUSED_PARAM(clazz)
     glGetnPolygonStippleARB(bufSize, pattern);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnTexImageARB__IIIIIJ(JNIEnv *__env, jclass clazz, jint tex, jint level, jint format, jint type, jint bufSize, jlong imgAddress) {
-    glGetnTexImageARBPROC glGetnTexImageARB = (glGetnTexImageARBPROC)tlsGetFunction(815);
+    glGetnTexImageARBPROC glGetnTexImageARB = (glGetnTexImageARBPROC)tlsGetFunction(816);
     intptr_t img = (intptr_t)imgAddress;
     UNUSED_PARAM(clazz)
     glGetnTexImageARB(tex, level, format, type, bufSize, img);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglReadnPixelsARB__IIIIIIIJ(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jint bufSize, jlong dataAddress) {
-    glReadnPixelsARBPROC glReadnPixelsARB = (glReadnPixelsARBPROC)tlsGetFunction(1435);
+    glReadnPixelsARBPROC glReadnPixelsARB = (glReadnPixelsARBPROC)tlsGetFunction(1436);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glReadnPixelsARB(x, y, width, height, format, type, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnColorTableARB__IIIIJ(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jint bufSize, jlong tableAddress) {
-    glGetnColorTableARBPROC glGetnColorTableARB = (glGetnColorTableARBPROC)tlsGetFunction(789);
+    glGetnColorTableARBPROC glGetnColorTableARB = (glGetnColorTableARBPROC)tlsGetFunction(790);
     intptr_t table = (intptr_t)tableAddress;
     UNUSED_PARAM(clazz)
     glGetnColorTableARB(target, format, type, bufSize, table);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnConvolutionFilterARB(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jint bufSize, jlong imageAddress) {
-    glGetnConvolutionFilterARBPROC glGetnConvolutionFilterARB = (glGetnConvolutionFilterARBPROC)tlsGetFunction(793);
+    glGetnConvolutionFilterARBPROC glGetnConvolutionFilterARB = (glGetnConvolutionFilterARBPROC)tlsGetFunction(794);
     intptr_t image = (intptr_t)imageAddress;
     UNUSED_PARAM(clazz)
     glGetnConvolutionFilterARB(target, format, type, bufSize, image);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnSeparableFilterARB(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jint rowBufSize, jlong rowAddress, jint columnBufSize, jlong columnAddress, jlong spanAddress) {
-    glGetnSeparableFilterARBPROC glGetnSeparableFilterARB = (glGetnSeparableFilterARBPROC)tlsGetFunction(813);
+    glGetnSeparableFilterARBPROC glGetnSeparableFilterARB = (glGetnSeparableFilterARBPROC)tlsGetFunction(814);
     intptr_t row = (intptr_t)rowAddress;
     intptr_t column = (intptr_t)columnAddress;
     intptr_t span = (intptr_t)spanAddress;
@@ -122,49 +122,49 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnSeparableFilte
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnHistogramARB(JNIEnv *__env, jclass clazz, jint target, jboolean reset, jint format, jint type, jint bufSize, jlong valuesAddress) {
-    glGetnHistogramARBPROC glGetnHistogramARB = (glGetnHistogramARBPROC)tlsGetFunction(795);
+    glGetnHistogramARBPROC glGetnHistogramARB = (glGetnHistogramARBPROC)tlsGetFunction(796);
     intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glGetnHistogramARB(target, reset, format, type, bufSize, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnMinmaxARB(JNIEnv *__env, jclass clazz, jint target, jboolean reset, jint format, jint type, jint bufSize, jlong valuesAddress) {
-    glGetnMinmaxARBPROC glGetnMinmaxARB = (glGetnMinmaxARBPROC)tlsGetFunction(803);
+    glGetnMinmaxARBPROC glGetnMinmaxARB = (glGetnMinmaxARBPROC)tlsGetFunction(804);
     intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glGetnMinmaxARB(target, reset, format, type, bufSize, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnCompressedTexImageARB(JNIEnv *__env, jclass clazz, jint target, jint level, jint bufSize, jlong imgAddress) {
-    glGetnCompressedTexImageARBPROC glGetnCompressedTexImageARB = (glGetnCompressedTexImageARBPROC)tlsGetFunction(791);
+    glGetnCompressedTexImageARBPROC glGetnCompressedTexImageARB = (glGetnCompressedTexImageARBPROC)tlsGetFunction(792);
     intptr_t img = (intptr_t)imgAddress;
     UNUSED_PARAM(clazz)
     glGetnCompressedTexImageARB(target, level, bufSize, img);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnUniformfvARB__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint bufSize, jlong paramsAddress) {
-    glGetnUniformfvARBPROC glGetnUniformfvARB = (glGetnUniformfvARBPROC)tlsGetFunction(819);
+    glGetnUniformfvARBPROC glGetnUniformfvARB = (glGetnUniformfvARBPROC)tlsGetFunction(820);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetnUniformfvARB(program, location, bufSize, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnUniformivARB__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint bufSize, jlong paramsAddress) {
-    glGetnUniformivARBPROC glGetnUniformivARB = (glGetnUniformivARBPROC)tlsGetFunction(822);
+    glGetnUniformivARBPROC glGetnUniformivARB = (glGetnUniformivARBPROC)tlsGetFunction(823);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetnUniformivARB(program, location, bufSize, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnUniformuivARB__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint bufSize, jlong paramsAddress) {
-    glGetnUniformuivARBPROC glGetnUniformuivARB = (glGetnUniformuivARBPROC)tlsGetFunction(825);
+    glGetnUniformuivARBPROC glGetnUniformuivARB = (glGetnUniformuivARBPROC)tlsGetFunction(826);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetnUniformuivARB(program, location, bufSize, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnUniformdvARB__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint bufSize, jlong paramsAddress) {
-    glGetnUniformdvARBPROC glGetnUniformdvARB = (glGetnUniformdvARBPROC)tlsGetFunction(817);
+    glGetnUniformdvARBPROC glGetnUniformdvARB = (glGetnUniformdvARBPROC)tlsGetFunction(818);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetnUniformdvARB(program, location, bufSize, params);

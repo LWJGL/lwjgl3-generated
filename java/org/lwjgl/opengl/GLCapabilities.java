@@ -24,6 +24,7 @@ public final class GLCapabilities {
         glActiveTextureARB,
         glActiveVaryingNV,
         glAlphaFunc,
+        glAlphaToCoverageDitherControlNV,
         glApplyFramebufferAttachmentCMAAINTEL,
         glAreTexturesResident,
         glArrayElement,
@@ -3531,6 +3532,8 @@ public final class GLCapabilities {
      * <p>Requires {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr}.</p>
      */
     public final boolean GL_KHR_texture_compression_astc_sliced_3d;
+    /** When true, {@link NVAlphaToCoverageDitherControl} is supported. */
+    public final boolean GL_NV_alpha_to_coverage_dither_control;
     /** When true, {@link NVBindlessMultiDrawIndirect} is supported. */
     public final boolean GL_NV_bindless_multi_draw_indirect;
     /** When true, {@link NVBindlessMultiDrawIndirectCount} is supported. */
@@ -3856,6 +3859,7 @@ public final class GLCapabilities {
         glActiveTextureARB = provider.getFunctionAddress("glActiveTextureARB");
         glActiveVaryingNV = provider.getFunctionAddress("glActiveVaryingNV");
         glAlphaFunc = getFunctionAddress(fc, provider, "glAlphaFunc");
+        glAlphaToCoverageDitherControlNV = provider.getFunctionAddress("glAlphaToCoverageDitherControlNV");
         glApplyFramebufferAttachmentCMAAINTEL = provider.getFunctionAddress("glApplyFramebufferAttachmentCMAAINTEL");
         glAreTexturesResident = getFunctionAddress(fc, provider, "glAreTexturesResident");
         glArrayElement = provider.getFunctionAddress("glArrayElement");
@@ -6272,6 +6276,7 @@ public final class GLCapabilities {
         GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
         GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
         GL_KHR_texture_compression_astc_sliced_3d = ext.contains("GL_KHR_texture_compression_astc_sliced_3d");
+        GL_NV_alpha_to_coverage_dither_control = ext.contains("GL_NV_alpha_to_coverage_dither_control") && checkExtension("GL_NV_alpha_to_coverage_dither_control", NVAlphaToCoverageDitherControl.isAvailable(this));
         GL_NV_bindless_multi_draw_indirect = ext.contains("GL_NV_bindless_multi_draw_indirect") && checkExtension("GL_NV_bindless_multi_draw_indirect", NVBindlessMultiDrawIndirect.isAvailable(this));
         GL_NV_bindless_multi_draw_indirect_count = ext.contains("GL_NV_bindless_multi_draw_indirect_count") && checkExtension("GL_NV_bindless_multi_draw_indirect_count", NVBindlessMultiDrawIndirectCount.isAvailable(this));
         GL_NV_bindless_texture = ext.contains("GL_NV_bindless_texture") && checkExtension("GL_NV_bindless_texture", NVBindlessTexture.isAvailable(this));

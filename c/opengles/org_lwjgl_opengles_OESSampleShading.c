@@ -11,7 +11,7 @@ typedef void (APIENTRY *glMinSampleShadingOESPROC) (jfloat);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESSampleShading_glMinSampleShadingOES(JNIEnv *__env, jclass clazz, jfloat value) {
-    glMinSampleShadingOESPROC glMinSampleShadingOES = (glMinSampleShadingOESPROC)tlsGetFunction(447);
+    glMinSampleShadingOESPROC glMinSampleShadingOES = (glMinSampleShadingOESPROC)tlsGetFunction(455);
     UNUSED_PARAM(clazz)
     glMinSampleShadingOES(value);
 }

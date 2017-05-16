@@ -16,37 +16,37 @@ typedef void (APIENTRY *glTextureImage3DMultisampleCoverageNVPROC) (jint, jint, 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTextureMultisample_glTexImage2DMultisampleCoverageNV(JNIEnv *__env, jclass clazz, jint target, jint coverageSamples, jint colorSamples, jint internalFormat, jint width, jint height, jboolean fixedSampleLocations) {
-    glTexImage2DMultisampleCoverageNVPROC glTexImage2DMultisampleCoverageNV = (glTexImage2DMultisampleCoverageNVPROC)tlsGetFunction(1616);
+    glTexImage2DMultisampleCoverageNVPROC glTexImage2DMultisampleCoverageNV = (glTexImage2DMultisampleCoverageNVPROC)tlsGetFunction(1617);
     UNUSED_PARAM(clazz)
     glTexImage2DMultisampleCoverageNV(target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTextureMultisample_glTexImage3DMultisampleCoverageNV(JNIEnv *__env, jclass clazz, jint target, jint coverageSamples, jint colorSamples, jint internalFormat, jint width, jint height, jint depth, jboolean fixedSampleLocations) {
-    glTexImage3DMultisampleCoverageNVPROC glTexImage3DMultisampleCoverageNV = (glTexImage3DMultisampleCoverageNVPROC)tlsGetFunction(1619);
+    glTexImage3DMultisampleCoverageNVPROC glTexImage3DMultisampleCoverageNV = (glTexImage3DMultisampleCoverageNVPROC)tlsGetFunction(1620);
     UNUSED_PARAM(clazz)
     glTexImage3DMultisampleCoverageNV(target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTextureMultisample_glTextureImage2DMultisampleNV(JNIEnv *__env, jclass clazz, jint texture, jint target, jint samples, jint internalFormat, jint width, jint height, jboolean fixedSampleLocations) {
-    glTextureImage2DMultisampleNVPROC glTextureImage2DMultisampleNV = (glTextureImage2DMultisampleNVPROC)tlsGetFunction(1648);
+    glTextureImage2DMultisampleNVPROC glTextureImage2DMultisampleNV = (glTextureImage2DMultisampleNVPROC)tlsGetFunction(1649);
     UNUSED_PARAM(clazz)
     glTextureImage2DMultisampleNV(texture, target, samples, internalFormat, width, height, fixedSampleLocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTextureMultisample_glTextureImage3DMultisampleNV(JNIEnv *__env, jclass clazz, jint texture, jint target, jint samples, jint internalFormat, jint width, jint height, jint depth, jboolean fixedSampleLocations) {
-    glTextureImage3DMultisampleNVPROC glTextureImage3DMultisampleNV = (glTextureImage3DMultisampleNVPROC)tlsGetFunction(1651);
+    glTextureImage3DMultisampleNVPROC glTextureImage3DMultisampleNV = (glTextureImage3DMultisampleNVPROC)tlsGetFunction(1652);
     UNUSED_PARAM(clazz)
     glTextureImage3DMultisampleNV(texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTextureMultisample_glTextureImage2DMultisampleCoverageNV(JNIEnv *__env, jclass clazz, jint texture, jint target, jint coverageSamples, jint colorSamples, jint internalFormat, jint width, jint height, jboolean fixedSampleLocations) {
-    glTextureImage2DMultisampleCoverageNVPROC glTextureImage2DMultisampleCoverageNV = (glTextureImage2DMultisampleCoverageNVPROC)tlsGetFunction(1647);
+    glTextureImage2DMultisampleCoverageNVPROC glTextureImage2DMultisampleCoverageNV = (glTextureImage2DMultisampleCoverageNVPROC)tlsGetFunction(1648);
     UNUSED_PARAM(clazz)
     glTextureImage2DMultisampleCoverageNV(texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTextureMultisample_glTextureImage3DMultisampleCoverageNV(JNIEnv *__env, jclass clazz, jint texture, jint target, jint coverageSamples, jint colorSamples, jint internalFormat, jint width, jint height, jint depth, jboolean fixedSampleLocations) {
-    glTextureImage3DMultisampleCoverageNVPROC glTextureImage3DMultisampleCoverageNV = (glTextureImage3DMultisampleCoverageNVPROC)tlsGetFunction(1650);
+    glTextureImage3DMultisampleCoverageNVPROC glTextureImage3DMultisampleCoverageNV = (glTextureImage3DMultisampleCoverageNVPROC)tlsGetFunction(1651);
     UNUSED_PARAM(clazz)
     glTextureImage3DMultisampleCoverageNV(texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 }

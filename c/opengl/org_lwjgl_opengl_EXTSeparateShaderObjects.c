@@ -13,7 +13,7 @@ typedef jint (APIENTRY *glCreateShaderProgramEXTPROC) (jint, const intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSeparateShaderObjects_glUseShaderProgramEXT(JNIEnv *__env, jclass clazz, jint type, jint program) {
-    glUseShaderProgramEXTPROC glUseShaderProgramEXT = (glUseShaderProgramEXTPROC)tlsGetFunction(1821);
+    glUseShaderProgramEXTPROC glUseShaderProgramEXT = (glUseShaderProgramEXTPROC)tlsGetFunction(1822);
     UNUSED_PARAM(clazz)
     glUseShaderProgramEXT(type, program);
 }
@@ -25,7 +25,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSeparateShaderObjects_glActivePr
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_EXTSeparateShaderObjects_nglCreateShaderProgramEXT(JNIEnv *__env, jclass clazz, jint type, jlong stringAddress) {
-    glCreateShaderProgramEXTPROC glCreateShaderProgramEXT = (glCreateShaderProgramEXTPROC)tlsGetFunction(274);
+    glCreateShaderProgramEXTPROC glCreateShaderProgramEXT = (glCreateShaderProgramEXTPROC)tlsGetFunction(275);
     const intptr_t string = (const intptr_t)stringAddress;
     UNUSED_PARAM(clazz)
     return (jint)glCreateShaderProgramEXT(type, string);

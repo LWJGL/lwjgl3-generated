@@ -12,13 +12,13 @@ typedef void (APIENTRY *glResolveMultisampleFramebufferAPPLEPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLEFramebufferMultisample_glRenderbufferStorageMultisampleAPPLE(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height) {
-    glRenderbufferStorageMultisampleAPPLEPROC glRenderbufferStorageMultisampleAPPLE = (glRenderbufferStorageMultisampleAPPLEPROC)tlsGetFunction(597);
+    glRenderbufferStorageMultisampleAPPLEPROC glRenderbufferStorageMultisampleAPPLE = (glRenderbufferStorageMultisampleAPPLEPROC)tlsGetFunction(605);
     UNUSED_PARAM(clazz)
     glRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLEFramebufferMultisample_glResolveMultisampleFramebufferAPPLE(JNIEnv *__env, jclass clazz) {
-    glResolveMultisampleFramebufferAPPLEPROC glResolveMultisampleFramebufferAPPLE = (glResolveMultisampleFramebufferAPPLEPROC)tlsGetFunction(602);
+    glResolveMultisampleFramebufferAPPLEPROC glResolveMultisampleFramebufferAPPLE = (glResolveMultisampleFramebufferAPPLEPROC)tlsGetFunction(610);
     UNUSED_PARAM(clazz)
     glResolveMultisampleFramebufferAPPLE();
 }

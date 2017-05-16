@@ -11,7 +11,7 @@ typedef void (APIENTRY *glWindowRectanglesEXTPROC) (jint, jint, const intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTWindowRectangles_nglWindowRectanglesEXT__IIJ(JNIEnv *__env, jclass clazz, jint mode, jint count, jlong boxAddress) {
-    glWindowRectanglesEXTPROC glWindowRectanglesEXT = (glWindowRectanglesEXTPROC)tlsGetFunction(2127);
+    glWindowRectanglesEXTPROC glWindowRectanglesEXT = (glWindowRectanglesEXTPROC)tlsGetFunction(2128);
     const intptr_t box = (const intptr_t)boxAddress;
     UNUSED_PARAM(clazz)
     glWindowRectanglesEXT(mode, count, box);

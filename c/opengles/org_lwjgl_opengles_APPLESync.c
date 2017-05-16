@@ -17,48 +17,48 @@ typedef void (APIENTRY *glGetSyncivAPPLEPROC) (intptr_t, jint, jint, intptr_t, i
 EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengles_APPLESync_glFenceSyncAPPLE(JNIEnv *__env, jclass clazz, jint condition, jint flags) {
-    glFenceSyncAPPLEPROC glFenceSyncAPPLE = (glFenceSyncAPPLEPROC)tlsGetFunction(212);
+    glFenceSyncAPPLEPROC glFenceSyncAPPLE = (glFenceSyncAPPLEPROC)tlsGetFunction(216);
     UNUSED_PARAM(clazz)
     return (jlong)glFenceSyncAPPLE(condition, flags);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_APPLESync_nglIsSyncAPPLE(JNIEnv *__env, jclass clazz, jlong syncAddress) {
-    glIsSyncAPPLEPROC glIsSyncAPPLE = (glIsSyncAPPLEPROC)tlsGetFunction(422);
+    glIsSyncAPPLEPROC glIsSyncAPPLE = (glIsSyncAPPLEPROC)tlsGetFunction(430);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     return (jboolean)glIsSyncAPPLE(sync);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLESync_nglDeleteSyncAPPLE(JNIEnv *__env, jclass clazz, jlong syncAddress) {
-    glDeleteSyncAPPLEPROC glDeleteSyncAPPLE = (glDeleteSyncAPPLEPROC)tlsGetFunction(131);
+    glDeleteSyncAPPLEPROC glDeleteSyncAPPLE = (glDeleteSyncAPPLEPROC)tlsGetFunction(132);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     glDeleteSyncAPPLE(sync);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_APPLESync_nglClientWaitSyncAPPLE(JNIEnv *__env, jclass clazz, jlong syncAddress, jint flags, jlong timeout) {
-    glClientWaitSyncAPPLEPROC glClientWaitSyncAPPLE = (glClientWaitSyncAPPLEPROC)tlsGetFunction(69);
+    glClientWaitSyncAPPLEPROC glClientWaitSyncAPPLE = (glClientWaitSyncAPPLEPROC)tlsGetFunction(70);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     return (jint)glClientWaitSyncAPPLE(sync, flags, timeout);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLESync_nglWaitSyncAPPLE(JNIEnv *__env, jclass clazz, jlong syncAddress, jint flags, jlong timeout) {
-    glWaitSyncAPPLEPROC glWaitSyncAPPLE = (glWaitSyncAPPLEPROC)tlsGetFunction(782);
+    glWaitSyncAPPLEPROC glWaitSyncAPPLE = (glWaitSyncAPPLEPROC)tlsGetFunction(792);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     glWaitSyncAPPLE(sync, flags, timeout);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLESync_nglGetInteger64vAPPLE__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress) {
-    glGetInteger64vAPPLEPROC glGetInteger64vAPPLE = (glGetInteger64vAPPLEPROC)tlsGetFunction(288);
+    glGetInteger64vAPPLEPROC glGetInteger64vAPPLE = (glGetInteger64vAPPLEPROC)tlsGetFunction(295);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetInteger64vAPPLE(pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLESync_nglGetSyncivAPPLE__JIIJJ(JNIEnv *__env, jclass clazz, jlong syncAddress, jint pname, jint bufSize, jlong lengthAddress, jlong valuesAddress) {
-    glGetSyncivAPPLEPROC glGetSyncivAPPLE = (glGetSyncivAPPLEPROC)tlsGetFunction(360);
+    glGetSyncivAPPLEPROC glGetSyncivAPPLE = (glGetSyncivAPPLEPROC)tlsGetFunction(367);
     intptr_t sync = (intptr_t)syncAddress;
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t values = (intptr_t)valuesAddress;

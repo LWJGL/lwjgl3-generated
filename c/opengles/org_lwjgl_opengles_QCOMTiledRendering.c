@@ -12,13 +12,13 @@ typedef void (APIENTRY *glEndTilingQCOMPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMTiledRendering_glStartTilingQCOM(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint preserveMask) {
-    glStartTilingQCOMPROC glStartTilingQCOM = (glStartTilingQCOMPROC)tlsGetFunction(627);
+    glStartTilingQCOMPROC glStartTilingQCOM = (glStartTilingQCOMPROC)tlsGetFunction(637);
     UNUSED_PARAM(clazz)
     glStartTilingQCOM(x, y, width, height, preserveMask);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_QCOMTiledRendering_glEndTilingQCOM(JNIEnv *__env, jclass clazz, jint preserveMask) {
-    glEndTilingQCOMPROC glEndTilingQCOM = (glEndTilingQCOMPROC)tlsGetFunction(197);
+    glEndTilingQCOMPROC glEndTilingQCOM = (glEndTilingQCOMPROC)tlsGetFunction(201);
     UNUSED_PARAM(clazz)
     glEndTilingQCOM(preserveMask);
 }

@@ -12,7 +12,7 @@ typedef void (APIENTRY *glProgramBinaryOESPROC) (jint, jint, const intptr_t, jin
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESGetProgramBinary_nglGetProgramBinaryOES__IIJJJ(JNIEnv *__env, jclass clazz, jint program, jint bufSize, jlong lengthAddress, jlong binaryFormatAddress, jlong binaryAddress) {
-    glGetProgramBinaryOESPROC glGetProgramBinaryOES = (glGetProgramBinaryOESPROC)tlsGetFunction(323);
+    glGetProgramBinaryOESPROC glGetProgramBinaryOES = (glGetProgramBinaryOESPROC)tlsGetFunction(330);
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t binaryFormat = (intptr_t)binaryFormatAddress;
     intptr_t binary = (intptr_t)binaryAddress;
@@ -21,7 +21,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESGetProgramBinary_nglGetProgram
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESGetProgramBinary_nglProgramBinaryOES(JNIEnv *__env, jclass clazz, jint program, jint binaryFormat, jlong binaryAddress, jint length) {
-    glProgramBinaryOESPROC glProgramBinaryOES = (glProgramBinaryOESPROC)tlsGetFunction(493);
+    glProgramBinaryOESPROC glProgramBinaryOES = (glProgramBinaryOESPROC)tlsGetFunction(501);
     const intptr_t binary = (const intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)
     glProgramBinaryOES(program, binaryFormat, binary, length);
