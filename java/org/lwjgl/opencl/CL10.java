@@ -5731,6 +5731,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -5805,6 +5809,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -5879,6 +5887,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -5953,6 +5965,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6027,6 +6043,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6101,6 +6121,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6175,6 +6199,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6249,6 +6277,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6298,6 +6330,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6353,6 +6389,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6408,6 +6448,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6463,6 +6507,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6518,6 +6566,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6573,6 +6625,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6628,6 +6684,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6683,6 +6743,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6738,6 +6802,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6793,6 +6861,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6848,6 +6920,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6903,6 +6979,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -6958,6 +7038,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7013,6 +7097,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7068,6 +7156,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7123,6 +7215,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7178,6 +7274,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7233,6 +7333,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7288,6 +7392,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7343,6 +7451,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7398,6 +7510,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7453,6 +7569,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7508,6 +7628,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7563,6 +7687,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7618,6 +7746,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7673,6 +7805,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7728,6 +7864,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>
@@ -7783,6 +7923,10 @@ public class CL10 {
      *         <li>{@link #CL_INVALID_ARG_SIZE INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
      *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
      *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+     *         <li>{@link CL22#CL_MAX_SIZE_RESTRICTION_EXCEEDED MAX_SIZE_RESTRICTION_EXCEEDED} if the size in bytes of the memory object (if the argument was declared with constant qualifier) or {@code arg_size}
+     *         (if the argument was declared with local qualifier) exceed the maximum size restriction that was set with the optional language attribute. The
+     *         optional attribute can be {@code cl::max_size} defined in OpenCL 2.2 C++ Kernel Language specification or {@code SpvDecorationMaxByteOffset}
+     *         defined in SPIR-V 1.2 Specification.</li>
      *         <li>{@link #CL_INVALID_ARG_VALUE INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
      *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
      *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}.</li>

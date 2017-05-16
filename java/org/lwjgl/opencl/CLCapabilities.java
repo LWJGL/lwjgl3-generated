@@ -161,6 +161,8 @@ public class CLCapabilities {
         clSetKernelArgSVMPointer,
         clSetKernelExecInfo,
         clSetMemObjectDestructorCallback,
+        clSetProgramReleaseCallback,
+        clSetProgramSpecializationConstant,
         clSetUserEventStatus,
         clTerminateContextKHR,
         clTrackLiveObjectsAltera,
@@ -182,6 +184,8 @@ public class CLCapabilities {
     public final boolean OpenCL20;
     /** When true, {@link CL21} is supported. */
     public final boolean OpenCL21;
+    /** When true, {@link CL22} is supported. */
+    public final boolean OpenCL22;
     /** When true, {@link ALTERACompilerMode} is supported. */
     public final boolean cl_altera_compiler_mode;
     /** When true, {@link ALTERADeviceTemperature} is supported. */
@@ -610,14 +614,30 @@ public class CLCapabilities {
     public final boolean cl_intel_advanced_motion_estimation;
     /** When true, {@link INTELDevicePartitionByNames} is supported. */
     public final boolean cl_intel_device_partition_by_names;
+    /** When true, {@link INTELDeviceSideAVCMotionEstimation} is supported. */
+    public final boolean cl_intel_device_side_avc_motion_estimation;
     /** When true, {@link INTELDriverDiagnostics} is supported. */
     public final boolean cl_intel_driver_diagnostics;
     /** When true, {@link INTELEGLImageYUV} is supported. */
     public final boolean cl_intel_egl_image_yuv;
+    /**
+     * This extension augments the block read/write functionality available in the Intel vendor extensions {@link INTELSubgroups intel_subgroups} and
+     * <a target="_blank" href="http://www.khronos.org/registry/cl/extensions/intel/cl_intel_subgroups_short.txt">intel_media_block_io</a> by the specification of additional built-in functions to facilitate the reading and writing of flexible 2D
+     * regions from images. This API allows for the explicit specification of the width and height of the image regions.
+     * 
+     * <p>While not required, this extension is most useful when the subgroup size is known at compile-time. The primary use case for this extension is to
+     * support the reading of the edge texels (or image elements) of neighboring macro-blocks as described in the Intel vendor extension
+     * {@link INTELDeviceSideAVCMotionEstimation intel_device_side_avc_motion_estimation}. When using the built-in functions from {@code cl_intel_device_ side_avc_motion_estimation} the
+     * subgroup size is implicitly fixed to 16. In other use cases the subgroup size may be fixed using the {@link INTELRequiredSubgroupSize intel_required_subgroup_size} extension, if
+     * needed.</p>
+     */
+    public final boolean cl_intel_media_block_io;
     /** When true, {@link INTELMotionEstimation} is supported. */
     public final boolean cl_intel_motion_estimation;
     /** When true, {@link INTELPackedYUV} is supported. */
     public final boolean cl_intel_packed_yuv;
+    /** When true, {@link INTELPlanarYUV} is supported. */
+    public final boolean cl_intel_planar_yuv;
     /** When true, {@code intel_printf} is supported. */
     public final boolean cl_intel_printf;
     /** When true, {@link INTELRequiredSubgroupSize} is supported. */
@@ -776,6 +796,8 @@ public class CLCapabilities {
     public final boolean cl_khr_select_fprounding_mode;
     /** When true, {@link KHRSPIR} is supported. */
     public final boolean cl_khr_spir;
+    /** When true, {@link KHRSubgroupNamedBarrier} is supported. */
+    public final boolean cl_khr_subgroup_named_barrier;
     /** When true, {@link KHRTerminateContext} is supported. */
     public final boolean cl_khr_terminate_context;
     /** When true, {@link KHRThrottleHints} is supported. */
@@ -992,6 +1014,8 @@ public class CLCapabilities {
             provider.getFunctionAddress("clSetKernelArgSVMPointer"),
             provider.getFunctionAddress("clSetKernelExecInfo"),
             provider.getFunctionAddress("clSetMemObjectDestructorCallback"),
+            provider.getFunctionAddress("clSetProgramReleaseCallback"),
+            provider.getFunctionAddress("clSetProgramSpecializationConstant"),
             provider.getFunctionAddress("clSetUserEventStatus"),
             provider.getFunctionAddress("clTerminateContextKHR"),
             provider.getFunctionAddress("clTrackLiveObjectsAltera"),
@@ -1145,6 +1169,8 @@ public class CLCapabilities {
             caps.clSetKernelArgSVMPointer,
             caps.clSetKernelExecInfo,
             caps.clSetMemObjectDestructorCallback,
+            caps.clSetProgramReleaseCallback,
+            caps.clSetProgramSpecializationConstant,
             caps.clSetUserEventStatus,
             caps.clTerminateContextKHR,
             caps.clTrackLiveObjectsAltera,
@@ -1297,12 +1323,14 @@ public class CLCapabilities {
         clSetKernelArgSVMPointer = functions[139];
         clSetKernelExecInfo = functions[140];
         clSetMemObjectDestructorCallback = functions[141];
-        clSetUserEventStatus = functions[142];
-        clTerminateContextKHR = functions[143];
-        clTrackLiveObjectsAltera = functions[144];
-        clUnloadCompiler = functions[145];
-        clUnloadPlatformCompiler = functions[146];
-        clWaitForEvents = functions[147];
+        clSetProgramReleaseCallback = functions[142];
+        clSetProgramSpecializationConstant = functions[143];
+        clSetUserEventStatus = functions[144];
+        clTerminateContextKHR = functions[145];
+        clTrackLiveObjectsAltera = functions[146];
+        clUnloadCompiler = functions[147];
+        clUnloadPlatformCompiler = functions[148];
+        clWaitForEvents = functions[149];
 
         OpenCL10 = ext.contains("OpenCL10") && CL.checkExtension("OpenCL10", CL10.isAvailable(this));
         OpenCL10GL = ext.contains("OpenCL10GL") && CL.checkExtension("OpenCL10GL", CL10GL.isAvailable(this));
@@ -1311,6 +1339,7 @@ public class CLCapabilities {
         OpenCL12GL = ext.contains("OpenCL12GL") && CL.checkExtension("OpenCL12GL", CL12GL.isAvailable(this));
         OpenCL20 = ext.contains("OpenCL20") && CL.checkExtension("OpenCL20", CL20.isAvailable(this));
         OpenCL21 = ext.contains("OpenCL21") && CL.checkExtension("OpenCL21", CL21.isAvailable(this));
+        OpenCL22 = ext.contains("OpenCL22") && CL.checkExtension("OpenCL22", CL22.isAvailable(this));
         cl_altera_compiler_mode = ext.contains("cl_altera_compiler_mode");
         cl_altera_device_temperature = ext.contains("cl_altera_device_temperature");
         cl_altera_live_object_tracking = ext.contains("cl_altera_live_object_tracking") && CL.checkExtension("cl_altera_live_object_tracking", ALTERALiveObjectTracking.isAvailable(this));
@@ -1347,10 +1376,13 @@ public class CLCapabilities {
         cl_intel_accelerator = ext.contains("cl_intel_accelerator") && CL.checkExtension("cl_intel_accelerator", INTELAccelerator.isAvailable(this));
         cl_intel_advanced_motion_estimation = ext.contains("cl_intel_advanced_motion_estimation");
         cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
+        cl_intel_device_side_avc_motion_estimation = ext.contains("cl_intel_device_side_avc_motion_estimation");
         cl_intel_driver_diagnostics = ext.contains("cl_intel_driver_diagnostics");
         cl_intel_egl_image_yuv = ext.contains("cl_intel_egl_image_yuv");
+        cl_intel_media_block_io = ext.contains("cl_intel_media_block_io");
         cl_intel_motion_estimation = ext.contains("cl_intel_motion_estimation");
         cl_intel_packed_yuv = ext.contains("cl_intel_packed_yuv");
+        cl_intel_planar_yuv = ext.contains("cl_intel_planar_yuv");
         cl_intel_printf = ext.contains("cl_intel_printf");
         cl_intel_required_subgroup_size = ext.contains("cl_intel_required_subgroup_size");
         cl_intel_simultaneous_sharing = ext.contains("cl_intel_simultaneous_sharing");
@@ -1384,6 +1416,7 @@ public class CLCapabilities {
         cl_khr_priority_hints = ext.contains("cl_khr_priority_hints");
         cl_khr_select_fprounding_mode = ext.contains("cl_khr_select_fprounding_mode");
         cl_khr_spir = ext.contains("cl_khr_spir");
+        cl_khr_subgroup_named_barrier = ext.contains("cl_khr_subgroup_named_barrier");
         cl_khr_terminate_context = ext.contains("cl_khr_terminate_context") && CL.checkExtension("cl_khr_terminate_context", KHRTerminateContext.isAvailable(this));
         cl_khr_throttle_hints = ext.contains("cl_khr_throttle_hints");
         cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
