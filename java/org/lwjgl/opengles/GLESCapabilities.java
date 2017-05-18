@@ -980,6 +980,13 @@ public final class GLESCapabilities {
     /** When true, {@link EXTDrawTransformFeedback} is supported. */
     public final boolean GL_EXT_draw_transform_feedback;
     /**
+     * This extension adds functionality to that provided by {@link OESEGLImage OES_EGL_image} in order to support EGLImage 2D arrays. It extends the existing
+     * {@code EGLImageTargetTexture2DOES} entry point from {@code OES_EGL_image}. Render buffers are not extended to include array support.
+     * 
+     * <p>{@code EGLImage} 2D arrays are created using {@code eglCreateImageKHR} as defined in the {@code EGL_EXT_gl_texture_2D_image_array} extension.</p>
+     */
+    public final boolean GL_EXT_EGL_image_array;
+    /**
      * When true, the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_float_blend.txt">EXT_float_blend</a> extension is supported.
      * 
      * <p>This extension expands upon the EXT_color_buffer_float extension to allow support for blending with 32-bit floating-point color buffers.</p>
@@ -2864,6 +2871,7 @@ public final class GLESCapabilities {
         GL_EXT_draw_elements_base_vertex = ext.contains("GL_EXT_draw_elements_base_vertex") && checkExtension("GL_EXT_draw_elements_base_vertex", EXTDrawElementsBaseVertex.isAvailable(this, ext));
         GL_EXT_draw_instanced = ext.contains("GL_EXT_draw_instanced") && checkExtension("GL_EXT_draw_instanced", EXTDrawInstanced.isAvailable(this));
         GL_EXT_draw_transform_feedback = ext.contains("GL_EXT_draw_transform_feedback") && checkExtension("GL_EXT_draw_transform_feedback", EXTDrawTransformFeedback.isAvailable(this));
+        GL_EXT_EGL_image_array = ext.contains("GL_EXT_EGL_image_array");
         GL_EXT_float_blend = ext.contains("GL_EXT_float_blend");
         GL_EXT_geometry_point_size = ext.contains("GL_EXT_geometry_point_size");
         GL_EXT_geometry_shader = ext.contains("GL_EXT_geometry_shader") && checkExtension("GL_EXT_geometry_shader", EXTGeometryShader.isAvailable(this));

@@ -2291,6 +2291,13 @@ public final class GLCapabilities {
     /** When true, {@link AMDStencilOperationExtended} is supported. */
     public final boolean GL_AMD_stencil_operation_extended;
     /**
+     * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/texture_gather_bias_lod.txt">AMD_texture_gather_bias_lod</a> extension is supported.
+     * 
+     * <p>This extension was developed based on existing built-in texture gather functions to allow implementations supporting bias of implicit level of detail
+     * and explicit control of level of detail in texture gather operations.</p>
+     */
+    public final boolean GL_AMD_texture_gather_bias_lod;
+    /**
      * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/texture_texture4.txt">AMD_texture_texture4</a> extension is supported.
      * 
      * <p>This extension adds new shading language built-in texture functions to the shading language.</p>
@@ -6020,6 +6027,7 @@ public final class GLCapabilities {
         GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");
         GL_AMD_sparse_texture = ext.contains("GL_AMD_sparse_texture") && checkExtension("GL_AMD_sparse_texture", AMDSparseTexture.isAvailable(this));
         GL_AMD_stencil_operation_extended = ext.contains("GL_AMD_stencil_operation_extended") && checkExtension("GL_AMD_stencil_operation_extended", AMDStencilOperationExtended.isAvailable(this));
+        GL_AMD_texture_gather_bias_lod = ext.contains("GL_AMD_texture_gather_bias_lod");
         GL_AMD_texture_texture4 = ext.contains("GL_AMD_texture_texture4");
         GL_AMD_transform_feedback3_lines_triangles = ext.contains("GL_AMD_transform_feedback3_lines_triangles");
         GL_AMD_transform_feedback4 = ext.contains("GL_AMD_transform_feedback4");
