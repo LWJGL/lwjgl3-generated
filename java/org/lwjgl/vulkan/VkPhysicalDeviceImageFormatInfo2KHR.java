@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure. The {@code pNext} chain of {@link VkPhysicalDeviceImageFormatInfo2KHR} is used to provide additional image parameters to {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR}.</li>
  * <li>{@code format} &ndash; the image format, corresponding to {@link VkImageCreateInfo}{@code ::format}.</li>
  * <li>{@code type} &ndash; the image type, corresponding to {@link VkImageCreateInfo}{@code ::imageType}.</li>
  * <li>{@code tiling} &ndash; the image tiling, corresponding to {@link VkImageCreateInfo}{@code ::tiling}.</li>

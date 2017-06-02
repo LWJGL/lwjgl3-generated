@@ -37,10 +37,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * typedef enum VkValidationCheckEXT {
  *     VK_VALIDATION_CHECK_ALL_EXT = 0,
+ *     VK_VALIDATION_CHECK_SHADERS_EXT = 1,
  * } VkValidationCheckEXT;</pre></code>
  * 
  * <ul>
  * <li>{@link EXTValidationFlags#VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT} disables all validation checks.</li>
+ * <li>{@link EXTValidationFlags#VK_VALIDATION_CHECK_SHADERS_EXT VALIDATION_CHECK_SHADERS_EXT} disables all shader validation.</li>
  * </ul></li>
  * </ul>
  * 

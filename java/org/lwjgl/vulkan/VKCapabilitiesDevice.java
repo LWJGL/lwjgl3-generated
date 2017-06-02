@@ -272,6 +272,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_AMD_shader_explicit_vertex_parameter;
     /** When true, {@link AMDShaderTrinaryMinmax} is supported. */
     public final boolean VK_AMD_shader_trinary_minmax;
+    /** When true, {@link AMDTextureGatherBiasLod} is supported. */
+    public final boolean VK_AMD_texture_gather_bias_lod;
     /** When true, {@link EXTDebugMarker} is supported. */
     public final boolean VK_EXT_debug_marker;
     /** When true, {@link EXTDiscardRectangles} is supported. */
@@ -494,6 +496,7 @@ public class VKCapabilitiesDevice {
         VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
         VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
         VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
+        VK_AMD_texture_gather_bias_lod = ext.contains("VK_AMD_texture_gather_bias_lod");
         {
             supported = ext.contains("VK_EXT_debug_marker");
             vkDebugMarkerSetObjectTagEXT = isSupported(provider, "vkDebugMarkerSetObjectTagEXT", supported);

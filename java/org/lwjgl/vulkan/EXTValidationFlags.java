@@ -63,8 +63,17 @@ public final class EXTValidationFlags {
      * <h5>See Also</h5>
      * 
      * <p>{@link VkValidationFlagsEXT}</p>
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT}</li>
+     * <li>{@link #VK_VALIDATION_CHECK_SHADERS_EXT VALIDATION_CHECK_SHADERS_EXT}</li>
+     * </ul>
      */
-    public static final int VK_VALIDATION_CHECK_ALL_EXT = 0;
+    public static final int
+        VK_VALIDATION_CHECK_ALL_EXT     = 0,
+        VK_VALIDATION_CHECK_SHADERS_EXT = 1;
 
     private EXTValidationFlags() {}
 

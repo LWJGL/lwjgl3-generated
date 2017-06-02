@@ -15,13 +15,13 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Due to the nature of the Vulkan interface, there is very little error information available to the developer and application. By enabling optional validation layers and using the {@code VK_EXT_debug_report} extension, developers <b>can</b> obtain much more detailed feedback on the application's use of Vulkan. This extension define a way for layers and the implementation to call back to the application for events of interest to the application.
+ * Due to the nature of the Vulkan interface, there is very little error information available to the developer and application. By enabling optional validation layers and using the {@code VK_EXT_debug_report} extension, developers <b>can</b> obtain much more detailed feedback on the application's use of Vulkan. This extension defines a way for layers and the implementation to call back to the application for events of interest to the application.
  * 
  * <h5>Examples</h5>
  * 
- * <p>{@code VK_EXT_debug_report} allows an application to register multiple callbacks with the validation layers. Some callbacks may log the information to a file, others may cause a debug break point or other application defined behavior. An application can register callbacks even when no validation layers are enabled, but they will only be called for loader and, if implemented, driver events.</p>
+ * <p>{@code VK_EXT_debug_report} allows an application to register multiple callbacks with the validation layers. Some callbacks may log the information to a file, others may cause a debug break point or other application defined behavior. An application <b>can</b> register callbacks even when no validation layers are enabled, but they will only be called for loader and, if implemented, driver events.</p>
  * 
- * <p>To capture issues found while creating or destroying an instance an application can link a {@link VkDebugReportCallbackCreateInfoEXT} structure to the {@code pNext} element of the {@link VkInstanceCreateInfo} structure given to {@link VK10#vkCreateInstance CreateInstance}. This callback is only valid for the duration of the {@link VK10#vkCreateInstance CreateInstance} and the {@link VK10#vkDestroyInstance DestroyInstance} call. Use {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} to create persistent callback objects.</p>
+ * <p>To capture events that occur while creating or destroying an instance an application <b>can</b> link a {@link VkDebugReportCallbackCreateInfoEXT} structure to the {@code pNext} element of the {@link VkInstanceCreateInfo} structure given to {@link VK10#vkCreateInstance CreateInstance}. This callback is only valid for the duration of the {@link VK10#vkCreateInstance CreateInstance} and the {@link VK10#vkDestroyInstance DestroyInstance} call. Use {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} to create persistent callback objects.</p>
  * 
  * <p>Example uses: Create three callback objects. One will log errors and warnings to the debug console using Windows {@code OutputDebugString}. The second will cause the debugger to break at that callback when an error happens and the third will log warnings to stdout.</p>
  * 
@@ -71,6 +71,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>In the initial release of the {@code VK_EXT_debug_report} extension, the token {@link #VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT} was used. Starting in version 2 of the extension branch, {@link #VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT} is used instead for consistency with Vulkan naming rules. The older enum is still available for backwards compatibility.</p>
  * </div>
  * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>In the initial release of the {@code VK_EXT_debug_report} extension, the token {@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT} was used. Starting in version 8 of the extension branch, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT} is used instead for consistency with Vulkan naming rules. The older enum is still available for backwards compatibility.</p>
+ * </div>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_EXT_debug_report</dd>
@@ -79,9 +84,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>12</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-01-31</dd>
+ * <dd>2017-04-27</dd>
  * <dt><b>Revision</b></dt>
- * <dd>5</dd>
+ * <dd>8</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Dependencies</b></dt>
@@ -104,7 +109,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDebugReport {
 
     /** The extension specification version. */
-    public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 6;
+    public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 8;
 
     /** The extension name. */
     public static final String VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report";
@@ -166,7 +171,7 @@ public class EXTDebugReport {
      * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT}</li>
      * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT}</li>
      * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT}</li>
-     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT}</li>
+     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT}</li>
      * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT}</li>
      * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT}</li>
      * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT}</li>
@@ -202,38 +207,11 @@ public class EXTDebugReport {
         VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT                 = 25,
         VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT                  = 26,
         VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT                = 27,
-        VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT                 = 28,
+        VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT    = 28,
         VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT                  = 29,
         VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT             = 30,
         VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT             = 31,
         VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32;
-
-    /**
-     * VkDebugReportErrorEXT - Unknown VK_EXT_debug_report enumeration type
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>For more information, see:</p>
-     * 
-     * <ul>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>No cross-references are available</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_DEBUG_REPORT_ERROR_NONE_EXT DEBUG_REPORT_ERROR_NONE_EXT}</li>
-     * <li>{@link #VK_DEBUG_REPORT_ERROR_CALLBACK_REF_EXT DEBUG_REPORT_ERROR_CALLBACK_REF_EXT}</li>
-     * </ul>
-     */
-    public static final int
-        VK_DEBUG_REPORT_ERROR_NONE_EXT         = 0,
-        VK_DEBUG_REPORT_ERROR_CALLBACK_REF_EXT = 1;
 
     /**
      * VkDebugReportFlagBitsEXT - Bitmask specifying events which cause a debug report callback
@@ -336,7 +314,7 @@ public class EXTDebugReport {
      *
      * @param instance    the instance the callback will be logged on.
      * @param pCreateInfo points to a {@link VkDebugReportCallbackCreateInfoEXT} structure which defines the conditions under which this callback will be called.
-     * @param pAllocator  
+     * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pCallback   a pointer to record the {@code VkDebugReportCallbackEXT} object created.
      */
     public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCallback) {
@@ -374,8 +352,8 @@ public class EXTDebugReport {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>If {@link VkAllocationCallbacks} were provided when {@code instance} was created, a compatible set of callbacks <b>must</b> be provided here</li>
-     * <li>If no {@link VkAllocationCallbacks} were provided when {@code instance} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
+     * <li>If {@link VkAllocationCallbacks} were provided when {@code callback} was created, a compatible set of callbacks <b>must</b> be provided here</li>
+     * <li>If no {@link VkAllocationCallbacks} were provided when {@code callback} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -398,8 +376,8 @@ public class EXTDebugReport {
      * <p>{@link VkAllocationCallbacks}</p>
      *
      * @param instance   the instance where the callback was created.
-     * @param callback   the {@code VkDebugReportCallbackEXT} object to destroy.
-     * @param pAllocator 
+     * @param callback   the {@code VkDebugReportCallbackEXT} object to destroy. {@code callback} is an externally synchronized object and <b>must</b> not be used on more than one thread at a time. This means that {@link #vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT} <b>must</b> not be called when a callback is active.
+     * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
     public static void vkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, VkAllocationCallbacks pAllocator) {
         nvkDestroyDebugReportCallbackEXT(instance, callback, memAddressSafe(pAllocator));
@@ -436,7 +414,7 @@ public class EXTDebugReport {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The call will propagate through the layers and cause a callback to the application. The parameters are passed on to the callback in addition to the {@code pUserData} value that was defined at the time the callback was registered.</p>
+     * <p>The call will propagate through the layers and generate callback(s) as indicated by the message's flags. The parameters are passed on to the callback in addition to the {@code pUserData} value that was defined at the time the callback was registered.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -455,13 +433,13 @@ public class EXTDebugReport {
      * <li>{@code pMessage} <b>must</b> be a null-terminated string</li>
      * </ul>
      *
-     * @param instance     the instance the callback will be logged on.
-     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback.
+     * @param instance     the debug stream&#8217;s {@code VkInstance}.
+     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} classification of this event/message.
      * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
-     * @param object       object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
-     * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
-     * @param messageCode  a layer-defined value indicating what test triggered this callback.
-     * @param pLayerPrefix the abbreviation of the component making the callback.
+     * @param object       this is the object where the issue was detected. {@code object} <b>can</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
+     * @param location     an application defined value.
+     * @param messageCode  an application defined value.
+     * @param pLayerPrefix the abbreviation of the component making this event/message.
      * @param pMessage     a null-terminated string detailing the trigger conditions.
      */
     public static void vkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, ByteBuffer pLayerPrefix, ByteBuffer pMessage) {
@@ -492,7 +470,7 @@ public class EXTDebugReport {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The call will propagate through the layers and cause a callback to the application. The parameters are passed on to the callback in addition to the {@code pUserData} value that was defined at the time the callback was registered.</p>
+     * <p>The call will propagate through the layers and generate callback(s) as indicated by the message's flags. The parameters are passed on to the callback in addition to the {@code pUserData} value that was defined at the time the callback was registered.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -511,13 +489,13 @@ public class EXTDebugReport {
      * <li>{@code pMessage} <b>must</b> be a null-terminated string</li>
      * </ul>
      *
-     * @param instance     the instance the callback will be logged on.
-     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback.
+     * @param instance     the debug stream&#8217;s {@code VkInstance}.
+     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} classification of this event/message.
      * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
-     * @param object       object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
-     * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
-     * @param messageCode  a layer-defined value indicating what test triggered this callback.
-     * @param pLayerPrefix the abbreviation of the component making the callback.
+     * @param object       this is the object where the issue was detected. {@code object} <b>can</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
+     * @param location     an application defined value.
+     * @param messageCode  an application defined value.
+     * @param pLayerPrefix the abbreviation of the component making this event/message.
      * @param pMessage     a null-terminated string detailing the trigger conditions.
      */
     public static void vkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, CharSequence pLayerPrefix, CharSequence pMessage) {

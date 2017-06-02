@@ -117,6 +117,10 @@ public class KHRGetSurfaceCapabilities2 {
      * <h5>Return Codes</h5>
      * 
      * <dl>
+     * <dt>On success, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+     * </ul></dd>
      * <dt>On failure, this command returns</dt>
      * <dd><ul>
      * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>

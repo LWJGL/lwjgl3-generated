@@ -20,6 +20,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If {@link KHRSwapchain#vkAcquireNextImageKHR AcquireNextImageKHR} is used, the device mask is considered to include all physical devices in the logical device.</p>
  * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>{@link KHXDeviceGroup#vkAcquireNextImage2KHX AcquireNextImage2KHX} signals at most one semaphore, even if the application requests waiting for multiple physical devices to be ready via the {@code deviceMask}. However, only a single physical device <b>can</b> wait on that semaphore, since the semaphore becomes unsignaled when the wait succeeds. For other physical devices to wait for the image to be ready, it is necessary for the application to submit semaphore signal operation(s) to that first physical device to signal additional semaphore(s) after the wait succeeds, which the other physical device(s) <b>can</b> wait upon.</p>
+ * </div>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>

@@ -19,7 +19,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>For each {@code VkDebugReportCallbackEXT} that is created the flags determine when that function is called. A callback will be made for issues that match any bit set in its flags. The callback will come directly from the component that detected the event, unless some other layer intercepts the calls for its own purposes (filter them in different way, log to system error log, etc.) An application may receive multiple callbacks if multiple {@code VkDebugReportCallbackEXT} objects were created. A callback will always be executed in the same thread as the originating Vulkan call. A callback may be called from multiple threads simultaneously (if the application is making Vulkan calls from multiple threads).</p>
+ * <p>For each {@code VkDebugReportCallbackEXT} that is created the {@link VkDebugReportCallbackCreateInfoEXT}{@code ::flags} determine when that {@link VkDebugReportCallbackCreateInfoEXT}{@code ::pfnCallback} is called. When an event happens, the implementation will do a bitwise AND of the event's {@code VkDebugReportFlagBitsEXT} flags to each {@code VkDebugReportCallbackEXT} object's flags. For each non-zero result the corresponding callback will be called. The callback will come directly from the component that detected the event, unless some other layer intercepts the calls for its own purposes (filter them in a different way, log to a system error log, etc.).</p>
+ * 
+ * <p>An application <b>may</b> receive multiple callbacks if multiple {@code VkDebugReportCallbackEXT} objects were created. A callback will always be executed in the same thread as the originating Vulkan call.</p>
+ * 
+ * <p>A callback may be called from multiple threads simultaneously (if the application is making Vulkan calls from multiple threads).</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code pfnCallback} <b>must</b> be a valid {@link VkDebugReportCallbackEXT}</li>
+ * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
@@ -27,7 +37,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link EXTDebugReport#VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDebugReportFlagBitsEXT} values</li>
- * <li>{@code flags} <b>must</b> not be 0</li>
  * </ul>
  * 
  * <h5>See Also</h5>
@@ -39,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; indicate which event(s) will cause this callback to be called. Flags are interpreted as bitmasks and multiple may be set. Bits which <b>can</b> be set include:
+ * <li>{@code flags} &ndash; indicate which event(s) will cause this callback to be called. Flags are interpreted as bitmasks and multiple <b>can</b> be set. Bits which <b>can</b> be set include:
  * 
  * <code><pre>
  * typedef enum VkDebugReportFlagBitsEXT {
@@ -53,9 +62,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_ERROR_BIT_EXT DEBUG_REPORT_ERROR_BIT_EXT} indicates an error that may cause undefined results, including an application crash.</li>
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_WARNING_BIT_EXT DEBUG_REPORT_WARNING_BIT_EXT} indicates use of Vulkan that may expose an app bug. Such cases may not be immediately harmful, such as a fragment shader outputting to a location with no attachment. Other cases may point to behavior that is almost certainly bad when unintended such as using an image whose memory has not been filled. In general if you see a warning but you know that the behavior is intended/desired, then simply ignore the warning.</li>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT} indicates a potentially non-optimal use of Vulkan. E.g. using {@link VK10#vkCmdClearColorImage CmdClearColorImage} when a RenderPass load_op would have worked.</li>
+ * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT} indicates a potentially non-optimal use of Vulkan, e.g. using {@link VK10#vkCmdClearColorImage CmdClearColorImage} when setting {@link VkAttachmentDescription}{@code ::loadOp} to {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR} would have worked.</li>
  * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_INFORMATION_BIT_EXT DEBUG_REPORT_INFORMATION_BIT_EXT} indicates an informational message such as resource details that may be handy when debugging an application.</li>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_DEBUG_BIT_EXT DEBUG_REPORT_DEBUG_BIT_EXT} indicates diagnostic information from the loader and layers.</li>
+ * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_DEBUG_BIT_EXT DEBUG_REPORT_DEBUG_BIT_EXT} indicates diagnostic information from the implementation and layers.</li>
  * </ul></li>
  * <li>{@code pfnCallback} &ndash; the application callback function to call.</li>
  * <li>{@code pUserData} &ndash; user data to be passed to the callback.</li>
