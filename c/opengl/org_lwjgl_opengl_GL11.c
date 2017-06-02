@@ -197,7 +197,7 @@ typedef void (APIENTRY *glPixelMapfvPROC) (jint, jint, const intptr_t);
 typedef void (APIENTRY *glPixelMapusvPROC) (jint, jint, const intptr_t);
 typedef void (APIENTRY *glPixelMapuivPROC) (jint, jint, const intptr_t);
 typedef void (APIENTRY *glPixelStoreiPROC) (jint, jint);
-typedef void (APIENTRY *glPixelStorefPROC) (jint, jint);
+typedef void (APIENTRY *glPixelStorefPROC) (jint, jfloat);
 typedef void (APIENTRY *glPixelTransferiPROC) (jint, jint);
 typedef void (APIENTRY *glPixelTransferfPROC) (jint, jfloat);
 typedef void (APIENTRY *glPixelZoomPROC) (jfloat, jfloat);
@@ -1583,7 +1583,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glPixelStorei(JNIEnv *__env, j
     glPixelStorei(pname, param);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glPixelStoref(JNIEnv *__env, jclass clazz, jint pname, jint param) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glPixelStoref(JNIEnv *__env, jclass clazz, jint pname, jfloat param) {
     glPixelStorefPROC glPixelStoref = (glPixelStorefPROC)tlsGetFunction(1211);
     UNUSED_PARAM(clazz)
     glPixelStoref(pname, param);

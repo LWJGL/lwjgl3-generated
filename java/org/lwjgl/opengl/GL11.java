@@ -4968,7 +4968,7 @@ public class GL11 {
      * @param pname the pixel store parameter to set
      * @param param the parameter value
      */
-    public static native void glPixelStoref(int pname, int param);
+    public static native void glPixelStoref(int pname, float param);
 
     // --- [ glPixelTransferi ] ---
 
