@@ -75,29 +75,19 @@ public class EXTDisplayControl {
         VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT = 1000091003;
 
     /**
-     * VkDisplayPowerStateEXT - Possible power states for a VkDisplay
+     * VkDisplayPowerStateEXT - Possible power states for a display
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkDisplayPowerInfoEXT}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT} specifies that the display is powered down.</li>
+     * <li>{@link #VK_DISPLAY_POWER_STATE_SUSPEND_EXT DISPLAY_POWER_STATE_SUSPEND_EXT} specifies that the display is put into a low power mode, from which it <b>may</b> be able to transition back to {@link #VK_DISPLAY_POWER_STATE_ON_EXT DISPLAY_POWER_STATE_ON_EXT} more quickly than if it were in {@link #VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT}. This state <b>may</b> be the same as {@link #VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT}.</li>
+     * <li>{@link #VK_DISPLAY_POWER_STATE_ON_EXT DISPLAY_POWER_STATE_ON_EXT} specifies that the display is powered on.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkDisplayPowerInfoEXT}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT}</li>
-     * <li>{@link #VK_DISPLAY_POWER_STATE_SUSPEND_EXT DISPLAY_POWER_STATE_SUSPEND_EXT}</li>
-     * <li>{@link #VK_DISPLAY_POWER_STATE_ON_EXT DISPLAY_POWER_STATE_ON_EXT}</li>
-     * </ul>
      */
     public static final int
         VK_DISPLAY_POWER_STATE_OFF_EXT     = 0,
@@ -109,12 +99,8 @@ public class EXTDisplayControl {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkDeviceEventInfoEXT}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT} specifies that the fence is signaled when a display is plugged into or unplugged from the specified device. Applications <b>can</b> use this notification to determine when they need to re-enumerate the available displays on a device.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -128,12 +114,8 @@ public class EXTDisplayControl {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkDisplayEventInfoEXT}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT} specifies that the fence is signaled when the first pixel of the next display refresh cycle leaves the display engine for the display.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -355,7 +337,7 @@ public class EXTDisplayControl {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If a counter is not available because the swapchain is out of date, the implementation <b>may</b> return VK_ERROR_OUT_OF_DATE_KHR.</p>
+     * <p>If a counter is not available because the swapchain is out of date, the implementation <b>may</b> return {@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}.</p>
      * 
      * <h5>Valid Usage</h5>
      * 

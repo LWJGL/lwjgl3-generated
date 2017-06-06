@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; provides options for pipeline creation, and is of type {@code VkPipelineCreateFlagBits}.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkPipelineCreateFlagBits} specifying how the pipeline will be generated.</li>
  * <li>{@code stage} &ndash; a {@link VkPipelineShaderStageCreateInfo} describing the compute shader.</li>
  * <li>{@code layout} &ndash; the description of binding locations used by both the pipeline and descriptor sets used with the pipeline.</li>
  * <li>{@code basePipelineHandle} &ndash; a pipeline to derive from</li>

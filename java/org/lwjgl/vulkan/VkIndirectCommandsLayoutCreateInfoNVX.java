@@ -19,23 +19,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>Bits which <b>can</b> be set in {@code flags} are:</p>
- * 
- * <code><pre>
- * typedef enum VkIndirectCommandsLayoutUsageFlagBitsNVX {
- *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x00000001,
- *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX = 0x00000002,
- *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX = 0x00000004,
- *     VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX = 0x00000008,
- * } VkIndirectCommandsLayoutUsageFlagBitsNVX;</pre></code>
- * 
- * <ul>
- * <li>{@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX} indicates that the processing of sequences <b>can</b> happen at an implementation-dependent order, which is not guaranteed to be coherent across multiple invocations.</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX} indicates that there is likely a high difference between allocated number of sequences and actually used.</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX} indicates that there is likely many draw or dispatch calls that are zero-sized (zero grid dimension, no primitives to render).</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX} indicates that the input data for the sequences is not implicitly indexed from 0..sequencesUsed but a user provided {@code VkBuffer} encoding the index is provided.</li>
- * </ul>
- * 
  * <p>The following code illustrates some of the key flags:</p>
  * 
  * <code><pre>
@@ -61,9 +44,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code tokenCount} <b>must</b> be greater than 0 and below {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::maxIndirectCommandsLayoutTokenCount}</li>
  * <li>If the {@link VkDeviceGeneratedCommandsFeaturesNVX}{@code ::computeBindingPointSupport} feature is not enabled, then {@code pipelineBindPoint} <b>must</b> not be {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
- * <li>If {@code pTokens} contains an entry of {@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_PIPELINE_NVX INDIRECT_COMMANDS_TOKEN_PIPELINE_NVX} it <b>must</b> be the first element of the array and there <b>must</b> be only a single element of such token type.</li>
- * <li>All state binding tokens in {@code pTokens} <b>must</b> occur prior work provoking tokens ({@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_DRAW_NVX INDIRECT_COMMANDS_TOKEN_DRAW_NVX}, {@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_DRAW_INDEXED_NVX INDIRECT_COMMANDS_TOKEN_DRAW_INDEXED_NVX}, {@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_DISPATCH_NVX INDIRECT_COMMANDS_TOKEN_DISPATCH_NVX}).</li>
- * <li>The content of {@code pTokens} <b>must</b> include at least one work provoking token.</li>
+ * <li>If {@code pTokens} contains an entry of {@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NVX INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NVX} it <b>must</b> be the first element of the array and there <b>must</b> be only a single element of such token type.</li>
+ * <li>All state binding tokens in {@code pTokens} <b>must</b> occur prior work provoking tokens ({@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NVX}, {@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NVX}, {@link NVXDeviceGeneratedCommands#VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NVX}).</li>
+ * <li>The content of {@code pTokens} <b>must</b> include one single work provoking token that is compatible with the {@code pipelineBindPoint}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -88,7 +71,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code pipelineBindPoint} &ndash; the {@code VkPipelineBindPoint} that this layout targets.</li>
- * <li>{@code flags} &ndash; a bitmask providing usage hints of this layout. See {@code VkIndirectCommandsLayoutUsageFlagBitsNVX} below for a description of the supported bits.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkIndirectCommandsLayoutUsageFlagBitsNVX} specifying usage hints of this layout.</li>
  * <li>{@code tokenCount} &ndash; the length of the individual command sequnce.</li>
  * <li>{@code pTokens} &ndash; an array describing each command token in detail. See {@code VkIndirectCommandsTokenTypeNVX} and {@link VkIndirectCommandsLayoutTokenNVX} below for details.</li>
  * </ul>

@@ -77,7 +77,7 @@ public class MVKIosSurface {
     }
 
     /**
-     * Create a {@code VkSurfaceKHR} object for an iOS UIView.
+     * Create a VkSurfaceKHR object for an iOS UIView.
      * 
      * <h5>C Specification</h5>
      * 

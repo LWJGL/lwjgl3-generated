@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Structure specifying POSIX file descriptor to import to a semaphore.
  * 
  * <h5>Description</h5>
  * 
@@ -25,8 +25,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <table class="lwjgl">
  * <thead><tr><th>Handle Type</th><th>Permanence</th></tr></thead>
  * <tbody>
- * <tr><td>VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX</td><td>Permanent</td></tr>
- * <tr><td>VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX</td><td>Temporary</td></tr>
+ * <tr><td>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX}</td><td>Permanent</td></tr>
+ * <tr><td>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX}</td><td>Temporary</td></tr>
  * </tbody>
  * </table>
  * 

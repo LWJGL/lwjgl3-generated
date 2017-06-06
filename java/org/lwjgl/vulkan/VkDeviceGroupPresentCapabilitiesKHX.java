@@ -54,22 +54,7 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * <p>is non-zero, then bit</p><code>i</code>
  * 
  * <p><b>must</b> be set.</p></li>
- * <li>{@code modes} &ndash; a bitmask indicating which device group presentation modes are supported. The bits returned in {@code modes} are:
- * 
- * <code><pre>
- * typedef enum VkDeviceGroupPresentModeFlagBitsKHX {
- *     VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX = 0x00000001,
- *     VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX = 0x00000002,
- *     VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX = 0x00000004,
- *     VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX = 0x00000008,
- * } VkDeviceGroupPresentModeFlagBitsKHX;</pre></code>
- * 
- * <ul>
- * <li>if {@code modes} contains {@link KHXDeviceGroup#VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX}, any physical device with a presentation engine <b>can</b> present its own swapchain images.</li>
- * <li>if {@code modes} contains {@link KHXDeviceGroup#VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX}, any physical device with a presentation engine <b>can</b> present swapchain images from any physical device in its {@code presentMask}.</li>
- * <li>if {@code modes} contains {@link KHXDeviceGroup#VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX}, any physical device with a presentation engine <b>can</b> present the sum of swapchain images from any physical devices in its {@code presentMask}.</li>
- * <li>if {@code modes} contains {@link KHXDeviceGroup#VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX}, multiple physical devices with a presentation engine <b>can</b> each present their own swapchain images.</li>
- * </ul></li>
+ * <li>{@code modes} &ndash; a bitmask of {@code VkDeviceGroupPresentModeFlagBitsKHX} indicating which device group presentation modes are supported.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

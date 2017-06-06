@@ -18,32 +18,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The bits specified in {@code queueFlags} are:</p>
- * 
- * <code><pre>
- * typedef enum VkQueueFlagBits {
- *     VK_QUEUE_GRAPHICS_BIT = 0x00000001,
- *     VK_QUEUE_COMPUTE_BIT = 0x00000002,
- *     VK_QUEUE_TRANSFER_BIT = 0x00000004,
- *     VK_QUEUE_SPARSE_BINDING_BIT = 0x00000008,
- * } VkQueueFlagBits;</pre></code>
- * 
- * <ul>
- * <li>if {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} is set, then the queues in this queue family support graphics operations.</li>
- * <li>if {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} is set, then the queues in this queue family support compute operations.</li>
- * <li>if {@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} is set, then the queues in this queue family support transfer operations.</li>
- * <li>if {@link VK10#VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT} is set, then the queues in this queue family support sparse memory management operations (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory">Sparse Resources</a>). If any of the sparse resource features are enabled, then at least one queue family <b>must</b> support this bit.</li>
- * </ul>
- * 
- * <p>If an implementation exposes any queue family that supports graphics operations, at least one queue family of at least one physical device exposed by the implementation <b>must</b> support both graphics and compute operations.</p>
- * 
- * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
- * 
- * <p>All commands that are allowed on a queue that supports transfer operations are also allowed on a queue that supports either graphics or compute operations thus if the capabilities of a queue family include {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} or {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} then reporting the {@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} capability separately for that queue family is optional:.</p>
- * </div>
- * 
- * <p>For further details see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queues">Queues</a>.</p>
- * 
  * <p>The value returned in {@code minImageTransferGranularity} has a unit of compressed texel blocks for images having a block-compressed format, and a unit of texels otherwise.</p>
  * 
  * <p>Possible values of {@code minImageTransferGranularity} are:</p>
@@ -106,6 +80,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>.</p>
  * 
+ * <p>The <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-device">Device Memory</a> section describes memory properties queried from the physical device.</p>
+ * 
+ * <p>For physical device feature queries see the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features">Features</a> chapter.</p>
+ * 
  * <h5>See Also</h5>
  * 
  * <p>{@link VkExtent3D}, {@link VkQueueFamilyProperties2KHR}, {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}</p>
@@ -113,7 +91,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code queueFlags} &ndash; contains flags indicating the capabilities of the queues in this queue family.</li>
+ * <li>{@code queueFlags} &ndash; a bitmask of {@code VkQueueFlagBits} indicating capabilities of the queues in this queue family.</li>
  * <li>{@code queueCount} &ndash; the unsigned integer count of queues in this queue family.</li>
  * <li>{@code timestampValidBits} &ndash; the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}. The valid range for the count is 36..64 bits, or a value of 0, indicating no support for timestamps. Bits outside the valid range are guaranteed to be zeros.</li>
  * <li>{@code minImageTransferGranularity} &ndash; the minimum granularity supported for image transfer operations on the queues in this queue family.</li>

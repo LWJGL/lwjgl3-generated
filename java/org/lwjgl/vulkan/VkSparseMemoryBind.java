@@ -67,16 +67,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code size} &ndash; the size of the memory region to be bound.</li>
  * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the range of the resource is bound to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the range is unbound.</li>
  * <li>{@code memoryOffset} &ndash; the offset into the {@code VkDeviceMemory} object to bind the resource range to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, this value is ignored.</li>
- * <li>{@code flags} &ndash; a bitmask specifying usage of the binding operation. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkSparseMemoryBindFlagBits {
- *     VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x00000001,
- * } VkSparseMemoryBindFlagBits;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT} indicates that the memory being bound is only for the metadata aspect.</li>
- * </ul></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkSparseMemoryBindFlagBits} specifying usage of the binding operation.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

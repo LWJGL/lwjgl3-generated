@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code pMarkerName} <b>must</b> be a null-terminated string</li>
+ * <li>{@code pMarkerName} <b>must</b> be a null-terminated UTF-8 string</li>
  * </ul>
  * 
  * <h5>See Also</h5>

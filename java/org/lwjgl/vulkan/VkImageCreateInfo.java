@@ -32,16 +32,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Implementations <b>may</b> support additional limits and capabilities beyond those listed above.</p>
  * 
- * <p>To query an implementation's specific capabilities for a given combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags}, call {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR}. The return value indicates whether that combination of image settings is supported. On success, the {@link VkImageFormatProperties} output parameter indicates the set of valid {@code samples} bits and the limits for {@code extent}, {@code mipLevels}, and {@code arrayLayers}.</p>
+ * <p>To query an implementation's specific capabilities for a given combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, {@link VkExternalMemoryImageCreateInfoKHX}{@code ::handleTypes} and {@code flags}, call {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR}. The return value indicates whether that combination of image settings is supported. On success, the {@link VkImageFormatProperties} output parameter indicates the set of valid {@code samples} bits and the limits for {@code extent}, {@code mipLevels}, and {@code arrayLayers}.</p>
  * 
  * <p>To determine the set of valid {@code usage} bits for a given format, call {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>The combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} <b>must</b> be supported, as indicated by a VK_SUCCESS return value from {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} invoked with the same values passed to the corresponding parameters.</li>
+ * <li>The combination of {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} <b>must</b> be supported, as indicated by a {@link VK10#VK_SUCCESS SUCCESS} return value from {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} invoked with the same values passed to the corresponding parameters.</li>
  * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code pQueueFamilyIndices} <b>must</b> be a pointer to an array of {@code queueFamilyIndexCount} {@code uint32_t} values</li>
  * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code queueFamilyIndexCount} <b>must</b> be greater than 1</li>
+ * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, each element of {@code pQueueFamilyIndices} <b>must</b> be unique and <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by either {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} or {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR} for the {@code physicalDevice} that was used to create {@code device}</li>
  * <li>{@code format} <b>must</b> not be {@link VK10#VK_FORMAT_UNDEFINED FORMAT_UNDEFINED}</li>
  * <li>{@code extent}{@code ::width} <b>must</b> be greater than 0.</li>
  * <li>{@code extent}{@code ::height} <b>must</b> be greater than 0.</li>
@@ -123,19 +124,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask describing additional parameters of the image. See {@code VkImageCreateFlagBits} below for a description of the supported bits.</li>
- * <li>{@code imageType} &ndash; a {@code VkImageType} specifying the basic dimensionality of the image, as described below. Layers in array textures do not count as a dimension for the purposes of the image type.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkImageCreateFlagBits} describing additional parameters of the image.</li>
+ * <li>{@code imageType} &ndash; a {@code VkImageType} value specifying the basic dimensionality of the image. Layers in array textures do not count as a dimension for the purposes of the image type.</li>
  * <li>{@code format} &ndash; a {@code VkFormat} describing the format and type of the data elements that will be contained in the image.</li>
  * <li>{@code extent} &ndash; a {@link VkExtent3D} describing the number of data elements in each dimension of the base level.</li>
  * <li>{@code mipLevels} &ndash; describes the number of levels of detail available for minified sampling of the image.</li>
  * <li>{@code arrayLayers} &ndash; the number of layers in the image.</li>
  * <li>{@code samples} &ndash; the number of sub-data element samples in the image as defined in {@code VkSampleCountFlagBits}. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primsrast-multisampling">Multisampling</a>.</li>
- * <li>{@code tiling} &ndash; a {@code VkImageTiling} specifying the tiling arrangement of the data elements in memory, as described below.</li>
- * <li>{@code usage} &ndash; a bitmask describing the intended usage of the image. See {@code VkImageUsageFlagBits} below for a description of the supported bits.</li>
- * <li>{@code sharingMode} &ndash; the sharing mode of the image when it will be accessed by multiple queue families, and <b>must</b> be one of the values described for {@code VkSharingMode} in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-sharing">Resource Sharing</a> section below.</li>
+ * <li>{@code tiling} &ndash; a {@code VkImageTiling} value specifying the tiling arrangement of the data elements in memory.</li>
+ * <li>{@code usage} &ndash; a bitmask of {@code VkImageUsageFlagBits} describing the intended usage of the image.</li>
+ * <li>{@code sharingMode} &ndash; a {@code VkSharingMode} value specifying the sharing mode of the image when it will be accessed by multiple queue families.</li>
  * <li>{@code queueFamilyIndexCount} &ndash; the number of entries in the {@code pQueueFamilyIndices} array.</li>
  * <li>{@code pQueueFamilyIndices} &ndash; a list of queue families that will access this image (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}).</li>
- * <li>{@code initialLayout} &ndash; selects the initial {@code VkImageLayout} state of all image subresources of the image. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-layouts">Image Layouts</a>.</li>
+ * <li>{@code initialLayout} &ndash; a {@code VkImageLayout} value specifying the initial {@code VkImageLayout} state of all image subresources of the image. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-layouts">Image Layouts</a>.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

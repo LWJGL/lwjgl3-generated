@@ -50,7 +50,7 @@ public interface VkInternalFreeNotificationI extends CallbackI.V {
      *
      * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
      * @param size            the requested size of an allocation.
-     * @param allocationType  the requested type of an allocation.
+     * @param allocationType  a {@code VkInternalAllocationType} value specifying the requested type of an allocation.
      * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
      */
     void invoke(long pUserData, long size, int allocationType, int allocationScope);

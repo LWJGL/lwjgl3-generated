@@ -104,7 +104,7 @@ public class AMDDrawIndirectCount {
      * <li>If the count stored in {@code countBuffer} is equal to 1,<code>(offset + sizeof({@link VkDrawIndirectCommand}))</code>
      * 
      * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
-     * <li>If the count stored in {@code countBuffer} is greater than 1,<code>(stride × (drawCount - 1) + offset sizeof({@link VkDrawIndirectCommand}))</code>
+     * <li>If the count stored in {@code countBuffer} is greater than 1,<code>(stride × (drawCount - 1) + offset + sizeof({@link VkDrawIndirectCommand}))</code>
      * 
      * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
      * <li>The count stored in {@code countBuffer} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxDrawIndirectCount}</li>
@@ -204,7 +204,7 @@ public class AMDDrawIndirectCount {
      * <li>If count stored in {@code countBuffer} is equal to 1,<code>(offset + sizeof({@link VkDrawIndexedIndirectCommand}))</code>
      * 
      * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
-     * <li>If count stored in {@code countBuffer} is greater than 1,<code>(stride × (drawCount - 1) + offset sizeof({@link VkDrawIndexedIndirectCommand}))</code>
+     * <li>If count stored in {@code countBuffer} is greater than 1,<code>(stride × (drawCount - 1) + offset + sizeof({@link VkDrawIndexedIndirectCommand}))</code>
      * 
      * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
      * <li>{@code drawCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxDrawIndirectCount}</li>

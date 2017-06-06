@@ -52,7 +52,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code rasterizerDiscardEnable} &ndash; controls whether primitives are discarded immediately before the rasterization stage.</li>
  * <li>{@code polygonMode} &ndash; the triangle rendering mode. See {@code VkPolygonMode}.</li>
  * <li>{@code cullMode} &ndash; the triangle facing direction used for primitive culling. See {@code VkCullModeFlagBits}.</li>
- * <li>{@code frontFace} &ndash; the front-facing triangle orientation to be used for culling. See {@code VkFrontFace}.</li>
+ * <li>{@code frontFace} &ndash; a {@code VkFrontFace} value specifying the front-facing triangle orientation to be used for culling.</li>
  * <li>{@code depthBiasEnable} &ndash; controls whether to bias fragment depth values.</li>
  * <li>{@code depthBiasConstantFactor} &ndash; a scalar factor controlling the constant depth value added to each fragment.</li>
  * <li>{@code depthBiasClamp} &ndash; the maximum (or minimum) depth bias of a fragment.</li>

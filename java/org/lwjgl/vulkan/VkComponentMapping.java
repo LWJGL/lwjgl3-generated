@@ -16,45 +16,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a color component mapping.
  * 
- * <h5>Description</h5>
- * 
- * <p>Each of {@code r}, {@code g}, {@code b}, and {@code a} is one of the values:</p>
- * 
- * <code><pre>
- * typedef enum VkComponentSwizzle {
- *     VK_COMPONENT_SWIZZLE_IDENTITY = 0,
- *     VK_COMPONENT_SWIZZLE_ZERO = 1,
- *     VK_COMPONENT_SWIZZLE_ONE = 2,
- *     VK_COMPONENT_SWIZZLE_R = 3,
- *     VK_COMPONENT_SWIZZLE_G = 4,
- *     VK_COMPONENT_SWIZZLE_B = 5,
- *     VK_COMPONENT_SWIZZLE_A = 6,
- * } VkComponentSwizzle;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}: the component is set to the identity swizzle.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_ZERO COMPONENT_SWIZZLE_ZERO}: the component is set to zero.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE}: the component is set to either 1 or 1.0 depending on whether the type of the image view format is integer or floating-point respectively, as determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-definition">Format Definition</a> section for each {@code VkFormat}.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}: the component is set to the value of the R component of the image.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}: the component is set to the value of the G component of the image.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}: the component is set to the value of the B component of the image.</li>
- * <li>{@link VK10#VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A}: the component is set to the value of the A component of the image.</li>
- * </ul>
- * 
- * <p>Setting the identity swizzle on a component is equivalent to setting the identity mapping on that component. That is:</p>
- * 
- * <h6>Component Mappings Equivalent To ename:VK_COMPONENT_SWIZZLE_IDENTITY</h6>
- * 
- * <table class="lwjgl">
- * <thead><tr><th>Component</th><th>Identity Mapping</th></tr></thead>
- * <tbody>
- * <tr><td>{@code components.r}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}</td></tr>
- * <tr><td>{@code components.g}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}</td></tr>
- * <tr><td>{@code components.b}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}</td></tr>
- * <tr><td>{@code components.a}</td><td>{@link VK10#VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A}</td></tr>
- * </tbody>
- * </table>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
@@ -71,10 +32,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code r} &ndash; determines the component value placed in the R component of the output vector.</li>
- * <li>{@code g} &ndash; determines the component value placed in the G component of the output vector.</li>
- * <li>{@code b} &ndash; determines the component value placed in the B component of the output vector.</li>
- * <li>{@code a} &ndash; determines the component value placed in the A component of the output vector.</li>
+ * <li>{@code r} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the R component of the output vector.</li>
+ * <li>{@code g} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the G component of the output vector.</li>
+ * <li>{@code b} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the B component of the output vector.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

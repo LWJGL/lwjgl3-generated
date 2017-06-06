@@ -43,14 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; provides options for descriptor set layout creation, and is of type {@code VkDescriptorSetLayoutCreateFlags}. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkDescriptorSetLayoutCreateFlagBits {
- *     VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR = 0x00000001,
- * } VkDescriptorSetLayoutCreateFlagBits;</pre></code>
- * 
- * <p>If {@code flags} contains {@link KHRPushDescriptor#VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR}, then descriptor sets <b>must</b> not be allocated using this layout, and descriptors are instead pushed via {@link KHRPushDescriptor#vkCmdPushDescriptorSetKHR CmdPushDescriptorSetKHR}.</p></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkDescriptorSetLayoutCreateFlags}. specifying options for descriptor set layout creation.</li>
  * <li>{@code bindingCount} &ndash; the number of elements in {@code pBindings}.</li>
  * <li>{@code pBindings} &ndash; a pointer to an array of {@link VkDescriptorSetLayoutBinding} structures.</li>
  * </ul>

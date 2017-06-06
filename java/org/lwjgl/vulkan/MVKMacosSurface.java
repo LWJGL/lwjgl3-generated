@@ -77,7 +77,7 @@ public class MVKMacosSurface {
     }
 
     /**
-     * Create a {@code VkSurfaceKHR} object for a macOS NSView.
+     * Create a VkSurfaceKHR object for a macOS NSView.
      * 
      * <h5>C Specification</h5>
      * 

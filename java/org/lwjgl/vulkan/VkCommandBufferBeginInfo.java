@@ -41,20 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask indicating usage behavior for the command buffer. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkCommandBufferUsageFlagBits {
- *     VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT = 0x00000001,
- *     VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT = 0x00000002,
- *     VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT = 0x00000004,
- * } VkCommandBufferUsageFlagBits;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} indicates that each recording of the command buffer will only be submitted once, and the command buffer will be reset and recorded again between each submission.</li>
- * <li>{@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} indicates that a secondary command buffer is considered to be entirely inside a render pass. If this is a primary command buffer, then this bit is ignored.</li>
- * <li>Setting {@link VK10#VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} allows the command buffer to be resubmitted to a queue while it is in the <em>pending state</em>, and recorded into multiple primary command buffers.</li>
- * </ul></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkCommandBufferUsageFlagBits} specifying usage behavior for the command buffer.</li>
  * <li>{@code pInheritanceInfo} &ndash; a pointer to a {@link VkCommandBufferInheritanceInfo} structure, which is used if {@code commandBuffer} is a secondary command buffer. If this is a primary command buffer, then this value is ignored.</li>
  * </ul>
  * 

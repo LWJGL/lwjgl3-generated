@@ -120,26 +120,20 @@ public class KHXDeviceGroup {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkGetDeviceGroupPeerMemoryFeaturesKHX GetDeviceGroupPeerMemoryFeaturesKHX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX} indicates that the memory <b>can</b> be accessed as the source of a ftext:vkCmdCopy* command.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} indicates that the memory <b>can</b> be accessed as the destination of a ftext:vkCmdCopy* command.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX} indicates that the memory <b>can</b> be read as any other memory access type.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX} indicates that the memory <b>can</b> be written as any other memory access type. Shader atomics are considered to be writes.</li>
      * </ul>
+     * 
+     * <p>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} <b>must</b> be supported for all heaps.</p>
+     * 
+     * <p>If a device does not support a peer memory feature, it is still valid to use a resource that includes both local and peer memory bindings with the corresponding access type as long as only the local bindings are actually accessed. For example, an application doing split-frame rendering would use framebuffer attachments that include both local and peer memory bindings, but would scissor the rendering to only update local memory.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkPeerMemoryFeatureFlagsKHX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX}</li>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX}</li>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX}</li>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX}</li>
-     * </ul>
      */
     public static final int
         VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX    = 0x1,
@@ -152,12 +146,8 @@ public class KHXDeviceGroup {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkMemoryAllocateFlagsInfoKHX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX} specifies that memory will be allocated for the devices in {@link VkMemoryAllocateFlagsInfoKHX}{@code ::deviceMask}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -171,26 +161,16 @@ public class KHXDeviceGroup {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkDeviceGroupPresentCapabilitiesKHX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX} indicates that any physical device with a presentation engine <b>can</b> present its own swapchain images.</li>
+     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX} indicates that any physical device with a presentation engine <b>can</b> present swapchain images from any physical device in its {@code presentMask}.</li>
+     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX} indicates that any physical device with a presentation engine <b>can</b> present the sum of swapchain images from any physical devices in its {@code presentMask}.</li>
+     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX} indicates that multiple physical devices with a presentation engine <b>can</b> each present their own swapchain images.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkDeviceGroupPresentInfoKHX}, {@code VkDeviceGroupPresentModeFlagsKHX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX}</li>
-     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHX}</li>
-     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHX}</li>
-     * <li>{@link #VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHX}</li>
-     * </ul>
      */
     public static final int
         VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX              = 0x1,
@@ -243,12 +223,6 @@ public class KHXDeviceGroup {
      *     uint32_t                                    remoteDeviceIndex,
      *     VkPeerMemoryFeatureFlagsKHX*                pPeerMemoryFeatures);</pre></code>
      * 
-     * <h5>Description</h5>
-     * 
-     * <p>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} <b>must</b> be supported for all heaps.</p>
-     * 
-     * <p>If a device doesn't support a peer memory feature, it is still valid to use a resource that includes both local and peer memory bindings with the corresponding access type as long as only the local bindings are actually accessed. For example, an application doing split-frame rendering would use framebuffer attachments that include both local and peer memory bindings, but would scissor the rendering to only update local memory.</p>
-     * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
@@ -270,22 +244,7 @@ public class KHXDeviceGroup {
      * @param heapIndex           the index of the memory heap from which the memory is allocated.
      * @param localDeviceIndex    the device index of the physical device that performs the memory access.
      * @param remoteDeviceIndex   the device index of the physical device that the memory is allocated for.
-     * @param pPeerMemoryFeatures a pointer to a bitmask indicating which types of memory accesses are supported for the combination of heap, local, and remote devices. The bits returned in {@code pPeerMemoryFeatures} are:
-     *                            
-     *                            <code><pre>
-     *                            typedef enum VkPeerMemoryFeatureFlagBitsKHX {
-     *                                VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX = 0x00000001,
-     *                                VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX = 0x00000002,
-     *                                VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX = 0x00000004,
-     *                                VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX = 0x00000008,
-     *                            } VkPeerMemoryFeatureFlagBitsKHX;</pre></code>
-     *                            
-     *                            <ul>
-     *                            <li>if {@code pPeerMemoryFeatures} contains {@link #VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX}, the memory <b>can</b> be accessed as the source of a ftext:vkCmdCopy* command.</li>
-     *                            <li>if {@code pPeerMemoryFeatures} contains {@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX}, the memory <b>can</b> be accessed as the destination of a ftext:vkCmdCopy* command.</li>
-     *                            <li>if {@code pPeerMemoryFeatures} contains {@link #VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX}, the memory <b>can</b> be read as any other memory access type.</li>
-     *                            <li>if {@code pPeerMemoryFeatures} contains {@link #VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX}, the memory <b>can</b> be written as any other memory access type. Shader atomics are considered to be writes.</li>
-     *                            </ul>
+     * @param pPeerMemoryFeatures a pointer to a bitmask of {@code VkPeerMemoryFeatureFlagBitsKHX} indicating which types of memory accesses are supported for the combination of heap, local, and remote devices.
      */
     public static void vkGetDeviceGroupPeerMemoryFeaturesKHX(VkDevice device, int heapIndex, int localDeviceIndex, int remoteDeviceIndex, IntBuffer pPeerMemoryFeatures) {
         if (CHECKS) {

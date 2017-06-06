@@ -71,10 +71,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code srcSubpass} &ndash; the subpass index of the first subpass in the dependency, or {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
  * <li>{@code dstSubpass} &ndash; the subpass index of the second subpass in the dependency, or {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
- * <li>{@code srcStageMask} &ndash; defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a>.</li>
- * <li>{@code dstStageMask} &ndash; defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a>.</li>
- * <li>{@code srcAccessMask} &ndash; defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">source access mask</a>.</li>
- * <li>{@code dstAccessMask} &ndash; defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">destination access mask</a>.</li>
+ * <li>{@code srcStageMask} &ndash; a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a>.</li>
+ * <li>{@code dstStageMask} &ndash; a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a></li>
+ * <li>{@code srcAccessMask} &ndash; a bitmask of {@code VkAccessFlagBits} specifying a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">source access mask</a>.</li>
+ * <li>{@code dstAccessMask} &ndash; a bitmask of {@code VkAccessFlagBits} specifying a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">destination access mask</a>.</li>
  * <li>{@code dependencyFlags} &ndash; a bitmask of {@code VkDependencyFlagBits}.</li>
  * </ul>
  * 

@@ -59,42 +59,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code flags} &ndash; a bitmask describing additional properties of the attachment. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkAttachmentDescriptionFlagBits {
- *     VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT = 0x00000001,
- * } VkAttachmentDescriptionFlagBits;</pre></code></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkAttachmentDescriptionFlagBits} specifying additional properties of the attachment.</li>
  * <li>{@code format} &ndash; a {@code VkFormat} value specifying the format of the image that will be used for the attachment.</li>
  * <li>{@code samples} &ndash; the number of samples of the image as defined in {@code VkSampleCountFlagBits}.</li>
- * <li>{@code loadOp} &ndash; specifies how the contents of color and depth components of the attachment are treated at the beginning of the subpass where it is first used:
- * 
- * <code><pre>
- * typedef enum VkAttachmentLoadOp {
- *     VK_ATTACHMENT_LOAD_OP_LOAD = 0,
- *     VK_ATTACHMENT_LOAD_OP_CLEAR = 1,
- *     VK_ATTACHMENT_LOAD_OP_DONT_CARE = 2,
- * } VkAttachmentLoadOp;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_ATTACHMENT_LOAD_OP_LOAD ATTACHMENT_LOAD_OP_LOAD} means the previous contents of the image within the render area will be preserved. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT}.</li>
- * <li>{@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR} means the contents within the render area will be cleared to a uniform value, which is specified when a render pass instance is begun. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
- * <li>{@link VK10#VK_ATTACHMENT_LOAD_OP_DONT_CARE ATTACHMENT_LOAD_OP_DONT_CARE} means the previous contents within the area need not be preserved; the contents of the attachment will be undefined inside the render area. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
- * </ul></li>
- * <li>{@code storeOp} &ndash; specifies how the contents of color and depth components of the attachment are treated at the end of the subpass where it is last used:
- * 
- * <code><pre>
- * typedef enum VkAttachmentStoreOp {
- *     VK_ATTACHMENT_STORE_OP_STORE = 0,
- *     VK_ATTACHMENT_STORE_OP_DONT_CARE = 1,
- * } VkAttachmentStoreOp;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_ATTACHMENT_STORE_OP_STORE ATTACHMENT_STORE_OP_STORE} means the contents generated during the render pass and within the render area are written to memory. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
- * <li>{@link VK10#VK_ATTACHMENT_STORE_OP_DONT_CARE ATTACHMENT_STORE_OP_DONT_CARE} means the contents within the render area are not needed after rendering, and <b>may</b> be discarded; the contents of the attachment will be undefined inside the render area. For attachments with a depth/stencil format, this uses the access type {@link VK10#VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link VK10#VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
- * </ul></li>
- * <li>{@code stencilLoadOp} &ndash; specifies how the contents of stencil components of the attachment are treated at the beginning of the subpass where it is first used, and <b>must</b> be one of the same values allowed for {@code loadOp} above.</li>
- * <li>{@code stencilStoreOp} &ndash; specifies how the contents of stencil components of the attachment are treated at the end of the last subpass where it is used, and <b>must</b> be one of the same values allowed for {@code storeOp} above.</li>
+ * <li>{@code loadOp} &ndash; a {@code VkAttachmentLoadOp} value specifying how the contents of color and depth components of the attachment are treated at the beginning of the subpass where it is first used.</li>
+ * <li>{@code storeOp} &ndash; a {@code VkAttachmentStoreOp} value specifying how the contents of color and depth components of the attachment are treated at the end of the subpass where it is last used.</li>
+ * <li>{@code stencilLoadOp} &ndash; a {@code VkAttachmentLoadOp} value specifying how the contents of stencil components of the attachment are treated at the beginning of the subpass where it is first used.</li>
+ * <li>{@code stencilStoreOp} &ndash; a {@code VkAttachmentStoreOp} value specifying how the contents of stencil components of the attachment are treated at the end of the last subpass where it is used.</li>
  * <li>{@code initialLayout} &ndash; the layout the attachment image subresource will be in when a render pass instance begins.</li>
  * <li>{@code finalLayout} &ndash; the layout the attachment image subresource will be transitioned to when a render pass instance ends. During a render pass instance, an attachment <b>can</b> use a different layout in each subpass, if desired.</li>
  * </ul>

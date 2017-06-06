@@ -54,12 +54,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; reserved for future use, and <b>must</b> be zero.</li>
- * <li>{@code displayMode} &ndash; the mode to use when displaying this surface.</li>
+ * <li>{@code displayMode} &ndash; a {@code VkDisplayModeKHR} handle specifying the mode to use when displaying this surface.</li>
  * <li>{@code planeIndex} &ndash; the plane on which this surface appears.</li>
  * <li>{@code planeStackIndex} &ndash; the z-order of the plane.</li>
- * <li>{@code transform} &ndash; the transform to apply to the images as part of the scanout operation.</li>
+ * <li>{@code transform} &ndash; a {@code VkSurfaceTransformFlagBitsKH} value specifying the transformation to apply to images as part of the scanout operation.</li>
  * <li>{@code globalAlpha} &ndash; the global alpha value. This value is ignored if {@code alphaMode} is not {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}.</li>
- * <li>{@code alphaMode} &ndash; the type of alpha blending to use.</li>
+ * <li>{@code alphaMode} &ndash; a {@code VkDisplayPlaneAlphaFlagBitsKHR} value specifying the type of alpha blending to use.</li>
  * <li>{@code imageExtent} &ndash; The size of the presentable images to use with the surface.</li>
  * </ul>
  * 

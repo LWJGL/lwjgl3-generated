@@ -20,19 +20,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>The number of mipmap levels and array layers <b>must</b> be a subset of the image subresources in the image. If an application wants to use all mip levels or layers in an image after the {@code baseMipLevel} or {@code baseArrayLayer}, it <b>can</b> set {@code levelCount} and {@code layerCount} to the special values {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS} and {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS} without knowing the exact number of mip levels or layers.</p>
  * 
- * <p>For cube and cube array image views, the layers of the image view starting at {@code baseArrayLayer} correspond to faces in the order +X, -X, +Y, -Y, +Z, -Z. For cube arrays, each set of six sequential layers is a single cube, so the number of cube maps in a cube map array view is <em>{@code layerCount} / 6</em>, and image array layer <em>{@code baseArrayLayer} + i</em> is face index <em>i mod 6</em> of cube <em>i / 6</em>. If the number of layers in the view, whether set explicitly in {@code layerCount} or implied by {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, is not a multiple of 6, behavior when indexing the last cube is undefined.</p>
+ * <p>For cube and cube array image views, the layers of the image view starting at {@code baseArrayLayer} correspond to faces in the order +X, -X, +Y, -Y, +Z, -Z. For cube arrays, each set of six sequential layers is a single cube, so the number of cube maps in a cube map array view is <em>{@code layerCount} / 6</em>, and image array layer</p><code>(baseArrayLayer {plus} i)</code>
  * 
- * <p>{@code aspectMask} is a bitmask indicating the format being used. Bits which <b>may</b> be set include:</p>
+ * <p>is face index</p><code>(i mod 6)</code>
  * 
- * <code><pre>
- * typedef enum VkImageAspectFlagBits {
- *     VK_IMAGE_ASPECT_COLOR_BIT = 0x00000001,
- *     VK_IMAGE_ASPECT_DEPTH_BIT = 0x00000002,
- *     VK_IMAGE_ASPECT_STENCIL_BIT = 0x00000004,
- *     VK_IMAGE_ASPECT_METADATA_BIT = 0x00000008,
- * } VkImageAspectFlagBits;</pre></code>
+ * <p>of cube <em>i / 6</em>. If the number of layers in the view, whether set explicitly in {@code layerCount} or implied by {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, is not a multiple of 6, behavior when indexing the last cube is undefined.</p>
  * 
- * <p>The mask <b>must</b> be only {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} or {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if {@code format} is a color, depth-only or stencil-only format, respectively. If using a depth/stencil format with both depth and stencil components, {@code aspectMask} <b>must</b> include at least one of {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}, and <b>can</b> include both.</p>
+ * <p>{@code aspectMask} <b>must</b> be only {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} or {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if {@code format} is a color, depth-only or stencil-only format, respectively. If using a depth/stencil format with both depth and stencil components, {@code aspectMask} <b>must</b> include at least one of {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}, and <b>can</b> include both.</p>
  * 
  * <p>When using an imageView of a depth/stencil image to populate a descriptor set (e.g. for sampling in the shader, or for use as an input attachment), the {@code aspectMask} <b>must</b> only include one bit and selects whether the imageView is used for depth reads (i.e. using a floating-point sampler or input attachment in the shader) or stencil reads (i.e. using an unsigned integer sampler or input attachment in the shader). When an imageView of a depth/stencil image is used as a depth/stencil framebuffer attachment, the {@code aspectMask} is ignored and both depth and stencil image subresources are used.</p>
  * 
@@ -72,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code aspectMask} &ndash; a bitmask indicating which aspect(s) of the image are included in the view. See {@code VkImageAspectFlagBits}.</li>
+ * <li>{@code aspectMask} &ndash; a bitmask of {@code VkImageAspectFlagBits} specifying which aspect(s) of the image are included in the view.</li>
  * <li>{@code baseMipLevel} &ndash; the first mipmap level accessible to the view.</li>
  * <li>{@code levelCount} &ndash; the number of mipmap levels (starting from {@code baseMipLevel}) accessible to the view.</li>
  * <li>{@code baseArrayLayer} &ndash; the first array layer accessible to the view.</li>

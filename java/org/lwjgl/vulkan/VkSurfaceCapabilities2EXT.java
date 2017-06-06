@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} is the type of this structure.</li>
  * <li>{@code pNext} is {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code supportedSurfaceCounters} is a bitfield containing one bit set for each surface counter type supported.</li>
+ * <li>{@code supportedSurfaceCounters} is a bitmask of {@code VkSurfaceCounterFlagBitsEXT} indicating the supported surface counter types.</li>
  * </ul>
  * 
  * <h5>Valid Usage</h5>

@@ -22,9 +22,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>10</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2015-11-28</dd>
+ * <dd>2017-04-24</dd>
  * <dt><b>Revision</b></dt>
- * <dd>5</dd>
+ * <dd>6</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Dependencies</b></dt>
@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class KHRWin32Surface {
 
     /** The extension specification version. */
-    public static final int VK_KHR_WIN32_SURFACE_SPEC_VERSION = 5;
+    public static final int VK_KHR_WIN32_SURFACE_SPEC_VERSION = 6;
 
     /** The extension name. */
     public static final String VK_KHR_WIN32_SURFACE_EXTENSION_NAME = "VK_KHR_win32_surface";

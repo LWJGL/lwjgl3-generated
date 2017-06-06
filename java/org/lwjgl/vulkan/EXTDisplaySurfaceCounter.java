@@ -60,7 +60,7 @@ public class EXTDisplaySurfaceCounter {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_SURFACE_COUNTER_VBLANK_EXT SURFACE_COUNTER_VBLANK_EXT} A counter incrementing once every time a vblank period occurs on the display associated with the surface.</li>
+     * <li>{@link #VK_SURFACE_COUNTER_VBLANK_EXT SURFACE_COUNTER_VBLANK_EXT} indicates a counter incrementing once every time a vertical blanking period occurs on the display associated with the surface.</li>
      * </ul>
      * 
      * <h5>See Also</h5>

@@ -239,11 +239,11 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_COMMAND SYSTEM_ALLOCATION_SCOPE_COMMAND} - The allocation is scoped to the duration of the Vulkan command.</li>
-     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_OBJECT SYSTEM_ALLOCATION_SCOPE_OBJECT} - The allocation is scoped to the lifetime of the Vulkan object that is being created or used.</li>
-     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE} - The allocation is scoped to the lifetime of a {@code VkPipelineCache} object.</li>
-     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_DEVICE SYSTEM_ALLOCATION_SCOPE_DEVICE} - The allocation is scoped to the lifetime of the Vulkan device.</li>
-     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE SYSTEM_ALLOCATION_SCOPE_INSTANCE} - The allocation is scoped to the lifetime of the Vulkan instance.</li>
+     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_COMMAND SYSTEM_ALLOCATION_SCOPE_COMMAND} specifies that the allocation is scoped to the duration of the Vulkan command.</li>
+     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_OBJECT SYSTEM_ALLOCATION_SCOPE_OBJECT} specifies that the allocation is scoped to the lifetime of the Vulkan object that is being created or used.</li>
+     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE} specifies that the allocation is scoped to the lifetime of a {@code VkPipelineCache} object.</li>
+     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_DEVICE SYSTEM_ALLOCATION_SCOPE_DEVICE} specifies that the allocation is scoped to the lifetime of the Vulkan device.</li>
+     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE SYSTEM_ALLOCATION_SCOPE_INSTANCE} specifies that the allocation is scoped to the lifetime of the Vulkan instance.</li>
      * </ul>
      * 
      * <p>Most Vulkan commands operate on a single object, or there is a sole object that is being created or manipulated. When an allocation uses an allocation scope of {@link #VK_SYSTEM_ALLOCATION_SCOPE_OBJECT SYSTEM_ALLOCATION_SCOPE_OBJECT} or {@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE}, the allocation is scoped to the object being created or manipulated.</p>
@@ -276,7 +276,7 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE INTERNAL_ALLOCATION_TYPE_EXECUTABLE} - The allocation is intended for execution by the host.</li>
+     * <li>{@link #VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE INTERNAL_ALLOCATION_TYPE_EXECUTABLE} specifies that the allocation is intended for execution by the host.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -290,378 +290,193 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <dl>
-     * <dt>{@link #VK_FORMAT_UNDEFINED FORMAT_UNDEFINED}</dt>
-     * <dd>The format is not specified.</dd>
-     * <dt>{@link #VK_FORMAT_R4G4_UNORM_PACK8 FORMAT_R4G4_UNORM_PACK8}</dt>
-     * <dd>A two-component, 8-bit packed unsigned normalized format that has a 4-bit R component in bits 4..7, and a 4-bit G component in bits 0..3.</dd>
-     * <dt>{@link #VK_FORMAT_R4G4B4A4_UNORM_PACK16 FORMAT_R4G4B4A4_UNORM_PACK16}</dt>
-     * <dd>A four-component, 16-bit packed unsigned normalized format that has a 4-bit R component in bits 12..15, a 4-bit G component in bits 8..11, a 4-bit B component in bits 4..7, and a 4-bit A component in bits 0..3.</dd>
-     * <dt>{@link #VK_FORMAT_B4G4R4A4_UNORM_PACK16 FORMAT_B4G4R4A4_UNORM_PACK16}</dt>
-     * <dd>A four-component, 16-bit packed unsigned normalized format that has a 4-bit B component in bits 12..15, a 4-bit G component in bits 8..11, a 4-bit R component in bits 4..7, and a 4-bit A component in bits 0..3.</dd>
-     * <dt>{@link #VK_FORMAT_R5G6B5_UNORM_PACK16 FORMAT_R5G6B5_UNORM_PACK16}</dt>
-     * <dd>A three-component, 16-bit packed unsigned normalized format that has a 5-bit R component in bits 11..15, a 6-bit G component in bits 5..10, and a 5-bit B component in bits 0..4.</dd>
-     * <dt>{@link #VK_FORMAT_B5G6R5_UNORM_PACK16 FORMAT_B5G6R5_UNORM_PACK16}</dt>
-     * <dd>A three-component, 16-bit packed unsigned normalized format that has a 5-bit B component in bits 11..15, a 6-bit G component in bits 5..10, and a 5-bit R component in bits 0..4.</dd>
-     * <dt>{@link #VK_FORMAT_R5G5B5A1_UNORM_PACK16 FORMAT_R5G5B5A1_UNORM_PACK16}</dt>
-     * <dd>A four-component, 16-bit packed unsigned normalized format that has a 5-bit R component in bits 11..15, a 5-bit G component in bits 6..10, a 5-bit B component in bits 1..5, and a 1-bit A component in bit 0.</dd>
-     * <dt>{@link #VK_FORMAT_B5G5R5A1_UNORM_PACK16 FORMAT_B5G5R5A1_UNORM_PACK16}</dt>
-     * <dd>A four-component, 16-bit packed unsigned normalized format that has a 5-bit B component in bits 11..15, a 5-bit G component in bits 6..10, a 5-bit R component in bits 1..5, and a 1-bit A component in bit 0.</dd>
-     * <dt>{@link #VK_FORMAT_A1R5G5B5_UNORM_PACK16 FORMAT_A1R5G5B5_UNORM_PACK16}</dt>
-     * <dd>A four-component, 16-bit packed unsigned normalized format that has a 1-bit A component in bit 15, a 5-bit R component in bits 10..14, a 5-bit G component in bits 5..9, and a 5-bit B component in bits 0..4.</dd>
-     * <dt>{@link #VK_FORMAT_R8_UNORM FORMAT_R8_UNORM}</dt>
-     * <dd>A one-component, 8-bit unsigned normalized format that has a single 8-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R8_SNORM FORMAT_R8_SNORM}</dt>
-     * <dd>A one-component, 8-bit signed normalized format that has a single 8-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R8_USCALED FORMAT_R8_USCALED}</dt>
-     * <dd>A one-component, 8-bit unsigned scaled integer format that has a single 8-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R8_SSCALED FORMAT_R8_SSCALED}</dt>
-     * <dd>A one-component, 8-bit signed scaled integer format that has a single 8-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R8_UINT FORMAT_R8_UINT}</dt>
-     * <dd>A one-component, 8-bit unsigned integer format that has a single 8-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R8_SINT FORMAT_R8_SINT}</dt>
-     * <dd>A one-component, 8-bit signed integer format that has a single 8-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R8_SRGB FORMAT_R8_SRGB}</dt>
-     * <dd>A one-component, 8-bit unsigned normalized format that has a single 8-bit R component stored with sRGB nonlinear encoding.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_UNORM FORMAT_R8G8_UNORM}</dt>
-     * <dd>A two-component, 16-bit unsigned normalized format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_SNORM FORMAT_R8G8_SNORM}</dt>
-     * <dd>A two-component, 16-bit signed normalized format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_USCALED FORMAT_R8G8_USCALED}</dt>
-     * <dd>A two-component, 16-bit unsigned scaled integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_SSCALED FORMAT_R8G8_SSCALED}</dt>
-     * <dd>A two-component, 16-bit signed scaled integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_UINT FORMAT_R8G8_UINT}</dt>
-     * <dd>A two-component, 16-bit unsigned integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_SINT FORMAT_R8G8_SINT}</dt>
-     * <dd>A two-component, 16-bit signed integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8_SRGB FORMAT_R8G8_SRGB}</dt>
-     * <dd>A two-component, 16-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, and an 8-bit G component stored with sRGB nonlinear encoding in byte 1.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_UNORM FORMAT_R8G8B8_UNORM}</dt>
-     * <dd>A three-component, 24-bit unsigned normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_SNORM FORMAT_R8G8B8_SNORM}</dt>
-     * <dd>A three-component, 24-bit signed normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_USCALED FORMAT_R8G8B8_USCALED}</dt>
-     * <dd>A three-component, 24-bit unsigned scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_SSCALED FORMAT_R8G8B8_SSCALED}</dt>
-     * <dd>A three-component, 24-bit signed scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_UINT FORMAT_R8G8B8_UINT}</dt>
-     * <dd>A three-component, 24-bit unsigned integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_SINT FORMAT_R8G8B8_SINT}</dt>
-     * <dd>A three-component, 24-bit signed integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8_SRGB FORMAT_R8G8B8_SRGB}</dt>
-     * <dd>A three-component, 24-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, and an 8-bit B component stored with sRGB nonlinear encoding in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_UNORM FORMAT_B8G8R8_UNORM}</dt>
-     * <dd>A three-component, 24-bit unsigned normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_SNORM FORMAT_B8G8R8_SNORM}</dt>
-     * <dd>A three-component, 24-bit signed normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_USCALED FORMAT_B8G8R8_USCALED}</dt>
-     * <dd>A three-component, 24-bit unsigned scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_SSCALED FORMAT_B8G8R8_SSCALED}</dt>
-     * <dd>A three-component, 24-bit signed scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_UINT FORMAT_B8G8R8_UINT}</dt>
-     * <dd>A three-component, 24-bit unsigned integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_SINT FORMAT_B8G8R8_SINT}</dt>
-     * <dd>A three-component, 24-bit signed integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8_SRGB FORMAT_B8G8R8_SRGB}</dt>
-     * <dd>A three-component, 24-bit unsigned normalized format that has an 8-bit B component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, and an 8-bit R component stored with sRGB nonlinear encoding in byte 2.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_UNORM FORMAT_R8G8B8A8_UNORM}</dt>
-     * <dd>A four-component, 32-bit unsigned normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_SNORM FORMAT_R8G8B8A8_SNORM}</dt>
-     * <dd>A four-component, 32-bit signed normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_USCALED FORMAT_R8G8B8A8_USCALED}</dt>
-     * <dd>A four-component, 32-bit unsigned scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_SSCALED FORMAT_R8G8B8A8_SSCALED}</dt>
-     * <dd>A four-component, 32-bit signed scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_UINT FORMAT_R8G8B8A8_UINT}</dt>
-     * <dd>A four-component, 32-bit unsigned integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_SINT FORMAT_R8G8B8A8_SINT}</dt>
-     * <dd>A four-component, 32-bit signed integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_R8G8B8A8_SRGB FORMAT_R8G8B8A8_SRGB}</dt>
-     * <dd>A four-component, 32-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, an 8-bit B component stored with sRGB nonlinear encoding in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_UNORM FORMAT_B8G8R8A8_UNORM}</dt>
-     * <dd>A four-component, 32-bit unsigned normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_SNORM FORMAT_B8G8R8A8_SNORM}</dt>
-     * <dd>A four-component, 32-bit signed normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_USCALED FORMAT_B8G8R8A8_USCALED}</dt>
-     * <dd>A four-component, 32-bit unsigned scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_SSCALED FORMAT_B8G8R8A8_SSCALED}</dt>
-     * <dd>A four-component, 32-bit signed scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_UINT FORMAT_B8G8R8A8_UINT}</dt>
-     * <dd>A four-component, 32-bit unsigned integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_SINT FORMAT_B8G8R8A8_SINT}</dt>
-     * <dd>A four-component, 32-bit signed integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_B8G8R8A8_SRGB FORMAT_B8G8R8A8_SRGB}</dt>
-     * <dd>A four-component, 32-bit unsigned normalized format that has an 8-bit B component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, an 8-bit R component stored with sRGB nonlinear encoding in byte 2, and an 8-bit A component in byte 3.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_UNORM_PACK32 FORMAT_A8B8G8R8_UNORM_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_SNORM_PACK32 FORMAT_A8B8G8R8_SNORM_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_USCALED_PACK32 FORMAT_A8B8G8R8_USCALED_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned scaled integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_SSCALED_PACK32 FORMAT_A8B8G8R8_SSCALED_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed scaled integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_UINT_PACK32 FORMAT_A8B8G8R8_UINT_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_SINT_PACK32 FORMAT_A8B8G8R8_SINT_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A8B8G8R8_SRGB_PACK32 FORMAT_A8B8G8R8_SRGB_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component stored with sRGB nonlinear encoding in bits 16..23, an 8-bit G component stored with sRGB nonlinear encoding in bits 8..15, and an 8-bit R component stored with sRGB nonlinear encoding in bits 0..7.</dd>
-     * <dt>{@link #VK_FORMAT_A2R10G10B10_UNORM_PACK32 FORMAT_A2R10G10B10_UNORM_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned normalized format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2R10G10B10_SNORM_PACK32 FORMAT_A2R10G10B10_SNORM_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed normalized format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2R10G10B10_USCALED_PACK32 FORMAT_A2R10G10B10_USCALED_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2R10G10B10_SSCALED_PACK32 FORMAT_A2R10G10B10_SSCALED_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2R10G10B10_UINT_PACK32 FORMAT_A2R10G10B10_UINT_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2R10G10B10_SINT_PACK32 FORMAT_A2R10G10B10_SINT_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2B10G10R10_UNORM_PACK32 FORMAT_A2B10G10R10_UNORM_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned normalized format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2B10G10R10_SNORM_PACK32 FORMAT_A2B10G10R10_SNORM_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed normalized format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2B10G10R10_USCALED_PACK32 FORMAT_A2B10G10R10_USCALED_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2B10G10R10_SSCALED_PACK32 FORMAT_A2B10G10R10_SSCALED_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2B10G10R10_UINT_PACK32 FORMAT_A2B10G10R10_UINT_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed unsigned integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_A2B10G10R10_SINT_PACK32 FORMAT_A2B10G10R10_SINT_PACK32}</dt>
-     * <dd>A four-component, 32-bit packed signed integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</dd>
-     * <dt>{@link #VK_FORMAT_R16_UNORM FORMAT_R16_UNORM}</dt>
-     * <dd>A one-component, 16-bit unsigned normalized format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16_SNORM FORMAT_R16_SNORM}</dt>
-     * <dd>A one-component, 16-bit signed normalized format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16_USCALED FORMAT_R16_USCALED}</dt>
-     * <dd>A one-component, 16-bit unsigned scaled integer format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16_SSCALED FORMAT_R16_SSCALED}</dt>
-     * <dd>A one-component, 16-bit signed scaled integer format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16_UINT FORMAT_R16_UINT}</dt>
-     * <dd>A one-component, 16-bit unsigned integer format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16_SINT FORMAT_R16_SINT}</dt>
-     * <dd>A one-component, 16-bit signed integer format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16_SFLOAT FORMAT_R16_SFLOAT}</dt>
-     * <dd>A one-component, 16-bit signed floating-point format that has a single 16-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_UNORM FORMAT_R16G16_UNORM}</dt>
-     * <dd>A two-component, 32-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_SNORM FORMAT_R16G16_SNORM}</dt>
-     * <dd>A two-component, 32-bit signed normalized format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_USCALED FORMAT_R16G16_USCALED}</dt>
-     * <dd>A two-component, 32-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_SSCALED FORMAT_R16G16_SSCALED}</dt>
-     * <dd>A two-component, 32-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_UINT FORMAT_R16G16_UINT}</dt>
-     * <dd>A two-component, 32-bit unsigned integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_SINT FORMAT_R16G16_SINT}</dt>
-     * <dd>A two-component, 32-bit signed integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16_SFLOAT FORMAT_R16G16_SFLOAT}</dt>
-     * <dd>A two-component, 32-bit signed floating-point format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_UNORM FORMAT_R16G16B16_UNORM}</dt>
-     * <dd>A three-component, 48-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_SNORM FORMAT_R16G16B16_SNORM}</dt>
-     * <dd>A three-component, 48-bit signed normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_USCALED FORMAT_R16G16B16_USCALED}</dt>
-     * <dd>A three-component, 48-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_SSCALED FORMAT_R16G16B16_SSCALED}</dt>
-     * <dd>A three-component, 48-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_UINT FORMAT_R16G16B16_UINT}</dt>
-     * <dd>A three-component, 48-bit unsigned integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_SINT FORMAT_R16G16B16_SINT}</dt>
-     * <dd>A three-component, 48-bit signed integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16_SFLOAT FORMAT_R16G16B16_SFLOAT}</dt>
-     * <dd>A three-component, 48-bit signed floating-point format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_UNORM FORMAT_R16G16B16A16_UNORM}</dt>
-     * <dd>A four-component, 64-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_SNORM FORMAT_R16G16B16A16_SNORM}</dt>
-     * <dd>A four-component, 64-bit signed normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_USCALED FORMAT_R16G16B16A16_USCALED}</dt>
-     * <dd>A four-component, 64-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_SSCALED FORMAT_R16G16B16A16_SSCALED}</dt>
-     * <dd>A four-component, 64-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_UINT FORMAT_R16G16B16A16_UINT}</dt>
-     * <dd>A four-component, 64-bit unsigned integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_SINT FORMAT_R16G16B16A16_SINT}</dt>
-     * <dd>A four-component, 64-bit signed integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R16G16B16A16_SFLOAT FORMAT_R16G16B16A16_SFLOAT}</dt>
-     * <dd>A four-component, 64-bit signed floating-point format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</dd>
-     * <dt>{@link #VK_FORMAT_R32_UINT FORMAT_R32_UINT}</dt>
-     * <dd>A one-component, 32-bit unsigned integer format that has a single 32-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R32_SINT FORMAT_R32_SINT}</dt>
-     * <dd>A one-component, 32-bit signed integer format that has a single 32-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R32_SFLOAT FORMAT_R32_SFLOAT}</dt>
-     * <dd>A one-component, 32-bit signed floating-point format that has a single 32-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32_UINT FORMAT_R32G32_UINT}</dt>
-     * <dd>A two-component, 64-bit unsigned integer format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32_SINT FORMAT_R32G32_SINT}</dt>
-     * <dd>A two-component, 64-bit signed integer format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32_SFLOAT FORMAT_R32G32_SFLOAT}</dt>
-     * <dd>A two-component, 64-bit signed floating-point format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32B32_UINT FORMAT_R32G32B32_UINT}</dt>
-     * <dd>A three-component, 96-bit unsigned integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32B32_SINT FORMAT_R32G32B32_SINT}</dt>
-     * <dd>A three-component, 96-bit signed integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32B32_SFLOAT FORMAT_R32G32B32_SFLOAT}</dt>
-     * <dd>A three-component, 96-bit signed floating-point format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32B32A32_UINT FORMAT_R32G32B32A32_UINT}</dt>
-     * <dd>A four-component, 128-bit unsigned integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32B32A32_SINT FORMAT_R32G32B32A32_SINT}</dt>
-     * <dd>A four-component, 128-bit signed integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15.</dd>
-     * <dt>{@link #VK_FORMAT_R32G32B32A32_SFLOAT FORMAT_R32G32B32A32_SFLOAT}</dt>
-     * <dd>A four-component, 128-bit signed floating-point format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15.</dd>
-     * <dt>{@link #VK_FORMAT_R64_UINT FORMAT_R64_UINT}</dt>
-     * <dd>A one-component, 64-bit unsigned integer format that has a single 64-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R64_SINT FORMAT_R64_SINT}</dt>
-     * <dd>A one-component, 64-bit signed integer format that has a single 64-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R64_SFLOAT FORMAT_R64_SFLOAT}</dt>
-     * <dd>A one-component, 64-bit signed floating-point format that has a single 64-bit R component.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64_UINT FORMAT_R64G64_UINT}</dt>
-     * <dd>A two-component, 128-bit unsigned integer format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64_SINT FORMAT_R64G64_SINT}</dt>
-     * <dd>A two-component, 128-bit signed integer format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64_SFLOAT FORMAT_R64G64_SFLOAT}</dt>
-     * <dd>A two-component, 128-bit signed floating-point format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64B64_UINT FORMAT_R64G64B64_UINT}</dt>
-     * <dd>A three-component, 192-bit unsigned integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64B64_SINT FORMAT_R64G64B64_SINT}</dt>
-     * <dd>A three-component, 192-bit signed integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64B64_SFLOAT FORMAT_R64G64B64_SFLOAT}</dt>
-     * <dd>A three-component, 192-bit signed floating-point format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64B64A64_UINT FORMAT_R64G64B64A64_UINT}</dt>
-     * <dd>A four-component, 256-bit unsigned integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64B64A64_SINT FORMAT_R64G64B64A64_SINT}</dt>
-     * <dd>A four-component, 256-bit signed integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31.</dd>
-     * <dt>{@link #VK_FORMAT_R64G64B64A64_SFLOAT FORMAT_R64G64B64A64_SFLOAT}</dt>
-     * <dd>A four-component, 256-bit signed floating-point format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31.</dd>
-     * <dt>{@link #VK_FORMAT_B10G11R11_UFLOAT_PACK32 FORMAT_B10G11R11_UFLOAT_PACK32}</dt>
-     * <dd>A three-component, 32-bit packed unsigned floating-point format that has a 10-bit B component in bits 22..31, an 11-bit G component in bits 11..21, an 11-bit R component in bits 0..10. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fundamentals-fp10">the “Unsigned 10-Bit Floating-Point Numbers” section</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fundamentals-fp11">the “Unsigned 11-Bit Floating-Point Numbers” section</a>.</dd>
-     * <dt>{@link #VK_FORMAT_E5B9G9R9_UFLOAT_PACK32 FORMAT_E5B9G9R9_UFLOAT_PACK32}</dt>
-     * <dd>A three-component, 32-bit packed unsigned floating-point format that has a 5-bit shared exponent in bits 27..31, a 9-bit B component mantissa in bits 18..26, a 9-bit G component mantissa in bits 9..17, and a 9-bit R component mantissa in bits 0..8.</dd>
-     * <dt>{@link #VK_FORMAT_D16_UNORM FORMAT_D16_UNORM}</dt>
-     * <dd>A one-component, 16-bit unsigned normalized format that has a single 16-bit depth component.</dd>
-     * <dt>{@link #VK_FORMAT_X8_D24_UNORM_PACK32 FORMAT_X8_D24_UNORM_PACK32}</dt>
-     * <dd>A two-component, 32-bit format that has 24 unsigned normalized bits in the depth component and, optionally:, 8 bits that are unused.</dd>
-     * <dt>{@link #VK_FORMAT_D32_SFLOAT FORMAT_D32_SFLOAT}</dt>
-     * <dd>A one-component, 32-bit signed floating-point format that has 32-bits in the depth component.</dd>
-     * <dt>{@link #VK_FORMAT_S8_UINT FORMAT_S8_UINT}</dt>
-     * <dd>A one-component, 8-bit unsigned integer format that has 8-bits in the stencil component.</dd>
-     * <dt>{@link #VK_FORMAT_D16_UNORM_S8_UINT FORMAT_D16_UNORM_S8_UINT}</dt>
-     * <dd>A two-component, 24-bit format that has 16 unsigned normalized bits in the depth component and 8 unsigned integer bits in the stencil component.</dd>
-     * <dt>{@link #VK_FORMAT_D24_UNORM_S8_UINT FORMAT_D24_UNORM_S8_UINT}</dt>
-     * <dd>A two-component, 32-bit packed format that has 8 unsigned integer bits in the stencil component, and 24 unsigned normalized bits in the depth component.</dd>
-     * <dt>{@link #VK_FORMAT_D32_SFLOAT_S8_UINT FORMAT_D32_SFLOAT_S8_UINT}</dt>
-     * <dd>A two-component format that has 32 signed float bits in the depth component and 8 unsigned integer bits in the stencil component. There are optionally: 24-bits that are unused.</dd>
-     * <dt>{@link #VK_FORMAT_BC1_RGB_UNORM_BLOCK FORMAT_BC1_RGB_UNORM_BLOCK}</dt>
-     * <dd>A three-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data. This format has no alpha and is considered opaque.</dd>
-     * <dt>{@link #VK_FORMAT_BC1_RGB_SRGB_BLOCK FORMAT_BC1_RGB_SRGB_BLOCK}</dt>
-     * <dd>A three-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding. This format has no alpha and is considered opaque.</dd>
-     * <dt>{@link #VK_FORMAT_BC1_RGBA_UNORM_BLOCK FORMAT_BC1_RGBA_UNORM_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data, and provides 1 bit of alpha.</dd>
-     * <dt>{@link #VK_FORMAT_BC1_RGBA_SRGB_BLOCK FORMAT_BC1_RGBA_SRGB_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding, and provides 1 bit of alpha.</dd>
-     * <dt>{@link #VK_FORMAT_BC2_UNORM_BLOCK FORMAT_BC2_UNORM_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values.</dd>
-     * <dt>{@link #VK_FORMAT_BC2_SRGB_BLOCK FORMAT_BC2_SRGB_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values with sRGB nonlinear encoding.</dd>
-     * <dt>{@link #VK_FORMAT_BC3_UNORM_BLOCK FORMAT_BC3_UNORM_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values.</dd>
-     * <dt>{@link #VK_FORMAT_BC3_SRGB_BLOCK FORMAT_BC3_SRGB_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values with sRGB nonlinear encoding.</dd>
-     * <dt>{@link #VK_FORMAT_BC4_UNORM_BLOCK FORMAT_BC4_UNORM_BLOCK}</dt>
-     * <dd>A one-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized red texel data.</dd>
-     * <dt>{@link #VK_FORMAT_BC4_SNORM_BLOCK FORMAT_BC4_SNORM_BLOCK}</dt>
-     * <dd>A one-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of signed normalized red texel data.</dd>
-     * <dt>{@link #VK_FORMAT_BC5_UNORM_BLOCK FORMAT_BC5_UNORM_BLOCK}</dt>
-     * <dd>A two-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</dd>
-     * <dt>{@link #VK_FORMAT_BC5_SNORM_BLOCK FORMAT_BC5_SNORM_BLOCK}</dt>
-     * <dd>A two-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of signed normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</dd>
-     * <dt>{@link #VK_FORMAT_BC6H_UFLOAT_BLOCK FORMAT_BC6H_UFLOAT_BLOCK}</dt>
-     * <dd>A three-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned floating-point RGB texel data.</dd>
-     * <dt>{@link #VK_FORMAT_BC6H_SFLOAT_BLOCK FORMAT_BC6H_SFLOAT_BLOCK}</dt>
-     * <dd>A three-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of signed floating-point RGB texel data.</dd>
-     * <dt>{@link #VK_FORMAT_BC7_UNORM_BLOCK FORMAT_BC7_UNORM_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_BC7_SRGB_BLOCK FORMAT_BC7_SRGB_BLOCK}</dt>
-     * <dd>A four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK FORMAT_ETC2_R8G8B8_UNORM_BLOCK}</dt>
-     * <dd>A three-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data. This format has no alpha and is considered opaque.</dd>
-     * <dt>{@link #VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK FORMAT_ETC2_R8G8B8_SRGB_BLOCK}</dt>
-     * <dd>A three-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding. This format has no alpha and is considered opaque.</dd>
-     * <dt>{@link #VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data, and provides 1 bit of alpha.</dd>
-     * <dt>{@link #VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding, and provides 1 bit of alpha.</dd>
-     * <dt>{@link #VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ETC2 compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values.</dd>
-     * <dt>{@link #VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values with sRGB nonlinear encoding applied.</dd>
-     * <dt>{@link #VK_FORMAT_EAC_R11_UNORM_BLOCK FORMAT_EAC_R11_UNORM_BLOCK}</dt>
-     * <dd>A one-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized red texel data.</dd>
-     * <dt>{@link #VK_FORMAT_EAC_R11_SNORM_BLOCK FORMAT_EAC_R11_SNORM_BLOCK}</dt>
-     * <dd>A one-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of signed normalized red texel data.</dd>
-     * <dt>{@link #VK_FORMAT_EAC_R11G11_UNORM_BLOCK FORMAT_EAC_R11G11_UNORM_BLOCK}</dt>
-     * <dd>A two-component, ETC2 compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</dd>
-     * <dt>{@link #VK_FORMAT_EAC_R11G11_SNORM_BLOCK FORMAT_EAC_R11G11_SNORM_BLOCK}</dt>
-     * <dd>A two-component, ETC2 compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of signed normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_4x4_UNORM_BLOCK FORMAT_ASTC_4x4_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_4x4_SRGB_BLOCK FORMAT_ASTC_4x4_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_5x4_UNORM_BLOCK FORMAT_ASTC_5x4_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x4 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_5x4_SRGB_BLOCK FORMAT_ASTC_5x4_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x4 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_5x5_UNORM_BLOCK FORMAT_ASTC_5x5_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x5 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_5x5_SRGB_BLOCK FORMAT_ASTC_5x5_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_6x5_UNORM_BLOCK FORMAT_ASTC_6x5_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x5 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_6x5_SRGB_BLOCK FORMAT_ASTC_6x5_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_6x6_UNORM_BLOCK FORMAT_ASTC_6x6_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x6 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_6x6_SRGB_BLOCK FORMAT_ASTC_6x6_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x6 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_8x5_UNORM_BLOCK FORMAT_ASTC_8x5_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x5 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_8x5_SRGB_BLOCK FORMAT_ASTC_8x5_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_8x6_UNORM_BLOCK FORMAT_ASTC_8x6_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x6 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_8x6_SRGB_BLOCK FORMAT_ASTC_8x6_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x6 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_8x8_UNORM_BLOCK FORMAT_ASTC_8x8_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x8 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_8x8_SRGB_BLOCK FORMAT_ASTC_8x8_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x8 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x5_UNORM_BLOCK FORMAT_ASTC_10x5_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x5 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x5_SRGB_BLOCK FORMAT_ASTC_10x5_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x6_UNORM_BLOCK FORMAT_ASTC_10x6_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x6 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x6_SRGB_BLOCK FORMAT_ASTC_10x6_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x6 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x8_UNORM_BLOCK FORMAT_ASTC_10x8_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x8 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x8_SRGB_BLOCK FORMAT_ASTC_10x8_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x8 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x10_UNORM_BLOCK FORMAT_ASTC_10x10_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x10 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_10x10_SRGB_BLOCK FORMAT_ASTC_10x10_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x10 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_12x10_UNORM_BLOCK FORMAT_ASTC_12x10_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x10 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_12x10_SRGB_BLOCK FORMAT_ASTC_12x10_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x10 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_12x12_UNORM_BLOCK FORMAT_ASTC_12x12_UNORM_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x12 rectangle of unsigned normalized RGBA texel data.</dd>
-     * <dt>{@link #VK_FORMAT_ASTC_12x12_SRGB_BLOCK FORMAT_ASTC_12x12_SRGB_BLOCK}</dt>
-     * <dd>A four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x12 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</dd>
-     * </dl>
+     * <ul>
+     * <li>{@link #VK_FORMAT_UNDEFINED FORMAT_UNDEFINED} indicates that the format is not specified.</li>
+     * <li>{@link #VK_FORMAT_R4G4_UNORM_PACK8 FORMAT_R4G4_UNORM_PACK8} specifies a two-component, 8-bit packed unsigned normalized format that has a 4-bit R component in bits 4..7, and a 4-bit G component in bits 0..3.</li>
+     * <li>{@link #VK_FORMAT_R4G4B4A4_UNORM_PACK16 FORMAT_R4G4B4A4_UNORM_PACK16} specifies a four-component, 16-bit packed unsigned normalized format that has a 4-bit R component in bits 12..15, a 4-bit G component in bits 8..11, a 4-bit B component in bits 4..7, and a 4-bit A component in bits 0..3.</li>
+     * <li>{@link #VK_FORMAT_B4G4R4A4_UNORM_PACK16 FORMAT_B4G4R4A4_UNORM_PACK16} specifies a four-component, 16-bit packed unsigned normalized format that has a 4-bit B component in bits 12..15, a 4-bit G component in bits 8..11, a 4-bit R component in bits 4..7, and a 4-bit A component in bits 0..3.</li>
+     * <li>{@link #VK_FORMAT_R5G6B5_UNORM_PACK16 FORMAT_R5G6B5_UNORM_PACK16} specifies a three-component, 16-bit packed unsigned normalized format that has a 5-bit R component in bits 11..15, a 6-bit G component in bits 5..10, and a 5-bit B component in bits 0..4.</li>
+     * <li>{@link #VK_FORMAT_B5G6R5_UNORM_PACK16 FORMAT_B5G6R5_UNORM_PACK16} specifies a three-component, 16-bit packed unsigned normalized format that has a 5-bit B component in bits 11..15, a 6-bit G component in bits 5..10, and a 5-bit R component in bits 0..4.</li>
+     * <li>{@link #VK_FORMAT_R5G5B5A1_UNORM_PACK16 FORMAT_R5G5B5A1_UNORM_PACK16} specifies a four-component, 16-bit packed unsigned normalized format that has a 5-bit R component in bits 11..15, a 5-bit G component in bits 6..10, a 5-bit B component in bits 1..5, and a 1-bit A component in bit 0.</li>
+     * <li>{@link #VK_FORMAT_B5G5R5A1_UNORM_PACK16 FORMAT_B5G5R5A1_UNORM_PACK16} specifies a four-component, 16-bit packed unsigned normalized format that has a 5-bit B component in bits 11..15, a 5-bit G component in bits 6..10, a 5-bit R component in bits 1..5, and a 1-bit A component in bit 0.</li>
+     * <li>{@link #VK_FORMAT_A1R5G5B5_UNORM_PACK16 FORMAT_A1R5G5B5_UNORM_PACK16} specifies a four-component, 16-bit packed unsigned normalized format that has a 1-bit A component in bit 15, a 5-bit R component in bits 10..14, a 5-bit G component in bits 5..9, and a 5-bit B component in bits 0..4.</li>
+     * <li>{@link #VK_FORMAT_R8_UNORM FORMAT_R8_UNORM} specifies a one-component, 8-bit unsigned normalized format that has a single 8-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R8_SNORM FORMAT_R8_SNORM} specifies a one-component, 8-bit signed normalized format that has a single 8-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R8_USCALED FORMAT_R8_USCALED} specifies a one-component, 8-bit unsigned scaled integer format that has a single 8-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R8_SSCALED FORMAT_R8_SSCALED} specifies a one-component, 8-bit signed scaled integer format that has a single 8-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R8_UINT FORMAT_R8_UINT} specifies a one-component, 8-bit unsigned integer format that has a single 8-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R8_SINT FORMAT_R8_SINT} specifies a one-component, 8-bit signed integer format that has a single 8-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R8_SRGB FORMAT_R8_SRGB} specifies a one-component, 8-bit unsigned normalized format that has a single 8-bit R component stored with sRGB nonlinear encoding.</li>
+     * <li>{@link #VK_FORMAT_R8G8_UNORM FORMAT_R8G8_UNORM} specifies a two-component, 16-bit unsigned normalized format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8_SNORM FORMAT_R8G8_SNORM} specifies a two-component, 16-bit signed normalized format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8_USCALED FORMAT_R8G8_USCALED} specifies a two-component, 16-bit unsigned scaled integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8_SSCALED FORMAT_R8G8_SSCALED} specifies a two-component, 16-bit signed scaled integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8_UINT FORMAT_R8G8_UINT} specifies a two-component, 16-bit unsigned integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8_SINT FORMAT_R8G8_SINT} specifies a two-component, 16-bit signed integer format that has an 8-bit R component in byte 0, and an 8-bit G component in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8_SRGB FORMAT_R8G8_SRGB} specifies a two-component, 16-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, and an 8-bit G component stored with sRGB nonlinear encoding in byte 1.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_UNORM FORMAT_R8G8B8_UNORM} specifies a three-component, 24-bit unsigned normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_SNORM FORMAT_R8G8B8_SNORM} specifies a three-component, 24-bit signed normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_USCALED FORMAT_R8G8B8_USCALED} specifies a three-component, 24-bit unsigned scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_SSCALED FORMAT_R8G8B8_SSCALED} specifies a three-component, 24-bit signed scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_UINT FORMAT_R8G8B8_UINT} specifies a three-component, 24-bit unsigned integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_SINT FORMAT_R8G8B8_SINT} specifies a three-component, 24-bit signed integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, and an 8-bit B component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8_SRGB FORMAT_R8G8B8_SRGB} specifies a three-component, 24-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, and an 8-bit B component stored with sRGB nonlinear encoding in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_UNORM FORMAT_B8G8R8_UNORM} specifies a three-component, 24-bit unsigned normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_SNORM FORMAT_B8G8R8_SNORM} specifies a three-component, 24-bit signed normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_USCALED FORMAT_B8G8R8_USCALED} specifies a three-component, 24-bit unsigned scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_SSCALED FORMAT_B8G8R8_SSCALED} specifies a three-component, 24-bit signed scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_UINT FORMAT_B8G8R8_UINT} specifies a three-component, 24-bit unsigned integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_SINT FORMAT_B8G8R8_SINT} specifies a three-component, 24-bit signed integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, and an 8-bit R component in byte 2.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8_SRGB FORMAT_B8G8R8_SRGB} specifies a three-component, 24-bit unsigned normalized format that has an 8-bit B component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, and an 8-bit R component stored with sRGB nonlinear encoding in byte 2.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_UNORM FORMAT_R8G8B8A8_UNORM} specifies a four-component, 32-bit unsigned normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_SNORM FORMAT_R8G8B8A8_SNORM} specifies a four-component, 32-bit signed normalized format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_USCALED FORMAT_R8G8B8A8_USCALED} specifies a four-component, 32-bit unsigned scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_SSCALED FORMAT_R8G8B8A8_SSCALED} specifies a four-component, 32-bit signed scaled format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_UINT FORMAT_R8G8B8A8_UINT} specifies a four-component, 32-bit unsigned integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_SINT FORMAT_R8G8B8A8_SINT} specifies a four-component, 32-bit signed integer format that has an 8-bit R component in byte 0, an 8-bit G component in byte 1, an 8-bit B component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_R8G8B8A8_SRGB FORMAT_R8G8B8A8_SRGB} specifies a four-component, 32-bit unsigned normalized format that has an 8-bit R component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, an 8-bit B component stored with sRGB nonlinear encoding in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_UNORM FORMAT_B8G8R8A8_UNORM} specifies a four-component, 32-bit unsigned normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_SNORM FORMAT_B8G8R8A8_SNORM} specifies a four-component, 32-bit signed normalized format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_USCALED FORMAT_B8G8R8A8_USCALED} specifies a four-component, 32-bit unsigned scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_SSCALED FORMAT_B8G8R8A8_SSCALED} specifies a four-component, 32-bit signed scaled format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_UINT FORMAT_B8G8R8A8_UINT} specifies a four-component, 32-bit unsigned integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_SINT FORMAT_B8G8R8A8_SINT} specifies a four-component, 32-bit signed integer format that has an 8-bit B component in byte 0, an 8-bit G component in byte 1, an 8-bit R component in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_B8G8R8A8_SRGB FORMAT_B8G8R8A8_SRGB} specifies a four-component, 32-bit unsigned normalized format that has an 8-bit B component stored with sRGB nonlinear encoding in byte 0, an 8-bit G component stored with sRGB nonlinear encoding in byte 1, an 8-bit R component stored with sRGB nonlinear encoding in byte 2, and an 8-bit A component in byte 3.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_UNORM_PACK32 FORMAT_A8B8G8R8_UNORM_PACK32} specifies a four-component, 32-bit packed unsigned normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_SNORM_PACK32 FORMAT_A8B8G8R8_SNORM_PACK32} specifies a four-component, 32-bit packed signed normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_USCALED_PACK32 FORMAT_A8B8G8R8_USCALED_PACK32} specifies a four-component, 32-bit packed unsigned scaled integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_SSCALED_PACK32 FORMAT_A8B8G8R8_SSCALED_PACK32} specifies a four-component, 32-bit packed signed scaled integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_UINT_PACK32 FORMAT_A8B8G8R8_UINT_PACK32} specifies a four-component, 32-bit packed unsigned integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_SINT_PACK32 FORMAT_A8B8G8R8_SINT_PACK32} specifies a four-component, 32-bit packed signed integer format that has an 8-bit A component in bits 24..31, an 8-bit B component in bits 16..23, an 8-bit G component in bits 8..15, and an 8-bit R component in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A8B8G8R8_SRGB_PACK32 FORMAT_A8B8G8R8_SRGB_PACK32} specifies a four-component, 32-bit packed unsigned normalized format that has an 8-bit A component in bits 24..31, an 8-bit B component stored with sRGB nonlinear encoding in bits 16..23, an 8-bit G component stored with sRGB nonlinear encoding in bits 8..15, and an 8-bit R component stored with sRGB nonlinear encoding in bits 0..7.</li>
+     * <li>{@link #VK_FORMAT_A2R10G10B10_UNORM_PACK32 FORMAT_A2R10G10B10_UNORM_PACK32} specifies a four-component, 32-bit packed unsigned normalized format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2R10G10B10_SNORM_PACK32 FORMAT_A2R10G10B10_SNORM_PACK32} specifies a four-component, 32-bit packed signed normalized format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2R10G10B10_USCALED_PACK32 FORMAT_A2R10G10B10_USCALED_PACK32} specifies a four-component, 32-bit packed unsigned scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2R10G10B10_SSCALED_PACK32 FORMAT_A2R10G10B10_SSCALED_PACK32} specifies a four-component, 32-bit packed signed scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2R10G10B10_UINT_PACK32 FORMAT_A2R10G10B10_UINT_PACK32} specifies a four-component, 32-bit packed unsigned integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2R10G10B10_SINT_PACK32 FORMAT_A2R10G10B10_SINT_PACK32} specifies a four-component, 32-bit packed signed integer format that has a 2-bit A component in bits 30..31, a 10-bit R component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit B component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2B10G10R10_UNORM_PACK32 FORMAT_A2B10G10R10_UNORM_PACK32} specifies a four-component, 32-bit packed unsigned normalized format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2B10G10R10_SNORM_PACK32 FORMAT_A2B10G10R10_SNORM_PACK32} specifies a four-component, 32-bit packed signed normalized format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2B10G10R10_USCALED_PACK32 FORMAT_A2B10G10R10_USCALED_PACK32} specifies a four-component, 32-bit packed unsigned scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2B10G10R10_SSCALED_PACK32 FORMAT_A2B10G10R10_SSCALED_PACK32} specifies a four-component, 32-bit packed signed scaled integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2B10G10R10_UINT_PACK32 FORMAT_A2B10G10R10_UINT_PACK32} specifies a four-component, 32-bit packed unsigned integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_A2B10G10R10_SINT_PACK32 FORMAT_A2B10G10R10_SINT_PACK32} specifies a four-component, 32-bit packed signed integer format that has a 2-bit A component in bits 30..31, a 10-bit B component in bits 20..29, a 10-bit G component in bits 10..19, and a 10-bit R component in bits 0..9.</li>
+     * <li>{@link #VK_FORMAT_R16_UNORM FORMAT_R16_UNORM} specifies a one-component, 16-bit unsigned normalized format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16_SNORM FORMAT_R16_SNORM} specifies a one-component, 16-bit signed normalized format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16_USCALED FORMAT_R16_USCALED} specifies a one-component, 16-bit unsigned scaled integer format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16_SSCALED FORMAT_R16_SSCALED} specifies a one-component, 16-bit signed scaled integer format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16_UINT FORMAT_R16_UINT} specifies a one-component, 16-bit unsigned integer format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16_SINT FORMAT_R16_SINT} specifies a one-component, 16-bit signed integer format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16_SFLOAT FORMAT_R16_SFLOAT} specifies a one-component, 16-bit signed floating-point format that has a single 16-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R16G16_UNORM FORMAT_R16G16_UNORM} specifies a two-component, 32-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16_SNORM FORMAT_R16G16_SNORM} specifies a two-component, 32-bit signed normalized format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16_USCALED FORMAT_R16G16_USCALED} specifies a two-component, 32-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16_SSCALED FORMAT_R16G16_SSCALED} specifies a two-component, 32-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16_UINT FORMAT_R16G16_UINT} specifies a two-component, 32-bit unsigned integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16_SINT FORMAT_R16G16_SINT} specifies a two-component, 32-bit signed integer format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16_SFLOAT FORMAT_R16G16_SFLOAT} specifies a two-component, 32-bit signed floating-point format that has a 16-bit R component in bytes 0..1, and a 16-bit G component in bytes 2..3.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_UNORM FORMAT_R16G16B16_UNORM} specifies a three-component, 48-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_SNORM FORMAT_R16G16B16_SNORM} specifies a three-component, 48-bit signed normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_USCALED FORMAT_R16G16B16_USCALED} specifies a three-component, 48-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_SSCALED FORMAT_R16G16B16_SSCALED} specifies a three-component, 48-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_UINT FORMAT_R16G16B16_UINT} specifies a three-component, 48-bit unsigned integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_SINT FORMAT_R16G16B16_SINT} specifies a three-component, 48-bit signed integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16_SFLOAT FORMAT_R16G16B16_SFLOAT} specifies a three-component, 48-bit signed floating-point format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, and a 16-bit B component in bytes 4..5.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_UNORM FORMAT_R16G16B16A16_UNORM} specifies a four-component, 64-bit unsigned normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_SNORM FORMAT_R16G16B16A16_SNORM} specifies a four-component, 64-bit signed normalized format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_USCALED FORMAT_R16G16B16A16_USCALED} specifies a four-component, 64-bit unsigned scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_SSCALED FORMAT_R16G16B16A16_SSCALED} specifies a four-component, 64-bit signed scaled integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_UINT FORMAT_R16G16B16A16_UINT} specifies a four-component, 64-bit unsigned integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_SINT FORMAT_R16G16B16A16_SINT} specifies a four-component, 64-bit signed integer format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R16G16B16A16_SFLOAT FORMAT_R16G16B16A16_SFLOAT} specifies a four-component, 64-bit signed floating-point format that has a 16-bit R component in bytes 0..1, a 16-bit G component in bytes 2..3, a 16-bit B component in bytes 4..5, and a 16-bit A component in bytes 6..7.</li>
+     * <li>{@link #VK_FORMAT_R32_UINT FORMAT_R32_UINT} specifies a one-component, 32-bit unsigned integer format that has a single 32-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R32_SINT FORMAT_R32_SINT} specifies a one-component, 32-bit signed integer format that has a single 32-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R32_SFLOAT FORMAT_R32_SFLOAT} specifies a one-component, 32-bit signed floating-point format that has a single 32-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R32G32_UINT FORMAT_R32G32_UINT} specifies a two-component, 64-bit unsigned integer format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7.</li>
+     * <li>{@link #VK_FORMAT_R32G32_SINT FORMAT_R32G32_SINT} specifies a two-component, 64-bit signed integer format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7.</li>
+     * <li>{@link #VK_FORMAT_R32G32_SFLOAT FORMAT_R32G32_SFLOAT} specifies a two-component, 64-bit signed floating-point format that has a 32-bit R component in bytes 0..3, and a 32-bit G component in bytes 4..7.</li>
+     * <li>{@link #VK_FORMAT_R32G32B32_UINT FORMAT_R32G32B32_UINT} specifies a three-component, 96-bit unsigned integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11.</li>
+     * <li>{@link #VK_FORMAT_R32G32B32_SINT FORMAT_R32G32B32_SINT} specifies a three-component, 96-bit signed integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11.</li>
+     * <li>{@link #VK_FORMAT_R32G32B32_SFLOAT FORMAT_R32G32B32_SFLOAT} specifies a three-component, 96-bit signed floating-point format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, and a 32-bit B component in bytes 8..11.</li>
+     * <li>{@link #VK_FORMAT_R32G32B32A32_UINT FORMAT_R32G32B32A32_UINT} specifies a four-component, 128-bit unsigned integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15.</li>
+     * <li>{@link #VK_FORMAT_R32G32B32A32_SINT FORMAT_R32G32B32A32_SINT} specifies a four-component, 128-bit signed integer format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15.</li>
+     * <li>{@link #VK_FORMAT_R32G32B32A32_SFLOAT FORMAT_R32G32B32A32_SFLOAT} specifies a four-component, 128-bit signed floating-point format that has a 32-bit R component in bytes 0..3, a 32-bit G component in bytes 4..7, a 32-bit B component in bytes 8..11, and a 32-bit A component in bytes 12..15.</li>
+     * <li>{@link #VK_FORMAT_R64_UINT FORMAT_R64_UINT} specifies a one-component, 64-bit unsigned integer format that has a single 64-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R64_SINT FORMAT_R64_SINT} specifies a one-component, 64-bit signed integer format that has a single 64-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R64_SFLOAT FORMAT_R64_SFLOAT} specifies a one-component, 64-bit signed floating-point format that has a single 64-bit R component.</li>
+     * <li>{@link #VK_FORMAT_R64G64_UINT FORMAT_R64G64_UINT} specifies a two-component, 128-bit unsigned integer format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15.</li>
+     * <li>{@link #VK_FORMAT_R64G64_SINT FORMAT_R64G64_SINT} specifies a two-component, 128-bit signed integer format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15.</li>
+     * <li>{@link #VK_FORMAT_R64G64_SFLOAT FORMAT_R64G64_SFLOAT} specifies a two-component, 128-bit signed floating-point format that has a 64-bit R component in bytes 0..7, and a 64-bit G component in bytes 8..15.</li>
+     * <li>{@link #VK_FORMAT_R64G64B64_UINT FORMAT_R64G64B64_UINT} specifies a three-component, 192-bit unsigned integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23.</li>
+     * <li>{@link #VK_FORMAT_R64G64B64_SINT FORMAT_R64G64B64_SINT} specifies a three-component, 192-bit signed integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23.</li>
+     * <li>{@link #VK_FORMAT_R64G64B64_SFLOAT FORMAT_R64G64B64_SFLOAT} specifies a three-component, 192-bit signed floating-point format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, and a 64-bit B component in bytes 16..23.</li>
+     * <li>{@link #VK_FORMAT_R64G64B64A64_UINT FORMAT_R64G64B64A64_UINT} specifies a four-component, 256-bit unsigned integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31.</li>
+     * <li>{@link #VK_FORMAT_R64G64B64A64_SINT FORMAT_R64G64B64A64_SINT} specifies a four-component, 256-bit signed integer format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31.</li>
+     * <li>{@link #VK_FORMAT_R64G64B64A64_SFLOAT FORMAT_R64G64B64A64_SFLOAT} specifies a four-component, 256-bit signed floating-point format that has a 64-bit R component in bytes 0..7, a 64-bit G component in bytes 8..15, a 64-bit B component in bytes 16..23, and a 64-bit A component in bytes 24..31.</li>
+     * <li>{@link #VK_FORMAT_B10G11R11_UFLOAT_PACK32 FORMAT_B10G11R11_UFLOAT_PACK32} specifies a three-component, 32-bit packed unsigned floating-point format that has a 10-bit B component in bits 22..31, an 11-bit G component in bits 11..21, an 11-bit R component in bits 0..10. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fundamentals-fp10">the “Unsigned 10-Bit Floating-Point Numbers” section</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fundamentals-fp11">the “Unsigned 11-Bit Floating-Point Numbers” section</a>.</li>
+     * <li>{@link #VK_FORMAT_E5B9G9R9_UFLOAT_PACK32 FORMAT_E5B9G9R9_UFLOAT_PACK32} specifies a three-component, 32-bit packed unsigned floating-point format that has a 5-bit shared exponent in bits 27..31, a 9-bit B component mantissa in bits 18..26, a 9-bit G component mantissa in bits 9..17, and a 9-bit R component mantissa in bits 0..8.</li>
+     * <li>{@link #VK_FORMAT_D16_UNORM FORMAT_D16_UNORM} specifies a one-component, 16-bit unsigned normalized format that has a single 16-bit depth component.</li>
+     * <li>{@link #VK_FORMAT_X8_D24_UNORM_PACK32 FORMAT_X8_D24_UNORM_PACK32} specifies a two-component, 32-bit format that has 24 unsigned normalized bits in the depth component and, optionally:, 8 bits that are unused.</li>
+     * <li>{@link #VK_FORMAT_D32_SFLOAT FORMAT_D32_SFLOAT} specifies a one-component, 32-bit signed floating-point format that has 32-bits in the depth component.</li>
+     * <li>{@link #VK_FORMAT_S8_UINT FORMAT_S8_UINT} specifies a one-component, 8-bit unsigned integer format that has 8-bits in the stencil component.</li>
+     * <li>{@link #VK_FORMAT_D16_UNORM_S8_UINT FORMAT_D16_UNORM_S8_UINT} specifies a two-component, 24-bit format that has 16 unsigned normalized bits in the depth component and 8 unsigned integer bits in the stencil component.</li>
+     * <li>{@link #VK_FORMAT_D24_UNORM_S8_UINT FORMAT_D24_UNORM_S8_UINT} specifies a two-component, 32-bit packed format that has 8 unsigned integer bits in the stencil component, and 24 unsigned normalized bits in the depth component.</li>
+     * <li>{@link #VK_FORMAT_D32_SFLOAT_S8_UINT FORMAT_D32_SFLOAT_S8_UINT} specifies a two-component format that has 32 signed float bits in the depth component and 8 unsigned integer bits in the stencil component. There are optionally: 24-bits that are unused.</li>
+     * <li>{@link #VK_FORMAT_BC1_RGB_UNORM_BLOCK FORMAT_BC1_RGB_UNORM_BLOCK} specifies a three-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data. This format has no alpha and is considered opaque.</li>
+     * <li>{@link #VK_FORMAT_BC1_RGB_SRGB_BLOCK FORMAT_BC1_RGB_SRGB_BLOCK} specifies a three-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding. This format has no alpha and is considered opaque.</li>
+     * <li>{@link #VK_FORMAT_BC1_RGBA_UNORM_BLOCK FORMAT_BC1_RGBA_UNORM_BLOCK} specifies a four-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data, and provides 1 bit of alpha.</li>
+     * <li>{@link #VK_FORMAT_BC1_RGBA_SRGB_BLOCK FORMAT_BC1_RGBA_SRGB_BLOCK} specifies a four-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding, and provides 1 bit of alpha.</li>
+     * <li>{@link #VK_FORMAT_BC2_UNORM_BLOCK FORMAT_BC2_UNORM_BLOCK} specifies a four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values.</li>
+     * <li>{@link #VK_FORMAT_BC2_SRGB_BLOCK FORMAT_BC2_SRGB_BLOCK} specifies a four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values with sRGB nonlinear encoding.</li>
+     * <li>{@link #VK_FORMAT_BC3_UNORM_BLOCK FORMAT_BC3_UNORM_BLOCK} specifies a four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values.</li>
+     * <li>{@link #VK_FORMAT_BC3_SRGB_BLOCK FORMAT_BC3_SRGB_BLOCK} specifies a four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values with sRGB nonlinear encoding.</li>
+     * <li>{@link #VK_FORMAT_BC4_UNORM_BLOCK FORMAT_BC4_UNORM_BLOCK} specifies a one-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized red texel data.</li>
+     * <li>{@link #VK_FORMAT_BC4_SNORM_BLOCK FORMAT_BC4_SNORM_BLOCK} specifies a one-component, block-compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of signed normalized red texel data.</li>
+     * <li>{@link #VK_FORMAT_BC5_UNORM_BLOCK FORMAT_BC5_UNORM_BLOCK} specifies a two-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</li>
+     * <li>{@link #VK_FORMAT_BC5_SNORM_BLOCK FORMAT_BC5_SNORM_BLOCK} specifies a two-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of signed normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</li>
+     * <li>{@link #VK_FORMAT_BC6H_UFLOAT_BLOCK FORMAT_BC6H_UFLOAT_BLOCK} specifies a three-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned floating-point RGB texel data.</li>
+     * <li>{@link #VK_FORMAT_BC6H_SFLOAT_BLOCK FORMAT_BC6H_SFLOAT_BLOCK} specifies a three-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of signed floating-point RGB texel data.</li>
+     * <li>{@link #VK_FORMAT_BC7_UNORM_BLOCK FORMAT_BC7_UNORM_BLOCK} specifies a four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_BC7_SRGB_BLOCK FORMAT_BC7_SRGB_BLOCK} specifies a four-component, block-compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK FORMAT_ETC2_R8G8B8_UNORM_BLOCK} specifies a three-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data. This format has no alpha and is considered opaque.</li>
+     * <li>{@link #VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK FORMAT_ETC2_R8G8B8_SRGB_BLOCK} specifies a three-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding. This format has no alpha and is considered opaque.</li>
+     * <li>{@link #VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK} specifies a four-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data, and provides 1 bit of alpha.</li>
+     * <li>{@link #VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK} specifies a four-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGB texel data with sRGB nonlinear encoding, and provides 1 bit of alpha.</li>
+     * <li>{@link #VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK} specifies a four-component, ETC2 compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values.</li>
+     * <li>{@link #VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK} specifies a four-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with the first 64 bits encoding alpha values followed by 64 bits encoding RGB values with sRGB nonlinear encoding applied.</li>
+     * <li>{@link #VK_FORMAT_EAC_R11_UNORM_BLOCK FORMAT_EAC_R11_UNORM_BLOCK} specifies a one-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized red texel data.</li>
+     * <li>{@link #VK_FORMAT_EAC_R11_SNORM_BLOCK FORMAT_EAC_R11_SNORM_BLOCK} specifies a one-component, ETC2 compressed format where each 64-bit compressed texel block encodes a 4x4 rectangle of signed normalized red texel data.</li>
+     * <li>{@link #VK_FORMAT_EAC_R11G11_UNORM_BLOCK FORMAT_EAC_R11G11_UNORM_BLOCK} specifies a two-component, ETC2 compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</li>
+     * <li>{@link #VK_FORMAT_EAC_R11G11_SNORM_BLOCK FORMAT_EAC_R11G11_SNORM_BLOCK} specifies a two-component, ETC2 compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of signed normalized RG texel data with the first 64 bits encoding red values followed by 64 bits encoding green values.</li>
+     * <li>{@link #VK_FORMAT_ASTC_4x4_UNORM_BLOCK FORMAT_ASTC_4x4_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_4x4_SRGB_BLOCK FORMAT_ASTC_4x4_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 4x4 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_5x4_UNORM_BLOCK FORMAT_ASTC_5x4_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x4 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_5x4_SRGB_BLOCK FORMAT_ASTC_5x4_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x4 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_5x5_UNORM_BLOCK FORMAT_ASTC_5x5_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x5 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_5x5_SRGB_BLOCK FORMAT_ASTC_5x5_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 5x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_6x5_UNORM_BLOCK FORMAT_ASTC_6x5_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x5 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_6x5_SRGB_BLOCK FORMAT_ASTC_6x5_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_6x6_UNORM_BLOCK FORMAT_ASTC_6x6_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x6 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_6x6_SRGB_BLOCK FORMAT_ASTC_6x6_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 6x6 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_8x5_UNORM_BLOCK FORMAT_ASTC_8x5_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x5 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_8x5_SRGB_BLOCK FORMAT_ASTC_8x5_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_8x6_UNORM_BLOCK FORMAT_ASTC_8x6_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x6 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_8x6_SRGB_BLOCK FORMAT_ASTC_8x6_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x6 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_8x8_UNORM_BLOCK FORMAT_ASTC_8x8_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x8 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_8x8_SRGB_BLOCK FORMAT_ASTC_8x8_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes an 8x8 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x5_UNORM_BLOCK FORMAT_ASTC_10x5_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x5 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x5_SRGB_BLOCK FORMAT_ASTC_10x5_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x5 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x6_UNORM_BLOCK FORMAT_ASTC_10x6_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x6 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x6_SRGB_BLOCK FORMAT_ASTC_10x6_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x6 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x8_UNORM_BLOCK FORMAT_ASTC_10x8_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x8 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x8_SRGB_BLOCK FORMAT_ASTC_10x8_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x8 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x10_UNORM_BLOCK FORMAT_ASTC_10x10_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x10 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_10x10_SRGB_BLOCK FORMAT_ASTC_10x10_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 10x10 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_12x10_UNORM_BLOCK FORMAT_ASTC_12x10_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x10 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_12x10_SRGB_BLOCK FORMAT_ASTC_12x10_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x10 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link #VK_FORMAT_ASTC_12x12_UNORM_BLOCK FORMAT_ASTC_12x12_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x12 rectangle of unsigned normalized RGBA texel data.</li>
+     * <li>{@link #VK_FORMAT_ASTC_12x12_SRGB_BLOCK FORMAT_ASTC_12x12_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12x12 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * </ul>
      * 
      * <h5>See Also</h5>
      * 
@@ -859,35 +674,44 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
+     * <p>The following bits <b>may</b> be set in {@code linearTilingFeatures} and {@code optimalTilingFeatures}, specifying that the features are supported by <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkImage">images</a> or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkImageView">image views</a> created with the queried {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}{@code ::format}:</p>
      * 
      * <ul>
-     * <li>The reference page for {@link VkFormatProperties}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} specifies that an image view <b>can</b> be <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-sampledimage">sampled from</a>.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT FORMAT_FEATURE_STORAGE_IMAGE_BIT} specifies that an image view <b>can</b> be used as a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storageimage">storage images</a>.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT} specifies that an image view <b>can</b> be used as storage image that supports atomic operations.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} specifies that an image view <b>can</b> be used as a framebuffer color attachment and as an input attachment.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT} specifies that an image view <b>can</b> be used as a framebuffer color attachment that supports blending and as an input attachment.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT} specifies that an image view <b>can</b> be used as a framebuffer depth/stencil attachment and as an input attachment.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT} specifies that an image <b>can</b> be used as {@code srcImage} for the {@link #vkCmdBlitImage CmdBlitImage} command.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT} specifies that an image <b>can</b> be used as {@code dstImage} for the {@link #vkCmdBlitImage CmdBlitImage} command.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} specifies that if {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} is also set, an image view <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link #VK_FILTER_LINEAR FILTER_LINEAR}, or {@code mipmapMode} set to {@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}. If {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT} is also set, an image can be used as the {@code srcImage} to {@link #vkCmdBlitImage CmdBlitImage} with a {@code filter} of {@link #VK_FILTER_LINEAR FILTER_LINEAR}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} or {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}.
+     * If the format being queried is a depth/stencil format, this bit only indicates that the depth aspect (not the stencil aspect) of an image of this format supports linear filtering, and that linear filtering of the depth aspect is supported whether depth compare is enabled in the sampler or not. If this bit is not present, linear filtering with depth compare disabled is unsupported and linear filtering with depth compare enabled is supported, but <b>may</b> compute the filtered value in an implementation-dependent manner which differs from the normal rules of linear filtering. The resulting value <b>must</b> be in the range<code>[0,1]</code>
+     * 
+     * <p>and <b>should</b> be proportional to, or a weighted average of, the number of comparison passes or failures.</p>
+     * </li>
+     * <li>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR} specifies that an image <b>can</b> be used as a source image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a>.</li>
+     * <li>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR} specifies that an image <b>can</b> be used as a destination image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear commands</a>.
+     * 
+     * <dl>
+     * <dt>{@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG}</dt>
+     * <dd>{@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, or be the source image for a blit with {@code filter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}. If the format being queried is a depth/stencil format, this only indicates that the depth aspect is cubic filterable.</dd>
+     * </dl>
+     * </li>
+     * </ul>
+     * 
+     * <p>The following bits <b>may</b> be set in {@code bufferFeatures}, specifying that the features are supported by <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkBuffer">buffers</a> or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkBufferView">buffer views</a> created with the queried {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}{@code ::format}:</p>
+     * 
+     * <ul>
+     * <li>{@link #VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT} specifies that the format <b>can</b> be used to create a buffer view that <b>can</b> be bound to a {@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} descriptor.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT} specifies that the format <b>can</b> be used to create a buffer view that <b>can</b> be bound to a {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} descriptor.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT} specifies that atomic operations are supported on {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} with this format.</li>
+     * <li>{@link #VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT FORMAT_FEATURE_VERTEX_BUFFER_BIT} specifies that the format <b>can</b> be used as a vertex attribute format ({@link VkVertexInputAttributeDescription}{@code ::format}).</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkFormatFeatureFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT FORMAT_FEATURE_STORAGE_IMAGE_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT FORMAT_FEATURE_VERTEX_BUFFER_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}</li>
-     * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT               = 0x1,
@@ -909,19 +733,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>These values specify one-, two-, or three-dimensional images, respectively.</p>
+     * <ul>
+     * <li>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D} specifies a one-dimensional image.</li>
+     * <li>{@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} specifies a two-dimensional image.</li>
+     * <li>{@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} specifies a three-dimensional image.</li>
+     * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkImageCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}</li>
-     * <li>{@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}</li>
-     * <li>{@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</li>
-     * </ul>
      */
     public static final int
         VK_IMAGE_TYPE_1D = 0,
@@ -933,7 +753,10 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} specifies optimal tiling (texels are laid out in an implementation-dependent arrangement, for more optimal memory access), and {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} specifies linear tiling (texels are laid out in memory in row-major order, possibly with some padding on each row).</p>
+     * <ul>
+     * <li>{@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} specifies optimal tiling (texels are laid out in an implementation-dependent arrangement, for more optimal memory access).</li>
+     * <li>{@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} specifies linear tiling (texels are laid out in memory in row-major order, possibly with some padding on each row).</li>
+     * </ul>
      * 
      * <h5>See Also</h5>
      * 
@@ -948,17 +771,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>These bits have the following meanings:</p>
-     * 
      * <ul>
-     * <li>{@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} indicates that the image <b>can</b> be used as the source of a transfer command.</li>
-     * <li>{@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} indicates that the image <b>can</b> be used as the destination of a transfer command.</li>
-     * <li>{@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying a {@code VkDescriptorSet} slot either of type {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE} or {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, and be sampled by a shader.</li>
-     * <li>{@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying a {@code VkDescriptorSet} slot of type {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}.</li>
-     * <li>{@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for use as a color or resolve attachment in a {@code VkFramebuffer}.</li>
-     * <li>{@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for use as a depth/stencil attachment in a {@code VkFramebuffer}.</li>
-     * <li>{@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} indicates that the memory bound to this image will have been allocated with the {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory">the “Memory Allocation” chapter</a> for more detail). This bit <b>can</b> be set for any image that <b>can</b> be used to create a {@code VkImageView} suitable for use as a color, resolve, depth/stencil, or input attachment.</li>
-     * <li>{@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying {@code VkDescriptorSet} slot of type {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT}; be read from a shader as an input attachment; and be used as an input attachment in a framebuffer.</li>
+     * <li>{@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} specifies that the image <b>can</b> be used as the source of a transfer command.</li>
+     * <li>{@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} specifies that the image <b>can</b> be used as the destination of a transfer command.</li>
+     * <li>{@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying a {@code VkDescriptorSet} slot either of type {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE} or {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, and be sampled by a shader.</li>
+     * <li>{@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying a {@code VkDescriptorSet} slot of type {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}.</li>
+     * <li>{@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} suitable for use as a color or resolve attachment in a {@code VkFramebuffer}.</li>
+     * <li>{@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} suitable for use as a depth/stencil attachment in a {@code VkFramebuffer}.</li>
+     * <li>{@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} specifies that the memory bound to this image will have been allocated with the {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory">the “Memory Allocation” chapter</a> for more detail). This bit <b>can</b> be set for any image that <b>can</b> be used to create a {@code VkImageView} suitable for use as a color, resolve, depth/stencil, or input attachment.</li>
+     * <li>{@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} suitable for occupying {@code VkDescriptorSet} slot of type {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT}; be read from a shader as an input attachment; and be used as an input attachment in a framebuffer.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -980,16 +801,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>These bits have the following meanings:</p>
-     * 
      * <ul>
-     * <li>{@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} indicates that the image will be backed using sparse memory binding.</li>
-     * <li>{@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} indicates that the image <b>can</b> be partially backed using sparse memory binding. Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag.</li>
-     * <li>{@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} indicates that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or another portion of the same image). Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag</li>
-     * <li>{@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image.</li>
-     * <li>{@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}.</li>
-     * <li>{@link KHRMaintenance1#VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR} indicates that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D} or {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}.</li>
-     * <li>{@link KHXDeviceGroup#VK_IMAGE_CREATE_BIND_SFR_BIT_KHX IMAGE_CREATE_BIND_SFR_BIT_KHX} indicates that the image <b>can</b> be used with a non-zero value of the {@code SFRRectCount} member of the {@link VkBindImageMemoryInfoKHX} structure passed into {@link KHXDeviceGroup#vkBindImageMemory2KHX BindImageMemory2KHX}. This flag also has the effect of making the image use the standard sparse image block dimensions.</li>
+     * <li>{@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} specifies that the image will be backed using sparse memory binding.</li>
+     * <li>{@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} specifies that the image <b>can</b> be partially backed using sparse memory binding. Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag.</li>
+     * <li>{@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} specifies that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or another portion of the same image). Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag</li>
+     * <li>{@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image.</li>
+     * <li>{@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}.</li>
+     * <li>{@link KHRMaintenance1#VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR} specifies that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D} or {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}.</li>
+     * <li>{@link KHXDeviceGroup#VK_IMAGE_CREATE_BIND_SFR_BIT_KHX IMAGE_CREATE_BIND_SFR_BIT_KHX} specifies that the image <b>can</b> be used with a non-zero value of the {@code SFRRectCount} member of the {@link VkBindImageMemoryInfoKHX} structure passed into {@link KHXDeviceGroup#vkBindImageMemory2KHX BindImageMemory2KHX}. This flag also has the effect of making the image use the standard sparse image block dimensions.</li>
      * </ul>
      * 
      * <p>If any of the bits {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, or {@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} are set, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} <b>must</b> not also be set.</p>
@@ -1012,29 +831,19 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkPhysicalDeviceLimits}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT} specifies an image with one sample per pixel.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT} specifies an image with 2 samples per pixel.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT} specifies an image with 4 samples per pixel.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT} specifies an image with 8 samples per pixel.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT} specifies an image with 16 samples per pixel.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT} specifies an image with 32 samples per pixel.</li>
+     * <li>{@link #VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT} specifies an image with 64 samples per pixel.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkAttachmentDescription}, {@link VkImageCreateInfo}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineMultisampleStateCreateInfo}, {@code VkSampleCountFlags}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
-     * <li>{@link #VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT}</li>
-     * <li>{@link #VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT}</li>
-     * <li>{@link #VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT}</li>
-     * <li>{@link #VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT}</li>
-     * <li>{@link #VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT}</li>
-     * <li>{@link #VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_SAMPLE_COUNT_1_BIT  = 0x1,
@@ -1051,11 +860,11 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_OTHER PHYSICAL_DEVICE_TYPE_OTHER} The device does not match any other available types.</li>
-     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU} The device is typically one embedded in or tightly coupled with the host.</li>
-     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU PHYSICAL_DEVICE_TYPE_DISCRETE_GPU} The device is typically a separate processor connected to the host via an interlink.</li>
-     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU} The device is typically a virtual node in a virtualization environment.</li>
-     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_CPU PHYSICAL_DEVICE_TYPE_CPU} The device is typically running on the same processors as the host.</li>
+     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_OTHER PHYSICAL_DEVICE_TYPE_OTHER} - the device does not match any other available types.</li>
+     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU} - the device is typically one embedded in or tightly coupled with the host.</li>
+     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU PHYSICAL_DEVICE_TYPE_DISCRETE_GPU} - the device is typically a separate processor connected to the host via an interlink.</li>
+     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU} - the device is typically a virtual node in a virtualization environment.</li>
+     * <li>{@link #VK_PHYSICAL_DEVICE_TYPE_CPU PHYSICAL_DEVICE_TYPE_CPU} - the device is typically running on the same processors as the host.</li>
      * </ul>
      * 
      * <p>The physical device type is advertised for informational purposes only, and does not directly affect the operation of the system. However, the device type <b>may</b> correlate with other advertised properties or capabilities of the system, such as how many memory heaps there are.</p>
@@ -1076,26 +885,25 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkQueueFamilyProperties}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} indicates that queues in this queue family support graphics operations.</li>
+     * <li>{@link #VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} indicates that queues in this queue family support compute operations.</li>
+     * <li>{@link #VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} indicates that queues in this queue family support transfer operations.</li>
+     * <li>{@link #VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT} indicates that queues in this queue family support sparse memory management operations (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory">Sparse Resources</a>). If any of the sparse resource features are enabled, then at least one queue family <b>must</b> support this bit.</li>
      * </ul>
+     * 
+     * <p>If an implementation exposes any queue family that supports graphics operations, at least one queue family of at least one physical device exposed by the implementation <b>must</b> support both graphics and compute operations.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>All commands that are allowed on a queue that supports transfer operations are also allowed on a queue that supports either graphics or compute operations. Thus, if the capabilities of a queue family include {@link #VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} or {@link #VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT}, then reporting the {@link #VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} capability separately for that queue family is optional:.</p>
+     * </div>
+     * 
+     * <p>For further details see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queues">Queues</a>.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkQueueFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT}</li>
-     * <li>{@link #VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT}</li>
-     * <li>{@link #VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT}</li>
-     * <li>{@link #VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_QUEUE_GRAPHICS_BIT       = 0x1,
@@ -1108,27 +916,17 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkMemoryType}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit indicates that memory allocated with this type is the most efficient for device access. This property will only be set for memory types belonging to heaps with the {@link #VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} set.</li>
+     * <li>{@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} bit indicates that memory allocated with this type <b>can</b> be mapped for host access using {@link #vkMapMemory MapMemory}.</li>
+     * <li>{@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} bit indicates that the host cache management commands {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} and {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} are not needed to flush host writes to the device or make device writes visible to the host, respectively.</li>
+     * <li>{@link #VK_MEMORY_PROPERTY_HOST_CACHED_BIT MEMORY_PROPERTY_HOST_CACHED_BIT} bit indicates that memory allocated with this type is cached on the host. Host memory accesses to uncached memory are slower than to cached memory, however uncached memory is always host coherent.</li>
+     * <li>{@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit indicates that the memory type only allows device access to the memory. Memory types <b>must</b> not have both {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} and {@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} set. Additionally, the object&#8217;s backing memory <b>may</b> be provided by the implementation lazily as specified in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-device-lazy_allocation">Lazily Allocated Memory</a>.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkMemoryPropertyFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT}</li>
-     * <li>{@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT}</li>
-     * <li>{@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}</li>
-     * <li>{@link #VK_MEMORY_PROPERTY_HOST_CACHED_BIT MEMORY_PROPERTY_HOST_CACHED_BIT}</li>
-     * <li>{@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT     = 0x1,
@@ -1142,12 +940,9 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkMemoryHeap}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} indicates that the heap corresponds to device local memory. Device local memory <b>may</b> have different performance characteristics than host local memory, and <b>may</b> support different memory property flags.</li>
+     * <li>{@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} indicates that in a logical device representing more than one physical device, there is a per-physical device instance of the heap memory. By default, an allocation from such a heap will be replicated to each physical device&#8217;s instance of the heap.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -1161,26 +956,24 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The meaning of each bit is:</p>
-     * 
      * <ul>
-     * <li>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}: Stage of the pipeline where any commands are initially received by the queue.</li>
-     * <li>{@link NVXDeviceGeneratedCommands#VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX}: Stage of the pipeline where device-side generation of commands via {@link NVXDeviceGeneratedCommands#vkCmdProcessCommandsNVX CmdProcessCommandsNVX} is handled.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}: Stage of the pipeline where Draw/DispatchIndirect data structures are consumed. This stage also includes reading commands written by {@link NVXDeviceGeneratedCommands#vkCmdProcessCommandsNVX CmdProcessCommandsNVX}.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}: Stage of the pipeline where vertex and index buffers are consumed.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}: Vertex shader stage.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}: Tessellation control shader stage.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}: Tessellation evaluation shader stage.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}: Geometry shader stage.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}: Fragment shader stage.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}: Stage of the pipeline where early fragment tests (depth and stencil tests before fragment shading) are performed. This stage also includes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load operations</a> for framebuffer attachments with a depth/stencil format.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}: Stage of the pipeline where late fragment tests (depth and stencil tests after fragment shading) are performed. This stage also includes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass store operations</a> for framebuffer attachments with a depth/stencil format.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}: Stage of the pipeline after blending where the final color values are output from the pipeline. This stage also includes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load and store operations</a> and multisample resolve operations for framebuffer attachments with a color format.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}: Execution of copy commands. This includes the operations resulting from all <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear commands</a> (with the exception of {@link #vkCmdClearAttachments CmdClearAttachments}), and {@link #vkCmdCopyQueryPoolResults CmdCopyQueryPoolResults}.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}: Execution of a compute shader.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}: Final stage in the pipeline where operations generated by all commands complete execution.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}: A pseudo-stage indicating execution on the host of reads/writes of device memory. This stage is not invoked by any commands recorded in a command buffer.</li>
-     * <li>{@link #VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT}: Execution of all graphics pipeline stages. Equivalent to the logical or of:
+     * <li>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT} specifies the stage of the pipeline where any commands are initially received by the queue.</li>
+     * <li>{@link NVXDeviceGeneratedCommands#VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX} specifies the stage of the pipeline where device-side generation of commands via {@link NVXDeviceGeneratedCommands#vkCmdProcessCommandsNVX CmdProcessCommandsNVX} is handled.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT} specifies the stage of the pipeline where Draw/DispatchIndirect data structures are consumed. This stage also includes reading commands written by {@link NVXDeviceGeneratedCommands#vkCmdProcessCommandsNVX CmdProcessCommandsNVX}.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT} specifies the stage of the pipeline where vertex and index buffers are consumed.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT} specifies the vertex shader stage.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} specifies the tessellation control shader stage.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT} specifies the tessellation evaluation shader stage.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT} specifies the geometry shader stage.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT} specifies the fragment shader stage.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT} specifies the stage of the pipeline where early fragment tests (depth and stencil tests before fragment shading) are performed. This stage also includes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load operations</a> for framebuffer attachments with a depth/stencil format.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT} specifies the stage of the pipeline where late fragment tests (depth and stencil tests after fragment shading) are performed. This stage also includes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass store operations</a> for framebuffer attachments with a depth/stencil format.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} specifies the stage of the pipeline after blending where the final color values are output from the pipeline. This stage also includes <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load and store operations</a> and multisample resolve operations for framebuffer attachments with a color format.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT} specifies the execution of copy commands. This includes the operations resulting from all <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear commands</a> (with the exception of {@link #vkCmdClearAttachments CmdClearAttachments}), and {@link #vkCmdCopyQueryPoolResults CmdCopyQueryPoolResults}.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT} specifies the execution of a compute shader.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT} specifies the final stage in the pipeline where operations generated by all commands complete execution.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} specifies a pseudo-stage indicating execution on the host of reads/writes of device memory. This stage is not invoked by any commands recorded in a command buffer.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT} specifies the execution of all graphics pipeline stages, and is equivalent to the logical OR of:
      * 
      * <ul>
      * <li>{@link #VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}</li>
@@ -1197,7 +990,7 @@ public class VK10 {
      * <li>{@link #VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}</li>
      * </ul>
      * </li>
-     * <li>{@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT}: Equivalent to the logical or of every other pipeline stage flag that is supported on the queue it is used with.</li>
+     * <li>{@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is equivalent to the logical OR of every other pipeline stage flag that is supported on the queue it is used with.</li>
      * </ul>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
@@ -1237,26 +1030,16 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkImageSubresourceRange}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} specifies the color aspect.</li>
+     * <li>{@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} specifies the depth aspect.</li>
+     * <li>{@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} specifies the stencil aspect.</li>
+     * <li>{@link #VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT} specifies the metadata aspect, used for sparse <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory">sparse resource</a> operations.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkImageAspectFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}</li>
-     * <li>{@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT}</li>
-     * <li>{@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</li>
-     * <li>{@link #VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_IMAGE_ASPECT_COLOR_BIT    = 0x1,
@@ -1269,25 +1052,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkSparseImageFormatProperties}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT} specifies that the image uses a single mip tail region for all array layers.</li>
+     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT} specifies that the first mip level whose dimensions are not integer multiples of the corresponding dimensions of the sparse image block begins the mip tail region.</li>
+     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT} specifies that the image uses non-standard sparse image block dimensions, and the {@code imageGranularity} values do not match the standard sparse image block dimensions for the given pixel format.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkSparseImageFormatFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}</li>
-     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT}</li>
-     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT         = 0x1,
@@ -1299,12 +1072,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkSparseMemoryBind}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT} specifies that the memory being bound is only for the metadata aspect.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -1318,12 +1087,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkFenceCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_FENCE_CREATE_SIGNALED_BIT FENCE_CREATE_SIGNALED_BIT} specifies that the fence object is created in the signaled state. Otherwise, it is created in the unsignaled state.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -1337,25 +1102,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkQueryPoolCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} specifies an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-occlusion">occlusion query</a>.</li>
+     * <li>{@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-pipestats">pipeline statistics query</a>.</li>
+     * <li>{@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-timestamps">timestamp query</a>.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkQueryPoolCreateInfo}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION}</li>
-     * <li>{@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}</li>
-     * <li>{@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}</li>
-     * </ul>
      */
     public static final int
         VK_QUERY_TYPE_OCCLUSION           = 0,
@@ -1367,26 +1122,24 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>These bits have the following meanings:</p>
-     * 
      * <ul>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT} is set, queries managed by the pool will count the number of vertices processed by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#drawing">input assembly</a> stage. Vertices corresponding to incomplete primitives <b>may</b> contribute to the count.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT} is set, queries managed by the pool will count the number of primitives processed by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#drawing">input assembly</a> stage. If primitive restart is enabled, restarting the primitive topology has no effect on the count. Incomplete primitives <b>may</b> be counted.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT} is set, queries managed by the pool will count the number of vertex shader invocations. This counter&#8217;s value is incremented each time a vertex shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-vertex-execution">invoked</a>.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT} is set, queries managed by the pool will count the number of geometry shader invocations. This counter&#8217;s value is incremented each time a geometry shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-geometry-execution">invoked</a>. In the case of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#geometry-invocations">instanced geometry shaders</a>, the geometry shader invocations count is incremented for each separate instanced invocation.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT} is set, queries managed by the pool will count the number of primitives generated by geometry shader invocations. The counter&#8217;s value is incremented each time the geometry shader emits a primitive. Restarting primitive topology using the SPIR-V instructions {@code OpEndPrimitive} or {@code OpEndStreamPrimitive} has no effect on the geometry shader output primitives count.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT} is set, queries managed by the pool will count the number of primitives processed by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-clipping">Primitive Clipping</a> stage of the pipeline. The counter&#8217;s value is incremented each time a primitive reaches the primitive clipping stage.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT} is set, queries managed by the pool will count the number of primitives output by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-clipping">Primitive Clipping</a> stage of the pipeline. The counter&#8217;s value is incremented each time a primitive passes the primitive clipping stage. The actual number of primitives output by the primitive clipping stage for a particular input primitive is implementation-dependent but <b>must</b> satisfy the following conditions:
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT} specifies that queries managed by the pool will count the number of vertices processed by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#drawing">input assembly</a> stage. Vertices corresponding to incomplete primitives <b>may</b> contribute to the count.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT} specifies that queries managed by the pool will count the number of primitives processed by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#drawing">input assembly</a> stage. If primitive restart is enabled, restarting the primitive topology has no effect on the count. Incomplete primitives <b>may</b> be counted.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT} specifies that queries managed by the pool will count the number of vertex shader invocations. This counter&#8217;s value is incremented each time a vertex shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-vertex-execution">invoked</a>.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT} specifies that queries managed by the pool will count the number of geometry shader invocations. This counter&#8217;s value is incremented each time a geometry shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-geometry-execution">invoked</a>. In the case of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#geometry-invocations">instanced geometry shaders</a>, the geometry shader invocations count is incremented for each separate instanced invocation.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT} specifies that queries managed by the pool will count the number of primitives generated by geometry shader invocations. The counter&#8217;s value is incremented each time the geometry shader emits a primitive. Restarting primitive topology using the SPIR-V instructions {@code OpEndPrimitive} or {@code OpEndStreamPrimitive} has no effect on the geometry shader output primitives count.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT} specifies that queries managed by the pool will count the number of primitives processed by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-clipping">Primitive Clipping</a> stage of the pipeline. The counter&#8217;s value is incremented each time a primitive reaches the primitive clipping stage.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT} specifies that queries managed by the pool will count the number of primitives output by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-clipping">Primitive Clipping</a> stage of the pipeline. The counter&#8217;s value is incremented each time a primitive passes the primitive clipping stage. The actual number of primitives output by the primitive clipping stage for a particular input primitive is implementation-dependent but <b>must</b> satisfy the following conditions:
      * 
      * <ul>
      * <li>If at least one vertex of the input primitive lies inside the clipping volume, the counter is incremented by one or more.</li>
      * <li>Otherwise, the counter is incremented by zero or more.</li>
      * </ul>
      * </li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT} is set, queries managed by the pool will count the number of fragment shader invocations. The counter&#8217;s value is incremented each time the fragment shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-fragment-execution">invoked</a>.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT} is set, queries managed by the pool will count the number of patches processed by the tessellation control shader. The counter&#8217;s value is incremented once for each patch for which a tessellation control shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-tessellation-control-execution">invoked</a>.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT} is set, queries managed by the pool will count the number of invocations of the tessellation evaluation shader. The counter&#8217;s value is incremented each time the tessellation evaluation shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-tessellation-evaluation-execution">invoked</a>.</li>
-     * <li>If {@link #VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT} is set, queries managed by the pool will count the number of compute shader invocations. The counter&#8217;s value is incremented every time the compute shader is invoked. Implementations <b>may</b> skip the execution of certain compute shader invocations or execute additional compute shader invocations for implementation-dependent reasons as long as the results of rendering otherwise remain unchanged.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT} specifies that queries managed by the pool will count the number of fragment shader invocations. The counter&#8217;s value is incremented each time the fragment shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-fragment-execution">invoked</a>.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT} specifies that queries managed by the pool will count the number of patches processed by the tessellation control shader. The counter&#8217;s value is incremented once for each patch for which a tessellation control shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-tessellation-control-execution">invoked</a>.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT} specifies that queries managed by the pool will count the number of invocations of the tessellation evaluation shader. The counter&#8217;s value is incremented each time the tessellation evaluation shader is <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#shaders-tessellation-evaluation-execution">invoked</a>.</li>
+     * <li>{@link #VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT} specifies that queries managed by the pool will count the number of compute shader invocations. The counter&#8217;s value is incremented every time the compute shader is invoked. Implementations <b>may</b> skip the execution of certain compute shader invocations or execute additional compute shader invocations for implementation-dependent reasons as long as the results of rendering otherwise remain unchanged.</li>
      * </ul>
      * 
      * <p>These values are intended to measure relative statistics on one implementation. Various device architectures will count these values differently. Any or all counters <b>may</b> be affected by the issues described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-operation-undefined">Query Operation</a>.</p>
@@ -1422,26 +1175,16 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkGetQueryPoolResults GetQueryPoolResults}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} specifies the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an array of 32-bit unsigned integer values.</li>
+     * <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} specifies that Vulkan will wait for each query&#8217;s status to become available before retrieving its results.</li>
+     * <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} specifies that the availability status accompanies the results.</li>
+     * <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} specifies that returning partial results is acceptable.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkQueryResultFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}</li>
-     * <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}</li>
-     * <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}</li>
-     * <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_QUERY_RESULT_64_BIT                = 0x1,
@@ -1454,25 +1197,17 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkBufferCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} specifies that the buffer will be backed using sparse memory binding.</li>
+     * <li>{@link #VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT} specifies that the buffer <b>can</b> be partially backed using sparse memory binding. Buffers created with this flag <b>must</b> also be created with the {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} flag.</li>
+     * <li>{@link #VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT} specifies that the buffer will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another buffer (or another portion of the same buffer). Buffers created with this flag <b>must</b> also be created with the {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} flag.</li>
      * </ul>
+     * 
+     * <p>See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory-sparseresourcefeatures">Sparse Resource Features</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features">Physical Device Features</a> for details of the sparse memory features supported on a device.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkBufferCreateFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}</li>
-     * <li>{@link #VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}</li>
-     * <li>{@link #VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_BUFFER_CREATE_SPARSE_BINDING_BIT   = 0x1,
@@ -1484,31 +1219,21 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkBufferCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} specifies that the buffer <b>can</b> be used as the source of a <em>transfer command</em> (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>).</li>
+     * <li>{@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} specifies that the buffer <b>can</b> be used as the destination of a transfer command.</li>
+     * <li>{@link #VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} specifies that the buffer <b>can</b> be used to create a {@code VkBufferView} suitable for occupying a {@code VkDescriptorSet} slot of type {@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER}.</li>
+     * <li>{@link #VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT} specifies that the buffer <b>can</b> be used to create a {@code VkBufferView} suitable for occupying a {@code VkDescriptorSet} slot of type {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER}.</li>
+     * <li>{@link #VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT BUFFER_USAGE_UNIFORM_BUFFER_BIT} specifies that the buffer <b>can</b> be used in a {@link VkDescriptorBufferInfo} suitable for occupying a {@code VkDescriptorSet} slot either of type {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}.</li>
+     * <li>{@link #VK_BUFFER_USAGE_STORAGE_BUFFER_BIT BUFFER_USAGE_STORAGE_BUFFER_BIT} specifies that the buffer <b>can</b> be used in a {@link VkDescriptorBufferInfo} suitable for occupying a {@code VkDescriptorSet} slot either of type {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}.</li>
+     * <li>{@link #VK_BUFFER_USAGE_INDEX_BUFFER_BIT BUFFER_USAGE_INDEX_BUFFER_BIT} specifies that the buffer is suitable for passing as the {@code buffer} parameter to {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}.</li>
+     * <li>{@link #VK_BUFFER_USAGE_VERTEX_BUFFER_BIT BUFFER_USAGE_VERTEX_BUFFER_BIT} specifies that the buffer is suitable for passing as an element of the {@code pBuffers} array to {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers}.</li>
+     * <li>{@link #VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} specifies that the buffer is suitable for passing as the {@code buffer} parameter to {@link #vkCmdDrawIndirect CmdDrawIndirect}, {@link #vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect}, or {@link #vkCmdDispatchIndirect CmdDispatchIndirect}. It is also suitable for passing as the {@code buffer} member of {@link VkIndirectCommandsTokenNVX}, or {@code sequencesCountBuffer} or {@code sequencesIndexBuffer} member of {@link VkCmdProcessCommandsInfoNVX}</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkBufferUsageFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT BUFFER_USAGE_UNIFORM_BUFFER_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_STORAGE_BUFFER_BIT BUFFER_USAGE_STORAGE_BUFFER_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_INDEX_BUFFER_BIT BUFFER_USAGE_INDEX_BUFFER_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_VERTEX_BUFFER_BIT BUFFER_USAGE_VERTEX_BUFFER_BIT}</li>
-     * <li>{@link #VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_BUFFER_USAGE_TRANSFER_SRC_BIT         = 0x1,
@@ -1565,17 +1290,17 @@ public class VK10 {
      * <p>The type(s) of device access supported by each layout are:</p>
      * 
      * <ul>
-     * <li>{@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}: Supports no device access. This layout <b>must</b> only be used as the {@code initialLayout} member of {@link VkImageCreateInfo} or {@link VkAttachmentDescription}, or as the {@code oldLayout} in an image transition. When transitioning out of this layout, the contents of the memory are not guaranteed to be preserved.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED}: Supports no device access. This layout <b>must</b> only be used as the {@code initialLayout} member of {@link VkImageCreateInfo} or {@link VkAttachmentDescription}, or as the {@code oldLayout} in an image transition. When transitioning out of this layout, the contents of the memory are preserved. This layout is intended to be used as the initial layout for an image whose contents are written by the host, and hence the data <b>can</b> be written to memory immediately, without first executing a layout transition. Currently, {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} is only useful with {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} images because there is not a standard layout defined for {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}: Supports all types of device access.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}: <b>must</b> only be used as a color or resolve attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} usage bit enabled.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL}: <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL}: <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled. Only image subresources of images created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} <b>can</b> be used as sampled image or combined image/sampler in a shader. Similarly, only image subresources of images created with {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>can</b> be used as input attachments.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL}: <b>must</b> only be used as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL}: <b>must</b> only be used as a source image of a transfer command (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.</li>
-     * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}: <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage bit enabled.</li>
-     * <li>{@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR}: <b>must</b> only be used for presenting a presentable image for display. A swapchain&#8217;s image <b>must</b> be transitioned to this layout before calling {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR}, and <b>must</b> be transitioned away from this layout after calling {@link KHRSwapchain#vkAcquireNextImageKHR AcquireNextImageKHR}.</li>
-     * <li>{@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}: is valid only for shared presentable images, and <b>must</b> be used for any usage the image supports.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} does not support device access. This layout <b>must</b> only be used as the {@code initialLayout} member of {@link VkImageCreateInfo} or {@link VkAttachmentDescription}, or as the {@code oldLayout} in an image transition. When transitioning out of this layout, the contents of the memory are not guaranteed to be preserved.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} does not support device access. This layout <b>must</b> only be used as the {@code initialLayout} member of {@link VkImageCreateInfo} or {@link VkAttachmentDescription}, or as the {@code oldLayout} in an image transition. When transitioning out of this layout, the contents of the memory are preserved. This layout is intended to be used as the initial layout for an image whose contents are written by the host, and hence the data <b>can</b> be written to memory immediately, without first executing a layout transition. Currently, {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED} is only useful with {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} images because there is not a standard layout defined for {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} supports all types of device access.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL} <b>must</b> only be used as a color or resolve attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} usage bit enabled.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL} <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled. Only image subresources of images created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} <b>can</b> be used as sampled image or combined image/sampler in a shader. Similarly, only image subresources of images created with {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>can</b> be used as input attachments.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL} <b>must</b> only be used as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} <b>must</b> only be used as a source image of a transfer command (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.</li>
+     * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage bit enabled.</li>
+     * <li>{@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR} <b>must</b> only be used for presenting a presentable image for display. A swapchain&#8217;s image <b>must</b> be transitioned to this layout before calling {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR}, and <b>must</b> be transitioned away from this layout after calling {@link KHRSwapchain#vkAcquireNextImageKHR AcquireNextImageKHR}.</li>
+     * <li>{@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR} is valid only for shared presentable images, and <b>must</b> be used for any usage the image supports.</li>
      * </ul>
      * 
      * <p>For each mechanism of accessing an image in the API, there is a parameter or structure member that controls the image layout used to access the image. For transfer commands, this is a parameter to the command (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">the “Clear Commands” section</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">the “Copy Commands” section</a>). For use as a framebuffer attachment, this is a member in the substructures of the {@link VkRenderPassCreateInfo} (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">Render Pass</a>). For use in a descriptor set, this is a member in the {@link VkDescriptorImageInfo} structure (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-updates">the “Descriptor Set Updates” section</a>). At the time that any command buffer command accessing an image executes on any queue, the layouts of the image subresources that are accessed <b>must</b> all match the layout specified via the API controlling those accesses.</p>
@@ -1602,7 +1327,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The exact image view type is partially implicit, based on the image's type and sample count, as well as the view creation parameters as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views-compatibility">table below</a>. This table also shows which SPIR-V OpTypeImage Dim and Arrayed parameters correspond to each image view type.</p>
+     * <p>The exact image view type is partially implicit, based on the image's type and sample count, as well as the view creation parameters as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views-compatibility">image view compatibility table</a> for {@link #vkCreateImageView CreateImageView}. This table also shows which SPIR-V {@code OpTypeImage} {@code Dim} and {@code Arrayed} parameters correspond to each image view type.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1634,29 +1359,33 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkComponentMapping}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY} specifies that the component is set to the identity swizzle.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_ZERO COMPONENT_SWIZZLE_ZERO} specifies that the component is set to zero.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE} specifies that the component is set to either 1 or 1.0, depending on whether the type of the image view format is integer or floating-point respectively, as determined by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-definition">Format Definition</a> section for each {@code VkFormat}.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R} specifies that the component is set to the value of the R component of the image.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G} specifies that the component is set to the value of the G component of the image.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B} specifies that the component is set to the value of the B component of the image.</li>
+     * <li>{@link #VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A} specifies that the component is set to the value of the A component of the image.</li>
      * </ul>
+     * 
+     * <p>Setting the identity swizzle on a component is equivalent to setting the identity mapping on that component. That is:</p>
+     * 
+     * <h6>Component Mappings Equivalent To ename:VK_COMPONENT_SWIZZLE_IDENTITY</h6>
+     * 
+     * <table class="lwjgl">
+     * <thead><tr><th>Component</th><th>Identity Mapping</th></tr></thead>
+     * <tbody>
+     * <tr><td>{@code components.r}</td><td>{@link #VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}</td></tr>
+     * <tr><td>{@code components.g}</td><td>{@link #VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}</td></tr>
+     * <tr><td>{@code components.b}</td><td>{@link #VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}</td></tr>
+     * <tr><td>{@code components.a}</td><td>{@link #VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A}</td></tr>
+     * </tbody>
+     * </table>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkComponentMapping}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}</li>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_ZERO COMPONENT_SWIZZLE_ZERO}</li>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE}</li>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}</li>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}</li>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}</li>
-     * <li>{@link #VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A}</li>
-     * </ul>
      */
     public static final int
         VK_COMPONENT_SWIZZLE_IDENTITY = 0,
@@ -1668,29 +1397,23 @@ public class VK10 {
         VK_COMPONENT_SWIZZLE_A        = 6;
 
     /**
-     * VkPipelineCreateFlagBits - Bitmask controlling how a pipeline is generated
+     * VkPipelineCreateFlagBits - Bitmask controlling how a pipeline is created
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkGraphicsPipelineCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT} specifies that the created pipeline will not be optimized. Using this flag <b>may</b> reduce the time taken to create the pipeline.</li>
+     * <li>{@link #VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT} specifies that the pipeline to be created is allowed to be the parent of a pipeline that will be created in a subsequent call to {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines}.</li>
+     * <li>{@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} specifies that the pipeline to be created will be a child of a previously created parent pipeline.</li>
+     * <li>{@link KHXDeviceGroup#VK_PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX PIPELINE_CREATE_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHX} specifies that any shader input variables decorated as {@code DeviceIndex} will be assigned values as if they were decorated as {@code ViewIndex}.</li>
+     * <li>{@link KHXDeviceGroup#VK_PIPELINE_CREATE_DISPATCH_BASE_KHX PIPELINE_CREATE_DISPATCH_BASE_KHX} specifies that a compute pipeline <b>can</b> be used with {@link KHXDeviceGroup#vkCmdDispatchBaseKHX CmdDispatchBaseKHX} with a non-zero base workgroup.</li>
      * </ul>
+     * 
+     * <p>It is valid to set both {@link #VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT} and {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT}. This allows a pipeline to be both a parent and possibly a child in a pipeline hierarchy. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#pipelines-pipeline-derivatives">Pipeline Derivatives</a> for more information.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkPipelineCreateFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT}</li>
-     * <li>{@link #VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT}</li>
-     * <li>{@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x1,
@@ -1702,30 +1425,20 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkPipelineShaderStageCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT} specifies the vertex stage.</li>
+     * <li>{@link #VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT} specifies the tessellation control stage.</li>
+     * <li>{@link #VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT} specifies the tessellation evaluation stage.</li>
+     * <li>{@link #VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT} specifies the geometry stage.</li>
+     * <li>{@link #VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT} specifies the fragment stage.</li>
+     * <li>{@link #VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT} specifies the compute stage.</li>
+     * <li>{@link #VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS} is a combination of bits used as shorthand to specify all graphics stages defined above (excluding the compute stage).</li>
+     * <li>{@link #VK_SHADER_STAGE_ALL SHADER_STAGE_ALL} is a combination of bits used as shorthand to specify all shader stages supported by the device, including all additional stages which are introduced by extensions.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkPipelineShaderStageCreateInfo}, {@code VkShaderStageFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}</li>
-     * <li>{@link #VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT}</li>
-     * <li>{@link #VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}</li>
-     * <li>{@link #VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}</li>
-     * <li>{@link #VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}</li>
-     * <li>{@link #VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}</li>
-     * <li>{@link #VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}</li>
-     * <li>{@link #VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}</li>
-     * </ul>
      */
     public static final int
         VK_SHADER_STAGE_VERTEX_BIT                  = 0x1,
@@ -1742,24 +1455,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkVertexInputBindingDescription}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX} specifies that vertex attribute addressing is a function of the vertex index.</li>
+     * <li>{@link #VK_VERTEX_INPUT_RATE_INSTANCE VERTEX_INPUT_RATE_INSTANCE} specifies that vertex attribute addressing is a function of the instance index.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkVertexInputBindingDescription}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX}</li>
-     * <li>{@link #VK_VERTEX_INPUT_RATE_INSTANCE VERTEX_INPUT_RATE_INSTANCE}</li>
-     * </ul>
      */
     public static final int
         VK_VERTEX_INPUT_RATE_VERTEX   = 0,
@@ -1806,9 +1509,13 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The {@code polygonMode} selects which method of rasterization is used for polygons. If {@code polygonMode} is {@link #VK_POLYGON_MODE_POINT POLYGON_MODE_POINT}, then the vertices of polygons are treated, for rasterization purposes, as if they had been drawn as points. {@link #VK_POLYGON_MODE_LINE POLYGON_MODE_LINE} causes polygon edges to be drawn as line segments. {@link #VK_POLYGON_MODE_FILL POLYGON_MODE_FILL} causes polygons to render using the polygon rasterization rules in this section.</p>
+     * <ul>
+     * <li>{@link #VK_POLYGON_MODE_POINT POLYGON_MODE_POINT} specifies that polygon vertices are drawn as points.</li>
+     * <li>{@link #VK_POLYGON_MODE_LINE POLYGON_MODE_LINE} specifies that polygon edges are drawn as line segments.</li>
+     * <li>{@link #VK_POLYGON_MODE_FILL POLYGON_MODE_FILL} specifies that polygons are rendered using the polygon rasterization rules in this section.</li>
+     * </ul>
      * 
-     * <p>Note that these modes affect only the final rasterization of polygons: in particular, a polygon's vertices are shaded and the polygon is clipped and possibly culled before these modes are applied.</p>
+     * <p>These modes affect only the final rasterization of polygons: in particular, a polygon's vertices are shaded and the polygon is clipped and possibly culled before these modes are applied.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1824,7 +1531,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If the {@code cullMode} is set to {@link #VK_CULL_MODE_NONE CULL_MODE_NONE} no triangles are discarded, if it is set to {@link #VK_CULL_MODE_FRONT_BIT CULL_MODE_FRONT_BIT} front-facing triangles are discarded, if it is set to {@link #VK_CULL_MODE_BACK_BIT CULL_MODE_BACK_BIT} then back-facing triangles are discarded and if it is set to {@link #VK_CULL_MODE_FRONT_AND_BACK CULL_MODE_FRONT_AND_BACK} then all triangles are discarded. Following culling, fragments are produced for any triangles which have not been discarded.</p>
+     * <ul>
+     * <li>{@link #VK_CULL_MODE_NONE CULL_MODE_NONE} specifies that no triangles are discarded</li>
+     * <li>{@link #VK_CULL_MODE_FRONT_BIT CULL_MODE_FRONT_BIT} specifies that front-facing triangles are discarded</li>
+     * <li>{@link #VK_CULL_MODE_BACK_BIT CULL_MODE_BACK_BIT} specifies that back-facing triangles are discarded</li>
+     * <li>{@link #VK_CULL_MODE_FRONT_AND_BACK CULL_MODE_FRONT_AND_BACK} specifies that all triangles are discarded.</li>
+     * </ul>
+     * 
+     * <p>Following culling, fragments are produced for any triangles which have not been discarded.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1841,7 +1555,12 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If {@code frontFace} is set to {@link #VK_FRONT_FACE_COUNTER_CLOCKWISE FRONT_FACE_COUNTER_CLOCKWISE}, a triangle with positive area is considered front-facing. If it is set to {@link #VK_FRONT_FACE_CLOCKWISE FRONT_FACE_CLOCKWISE}, a triangle with negative area is considered front-facing. Any triangle which is not front-facing is back-facing, including zero-area triangles.</p>
+     * <ul>
+     * <li>{@link #VK_FRONT_FACE_COUNTER_CLOCKWISE FRONT_FACE_COUNTER_CLOCKWISE} specifies that a triangle with positive area is considered front-facing.</li>
+     * <li>{@link #VK_FRONT_FACE_CLOCKWISE FRONT_FACE_CLOCKWISE} specifies that a triangle with negative area is considered front-facing.</li>
+     * </ul>
+     * 
+     * <p>Any triangle which is not front-facing is back-facing, including zero-area triangles.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1857,26 +1576,26 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_COMPARE_OP_NEVER COMPARE_OP_NEVER}: the test never passes.</li>
-     * <li>{@link #VK_COMPARE_OP_LESS COMPARE_OP_LESS}: the test passes when<code>R &lt; S</code>
+     * <li>{@link #VK_COMPARE_OP_NEVER COMPARE_OP_NEVER} specifies that the test never passes.</li>
+     * <li>{@link #VK_COMPARE_OP_LESS COMPARE_OP_LESS} specifies that the test passes when<code>R &lt; S</code>
      * 
      * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL}: the test passes when<code>R = S</code>
+     * <li>{@link #VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL} specifies that the test passes when<code>R = S</code>
      * 
      * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL}: the test passes when<code>R ≤ S</code>
+     * <li>{@link #VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL} specifies that the test passes when<code>R ≤ S</code>
      * 
      * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_GREATER COMPARE_OP_GREATER}: the test passes when<code>R &gt; S</code>
+     * <li>{@link #VK_COMPARE_OP_GREATER COMPARE_OP_GREATER} specifies that the test passes when<code>R &gt; S</code>
      * 
      * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL}: the test passes when<code>R ≠ S</code>
+     * <li>{@link #VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL} specifies that the test passes when<code>R ≠ S</code>
      * 
      * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL}: the test passes when<code>R ≥ S</code>
+     * <li>{@link #VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL} specifies that the test passes when<code>R ≥ S</code>
      * 
      * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS}: the test always passes.</li>
+     * <li>{@link #VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS} specifies that the test always passes.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -1897,8 +1616,6 @@ public class VK10 {
      * VkStencilOp - Stencil comparison function
      * 
      * <h5>Description</h5>
-     * 
-     * <p>The possible values are:</p>
      * 
      * <ul>
      * <li>{@link #VK_STENCIL_OP_KEEP STENCIL_OP_KEEP} keeps the current value.</li>
@@ -2200,15 +1917,22 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If {@link #VK_COLOR_COMPONENT_R_BIT COLOR_COMPONENT_R_BIT} is set, then the</p><code>R</code>
+     * <ul>
+     * <li>{@link #VK_COLOR_COMPONENT_R_BIT COLOR_COMPONENT_R_BIT} specifies that the<code>R</code>
      * 
-     * <p>value is written to color attachment for the appropriate sample, otherwise the value in memory is unmodified. The {@link #VK_COLOR_COMPONENT_G_BIT COLOR_COMPONENT_G_BIT}, {@link #VK_COLOR_COMPONENT_B_BIT COLOR_COMPONENT_B_BIT}, and {@link #VK_COLOR_COMPONENT_A_BIT COLOR_COMPONENT_A_BIT} bits similarly control writing of the</p><code>G, B,</code>
+     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
+     * <li>{@link #VK_COLOR_COMPONENT_G_BIT COLOR_COMPONENT_G_BIT} specifies that the<code>G</code>
      * 
-     * <p>and</p><code>A</code>
+     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
+     * <li>{@link #VK_COLOR_COMPONENT_B_BIT COLOR_COMPONENT_B_BIT} specifies that the<code>B</code>
      * 
-     * <p>values.</p>
+     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
+     * <li>{@link #VK_COLOR_COMPONENT_A_BIT COLOR_COMPONENT_A_BIT} specifies that the<code>A</code>
      * 
-     * <p>The {@code colorWriteMask} is applied regardless of whether blending is enabled.</p>
+     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
+     * </ul>
+     * 
+     * <p>The color write mask operation is applied regardless of whether blending is enabled.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -2226,17 +1950,17 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} indicates that the {@code pViewports} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetViewport CmdSetViewport} before any draw commands. The number of viewports used by a pipeline is still specified by the {@code viewportCount} member of {@link VkPipelineViewportStateCreateInfo}.</li>
-     * <li>{@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} indicates that the {@code pScissors} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetScissor CmdSetScissor} before any draw commands. The number of scissor rectangles used by a pipeline is still specified by the {@code scissorCount} member of {@link VkPipelineViewportStateCreateInfo}.</li>
-     * <li>{@link #VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH} indicates that the {@code lineWidth} state in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetLineWidth CmdSetLineWidth} before any draw commands that generate line primitives for the rasterizer.</li>
-     * <li>{@link #VK_DYNAMIC_STATE_DEPTH_BIAS DYNAMIC_STATE_DEPTH_BIAS} indicates that the {@code depthBiasConstantFactor}, {@code depthBiasClamp} and {@code depthBiasSlopeFactor} states in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetDepthBias CmdSetDepthBias} before any draws are performed with {@code depthBiasEnable} in {@link VkPipelineRasterizationStateCreateInfo} set to {@link #VK_TRUE TRUE}.</li>
-     * <li>{@link #VK_DYNAMIC_STATE_BLEND_CONSTANTS DYNAMIC_STATE_BLEND_CONSTANTS} indicates that the {@code blendConstants} state in {@link VkPipelineColorBlendStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetBlendConstants CmdSetBlendConstants} before any draws are performed with a pipeline state with {@link VkPipelineColorBlendAttachmentState} member {@code blendEnable} set to {@link #VK_TRUE TRUE} and any of the blend functions using a constant blend color.</li>
-     * <li>{@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} indicates that the {@code minDepthBounds} and {@code maxDepthBounds} states of {@link VkPipelineDepthStencilStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetDepthBounds CmdSetDepthBounds} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code depthBoundsTestEnable} set to {@link #VK_TRUE TRUE}.</li>
-     * <li>{@link #VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK DYNAMIC_STATE_STENCIL_COMPARE_MASK} indicates that the {@code compareMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
-     * <li>{@link #VK_DYNAMIC_STATE_STENCIL_WRITE_MASK DYNAMIC_STATE_STENCIL_WRITE_MASK} indicates that the {@code writeMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilWriteMask CmdSetStencilWriteMask} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
-     * <li>{@link #VK_DYNAMIC_STATE_STENCIL_REFERENCE DYNAMIC_STATE_STENCIL_REFERENCE} indicates that the {@code reference} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilReference CmdSetStencilReference} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
-     * <li>{@link #VK_DYANMIC_STATE_VIEWPORT_W_SCALING_NV DYANMIC_STATE_VIEWPORT_W_SCALING_NV} indicates that the {@code pViewportScalings} state in {@link VkPipelineViewportWScalingStateCreateInfoNV} will be ignored and <b>must</b> be set dynamically with {@link NVClipSpaceWScaling#vkCmdSetViewportWScalingNV CmdSetViewportWScalingNV} before any draws are performed with a pipeline state with {@code VkPipelineViewportWScalingStateCreateInfo} member {@code viewportScalingEnable} set to {@link #VK_TRUE TRUE}</li>
-     * <li>{@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLES_EXT DYNAMIC_STATE_DISCARD_RECTANGLES_EXT} indicates that the {@code pDiscardRectangles} state in {@link VkPipelineDiscardRectangleStateCreateInfoEXT} will be ignored and <b>must</b> be set dynamically with {@link EXTDiscardRectangles#vkCmdSetDiscardRectangleEXT CmdSetDiscardRectangleEXT} before any draw or clear commands. The {@code VkDiscardRectangleModeEXT} and the number of active discard rectangles is still specified by the {@code discardRectangleMode} and {@code discardRectangleCount} members of {@link VkPipelineDiscardRectangleStateCreateInfoEXT}.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} specifies that the {@code pViewports} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetViewport CmdSetViewport} before any draw commands. The number of viewports used by a pipeline is still specified by the {@code viewportCount} member of {@link VkPipelineViewportStateCreateInfo}.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} specifies that the {@code pScissors} state in {@link VkPipelineViewportStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetScissor CmdSetScissor} before any draw commands. The number of scissor rectangles used by a pipeline is still specified by the {@code scissorCount} member of {@link VkPipelineViewportStateCreateInfo}.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH} specifies that the {@code lineWidth} state in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetLineWidth CmdSetLineWidth} before any draw commands that generate line primitives for the rasterizer.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_DEPTH_BIAS DYNAMIC_STATE_DEPTH_BIAS} specifies that the {@code depthBiasConstantFactor}, {@code depthBiasClamp} and {@code depthBiasSlopeFactor} states in {@link VkPipelineRasterizationStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetDepthBias CmdSetDepthBias} before any draws are performed with {@code depthBiasEnable} in {@link VkPipelineRasterizationStateCreateInfo} set to {@link #VK_TRUE TRUE}.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_BLEND_CONSTANTS DYNAMIC_STATE_BLEND_CONSTANTS} specifies that the {@code blendConstants} state in {@link VkPipelineColorBlendStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetBlendConstants CmdSetBlendConstants} before any draws are performed with a pipeline state with {@link VkPipelineColorBlendAttachmentState} member {@code blendEnable} set to {@link #VK_TRUE TRUE} and any of the blend functions using a constant blend color.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} specifies that the {@code minDepthBounds} and {@code maxDepthBounds} states of {@link VkPipelineDepthStencilStateCreateInfo} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetDepthBounds CmdSetDepthBounds} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code depthBoundsTestEnable} set to {@link #VK_TRUE TRUE}.</li>
+     * <li>{@link #VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK DYNAMIC_STATE_STENCIL_COMPARE_MASK} specifies that the {@code compareMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
+     * <li>{@link #VK_DYNAMIC_STATE_STENCIL_WRITE_MASK DYNAMIC_STATE_STENCIL_WRITE_MASK} specifies that the {@code writeMask} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilWriteMask CmdSetStencilWriteMask} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
+     * <li>{@link #VK_DYNAMIC_STATE_STENCIL_REFERENCE DYNAMIC_STATE_STENCIL_REFERENCE} specifies that the {@code reference} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilReference CmdSetStencilReference} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
+     * <li>{@link NVClipSpaceWScaling#VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} specifies that the {@code pViewportScalings} state in {@link VkPipelineViewportWScalingStateCreateInfoNV} will be ignored and <b>must</b> be set dynamically with {@link NVClipSpaceWScaling#vkCmdSetViewportWScalingNV CmdSetViewportWScalingNV} before any draws are performed with a pipeline state with {@code VkPipelineViewportWScalingStateCreateInfo} member {@code viewportScalingEnable} set to {@link #VK_TRUE TRUE}</li>
+     * <li>{@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLES_EXT DYNAMIC_STATE_DISCARD_RECTANGLES_EXT} specifies that the {@code pDiscardRectangles} state in {@link VkPipelineDiscardRectangleStateCreateInfoEXT} will be ignored and <b>must</b> be set dynamically with {@link EXTDiscardRectangles#vkCmdSetDiscardRectangleEXT CmdSetDiscardRectangleEXT} before any draw or clear commands. The {@code VkDiscardRectangleModeEXT} and the number of active discard rectangles is still specified by the {@code discardRectangleMode} and {@code discardRectangleCount} members of {@link VkPipelineDiscardRectangleStateCreateInfoEXT}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2259,24 +1983,16 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkSamplerCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_FILTER_NEAREST FILTER_NEAREST} specifies nearest filtering.</li>
+     * <li>{@link #VK_FILTER_LINEAR FILTER_LINEAR} specifies linear filtering.</li>
      * </ul>
+     * 
+     * <p>These filters are described in detail in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">Texel Filtering</a>.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkSamplerCreateInfo}, {@link #vkCmdBlitImage CmdBlitImage}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
-     * <li>{@link #VK_FILTER_LINEAR FILTER_LINEAR}</li>
-     * </ul>
      */
     public static final int
         VK_FILTER_NEAREST = 0,
@@ -2287,24 +2003,16 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkSamplerCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST} specifies nearest filtering.</li>
+     * <li>{@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR} specifies linear filtering.</li>
      * </ul>
+     * 
+     * <p>These modes are described in detail in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-filtering">Texel Filtering</a>.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkSamplerCreateInfo}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST}</li>
-     * <li>{@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}</li>
-     * </ul>
      */
     public static final int
         VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
@@ -2315,26 +2023,17 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkSamplerCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT} specifies that the repeat wrap mode will be used.</li>
+     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT} specifies that the mirrored repeat wrap mode will be used.</li>
+     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE} specifies that the clamp to edge wrap mode will be used.</li>
+     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER} specifies that the clamp to border wrap mode will be used.</li>
+     * <li>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE} specifies that the mirror clamp to edge wrap mode will be used. This is only valid if the VK_KHR_mirror_clamp_to_edge extension is enabled.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkSamplerCreateInfo}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT}</li>
-     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT}</li>
-     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE}</li>
-     * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER}</li>
-     * </ul>
      */
     public static final int
         VK_SAMPLER_ADDRESS_MODE_REPEAT          = 0,
@@ -2347,28 +2046,20 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkSamplerCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK BORDER_COLOR_FLOAT_TRANSPARENT_BLACK} specifies a transparent, floating-point format, black color.</li>
+     * <li>{@link #VK_BORDER_COLOR_INT_TRANSPARENT_BLACK BORDER_COLOR_INT_TRANSPARENT_BLACK} specifies a transparent, integer format, black color.</li>
+     * <li>{@link #VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK BORDER_COLOR_FLOAT_OPAQUE_BLACK} specifies an opaque, floating-point format, black color.</li>
+     * <li>{@link #VK_BORDER_COLOR_INT_OPAQUE_BLACK BORDER_COLOR_INT_OPAQUE_BLACK} specifies an opaque, integer format, black color.</li>
+     * <li>{@link #VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE BORDER_COLOR_FLOAT_OPAQUE_WHITE} specifies an opaque, floating-point format, white color.</li>
+     * <li>{@link #VK_BORDER_COLOR_INT_OPAQUE_WHITE BORDER_COLOR_INT_OPAQUE_WHITE} specifies an opaque, integer format, white color.</li>
      * </ul>
+     * 
+     * <p>These colors are described in detail in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-texel-replacement">Texel Replacement</a>.</p>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkSamplerCreateInfo}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK BORDER_COLOR_FLOAT_TRANSPARENT_BLACK}</li>
-     * <li>{@link #VK_BORDER_COLOR_INT_TRANSPARENT_BLACK BORDER_COLOR_INT_TRANSPARENT_BLACK}</li>
-     * <li>{@link #VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK BORDER_COLOR_FLOAT_OPAQUE_BLACK}</li>
-     * <li>{@link #VK_BORDER_COLOR_INT_OPAQUE_BLACK BORDER_COLOR_INT_OPAQUE_BLACK}</li>
-     * <li>{@link #VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE BORDER_COLOR_FLOAT_OPAQUE_WHITE}</li>
-     * <li>{@link #VK_BORDER_COLOR_INT_OPAQUE_WHITE BORDER_COLOR_INT_OPAQUE_WHITE}</li>
-     * </ul>
      */
     public static final int
         VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
@@ -2383,11 +2074,11 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If {@code descriptorType} is {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}, or {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}, the elements of the {@link VkWriteDescriptorSet}{@code ::pBufferInfo} array of {@link VkDescriptorBufferInfo} structures will be used to update the descriptors, and other arrays will be ignored.</p>
-     * 
-     * <p>If {@code descriptorType} is {@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER}, the {@link VkWriteDescriptorSet}{@code ::pTexelBufferView} array will be used to update the descriptors, and other arrays will be ignored.</p>
-     * 
-     * <p>If {@code descriptorType} is {@link #VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER}, {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}, or {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT}, the elements of the {@link VkWriteDescriptorSet}{@code ::pImageInfo} array of {@link VkDescriptorImageInfo} structures will be used to update the descriptors, and other arrays will be ignored.</p>
+     * <ul>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}, or {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC} specify that the elements of the {@link VkWriteDescriptorSet}{@code ::pBufferInfo} array of {@link VkDescriptorBufferInfo} structures will be used to update the descriptors, and other arrays will be ignored.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} specify that the {@link VkWriteDescriptorSet}{@code ::pTexelBufferView} array will be used to update the descriptors, and other arrays will be ignored.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER}, {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}, or {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT} specify that the elements of the {@link VkWriteDescriptorSet}{@code ::pImageInfo} array of {@link VkDescriptorImageInfo} structures will be used to update the descriptors, and other arrays will be ignored.</li>
+     * </ul>
      * 
      * <h5>See Also</h5>
      * 
@@ -2411,12 +2102,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkDescriptorPoolCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} specifies that descriptor sets <b>can</b> return their individual allocations to the pool, i.e. all of {@link #vkAllocateDescriptorSets AllocateDescriptorSets}, {@link #vkFreeDescriptorSets FreeDescriptorSets}, and {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed. Otherwise, descriptor sets allocated from the pool <b>must</b> not be individually freed back to the pool, i.e. only {@link #vkAllocateDescriptorSets AllocateDescriptorSets} and {@link #vkResetDescriptorPool ResetDescriptorPool} are allowed.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2430,12 +2117,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkAttachmentDescription}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} specifies that the attachment aliases the same device memory as other attachments.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2449,25 +2132,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkAttachmentDescription}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_ATTACHMENT_LOAD_OP_LOAD ATTACHMENT_LOAD_OP_LOAD} specifies that the previous contents of the image within the render area will be preserved. For attachments with a depth/stencil format, this uses the access type {@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT}. For attachments with a color format, this uses the access type {@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT}.</li>
+     * <li>{@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR} specifies that the contents within the render area will be cleared to a uniform value, which is specified when a render pass instance is begun. For attachments with a depth/stencil format, this uses the access type {@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
+     * <li>{@link #VK_ATTACHMENT_LOAD_OP_DONT_CARE ATTACHMENT_LOAD_OP_DONT_CARE} specifies that the previous contents within the area need not be preserved; the contents of the attachment will be undefined inside the render area. For attachments with a depth/stencil format, this uses the access type {@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkAttachmentDescription}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_ATTACHMENT_LOAD_OP_LOAD ATTACHMENT_LOAD_OP_LOAD}</li>
-     * <li>{@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}</li>
-     * <li>{@link #VK_ATTACHMENT_LOAD_OP_DONT_CARE ATTACHMENT_LOAD_OP_DONT_CARE}</li>
-     * </ul>
      */
     public static final int
         VK_ATTACHMENT_LOAD_OP_LOAD      = 0,
@@ -2479,24 +2152,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkAttachmentDescription}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_ATTACHMENT_STORE_OP_STORE ATTACHMENT_STORE_OP_STORE} specifies the contents generated during the render pass and within the render area are written to memory. For attachments with a depth/stencil format, this uses the access type {@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
+     * <li>{@link #VK_ATTACHMENT_STORE_OP_DONT_CARE ATTACHMENT_STORE_OP_DONT_CARE} specifies the contents within the render area are not needed after rendering, and <b>may</b> be discarded; the contents of the attachment will be undefined inside the render area. For attachments with a depth/stencil format, this uses the access type {@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}. For attachments with a color format, this uses the access type {@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkAttachmentDescription}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_ATTACHMENT_STORE_OP_STORE ATTACHMENT_STORE_OP_STORE}</li>
-     * <li>{@link #VK_ATTACHMENT_STORE_OP_DONT_CARE ATTACHMENT_STORE_OP_DONT_CARE}</li>
-     * </ul>
      */
     public static final int
         VK_ATTACHMENT_STORE_OP_STORE     = 0,
@@ -2507,24 +2170,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkCmdBindPipeline CmdBindPipeline}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} specifies binding as a compute pipeline.</li>
+     * <li>{@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} specifies binding as a graphics pipeline.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkSubpassDescription}, {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}, {@link #vkCmdBindPipeline CmdBindPipeline}, {@link KHRPushDescriptor#vkCmdPushDescriptorSetKHR CmdPushDescriptorSetKHR}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
-     * <li>{@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
-     * </ul>
      */
     public static final int
         VK_PIPELINE_BIND_POINT_GRAPHICS = 0,
@@ -2535,38 +2188,69 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_ACCESS_INDIRECT_COMMAND_READ_BIT ACCESS_INDIRECT_COMMAND_READ_BIT} specifies read access to an indirect command structure read as part of an indirect drawing or dispatch command.</li>
+     * <li>{@link #VK_ACCESS_INDEX_READ_BIT ACCESS_INDEX_READ_BIT} specifies read access to an index buffer as part of an indexed drawing command, bound by {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}.</li>
+     * <li>{@link #VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT ACCESS_VERTEX_ATTRIBUTE_READ_BIT} specifies read access to a vertex buffer as part of a drawing command, bound by {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers}.</li>
+     * <li>{@link #VK_ACCESS_UNIFORM_READ_BIT ACCESS_UNIFORM_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-uniformbuffer">uniform buffer</a>.</li>
+     * <li>{@link #VK_ACCESS_INPUT_ATTACHMENT_READ_BIT ACCESS_INPUT_ATTACHMENT_READ_BIT} specifies read access to an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">input attachment</a> within a renderpass during fragment shading.</li>
+     * <li>{@link #VK_ACCESS_SHADER_READ_BIT ACCESS_SHADER_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storagebuffer">storage buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-uniformtexelbuffer">uniform texel buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storagetexelbuffer">storage texel buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-sampledimage">sampled image</a>, or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storageimage">storage image</a>.</li>
+     * <li>{@link #VK_ACCESS_SHADER_WRITE_BIT ACCESS_SHADER_WRITE_BIT} specifies write access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storagebuffer">storage buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storagetexelbuffer">storage texel buffer</a>, or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storageimage">storage image</a>.</li>
+     * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">color attachment</a>, such as via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-blending">blending</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-logicop">logic operations</a>, or via certain <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load operations</a>.</li>
+     * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT} specifies write access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">color or resolve attachment</a> during a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">render pass</a> or via certain <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load and store operations</a>.</li>
+     * <li>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">depth/stencil attachment</a>, via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-ds-state">depth or stencil operations</a> or via certain <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load operations</a>.</li>
+     * <li>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT} specifies write access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">depth/stencil attachment</a>, via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-ds-state">depth or stencil operations</a> or via certain <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-load-store-ops">subpass load and store operations</a>.</li>
+     * <li>{@link #VK_ACCESS_TRANSFER_READ_BIT ACCESS_TRANSFER_READ_BIT} specifies read access to an image or buffer in a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy</a> operation.</li>
+     * <li>{@link #VK_ACCESS_TRANSFER_WRITE_BIT ACCESS_TRANSFER_WRITE_BIT} specifies write access to an image or buffer in a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear</a> or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy</a> operation.</li>
+     * <li>{@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} specifies read access by a host operation. Accesses of this type are not performed through a resource, but directly on memory.</li>
+     * <li>{@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} specifies write access by a host operation. Accesses of this type are not performed through a resource, but directly on memory.</li>
+     * <li>{@link #VK_ACCESS_MEMORY_READ_BIT ACCESS_MEMORY_READ_BIT} specifies read access via non-specific entities. These entities include the Vulkan device and host, but <b>may</b> also include entities external to the Vulkan device or otherwise not part of the core Vulkan pipeline. When included in a destination access mask, makes all available writes visible to all future read accesses on entities known to the Vulkan device.</li>
+     * <li>{@link #VK_ACCESS_MEMORY_WRITE_BIT ACCESS_MEMORY_WRITE_BIT} specifies write access via non-specific entities. These entities include the Vulkan device and host, but <b>may</b> also include entities external to the Vulkan device or otherwise not part of the core Vulkan pipeline. When included in a source access mask, all writes that are performed by entities known to the Vulkan device are made available. When included in a destination access mask, makes all available writes visible to all future write accesses on entities known to the Vulkan device.</li>
+     * <li>{@link NVXDeviceGeneratedCommands#VK_ACCESS_COMMAND_PROCESS_READ_BIT_NVX ACCESS_COMMAND_PROCESS_READ_BIT_NVX} specifies reads from {@code VkBuffer} inputs to {@link NVXDeviceGeneratedCommands#vkCmdProcessCommandsNVX CmdProcessCommandsNVX}.</li>
+     * <li>{@link NVXDeviceGeneratedCommands#VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX} specifies writes to the target command buffer in {@link NVXDeviceGeneratedCommands#vkCmdProcessCommandsNVX CmdProcessCommandsNVX}.</li>
      * </ul>
+     * 
+     * <p>Certain access types are only performed by a subset of pipeline stages. Any synchronization command that takes both stage masks and access masks uses both to define the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes">access scopes</a> - only the specified access types performed by the specified stages are included in the access scope. An application <b>must</b> not specify an access flag in a synchronization command if it does not include a pipeline stage in the corresponding stage mask that is able to perform accesses of that type. The following table lists, for each access flag, which pipeline stages <b>can</b> perform that type of access.</p>
+     * 
+     * <h6>Supported access types</h6>
+     * 
+     * <table class="lwjgl">
+     * <thead><tr><th>Access flag</th><th>Supported pipeline stages</th></tr></thead>
+     * <tbody>
+     * <tr><td>{@link #VK_ACCESS_INDIRECT_COMMAND_READ_BIT ACCESS_INDIRECT_COMMAND_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_INDEX_READ_BIT ACCESS_INDEX_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT ACCESS_VERTEX_ATTRIBUTE_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_UNIFORM_READ_BIT ACCESS_UNIFORM_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, or {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_INPUT_ATTACHMENT_READ_BIT ACCESS_INPUT_ATTACHMENT_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_SHADER_READ_BIT ACCESS_SHADER_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, or {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_SHADER_WRITE_BIT ACCESS_SHADER_WRITE_BIT}</td><td>{@link #VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link #VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, or {@link #VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT PIPELINE_STAGE_COMPUTE_SHADER_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}</td><td>{@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, or {@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}</td><td>{@link #VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, or {@link #VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_TRANSFER_READ_BIT ACCESS_TRANSFER_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_TRANSFER_WRITE_BIT ACCESS_TRANSFER_WRITE_BIT}</td><td>{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT}</td><td>{@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT}</td><td>{@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT}</td></tr>
+     * <tr><td>{@link #VK_ACCESS_MEMORY_READ_BIT ACCESS_MEMORY_READ_BIT}</td><td>N/A</td></tr>
+     * <tr><td>{@link #VK_ACCESS_MEMORY_WRITE_BIT ACCESS_MEMORY_WRITE_BIT}</td><td>N/A</td></tr>
+     * <tr><td>{@link NVXDeviceGeneratedCommands#VK_ACCESS_COMMAND_PROCESS_READ_BIT_NVX ACCESS_COMMAND_PROCESS_READ_BIT_NVX}</td><td>{@link NVXDeviceGeneratedCommands#VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX}</td></tr>
+     * <tr><td>{@link NVXDeviceGeneratedCommands#VK_ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX ACCESS_COMMAND_PROCESS_WRITE_BIT_NVX}</td><td>{@link NVXDeviceGeneratedCommands#VK_PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX PIPELINE_STAGE_COMMAND_PROCESS_BIT_NVX}</td></tr>
+     * </tbody>
+     * </table>
+     * 
+     * <p>If a memory object does not have the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} property, then {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} <b>must</b> be called in order to guarantee that writes to the memory object from the host are made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>, where it <b>can</b> be further made available to the device by <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization">synchronization commands</a>. Similarly, {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} <b>must</b> be called to guarantee that writes which are visible to the {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a> are made visible to host operations.</p>
+     * 
+     * <p>If the memory object does have the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} property flag, writes to the memory object from the host are automatically made visible to the {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a>. Similarly, writes made visible to the {@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT} <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-types">access type</a> are automatically made visible to the host.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>The {@link #vkQueueSubmit QueueSubmit} command <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-host-writes">automatically guarantees that host writes flushed to {@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT} are made available</a> if they were flushed before the command executed, so in most cases an explicit memory barrier is not needed for this case. In the few circumstances where a submit does not occur between the host write and the device read access, writes <b>can</b> be made available by using an explicit memory barrier.</p>
+     * </div>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkAccessFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_ACCESS_INDIRECT_COMMAND_READ_BIT ACCESS_INDIRECT_COMMAND_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_INDEX_READ_BIT ACCESS_INDEX_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT ACCESS_VERTEX_ATTRIBUTE_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_UNIFORM_READ_BIT ACCESS_UNIFORM_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_INPUT_ATTACHMENT_READ_BIT ACCESS_INPUT_ATTACHMENT_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_SHADER_READ_BIT ACCESS_SHADER_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_SHADER_WRITE_BIT ACCESS_SHADER_WRITE_BIT}</li>
-     * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}</li>
-     * <li>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}</li>
-     * <li>{@link #VK_ACCESS_TRANSFER_READ_BIT ACCESS_TRANSFER_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_TRANSFER_WRITE_BIT ACCESS_TRANSFER_WRITE_BIT}</li>
-     * <li>{@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT}</li>
-     * <li>{@link #VK_ACCESS_MEMORY_READ_BIT ACCESS_MEMORY_READ_BIT}</li>
-     * <li>{@link #VK_ACCESS_MEMORY_WRITE_BIT ACCESS_MEMORY_WRITE_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_ACCESS_INDIRECT_COMMAND_READ_BIT          = 0x1,
@@ -2592,12 +2276,10 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkCmdPipelineBarrier CmdPipelineBarrier}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT} specifies that dependencies will be <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions">framebuffer-local</a>.</li>
+     * <li>{@link KHXMultiview#VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX DEPENDENCY_VIEW_LOCAL_BIT_KHX} specifies that a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-barriers-subpass-self-dependencies">subpass has more than one view</a>.</li>
+     * <li>{@link KHXDeviceGroup#VK_DEPENDENCY_DEVICE_GROUP_BIT_KHX DEPENDENCY_DEVICE_GROUP_BIT_KHX} specifies that dependencies are <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-device-local-dependencies">non-device-local dependency</a>.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2611,24 +2293,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkCommandPoolCreateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT} indicates that command buffers allocated from the pool will be short-lived, meaning that they will be reset or freed in a relatively short timeframe. This flag <b>may</b> be used by the implementation to control memory allocation behavior within the pool.</li>
+     * <li>{@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} allows any command buffer allocated from a pool to be individually reset to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>; either by calling {@link #vkResetCommandBuffer ResetCommandBuffer}, or via the implicit reset when calling {@link #vkBeginCommandBuffer BeginCommandBuffer}. If this flag is not set on a pool, then {@link #vkResetCommandBuffer ResetCommandBuffer} <b>must</b> not be called for any command buffer allocated from that pool.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkCommandPoolCreateFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT}</li>
-     * <li>{@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_COMMAND_POOL_CREATE_TRANSIENT_BIT            = 0x1,
@@ -2639,12 +2311,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkResetCommandPool ResetCommandPool}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT} specifies that resetting a command pool recycles all of the resources from the command pool back to the system.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2654,28 +2322,18 @@ public class VK10 {
     public static final int VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT = 0x1;
 
     /**
-     * VkCommandBufferLevel - Structure specifying a command buffer level
+     * VkCommandBufferLevel - Enumerant specifying a command buffer level
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkCommandBufferAllocateInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY} specifies a primary command buffer.</li>
+     * <li>{@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY} specifies a secondary command buffer.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkCommandBufferAllocateInfo}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
-     * <li>{@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
-     * </ul>
      */
     public static final int
         VK_COMMAND_BUFFER_LEVEL_PRIMARY   = 0,
@@ -2686,25 +2344,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkCommandBufferBeginInfo}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT} specifies that each recording of the command buffer will only be submitted once, and the command buffer will be reset and recorded again between each submission.</li>
+     * <li>{@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} specifies that a secondary command buffer is considered to be entirely inside a render pass. If this is a primary command buffer, then this bit is ignored.</li>
+     * <li>{@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} specifies that a command buffer <b>can</b> be resubmitted to a queue while it is in the <em>pending state</em>, and recorded into multiple primary command buffers.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkCommandBufferUsageFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}</li>
-     * <li>{@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
-     * <li>{@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}</li>
-     * </ul>
      */
     public static final int
         VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT      = 0x1,
@@ -2716,12 +2364,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkCmdBeginQuery CmdBeginQuery}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT} specifies the precision of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-occlusion">occlusion queries</a>.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2735,12 +2379,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkResetCommandBuffer ResetCommandBuffer}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT} specifies that most or all memory resources currently owned by the command buffer <b>should</b> be returned to the parent command pool. If this flag is not set, then the command buffer <b>may</b> hold onto memory resources and reuse them when recording commands. {@code commandBuffer} is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2754,25 +2394,15 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT} specifies that only the front set of stencil state is updated.</li>
+     * <li>{@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT} specifies that only the back set of stencil state is updated.</li>
+     * <li>{@link #VK_STENCIL_FRONT_AND_BACK STENCIL_FRONT_AND_BACK} is the combination of {@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT} and {@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT}, and specifies that both sets of stencil state are updated.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkStencilFaceFlags}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT}</li>
-     * <li>{@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT}</li>
-     * <li>{@link #VK_STENCIL_FRONT_AND_BACK STENCIL_FRONT_AND_BACK}</li>
-     * </ul>
      */
     public static final int
         VK_STENCIL_FACE_FRONT_BIT = 0x1,
@@ -2784,24 +2414,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_INDEX_TYPE_UINT16 INDEX_TYPE_UINT16} specifies that indices are 16-bit unsigned integer values.</li>
+     * <li>{@link #VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32} specifies that indices are 32-bit unsigned integer values.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@link VkObjectTableIndexBufferEntryNVX}, {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_INDEX_TYPE_UINT16 INDEX_TYPE_UINT16}</li>
-     * <li>{@link #VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}</li>
-     * </ul>
+     * <p>UNKNOWN:Type, {@link VkObjectTableIndexBufferEntryNVX}, UNKNOWN:buffer, UNKNOWN:index, UNKNOWN:indices, UNKNOWN:of, {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p>
      */
     public static final int
         VK_INDEX_TYPE_UINT16 = 0,
@@ -2812,24 +2432,14 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link #vkCmdBeginRenderPass CmdBeginRenderPass}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_SUBPASS_CONTENTS_INLINE SUBPASS_CONTENTS_INLINE} specifies that the contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers <b>must</b> not be executed within the subpass.</li>
+     * <li>{@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS} specifies that the contents are recorded in secondary command buffers that will be called from the primary command buffer, and {@link #vkCmdExecuteCommands CmdExecuteCommands} is the only valid command on the command buffer until {@link #vkCmdNextSubpass CmdNextSubpass} or {@link #vkCmdEndRenderPass CmdEndRenderPass}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link #vkCmdBeginRenderPass CmdBeginRenderPass}, {@link #vkCmdNextSubpass CmdNextSubpass}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SUBPASS_CONTENTS_INLINE SUBPASS_CONTENTS_INLINE}</li>
-     * <li>{@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
-     * </ul>
      */
     public static final int
         VK_SUBPASS_CONTENTS_INLINE                    = 0,
@@ -2985,6 +2595,12 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <p>{@link #vkCreateInstance CreateInstance} verifies that the requested layers exist. If not, {@link #vkCreateInstance CreateInstance} will return {@link #VK_ERROR_LAYER_NOT_PRESENT ERROR_LAYER_NOT_PRESENT}. Next {@link #vkCreateInstance CreateInstance} verifies that the requested extensions are supported (e.g. in the implementation or in any enabled instance layer) and if any requested extension is not supported, {@link #vkCreateInstance CreateInstance} <b>must</b> return {@link #VK_ERROR_EXTENSION_NOT_PRESENT ERROR_EXTENSION_NOT_PRESENT}. After verifying and enabling the instance layers and extensions the {@code VkInstance} object is created and returned to the application. If a requested extension is only supported by a layer, both the layer and the extension need to be specified at {@link #vkCreateInstance CreateInstance} time for the creation to succeed.</p>
+     * 
+     * <h5>Valid Usage</h5>
+     * 
+     * <ul>
+     * <li>All <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#extended-functionality-extensions-dependencies">required extensions</a> for each extension in the {@link VkInstanceCreateInfo}{@code ::ppEnabledExtensionNames} list <b>must</b> also be present in that list.</li>
+     * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -3292,11 +2908,11 @@ public class VK10 {
      * <p>{@link VkImageFormatProperties}</p>
      *
      * @param physicalDevice         the physical device from which to query the image capabilities.
-     * @param format                 the image format, corresponding to {@link VkImageCreateInfo}{@code ::format}.
-     * @param type                   the image type, corresponding to {@link VkImageCreateInfo}{@code ::imageType}.
-     * @param tiling                 the image tiling, corresponding to {@link VkImageCreateInfo}{@code ::tiling}.
-     * @param usage                  the intended usage of the image, corresponding to {@link VkImageCreateInfo}{@code ::usage}.
-     * @param flags                  a bitmask describing additional parameters of the image, corresponding to {@link VkImageCreateInfo}{@code ::flags}.
+     * @param format                 a {@code VkFormat} value specifying the image format, corresponding to {@link VkImageCreateInfo}{@code ::format}.
+     * @param type                   a {@code VkImageType} value specifying the image type, corresponding to {@link VkImageCreateInfo}{@code ::imageType}.
+     * @param tiling                 a {@code VkImageTiling} value specifying the image tiling, corresponding to {@link VkImageCreateInfo}{@code ::tiling}.
+     * @param usage                  a bitmask of {@code VkImageUsageFlagBits} specifying the intended usage of the image, corresponding to {@link VkImageCreateInfo}{@code ::usage}.
+     * @param flags                  a bitmask of {@code VkImageCreateFlagBits} specifying additional parameters of the image, corresponding to {@link VkImageCreateInfo}{@code ::flags}.
      * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties} structure in which capabilities are returned.
      */
     public static int vkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, VkImageFormatProperties pImageFormatProperties) {
@@ -3489,7 +3105,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-     * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+     * <li>{@code pName} <b>must</b> be a null-terminated UTF-8 string</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3555,7 +3171,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-     * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+     * <li>{@code pName} <b>must</b> be a null-terminated UTF-8 string</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3622,7 +3238,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+     * <li>{@code pName} <b>must</b> be a null-terminated UTF-8 string</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3678,7 +3294,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+     * <li>{@code pName} <b>must</b> be a null-terminated UTF-8 string</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3726,9 +3342,17 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkCreateDevice CreateDevice} verifies that the requested extensions are supported (e.g. in the implementation or in any enabled instance layer) and if any requested extension is not supported, {@link #vkCreateDevice CreateDevice} <b>must</b> return {@link #VK_ERROR_EXTENSION_NOT_PRESENT ERROR_EXTENSION_NOT_PRESENT}. After verifying and enabling the extensions the {@code VkDevice} object is created and returned to the application. If a requested extension is only supported by a layer, both the layer and the extension need to be specified at {@link #vkCreateInstance CreateInstance} time for the creation to succeed.</p>
+     * <p>{@link #vkCreateDevice CreateDevice} verifies that extensions and features requested in the {@code ppEnabledExtensionNames} and {@code pEnabledFeatures} members of {@code pCreateInfo}, respectively, are supported by the implementation. If any requested extension is not supported, {@link #vkCreateDevice CreateDevice} <b>must</b> return {@link #VK_ERROR_EXTENSION_NOT_PRESENT ERROR_EXTENSION_NOT_PRESENT}. If any requested feature is not supported, {@link #vkCreateDevice CreateDevice} <b>must</b> return {@link #VK_ERROR_FEATURE_NOT_PRESENT ERROR_FEATURE_NOT_PRESENT}. Support for extensions <b>can</b> be checked before creating a device by querying {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties}. Support for features <b>can</b> similarly be checked by querying {@link #vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}.</p>
+     * 
+     * <p>After verifying and enabling the extensions the {@code VkDevice} object is created and returned to the application. If a requested extension is only supported by a layer, both the layer and the extension need to be specified at {@link #vkCreateInstance CreateInstance} time for the creation to succeed.</p>
      * 
      * <p>Multiple logical devices <b>can</b> be created from the same physical device. Logical device creation <b>may</b> fail due to lack of device-specific resources (in addition to the other errors). If that occurs, {@link #vkCreateDevice CreateDevice} will return {@link #VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
+     * 
+     * <h5>Valid Usage</h5>
+     * 
+     * <ul>
+     * <li>All <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#extended-functionality-extensions-dependencies">required extensions</a> for each extension in the {@link VkDeviceCreateInfo}{@code ::ppEnabledExtensionNames} list <b>must</b> also be present in that list.</li>
+     * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -3874,7 +3498,7 @@ public class VK10 {
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
-     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
      * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
@@ -3936,7 +3560,7 @@ public class VK10 {
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
-     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
      * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
@@ -4013,7 +3637,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
      * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
@@ -4074,7 +3698,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated string</li>
+     * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
      * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
@@ -4804,7 +4428,7 @@ public class VK10 {
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
-     * <p>{@link #vkMapMemory MapMemory} will fail if the implementation is unable to allocate an appropriately sized contiguous virtual address range, e.g. due to virtual address space fragmentation or platform limits. In such cases, {@link #vkMapMemory MapMemory} <b>must</b> return VK_ERROR_MEMORY_MAP_FAILED. The application <b>can</b> improve the likelihood of success by reducing the size of the mapped range and/or removing unneeded mappings using fname:VkUnmapMemory.</p>
+     * <p>{@link #vkMapMemory MapMemory} will fail if the implementation is unable to allocate an appropriately sized contiguous virtual address range, e.g. due to virtual address space fragmentation or platform limits. In such cases, {@link #vkMapMemory MapMemory} <b>must</b> return {@link #VK_ERROR_MEMORY_MAP_FAILED ERROR_MEMORY_MAP_FAILED}. The application <b>can</b> improve the likelihood of success by reducing the size of the mapped range and/or removing unneeded mappings using fname:VkUnmapMemory.</p>
      * </div>
      * 
      * <p>{@link #vkMapMemory MapMemory} does not check whether the device memory is currently in use before returning the host-accessible pointer. The application <b>must</b> guarantee that any previously submitted command that writes to this range has completed before the host reads from or writes to that range, and that any previously submitted command that reads from that range has completed before the host writes to that region (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-submission-host-writes">here</a> for details on fulfilling such a guarantee). If the device memory was allocated without the {@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} set, these guarantees <b>must</b> be made for an extended range: the application <b>must</b> round down the start of the range to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}, and round the end of the range up to the nearest multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}.</p>
@@ -6922,22 +6546,7 @@ public class VK10 {
      * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries. For pipeline statistics queries, each query index in the pool contains one integer value for each bit that is enabled in {@link VkQueryPoolCreateInfo}{@code ::pipelineStatistics} when the pool is created.
      * @param pData      a pointer to a user-allocated buffer where the results will be written
      * @param stride     the stride in bytes between results for individual queries within {@code pData}.
-     * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. Bits which <b>can</b> be set include:
-     *                   
-     *                   <code><pre>
-     *                   typedef enum VkQueryResultFlagBits {
-     *                       VK_QUERY_RESULT_64_BIT = 0x00000001,
-     *                       VK_QUERY_RESULT_WAIT_BIT = 0x00000002,
-     *                       VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x00000004,
-     *                       VK_QUERY_RESULT_PARTIAL_BIT = 0x00000008,
-     *                   } VkQueryResultFlagBits;</pre></code>
-     *                   
-     *                   <ul>
-     *                   <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} indicates the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an array of 32-bit unsigned integer values.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} indicates that Vulkan will wait for each query&#8217;s status to become available before retrieving its results.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} indicates that the availability status accompanies the results.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} indicates that returning partial results is acceptable.</li>
-     *                   </ul>
+     * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
     public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, ByteBuffer pData, long stride, int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
@@ -7040,22 +6649,7 @@ public class VK10 {
      * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries. For pipeline statistics queries, each query index in the pool contains one integer value for each bit that is enabled in {@link VkQueryPoolCreateInfo}{@code ::pipelineStatistics} when the pool is created.
      * @param pData      a pointer to a user-allocated buffer where the results will be written
      * @param stride     the stride in bytes between results for individual queries within {@code pData}.
-     * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. Bits which <b>can</b> be set include:
-     *                   
-     *                   <code><pre>
-     *                   typedef enum VkQueryResultFlagBits {
-     *                       VK_QUERY_RESULT_64_BIT = 0x00000001,
-     *                       VK_QUERY_RESULT_WAIT_BIT = 0x00000002,
-     *                       VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x00000004,
-     *                       VK_QUERY_RESULT_PARTIAL_BIT = 0x00000008,
-     *                   } VkQueryResultFlagBits;</pre></code>
-     *                   
-     *                   <ul>
-     *                   <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} indicates the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an array of 32-bit unsigned integer values.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} indicates that Vulkan will wait for each query&#8217;s status to become available before retrieving its results.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} indicates that the availability status accompanies the results.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} indicates that returning partial results is acceptable.</li>
-     *                   </ul>
+     * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
     public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, IntBuffer pData, long stride, int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
@@ -7158,22 +6752,7 @@ public class VK10 {
      * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries. For pipeline statistics queries, each query index in the pool contains one integer value for each bit that is enabled in {@link VkQueryPoolCreateInfo}{@code ::pipelineStatistics} when the pool is created.
      * @param pData      a pointer to a user-allocated buffer where the results will be written
      * @param stride     the stride in bytes between results for individual queries within {@code pData}.
-     * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. Bits which <b>can</b> be set include:
-     *                   
-     *                   <code><pre>
-     *                   typedef enum VkQueryResultFlagBits {
-     *                       VK_QUERY_RESULT_64_BIT = 0x00000001,
-     *                       VK_QUERY_RESULT_WAIT_BIT = 0x00000002,
-     *                       VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x00000004,
-     *                       VK_QUERY_RESULT_PARTIAL_BIT = 0x00000008,
-     *                   } VkQueryResultFlagBits;</pre></code>
-     *                   
-     *                   <ul>
-     *                   <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} indicates the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an array of 32-bit unsigned integer values.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} indicates that Vulkan will wait for each query&#8217;s status to become available before retrieving its results.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} indicates that the availability status accompanies the results.</li>
-     *                   <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} indicates that returning partial results is acceptable.</li>
-     *                   </ul>
+     * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
     public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, LongBuffer pData, long stride, int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
@@ -8067,7 +7646,7 @@ public class VK10 {
      * 
      * <p>The first four bytes encode the length of the entire pipeline header, in bytes. This value includes all fields in the header including the pipeline cache version field and the size of the length field.</p>
      * 
-     * <p>The next four bytes encode the pipeline cache version. This field is interpreted as a {@code VkPipelineCacheHeaderVersion} value, and <b>must</b> have one of the following values:</p>
+     * <p>The next four bytes in the header returned by {@link #vkGetPipelineCacheData GetPipelineCacheData} encode the pipeline cache version. This field is interpreted as a {@code VkPipelineCacheHeaderVersion} value, and <b>must</b> have one of the following values:</p>
      * 
      * <code><pre>
      * typedef enum VkPipelineCacheHeaderVersion {
@@ -9790,14 +9369,7 @@ public class VK10 {
      *
      * @param device      the logical device that owns the command pool.
      * @param commandPool the command pool to reset.
-     * @param flags       contains additional flags controlling the behavior of the reset. Bits which <b>can</b> be set include:
-     *                    
-     *                    <code><pre>
-     *                    typedef enum VkCommandPoolResetFlagBits {
-     *                        VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT = 0x00000001,
-     *                    } VkCommandPoolResetFlagBits;</pre></code>
-     *                    
-     *                    <p>If {@code flags} includes {@link #VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT}, resetting a command pool recycles all of the resources from the command pool back to the system.</p>
+     * @param flags       a bitmask of {@code VkCommandPoolResetFlagBits} controlling the reset operation.
      */
     public static int vkResetCommandPool(VkDevice device, long commandPool, int flags) {
         long __functionAddress = device.getCapabilities().vkResetCommandPool;
@@ -10172,14 +9744,7 @@ public class VK10 {
      * </dl>
      *
      * @param commandBuffer the command buffer to reset. The command buffer <b>can</b> be in any state other than <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending</a>, and is moved into the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.
-     * @param flags         a bitmask controlling the reset operation. Bits which <b>can</b> be set include:
-     *                      
-     *                      <code><pre>
-     *                      typedef enum VkCommandBufferResetFlagBits {
-     *                          VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT = 0x00000001,
-     *                      } VkCommandBufferResetFlagBits;</pre></code>
-     *                      
-     *                      <p>If {@code flags} includes {@link #VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT}, then most or all memory resources currently owned by the command buffer <b>should</b> be returned to the parent command pool. If this flag is not set, then the command buffer <b>may</b> hold onto memory resources and reuse them when recording commands. {@code commandBuffer} is moved to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.</p>
+     * @param flags         a bitmask of {@code VkCommandBufferResetFlagBits} controlling the reset operation.
      */
     public static int vkResetCommandBuffer(VkCommandBuffer commandBuffer, int flags) {
         long __functionAddress = commandBuffer.getCapabilities().vkResetCommandBuffer;
@@ -10241,15 +9806,7 @@ public class VK10 {
      * </table>
      *
      * @param commandBuffer     the command buffer that the pipeline will be bound to.
-     * @param pipelineBindPoint specifies the bind point, and <b>must</b> have one of the values
-     *                          
-     *                          <code><pre>
-     *                          typedef enum VkPipelineBindPoint {
-     *                              VK_PIPELINE_BIND_POINT_GRAPHICS = 0,
-     *                              VK_PIPELINE_BIND_POINT_COMPUTE = 1,
-     *                          } VkPipelineBindPoint;</pre></code>
-     *                          
-     *                          <p>specifying whether {@code pipeline} will be bound as a compute ({@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}) or graphics ({@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}) pipeline. There are separate bind points for each of graphics and compute, so binding one does not disturb the other.</p>
+     * @param pipelineBindPoint a {@code VkPipelineBindPoint} value specifying whether to bind to the compute or graphics bind point. Binding one does not disturb the other.
      * @param pipeline          the pipeline to be bound.
      */
     public static void vkCmdBindPipeline(VkCommandBuffer commandBuffer, int pipelineBindPoint, long pipeline) {
@@ -10373,7 +9930,7 @@ public class VK10 {
      * 
      * <p>The scissor rectangles taken from element</p><code>i</code>
      * 
-     * <p>of {@code pScissors} replace the current state for the scissor index</p><code>firstScissor + i</code>
+     * <p>of {@code pScissors} replace the current state for the scissor index</p><code>firstScissor {plus} i</code>
      * 
      * <p>, for</p><code>i</code>
      * 
@@ -10392,8 +9949,12 @@ public class VK10 {
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code firstScissor} <b>must</b> be 0</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code scissorCount} <b>must</b> be 1</li>
      * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
-     * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must</b> not cause a signed integer addition overflow</li>
-     * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must</b> not cause a signed integer addition overflow</li>
+     * <li>Evaluation of<code>(offset.x + extent.width)</code>
+     * 
+     * <p><b>must</b> not cause a signed integer addition overflow</p></li>
+     * <li>Evaluation of<code>(offset.y + extent.height)</code>
+     * 
+     * <p><b>must</b> not cause a signed integer addition overflow</p></li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -10439,7 +10000,9 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>The line width is set by the {@code lineWidth} property of {@link VkPipelineRasterizationStateCreateInfo} in the currently active pipeline if the pipeline was not created with {@link #VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH} enabled. Otherwise, the line width is set by calling {@link #vkCmdSetLineWidth CmdSetLineWidth}:</p>
+     * <p>The line width is specified by the {@link VkPipelineRasterizationStateCreateInfo}{@code ::lineWidth} property of the currently active pipeline, if the pipeline was not created with {@link #VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH} enabled.</p>
+     * 
+     * <p>Otherwise, the line width is set by calling {@link #vkCmdSetLineWidth CmdSetLineWidth}:</p>
      * 
      * <code><pre>
      * void vkCmdSetLineWidth(
@@ -10775,20 +10338,7 @@ public class VK10 {
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
-     * @param faceMask      a bitmask specifying the set of stencil state for which to update the compare mask. Bits which <b>can</b> be set include:
-     *                      
-     *                      <code><pre>
-     *                      typedef enum VkStencilFaceFlagBits {
-     *                          VK_STENCIL_FACE_FRONT_BIT = 0x00000001,
-     *                          VK_STENCIL_FACE_BACK_BIT = 0x00000002,
-     *                          VK_STENCIL_FRONT_AND_BACK = 0x00000003,
-     *                      } VkStencilFaceFlagBits;</pre></code>
-     *                      
-     *                      <ul>
-     *                      <li>{@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT} indicates that only the front set of stencil state is updated.</li>
-     *                      <li>{@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT} indicates that only the back set of stencil state is updated.</li>
-     *                      <li>{@link #VK_STENCIL_FRONT_AND_BACK STENCIL_FRONT_AND_BACK} is the combination of {@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT} and {@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT} and indicates that both sets of stencil state are updated.</li>
-     *                      </ul>
+     * @param faceMask      a bitmask of {@code VkStencilFaceFlagBits} specifying the set of stencil state for which to update the compare mask.
      * @param compareMask   the new value to use as the stencil compare mask.
      */
     public static void vkCmdSetStencilCompareMask(VkCommandBuffer commandBuffer, int faceMask, int compareMask) {
@@ -11053,13 +10603,7 @@ public class VK10 {
      * @param commandBuffer the command buffer into which the command is recorded.
      * @param buffer        the buffer being bound.
      * @param offset        the starting offset in bytes within {@code buffer} used in index buffer address calculations.
-     * @param indexType     selects whether indices are treated as 16 bits or 32 bits. Possible values include:
-     *                      
-     *                      <code><pre>
-     *                      typedef enum VkIndexType {
-     *                          VK_INDEX_TYPE_UINT16 = 0,
-     *                          VK_INDEX_TYPE_UINT32 = 1,
-     *                      } VkIndexType;</pre></code>
+     * @param indexType     a {@code VkIndexType} value specifying whether indices are treated as 16 bits or 32 bits.
      */
     public static void vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, long buffer, long offset, int indexType) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindIndexBuffer;
@@ -11097,7 +10641,7 @@ public class VK10 {
      * 
      * <p>The values taken from elements</p><code>i</code>
      * 
-     * <p>of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding</p><code>firstBinding + i</code>
+     * <p>of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding</p><code>firstBinding {plus} i</code>
      * 
      * <p>, for</p><code>i</code>
      * 
@@ -11270,7 +10814,9 @@ public class VK10 {
      * <li>For a given vertex buffer binding, any attribute data fetched <b>must</b> be entirely contained within the corresponding vertex buffer binding, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fxvertex-input">the “Vertex Input Description” section</a></li>
      * <li>A valid graphics pipeline <b>must</b> be bound to the current command buffer with {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
      * <li>If the {@code VkPipeline} object currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} requires any dynamic state, that state <b>must</b> have been set on the current command buffer</li>
-     * <li>({@code indexSize} * ({@code firstIndex} + {@code indexCount}) + {@code offset}) <b>must</b> be less than or equal to the size of the currently bound index buffer, with indexSize being based on the type specified by {@code indexType}, where the index buffer, {@code indexType}, and {@code offset} are specified via {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</li>
+     * <li><code>(indexSize * (firstIndex + indexCount) + offset)</code>
+     * 
+     * <p><b>must</b> be less than or equal to the size of the currently bound index buffer, with indexSize being based on the type specified by {@code indexType}, where the index buffer, {@code indexType}, and {@code offset} are specified via {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p></li>
      * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
      * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
      * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
@@ -13185,6 +12731,7 @@ public class VK10 {
      * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+     * <li>{@code srcImage} and {@code dstImage} <b>must</b> have been created with the same image format</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -13273,6 +12820,7 @@ public class VK10 {
      * <li>{@code dstImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+     * <li>{@code srcImage} and {@code dstImage} <b>must</b> have been created with the same image format</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -13453,7 +13001,7 @@ public class VK10 {
      *
      * @param commandBuffer the command buffer into which the command is recorded.
      * @param event         the event that will be unsignaled.
-     * @param stageMask     specifies the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">source stage mask</a> used to determine when the {@code event} is unsignaled.
+     * @param stageMask     a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">source stage mask</a> used to determine when the {@code event} is unsignaled.
      */
     public static void vkCmdResetEvent(VkCommandBuffer commandBuffer, long event, int stageMask) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdResetEvent;
@@ -13571,8 +13119,8 @@ public class VK10 {
      *
      * @param commandBuffer         the command buffer into which the command is recorded.
      * @param pEvents               an array of event object handles to wait on.
-     * @param srcStageMask          the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">source stage mask</a>
-     * @param dstStageMask          the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">destination stage mask</a>.
+     * @param srcStageMask          a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">source stage mask</a>.
+     * @param dstStageMask          a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">destination stage mask</a>.
      * @param pMemoryBarriers       a pointer to an array of {@link VkMemoryBarrier} structures.
      * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures.
      * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures.
@@ -13688,20 +13236,9 @@ public class VK10 {
      * <p>{@link VkBufferMemoryBarrier}, {@link VkImageMemoryBarrier}, {@link VkMemoryBarrier}</p>
      *
      * @param commandBuffer         the command buffer into which the command is recorded.
-     * @param srcStageMask          defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a>.
-     * @param dstStageMask          defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a>.
-     * @param dependencyFlags       a bitmask of {@code VkDependencyFlagBits}. The bits that <b>can</b> be included in {@code dependencyFlags} are:
-     *                              
-     *                              <code><pre>
-     *                              typedef enum VkDependencyFlagBits {
-     *                                  VK_DEPENDENCY_BY_REGION_BIT = 0x00000001,
-     *                                  VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX = 0x00000002,
-     *                                  VK_DEPENDENCY_DEVICE_GROUP_BIT_KHX = 0x00000004,
-     *                              } VkDependencyFlagBits;</pre></code>
-     *                              
-     *                              <ul>
-     *                              <li>{@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT} signifies that dependencies will be <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-framebuffer-regions">framebuffer-local</a>.</li>
-     *                              </ul>
+     * @param srcStageMask          a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a>.
+     * @param dstStageMask          a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a>.
+     * @param dependencyFlags       a bitmask of {@code VkDependencyFlagBits} specifying how execution and memory dependencies are formed.
      * @param pMemoryBarriers       a pointer to an array of {@link VkMemoryBarrier} structures.
      * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures.
      * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures.
@@ -13776,12 +13313,7 @@ public class VK10 {
      * @param commandBuffer the command buffer into which this command will be recorded.
      * @param queryPool     the query pool that will manage the results of the query.
      * @param query         the query index within the query pool that will contain the results.
-     * @param flags         a bitmask indicating constraints on the types of queries that <b>can</b> be performed. Bits which <b>can</b> be set include:
-     *                      
-     *                      <code><pre>
-     *                      typedef enum VkQueryControlFlagBits {
-     *                          VK_QUERY_CONTROL_PRECISE_BIT = 0x00000001,
-     *                      } VkQueryControlFlagBits;</pre></code>
+     * @param flags         a bitmask of {@code VkQueryControlFlagBits} specifying constraints on the types of queries that <b>can</b> be performed.
      */
     public static void vkCmdBeginQuery(VkCommandBuffer commandBuffer, long queryPool, int query, int flags) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBeginQuery;
@@ -13869,7 +13401,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When executed on a queue, this command sets the status of query indices</p><code>[firstQuery, firstQuery + queryCount - 1]</code>
+     * <p>When executed on a queue, this command sets the status of query indices</p><code>[firstQuery, firstQuery {plus} queryCount - 1]</code>
      * 
      * <p>to unavailable.</p>
      * 
@@ -14568,15 +14100,7 @@ public class VK10 {
      *
      * @param commandBuffer    the command buffer in which to record the command.
      * @param pRenderPassBegin a pointer to a {@link VkRenderPassBeginInfo} structure (defined below) which indicates the render pass to begin an instance of, and the framebuffer the instance uses.
-     * @param contents         specifies how the commands in the first subpass will be provided, and is one of the values:
-     *                         
-     *                         <code><pre>
-     *                         typedef enum VkSubpassContents {
-     *                             VK_SUBPASS_CONTENTS_INLINE = 0,
-     *                             VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
-     *                         } VkSubpassContents;</pre></code>
-     *                         
-     *                         <p>If {@code contents} is {@link #VK_SUBPASS_CONTENTS_INLINE SUBPASS_CONTENTS_INLINE}, the contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers <b>must</b> not be executed within the subpass. If {@code contents} is {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}, the contents are recorded in secondary command buffers that will be called from the primary command buffer, and {@link #vkCmdExecuteCommands CmdExecuteCommands} is the only valid command on the command buffer until {@link #vkCmdNextSubpass CmdNextSubpass} or {@link #vkCmdEndRenderPass CmdEndRenderPass}.</p>
+     * @param contents         a {@code VkSubpassContents} value specifying how the commands in the first subpass will be provided.
      */
     public static void vkCmdBeginRenderPass(VkCommandBuffer commandBuffer, VkRenderPassBeginInfo pRenderPassBegin, int contents) {
         nvkCmdBeginRenderPass(commandBuffer, pRenderPassBegin.address(), contents);

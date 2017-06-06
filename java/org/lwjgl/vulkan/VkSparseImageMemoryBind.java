@@ -23,11 +23,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the calling command&#8217;s {@code image}, as described in section <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-association">the “Resource Memory Association” section</a></li>
  * <li>{@code subresource} <b>must</b> be a valid image subresource for {@code image} (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">the “Image Views” section</a>)</li>
  * <li>{@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of the image</li>
- * <li>{@code extent.width} <b>must</b> either be a multiple of the sparse image block width of the image, or else {@code extent.width} + {@code offset.x} <b>must</b> equal the width of the image subresource</li>
+ * <li>{@code extent.width} <b>must</b> either be a multiple of the sparse image block width of the image, or else<code>(extent.width offset.x)</code>
+ * 
+ * <p><b>must</b> equal the width of the image subresource</p></li>
  * <li>{@code offset.y} <b>must</b> be a multiple of the sparse image block height ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.height) of the image</li>
- * <li>{@code extent.height} <b>must</b> either be a multiple of the sparse image block height of the image, or else {@code extent.height} + {@code offset.y} <b>must</b> equal the height of the image subresource</li>
+ * <li>{@code extent.height} <b>must</b> either be a multiple of the sparse image block height of the image, or else<code>(extent.height offset.y)</code>
+ * 
+ * <p><b>must</b> equal the height of the image subresource</p></li>
  * <li>{@code offset.z} <b>must</b> be a multiple of the sparse image block depth ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.depth) of the image</li>
- * <li>{@code extent.depth} <b>must</b> either be a multiple of the sparse image block depth of the image, or else {@code extent.depth} + {@code offset.z} <b>must</b> equal the depth of the image subresource</li>
+ * <li>{@code extent.depth} <b>must</b> either be a multiple of the sparse image block depth of the image, or else<code>(extent.depth offset.z)</code>
+ * 
+ * <p><b>must</b> equal the depth of the image subresource</p></li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

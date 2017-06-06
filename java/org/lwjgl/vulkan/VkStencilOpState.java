@@ -32,10 +32,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code failOp} &ndash; the action performed on samples that fail the stencil test.</li>
- * <li>{@code passOp} &ndash; the action performed on samples that pass both the depth and stencil tests.</li>
- * <li>{@code depthFailOp} &ndash; the action performed on samples that pass the stencil test and fail the depth test.</li>
- * <li>{@code compareOp} &ndash; the comparison operator used in the stencil test.</li>
+ * <li>{@code failOp} &ndash; a {@code VkStencilOp} value specifying the action performed on samples that fail the stencil test.</li>
+ * <li>{@code passOp} &ndash; a {@code VkStencilOp} value specifying the action performed on samples that pass both the depth and stencil tests.</li>
+ * <li>{@code depthFailOp} &ndash; a {@code VkStencilOp} value specifying the action performed on samples that pass the stencil test and fail the depth test.</li>
+ * <li>{@code compareOp} &ndash; a {@code VkCompareOp} value specifying the comparison operator used in the stencil test.</li>
  * <li>{@code compareMask} &ndash; selects the bits of the unsigned integer stencil values participating in the stencil test.</li>
  * <li>{@code writeMask} &ndash; selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment.</li>
  * <li>{@code reference} &ndash; an integer reference value that is used in the unsigned stencil comparison.</li>

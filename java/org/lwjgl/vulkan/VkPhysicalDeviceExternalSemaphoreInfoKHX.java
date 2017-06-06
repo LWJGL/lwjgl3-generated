@@ -16,13 +16,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying semaphore creation parameters.
  * 
- * <h5>Description</h5>
- * 
- * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
- * 
- * <p>Applications <b>must</b> not perform operations on handles of type {@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX} that are specific to only one of Linux Fences or Android Fences. Implementations are free to return either type of file descriptor using this handle type. While most userspace functions accepting a fence FD are compatible with either type of fence, attempting to use the file descriptors directly with system calls compatible with only one of the fence types <b>may</b> result in undefined behavior.</p>
- * </div>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
@@ -40,24 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure</li>
  * <li>{@code pNext} &ndash; NULL or a pointer to an extension-specific structure.</li>
- * <li>{@code handleType} &ndash; a bit indicating an external semaphore handle type for which capabilities will be returned. Bits which can be set include:
- * 
- * <code><pre>
- * typedef enum VkExternalSemaphoreHandleTypeFlagBitsKHX {
- *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
- *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
- *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX = 0x00000004,
- *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX = 0x00000008,
- *     VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX = 0x00000010,
- * } VkExternalSemaphoreHandleTypeFlagBitsKHX;</pre></code>
- * 
- * <ul>
- * <li>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHX} is a POSIX file descriptor handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the POSIX system calls fname:dup, fname:dup2, fname:close, and the non-standard system call fname:dup3. Additionally, it <b>must</b> be transportable over a socket using an {@code SCM_RIGHTS} control message. It owns a reference to the underlying synchronization primitive represented by its Vulkan semaphore object.</li>
- * <li>{@link #EXTERNAL_SEMAPHORE_HANDLE_TYPE_WIN32_BIT_KHX} is an NT handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the functions fname:DuplicateHandle, fname:CloseHandle, fname:CompareObjectHandles, fname:GetHandleInformation, and fname:SetHandleInformation. It owns a reference to the underlying synchronization primitive represented by its Vulkan semaphore object.</li>
- * <li>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX} is a global share handle that has only limited valid usage outside of Vulkan and other compatible APIs. It is not compatible with any native APIs. It does not own own a reference to the underlying synchronization primitive represented its Vulkan semaphore object, and will therefore become invalid when all Vulkan semaphore objects associated with it are destroyed.</li>
- * <li>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX} is an NT handle returned by {@code ID3D12Device}::fname:CreateSharedHandle referring to a Direct3D 12 fence. It owns a reference to the underlying synchronization primitive associated with the Direct3D fence.</li>
- * <li>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_FENCE_FD_BIT_KHX} is a POSIX file descriptor handle to a Linux or Android Fence object. It can be used with any native API accepting a valid fence object file descriptor as input. It owns a reference to the underlying synchronization primitive associated with the file descriptor. Implementations which support importing this handle type <b>must</b> accept any type of fence FD supported by the native system they are running on.</li>
- * </ul></li>
+ * <li>{@code handleType} &ndash; a {@code VkExternalSemaphoreHandleTypeFlagBitsKHX} value specifying the external semaphore handle type for which capabilities will be returned.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

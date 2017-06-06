@@ -52,16 +52,11 @@ public final class NVViewportSwizzle {
     public static final int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV = 1000098000;
 
     /**
-     * VkViewportCoordinateSwizzleNV - (no short description available)
+     * VkViewportCoordinateSwizzleNV - Specify how a viewport coordinate is swizzled
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
-     * <ul>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
-     * </ul>
+     * <p>These values are described in detail in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-viewport-swizzle">Viewport Swizzle</a>.</p>
      * 
      * <h5>See Also</h5>
      * 

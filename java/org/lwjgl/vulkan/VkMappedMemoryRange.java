@@ -22,8 +22,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code memory} <b>must</b> currently be mapped</li>
  * <li>If {@code size} is not equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, {@code offset} and {@code size} <b>must</b> specify a range contained within the currently mapped range of {@code memory}</li>
  * <li>If {@code size} is equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, {@code offset} <b>must</b> be within the currently mapped range of {@code memory}</li>
+ * <li>If {@code size} is equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, the end of the current mapping of {@code memory} <b>must</b> be a multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize} bytes from the beginning of the memory object.</li>
  * <li>{@code offset} <b>must</b> be a multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}</li>
- * <li>If {@code size} is not equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be a multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}</li>
+ * <li>If {@code size} is not equal to {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> either be a multiple of {@link VkPhysicalDeviceLimits}{@code ::nonCoherentAtomSize}, or {@code offset} plus {@code size} <b>must</b> equal the size of {@code memory}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

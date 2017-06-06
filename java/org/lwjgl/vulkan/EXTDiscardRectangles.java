@@ -71,27 +71,18 @@ public class EXTDiscardRectangles {
     public static final int VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT = 1000099000;
 
     /**
-     * VkDiscardRectangleModeEXT - (no short description available)
+     * VkDiscardRectangleModeEXT - Specify the discard rectangle mode
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT} specifies that a fragment within any discard rectangle satisfies the test.</li>
+     * <li>{@link #VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT} specifies that a fragment not within any of the discard rectangles satisfies the test.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkPipelineDiscardRectangleStateCreateInfoEXT}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT}</li>
-     * <li>{@link #VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT}</li>
-     * </ul>
      */
     public static final int
         VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT = 0,
@@ -123,11 +114,11 @@ public class EXTDiscardRectangles {
     }
 
     /**
-     * (no short description available).
+     * Set discard rectangles dynamically.
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled, discard rectangles are specified using the {@code pDiscardRectangles} member of {@link VkPipelineDiscardRectangleStateCreateInfoEXT} linked to the pipeline state object. If the pipeline state object was created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled, the discard rectangles are dynamically set and changed with the command:</p>
+     * <p>If the pipeline state object was created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled, the discard rectangles are dynamically set and changed with the command:</p>
      * 
      * <code><pre>
      * void vkCmdSetDiscardRectangleEXT(
@@ -156,8 +147,12 @@ public class EXTDiscardRectangles {
      * <li>The sum of {@code firstDiscardRectangle} and {@code discardRectangleCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}, inclusive</li>
      * <li>{@code pDiscardRectangles} <b>must</b> be a pointer to an array of {@code discardRectangleCount} valid {@link VkRect2D} structures</li>
      * <li>The {@code x} and {@code y} members of {@code offset} in {@link VkRect2D} <b>must</b> be greater than or equal to 0</li>
-     * <li>Evaluation of ({@code offset.x} + {@code extent.width}) in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
-     * <li>Evaluation of ({@code offset.y} + {@code extent.height}) in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
+     * <li>Evaluation of<code>(offset.x + extent.width)</code>
+     * 
+     * <p>in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</p></li>
+     * <li>Evaluation of<code>(offset.y + extent.height)</code>
+     * 
+     * <p>in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</p></li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>

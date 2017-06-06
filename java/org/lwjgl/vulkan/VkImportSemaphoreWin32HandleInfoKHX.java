@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import org.lwjgl.system.windows.*;
 
 /**
- * (no short description available).
+ * Structure specifying Windows handle to import to a semaphore.
  * 
  * <h5>Description</h5>
  * 
@@ -28,9 +28,9 @@ import org.lwjgl.system.windows.*;
  * <table class="lwjgl">
  * <thead><tr><th>Handle Type</th><th>Permanence</th></tr></thead>
  * <tbody>
- * <tr><td>VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX</td><td>Permanent</td></tr>
- * <tr><td>VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX</td><td>Permanent</td></tr>
- * <tr><td>VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX</td><td>Permanent</td></tr>
+ * <tr><td>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX}</td><td>Permanent</td></tr>
+ * <tr><td>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX}</td><td>Permanent</td></tr>
+ * <tr><td>{@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX}</td><td>Permanent</td></tr>
  * </tbody>
  * </table>
  * 

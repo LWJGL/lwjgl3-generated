@@ -33,20 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code powerState} &ndash; the new power state of the display. Possible values are:
- * 
- * <code><pre>
- * typedef enum VkDisplayPowerStateEXT {
- *     VK_DISPLAY_POWER_STATE_OFF_EXT = 0,
- *     VK_DISPLAY_POWER_STATE_SUSPEND_EXT = 1,
- *     VK_DISPLAY_POWER_STATE_ON_EXT = 2,
- * } VkDisplayPowerStateEXT;</pre></code>
- * 
- * <ul>
- * <li>{@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT} means the display is powered down.</li>
- * <li>{@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_SUSPEND_EXT DISPLAY_POWER_STATE_SUSPEND_EXT} means the display is in a low power mode, but <b>may</b> be able to transition back to {@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_ON_EXT DISPLAY_POWER_STATE_ON_EXT} more quickly than if it were in {@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT}. This state <b>may</b> be the same as {@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_OFF_EXT DISPLAY_POWER_STATE_OFF_EXT}.</li>
- * <li>{@link EXTDisplayControl#VK_DISPLAY_POWER_STATE_ON_EXT DISPLAY_POWER_STATE_ON_EXT} is powered on.</li>
- * </ul></li>
+ * <li>{@code powerState} &ndash; a {@code VkDisplayPowerStateEXT} value specifying the new power state of the display.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -74,33 +74,23 @@ public class KHXExternalMemoryCapabilities {
     public static final int VK_LUID_SIZE_KHX = 8;
 
     /**
-     * VkExternalMemoryHandleTypeFlagBitsKHX - Bitmask of valid external memory handle types
+     * VkExternalMemoryHandleTypeFlagBitsKHX - Bit specifying external memory handle types
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkPhysicalDeviceExternalImageFormatInfoKHX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX} specifies a POSIX file descriptor handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the POSIX system calls ftext:dup, ftext:dup2, ftext:close, and the non-standard system call ftext:dup3. Additionally, it <b>must</b> be transportable over a socket using an {@code SCM_RIGHTS} control message. It owns a reference to the underlying memory resource represented by its Vulkan memory object.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX} specifies an NT handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the functions ftext:DuplicateHandle, ftext:CloseHandle, ftext:CompareObjectHandles, ftext:GetHandleInformation, and ftext:SetHandleInformation. It owns a reference to the underlying memory resource represented by its Vulkan memory object.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX} specifies a global share handle that has only limited valid usage outside of Vulkan and other compatible APIs. It is not compatible with any native APIs. It does not own a reference to the underlying memory resource represented its Vulkan memory object, and will therefore become invalid when all Vulkan memory objects associated with it are destroyed.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX} specifies an NT handle returned by {@code IDXGIResource1}::{@code CreateSharedHandle} referring to a Direct3D 10 or 11 texture resource. It owns a reference to the memory used by the Direct3D resource.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX} specifies a global share handle returned by {@code IDXGIResource}::{@code GetSharedHandle} referring to a Direct3D 10 or 11 texture resource. It does not own a reference to the underlying Direct3D resource, and will therefore become invalid when all Vulkan memory objects and Direct3D resources associated with it are destroyed.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX} specifies an NT handle returned by {@code ID3D12Device}::{@code CreateSharedHandle} referring to a Direct3D 12 heap resource. It owns a reference to the resources used by the Direct3D heap.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX} specifies an NT handle returned by {@code ID3D12Device}::{@code CreateSharedHandle} referring to a Direct3D 12 committed resource. It owns a reference to the memory used by the Direct3D resource.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkExternalMemoryHandleTypeFlagsKHX}, {@link VkImportMemoryFdInfoKHX}, {@link VkImportMemoryWin32HandleInfoKHX}, {@link VkPhysicalDeviceExternalBufferInfoKHX}, {@link VkPhysicalDeviceExternalImageFormatInfoKHX}, {@link KHXExternalMemoryFd#vkGetMemoryFdKHX GetMemoryFdKHX}, {@link KHXExternalMemoryFd#vkGetMemoryFdPropertiesKHX GetMemoryFdPropertiesKHX}, {@link KHXExternalMemoryWin32#vkGetMemoryWin32HandleKHX GetMemoryWin32HandleKHX}, {@link KHXExternalMemoryWin32#vkGetMemoryWin32HandlePropertiesKHX GetMemoryWin32HandlePropertiesKHX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX}</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX}</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX}</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX}</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX}</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX}</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX}</li>
-     * </ul>
      */
     public static final int
         VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX         = 0x1,
@@ -116,12 +106,10 @@ public class KHXExternalMemoryCapabilities {
      * 
      * <h5>Description</h5>
      * 
-     * <p>These bits have the following meanings:</p>
-     * 
      * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX} indicates that images or buffers created with the specified parameters and handle type <b>must</b> use the mechanisms defined in the {@link #VK_NV_dedicated_allocation NV_dedicated_allocation} to create (or import) a dedicated allocation for the image or buffer.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHX EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHX} indicates handles of this type <b>can</b> be exported from Vulkan memory objects.</li>
-     * <li>{@link #VK_INTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHX INTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHX} indicates handles of this type <b>can</b> be imported as Vulkan memory objects.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX} specifies that images or buffers created with the specified parameters and handle type <b>must</b> use the mechanisms defined in the VK_NV_dedicated_allocation extension to create (or import) a dedicated allocation for the image or buffer.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHX EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHX} specifies that handles of this type <b>can</b> be exported from Vulkan memory objects.</li>
+     * <li>{@link #VK_INTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHX INTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHX} specifies that handles of this type <b>can</b> be imported as Vulkan memory objects.</li>
      * </ul>
      * 
      * <p>Because their semantics in external APIs roughly align with that of an image or buffer with a dedicated allocation in Vulkan, implementations are required: to report {@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHX} for the following external handle types:</p>
@@ -169,7 +157,7 @@ public class KHXExternalMemoryCapabilities {
     }
 
     /**
-     * (no short description available).
+     * Query external handle types supported by buffers.
      * 
      * <h5>C Specification</h5>
      * 

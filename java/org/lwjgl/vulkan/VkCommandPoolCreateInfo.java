@@ -39,18 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask indicating usage behavior for the pool and command buffers allocated from it. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkCommandPoolCreateFlagBits {
- *     VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x00000001,
- *     VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x00000002,
- * } VkCommandPoolCreateFlagBits;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT} indicates that command buffers allocated from the pool will be short-lived, meaning that they will be reset or freed in a relatively short timeframe. This flag <b>may</b> be used by the implementation to control memory allocation behavior within the pool.</li>
- * <li>{@link VK10#VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} allows any command buffer allocated from a pool to be individually reset to the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>; either by calling {@link VK10#vkResetCommandBuffer ResetCommandBuffer}, or via the implicit reset when calling {@link VK10#vkBeginCommandBuffer BeginCommandBuffer}. If this flag is not set on a pool, then {@link VK10#vkResetCommandBuffer ResetCommandBuffer} <b>must</b> not be called for any command buffer allocated from that pool.</li>
- * </ul></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkCommandPoolCreateFlagBits} indicating usage behavior for the pool and command buffers allocated from it.</li>
  * <li>{@code queueFamilyIndex} &ndash; designates a queue family as described in section <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queueprops">Queue Family Properties</a>. All command buffers allocated from this command pool <b>must</b> be submitted on queues from the same queue family.</li>
  * </ul>
  * 

@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code stage} <b>must</b> be a valid {@code VkShaderStageFlagBits} value</li>
  * <li>{@code module} <b>must</b> be a valid {@code VkShaderModule} handle</li>
- * <li>{@code pName} <b>must</b> be a null-terminated string</li>
+ * <li>{@code pName} <b>must</b> be a null-terminated UTF-8 string</li>
  * <li>If {@code pSpecializationInfo} is not {@code NULL}, {@code pSpecializationInfo} <b>must</b> be a pointer to a valid {@link VkSpecializationInfo} structure</li>
  * </ul>
  * 
@@ -60,19 +60,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; reserved for future use.</li>
- * <li>{@code stage} &ndash; names a single pipeline stage. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkShaderStageFlagBits {
- *     VK_SHADER_STAGE_VERTEX_BIT = 0x00000001,
- *     VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT = 0x00000002,
- *     VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT = 0x00000004,
- *     VK_SHADER_STAGE_GEOMETRY_BIT = 0x00000008,
- *     VK_SHADER_STAGE_FRAGMENT_BIT = 0x00000010,
- *     VK_SHADER_STAGE_COMPUTE_BIT = 0x00000020,
- *     VK_SHADER_STAGE_ALL_GRAPHICS = 0x0000001F,
- *     VK_SHADER_STAGE_ALL = 0x7FFFFFFF,
- * } VkShaderStageFlagBits;</pre></code></li>
+ * <li>{@code stage} &ndash; a {@code VkShaderStageFlagBits} value specifying a single pipeline stage.</li>
  * <li>{@code module} &ndash; a {@code VkShaderModule} object that contains the shader for this stage.</li>
  * <li>{@code pName} &ndash; a pointer to a null-terminated UTF-8 string specifying the entry point name of the shader for this stage.</li>
  * <li>{@code pSpecializationInfo} &ndash; a pointer to {@link VkSpecializationInfo}, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#pipelines-specialization-constants">Specialization Constants</a>, and <b>can</b> be {@code NULL}.</li>

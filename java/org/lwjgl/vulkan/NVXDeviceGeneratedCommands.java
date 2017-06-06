@@ -50,7 +50,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h5>Example Code</h5>
  * 
- * <p>TODO links to gameworks & designworks samples</p>
+ * <p>Open-Source samples illustrating the usage of the extension can be found at the following locations:</p>
+ * 
+ * <p>https://github.com/nvpro-samples/gl_vk_threaded_cadscene/blob/master/doc/vulkan_nvxdevicegenerated.md</p>
+ * 
+ * <p>https://github.com/NVIDIAGameWorks/GraphicsSamples/tree/master/samples/vk10-kepler/BasicDeviceGeneratedCommandsVk</p>
  * 
  * <code><pre>
  *   // setup secondary command buffer
@@ -209,26 +213,16 @@ public class NVXDeviceGeneratedCommands {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkIndirectCommandsLayoutCreateInfoNVX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX} indicates that the processing of sequences <b>can</b> happen at an implementation-dependent order, which is not guaranteed to be coherent across multiple invocations.</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX} indicates that there is likely a high difference between allocated number of sequences and actually used.</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX} indicates that there are likely many draw or dispatch calls that are zero-sized (zero grid dimension, no primitives to render).</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX} indicates that the input data for the sequences is not implicitly indexed from 0..sequencesUsed but a user provided {@code VkBuffer} encoding the index is provided.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkIndirectCommandsLayoutUsageFlagsNVX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX}</li>
-     * </ul>
      */
     public static final int
         VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX = 0x1,
@@ -241,24 +235,14 @@ public class NVXDeviceGeneratedCommands {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkObjectTableCreateInfoNVX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
+     * <li>{@link #VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@code VkObjectEntryUsageFlagsNVX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX}</li>
-     * <li>{@link #VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX}</li>
-     * </ul>
      */
     public static final int
         VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x1,
@@ -269,73 +253,59 @@ public class NVXDeviceGeneratedCommands {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
+     * <h6>Supported indirect command tokens</h6>
      * 
-     * <ul>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
-     * </ul>
+     * <table class="lwjgl">
+     * <thead><tr><th>Token type</th><th>Equivalent command</th></tr></thead>
+     * <tbody>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NVX INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NVX}</td><td>{@link VK10#vkCmdBindPipeline CmdBindPipeline}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_DESCRIPTOR_SET_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DESCRIPTOR_SET_NVX}</td><td>{@link VK10#vkCmdBindDescriptorSets CmdBindDescriptorSets}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NVX INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NVX}</td><td>{@link VK10#vkCmdBindIndexBuffer CmdBindIndexBuffer}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NVX INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NVX}</td><td>{@link VK10#vkCmdBindVertexBuffers CmdBindVertexBuffers}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NVX INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NVX}</td><td>{@link VK10#vkCmdPushConstants CmdPushConstants}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NVX}</td><td>{@link VK10#vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NVX}</td><td>{@link VK10#vkCmdDrawIndirect CmdDrawIndirect}</td></tr>
+     * <tr><td>{@link #VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NVX INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NVX}</td><td>{@link VK10#vkCmdDispatchIndirect CmdDispatchIndirect}</td></tr>
+     * </tbody>
+     * </table>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkIndirectCommandsLayoutTokenNVX}, {@link VkIndirectCommandsTokenNVX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_PIPELINE_NVX INDIRECT_COMMANDS_TOKEN_PIPELINE_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_DESCRIPTOR_SET_NVX INDIRECT_COMMANDS_TOKEN_DESCRIPTOR_SET_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_INDEX_BUFFER_NVX INDIRECT_COMMANDS_TOKEN_INDEX_BUFFER_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_VERTEX_BUFFER_NVX INDIRECT_COMMANDS_TOKEN_VERTEX_BUFFER_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_PUSH_CONSTANT_NVX INDIRECT_COMMANDS_TOKEN_PUSH_CONSTANT_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_DRAW_INDEXED_NVX INDIRECT_COMMANDS_TOKEN_DRAW_INDEXED_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_DRAW_NVX INDIRECT_COMMANDS_TOKEN_DRAW_NVX}</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_TOKEN_DISPATCH_NVX INDIRECT_COMMANDS_TOKEN_DISPATCH_NVX}</li>
-     * </ul>
      */
     public static final int
-        VK_INDIRECT_COMMANDS_TOKEN_PIPELINE_NVX       = 0,
-        VK_INDIRECT_COMMANDS_TOKEN_DESCRIPTOR_SET_NVX = 1,
-        VK_INDIRECT_COMMANDS_TOKEN_INDEX_BUFFER_NVX   = 2,
-        VK_INDIRECT_COMMANDS_TOKEN_VERTEX_BUFFER_NVX  = 3,
-        VK_INDIRECT_COMMANDS_TOKEN_PUSH_CONSTANT_NVX  = 4,
-        VK_INDIRECT_COMMANDS_TOKEN_DRAW_INDEXED_NVX   = 5,
-        VK_INDIRECT_COMMANDS_TOKEN_DRAW_NVX           = 6,
-        VK_INDIRECT_COMMANDS_TOKEN_DISPATCH_NVX       = 7;
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NVX       = 0,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_DESCRIPTOR_SET_NVX = 1,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NVX   = 2,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NVX  = 3,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NVX  = 4,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NVX   = 5,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NVX           = 6,
+        VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NVX       = 7;
 
     /**
      * VkObjectEntryTypeNVX - Enum specifying object table entry type
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkObjectTableCreateInfoNVX}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX} indicates a {@code VkDescriptorSet} resource entry that is registered via {@link VkObjectTableDescriptorSetEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_PIPELINE_NVX OBJECT_ENTRY_TYPE_PIPELINE_NVX} indicates a {@code VkPipeline} resource entry that is registered via {@link VkObjectTablePipelineEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX} indicates a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableIndexBufferEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX} indicates a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableVertexBufferEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX} indicates the resource entry is registered via {@link VkObjectTablePushConstantEntryNVX}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkObjectTableCreateInfoNVX}, {@link VkObjectTableDescriptorSetEntryNVX}, {@link VkObjectTableEntryNVX}, {@link VkObjectTableIndexBufferEntryNVX}, {@link VkObjectTablePipelineEntryNVX}, {@link VkObjectTablePushConstantEntryNVX}, {@link VkObjectTableVertexBufferEntryNVX}, {@link #vkUnregisterObjectsNVX UnregisterObjectsNVX}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX OBJECT_ENTRY_DESCRIPTOR_SET_NVX}</li>
-     * <li>{@link #VK_OBJECT_ENTRY_PIPELINE_NVX OBJECT_ENTRY_PIPELINE_NVX}</li>
-     * <li>{@link #VK_OBJECT_ENTRY_INDEX_BUFFER_NVX OBJECT_ENTRY_INDEX_BUFFER_NVX}</li>
-     * <li>{@link #VK_OBJECT_ENTRY_VERTEX_BUFFER_NVX OBJECT_ENTRY_VERTEX_BUFFER_NVX}</li>
-     * <li>{@link #VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX OBJECT_ENTRY_PUSH_CONSTANT_NVX}</li>
-     * </ul>
      */
     public static final int
-        VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX = 0,
-        VK_OBJECT_ENTRY_PIPELINE_NVX       = 1,
-        VK_OBJECT_ENTRY_INDEX_BUFFER_NVX   = 2,
-        VK_OBJECT_ENTRY_VERTEX_BUFFER_NVX  = 3,
-        VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX  = 4;
+        VK_OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX = 0,
+        VK_OBJECT_ENTRY_TYPE_PIPELINE_NVX       = 1,
+        VK_OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX   = 2,
+        VK_OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX  = 3,
+        VK_OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX  = 4;
 
     protected NVXDeviceGeneratedCommands() {
         throw new UnsupportedOperationException();

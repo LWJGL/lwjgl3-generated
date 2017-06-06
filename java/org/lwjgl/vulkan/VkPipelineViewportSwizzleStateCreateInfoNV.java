@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Structure specifying swizzle applied to primitive clip coordinates.
  * 
  * <h5>Valid Usage</h5>
  * 

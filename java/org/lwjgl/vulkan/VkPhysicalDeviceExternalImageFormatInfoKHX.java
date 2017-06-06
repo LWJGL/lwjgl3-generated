@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>If {@code handleType} is 0, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} will behave as if {@link VkPhysicalDeviceExternalImageFormatInfoKHX} was not present and {@link VkExternalImageFormatPropertiesKHX} will be ignored.</p>
+ * <p>If {@code handleType} is 0, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} will behave as if {@link VkPhysicalDeviceExternalImageFormatInfoKHX} was not present, and {@link VkExternalImageFormatPropertiesKHX} will be ignored.</p>
  * 
  * <p>If {@code handleType} is not compatible with the {@code format}, {@code type}, {@code tiling}, {@code usage}, and {@code flags} specified in {@link VkPhysicalDeviceImageFormatInfo2KHR}, then {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} returns {@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}.</p>
  * 
@@ -34,28 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code handleType} &ndash; a bit indicating a memory handle type that will be used with the memory associated with the image. Bits which can be set include:
- * 
- * <code><pre>
- * typedef enum VkExternalMemoryHandleTypeFlagBitsKHX {
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX = 0x00000001,
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX = 0x00000002,
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX = 0x00000004,
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX = 0x00000008,
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX = 0x00000010,
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX = 0x00000020,
- *     VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX = 0x00000040,
- * } VkExternalMemoryHandleTypeFlagBitsKHX;</pre></code>
- * 
- * <ul>
- * <li>{@link KHXExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHX} is a POSIX file descriptor handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the POSIX system calls fname:dup, fname:dup2, fname:close, and the non-standard system call fname:dup3. Additionally, it <b>must</b> be transportable over a socket using an {@code SCM_RIGHTS} control message. It owns a reference to the underlying memory resource represented by its Vulkan memory object.</li>
- * <li>{@link #EXTERNAL_MEMORY_HANDLE_TYPE_WIN32_BIT_KHX} is an NT handle that has only limited valid usage outside of Vulkan and other compatible APIs. It <b>must</b> be compatible with the functions fname:DuplicateHandle, fname:CloseHandle, fname:CompareObjectHandles, fname:GetHandleInformation, and fname:SetHandleInformation. It owns a reference to the underlying memory resource represented by its Vulkan memory object.</li>
- * <li>{@link KHXExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHX} is a global share handle that has only limited valid usage outside of Vulkan and other compatible APIs. It is not compatible with any native APIs. It does not own own a reference to the underlying memory resource represented its Vulkan memory object, and will therefore become invalid when all Vulkan memory objects associated with it are destroyed.</li>
- * <li>{@link KHXExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHX} is an NT handle returned by {@code IDXGIResource1}::fname:CreateSharedHandle referring to a Direct3D 10 or 11 texture resource. It owns a reference to the memory used by the Direct3D resource.</li>
- * <li>{@link KHXExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHX} is a global share handle returned by {@code IDXGIResource}::fname:GetSharedHandle referring to a Direct3D 10 or 11 texture resource. It does not own own a reference to the underlying Direct3D resource, and will therefore become invalid when all Vulkan memory objects and Direct3D resources associated with it are destroyed.</li>
- * <li>{@link KHXExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHX} is an NT handle returned by {@code ID3D12Device}::fname:CreateSharedHandle referring to a Direct3D 12 heap resource. It owns a reference to the resources used by the Direct3D heap.</li>
- * <li>{@link KHXExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHX} is an NT handle returned by {@code ID3D12Device}::fname:CreateSharedHandle referring to a Direct3D 12 committed resource. It owns a reference to the memory used by the Direct3D resource.</li>
- * </ul></li>
+ * <li>{@code handleType} &ndash; a {@code VkExternalMemoryHandleTypeFlagBitsKHX} value specifying the memory handle type that will be used with the memory associated with the image.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -45,18 +45,30 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code bufferOffset} <b>must</b> be a multiple of 4</li>
  * <li>{@code bufferRowLength} <b>must</b> be 0, or greater than or equal to the {@code width} member of {@code imageExtent}</li>
  * <li>{@code bufferImageHeight} <b>must</b> be 0, or greater than or equal to the {@code height} member of {@code imageExtent}</li>
- * <li>{@code imageOffset.x} and ({@code imageExtent.width} + {@code imageOffset.x}) <b>must</b> both be greater than or equal to 0 and less than or equal to the image subresource width</li>
- * <li>{@code imageOffset.y} and (imageExtent.height + {@code imageOffset.y}) <b>must</b> both be greater than or equal to 0 and less than or equal to the image subresource height</li>
+ * <li>{@code imageOffset.x} and<code>(imageExtent.width imageOffset.x)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the image subresource width</p></li>
+ * <li>{@code imageOffset.y} and<code>(imageExtent.height imageOffset.y)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the image subresource height</p></li>
  * <li>If the calling command&#8217;s {@code srcImage} ({@link VK10#vkCmdCopyImageToBuffer CmdCopyImageToBuffer}) or {@code dstImage} ({@link VK10#vkCmdCopyBufferToImage CmdCopyBufferToImage}) is of type {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, then {@code imageOffset.y} <b>must</b> be 0 and {@code imageExtent.height} <b>must</b> be 1.</li>
- * <li>{@code imageOffset.z} and (imageExtent.depth + {@code imageOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the image subresource depth</li>
+ * <li>{@code imageOffset.z} and<code>(imageExtent.depth imageOffset.z)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the image subresource depth</p></li>
  * <li>If the calling command&#8217;s {@code srcImage} ({@link VK10#vkCmdCopyImageToBuffer CmdCopyImageToBuffer}) or {@code dstImage} ({@link VK10#vkCmdCopyBufferToImage CmdCopyBufferToImage}) is of type {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D} or {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, then {@code imageOffset.z} <b>must</b> be 0 and {@code imageExtent.depth} <b>must</b> be 1.</li>
  * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code bufferRowLength} <b>must</b> be a multiple of the compressed texel block width</li>
  * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code bufferImageHeight} <b>must</b> be a multiple of the compressed texel block height</li>
  * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, all members of {@code imageOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
  * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code bufferOffset} <b>must</b> be a multiple of the compressed texel block size in bytes</li>
- * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code imageExtent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code imageExtent.width} + {@code imageOffset.x}) <b>must</b> equal the image subresource width</li>
- * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code imageExtent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code imageExtent.height} + {@code imageOffset.y}) <b>must</b> equal the image subresource height</li>
- * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code imageExtent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code imageExtent.depth} + {@code imageOffset.z}) <b>must</b> equal the image subresource depth</li>
+ * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code imageExtent.width} <b>must</b> be a multiple of the compressed texel block width or<code>(imageExtent.width imageOffset.x)</code>
+ * 
+ * <p><b>must</b> equal the image subresource width</p></li>
+ * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code imageExtent.height} <b>must</b> be a multiple of the compressed texel block height or<code>(imageExtent.height imageOffset.y)</code>
+ * 
+ * <p><b>must</b> equal the image subresource height</p></li>
+ * <li>If the calling command&#8217;s {@code VkImage} parameter is a compressed format image, {@code imageExtent.depth} <b>must</b> be a multiple of the compressed texel block depth or<code>(imageExtent.depth imageOffset.z)</code>
+ * 
+ * <p><b>must</b> equal the image subresource depth</p></li>
  * <li>{@code bufferOffset}, {@code bufferRowLength}, {@code bufferImageHeight} and all members of {@code imageOffset} and {@code imageExtent} <b>must</b> respect the image transfer granularity requirements of the queue family that it will be submitted against, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-physical-device-enumeration">Physical Device Enumeration</a></li>
  * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> specify aspects present in the calling command&#8217;s {@code VkImage} parameter</li>
  * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> only have a single bit set</li>

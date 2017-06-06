@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>.</p></li>
  * <li>{@code alphaBlendOp} &ndash; selects which blend operation is use to calculate the alpha values to write to the color attachment.</li>
- * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-color-write-mask">Color Write Mask</a> section.</li>
+ * <li>{@code colorWriteMask} &ndash; a bitmask of {@code VkColorComponentFlagBits} specifying which of the R, G, B, and/or A components are enabled for writing, as described for the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-color-write-mask">Color Write Mask</a>.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

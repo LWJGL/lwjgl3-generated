@@ -14,13 +14,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Structure controlling how many instances of memory will be allocated.
  * 
  * <h5>Description</h5>
  * 
  * <p>If {@link KHXDeviceGroup#VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX} is not set, the number of instances allocated depends on whether {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} is set in the memory heap. If {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} is set, then memory is allocated for every physical device in the logical device (as if {@code deviceMask} has bits set for all device indices). If {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} is not set, then a single instance of memory is allocated (as if {@code deviceMask} is set to one).</p>
  * 
- * <p>On some implementations, allocations from a multi-instance heap <b>may</b> consume memory on all physical devices even if the {@code deviceMask} excludes some devices. If {@link VkPhysicalDeviceGroupPropertiesKHX}{@code ::subsetAllocation} is {@link VK10#VK_TRUE TRUE} then memory is only consumed for the devices in the device mask.</p>
+ * <p>On some implementations, allocations from a multi-instance heap <b>may</b> consume memory on all physical devices even if the {@code deviceMask} excludes some devices. If {@link VkPhysicalDeviceGroupPropertiesKHX}{@code ::subsetAllocation} is {@link VK10#VK_TRUE TRUE}, then memory is only consumed for the devices in the device mask.</p>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
@@ -46,17 +46,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask of flags controlling the allocation. The bits specified in {@code flags} are:
- * 
- * <code><pre>
- * typedef enum VkMemoryAllocateFlagBitsKHX {
- *     VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX = 0x00000001,
- * } VkMemoryAllocateFlagBitsKHX;</pre></code>
- * 
- * <ul>
- * <li>if {@code flags} contains {@link KHXDeviceGroup#VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX}, memory will be allocated for the devices in {@code deviceMask}.</li>
- * </ul></li>
- * <li>{@code deviceMask} &ndash; a mask of physical devices in the logical device, indicating that memory <b>must</b> be allocated on each device in the mask, if {@link KHXDeviceGroup#VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX} is set.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkMemoryAllocateFlagBitsKHX} controlling the allocation.</li>
+ * <li>{@code deviceMask} &ndash; a mask of physical devices in the logical device, indicating that memory <b>must</b> be allocated on each device in the mask, if {@link KHXDeviceGroup#VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHX} is set in {@code flags}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

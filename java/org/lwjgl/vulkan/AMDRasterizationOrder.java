@@ -73,27 +73,18 @@ public final class AMDRasterizationOrder {
     public static final int VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD = 1000018000;
 
     /**
-     * VkRasterizationOrderAMD - (no short description available)
+     * VkRasterizationOrderAMD - Specify rasterization order for a graphics pipeline
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD} specifies that operations for each primitive in a subpass <b>must</b> occur in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#drawing-primitive-order">primitive order</a>.</li>
+     * <li>{@link #VK_RASTERIZATION_ORDER_RELAXED_AMD RASTERIZATION_ORDER_RELAXED_AMD} specifies that operations for each primitive in a subpass <b>may</b> not occur in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#drawing-primitive-order">primitive order</a>.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkPipelineRasterizationStateRasterizationOrderAMD}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}</li>
-     * <li>{@link #VK_RASTERIZATION_ORDER_RELAXED_AMD RASTERIZATION_ORDER_RELAXED_AMD}</li>
-     * </ul>
      */
     public static final int
         VK_RASTERIZATION_ORDER_STRICT_AMD  = 0,

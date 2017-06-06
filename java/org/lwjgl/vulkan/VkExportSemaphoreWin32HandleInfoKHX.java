@@ -45,7 +45,7 @@ import org.lwjgl.system.windows.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@link VkExportSemaphoreCreateInfoKHX}{@code ::handleTypes} does not include {@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX} or VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX, VkExportSemaphoreWin32HandleInfoKHX <b>must</b> not be in the {@code pNext} chain of {@link VkSemaphoreCreateInfo}.</li>
+ * <li>If {@link VkExportSemaphoreCreateInfoKHX}{@code ::handleTypes} does not include {@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHX} or {@link KHXExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHX}, VkExportSemaphoreWin32HandleInfoKHX <b>must</b> not be in the {@code pNext} chain of {@link VkSemaphoreCreateInfo}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -63,7 +63,7 @@ import org.lwjgl.system.windows.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code pAttributes} &ndash; a pointer to a Windows {@code SECURITY_ATTRIBUTES} structure specifying security attributes of the handle.</li>
  * <li>{@code dwAccess} &ndash; a {@code DWORD} specifying access rights of the handle.</li>
- * <li>{@code name} &ndash; a NULL-terminated UNICODE string to associate with the underlying synchronization primitive referenced by NT handles exported from the created semaphore.</li>
+ * <li>{@code name} &ndash; a NULL-terminated UTF-16 string to associate with the underlying synchronization primitive referenced by NT handles exported from the created semaphore.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

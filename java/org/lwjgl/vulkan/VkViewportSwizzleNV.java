@@ -32,10 +32,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code x} &ndash; the swizzle operation to apply to the x component of the primitive</li>
- * <li>{@code y} &ndash; the swizzle operation to apply to the y component of the primitive</li>
- * <li>{@code z} &ndash; the swizzle operation to apply to the z component of the primitive</li>
- * <li>{@code w} &ndash; the swizzle operation to apply to the w component of the primitive</li>
+ * <li>{@code x} &ndash; a {@code VkViewportCoordinateSwizzleNV} value specifying the swizzle operation to apply to the x component of the primitive</li>
+ * <li>{@code y} &ndash; a {@code VkViewportCoordinateSwizzleNV} value specifying the swizzle operation to apply to the y component of the primitive</li>
+ * <li>{@code z} &ndash; a {@code VkViewportCoordinateSwizzleNV} value specifying the swizzle operation to apply to the z component of the primitive</li>
+ * <li>{@code w} &ndash; a {@code VkViewportCoordinateSwizzleNV} value specifying the swizzle operation to apply to the w component of the primitive</li>
  * </ul>
  * 
  * <h3>Layout</h3>

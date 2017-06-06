@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Description</h5>
  * 
  * <ul>
- * <li>{@code maxDiscardRectangles} is the maximum number of discard rectangles that can be specified.</li>
+ * <li>{@code maxDiscardRectangles} is the maximum number of discard rectangles that <b>can</b> be specified.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

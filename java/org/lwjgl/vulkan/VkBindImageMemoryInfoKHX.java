@@ -55,9 +55,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>All elements of {@code pSFRRects} <b>must</b> be valid rectangles contained within the dimensions of the image</li>
  * <li>Elements of {@code pSFRRects} that correspond to the same instance of the image <b>must</b> not overlap and their union <b>must</b> cover the entire image.</li>
  * <li>For each element of {@code pSFRRects}, {@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of all non-metadata aspects of the image</li>
- * <li>For each element of {@code pSFRRects}, {@code extent.width} <b>must</b> either be a multiple of the sparse image block width of all non-metadata aspects of the image, or else {@code extent.width} + {@code offset.x} <b>must</b> equal the width of the image subresource</li>
+ * <li>For each element of {@code pSFRRects}, {@code extent.width} <b>must</b> either be a multiple of the sparse image block width of all non-metadata aspects of the image, or else<code>(extent.width + offset.x)</code>
+ * 
+ * <p><b>must</b> equal the width of the image subresource</p></li>
  * <li>For each element of {@code pSFRRects}, {@code offset.y} <b>must</b> be a multiple of the sparse image block height ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.height) of all non-metadata aspects of the image</li>
- * <li>For each element of {@code pSFRRects}, {@code extent.height} <b>must</b> either be a multiple of the sparse image block height of all non-metadata aspects of the image, or else {@code extent.height} + {@code offset.y} <b>must</b> equal the height of the image subresource</li>
+ * <li>For each element of {@code pSFRRects}, {@code extent.height} <b>must</b> either be a multiple of the sparse image block height of all non-metadata aspects of the image, or else<code>(extent.height + offset.y)</code>
+ * 
+ * <p><b>must</b> equal the height of the image subresource</p></li>
  * <li>All instances of memory that are bound <b>must</b> have been allocated</li>
  * <li>If {@code image} was created with a valid swapchain handle in {@link VkImageSwapchainCreateInfoKHX}{@code ::swapchain}, then the image <b>must</b> be bound to memory from that swapchain (using {@link VkBindImageMemorySwapchainInfoKHX}).</li>
  * </ul>

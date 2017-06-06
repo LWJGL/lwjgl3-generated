@@ -199,12 +199,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code inheritedQueries} indicates whether a secondary command buffer <b>may</b> be executed while a query is active.</li>
  * </ul>
  * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>If any member of this structure is {@link VK10#VK_FALSE FALSE}, as returned by {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}, then it <b>must</b> be {@link VK10#VK_FALSE FALSE} when passed as part of the {@link VkDeviceCreateInfo} struct when creating a device</li>
- * </ul>
- * 
  * <h5>See Also</h5>
  * 
  * <p>{@link VkDeviceCreateInfo}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}</p>

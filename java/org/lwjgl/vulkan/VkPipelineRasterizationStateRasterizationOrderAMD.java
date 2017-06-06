@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Structure defining rasterization order for a graphics pipeline.
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
@@ -23,12 +23,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code rasterizationOrder} <b>must</b> be a valid {@code VkRasterizationOrderAMD} value</li>
  * </ul>
  * 
+ * <p>If the {@code VK_AMD_rasterization_order} device extension is not enabled or the application does not request a particular rasterization order through specifying a {@link VkPipelineRasterizationStateRasterizationOrderAMD} structure then the rasterization order used by the graphics pipeline defaults to {@link AMDRasterizationOrder#VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}.</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code rasterizationOrder} &ndash; the primitive rasterization order to use.</li>
+ * <li>{@code rasterizationOrder} &ndash; a {@code VkRasterizationOrderAMD} value specifying the primitive rasterization order to use.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

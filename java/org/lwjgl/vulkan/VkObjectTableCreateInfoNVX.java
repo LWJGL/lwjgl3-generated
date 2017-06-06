@@ -17,40 +17,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying the parameters of a newly created object table.
  * 
- * <h5>Description</h5>
- * 
- * <p>Types which <b>can</b> be set in {@code pObjectEntryTypes} are:</p>
- * 
- * <code><pre>
- * typedef enum VkObjectEntryTypeNVX {
- *     VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX = 0,
- *     VK_OBJECT_ENTRY_PIPELINE_NVX = 1,
- *     VK_OBJECT_ENTRY_INDEX_BUFFER_NVX = 2,
- *     VK_OBJECT_ENTRY_VERTEX_BUFFER_NVX = 3,
- *     VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX = 4,
- * } VkObjectEntryTypeNVX;</pre></code>
- * 
- * <ul>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_DESCRIPTOR_SET_NVX OBJECT_ENTRY_DESCRIPTOR_SET_NVX} indicates a {@code VkDescriptorSet} resource entry that is registered via {@link VkObjectTableDescriptorSetEntryNVX}.</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_PIPELINE_NVX OBJECT_ENTRY_PIPELINE_NVX} indicates a {@code VkPipeline} resource entry that is registered via {@link VkObjectTablePipelineEntryNVX}.</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_INDEX_BUFFER_NVX OBJECT_ENTRY_INDEX_BUFFER_NVX} indicates a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableIndexBufferEntryNVX}.</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_VERTEX_BUFFER_NVX OBJECT_ENTRY_VERTEX_BUFFER_NVX} indicates a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableVertexBufferEntryNVX}.</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_PUSH_CONSTANT_NVX OBJECT_ENTRY_PUSH_CONSTANT_NVX} indicates the resource entry is registered via {@link VkObjectTablePushConstantEntryNVX}.</li>
- * </ul>
- * 
- * <p>Bits which <b>can</b> be set in {@code pObjectEntryUsageFlags} are:</p>
- * 
- * <code><pre>
- * typedef enum VkObjectEntryUsageFlagBitsNVX {
- *     VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX = 0x00000001,
- *     VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX = 0x00000002,
- * } VkObjectEntryUsageFlagBitsNVX;</pre></code>
- * 
- * <ul>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
- * <li>{@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
- * </ul>
- * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -84,9 +50,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code objectCount} &ndash; the number of entry configurations that the object table supports.</li>
- * <li>{@code pObjectEntryTypes} &ndash; an array of {@code VkObjectEntryTypeNVX} providing the entry type of a given configuration.</li>
- * <li>{@code pObjectEntryCounts} &ndash; an array of counts how many objects can be registered in the table.</li>
- * <li>{@code pObjectEntryUsageFlags} &ndash; an array of bitmasks describing the binding usage of the entry. See {@code VkObjectEntryUsageFlagBitsNVX} below for a description of the supported bits.</li>
+ * <li>{@code pObjectEntryTypes} &ndash; an array of {@code VkObjectEntryTypeNVX} values providing the entry type of a given configuration.</li>
+ * <li>{@code pObjectEntryCounts} &ndash; an array of counts of how many objects can be registered in the table.</li>
+ * <li>{@code pObjectEntryUsageFlags} &ndash; an array of bitmasks of {@code VkObjectEntryUsageFlagBitsNVX} specifying the binding usage of the entry.</li>
  * <li>{@code maxUniformBuffersPerDescriptor} &ndash; the maximum number of {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC} used by any single registered {@code VkDescriptorSet} in this table.</li>
  * <li>{@code maxStorageBuffersPerDescriptor} &ndash; the maximum number of {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC} used by any single registered {@code VkDescriptorSet} in this table.</li>
  * <li>{@code maxStorageImagesPerDescriptor} &ndash; the maximum number of {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} used by any single registered {@code VkDescriptorSet} in this table.</li>

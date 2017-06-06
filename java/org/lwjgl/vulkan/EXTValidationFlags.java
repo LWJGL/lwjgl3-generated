@@ -52,24 +52,14 @@ public final class EXTValidationFlags {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For more information, see:</p>
-     * 
      * <ul>
-     * <li>The reference page for {@link VkValidationFlagsEXT}, where this interface is defined.</li>
-     * <li>The See Also section for other reference pages using this type.</li>
-     * <li>The Vulkan Specification.</li>
+     * <li>{@link #VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT} specifies that all validation checks are disabled.</li>
+     * <li>{@link #VK_VALIDATION_CHECK_SHADERS_EXT VALIDATION_CHECK_SHADERS_EXT} specifies that shader validation is disabled.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
      * <p>{@link VkValidationFlagsEXT}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT}</li>
-     * <li>{@link #VK_VALIDATION_CHECK_SHADERS_EXT VALIDATION_CHECK_SHADERS_EXT}</li>
-     * </ul>
      */
     public static final int
         VK_VALIDATION_CHECK_ALL_EXT     = 0,

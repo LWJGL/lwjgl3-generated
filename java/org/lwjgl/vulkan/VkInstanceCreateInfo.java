@@ -24,8 +24,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} <b>must</b> be {@code NULL} or a pointer to a valid instance of {@link VkDebugReportCallbackCreateInfoEXT}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>If {@code pApplicationInfo} is not {@code NULL}, {@code pApplicationInfo} <b>must</b> be a pointer to a valid {@link VkApplicationInfo} structure</li>
- * <li>If {@code enabledLayerCount} is not 0, {@code ppEnabledLayerNames} <b>must</b> be a pointer to an array of {@code enabledLayerCount} null-terminated strings</li>
- * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount} null-terminated strings</li>
+ * <li>If {@code enabledLayerCount} is not 0, {@code ppEnabledLayerNames} <b>must</b> be a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings</li>
+ * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings</li>
  * </ul>
  * 
  * <h5>See Also</h5>

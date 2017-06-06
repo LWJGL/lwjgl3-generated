@@ -53,7 +53,8 @@ public class NVExternalMemoryCapabilities {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} or {@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV} indicate a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV} or, in the case of {@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV}, one duplicated from such a handle using {@code DuplicateHandle()}.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV} indicates a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV}.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} indicates a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV}, or one duplicated from such a handle using {@code DuplicateHandle()}.</li>
      * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV} indicates a valid NT handle to memory returned by {@code IDXGIResource1::ftext:CreateSharedHandle()}, or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
      * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV} indicates a handle to memory returned by {@code IDXGIResource::GetSharedHandle()}.</li>
      * </ul>
@@ -74,9 +75,9 @@ public class NVExternalMemoryCapabilities {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV}: External memory of the specified type <b>must</b> be created as a dedicated allocation when used in the manner specified.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV}: The implementation supports exporting handles of the specified type.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV}: The implementation supports importing handles of the specified type.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV} indicates that external memory of the specified type <b>must</b> be created as a dedicated allocation when used in the manner specified.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV} indicates that the implementation supports exporting handles of the specified type.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV} indicates that the implementation supports importing handles of the specified type.</li>
      * </ul>
      * 
      * <h5>See Also</h5>

@@ -17,62 +17,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying the parameters of a newly created buffer object.
  * 
- * <h5>Description</h5>
- * 
- * <p>Bits which <b>can</b> be set in {@code usage} are:</p>
- * 
- * <code><pre>
- * typedef enum VkBufferUsageFlagBits {
- *     VK_BUFFER_USAGE_TRANSFER_SRC_BIT = 0x00000001,
- *     VK_BUFFER_USAGE_TRANSFER_DST_BIT = 0x00000002,
- *     VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT = 0x00000004,
- *     VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT = 0x00000008,
- *     VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT = 0x00000010,
- *     VK_BUFFER_USAGE_STORAGE_BUFFER_BIT = 0x00000020,
- *     VK_BUFFER_USAGE_INDEX_BUFFER_BIT = 0x00000040,
- *     VK_BUFFER_USAGE_VERTEX_BUFFER_BIT = 0x00000080,
- *     VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT = 0x00000100,
- * } VkBufferUsageFlagBits;</pre></code>
- * 
- * <ul>
- * <li>{@link VK10#VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} indicates that the buffer <b>can</b> be used as the source of a <em>transfer command</em> (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link VK10#VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>).</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} indicates that the buffer <b>can</b> be used as the destination of a transfer command.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} indicates that the buffer <b>can</b> be used to create a {@code VkBufferView} suitable for occupying a {@code VkDescriptorSet} slot of type {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER}.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT} indicates that the buffer <b>can</b> be used to create a {@code VkBufferView} suitable for occupying a {@code VkDescriptorSet} slot of type {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER}.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT BUFFER_USAGE_UNIFORM_BUFFER_BIT} indicates that the buffer <b>can</b> be used in a {@link VkDescriptorBufferInfo} suitable for occupying a {@code VkDescriptorSet} slot either of type {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_STORAGE_BUFFER_BIT BUFFER_USAGE_STORAGE_BUFFER_BIT} indicates that the buffer <b>can</b> be used in a {@link VkDescriptorBufferInfo} suitable for occupying a {@code VkDescriptorSet} slot either of type {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_INDEX_BUFFER_BIT BUFFER_USAGE_INDEX_BUFFER_BIT} indicates that the buffer is suitable for passing as the {@code buffer} parameter to {@link VK10#vkCmdBindIndexBuffer CmdBindIndexBuffer}.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_VERTEX_BUFFER_BIT BUFFER_USAGE_VERTEX_BUFFER_BIT} indicates that the buffer is suitable for passing as an element of the {@code pBuffers} array to {@link VK10#vkCmdBindVertexBuffers CmdBindVertexBuffers}.</li>
- * <li>{@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} indicates that the buffer is suitable for passing as the {@code buffer} parameter to {@link VK10#vkCmdDrawIndirect CmdDrawIndirect}, {@link VK10#vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect}, or {@link VK10#vkCmdDispatchIndirect CmdDispatchIndirect}. It is also suitable for passing as the {@code buffer} member of {@link VkIndirectCommandsTokenNVX}, or {@code sequencesCountBuffer} or {@code sequencesIndexBuffer} member of {@link VkCmdProcessCommandsInfoNVX}</li>
- * </ul>
- * 
- * <p>Any combination of bits <b>can</b> be specified for {@code usage}, but at least one of the bits <b>must</b> be set in order to create a valid buffer.</p>
- * 
- * <p>Bits which <b>can</b> be set in {@code flags} are:</p>
- * 
- * <code><pre>
- * typedef enum VkBufferCreateFlagBits {
- *     VK_BUFFER_CREATE_SPARSE_BINDING_BIT = 0x00000001,
- *     VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT = 0x00000002,
- *     VK_BUFFER_CREATE_SPARSE_ALIASED_BIT = 0x00000004,
- * } VkBufferCreateFlagBits;</pre></code>
- * 
- * <p>These bits have the following meanings:</p>
- * 
- * <ul>
- * <li>{@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} indicates that the buffer will be backed using sparse memory binding.</li>
- * <li>{@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT} indicates that the buffer <b>can</b> be partially backed using sparse memory binding. Buffers created with this flag <b>must</b> also be created with the {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} flag.</li>
- * <li>{@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT} indicates that the buffer will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another buffer (or another portion of the same buffer). Buffers created with this flag <b>must</b> also be created with the {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} flag.</li>
- * </ul>
- * 
- * <p>See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory-sparseresourcefeatures">Sparse Resource Features</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features">Physical Device Features</a> for details of the sparse memory features supported on a device.</p>
- * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
  * <li>{@code size} <b>must</b> be greater than 0</li>
  * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code pQueueFamilyIndices} <b>must</b> be a pointer to an array of {@code queueFamilyIndexCount} {@code uint32_t} values</li>
  * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, {@code queueFamilyIndexCount} <b>must</b> be greater than 1</li>
+ * <li>If {@code sharingMode} is {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}, each element of {@code pQueueFamilyIndices} <b>must</b> be unique and <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by either {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} or {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR} for the {@code physicalDevice} that was used to create {@code device}</li>
  * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sparseBinding">sparse bindings</a> feature is not enabled, {@code flags} <b>must</b> not contain {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}</li>
  * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sparseResidencyBuffer">sparse buffer residency</a> feature is not enabled, {@code flags} <b>must</b> not contain {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}</li>
  * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sparseResidencyAliased">sparse aliased residency</a> feature is not enabled, {@code flags} <b>must</b> not contain {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
@@ -101,10 +52,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask describing additional parameters of the buffer. See {@code VkBufferCreateFlagBits} below for a description of the supported bits.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkBufferCreateFlagBits} specifying additional parameters of the buffer.</li>
  * <li>{@code size} &ndash; the size in bytes of the buffer to be created.</li>
- * <li>{@code usage} &ndash; a bitmask describing the allowed usages of the buffer. See {@code VkBufferUsageFlagBits} below for a description of the supported bits.</li>
- * <li>{@code sharingMode} &ndash; the sharing mode of the buffer when it will be accessed by multiple queue families, see {@code VkSharingMode} in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-sharing">Resource Sharing</a> section below for supported values.</li>
+ * <li>{@code usage} &ndash; a bitmask of {@code VkBufferUsageFlagBits} specifying allowed usages of the buffer. Any combination of bits <b>can</b> be specified for {@code usage}, but at least one of the bits <b>must</b> be set in order to create a valid buffer.</li>
+ * <li>{@code sharingMode} &ndash; a {@code VkSharingMode} value specifying the sharing mode of the buffer when it will be accessed by multiple queue families.</li>
  * <li>{@code queueFamilyIndexCount} &ndash; the number of entries in the {@code pQueueFamilyIndices} array.</li>
  * <li>{@code pQueueFamilyIndices} &ndash; a list of queue families that will access this buffer (ignored if {@code sharingMode} is not {@link VK10#VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT}).</li>
  * </ul>

@@ -32,18 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code disabledValidationCheckCount} &ndash; the number of checks to disable.</li>
- * <li>{@code pDisabledValidationChecks} &ndash; a pointer to an array of values specifying the validation checks to be disabled. Checks which <b>may</b> be specified include:
- * 
- * <code><pre>
- * typedef enum VkValidationCheckEXT {
- *     VK_VALIDATION_CHECK_ALL_EXT = 0,
- *     VK_VALIDATION_CHECK_SHADERS_EXT = 1,
- * } VkValidationCheckEXT;</pre></code>
- * 
- * <ul>
- * <li>{@link EXTValidationFlags#VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT} disables all validation checks.</li>
- * <li>{@link EXTValidationFlags#VK_VALIDATION_CHECK_SHADERS_EXT VALIDATION_CHECK_SHADERS_EXT} disables all shader validation.</li>
- * </ul></li>
+ * <li>{@code pDisabledValidationChecks} &ndash; a pointer to an array of {@code VkValidationCheckEXT} values specifying the validation checks to be disabled.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

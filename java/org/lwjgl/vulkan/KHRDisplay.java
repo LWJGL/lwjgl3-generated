@@ -96,13 +96,11 @@ public class KHRDisplay {
      * 
      * <h5>Description</h5>
      * 
-     * <p>These values are described as follows:</p>
-     * 
      * <ul>
-     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR}: The source image will be treated as opaque.</li>
-     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}: A global alpha value <b>must</b> be specified that will be applied to all pixels in the source image.</li>
-     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR}: The alpha value will be determined by the alpha channel of the source image&#8217;s pixels. If the source format contains no alpha values, no blending will be applied. The source alpha values are not premultiplied into the source image&#8217;s other color channels.</li>
-     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR}: This is equivalent to {@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR} except the source alpha values are assumed to be premultiplied into the source image&#8217;s other color channels.</li>
+     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR} specifies that the source image will be treated as opaque.</li>
+     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR} specifies that a global alpha value <b>must</b> be specified that will be applied to all pixels in the source image.</li>
+     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR} specifies that the alpha value will be determined by the alpha channel of the source image&#8217;s pixels. If the source format contains no alpha values, no blending will be applied. The source alpha values are not premultiplied into the source image&#8217;s other color channels.</li>
+     * <li>{@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR} is equivalent to {@link #VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR}, except the source alpha values are assumed to be premultiplied into the source image&#8217;s other color channels.</li>
      * </ul>
      * 
      * <h5>See Also</h5>

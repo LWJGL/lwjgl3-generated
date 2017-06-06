@@ -25,9 +25,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code externalMemoryFeatures} &ndash; a bitmask describing the features of {@code handleType}. See {@code VkExternalMemoryFeatureFlagBitsKHX} below for a description of the possible bits.</li>
- * <li>{@code exportFromImportedHandleTypes} &ndash; a bitmask specifying handle types that can be used to import objects from which {@code handleType} can be exported.</li>
- * <li>{@code compatibleHandleTypes} &ndash; a bitmask specifying handle types which can be specified at the same time as {@code handleType} when creating an image compatible with external memory.</li>
+ * <li>{@code externalMemoryFeatures} &ndash; a bitmask of {@code VkExternalMemoryFeatureFlagBitsKHX} specifying the features of {@code handleType}.</li>
+ * <li>{@code exportFromImportedHandleTypes} &ndash; a bitmask of {@code VkExternalMemoryHandleTypeFlagBitsKHX} specifying which types of imported handle {@code handleType} <b>can</b> be exported from.</li>
+ * <li>{@code compatibleHandleTypes} &ndash; a bitmask of {@code VkExternalMemoryHandleTypeFlagBitsKHX} specifying handle types which <b>can</b> be specified at the same time as {@code handleType} when creating an image compatible with external memory.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

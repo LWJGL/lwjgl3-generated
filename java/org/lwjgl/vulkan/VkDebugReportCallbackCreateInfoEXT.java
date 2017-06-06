@@ -48,24 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; indicate which event(s) will cause this callback to be called. Flags are interpreted as bitmasks and multiple <b>can</b> be set. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkDebugReportFlagBitsEXT {
- *     VK_DEBUG_REPORT_INFORMATION_BIT_EXT = 0x00000001,
- *     VK_DEBUG_REPORT_WARNING_BIT_EXT = 0x00000002,
- *     VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT = 0x00000004,
- *     VK_DEBUG_REPORT_ERROR_BIT_EXT = 0x00000008,
- *     VK_DEBUG_REPORT_DEBUG_BIT_EXT = 0x00000010,
- * } VkDebugReportFlagBitsEXT;</pre></code>
- * 
- * <ul>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_ERROR_BIT_EXT DEBUG_REPORT_ERROR_BIT_EXT} indicates an error that may cause undefined results, including an application crash.</li>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_WARNING_BIT_EXT DEBUG_REPORT_WARNING_BIT_EXT} indicates use of Vulkan that may expose an app bug. Such cases may not be immediately harmful, such as a fragment shader outputting to a location with no attachment. Other cases may point to behavior that is almost certainly bad when unintended such as using an image whose memory has not been filled. In general if you see a warning but you know that the behavior is intended/desired, then simply ignore the warning.</li>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT} indicates a potentially non-optimal use of Vulkan, e.g. using {@link VK10#vkCmdClearColorImage CmdClearColorImage} when setting {@link VkAttachmentDescription}{@code ::loadOp} to {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR} would have worked.</li>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_INFORMATION_BIT_EXT DEBUG_REPORT_INFORMATION_BIT_EXT} indicates an informational message such as resource details that may be handy when debugging an application.</li>
- * <li>{@link EXTDebugReport#VK_DEBUG_REPORT_DEBUG_BIT_EXT DEBUG_REPORT_DEBUG_BIT_EXT} indicates diagnostic information from the implementation and layers.</li>
- * </ul></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkDebugReportFlagBitsEXT} specifying which event(s) will cause this callback to be called.</li>
  * <li>{@code pfnCallback} &ndash; the application callback function to call.</li>
  * <li>{@code pUserData} &ndash; user data to be passed to the callback.</li>
  * </ul>

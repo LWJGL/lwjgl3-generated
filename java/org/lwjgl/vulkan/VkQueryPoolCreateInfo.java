@@ -16,6 +16,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying parameters of a newly created query pool.
  * 
+ * <h5>Description</h5>
+ * 
+ * <p>{@code pipelineStatistics} is ignored if {@code queryType} is not {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}.</p>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -42,16 +46,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; reserved for future use.</li>
- * <li>{@code queryType} &ndash; the type of queries managed by the pool, and <b>must</b> be one of the values
- * 
- * <code><pre>
- * typedef enum VkQueryType {
- *     VK_QUERY_TYPE_OCCLUSION = 0,
- *     VK_QUERY_TYPE_PIPELINE_STATISTICS = 1,
- *     VK_QUERY_TYPE_TIMESTAMP = 2,
- * } VkQueryType;</pre></code></li>
+ * <li>{@code queryType} &ndash; a {@code VkQueryType} value specifying the type of queries managed by the pool.</li>
  * <li>{@code queryCount} &ndash; the number of queries managed by the pool.</li>
- * <li>{@code pipelineStatistics} &ndash; a bitmask indicating which counters will be returned in queries on the new pool, as described below in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-pipestats">the “Pipeline Statistics Queries” section</a>. {@code pipelineStatistics} is ignored if {@code queryType} is not {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}.</li>
+ * <li>{@code pipelineStatistics} &ndash; a bitmask of {@code VkQueryPipelineStatisticFlagBits} specifying which counters will be returned in queries on the new pool, as described below in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-pipestats">the “Pipeline Statistics Queries” section</a>.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

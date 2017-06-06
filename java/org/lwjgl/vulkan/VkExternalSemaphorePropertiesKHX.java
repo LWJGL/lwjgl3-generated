@@ -27,9 +27,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code exportFromImportedHandleTypes} &ndash; a bitmask specifying handle types that can be used to import objects from which {@code handleType} can be exported.</li>
- * <li>{@code compatibleHandleTypes} &ndash; a bitmask specifying handle types which can be specified at the same time as {@code handleType} when creating a semaphore.</li>
- * <li>{@code externalSemaphoreFeatures} &ndash; a bitmask describing the features of {@code handleType}. See {@code VkExternalSemaphoreFeatureFlagBitsKHX} below for a description of the possible bits.</li>
+ * <li>{@code exportFromImportedHandleTypes} &ndash; a bitmask of {@code VkExternalSemaphoreHandleTypeFlagBitsKHX} specifying which types of imported handle {@code handleType} <b>can</b> be exported from.</li>
+ * <li>{@code compatibleHandleTypes} &ndash; a bitmask of {@code VkExternalSemaphoreHandleTypeFlagBitsKHX} specifying handle types which <b>can</b> be specified at the same time as {@code handleType} when creating a semaphore.</li>
+ * <li>{@code externalSemaphoreFeatures} &ndash; a bitmask of {@code VkExternalSemaphoreFeatureFlagBitsKHX} describing the features of {@code handleType}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -33,14 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; defines the initial state and behavior of the fence. Bits which <b>can</b> be set include:
- * 
- * <code><pre>
- * typedef enum VkFenceCreateFlagBits {
- *     VK_FENCE_CREATE_SIGNALED_BIT = 0x00000001,
- * } VkFenceCreateFlagBits;</pre></code>
- * 
- * <p>If {@code flags} contains {@link VK10#VK_FENCE_CREATE_SIGNALED_BIT FENCE_CREATE_SIGNALED_BIT} then the fence object is created in the signaled state; otherwise it is created in the unsignaled state.</p></li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkFenceCreateFlagBits} specifying the initial state and behavior of the fence.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

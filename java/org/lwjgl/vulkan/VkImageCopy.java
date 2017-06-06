@@ -28,26 +28,54 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If either of the calling command&#8217;s {@code srcImage} or {@code dstImage} parameters are of {@code VkImageType} {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, the {@code baseArrayLayer} and {@code layerCount} members of the corresponding subresource <b>must</b> be 0 and 1, respectively</li>
  * <li>The {@code aspectMask} member of {@code srcSubresource} <b>must</b> specify aspects present in the calling command&#8217;s {@code srcImage}</li>
  * <li>The {@code aspectMask} member of {@code dstSubresource} <b>must</b> specify aspects present in the calling command&#8217;s {@code dstImage}</li>
- * <li>{@code srcOffset.x} and ({@code extent.width} + {@code srcOffset.x}) <b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource width</li>
- * <li>{@code srcOffset.y} and ({@code extent.height} + {@code srcOffset.y}) <b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource height</li>
+ * <li>{@code srcOffset.x} and<code>(extent.width srcOffset.x)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource width</p></li>
+ * <li>{@code srcOffset.y} and<code>(extent.height srcOffset.y)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource height</p></li>
  * <li>If the calling command&#8217;s {@code srcImage} is of type {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, then {@code srcOffset.y} <b>must</b> be 0 and {@code extent.height} <b>must</b> be 1.</li>
- * <li>{@code srcOffset.z} and ({@code extent.depth} + {@code srcOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource depth</li>
+ * <li>{@code srcOffset.z} and<code>(extent.depth srcOffset.z)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource depth</p></li>
  * <li>If the calling command&#8217;s {@code srcImage} is of type {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D} or {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, then {@code srcOffset.z} <b>must</b> be 0 and {@code extent.depth} <b>must</b> be 1.</li>
- * <li>{@code srcSubresource.baseArrayLayer} <b>must</b> be less than and ({@code srcSubresource.layerCount} + {@code srcSubresource.baseArrayLayer}) <b>must</b> be less than or equal to the number of layers in the source image</li>
- * <li>{@code dstOffset.x} and ({@code extent.width} + {@code dstOffset.x}) <b>must</b> both be greater than or equal to 0 and less than or equal to the destination image subresource width</li>
- * <li>{@code dstOffset.y} and ({@code extent.height} + {@code dstOffset.y}) <b>must</b> both be greater than or equal to 0 and less than or equal to the destination image subresource height</li>
+ * <li>{@code srcSubresource.baseArrayLayer} <b>must</b> be less than and<code>(srcSubresource.layerCount srcSubresource.baseArrayLayer)</code>
+ * 
+ * <p><b>must</b> be less than or equal to the number of layers in the source image</p></li>
+ * <li>{@code dstOffset.x} and<code>(extent.width dstOffset.x)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the destination image subresource width</p></li>
+ * <li>{@code dstOffset.y} and<code>(extent.height dstOffset.y)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the destination image subresource height</p></li>
  * <li>If the calling command&#8217;s {@code dstImage} is of type {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}, then {@code dstOffset.y} <b>must</b> be 0 and {@code extent.height} <b>must</b> be 1.</li>
- * <li>{@code dstOffset.z} and ({@code extent.depth} + {@code dstOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the destination image subresource depth</li>
+ * <li>{@code dstOffset.z} and<code>(extent.depth dstOffset.z)</code>
+ * 
+ * <p><b>must</b> both be greater than or equal to 0 and less than or equal to the destination image subresource depth</p></li>
  * <li>If the calling command&#8217;s {@code dstImage} is of type {@link VK10#VK_IMAGE_TYPE_1D IMAGE_TYPE_1D} or {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}, then {@code dstOffset.z} <b>must</b> be 0 and {@code extent.depth} <b>must</b> be 1.</li>
- * <li>{@code dstSubresource.baseArrayLayer} <b>must</b> be less than and ({@code dstSubresource.layerCount} + {@code dstSubresource.baseArrayLayer}) <b>must</b> be less than or equal to the number of layers in the destination image</li>
+ * <li>{@code dstSubresource.baseArrayLayer} <b>must</b> be less than and<code>(dstSubresource.layerCount dstSubresource.baseArrayLayer)</code>
+ * 
+ * <p><b>must</b> be less than or equal to the number of layers in the destination image</p></li>
  * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, all members of {@code srcOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
- * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, {@code extent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code extent.width} + {@code srcOffset.x}) <b>must</b> equal the source image subresource width</li>
- * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, {@code extent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code extent.height} + {@code srcOffset.y}) <b>must</b> equal the source image subresource height</li>
- * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, {@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code extent.depth} + {@code srcOffset.z}) <b>must</b> equal the source image subresource depth</li>
+ * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, {@code extent.width} <b>must</b> be a multiple of the compressed texel block width or<code>(extent.width + srcOffset.x)</code>
+ * 
+ * <p><b>must</b> equal the source image subresource width</p></li>
+ * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, {@code extent.height} <b>must</b> be a multiple of the compressed texel block height or<code>(extent.height + srcOffset.y)</code>
+ * 
+ * <p><b>must</b> equal the source image subresource height</p></li>
+ * <li>If the calling command&#8217;s {@code srcImage} is a compressed format image, {@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or<code>(extent.depth + srcOffset.z)</code>
+ * 
+ * <p><b>must</b> equal the source image subresource depth</p></li>
  * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, all members of {@code dstOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
- * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, {@code extent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code extent.width} + {@code dstOffset.x}) <b>must</b> equal the destination image subresource width</li>
- * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, {@code extent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code extent.height} + {@code dstOffset.y}) <b>must</b> equal the destination image subresource height</li>
- * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, {@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code extent.depth} + {@code dstOffset.z}) <b>must</b> equal the destination image subresource depth</li>
+ * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, {@code extent.width} <b>must</b> be a multiple of the compressed texel block width or<code>(extent.width + dstOffset.x)</code>
+ * 
+ * <p><b>must</b> equal the destination image subresource width</p></li>
+ * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, {@code extent.height} <b>must</b> be a multiple of the compressed texel block height or<code>(extent.height + dstOffset.y)</code>
+ * 
+ * <p><b>must</b> equal the destination image subresource height</p></li>
+ * <li>If the calling command&#8217;s {@code dstImage} is a compressed format image, {@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or<code>(extent.depth + dstOffset.z)</code>
+ * 
+ * <p><b>must</b> equal the destination image subresource depth</p></li>
  * <li>{@code srcOffset}, {@code dstOffset}, and {@code extent} <b>must</b> respect the image transfer granularity requirements of the queue family that it will be submitted against, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-physical-device-enumeration">Physical Device Enumeration</a></li>
  * </ul>
  * 

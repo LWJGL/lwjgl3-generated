@@ -19,18 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt>1</dt>
- * <dd><code><pre>
- * typedef enum VkSampleCountFlagBits {
- *     VK_SAMPLE_COUNT_1_BIT = 0x00000001,
- *     VK_SAMPLE_COUNT_2_BIT = 0x00000002,
- *     VK_SAMPLE_COUNT_4_BIT = 0x00000004,
- *     VK_SAMPLE_COUNT_8_BIT = 0x00000008,
- *     VK_SAMPLE_COUNT_16_BIT = 0x00000010,
- *     VK_SAMPLE_COUNT_32_BIT = 0x00000020,
- *     VK_SAMPLE_COUNT_64_BIT = 0x00000040,
- * } VkSampleCountFlagBits;</pre></code>
- * 
- * <p>The sample count limits defined above represent the minimum supported sample counts for each image type. Individual images <b>may</b> support additional sample counts, which are queried using {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-supported-sample-counts">Supported Sample Counts</a>.</p></dd>
+ * <dd>For all bitmasks of {@code VkSampleCountFlagBits}, the sample count limits defined above represent the minimum supported sample counts for each image type. Individual images <b>may</b> support additional sample counts, which are queried using {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-supported-sample-counts">Supported Sample Counts</a>.</dd>
  * </dl>
  * 
  * <h5>See Also</h5>
@@ -48,7 +37,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code maxTexelBufferElements} &ndash; the maximum number of addressable texels for a buffer view created on a buffer which was created with the {@link VK10#VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} or {@link VK10#VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT} set in the {@code usage} member of the {@link VkBufferCreateInfo} structure.</li>
  * <li>{@code maxUniformBufferRange} &ndash; the maximum value that <b>can</b> be specified in the {@code range} member of any {@link VkDescriptorBufferInfo} structures passed to a call to {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets} for descriptors of type {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}.</li>
  * <li>{@code maxStorageBufferRange} &ndash; the maximum value that <b>can</b> be specified in the {@code range} member of any {@link VkDescriptorBufferInfo} structures passed to a call to {@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets} for descriptors of type {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}.</li>
- * <li>{@code maxPushConstantsSize} &ndash; the maximum size, in bytes, of the pool of push constant memory. For each of the push constant ranges indicated by the {@code pPushConstantRanges} member of the {@link VkPipelineLayoutCreateInfo} structure, {@code offset} + {@code size} <b>must</b> be less than or equal to this limit.</li>
+ * <li>{@code maxPushConstantsSize} &ndash; the maximum size, in bytes, of the pool of push constant memory. For each of the push constant ranges indicated by the {@code pPushConstantRanges} member of the {@link VkPipelineLayoutCreateInfo} structure,<code>(offset + size)</code>
+ * 
+ * <p><b>must</b> be less than or equal to this limit.</p></li>
  * <li>{@code maxMemoryAllocationCount} &ndash; the maximum number of device memory allocations, as created by {@link VK10#vkAllocateMemory AllocateMemory}, which <b>can</b> simultaneously exist.</li>
  * <li>{@code maxSamplerAllocationCount} &ndash; the maximum number of sampler objects, as created by {@link VK10#vkCreateSampler CreateSampler}, which <b>can</b> simultaneously exist on a device.</li>
  * <li>{@code bufferImageGranularity} &ndash; the granularity, in bytes, at which buffer or linear image resources, and optimal image resources <b>can</b> be bound to adjacent offsets in the same {@code VkDeviceMemory} object without aliasing. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-bufferimagegranularity">Buffer-Image Granularity</a> for more details.</li>
@@ -129,7 +120,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>The intent of the {@code viewportBoundsRange} limit is to allow a maximum sized viewport to be arbitrarily shifted relative to the output target as long as at least some portion intersects. This would give a bounds limit of</p><code>[-size + 1, 2 {times} size - 1]</code>
+ * <p>The intent of the {@code viewportBoundsRange} limit is to allow a maximum sized viewport to be arbitrarily shifted relative to the output target as long as at least some portion intersects. This would give a bounds limit of</p><code>[-size {plus} 1, 2 {times} size - 1]</code>
  * 
  * <p>which would allow all possible non-empty-set intersections of the output target and the viewport. Since these numbers are typically powers of two, picking the signed number range using the smallest possible number of bits ends up with the specified range.</p>
  * </div></li>
@@ -148,16 +139,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code maxFramebufferWidth} &ndash; the maximum width for a framebuffer. The {@code width} member of the {@link VkFramebufferCreateInfo} structure <b>must</b> be less than or equal to this limit.</li>
  * <li>{@code maxFramebufferHeight} &ndash; the maximum height for a framebuffer. The {@code height} member of the {@link VkFramebufferCreateInfo} structure <b>must</b> be less than or equal to this limit.</li>
  * <li>{@code maxFramebufferLayers} &ndash; the maximum layer count for a layered framebuffer. The {@code layers} member of the {@link VkFramebufferCreateInfo} structure <b>must</b> be less than or equal to this limit.</li>
- * <li>{@code framebufferColorSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the color sample counts that are supported for all framebuffer color attachments.</li>
- * <li>{@code framebufferDepthSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the supported depth sample counts for all framebuffer depth/stencil attachments, when the format includes a depth component.</li>
- * <li>{@code framebufferStencilSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the supported stencil sample counts for all framebuffer depth/stencil attachments, when the format includes a stencil component.</li>
- * <li>{@code framebufferNoAttachmentsSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the supported sample counts for a framebuffer with no attachments.</li>
+ * <li>{@code framebufferColorSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the color sample counts that are supported for all framebuffer color attachments.</li>
+ * <li>{@code framebufferDepthSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the supported depth sample counts for all framebuffer depth/stencil attachments, when the format includes a depth component.</li>
+ * <li>{@code framebufferStencilSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the supported stencil sample counts for all framebuffer depth/stencil attachments, when the format includes a stencil component.</li>
+ * <li>{@code framebufferNoAttachmentsSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the supported sample counts for a framebuffer with no attachments.</li>
  * <li>{@code maxColorAttachments} &ndash; the maximum number of color attachments that <b>can</b> be used by a subpass in a render pass. The {@code colorAttachmentCount} member of the {@link VkSubpassDescription} structure <b>must</b> be less than or equal to this limit.</li>
- * <li>{@code sampledImageColorSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and a non-integer color format.</li>
- * <li>{@code sampledImageIntegerSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and an integer color format.</li>
- * <li>{@code sampledImageDepthSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and a depth format.</li>
- * <li>{@code sampledImageStencilSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the sample supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and a stencil format.</li>
- * <li>{@code storageImageSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} bits indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, and {@code usage} containing {@link VK10#VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}.</li>
+ * <li>{@code sampledImageColorSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and a non-integer color format.</li>
+ * <li>{@code sampledImageIntegerSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and an integer color format.</li>
+ * <li>{@code sampledImageDepthSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and a depth format.</li>
+ * <li>{@code sampledImageStencilSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the sample supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code usage} containing {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and a stencil format.</li>
+ * <li>{@code storageImageSampleCounts} &ndash; a bitmask<sup>1</sup> of {@code VkSampleCountFlagBits} indicating the sample counts supported for all 2D images created with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, and {@code usage} containing {@link VK10#VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}.</li>
  * <li>{@code maxSampleMaskWords} &ndash; the maximum number of array elements of a variable decorated with the {@code SampleMask} built-in decoration.</li>
  * <li>{@code timestampComputeAndGraphics} &ndash; indicates support for timestamps on all graphics and compute queues. If this limit is set to {@link VK10#VK_TRUE TRUE}, all queues that advertise the {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} or {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} in the {@link VkQueueFamilyProperties}{@code ::queueFlags} support {@link VkQueueFamilyProperties}{@code ::timestampValidBits} of at least 36. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-timestamps">Timestamp Queries</a>.</li>
  * <li>{@code timestampPeriod} &ndash; the number of nanoseconds required: for a timestamp query to be incremented by 1. See <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-timestamps">Timestamp Queries</a>.</li>
