@@ -6058,7 +6058,7 @@ public final class GLCapabilities {
         GL_ARB_depth_clamp = ext.contains("GL_ARB_depth_clamp");
         GL_ARB_depth_texture = ext.contains("GL_ARB_depth_texture");
         GL_ARB_derivative_control = ext.contains("GL_ARB_derivative_control");
-        GL_ARB_direct_state_access = ext.contains("GL_ARB_direct_state_access") && checkExtension("GL_ARB_direct_state_access", ARBDirectStateAccess.isAvailable(this));
+        GL_ARB_direct_state_access = ext.contains("GL_ARB_direct_state_access") && checkExtension("GL_ARB_direct_state_access", ARBDirectStateAccess.isAvailable(this, ext));
         GL_ARB_draw_buffers = ext.contains("GL_ARB_draw_buffers") && checkExtension("GL_ARB_draw_buffers", ARBDrawBuffers.isAvailable(this));
         GL_ARB_draw_buffers_blend = ext.contains("GL_ARB_draw_buffers_blend") && checkExtension("GL_ARB_draw_buffers_blend", ARBDrawBuffersBlend.isAvailable(this));
         GL_ARB_draw_elements_base_vertex = ext.contains("GL_ARB_draw_elements_base_vertex") && checkExtension("GL_ARB_draw_elements_base_vertex", ARBDrawElementsBaseVertex.isAvailable(this));
