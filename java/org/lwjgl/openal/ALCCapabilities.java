@@ -74,6 +74,8 @@ public final class ALCCapabilities {
 	public final boolean ALC_SOFT_HRTF;
     /** When true, {@link SOFTLoopback} is supported. */
 	public final boolean ALC_SOFT_loopback;
+    /** When true, {@link SOFTOutputLimiter} is supported. */
+	public final boolean ALC_SOFT_output_limiter;
     /** When true, {@link SOFTPauseDevice} is supported. */
 	public final boolean ALC_SOFT_pause_device;
 
@@ -121,6 +123,7 @@ public final class ALCCapabilities {
 		ALC_LOKI_audio_channel = ext.contains("ALC_LOKI_audio_channel");
 		ALC_SOFT_HRTF = ext.contains("ALC_SOFT_HRTF") && checkExtension("ALC_SOFT_HRTF", SOFTHRTF.isAvailable(this));
 		ALC_SOFT_loopback = ext.contains("ALC_SOFT_loopback") && checkExtension("ALC_SOFT_loopback", SOFTLoopback.isAvailable(this));
+		ALC_SOFT_output_limiter = ext.contains("ALC_SOFT_output_limiter");
 		ALC_SOFT_pause_device = ext.contains("ALC_SOFT_pause_device") && checkExtension("ALC_SOFT_pause_device", SOFTPauseDevice.isAvailable(this));
     }
 
