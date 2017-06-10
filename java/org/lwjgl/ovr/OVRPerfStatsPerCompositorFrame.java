@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This value is calculated by either using the {@code SensorSampleTime} provided for the {@link OVRLayerEyeFov} or if that is not available, then the call to
  * {@link OVR#ovr_GetTrackingState GetTrackingState} which has {@code latencyMarker} set to {@link OVR#ovrTrue True}.</p></li>
  * <li>{@code AppQueueAheadTime} &ndash; 
- * amount of queue-ahead in seconds provided to the app based on performance and overlap of CPU & GPU utilization
+ * amount of queue-ahead in seconds provided to the app based on performance and overlap of CPU and GPU utilization.
  * 
  * <p>A value of 0.0 would mean the CPU & GPU workload is being completed in 1 frame's worth of time, while 11 ms (on the CV1) of queue ahead would indicate
  * that the app's CPU workload for the next frame is overlapping the app's GPU workload for the current frame.</p></li>

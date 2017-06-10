@@ -119,7 +119,7 @@ public class OVR {
      * 
      * <ul>
      * <li>{@link #ovrTrackingCap_Orientation TrackingCap_Orientation} - Supports orientation tracking (IMU).</li>
-     * <li>{@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection} - Supports yaw drift correction via a magnetometer or other means.</li>
+     * <li>{@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection} - Supports yaw drift correction.</li>
      * <li>{@link #ovrTrackingCap_Position TrackingCap_Position} - Supports positional tracking.</li>
      * </ul>
      */
@@ -248,9 +248,9 @@ public class OVR {
      * 
      * <ul>
      * <li>{@link #OVR_FORMAT_UNKNOWN OVR_FORMAT_UNKNOWN}</li>
-     * <li>{@link #OVR_FORMAT_B5G6R5_UNORM OVR_FORMAT_B5G6R5_UNORM} - Not currently supported on PC. Would require a DirectX 11.1 device.</li>
-     * <li>{@link #OVR_FORMAT_B5G5R5A1_UNORM OVR_FORMAT_B5G5R5A1_UNORM} - Not currently supported on PC. Would require a DirectX 11.1 device.</li>
-     * <li>{@link #OVR_FORMAT_B4G4R4A4_UNORM OVR_FORMAT_B4G4R4A4_UNORM} - Not currently supported on PC. Would require a DirectX 11.1 device.</li>
+     * <li>{@link #OVR_FORMAT_B5G6R5_UNORM OVR_FORMAT_B5G6R5_UNORM} - Not currently supported on PC. Requires a DirectX 11.1 device.</li>
+     * <li>{@link #OVR_FORMAT_B5G5R5A1_UNORM OVR_FORMAT_B5G5R5A1_UNORM} - Not currently supported on PC. Requires a DirectX 11.1 device.</li>
+     * <li>{@link #OVR_FORMAT_B4G4R4A4_UNORM OVR_FORMAT_B4G4R4A4_UNORM} - Not currently supported on PC. Requires a DirectX 11.1 device.</li>
      * <li>{@link #OVR_FORMAT_R8G8B8A8_UNORM OVR_FORMAT_R8G8B8A8_UNORM}</li>
      * <li>{@link #OVR_FORMAT_R8G8B8A8_UNORM_SRGB OVR_FORMAT_R8G8B8A8_UNORM_SRGB}</li>
      * <li>{@link #OVR_FORMAT_B8G8R8A8_UNORM OVR_FORMAT_B8G8R8A8_UNORM}</li>
@@ -472,6 +472,7 @@ public class OVR {
      * <h5>Enum values:</h5>
      * 
      * <ul>
+     * <li>{@link #ovrTrackedDevice_None TrackedDevice_None}</li>
      * <li>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</li>
      * <li>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</li>
      * <li>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</li>
@@ -484,6 +485,7 @@ public class OVR {
      * </ul>
      */
     public static final int
+        ovrTrackedDevice_None    = 0x0,
         ovrTrackedDevice_HMD     = 0x1,
         ovrTrackedDevice_LTouch  = 0x2,
         ovrTrackedDevice_RTouch  = 0x4,
@@ -493,6 +495,26 @@ public class OVR {
         ovrTrackedDevice_Object2 = 0x40,
         ovrTrackedDevice_Object3 = 0x80,
         ovrTrackedDevice_All     = 0xFFFF;
+
+    /**
+     * Camera status flags. ({@code ovrCameraStatusFlags})
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #ovrCameraStatus_None CameraStatus_None} - Initial state of camera.</li>
+     * <li>{@link #ovrCameraStatus_Connected CameraStatus_Connected} - Bit set when the camera is connected to the system.</li>
+     * <li>{@link #ovrCameraStatus_Calibrating CameraStatus_Calibrating} - Bit set when the camera is undergoing calibration.</li>
+     * <li>{@link #ovrCameraStatus_CalibrationFailed CameraStatus_CalibrationFailed} - Bit set when the camera has tried & failed calibration.</li>
+     * <li>{@link #ovrCameraStatus_Calibrated CameraStatus_Calibrated} - Bit set when the camera has tried & passed calibration.</li>
+     * </ul>
+     */
+    public static final int
+        ovrCameraStatus_None              = 0x0,
+        ovrCameraStatus_Connected         = 0x1,
+        ovrCameraStatus_Calibrating       = 0x2,
+        ovrCameraStatus_CalibrationFailed = 0x4,
+        ovrCameraStatus_Calibrated        = 0x8;
 
     /**
      * Boundary types that specified while using the boundary system. ({@code ovrBoundaryType})
@@ -1161,6 +1183,33 @@ public class OVR {
         return __result;
     }
 
+    // --- [ ovr_GetDevicePoses ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_GetDevicePoses GetDevicePoses}
+     *
+     * @param deviceCount number of queried poses. This number must match the length of the {@code outDevicePoses} and {@code deviceTypes} array.
+     */
+    public static native int novr_GetDevicePoses(long session, long deviceTypes, int deviceCount, double absTime, long outDevicePoses);
+
+    /**
+     * Returns an array of poses, where each pose matches a device type provided by the {@code deviceTypes} array parameter.
+     *
+     * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param deviceTypes    array of device types to query for their poses
+     * @param absTime        specifies the absolute future time to predict the return {@code ovrTrackingState} value. Use 0 to request the most recent tracking state.
+     * @param outDevicePoses array of poses, one for each device type in {@code deviceTypes} arrays
+     *
+     * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
+     */
+    public static int ovr_GetDevicePoses(long session, IntBuffer deviceTypes, double absTime, OVRPoseStatef.Buffer outDevicePoses) {
+        if (CHECKS) {
+            check(session);
+            check(outDevicePoses, deviceTypes.remaining());
+        }
+        return novr_GetDevicePoses(session, memAddress(deviceTypes), deviceTypes.remaining(), absTime, outDevicePoses.address());
+    }
+
     // --- [ ovr_GetTrackerPose ] ---
 
     /** Unsafe version of: {@link #ovr_GetTrackerPose GetTrackerPose} */
@@ -1336,7 +1385,7 @@ public class OVR {
      * <p>Note: this method is similar to {@link #ovr_TestBoundaryPoint TestBoundaryPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
      *
      * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_Object0 TrackedDevice_Object0}</td><td>{@link #ovrTrackedDevice_Object1 TrackedDevice_Object1}</td><td>{@link #ovrTrackedDevice_Object2 TrackedDevice_Object2}</td><td>{@link #ovrTrackedDevice_Object3 TrackedDevice_Object3}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
+     * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_None TrackedDevice_None}</td><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td></tr><tr><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td><td>{@link #ovrTrackedDevice_Object0 TrackedDevice_Object0}</td><td>{@link #ovrTrackedDevice_Object1 TrackedDevice_Object1}</td><td>{@link #ovrTrackedDevice_Object2 TrackedDevice_Object2}</td></tr><tr><td>{@link #ovrTrackedDevice_Object3 TrackedDevice_Object3}</td><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
      * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
      * @param outTestResult result of collision/proximity test, contains information such as distance and closest point
      *
@@ -2341,6 +2390,91 @@ public class OVR {
         }
     }
 
+    // --- [ ovr_GetExternalCameras ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_GetExternalCameras GetExternalCameras}
+     *
+     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
+     */
+    public static native int novr_GetExternalCameras(long session, long cameras, long inoutCameraCount);
+
+    /**
+     * Returns the number of camera properties of all cameras.
+     *
+     * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param cameras          the array. If {@code NULL} or {@code *inoutCameraCount} is too small, will return {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
+     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
+     *
+     * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
+     */
+    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, IntBuffer inoutCameraCount) {
+        if (CHECKS) {
+            check(session);
+            check(inoutCameraCount, 1);
+            checkSafe(cameras, inoutCameraCount.get(inoutCameraCount.position()));
+        }
+        return novr_GetExternalCameras(session, memAddressSafe(cameras), memAddress(inoutCameraCount));
+    }
+
+    // --- [ ovr_SetExternalCameraProperties ] ---
+
+    /** Unsafe version of: {@link #ovr_SetExternalCameraProperties SetExternalCameraProperties} */
+    public static native int novr_SetExternalCameraProperties(long session, long name, long intrinsics, long extrinsics);
+
+    /**
+     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
+     * 
+     * <p>Names must be &lt; 32 characters and null-terminated.</p>
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param name       specifies which camera to set the intrinsics or extrinsics for
+     * @param intrinsics contains the intrinsic parameters to set, can be null
+     * @param extrinsics contains the extrinsic parameters to set, can be null
+     */
+    public static int ovr_SetExternalCameraProperties(long session, ByteBuffer name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
+        if (CHECKS) {
+            check(session);
+            checkNT1(name);
+        }
+        return novr_SetExternalCameraProperties(session, memAddress(name), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
+    }
+
+    /**
+     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
+     * 
+     * <p>Names must be &lt; 32 characters and null-terminated.</p>
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param name       specifies which camera to set the intrinsics or extrinsics for
+     * @param intrinsics contains the intrinsic parameters to set, can be null
+     * @param extrinsics contains the extrinsic parameters to set, can be null
+     */
+    public static int ovr_SetExternalCameraProperties(long session, CharSequence name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
+        if (CHECKS) {
+            check(session);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return novr_SetExternalCameraProperties(session, memAddress(nameEncoded), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    /** Array version of: {@link #novr_GetDevicePoses} */
+    public static native int novr_GetDevicePoses(long session, int[] deviceTypes, int deviceCount, double absTime, long outDevicePoses);
+
+    /** Array version of: {@link #ovr_GetDevicePoses GetDevicePoses} */
+    public static int ovr_GetDevicePoses(long session, int[] deviceTypes, double absTime, OVRPoseStatef.Buffer outDevicePoses) {
+        if (CHECKS) {
+            check(session);
+            check(outDevicePoses, deviceTypes.length);
+        }
+        return novr_GetDevicePoses(session, deviceTypes, deviceTypes.length, absTime, outDevicePoses.address());
+    }
+
     /** Array version of: {@link #novr_GetBoundaryGeometry} */
     public static native int novr_GetBoundaryGeometry(long session, int boundaryType, long outFloorPoints, int[] outFloorPointsCount);
 
@@ -2429,6 +2563,19 @@ public class OVR {
         } finally {
             stack.setPointer(stackPointer);
         }
+    }
+
+    /** Array version of: {@link #novr_GetExternalCameras} */
+    public static native int novr_GetExternalCameras(long session, long cameras, int[] inoutCameraCount);
+
+    /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
+    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, int[] inoutCameraCount) {
+        if (CHECKS) {
+            check(session);
+            check(inoutCameraCount, 1);
+            checkSafe(cameras, inoutCameraCount[0]);
+        }
+        return novr_GetExternalCameras(session, memAddressSafe(cameras), inoutCameraCount);
     }
 
 }

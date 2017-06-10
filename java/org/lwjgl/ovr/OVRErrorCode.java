@@ -50,6 +50,8 @@ public class OVRErrorCode {
      * <li>{@link #ovrError_ClientSkippedShutdown Error_ClientSkippedShutdown} - The client failed to call {@link OVR#ovr_Shutdown} or the client crashed.</li>
      * <li>{@link #ovrError_ServiceDeadlockDetected Error_ServiceDeadlockDetected} - The service watchdog discovered a deadlock.</li>
      * <li>{@link #ovrError_InvalidOperation Error_InvalidOperation} - Function call is invalid for object's current state.</li>
+     * <li>{@link #ovrError_InsufficientArraySize Error_InsufficientArraySize} - Increase size of output array</li>
+     * <li>{@link #ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} - There is not any external camera information stored by ovrServer.</li>
      * <li>{@link #ovrError_AudioDeviceNotFound Error_AudioDeviceNotFound} - Failure to find the specified audio device.</li>
      * <li>{@link #ovrError_AudioComError Error_AudioComError} - Generic COM error.</li>
      * <li>{@link #ovrError_Initialize Error_Initialize} - Generic initialization error.</li>
@@ -77,6 +79,7 @@ public class OVRErrorCode {
      * <li>{@link #ovrError_LibPath Error_LibPath} - LibOVRRT path failure.</li>
      * <li>{@link #ovrError_LibSymbols Error_LibSymbols} - LibOVRRT symbol resolution failure.</li>
      * <li>{@link #ovrError_RemoteSession Error_RemoteSession} - Failed to connect to the service because remote connections to the service are not allowed.</li>
+     * <li>{@link #ovrError_InitializeVulkan Error_InitializeVulkan} - Vulkan initialization error.</li>
      * <li>{@link #ovrError_Incomplete Error_Incomplete} - Requested async work not yet complete.</li>
      * <li>{@link #ovrError_Abandoned Error_Abandoned} - Requested async work was abandoned and result is incomplete.</li>
      * <li>{@link #ovrError_DisplayLost Error_DisplayLost} - In the event of a system-wide graphics reset or cable unplug this is returned to the app.</li>
@@ -109,6 +112,8 @@ public class OVRErrorCode {
         ovrError_ClientSkippedShutdown         = -1013,
         ovrError_ServiceDeadlockDetected       = -1014,
         ovrError_InvalidOperation              = -1015,
+        ovrError_InsufficientArraySize         = -1016,
+        ovrError_NoExternalCameraInfo          = -1017,
         ovrError_AudioDeviceNotFound           = -2001,
         ovrError_AudioComError                 = -2002,
         ovrError_Initialize                    = -3000,
@@ -136,6 +141,7 @@ public class OVRErrorCode {
         ovrError_LibPath                       = -3022,
         ovrError_LibSymbols                    = -3023,
         ovrError_RemoteSession                 = -3024,
+        ovrError_InitializeVulkan              = -3025,
         ovrError_Incomplete                    = -5000,
         ovrError_Abandoned                     = -5001,
         ovrError_DisplayLost                   = -6000,

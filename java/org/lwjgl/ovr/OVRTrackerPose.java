@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code TrackerFlags} &ndash; {@code ovrTrackerFlags}.</li>
  * <li>{@code Pose} &ndash; the sensor's pose. This pose includes sensor tilt (roll and pitch). For a leveled coordinate system use {@code LeveledPose}.</li>
  * <li>{@code LeveledPose} &ndash; t
- * the sensor's leveled pose, aligned with gravity. This value includes position and yaw of the sensor, but not roll and pitch. It can be used as a
+ * the sensor's leveled pose, aligned with gravity. This value includes pos and yaw of the sensor, but not roll and pitch. It can be used as a
  * reference point to render real-world objects in the correct location.</li>
  * </ul>
  * 

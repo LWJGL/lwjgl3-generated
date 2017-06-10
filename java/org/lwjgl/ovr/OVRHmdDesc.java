@@ -30,14 +30,14 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * <li>{@code SerialNumber} &ndash; HMD serial number</li>
  * <li>{@code FirmwareMajor} &ndash; HMD firmware major version number</li>
  * <li>{@code FirmwareMinor} &ndash; HMD firmware minor version number</li>
- * <li>{@code AvailableHmdCaps} &ndash; capability bits described by {@code ovrHmdCaps} which the HMD currently supports</li>
- * <li>{@code DefaultHmdCaps} &ndash; capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</li>
- * <li>{@code AvailableTrackingCaps} &ndash; capability bits described by {@code ovrTrackingCaps} which the system currently supports</li>
- * <li>{@code DefaultTrackingCaps} &ndash; capability bits described by {@code ovrTrackingCaps} which are default for the current system</li>
+ * <li>{@code AvailableHmdCaps} &ndash; available {@code ovrHmdCaps} bits</li>
+ * <li>{@code DefaultHmdCaps} &ndash; default {@code ovrHmdCaps} bits</li>
+ * <li>{@code AvailableTrackingCaps} &ndash; available {@code ovrTrackingCaps} bits</li>
+ * <li>{@code DefaultTrackingCaps} &ndash; default {@code ovrTrackingCaps} bits</li>
  * <li>{@code DefaultEyeFov} &ndash; the recommended optical FOV for the HMD</li>
  * <li>{@code MaxEyeFov} &ndash; the maximum optical FOV for the HMD</li>
  * <li>{@code Resolution} &ndash; resolution of the full HMD screen (both eyes) in pixels</li>
- * <li>{@code DisplayRefreshRate} &ndash; nominal refresh rate of the display in cycles per second at the time of HMD creation</li>
+ * <li>{@code DisplayRefreshRate} &ndash; refresh rate of the display in cycles per second at the time of HMD creation</li>
  * </ul>
  * 
  * <h3>Layout</h3>

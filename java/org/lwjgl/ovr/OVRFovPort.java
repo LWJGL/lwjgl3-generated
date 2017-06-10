@@ -22,10 +22,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code UpTan} &ndash; the tangent of the angle between the viewing vector and the top edge of the field of view</li>
- * <li>{@code DownTan} &ndash; the tangent of the angle between the viewing vector and the bottom edge of the field of view</li>
- * <li>{@code LeftTan} &ndash; the tangent of the angle between the viewing vector and the left edge of the field of view</li>
- * <li>{@code RightTan} &ndash; the tangent of the angle between the viewing vector and the right edge of the field of view</li>
+ * <li>{@code UpTan} &ndash; tangent of the angle between the viewing vector and top edge of the FOV</li>
+ * <li>{@code DownTan} &ndash; tangent of the angle between the viewing vector and bottom edge of the FOV</li>
+ * <li>{@code LeftTan} &ndash; tangent of the angle between the viewing vector and left edge of the FOV</li>
+ * <li>{@code RightTan} &ndash; tangent of the angle between the viewing vector and right edge of the FOV</li>
  * </ul>
  * 
  * <h3>Layout</h3>
