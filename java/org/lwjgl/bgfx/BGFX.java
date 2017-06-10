@@ -2789,7 +2789,7 @@ public class BGFX {
     }
 
     /**
-     * Creates frame buffer.
+     * Creates MRT frame buffer from texture handles (simple).
      *
      * @param _handles         texture attachments
      * @param _destroyTextures if true, textures will be destroyed when frame buffer is destroyed
@@ -2813,15 +2813,15 @@ public class BGFX {
     }
 
     /**
-     * Creates frame buffer.
+     * Create MRT frame buffer from texture handles with specific layer and mip level.
      *
      * @param _attachment      attachment texture info
      * @param _destroyTextures if true, textures will be destroyed when frame buffer is destroyed
      *
      * @return handle to frame buffer object
      */
-    public static short bgfx_create_frame_buffer_from_attachment(PointerBuffer _attachment, boolean _destroyTextures) {
-        return nbgfx_create_frame_buffer_from_attachment((byte)_attachment.remaining(), memAddress(_attachment), _destroyTextures);
+    public static short bgfx_create_frame_buffer_from_attachment(BGFXAttachment.Buffer _attachment, boolean _destroyTextures) {
+        return nbgfx_create_frame_buffer_from_attachment((byte)_attachment.remaining(), _attachment.address(), _destroyTextures);
     }
 
     // --- [ bgfx_create_frame_buffer_from_nwh ] ---
