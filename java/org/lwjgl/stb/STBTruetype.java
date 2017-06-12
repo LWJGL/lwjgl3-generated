@@ -580,7 +580,7 @@ public class STBTruetype {
      *
      * @return the number of structs written in {@code rects}
      */
-    public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
+    public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect.Buffer rects) {
         if (CHECKS) {
             STBTTPackRange.validate(ranges.address(), ranges.remaining());
         }
@@ -625,7 +625,7 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
+    public static boolean stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect.Buffer rects) {
         if (CHECKS) {
             STBTTPackRange.validate(ranges.address(), ranges.remaining());
         }
