@@ -393,9 +393,9 @@ public class STBTruetype {
      */
     public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, long alloc_context) {
         if (CHECKS) {
-            check(pixels, width * height);
+            checkSafe(pixels, width * height);
         }
-        return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, alloc_context) != 0;
+        return nstbtt_PackBegin(spc.address(), memAddressSafe(pixels), width, height, stride_in_bytes, padding, alloc_context) != 0;
     }
 
     /**
@@ -413,9 +413,9 @@ public class STBTruetype {
      */
     public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
         if (CHECKS) {
-            check(pixels, width * height);
+            checkSafe(pixels, width * height);
         }
-        return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, NULL) != 0;
+        return nstbtt_PackBegin(spc.address(), memAddressSafe(pixels), width, height, stride_in_bytes, padding, NULL) != 0;
     }
 
     // --- [ stbtt_PackEnd ] ---
