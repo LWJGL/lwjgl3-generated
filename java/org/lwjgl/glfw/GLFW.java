@@ -237,6 +237,39 @@ public class GLFW {
         GLFW_JOYSTICK_16   = 15,
         GLFW_JOYSTICK_LAST = GLFW_JOYSTICK_16;
 
+    /** Gamepad buttons. See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#gamepad">gamepad</a> for how these are used. */
+    public static final int
+        GLFW_GAMEPAD_BUTTON_A            = 0,
+        GLFW_GAMEPAD_BUTTON_B            = 1,
+        GLFW_GAMEPAD_BUTTON_X            = 2,
+        GLFW_GAMEPAD_BUTTON_Y            = 3,
+        GLFW_GAMEPAD_BUTTON_LEFT_BUMPER  = 4,
+        GLFW_GAMEPAD_BUTTON_RIGHT_BUMPER = 5,
+        GLFW_GAMEPAD_BUTTON_BACK         = 6,
+        GLFW_GAMEPAD_BUTTON_START        = 7,
+        GLFW_GAMEPAD_BUTTON_GUIDE        = 8,
+        GLFW_GAMEPAD_BUTTON_LEFT_THUMB   = 9,
+        GLFW_GAMEPAD_BUTTON_RIGHT_THUMB  = 10,
+        GLFW_GAMEPAD_BUTTON_DPAD_UP      = 11,
+        GLFW_GAMEPAD_BUTTON_DPAD_RIGHT   = 12,
+        GLFW_GAMEPAD_BUTTON_DPAD_DOWN    = 13,
+        GLFW_GAMEPAD_BUTTON_DPAD_LEFT    = 14,
+        GLFW_GAMEPAD_BUTTON_LAST         = GLFW_GAMEPAD_BUTTON_DPAD_LEFT,
+        GLFW_GAMEPAD_BUTTON_CROSS        = GLFW_GAMEPAD_BUTTON_A,
+        GLFW_GAMEPAD_BUTTON_CIRCLE       = GLFW_GAMEPAD_BUTTON_B,
+        GLFW_GAMEPAD_BUTTON_SQUARE       = GLFW_GAMEPAD_BUTTON_X,
+        GLFW_GAMEPAD_BUTTON_TRIANGLE     = GLFW_GAMEPAD_BUTTON_Y;
+
+    /** Gamepad axes. See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#gamepad">gamepad</a> for how these are used. */
+    public static final int
+        GLFW_GAMEPAD_AXIS_LEFT_X        = 0,
+        GLFW_GAMEPAD_AXIS_LEFT_Y        = 1,
+        GLFW_GAMEPAD_AXIS_RIGHT_X       = 2,
+        GLFW_GAMEPAD_AXIS_RIGHT_Y       = 3,
+        GLFW_GAMEPAD_AXIS_LEFT_TRIGGER  = 4,
+        GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER = 5,
+        GLFW_GAMEPAD_AXIS_LAST          = GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER;
+
     /**
      * Error codes.
      * 
@@ -692,7 +725,11 @@ public class GLFW {
             GetJoystickButtons         = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
             GetJoystickHats            = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
             GetJoystickName            = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
+            JoystickIsGamepad          = apiGetFunctionAddress(GLFW, "glfwJoystickIsGamepad"),
             SetJoystickCallback        = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
+            UpdateGamepadMappings      = apiGetFunctionAddress(GLFW, "glfwUpdateGamepadMappings"),
+            GetGamepadName             = apiGetFunctionAddress(GLFW, "glfwGetGamepadName"),
+            GetGamepadState            = apiGetFunctionAddress(GLFW, "glfwGetGamepadState"),
             SetClipboardString         = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
             GetClipboardString         = apiGetFunctionAddress(GLFW, "glfwGetClipboardString"),
             GetTime                    = apiGetFunctionAddress(GLFW, "glfwGetTime"),
@@ -731,7 +768,7 @@ public class GLFW {
      * bundle, if present. This can be disabled with the {@link #GLFW_COCOA_CHDIR_RESOURCES COCOA_CHDIR_RESOURCES} init hint.</li>
      * </ul></div>
      *
-     * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occured.
+     * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occurred.
      *
      * @since version 1.0
      */
@@ -866,26 +903,38 @@ public class GLFW {
 
     // --- [ glfwGetError ] ---
 
+    /** Unsafe version of: {@link #glfwGetError GetError} */
+    public static int nglfwGetError(long description) {
+        long __functionAddress = Functions.GetError;
+        return invokePI(__functionAddress, description);
+    }
+
     /**
      * Returns and clears the last error for the calling thread.
      * 
-     * <p>This function returns and clears the error code of the last error that occurred on the calling thread. If no error has occurred since the last call, it
-     * returns {@link #GLFW_NO_ERROR NO_ERROR}.</p>
+     * <p>This function returns and clears the error code of the last error that occurred on the calling thread and optionally a UTF-8 encoded human-readable
+     * description of it. If no error has occurred since the last call, it returns {@link #GLFW_NO_ERROR NO_ERROR} (zero), and the description pointer is set to {@code NULL}.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
      * <li>This function may be called before {@link #glfwInit Init}.</li>
      * <li>This function may be called from any thread.</li>
+     * <li>The returned string is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the next error occurs
+     * or the library is terminated.</li>
      * </ul></div>
      *
-     * @return the last error code for the calling thread, or {@link #GLFW_NO_ERROR NO_ERROR}
+     * @param description where to store the error description pointer, or {@code NULL}
+     *
+     * @return the last error code for the calling thread, or {@link #GLFW_NO_ERROR NO_ERROR} (zero)
      *
      * @since version 3.3
      */
-    public static int glfwGetError() {
-        long __functionAddress = Functions.GetError;
-        return invokeI(__functionAddress);
+    public static int glfwGetError(PointerBuffer description) {
+        if (CHECKS) {
+            checkSafe(description, 1);
+        }
+        return nglfwGetError(memAddressSafe(description));
     }
 
     // --- [ glfwSetErrorCallback ] ---
@@ -947,7 +996,7 @@ public class GLFW {
      * 
      * <p>This function must only be called from the main thread.</p>
      *
-     * @return an array of monitor handlers, or {@code NULL} if no monitors were found or if an error occured
+     * @return an array of monitor handlers, or {@code NULL} if no monitors were found or if an error occurred
      *
      * @since version 3.0
      */
@@ -971,7 +1020,7 @@ public class GLFW {
      * 
      * <p>The primary monitor is always first in the array returned by {@link #glfwGetMonitors GetMonitors}.</p>
      *
-     * @return the primary monitor, or {@code NULL} if no monitors were found or if an error occured
+     * @return the primary monitor, or {@code NULL} if no monitors were found or if an error occurred
      *
      * @since version 3.0
      */
@@ -1075,7 +1124,7 @@ public class GLFW {
      *
      * @param monitor the monitor to query
      *
-     * @return the UTF-8 encoded name of the monitor, or {@code NULL} if an error occured
+     * @return the UTF-8 encoded name of the monitor, or {@code NULL} if an error occurred
      *
      * @since version 3.0
      */
@@ -1134,7 +1183,7 @@ public class GLFW {
      *
      * @param monitor the monitor to query
      *
-     * @return an array of video modes, or {@code NULL} if an error occured
+     * @return an array of video modes, or {@code NULL} if an error occurred
      *
      * @since version 1.0
      */
@@ -1664,6 +1713,9 @@ public class GLFW {
      * <p>This function sets the icon of the specified window. If passed an array of candidate images, those of or closest to the sizes desired by the system are
      * selected. If no images are specified, the window reverts to its default icon.</p>
      * 
+     * <p>The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight bits per channel with the red channel first. They are arranged canonically as
+     * packed sequential rows, starting from the top-left corner.</p>
+     * 
      * <p>The desired image sizes varies depending on platform and system settings. The selected images will be rescaled as needed. Good sizes include 16x16,
      * 32x32 and 48x48.</p>
      * 
@@ -2167,7 +2219,7 @@ public class GLFW {
      * @param window the window to query
      * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td></tr><tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
      *
-     * @return the value of the attribute, or zero if an error occured
+     * @return the value of the attribute, or zero if an error occurred
      *
      * @since version 3.0
      */
@@ -2910,8 +2962,8 @@ public class GLFW {
      * Creates a new custom cursor image that can be set for a window with {@link #glfwSetCursor SetCursor}. The cursor can be destroyed with {@link #glfwDestroyCursor DestroyCursor}. Any remaining
      * cursors are destroyed by {@link #glfwTerminate Terminate}.
      * 
-     * <p>The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight bits per channel. They are arranged canonically as packed sequential rows,
-     * starting from the top-left corner.</p>
+     * <p>The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight bits per channel with the red channel first. They are arranged canonically as
+     * packed sequential rows, starting from the top-left corner.</p>
      * 
      * <p>The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis
      * points to the right and the Y-axis points down.</p>
@@ -3289,7 +3341,7 @@ public class GLFW {
     /**
      * Returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
      * 
-     * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
      * presence.</p>
      * 
      * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
@@ -3333,7 +3385,7 @@ public class GLFW {
      * buttons. The hats are in the same order as returned by {@link #glfwGetJoystickHats GetJoystickHats} and are in the order up, right, down and left. To disable these extra
      * buttons, set the {@link #GLFW_JOYSTICK_HAT_BUTTONS JOYSTICK_HAT_BUTTONS} init hint before initialization.</p>
      * 
-     * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
      * presence.</p>
      * 
      * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
@@ -3397,15 +3449,15 @@ public class GLFW {
      *     // State of hat 2 could be right-up, right or right-down
      * }</pre></code>
      * 
-     * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
      * presence.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <ul>
-     * <li>Linux: Joystick hats are currently unimplemented.</li>
-     * <li>The returned array is allocated and freed by GLFW.  You *  should not free it yourself.  It is valid until the specified joystick is *  disconnected, this function is called again for that joystick or the library *  is terminated.</li>
      * <li>This function must only be called from the main thread.</li>
+     * <li>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
+     * function is called again for that joystick or the library is terminated.</li>
      * </ul></div>
      *
      * @param jid the joystick to query
@@ -3436,7 +3488,7 @@ public class GLFW {
     /**
      * Returns the name, encoded as UTF-8, of the specified joystick.
      * 
-     * <p>Querying a joystick ID with no device present is not an error, but will cause this function to return {@code NULL}. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
      * presence.</p>
      * 
      * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
@@ -3455,6 +3507,27 @@ public class GLFW {
         return memUTF8(__result);
     }
 
+    // --- [ glfwJoystickIsGamepad ] ---
+
+    /**
+     * Returns whether the specified joystick is both present and has a gamepad mapping.
+     * 
+     * <p>If the specified joystick is present but does not have a gamepad mapping this function will return {@code false} but will not generate an error. Call
+     * {@link #glfwJoystickPresent JoystickPresent} to only check device presence.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param jid the joystick id to query
+     *
+     * @return {@code true} if a joystick is both present and has a gamepad mapping or {@code false} otherwise
+     *
+     * @since version 3.3
+     */
+    public static boolean glfwJoystickIsGamepad(int jid) {
+        long __functionAddress = Functions.JoystickIsGamepad;
+        return invokeI(__functionAddress, jid) != 0;
+    }
+
     // --- [ glfwSetJoystickCallback ] ---
 
     /** Unsafe version of: {@link #glfwSetJoystickCallback SetJoystickCallback} */
@@ -3464,9 +3537,12 @@ public class GLFW {
     }
 
     /**
-     * Sets the joystick configuration callback, or removes the currently set callback.
+     * Sets the joystick configuration callback, or removes the currently set callback. This is called when a joystick is connected to or disconnected from
+     * the system.
      * 
-     * <p>This is called when a joystick is connected to or disconnected from the system.</p>
+     * <p>For joystick connection and disconnection events to be delivered on all platforms, you need to call one of the event processing functions. Joystick
+     * disconnection may also be detected and the callback called by joystick functions. The function will then return whatever it returns if the joystick is
+     * not present.</p>
      * 
      * <p>This function must only be called from the main thread.</p>
      *
@@ -3478,6 +3554,131 @@ public class GLFW {
      */
     public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallbackI cbfun) {
         return GLFWJoystickCallback.create(nglfwSetJoystickCallback(memAddressSafe(cbfun)));
+    }
+
+    // --- [ glfwUpdateGamepadMappings ] ---
+
+    /** Unsafe version of: {@link #glfwUpdateGamepadMappings UpdateGamepadMappings} */
+    public static int nglfwUpdateGamepadMappings(long string) {
+        long __functionAddress = Functions.UpdateGamepadMappings;
+        return invokePI(__functionAddress, string);
+    }
+
+    /**
+     * Adds the specified SDL_GameControllerDB gamepad mappings.
+     * 
+     * <p>This function parses the specified ASCII encoded string and updates the internal list with any gamepad mappings it finds. This string may contain either
+     * a single gamepad mapping or many mappings separated by newlines. The parser supports the full format of the {@code gamecontrollerdb.txt} source file
+     * including empty lines and comments.</p>
+     * 
+     * <p>See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#gamepad_mapping">gamepad_mapping</a> for a description of the format.</p>
+     * 
+     * <p>If there is already a gamepad mapping for a given GUID in the internal list, it will be replaced by the one passed to this function. If the library is
+     * terminated and re-initialized the internal list will revert to the built-in default.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param string the string containing the gamepad mappings
+     *
+     * @return {@code true}, or {@code false} if an error occurred
+     *
+     * @since version 3.3
+     */
+    public static boolean glfwUpdateGamepadMappings(ByteBuffer string) {
+        if (CHECKS) {
+            checkNT1(string);
+        }
+        return nglfwUpdateGamepadMappings(memAddress(string)) != 0;
+    }
+
+    /**
+     * Adds the specified SDL_GameControllerDB gamepad mappings.
+     * 
+     * <p>This function parses the specified ASCII encoded string and updates the internal list with any gamepad mappings it finds. This string may contain either
+     * a single gamepad mapping or many mappings separated by newlines. The parser supports the full format of the {@code gamecontrollerdb.txt} source file
+     * including empty lines and comments.</p>
+     * 
+     * <p>See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#gamepad_mapping">gamepad_mapping</a> for a description of the format.</p>
+     * 
+     * <p>If there is already a gamepad mapping for a given GUID in the internal list, it will be replaced by the one passed to this function. If the library is
+     * terminated and re-initialized the internal list will revert to the built-in default.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param string the string containing the gamepad mappings
+     *
+     * @return {@code true}, or {@code false} if an error occurred
+     *
+     * @since version 3.3
+     */
+    public static boolean glfwUpdateGamepadMappings(CharSequence string) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer stringEncoded = stack.ASCII(string);
+            return nglfwUpdateGamepadMappings(memAddress(stringEncoded)) != 0;
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ glfwGetGamepadName ] ---
+
+    /** Unsafe version of: {@link #glfwGetGamepadName GetGamepadName} */
+    public static long nglfwGetGamepadName(int jid) {
+        long __functionAddress = Functions.GetGamepadName;
+        return invokeP(__functionAddress, jid);
+    }
+
+    /**
+     * Returns the human-readable name of the gamepad from the gamepad mapping assigned to the specified joystick.
+     * 
+     * <p>If the specified joystick is not present or does not have a gamepad mapping this function will return {@code NULL} but will not generate an error. Call
+     * {@link #glfwJoystickIsGamepad JoystickIsGamepad} to check whether it is present and has a gamepad mapping.</p>
+     * 
+     * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, the
+     * gamepad mappings are updated or the library is terminated.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param jid the joystick to query
+     *
+     * @return the UTF-8 encoded name of the gamepad, or {@code NULL} if the joystick is not present, does not have a mapping or an error occurred
+     *
+     * @since version 3.3
+     */
+    public static String glfwGetGamepadName(int jid) {
+        long __result = nglfwGetGamepadName(jid);
+        return memUTF8(__result);
+    }
+
+    // --- [ glfwGetGamepadState ] ---
+
+    /** Unsafe version of: {@link #glfwGetGamepadState GetGamepadState} */
+    public static int nglfwGetGamepadState(int jid, long state) {
+        long __functionAddress = Functions.GetGamepadState;
+        return invokePI(__functionAddress, jid, state);
+    }
+
+    /**
+     * Retrieves the state of the specified joystick remapped to an Xbox-like gamepad.
+     * 
+     * <p>If the specified joystick is not present this function will return {@code false} but will not generate an error. Call {@link #glfwJoystickIsGamepad JoystickIsGamepad} to check
+     * whether it is present and has a gamepad mapping.</p>
+     * 
+     * <p>The Guide button may not be available for input as it is often hooked by the system or the Steam client.</p>
+     * 
+     * <p>Not all devices have all the buttons or axes provided by {@link GLFWGamepadState}. Unavailable buttons and axes will always report {@link #GLFW_RELEASE RELEASE} and 1.0
+     * respectively.</p>
+     *
+     * @param jid   the joystick to query
+     * @param state the gamepad input state of the joystick
+     *
+     * @return {@code true} if successful, or {@code false} if no joystick is connected, it has no gamepad mapping or an error occurred
+     *
+     * @since version 3.3
+     */
+    public static boolean glfwGetGamepadState(int jid, GLFWGamepadState state) {
+        return nglfwGetGamepadState(jid, state.address()) != 0;
     }
 
     // --- [ glfwSetClipboardString ] ---
@@ -3839,7 +4040,7 @@ public class GLFW {
      *
      * @param procname the ASCII encoded name of the function
      *
-     * @return the address of the function, or {@code NULL} if an error occured
+     * @return the address of the function, or {@code NULL} if an error occurred
      *
      * @since version 1.0
      */
@@ -3870,7 +4071,7 @@ public class GLFW {
      *
      * @param procname the ASCII encoded name of the function
      *
-     * @return the address of the function, or {@code NULL} if an error occured
+     * @return the address of the function, or {@code NULL} if an error occurred
      *
      * @since version 1.0
      */

@@ -17,6 +17,8 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Image data.
  * 
+ * <p>This describes a single 2D image. See the documentation for each related function to see what the expected pixel format is.</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
