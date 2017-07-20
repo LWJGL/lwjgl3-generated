@@ -23,6 +23,7 @@ public final class OpenVR {
     public static IVRChaperone VRChaperone;
     public static IVRChaperoneSetup VRChaperoneSetup;
     public static IVRCompositor VRCompositor;
+    public static IVRDriverManager VRDriverManager;
     public static IVRExtendedDisplay VRExtendedDisplay;
     public static IVRNotifications VRNotifications;
     public static IVROverlay VROverlay;
@@ -54,6 +55,7 @@ public final class OpenVR {
         VRChaperone = getGenericInterface(IVRChaperone_Version, IVRChaperone::new);
         VRChaperoneSetup = getGenericInterface(IVRChaperoneSetup_Version, IVRChaperoneSetup::new);
         VRCompositor = getGenericInterface(IVRCompositor_Version, IVRCompositor::new);
+        VRDriverManager = getGenericInterface(IVRDriverManager_Version, IVRDriverManager::new);
         VRExtendedDisplay = getGenericInterface(IVRExtendedDisplay_Version, IVRExtendedDisplay::new);
         VRNotifications = getGenericInterface(IVRNotifications_Version, IVRNotifications::new);
         VROverlay = getGenericInterface(IVROverlay_Version, IVROverlay::new);
@@ -92,6 +94,7 @@ public final class OpenVR {
         VRChaperone = null;
         VRChaperoneSetup = null;
         VRCompositor = null;
+        VRDriverManager = null;
         VRExtendedDisplay = null;
         VRNotifications = null;
         VROverlay = null;
@@ -113,6 +116,7 @@ public final class OpenVR {
             GetTimeSinceLastVsync,
             GetD3D9AdapterIndex,
             GetDXGIOutputInfo,
+            GetOutputDevice,
             IsDisplayOnDesktop,
             SetDisplayVisibility,
             GetDeviceToAbsoluteTrackingPose,
@@ -151,7 +155,7 @@ public final class OpenVR {
             AcknowledgeQuit_UserPrompt;
 
         public IVRSystem(long tableAddress) {
-            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 44);
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 45);
             GetRecommendedRenderTargetSize = table.get(0);
             GetProjectionMatrix = table.get(1);
             GetProjectionRaw = table.get(2);
@@ -160,42 +164,43 @@ public final class OpenVR {
             GetTimeSinceLastVsync = table.get(5);
             GetD3D9AdapterIndex = table.get(6);
             GetDXGIOutputInfo = table.get(7);
-            IsDisplayOnDesktop = table.get(8);
-            SetDisplayVisibility = table.get(9);
-            GetDeviceToAbsoluteTrackingPose = table.get(10);
-            ResetSeatedZeroPose = table.get(11);
-            GetSeatedZeroPoseToStandingAbsoluteTrackingPose = table.get(12);
-            GetRawZeroPoseToStandingAbsoluteTrackingPose = table.get(13);
-            GetSortedTrackedDeviceIndicesOfClass = table.get(14);
-            GetTrackedDeviceActivityLevel = table.get(15);
-            ApplyTransform = table.get(16);
-            GetTrackedDeviceIndexForControllerRole = table.get(17);
-            GetControllerRoleForTrackedDeviceIndex = table.get(18);
-            GetTrackedDeviceClass = table.get(19);
-            IsTrackedDeviceConnected = table.get(20);
-            GetBoolTrackedDeviceProperty = table.get(21);
-            GetFloatTrackedDeviceProperty = table.get(22);
-            GetInt32TrackedDeviceProperty = table.get(23);
-            GetUint64TrackedDeviceProperty = table.get(24);
-            GetMatrix34TrackedDeviceProperty = table.get(25);
-            GetStringTrackedDeviceProperty = table.get(26);
-            GetPropErrorNameFromEnum = table.get(27);
-            PollNextEvent = table.get(28);
-            PollNextEventWithPose = table.get(29);
-            GetEventTypeNameFromEnum = table.get(30);
-            GetHiddenAreaMesh = table.get(31);
-            GetControllerState = table.get(32);
-            GetControllerStateWithPose = table.get(33);
-            TriggerHapticPulse = table.get(34);
-            GetButtonIdNameFromEnum = table.get(35);
-            GetControllerAxisTypeNameFromEnum = table.get(36);
-            CaptureInputFocus = table.get(37);
-            ReleaseInputFocus = table.get(38);
-            IsInputFocusCapturedByAnotherProcess = table.get(39);
-            DriverDebugRequest = table.get(40);
-            PerformFirmwareUpdate = table.get(41);
-            AcknowledgeQuit_Exiting = table.get(42);
-            AcknowledgeQuit_UserPrompt = table.get(43);
+            GetOutputDevice = table.get(8);
+            IsDisplayOnDesktop = table.get(9);
+            SetDisplayVisibility = table.get(10);
+            GetDeviceToAbsoluteTrackingPose = table.get(11);
+            ResetSeatedZeroPose = table.get(12);
+            GetSeatedZeroPoseToStandingAbsoluteTrackingPose = table.get(13);
+            GetRawZeroPoseToStandingAbsoluteTrackingPose = table.get(14);
+            GetSortedTrackedDeviceIndicesOfClass = table.get(15);
+            GetTrackedDeviceActivityLevel = table.get(16);
+            ApplyTransform = table.get(17);
+            GetTrackedDeviceIndexForControllerRole = table.get(18);
+            GetControllerRoleForTrackedDeviceIndex = table.get(19);
+            GetTrackedDeviceClass = table.get(20);
+            IsTrackedDeviceConnected = table.get(21);
+            GetBoolTrackedDeviceProperty = table.get(22);
+            GetFloatTrackedDeviceProperty = table.get(23);
+            GetInt32TrackedDeviceProperty = table.get(24);
+            GetUint64TrackedDeviceProperty = table.get(25);
+            GetMatrix34TrackedDeviceProperty = table.get(26);
+            GetStringTrackedDeviceProperty = table.get(27);
+            GetPropErrorNameFromEnum = table.get(28);
+            PollNextEvent = table.get(29);
+            PollNextEventWithPose = table.get(30);
+            GetEventTypeNameFromEnum = table.get(31);
+            GetHiddenAreaMesh = table.get(32);
+            GetControllerState = table.get(33);
+            GetControllerStateWithPose = table.get(34);
+            TriggerHapticPulse = table.get(35);
+            GetButtonIdNameFromEnum = table.get(36);
+            GetControllerAxisTypeNameFromEnum = table.get(37);
+            CaptureInputFocus = table.get(38);
+            ReleaseInputFocus = table.get(39);
+            IsInputFocusCapturedByAnotherProcess = table.get(40);
+            DriverDebugRequest = table.get(41);
+            PerformFirmwareUpdate = table.get(42);
+            AcknowledgeQuit_Exiting = table.get(43);
+            AcknowledgeQuit_UserPrompt = table.get(44);
         }
 
     }
@@ -436,6 +441,20 @@ public final class OpenVR {
             UnlockGLSharedTextureForAccess = table.get(38);
             GetVulkanInstanceExtensionsRequired = table.get(39);
             GetVulkanDeviceExtensionsRequired = table.get(40);
+        }
+
+    }
+
+    public static final class IVRDriverManager {
+
+        public final long
+            GetDriverCount,
+            GetDriverName;
+
+        public IVRDriverManager(long tableAddress) {
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 2);
+            GetDriverCount = table.get(0);
+            GetDriverName = table.get(1);
         }
 
     }
