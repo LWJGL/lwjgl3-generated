@@ -31,6 +31,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     nk_size cmd_offset;
  *     unsigned int path_count;
  *     unsigned int path_offset;
+ *     enum nk_anti_aliasing line_AA;
+ *     enum nk_anti_aliasing shape_AA;
  *     {@link NkHandle nk_handle} userdata;
  * }</pre></code>
  */
@@ -55,6 +57,8 @@ public class NkDrawList extends Struct implements NativeResource {
         CMD_OFFSET,
         PATH_COUNT,
         PATH_OFFSET,
+        LINE_AA,
+        SHAPE_AA,
         USERDATA;
 
     static {
@@ -69,6 +73,8 @@ public class NkDrawList extends Struct implements NativeResource {
             __member(4),
             __member(4),
             __member(POINTER_SIZE),
+            __member(4),
+            __member(4),
             __member(4),
             __member(4),
             __member(NkHandle.SIZEOF, NkHandle.ALIGNOF)
@@ -89,7 +95,9 @@ public class NkDrawList extends Struct implements NativeResource {
         CMD_OFFSET = layout.offsetof(9);
         PATH_COUNT = layout.offsetof(10);
         PATH_OFFSET = layout.offsetof(11);
-        USERDATA = layout.offsetof(12);
+        LINE_AA = layout.offsetof(12);
+        SHAPE_AA = layout.offsetof(13);
+        USERDATA = layout.offsetof(14);
     }
 
     NkDrawList(long address, ByteBuffer container) {
@@ -135,6 +143,10 @@ public class NkDrawList extends Struct implements NativeResource {
     public int path_count() { return npath_count(address()); }
     /** Returns the value of the {@code path_offset} field. */
     public int path_offset() { return npath_offset(address()); }
+    /** Returns the value of the {@code line_AA} field. */
+    public int line_AA() { return nline_AA(address()); }
+    /** Returns the value of the {@code shape_AA} field. */
+    public int shape_AA() { return nshape_AA(address()); }
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
     public NkHandle userdata() { return nuserdata(address()); }
 
@@ -296,6 +308,10 @@ public class NkDrawList extends Struct implements NativeResource {
     public static int npath_count(long struct) { return memGetInt(struct + NkDrawList.PATH_COUNT); }
     /** Unsafe version of {@link #path_offset}. */
     public static int npath_offset(long struct) { return memGetInt(struct + NkDrawList.PATH_OFFSET); }
+    /** Unsafe version of {@link #line_AA}. */
+    public static int nline_AA(long struct) { return memGetInt(struct + NkDrawList.LINE_AA); }
+    /** Unsafe version of {@link #shape_AA}. */
+    public static int nshape_AA(long struct) { return memGetInt(struct + NkDrawList.SHAPE_AA); }
     /** Unsafe version of {@link #userdata}. */
     public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkDrawList.USERDATA); }
 
@@ -367,6 +383,10 @@ public class NkDrawList extends Struct implements NativeResource {
         public int path_count() { return NkDrawList.npath_count(address()); }
         /** Returns the value of the {@code path_offset} field. */
         public int path_offset() { return NkDrawList.npath_offset(address()); }
+        /** Returns the value of the {@code line_AA} field. */
+        public int line_AA() { return NkDrawList.nline_AA(address()); }
+        /** Returns the value of the {@code shape_AA} field. */
+        public int shape_AA() { return NkDrawList.nshape_AA(address()); }
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
         public NkHandle userdata() { return NkDrawList.nuserdata(address()); }
 

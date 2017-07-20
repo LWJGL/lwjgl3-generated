@@ -30,8 +30,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkEditState struct nk_edit_state} edit;
  *     unsigned int scrolled;
  *     nk_table * tables;
- *     unsigned short table_count;
- *     unsigned short table_size;
+ *     unsigned int table_count;
  *     {@link NkWindow struct nk_window} * next;
  *     {@link NkWindow struct nk_window} * prev;
  *     {@link NkWindow struct nk_window} * parent;
@@ -61,7 +60,6 @@ public class NkWindow extends Struct {
         SCROLLED,
         TABLES,
         TABLE_COUNT,
-        TABLE_SIZE,
         NEXT,
         PREV,
         PARENT;
@@ -82,8 +80,7 @@ public class NkWindow extends Struct {
             __member(NkEditState.SIZEOF, NkEditState.ALIGNOF),
             __member(4),
             __member(POINTER_SIZE),
-            __member(2),
-            __member(2),
+            __member(4),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE)
@@ -107,10 +104,9 @@ public class NkWindow extends Struct {
         SCROLLED = layout.offsetof(12);
         TABLES = layout.offsetof(13);
         TABLE_COUNT = layout.offsetof(14);
-        TABLE_SIZE = layout.offsetof(15);
-        NEXT = layout.offsetof(16);
-        PREV = layout.offsetof(17);
-        PARENT = layout.offsetof(18);
+        NEXT = layout.offsetof(15);
+        PREV = layout.offsetof(16);
+        PARENT = layout.offsetof(17);
     }
 
     NkWindow(long address, ByteBuffer container) {
@@ -161,9 +157,7 @@ public class NkWindow extends Struct {
     /** Returns the value of the {@code tables} field. */
     public long tables() { return ntables(address()); }
     /** Returns the value of the {@code table_count} field. */
-    public short table_count() { return ntable_count(address()); }
-    /** Returns the value of the {@code table_size} field. */
-    public short table_size() { return ntable_size(address()); }
+    public int table_count() { return ntable_count(address()); }
     /** Returns a {@link NkWindow} view of the struct pointed to by the {@code next} field. */
     public NkWindow next() { return nnext(address()); }
     /** Returns a {@link NkWindow} view of the struct pointed to by the {@code prev} field. */
@@ -221,9 +215,7 @@ public class NkWindow extends Struct {
     /** Unsafe version of {@link #tables}. */
     public static long ntables(long struct) { return memGetAddress(struct + NkWindow.TABLES); }
     /** Unsafe version of {@link #table_count}. */
-    public static short ntable_count(long struct) { return memGetShort(struct + NkWindow.TABLE_COUNT); }
-    /** Unsafe version of {@link #table_size}. */
-    public static short ntable_size(long struct) { return memGetShort(struct + NkWindow.TABLE_SIZE); }
+    public static int ntable_count(long struct) { return memGetInt(struct + NkWindow.TABLE_COUNT); }
     /** Unsafe version of {@link #next}. */
     public static NkWindow nnext(long struct) { return NkWindow.create(memGetAddress(struct + NkWindow.NEXT)); }
     /** Unsafe version of {@link #prev}. */
@@ -304,9 +296,7 @@ public class NkWindow extends Struct {
         /** Returns the value of the {@code tables} field. */
         public long tables() { return NkWindow.ntables(address()); }
         /** Returns the value of the {@code table_count} field. */
-        public short table_count() { return NkWindow.ntable_count(address()); }
-        /** Returns the value of the {@code table_size} field. */
-        public short table_size() { return NkWindow.ntable_size(address()); }
+        public int table_count() { return NkWindow.ntable_count(address()); }
         /** Returns a {@link NkWindow} view of the struct pointed to by the {@code next} field. */
         public NkWindow next() { return NkWindow.nnext(address()); }
         /** Returns a {@link NkWindow} view of the struct pointed to by the {@code prev} field. */

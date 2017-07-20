@@ -1057,6 +1057,7 @@ public class Nuklear {
      * <li>{@link #NK_FORMAT_R16G15B16 FORMAT_R16G15B16}</li>
      * <li>{@link #NK_FORMAT_R32G32B32 FORMAT_R32G32B32}</li>
      * <li>{@link #NK_FORMAT_R8G8B8A8 FORMAT_R8G8B8A8}</li>
+     * <li>{@link #NK_FORMAT_B8G8R8A8 FORMAT_B8G8R8A8}</li>
      * <li>{@link #NK_FORMAT_R16G15B16A16 FORMAT_R16G15B16A16}</li>
      * <li>{@link #NK_FORMAT_R32G32B32A32 FORMAT_R32G32B32A32}</li>
      * <li>{@link #NK_FORMAT_R32G32B32A32_FLOAT FORMAT_R32G32B32A32_FLOAT}</li>
@@ -1079,13 +1080,14 @@ public class Nuklear {
         NK_FORMAT_R16G15B16           = 9,
         NK_FORMAT_R32G32B32           = 10,
         NK_FORMAT_R8G8B8A8            = 11,
-        NK_FORMAT_R16G15B16A16        = 12,
-        NK_FORMAT_R32G32B32A32        = 13,
-        NK_FORMAT_R32G32B32A32_FLOAT  = 14,
-        NK_FORMAT_R32G32B32A32_DOUBLE = 15,
-        NK_FORMAT_RGB32               = 16,
-        NK_FORMAT_RGBA32              = 17,
-        NK_FORMAT_COUNT               = 18;
+        NK_FORMAT_B8G8R8A8            = 12,
+        NK_FORMAT_R16G15B16A16        = 13,
+        NK_FORMAT_R32G32B32A32        = 14,
+        NK_FORMAT_R32G32B32A32_FLOAT  = 15,
+        NK_FORMAT_R32G32B32A32_DOUBLE = 16,
+        NK_FORMAT_RGB32               = 17,
+        NK_FORMAT_RGBA32              = 18,
+        NK_FORMAT_COUNT               = 19;
 
     /**
      * nk_style_item_type
@@ -2071,15 +2073,80 @@ public class Nuklear {
         }
     }
 
+    // --- [ nk_layout_set_min_row_height ] ---
+
+    /** Unsafe version of: {@link #nk_layout_set_min_row_height layout_set_min_row_height} */
+    public static native void nnk_layout_set_min_row_height(long ctx, float height);
+
+    /**
+     * Sets the currently used minimum row height.
+     * 
+     * <p>IMPORTANT: The passed height needs to include both your prefered row height as well as padding. No internal padding is added.</p>
+     *
+     * @param ctx    the nuklear context
+     * @param height new minimum row height to be used for auto generating the row height
+     */
+    public static void nk_layout_set_min_row_height(NkContext ctx, float height) {
+        nnk_layout_set_min_row_height(ctx.address(), height);
+    }
+
+    // --- [ nk_layout_reset_min_row_height ] ---
+
+    /** Unsafe version of: {@link #nk_layout_reset_min_row_height layout_reset_min_row_height} */
+    public static native void nnk_layout_reset_min_row_height(long ctx);
+
+    /**
+     * Resets the currently used minimum row height back to font height + text padding + additional padding
+     * ({@code style_window.min_row_height_padding}).
+     *
+     * @param ctx the nuklear context
+     */
+    public static void nk_layout_reset_min_row_height(NkContext ctx) {
+        nnk_layout_reset_min_row_height(ctx.address());
+    }
+
+    // --- [ nk_layout_widget_bounds ] ---
+
+    /** Unsafe version of: {@link #nk_layout_widget_bounds layout_widget_bounds} */
+    public static native void nnk_layout_widget_bounds(long ctx, long __result);
+
+    /**
+     * Returns the width of the next row allocate by one of the layouting functions.
+     *
+     * @param ctx the nuklear context
+     */
+    public static NkRect nk_layout_widget_bounds(NkContext ctx, NkRect __result) {
+        nnk_layout_widget_bounds(ctx.address(), __result.address());
+        return __result;
+    }
+
+    // --- [ nk_layout_ratio_from_pixel ] ---
+
+    /** Unsafe version of: {@link #nk_layout_ratio_from_pixel layout_ratio_from_pixel} */
+    public static native float nnk_layout_ratio_from_pixel(long ctx, float pixel_width);
+
+    /**
+     * Utility function to calculate window ratio from pixel size.
+     *
+     * @param ctx         the nuklear context
+     * @param pixel_width pixel width to convert to window ratio
+     */
+    public static float nk_layout_ratio_from_pixel(NkContext ctx, float pixel_width) {
+        return nnk_layout_ratio_from_pixel(ctx.address(), pixel_width);
+    }
+
     // --- [ nk_layout_row_dynamic ] ---
 
     /** Unsafe version of: {@link #nk_layout_row_dynamic layout_row_dynamic} */
     public static native void nnk_layout_row_dynamic(long ctx, float height, int cols);
 
     /**
+     * Sets current row layout to share horizontal space between {@code cols} number of widgets evenly. Once called all subsequent widget calls greater
+     * than {@code cols} will allocate a new row with same layout.
+     *
      * @param ctx    the nuklear context
-     * @param height 
-     * @param cols   
+     * @param height holds height of each widget in row or zero for auto layouting
+     * @param cols   number of widgets inside row
      */
     public static void nk_layout_row_dynamic(NkContext ctx, float height, int cols) {
         nnk_layout_row_dynamic(ctx.address(), height, cols);
@@ -2091,10 +2158,13 @@ public class Nuklear {
     public static native void nnk_layout_row_static(long ctx, float height, int item_width, int cols);
 
     /**
+     * Sets current row layout to fill {@code cols} number of widgets in row with same {@code item_width} horizontal size. Once called all subsequent
+     * widget calls greater than {@code cols} will allocate a new row with same layout.
+     *
      * @param ctx        the nuklear context
-     * @param height     
-     * @param item_width 
-     * @param cols       
+     * @param height     holds row height to allocate from panel for widget height
+     * @param item_width holds width of each widget in row
+     * @param cols       number of widgets inside row
      */
     public static void nk_layout_row_static(NkContext ctx, float height, int item_width, int cols) {
         nnk_layout_row_static(ctx.address(), height, item_width, cols);
@@ -2106,10 +2176,12 @@ public class Nuklear {
     public static native void nnk_layout_row_begin(long ctx, int fmt, float row_height, int cols);
 
     /**
+     * Starts a new dynamic or fixed row with given height and columns.
+     *
      * @param ctx        the nuklear context
-     * @param fmt        one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
-     * @param row_height 
-     * @param cols       
+     * @param fmt        either {@link #NK_DYNAMIC DYNAMIC} for window ratio or {@link #NK_STATIC STATIC} for fixed size columns. One of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
+     * @param row_height holds height of each widget in row or zero for auto layouting
+     * @param cols       number of widgets inside row
      */
     public static void nk_layout_row_begin(NkContext ctx, int fmt, float row_height, int cols) {
         nnk_layout_row_begin(ctx.address(), fmt, row_height, cols);
@@ -2121,8 +2193,10 @@ public class Nuklear {
     public static native void nnk_layout_row_push(long ctx, float value);
 
     /**
+     * Specifies either window ratio or width of a single column.
+     *
      * @param ctx   the nuklear context
-     * @param value 
+     * @param value either a window ratio or fixed width depending on {@code fmt} in previous {@link #nk_layout_row_begin layout_row_begin} call
      */
     public static void nk_layout_row_push(NkContext ctx, float value) {
         nnk_layout_row_push(ctx.address(), value);
@@ -2133,20 +2207,30 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_row_end layout_row_end} */
     public static native void nnk_layout_row_end(long ctx);
 
-    /** @param ctx the nuklear context */
+    /**
+     * Finishes previously started row
+     *
+     * @param ctx the nuklear context
+     */
     public static void nk_layout_row_end(NkContext ctx) {
         nnk_layout_row_end(ctx.address());
     }
 
     // --- [ nk_layout_row ] ---
 
-    /** Unsafe version of: {@link #nk_layout_row layout_row} */
+    /**
+     * Unsafe version of: {@link #nk_layout_row layout_row}
+     *
+     * @param cols number of widgets inside row
+     */
     public static native void nnk_layout_row(long ctx, int fmt, float height, int cols, long ratio);
 
     /**
+     * Specifies row columns in array as either window ratio or size.
+     *
      * @param ctx    the nuklear context
-     * @param fmt    one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
-     * @param height 
+     * @param fmt    either {@link #NK_DYNAMIC DYNAMIC} for window ratio or {@link #NK_STATIC STATIC} for fixed size columns. One of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
+     * @param height holds height of each widget in row or zero for auto layouting
      * @param ratio  
      */
     public static void nk_layout_row(NkContext ctx, int fmt, float height, FloatBuffer ratio) {
@@ -2159,8 +2243,10 @@ public class Nuklear {
     public static native void nnk_layout_row_template_begin(long ctx, float height);
 
     /**
+     * Begins the row template declaration.
+     *
      * @param ctx    the nuklear context
-     * @param height 
+     * @param height holds height of each widget in row or zero for auto layouting
      */
     public static void nk_layout_row_template_begin(NkContext ctx, float height) {
         nnk_layout_row_template_begin(ctx.address(), height);
@@ -2171,7 +2257,11 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_row_template_push_dynamic layout_row_template_push_dynamic} */
     public static native void nnk_layout_row_template_push_dynamic(long ctx);
 
-    /** @param ctx the nuklear context */
+    /**
+     * Adds a dynamic column that dynamically grows and can go to zero if not enough space.
+     *
+     * @param ctx the nuklear context
+     */
     public static void nk_layout_row_template_push_dynamic(NkContext ctx) {
         nnk_layout_row_template_push_dynamic(ctx.address());
     }
@@ -2182,8 +2272,10 @@ public class Nuklear {
     public static native void nnk_layout_row_template_push_variable(long ctx, float min_width);
 
     /**
+     * Adds a variable column that dynamically grows but does not shrink below specified pixel width.
+     *
      * @param ctx       the nuklear context
-     * @param min_width 
+     * @param min_width holds the minimum pixel width the next column must be
      */
     public static void nk_layout_row_template_push_variable(NkContext ctx, float min_width) {
         nnk_layout_row_template_push_variable(ctx.address(), min_width);
@@ -2195,8 +2287,10 @@ public class Nuklear {
     public static native void nnk_layout_row_template_push_static(long ctx, float width);
 
     /**
+     * Adds a static column that does not grow and will always have the same size.
+     *
      * @param ctx   the nuklear context
-     * @param width 
+     * @param width holds the absolute pixel width value the next column must be
      */
     public static void nk_layout_row_template_push_static(NkContext ctx, float width) {
         nnk_layout_row_template_push_static(ctx.address(), width);
@@ -2204,8 +2298,14 @@ public class Nuklear {
 
     // --- [ nk_layout_row_template_end ] ---
 
+    /** Unsafe version of: {@link #nk_layout_row_template_end layout_row_template_end} */
     public static native void nnk_layout_row_template_end(long ctx);
 
+    /**
+     * Marks the end of the row template.
+     *
+     * @param ctx the nuklear context
+     */
     public static void nk_layout_row_template_end(NkContext ctx) {
         nnk_layout_row_template_end(ctx.address());
     }
@@ -2216,10 +2316,12 @@ public class Nuklear {
     public static native void nnk_layout_space_begin(long ctx, int fmt, float height, int widget_count);
 
     /**
+     * Begins a new layouting space that allows to specify each widgets position and size.
+     *
      * @param ctx          the nuklear context
-     * @param fmt          one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
-     * @param height       
-     * @param widget_count 
+     * @param fmt          either {@link #NK_DYNAMIC DYNAMIC} for window ratio or {@link #NK_STATIC STATIC} for fixed size columns. One of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
+     * @param height       holds height of each widget in row or zero for auto layouting
+     * @param widget_count number of widgets inside row
      */
     public static void nk_layout_space_begin(NkContext ctx, int fmt, float height, int widget_count) {
         nnk_layout_space_begin(ctx.address(), fmt, height, widget_count);
@@ -2231,8 +2333,10 @@ public class Nuklear {
     public static native void nnk_layout_space_push(long ctx, long rect);
 
     /**
+     * Pushes position and size of the next widget in own coordiante space either as pixel or ratio.
+     *
      * @param ctx  the nuklear context
-     * @param rect 
+     * @param rect position and size in layout space local coordinates
      */
     public static void nk_layout_space_push(NkContext ctx, NkRect rect) {
         nnk_layout_space_push(ctx.address(), rect.address());
@@ -2243,7 +2347,11 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_space_end layout_space_end} */
     public static native void nnk_layout_space_end(long ctx);
 
-    /** @param ctx the nuklear context */
+    /**
+     * Marks the end of the layout space.
+     *
+     * @param ctx the nuklear context
+     */
     public static void nk_layout_space_end(NkContext ctx) {
         nnk_layout_space_end(ctx.address());
     }
@@ -2253,7 +2361,11 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_layout_space_bounds layout_space_bounds} */
     public static native void nnk_layout_space_bounds(long ctx, long __result);
 
-    /** @param ctx the nuklear context */
+    /**
+     * Returns total space allocated for {@code nk_layout_space}.
+     *
+     * @param ctx the nuklear context
+     */
     public static NkRect nk_layout_space_bounds(NkContext ctx, NkRect __result) {
         nnk_layout_space_bounds(ctx.address(), __result.address());
         return __result;
@@ -2265,8 +2377,10 @@ public class Nuklear {
     public static native void nnk_layout_space_to_screen(long ctx, long ret);
 
     /**
+     * Converts vector from {@code nk_layout_space} coordinate space into screen space.
+     *
      * @param ctx the nuklear context
-     * @param ret 
+     * @param ret position to convert from layout space into screen coordinate space
      */
     public static NkVec2 nk_layout_space_to_screen(NkContext ctx, NkVec2 ret) {
         nnk_layout_space_to_screen(ctx.address(), ret.address());
@@ -2279,8 +2393,10 @@ public class Nuklear {
     public static native void nnk_layout_space_to_local(long ctx, long ret);
 
     /**
+     * Converts vector from layout space into screen space.
+     *
      * @param ctx the nuklear context
-     * @param ret 
+     * @param ret position to convert from screen space into layout coordinate space
      */
     public static NkVec2 nk_layout_space_to_local(NkContext ctx, NkVec2 ret) {
         nnk_layout_space_to_local(ctx.address(), ret.address());
@@ -2293,8 +2409,10 @@ public class Nuklear {
     public static native void nnk_layout_space_rect_to_screen(long ctx, long ret);
 
     /**
+     * Converts rectangle from screen space into layout space.
+     *
      * @param ctx the nuklear context
-     * @param ret 
+     * @param ret rectangle to convert from layout space into screen space
      */
     public static NkRect nk_layout_space_rect_to_screen(NkContext ctx, NkRect ret) {
         nnk_layout_space_rect_to_screen(ctx.address(), ret.address());
@@ -2307,25 +2425,14 @@ public class Nuklear {
     public static native void nnk_layout_space_rect_to_local(long ctx, long ret);
 
     /**
+     * Converts rectangle from layout space into screen space.
+     *
      * @param ctx the nuklear context
-     * @param ret 
+     * @param ret rectangle to convert from screen space into layout space
      */
     public static NkRect nk_layout_space_rect_to_local(NkContext ctx, NkRect ret) {
         nnk_layout_space_rect_to_local(ctx.address(), ret.address());
         return ret;
-    }
-
-    // --- [ nk_layout_ratio_from_pixel ] ---
-
-    /** Unsafe version of: {@link #nk_layout_ratio_from_pixel layout_ratio_from_pixel} */
-    public static native float nnk_layout_ratio_from_pixel(long ctx, float pixel_width);
-
-    /**
-     * @param ctx         the nuklear context
-     * @param pixel_width 
-     */
-    public static float nk_layout_ratio_from_pixel(NkContext ctx, float pixel_width) {
-        return nnk_layout_ratio_from_pixel(ctx.address(), pixel_width);
     }
 
     // --- [ nk_group_begin ] ---
@@ -3292,42 +3399,6 @@ public class Nuklear {
         return nnk_button_image_styled(ctx.address(), style.address(), img.address()) != 0;
     }
 
-    // --- [ nk_button_symbol_label_styled ] ---
-
-    /** Unsafe version of: {@link #nk_button_symbol_label_styled button_symbol_label_styled} */
-    public static native int nnk_button_symbol_label_styled(long ctx, long style, int symbol, long title, int text_alignment);
-
-    /**
-     * @param ctx            the nuklear context
-     * @param style          
-     * @param symbol         
-     * @param title          
-     * @param text_alignment 
-     */
-    public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, ByteBuffer title, int text_alignment) {
-        if (CHECKS) {
-            checkNT1(title);
-        }
-        return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(title), text_alignment) != 0;
-    }
-
-    /**
-     * @param ctx            the nuklear context
-     * @param style          
-     * @param symbol         
-     * @param title          
-     * @param text_alignment 
-     */
-    public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, CharSequence title, int text_alignment) {
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        try {
-            ByteBuffer titleEncoded = stack.UTF8(title);
-            return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(titleEncoded), text_alignment) != 0;
-        } finally {
-            stack.setPointer(stackPointer);
-        }
-    }
-
     // --- [ nk_button_symbol_text_styled ] ---
 
     /** Unsafe version of: {@link #nk_button_symbol_text_styled button_symbol_text_styled} */
@@ -3361,6 +3432,42 @@ public class Nuklear {
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
             return nnk_button_symbol_text_styled(ctx.address(), style.address(), symbol, memAddress(titleEncoded), len, alignment) != 0;
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ nk_button_symbol_label_styled ] ---
+
+    /** Unsafe version of: {@link #nk_button_symbol_label_styled button_symbol_label_styled} */
+    public static native int nnk_button_symbol_label_styled(long ctx, long style, int symbol, long title, int text_alignment);
+
+    /**
+     * @param ctx            the nuklear context
+     * @param style          
+     * @param symbol         
+     * @param title          
+     * @param text_alignment 
+     */
+    public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, ByteBuffer title, int text_alignment) {
+        if (CHECKS) {
+            checkNT1(title);
+        }
+        return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(title), text_alignment) != 0;
+    }
+
+    /**
+     * @param ctx            the nuklear context
+     * @param style          
+     * @param symbol         
+     * @param title          
+     * @param text_alignment 
+     */
+    public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, CharSequence title, int text_alignment) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer titleEncoded = stack.UTF8(title);
+            return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(titleEncoded), text_alignment) != 0;
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -8836,13 +8943,13 @@ public class Nuklear {
 
     // --- [ nk_draw_list_setup ] ---
 
-    public static native void nnk_draw_list_setup(long canvas, long config, long cmds, long vertices, long elements);
+    public static native void nnk_draw_list_setup(long canvas, long config, long cmds, long vertices, long elements, int line_aa, int shape_aa);
 
-    public static void nk_draw_list_setup(NkDrawList canvas, NkConvertConfig config, NkBuffer cmds, NkBuffer vertices, NkBuffer elements) {
+    public static void nk_draw_list_setup(NkDrawList canvas, NkConvertConfig config, NkBuffer cmds, NkBuffer vertices, NkBuffer elements, int line_aa, int shape_aa) {
         if (CHECKS) {
             NkConvertConfig.validate(config.address());
         }
-        nnk_draw_list_setup(canvas.address(), config.address(), cmds.address(), vertices.address(), elements.address());
+        nnk_draw_list_setup(canvas.address(), config.address(), cmds.address(), vertices.address(), elements.address(), line_aa, shape_aa);
     }
 
     // --- [ nk_draw_list_clear ] ---

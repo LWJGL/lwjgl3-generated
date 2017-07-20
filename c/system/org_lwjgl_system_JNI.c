@@ -111,6 +111,7 @@ ARITYn(jshort, invokePS__JSZSIIJ, return ((jshort (*) (jshort, jboolean, jshort,
 ARITY0(void, invokeV__J, ((void (*) ())(intptr_t)__functionAddress)())
 ARITYn(void, invokeV__JB, ((void (*) (jbyte))(intptr_t)__functionAddress)(param0), jbyte param0)
 ARITYn(void, invokePV__JBBJ, ((void (*) (jbyte, jbyte, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2), jbyte param0, jbyte param1, jlong param2)
+ARITYn(void, invokeV__JBI, ((void (*) (jbyte, jint))(intptr_t)__functionAddress)(param0, param1), jbyte param0, jint param1)
 ARITYn(void, invokePV__JBJ, ((void (*) (jbyte, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1), jbyte param0, jlong param1)
 ARITYn(void, invokePV__JBJII, ((void (*) (jbyte, intptr_t, jint, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, param3), jbyte param0, jlong param1, jint param2, jint param3)
 ARITYn(void, invokePPV__JBJJ, ((void (*) (jbyte, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2), jbyte param0, jlong param1, jlong param2)

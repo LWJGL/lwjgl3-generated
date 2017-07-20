@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float group_border;
  *     float tooltip_border;
  *     float popup_border;
+ *     float min_row_height_padding;
  *     float rounding;
  *     {@link NkVec2 struct nk_vec2} spacing;
  *     {@link NkVec2 struct nk_vec2} scrollbar_size;
@@ -76,6 +77,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
         GROUP_BORDER,
         TOOLTIP_BORDER,
         POPUP_BORDER,
+        MIN_ROW_HEIGHT_PADDING,
         ROUNDING,
         SPACING,
         SCROLLBAR_SIZE,
@@ -101,6 +103,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
             __member(NkColor.SIZEOF, NkColor.ALIGNOF),
             __member(NkColor.SIZEOF, NkColor.ALIGNOF),
             __member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
+            __member(4),
             __member(4),
             __member(4),
             __member(4),
@@ -142,17 +145,18 @@ public class NkStyleWindow extends Struct implements NativeResource {
         GROUP_BORDER = layout.offsetof(15);
         TOOLTIP_BORDER = layout.offsetof(16);
         POPUP_BORDER = layout.offsetof(17);
-        ROUNDING = layout.offsetof(18);
-        SPACING = layout.offsetof(19);
-        SCROLLBAR_SIZE = layout.offsetof(20);
-        MIN_SIZE = layout.offsetof(21);
-        PADDING = layout.offsetof(22);
-        GROUP_PADDING = layout.offsetof(23);
-        POPUP_PADDING = layout.offsetof(24);
-        COMBO_PADDING = layout.offsetof(25);
-        CONTEXTUAL_PADDING = layout.offsetof(26);
-        MENU_PADDING = layout.offsetof(27);
-        TOOLTIP_PADDING = layout.offsetof(28);
+        MIN_ROW_HEIGHT_PADDING = layout.offsetof(18);
+        ROUNDING = layout.offsetof(19);
+        SPACING = layout.offsetof(20);
+        SCROLLBAR_SIZE = layout.offsetof(21);
+        MIN_SIZE = layout.offsetof(22);
+        PADDING = layout.offsetof(23);
+        GROUP_PADDING = layout.offsetof(24);
+        POPUP_PADDING = layout.offsetof(25);
+        COMBO_PADDING = layout.offsetof(26);
+        CONTEXTUAL_PADDING = layout.offsetof(27);
+        MENU_PADDING = layout.offsetof(28);
+        TOOLTIP_PADDING = layout.offsetof(29);
     }
 
     NkStyleWindow(long address, ByteBuffer container) {
@@ -208,6 +212,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
     public float tooltip_border() { return ntooltip_border(address()); }
     /** Returns the value of the {@code popup_border} field. */
     public float popup_border() { return npopup_border(address()); }
+    /** Returns the value of the {@code min_row_height_padding} field. */
+    public float min_row_height_padding() { return nmin_row_height_padding(address()); }
     /** Returns the value of the {@code rounding} field. */
     public float rounding() { return nrounding(address()); }
     /** Returns a {@link NkVec2} view of the {@code spacing} field. */
@@ -267,6 +273,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
     public NkStyleWindow tooltip_border(float value) { ntooltip_border(address(), value); return this; }
     /** Sets the specified value to the {@code popup_border} field. */
     public NkStyleWindow popup_border(float value) { npopup_border(address(), value); return this; }
+    /** Sets the specified value to the {@code min_row_height_padding} field. */
+    public NkStyleWindow min_row_height_padding(float value) { nmin_row_height_padding(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
     public NkStyleWindow rounding(float value) { nrounding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
@@ -310,6 +318,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
         float group_border,
         float tooltip_border,
         float popup_border,
+        float min_row_height_padding,
         float rounding,
         NkVec2 spacing,
         NkVec2 scrollbar_size,
@@ -340,6 +349,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
         group_border(group_border);
         tooltip_border(tooltip_border);
         popup_border(popup_border);
+        min_row_height_padding(min_row_height_padding);
         rounding(rounding);
         spacing(spacing);
         scrollbar_size(scrollbar_size);
@@ -532,6 +542,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
     public static float ntooltip_border(long struct) { return memGetFloat(struct + NkStyleWindow.TOOLTIP_BORDER); }
     /** Unsafe version of {@link #popup_border}. */
     public static float npopup_border(long struct) { return memGetFloat(struct + NkStyleWindow.POPUP_BORDER); }
+    /** Unsafe version of {@link #min_row_height_padding}. */
+    public static float nmin_row_height_padding(long struct) { return memGetFloat(struct + NkStyleWindow.MIN_ROW_HEIGHT_PADDING); }
     /** Unsafe version of {@link #rounding}. */
     public static float nrounding(long struct) { return memGetFloat(struct + NkStyleWindow.ROUNDING); }
     /** Unsafe version of {@link #spacing}. */
@@ -591,6 +603,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
     public static void ntooltip_border(long struct, float value) { memPutFloat(struct + NkStyleWindow.TOOLTIP_BORDER, value); }
     /** Unsafe version of {@link #popup_border(float) popup_border}. */
     public static void npopup_border(long struct, float value) { memPutFloat(struct + NkStyleWindow.POPUP_BORDER, value); }
+    /** Unsafe version of {@link #min_row_height_padding(float) min_row_height_padding}. */
+    public static void nmin_row_height_padding(long struct, float value) { memPutFloat(struct + NkStyleWindow.MIN_ROW_HEIGHT_PADDING, value); }
     /** Unsafe version of {@link #rounding(float) rounding}. */
     public static void nrounding(long struct, float value) { memPutFloat(struct + NkStyleWindow.ROUNDING, value); }
     /** Unsafe version of {@link #spacing(NkVec2) spacing}. */
@@ -692,6 +706,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
         public float tooltip_border() { return NkStyleWindow.ntooltip_border(address()); }
         /** Returns the value of the {@code popup_border} field. */
         public float popup_border() { return NkStyleWindow.npopup_border(address()); }
+        /** Returns the value of the {@code min_row_height_padding} field. */
+        public float min_row_height_padding() { return NkStyleWindow.nmin_row_height_padding(address()); }
         /** Returns the value of the {@code rounding} field. */
         public float rounding() { return NkStyleWindow.nrounding(address()); }
         /** Returns a {@link NkVec2} view of the {@code spacing} field. */
@@ -751,6 +767,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
         public NkStyleWindow.Buffer tooltip_border(float value) { NkStyleWindow.ntooltip_border(address(), value); return this; }
         /** Sets the specified value to the {@code popup_border} field. */
         public NkStyleWindow.Buffer popup_border(float value) { NkStyleWindow.npopup_border(address(), value); return this; }
+        /** Sets the specified value to the {@code min_row_height_padding} field. */
+        public NkStyleWindow.Buffer min_row_height_padding(float value) { NkStyleWindow.nmin_row_height_padding(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
         public NkStyleWindow.Buffer rounding(float value) { NkStyleWindow.nrounding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code spacing} field. */

@@ -292,6 +292,30 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1show_1if(JNIE
     nk_window_show_if(ctx, name, s, cond);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1set_1min_1row_1height(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat height) {
+    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    UNUSED_PARAMS(__env, clazz)
+    nk_layout_set_min_row_height(ctx, height);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1reset_1min_1row_1height(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    UNUSED_PARAMS(__env, clazz)
+    nk_layout_reset_min_row_height(ctx);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1widget_1bounds(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong __result) {
+    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    UNUSED_PARAMS(__env, clazz)
+    *((struct nk_rect*)(intptr_t)__result) = nk_layout_widget_bounds(ctx);
+}
+
+JNIEXPORT jfloat JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1ratio_1from_1pixel(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat pixel_width) {
+    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jfloat)nk_layout_ratio_from_pixel(ctx, pixel_width);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row_1dynamic(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat height, jint cols) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -410,12 +434,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1space_1rect_1
     struct nk_rect *ret = (struct nk_rect *)(intptr_t)retAddress;
     UNUSED_PARAMS(__env, clazz)
     *ret = nk_layout_space_rect_to_local(ctx, *ret);
-}
-
-JNIEXPORT jfloat JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1layout_1ratio_1from_1pixel(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat pixel_width) {
-    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
-    UNUSED_PARAMS(__env, clazz)
-    return (jfloat)nk_layout_ratio_from_pixel(ctx, pixel_width);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong titleAddress, jint flags) {
@@ -694,20 +712,20 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1image_1styled
     return (jint)nk_button_image_styled(ctx, style, *img);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1symbol_1label_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jint symbol, jlong titleAddress, jint text_alignment) {
-    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
-    const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
-    const char *title = (const char *)(intptr_t)titleAddress;
-    UNUSED_PARAMS(__env, clazz)
-    return (jint)nk_button_symbol_label_styled(ctx, style, symbol, title, text_alignment);
-}
-
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1symbol_1text_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jint symbol, jlong titleAddress, jint len, jint alignment) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
     const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
     const char *title = (const char *)(intptr_t)titleAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nk_button_symbol_text_styled(ctx, style, symbol, title, len, alignment);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1symbol_1label_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jint symbol, jlong titleAddress, jint text_alignment) {
+    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+    const char *title = (const char *)(intptr_t)titleAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)nk_button_symbol_label_styled(ctx, style, symbol, title, text_alignment);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1image_1label_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jlong imgAddress, jlong titleAddress, jint text_alignment) {
@@ -1640,7 +1658,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1hide_1cursor(J
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1push_1font(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong fontAddress) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
-    struct nk_user_font *font = (struct nk_user_font *)(intptr_t)fontAddress;
+    const struct nk_user_font *font = (const struct nk_user_font *)(intptr_t)fontAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nk_style_push_font(ctx, font);
 }
@@ -2946,14 +2964,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1draw_1list_1init(JNIE
     nk_draw_list_init(list);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1draw_1list_1setup(JNIEnv *__env, jclass clazz, jlong canvasAddress, jlong configAddress, jlong cmdsAddress, jlong verticesAddress, jlong elementsAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1draw_1list_1setup(JNIEnv *__env, jclass clazz, jlong canvasAddress, jlong configAddress, jlong cmdsAddress, jlong verticesAddress, jlong elementsAddress, jint line_aa, jint shape_aa) {
     struct nk_draw_list *canvas = (struct nk_draw_list *)(intptr_t)canvasAddress;
     const struct nk_convert_config *config = (const struct nk_convert_config *)(intptr_t)configAddress;
     struct nk_buffer *cmds = (struct nk_buffer *)(intptr_t)cmdsAddress;
     struct nk_buffer *vertices = (struct nk_buffer *)(intptr_t)verticesAddress;
     struct nk_buffer *elements = (struct nk_buffer *)(intptr_t)elementsAddress;
     UNUSED_PARAMS(__env, clazz)
-    nk_draw_list_setup(canvas, config, cmds, vertices, elements);
+    nk_draw_list_setup(canvas, config, cmds, vertices, elements, line_aa, shape_aa);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1draw_1list_1clear(JNIEnv *__env, jclass clazz, jlong listAddress) {

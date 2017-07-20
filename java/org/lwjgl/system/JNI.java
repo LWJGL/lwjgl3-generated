@@ -123,6 +123,7 @@ public final class JNI {
     public static native void invokeV(long __functionAddress);
     public static native void invokeV(long __functionAddress, byte param0);
     public static native void invokePV(long __functionAddress, byte param0, byte param1, long param2);
+    public static native void invokeV(long __functionAddress, byte param0, int param1);
     public static native void invokePV(long __functionAddress, byte param0, long param1);
     public static native void invokePV(long __functionAddress, byte param0, long param1, int param2, int param3);
     public static native void invokePPV(long __functionAddress, byte param0, long param1, long param2);

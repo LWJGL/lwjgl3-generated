@@ -26,6 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     enum nk_panel_row_layout_type type;
  *     int index;
  *     float height;
+ *     float min_height;
  *     int columns;
  *     const float * ratio;
  *     float item_width;
@@ -49,6 +50,7 @@ public class NkRowLayout extends Struct {
         TYPE,
         INDEX,
         HEIGHT,
+        MIN_HEIGHT,
         COLUMNS,
         RATIO,
         ITEM_WIDTH,
@@ -61,6 +63,7 @@ public class NkRowLayout extends Struct {
 
     static {
         Layout layout = __struct(
+            __member(4),
             __member(4),
             __member(4),
             __member(4),
@@ -81,15 +84,16 @@ public class NkRowLayout extends Struct {
         TYPE = layout.offsetof(0);
         INDEX = layout.offsetof(1);
         HEIGHT = layout.offsetof(2);
-        COLUMNS = layout.offsetof(3);
-        RATIO = layout.offsetof(4);
-        ITEM_WIDTH = layout.offsetof(5);
-        ITEM_HEIGHT = layout.offsetof(6);
-        ITEM_OFFSET = layout.offsetof(7);
-        FILLED = layout.offsetof(8);
-        ITEM = layout.offsetof(9);
-        TREE_DEPTH = layout.offsetof(10);
-        TEMPLATES = layout.offsetof(11);
+        MIN_HEIGHT = layout.offsetof(3);
+        COLUMNS = layout.offsetof(4);
+        RATIO = layout.offsetof(5);
+        ITEM_WIDTH = layout.offsetof(6);
+        ITEM_HEIGHT = layout.offsetof(7);
+        ITEM_OFFSET = layout.offsetof(8);
+        FILLED = layout.offsetof(9);
+        ITEM = layout.offsetof(10);
+        TREE_DEPTH = layout.offsetof(11);
+        TEMPLATES = layout.offsetof(12);
     }
 
     NkRowLayout(long address, ByteBuffer container) {
@@ -115,6 +119,8 @@ public class NkRowLayout extends Struct {
     public int index() { return nindex(address()); }
     /** Returns the value of the {@code height} field. */
     public float height() { return nheight(address()); }
+    /** Returns the value of the {@code min_height} field. */
+    public float min_height() { return nmin_height(address()); }
     /** Returns the value of the {@code columns} field. */
     public int columns() { return ncolumns(address()); }
     /**
@@ -165,6 +171,8 @@ public class NkRowLayout extends Struct {
     public static int nindex(long struct) { return memGetInt(struct + NkRowLayout.INDEX); }
     /** Unsafe version of {@link #height}. */
     public static float nheight(long struct) { return memGetFloat(struct + NkRowLayout.HEIGHT); }
+    /** Unsafe version of {@link #min_height}. */
+    public static float nmin_height(long struct) { return memGetFloat(struct + NkRowLayout.MIN_HEIGHT); }
     /** Unsafe version of {@link #columns}. */
     public static int ncolumns(long struct) { return memGetInt(struct + NkRowLayout.COLUMNS); }
     /** Unsafe version of {@link #ratio(int) ratio}. */
@@ -237,6 +245,8 @@ public class NkRowLayout extends Struct {
         public int index() { return NkRowLayout.nindex(address()); }
         /** Returns the value of the {@code height} field. */
         public float height() { return NkRowLayout.nheight(address()); }
+        /** Returns the value of the {@code min_height} field. */
+        public float min_height() { return NkRowLayout.nmin_height(address()); }
         /** Returns the value of the {@code columns} field. */
         public int columns() { return NkRowLayout.ncolumns(address()); }
         /**
