@@ -600,6 +600,24 @@ public class NanoVG {
         nnvgReset(ctx);
     }
 
+    // --- [ nvgShapeAntiAlias ] ---
+
+    /** Unsafe version of: {@link #nvgShapeAntiAlias ShapeAntiAlias} */
+    public static native void nnvgShapeAntiAlias(long ctx, int enabled);
+
+    /**
+     * Sets whether to draw antialias for {@link #nvgStroke Stroke} and {@link #nvgFill Fill}. It's enabled by default.
+     *
+     * @param ctx     the NanoVG context
+     * @param enabled the flag to set
+     */
+    public static void nvgShapeAntiAlias(long ctx, boolean enabled) {
+        if (CHECKS) {
+            check(ctx);
+        }
+        nnvgShapeAntiAlias(ctx, enabled ? 1 : 0);
+    }
+
     // --- [ nvgStrokeColor ] ---
 
     /** Unsafe version of: {@link #nvgStrokeColor StrokeColor} */

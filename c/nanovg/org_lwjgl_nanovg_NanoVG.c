@@ -135,6 +135,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgReset(JNIEnv *__env, jcl
     nvgReset(ctx);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgShapeAntiAlias(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint enabled) {
+    NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
+    UNUSED_PARAMS(__env, clazz)
+    nvgShapeAntiAlias(ctx, enabled);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgStrokeColor(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong colorAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
     NVGcolor *color = (NVGcolor *)(intptr_t)colorAddress;
