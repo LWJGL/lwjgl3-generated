@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 42;
+    public static final int BGFX_API_VERSION = 45;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -414,20 +414,20 @@ public class BGFX {
         BGFX_CUBE_MAP_NEGATIVE_Z = 0x5;
 
     /**
-     * Renderer type. ({@code bgfx_renderer_type_t})
+     * Renderer backend type. ({@code bgfx_renderer_type_t})
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</li>
-     * <li>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP} - No rendering.</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9} - Direct3D 9.0</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11} - Direct3D 11.0</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12} - Direct3D 12.0</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM} - GNM</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL} - Metal</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES} - OpenGL ES 2.0+</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL} - OpenGL 2.1+</li>
+     * <li>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN} - Vulkan</li>
      * <li>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</li>
      * </ul>
      */
@@ -444,7 +444,7 @@ public class BGFX {
         BGFX_RENDERER_TYPE_COUNT      = 9;
 
     /**
-     * bgfx_access_t
+     * Access mode ({@code bgfx_access_t})
      * 
      * <h5>Enum values:</h5>
      * 
@@ -462,7 +462,7 @@ public class BGFX {
         BGFX_ACCESS_COUNT     = 3;
 
     /**
-     * bgfx_attrib_t
+     * Vertex attribute ({@code bgfx_attrib_t}).
      * 
      * <h5>Enum values:</h5>
      * 
@@ -510,16 +510,16 @@ public class BGFX {
         BGFX_ATTRIB_COUNT     = BGFX_ATTRIB_TEXCOORD7 + 1;
 
     /**
-     * bgfx_attrib_type_t
+     * Vertex attribute type ({@code bgfx_attrib_type_t}).
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_ATTRIB_TYPE_UINT8 ATTRIB_TYPE_UINT8}</li>
-     * <li>{@link #BGFX_ATTRIB_TYPE_UINT10 ATTRIB_TYPE_UINT10}</li>
-     * <li>{@link #BGFX_ATTRIB_TYPE_INT16 ATTRIB_TYPE_INT16}</li>
-     * <li>{@link #BGFX_ATTRIB_TYPE_HALF ATTRIB_TYPE_HALF}</li>
-     * <li>{@link #BGFX_ATTRIB_TYPE_FLOAT ATTRIB_TYPE_FLOAT}</li>
+     * <li>{@link #BGFX_ATTRIB_TYPE_UINT8 ATTRIB_TYPE_UINT8} - Uint8</li>
+     * <li>{@link #BGFX_ATTRIB_TYPE_UINT10 ATTRIB_TYPE_UINT10} - Uint10, availability depends on: {@link #BGFX_CAPS_VERTEX_ATTRIB_UINT10 CAPS_VERTEX_ATTRIB_UINT10}.</li>
+     * <li>{@link #BGFX_ATTRIB_TYPE_INT16 ATTRIB_TYPE_INT16} - Int16</li>
+     * <li>{@link #BGFX_ATTRIB_TYPE_HALF ATTRIB_TYPE_HALF} - Half, availability depends on: {@link #BGFX_CAPS_VERTEX_ATTRIB_HALF CAPS_VERTEX_ATTRIB_HALF}`.</li>
+     * <li>{@link #BGFX_ATTRIB_TYPE_FLOAT ATTRIB_TYPE_FLOAT} - Float</li>
      * <li>{@link #BGFX_ATTRIB_TYPE_COUNT ATTRIB_TYPE_COUNT}</li>
      * </ul>
      */
@@ -532,28 +532,41 @@ public class BGFX {
         BGFX_ATTRIB_TYPE_COUNT  = BGFX_ATTRIB_TYPE_FLOAT + 1;
 
     /**
-     * bgfx_texture_format_t
+     * Texture format ({@code bgfx_texture_format_t}). Notation:
+     * 
+     * <code><pre>
+     * RGBA16S
+     * ^   ^ ^
+     * |   | +-- [ ]Unorm
+     * |   |     [F]loat
+     * |   |     [S]norm
+     * |   |     [I]nt
+     * |   |     [U]int
+     * |   +---- Number of bits per component
+     * +-------- Components</pre></code>
+     * 
+     * <p>Availability depends on Caps.</p>
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC1 TEXTURE_FORMAT_BC1}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC2 TEXTURE_FORMAT_BC2}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC3 TEXTURE_FORMAT_BC3}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC4 TEXTURE_FORMAT_BC4}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC5 TEXTURE_FORMAT_BC5}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC6H TEXTURE_FORMAT_BC6H}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_BC7 TEXTURE_FORMAT_BC7}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC1 TEXTURE_FORMAT_ETC1}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC2 TEXTURE_FORMAT_ETC2}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC2A TEXTURE_FORMAT_ETC2A}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC2A1 TEXTURE_FORMAT_ETC2A1}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC12 TEXTURE_FORMAT_PTC12}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC14 TEXTURE_FORMAT_PTC14}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC12A TEXTURE_FORMAT_PTC12A}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC14A TEXTURE_FORMAT_PTC14A}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC22 TEXTURE_FORMAT_PTC22}</li>
-     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC24 TEXTURE_FORMAT_PTC24}</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC1 TEXTURE_FORMAT_BC1} - DXT1</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC2 TEXTURE_FORMAT_BC2} - DXT3</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC3 TEXTURE_FORMAT_BC3} - DXT5</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC4 TEXTURE_FORMAT_BC4} - LATC1/ATI1</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC5 TEXTURE_FORMAT_BC5} - LATC2/ATI2</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC6H TEXTURE_FORMAT_BC6H} - BC6H</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_BC7 TEXTURE_FORMAT_BC7} - BC7</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC1 TEXTURE_FORMAT_ETC1} - ETC1 RGB8</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC2 TEXTURE_FORMAT_ETC2} - ETC2 RGB8</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC2A TEXTURE_FORMAT_ETC2A} - ETC2 RGBA8</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_ETC2A1 TEXTURE_FORMAT_ETC2A1} - ETC2 RGB8A1</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC12 TEXTURE_FORMAT_PTC12} - PVRTC1 RGB 2BPP</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC14 TEXTURE_FORMAT_PTC14} - PVRTC1 RGB 4BPP</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC12A TEXTURE_FORMAT_PTC12A} - PVRTC1 RGBA 2BPP</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC14A TEXTURE_FORMAT_PTC14A} - PVRTC1 RGBA 4BPP</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC22 TEXTURE_FORMAT_PTC22} - PVRTC2 RGBA 2BPP</li>
+     * <li>{@link #BGFX_TEXTURE_FORMAT_PTC24 TEXTURE_FORMAT_PTC24} - PVRTC2 RGBA 4BPP</li>
      * <li>{@link #BGFX_TEXTURE_FORMAT_UNKNOWN TEXTURE_FORMAT_UNKNOWN}</li>
      * <li>{@link #BGFX_TEXTURE_FORMAT_R1 TEXTURE_FORMAT_R1}</li>
      * <li>{@link #BGFX_TEXTURE_FORMAT_A8 TEXTURE_FORMAT_A8}</li>
@@ -696,7 +709,7 @@ public class BGFX {
         BGFX_TEXTURE_FORMAT_COUNT         = BGFX_TEXTURE_FORMAT_D0S8 + 1;
 
     /**
-     * bgfx_uniform_type_t
+     * Uniform type ({@code bgfx_uniform_type_t}).
      * 
      * <h5>Enum values:</h5>
      * 
@@ -718,17 +731,17 @@ public class BGFX {
         BGFX_UNIFORM_TYPE_COUNT = 5;
 
     /**
-     * bgfx_backbuffer_ratio_t
+     * Backbuffer ratio ({@code bgfx_backbuffer_ratio_t}).
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_BACKBUFFER_RATIO_EQUAL BACKBUFFER_RATIO_EQUAL}</li>
-     * <li>{@link #BGFX_BACKBUFFER_RATIO_HALF BACKBUFFER_RATIO_HALF}</li>
-     * <li>{@link #BGFX_BACKBUFFER_RATIO_QUARTER BACKBUFFER_RATIO_QUARTER}</li>
-     * <li>{@link #BGFX_BACKBUFFER_RATIO_EIGHTH BACKBUFFER_RATIO_EIGHTH}</li>
-     * <li>{@link #BGFX_BACKBUFFER_RATIO_SIXTEENTH BACKBUFFER_RATIO_SIXTEENTH}</li>
-     * <li>{@link #BGFX_BACKBUFFER_RATIO_DOUBLE BACKBUFFER_RATIO_DOUBLE}</li>
+     * <li>{@link #BGFX_BACKBUFFER_RATIO_EQUAL BACKBUFFER_RATIO_EQUAL} - Equal to backbuffer.</li>
+     * <li>{@link #BGFX_BACKBUFFER_RATIO_HALF BACKBUFFER_RATIO_HALF} - One half size of backbuffer.</li>
+     * <li>{@link #BGFX_BACKBUFFER_RATIO_QUARTER BACKBUFFER_RATIO_QUARTER} - One quarter size of backbuffer.</li>
+     * <li>{@link #BGFX_BACKBUFFER_RATIO_EIGHTH BACKBUFFER_RATIO_EIGHTH} - One eighth size of backbuffer.</li>
+     * <li>{@link #BGFX_BACKBUFFER_RATIO_SIXTEENTH BACKBUFFER_RATIO_SIXTEENTH} - One sixteenth size of backbuffer.</li>
+     * <li>{@link #BGFX_BACKBUFFER_RATIO_DOUBLE BACKBUFFER_RATIO_DOUBLE} - Double size of backbuffer.</li>
      * <li>{@link #BGFX_BACKBUFFER_RATIO_COUNT BACKBUFFER_RATIO_COUNT}</li>
      * </ul>
      */
@@ -742,14 +755,14 @@ public class BGFX {
         BGFX_BACKBUFFER_RATIO_COUNT     = 6;
 
     /**
-     * bgfx_occlusion_query_result_t
+     * Occlusion query result ({@code bgfx_occlusion_query_result_t}).
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_INVISIBLE OCCLUSION_QUERY_RESULT_INVISIBLE}</li>
-     * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_VISIBLE OCCLUSION_QUERY_RESULT_VISIBLE}</li>
-     * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_NORESULT OCCLUSION_QUERY_RESULT_NORESULT}</li>
+     * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_INVISIBLE OCCLUSION_QUERY_RESULT_INVISIBLE} - Query failed test.</li>
+     * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_VISIBLE OCCLUSION_QUERY_RESULT_VISIBLE} - Query passed test.</li>
+     * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_NORESULT OCCLUSION_QUERY_RESULT_NORESULT} - Query result is not available yet.</li>
      * <li>{@link #BGFX_OCCLUSION_QUERY_RESULT_COUNT OCCLUSION_QUERY_RESULT_COUNT}</li>
      * </ul>
      */
@@ -760,15 +773,15 @@ public class BGFX {
         BGFX_OCCLUSION_QUERY_RESULT_COUNT     = 3;
 
     /**
-     * bgfx_topology_convert_t
+     * Topology conversion function ({@code bgfx_topology_convert_t}).
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING}</li>
-     * <li>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST}</li>
-     * <li>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST}</li>
-     * <li>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST}</li>
+     * <li>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING} - Flip winding order of triangle list.</li>
+     * <li>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST} - Convert triangle list to line list.</li>
+     * <li>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST} - Convert triangle strip to triangle list.</li>
+     * <li>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST} - Convert line strip to line list.</li>
      * <li>{@link #BGFX_TOPOLOGY_CONVERT_COUNT TOPOLOGY_CONVERT_COUNT}</li>
      * </ul>
      */
@@ -780,7 +793,7 @@ public class BGFX {
         BGFX_TOPOLOGY_CONVERT_COUNT                   = 4;
 
     /**
-     * bgfx_topology_sort_t
+     * Topology sort order ({@code bgfx_topology_sort_t}).
      * 
      * <h5>Enum values:</h5>
      * 
@@ -816,7 +829,27 @@ public class BGFX {
         BGFX_TOPOLOGY_SORT_COUNT                       = 12;
 
     /**
-     * bgfx_fatal_t
+     * View mode sets draw call sort order ({@code bgfx_view_mode_t}).
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #BGFX_VIEW_MODE_DEFAULT VIEW_MODE_DEFAULT} - Default sort order.</li>
+     * <li>{@link #BGFX_VIEW_MODE_SEQUENTIAL VIEW_MODE_SEQUENTIAL} - Sort in the same order in which submit calls were called.</li>
+     * <li>{@link #BGFX_VIEW_MODE_DEPTH_ASCENDING VIEW_MODE_DEPTH_ASCENDING} - Sort draw call depth in ascending order.</li>
+     * <li>{@link #BGFX_VIEW_MODE_DEPTH_DESCENDING VIEW_MODE_DEPTH_DESCENDING} - Sort draw call depth in descending order.</li>
+     * <li>{@link #BGFX_VIEW_MODE_CCOUNT VIEW_MODE_CCOUNT}</li>
+     * </ul>
+     */
+    public static final int
+        BGFX_VIEW_MODE_DEFAULT          = 0,
+        BGFX_VIEW_MODE_SEQUENTIAL       = 1,
+        BGFX_VIEW_MODE_DEPTH_ASCENDING  = 2,
+        BGFX_VIEW_MODE_DEPTH_DESCENDING = 3,
+        BGFX_VIEW_MODE_CCOUNT           = 4;
+
+    /**
+     * Fatal errors ({@code bgfx_fatal_t}).
      * 
      * <h5>Enum values:</h5>
      * 
@@ -949,7 +982,7 @@ public class BGFX {
             set_view_scissor                             = apiGetFunctionAddress(BGFX, "bgfx_set_view_scissor"),
             set_view_clear                               = apiGetFunctionAddress(BGFX, "bgfx_set_view_clear"),
             set_view_clear_mrt                           = apiGetFunctionAddress(BGFX, "bgfx_set_view_clear_mrt"),
-            set_view_seq                                 = apiGetFunctionAddress(BGFX, "bgfx_set_view_seq"),
+            set_view_mode                                = apiGetFunctionAddress(BGFX, "bgfx_set_view_mode"),
             set_view_frame_buffer                        = apiGetFunctionAddress(BGFX, "bgfx_set_view_frame_buffer"),
             set_view_transform                           = apiGetFunctionAddress(BGFX, "bgfx_set_view_transform"),
             set_view_transform_stereo                    = apiGetFunctionAddress(BGFX, "bgfx_set_view_transform_stereo"),
@@ -1086,14 +1119,14 @@ public class BGFX {
     }
 
     /**
-     * Packs {@code vec4} into vertex stream format.
+     * Packs vertex attribute into vertex stream format.
      *
-     * @param _input           
-     * @param _inputNormalized 
-     * @param _attr            one of:<br><table><tr><td>{@link #BGFX_ATTRIB_POSITION ATTRIB_POSITION}</td><td>{@link #BGFX_ATTRIB_NORMAL ATTRIB_NORMAL}</td><td>{@link #BGFX_ATTRIB_TANGENT ATTRIB_TANGENT}</td><td>{@link #BGFX_ATTRIB_BITANGENT ATTRIB_BITANGENT}</td><td>{@link #BGFX_ATTRIB_COLOR0 ATTRIB_COLOR0}</td></tr><tr><td>{@link #BGFX_ATTRIB_COLOR1 ATTRIB_COLOR1}</td><td>{@link #BGFX_ATTRIB_COLOR2 ATTRIB_COLOR2}</td><td>{@link #BGFX_ATTRIB_COLOR3 ATTRIB_COLOR3}</td><td>{@link #BGFX_ATTRIB_INDICES ATTRIB_INDICES}</td><td>{@link #BGFX_ATTRIB_WEIGHT ATTRIB_WEIGHT}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD0 ATTRIB_TEXCOORD0}</td><td>{@link #BGFX_ATTRIB_TEXCOORD1 ATTRIB_TEXCOORD1}</td><td>{@link #BGFX_ATTRIB_TEXCOORD2 ATTRIB_TEXCOORD2}</td><td>{@link #BGFX_ATTRIB_TEXCOORD3 ATTRIB_TEXCOORD3}</td><td>{@link #BGFX_ATTRIB_TEXCOORD4 ATTRIB_TEXCOORD4}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD5 ATTRIB_TEXCOORD5}</td><td>{@link #BGFX_ATTRIB_TEXCOORD6 ATTRIB_TEXCOORD6}</td><td>{@link #BGFX_ATTRIB_TEXCOORD7 ATTRIB_TEXCOORD7}</td></tr></table>
-     * @param _decl            
-     * @param _data            
-     * @param _index           
+     * @param _input           value to be packed into vertex stream
+     * @param _inputNormalized true if input value is already normalized
+     * @param _attr            attribute to pack. One of:<br><table><tr><td>{@link #BGFX_ATTRIB_POSITION ATTRIB_POSITION}</td><td>{@link #BGFX_ATTRIB_NORMAL ATTRIB_NORMAL}</td><td>{@link #BGFX_ATTRIB_TANGENT ATTRIB_TANGENT}</td><td>{@link #BGFX_ATTRIB_BITANGENT ATTRIB_BITANGENT}</td><td>{@link #BGFX_ATTRIB_COLOR0 ATTRIB_COLOR0}</td></tr><tr><td>{@link #BGFX_ATTRIB_COLOR1 ATTRIB_COLOR1}</td><td>{@link #BGFX_ATTRIB_COLOR2 ATTRIB_COLOR2}</td><td>{@link #BGFX_ATTRIB_COLOR3 ATTRIB_COLOR3}</td><td>{@link #BGFX_ATTRIB_INDICES ATTRIB_INDICES}</td><td>{@link #BGFX_ATTRIB_WEIGHT ATTRIB_WEIGHT}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD0 ATTRIB_TEXCOORD0}</td><td>{@link #BGFX_ATTRIB_TEXCOORD1 ATTRIB_TEXCOORD1}</td><td>{@link #BGFX_ATTRIB_TEXCOORD2 ATTRIB_TEXCOORD2}</td><td>{@link #BGFX_ATTRIB_TEXCOORD3 ATTRIB_TEXCOORD3}</td><td>{@link #BGFX_ATTRIB_TEXCOORD4 ATTRIB_TEXCOORD4}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD5 ATTRIB_TEXCOORD5}</td><td>{@link #BGFX_ATTRIB_TEXCOORD6 ATTRIB_TEXCOORD6}</td><td>{@link #BGFX_ATTRIB_TEXCOORD7 ATTRIB_TEXCOORD7}</td></tr></table>
+     * @param _decl            vertex stream declaration
+     * @param _data            destination vertex stream where data will be packed
+     * @param _index           vertex index that will be modified
      */
     public static void bgfx_vertex_pack(FloatBuffer _input, boolean _inputNormalized, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
         if (CHECKS) {
@@ -1111,13 +1144,13 @@ public class BGFX {
     }
 
     /**
-     * Unpacks {@code vec4} from vertex stream format.
+     * Unpacks vertex attribute from vertex stream format.
      *
-     * @param _output 
-     * @param _attr   one of:<br><table><tr><td>{@link #BGFX_ATTRIB_POSITION ATTRIB_POSITION}</td><td>{@link #BGFX_ATTRIB_NORMAL ATTRIB_NORMAL}</td><td>{@link #BGFX_ATTRIB_TANGENT ATTRIB_TANGENT}</td><td>{@link #BGFX_ATTRIB_BITANGENT ATTRIB_BITANGENT}</td><td>{@link #BGFX_ATTRIB_COLOR0 ATTRIB_COLOR0}</td></tr><tr><td>{@link #BGFX_ATTRIB_COLOR1 ATTRIB_COLOR1}</td><td>{@link #BGFX_ATTRIB_COLOR2 ATTRIB_COLOR2}</td><td>{@link #BGFX_ATTRIB_COLOR3 ATTRIB_COLOR3}</td><td>{@link #BGFX_ATTRIB_INDICES ATTRIB_INDICES}</td><td>{@link #BGFX_ATTRIB_WEIGHT ATTRIB_WEIGHT}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD0 ATTRIB_TEXCOORD0}</td><td>{@link #BGFX_ATTRIB_TEXCOORD1 ATTRIB_TEXCOORD1}</td><td>{@link #BGFX_ATTRIB_TEXCOORD2 ATTRIB_TEXCOORD2}</td><td>{@link #BGFX_ATTRIB_TEXCOORD3 ATTRIB_TEXCOORD3}</td><td>{@link #BGFX_ATTRIB_TEXCOORD4 ATTRIB_TEXCOORD4}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD5 ATTRIB_TEXCOORD5}</td><td>{@link #BGFX_ATTRIB_TEXCOORD6 ATTRIB_TEXCOORD6}</td><td>{@link #BGFX_ATTRIB_TEXCOORD7 ATTRIB_TEXCOORD7}</td></tr></table>
-     * @param _decl   
-     * @param _data   
-     * @param _index  
+     * @param _output result of unpacking
+     * @param _attr   attribute to unpack. One of:<br><table><tr><td>{@link #BGFX_ATTRIB_POSITION ATTRIB_POSITION}</td><td>{@link #BGFX_ATTRIB_NORMAL ATTRIB_NORMAL}</td><td>{@link #BGFX_ATTRIB_TANGENT ATTRIB_TANGENT}</td><td>{@link #BGFX_ATTRIB_BITANGENT ATTRIB_BITANGENT}</td><td>{@link #BGFX_ATTRIB_COLOR0 ATTRIB_COLOR0}</td></tr><tr><td>{@link #BGFX_ATTRIB_COLOR1 ATTRIB_COLOR1}</td><td>{@link #BGFX_ATTRIB_COLOR2 ATTRIB_COLOR2}</td><td>{@link #BGFX_ATTRIB_COLOR3 ATTRIB_COLOR3}</td><td>{@link #BGFX_ATTRIB_INDICES ATTRIB_INDICES}</td><td>{@link #BGFX_ATTRIB_WEIGHT ATTRIB_WEIGHT}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD0 ATTRIB_TEXCOORD0}</td><td>{@link #BGFX_ATTRIB_TEXCOORD1 ATTRIB_TEXCOORD1}</td><td>{@link #BGFX_ATTRIB_TEXCOORD2 ATTRIB_TEXCOORD2}</td><td>{@link #BGFX_ATTRIB_TEXCOORD3 ATTRIB_TEXCOORD3}</td><td>{@link #BGFX_ATTRIB_TEXCOORD4 ATTRIB_TEXCOORD4}</td></tr><tr><td>{@link #BGFX_ATTRIB_TEXCOORD5 ATTRIB_TEXCOORD5}</td><td>{@link #BGFX_ATTRIB_TEXCOORD6 ATTRIB_TEXCOORD6}</td><td>{@link #BGFX_ATTRIB_TEXCOORD7 ATTRIB_TEXCOORD7}</td></tr></table>
+     * @param _decl   vertex stream declaration
+     * @param _data   source vertex stream from where data will be unpacked
+     * @param _index  vertex index that will be unpacked
      */
     public static void bgfx_vertex_unpack(FloatBuffer _output, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
         if (CHECKS) {
@@ -1457,7 +1490,11 @@ public class BGFX {
         return invokeP(__functionAddress);
     }
 
-    /** Returns performance counters. */
+    /**
+     * Returns performance counters.
+     * 
+     * <p>The pointer returned is valid until {@link #bgfx_frame frame} is called.</p>
+     */
     public static BGFXStats bgfx_get_stats() {
         long __result = nbgfx_get_stats();
         return BGFXStats.create(__result);
@@ -1578,7 +1615,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -1590,7 +1627,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -1602,7 +1639,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -1614,7 +1651,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -1626,7 +1663,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -1638,7 +1675,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -1650,7 +1687,7 @@ public class BGFX {
     /**
      * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
      * 
-     * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+     * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
      * @param _data the data to reference
      */
@@ -3237,22 +3274,22 @@ public class BGFX {
         nbgfx_set_view_clear_mrt((byte)_id, (short)_flags, _depth, (byte)_stencil, _0, _1, _2, _3, _4, _5, _6, _7);
     }
 
-    // --- [ bgfx_set_view_seq ] ---
+    // --- [ bgfx_set_view_mode ] ---
 
-    /** Unsafe version of: {@link #bgfx_set_view_seq set_view_seq} */
-    public static void nbgfx_set_view_seq(byte _id, boolean _enabled) {
-        long __functionAddress = Functions.set_view_seq;
-        invokeV(__functionAddress, _id, _enabled);
+    /** Unsafe version of: {@link #bgfx_set_view_mode set_view_mode} */
+    public static void nbgfx_set_view_mode(byte _id, int _mode) {
+        long __functionAddress = Functions.set_view_mode;
+        invokeV(__functionAddress, _id, _mode);
     }
 
     /**
-     * Sets view into sequential mode. Draw calls will be sorted in the same order in which submit calls were called.
+     * Sets view sorting mode.
      *
-     * @param _id      view id
-     * @param _enabled if true, sequential mode is enabled
+     * @param _id   view id
+     * @param _mode view sort mode. One of:<br><table><tr><td>{@link #BGFX_VIEW_MODE_DEFAULT VIEW_MODE_DEFAULT}</td><td>{@link #BGFX_VIEW_MODE_SEQUENTIAL VIEW_MODE_SEQUENTIAL}</td><td>{@link #BGFX_VIEW_MODE_DEPTH_ASCENDING VIEW_MODE_DEPTH_ASCENDING}</td></tr><tr><td>{@link #BGFX_VIEW_MODE_DEPTH_DESCENDING VIEW_MODE_DEPTH_DESCENDING}</td><td>{@link #BGFX_VIEW_MODE_CCOUNT VIEW_MODE_CCOUNT}</td></tr></table>
      */
-    public static void bgfx_set_view_seq(int _id, boolean _enabled) {
-        nbgfx_set_view_seq((byte)_id, _enabled);
+    public static void bgfx_set_view_mode(int _id, int _mode) {
+        nbgfx_set_view_mode((byte)_id, _mode);
     }
 
     // --- [ bgfx_set_view_frame_buffer ] ---
@@ -3439,7 +3476,15 @@ public class BGFX {
      * <p>Remarks:</p>
      * 
      * <ol>
-     * <li>Use {@link #BGFX_STATE_ALPHA_REF}, {@link #BGFX_STATE_POINT_SIZE} and {@link #BGFX_STATE_BLEND_FUNC} macros to setup more complex states.</li>
+     * <li>To setup more complex states use:
+     * 
+     * <code><pre>
+     * BGFX_STATE_ALPHA_REF(_ref),
+     * BGFX_STATE_POINT_SIZE(_size),
+     * BGFX_STATE_BLEND_FUNC(_src, _dst),
+     * BGFX_STATE_BLEND_FUNC_SEPARATE(_srcRGB, _dstRGB, _srcA, _dstA)
+     * BGFX_STATE_BLEND_EQUATION(_equation)
+     * BGFX_STATE_BLEND_EQUATION_SEPARATE(_equationRGB, _equationA)</pre></code></li>
      * <li>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD} is set when no other blend equation is specified.</li>
      * </ol>
      *
@@ -3559,7 +3604,9 @@ public class BGFX {
     }
 
     /**
-     * Reserves {@code _num} matrices in internal matrix cache. Pointer returned can be modifed until {@link #bgfx_frame frame}) is called.
+     * Reserves {@code _num} matrices in internal matrix cache.
+     * 
+     * <p>Pointer returned can be modifed until {@link #bgfx_frame frame} is called.</p>
      *
      * @param _transform pointer to {@link BGFXTransform} structure
      * @param _num       number of matrices

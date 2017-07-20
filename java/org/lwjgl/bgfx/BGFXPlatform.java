@@ -55,14 +55,19 @@ public class BGFXPlatform {
     /**
      * Render frame.
      * 
+     * <p>{@code bgfx_render_frame} is blocking call. It waits for {@link BGFX#bgfx_frame frame} to be called from API thread to process frame. If timeout value is passed call will
+     * timeout and return even if {@code bgfx_frame} is not called.</p>
+     * 
      * <p>This call should be only used on platforms that don't allow creating separate rendering thread. If it is called before to {@link BGFX#bgfx_init init}, render thread won't
      * be created by {@link BGFX#bgfx_init init} call.</p>
      *
+     * @param _msecs timeout in milliseconds
+     *
      * @return current renderer state
      */
-    public static int bgfx_render_frame() {
+    public static int bgfx_render_frame(int _msecs) {
         long __functionAddress = Functions.render_frame;
-        return invokeI(__functionAddress);
+        return invokeI(__functionAddress, _msecs);
     }
 
     // --- [ bgfx_set_platform_data ] ---
