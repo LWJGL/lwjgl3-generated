@@ -110,11 +110,11 @@ public class TinyFileDialogs {
      *
      * @param aTitle         the dialog title or {@code NULL}
      * @param aMessage       the message or {@code NULL}. It may contain \n and \t characters.
-     * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td></tr></table>
+     * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td><td>"yesnocancel"</td></tr></table>
      * @param aIconType      the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td><td>"question"</td></tr></table>
      * @param aDefaultButton 0 for cancel/no, 1 for ok/yes
      *
-     * @return 0 for cancel/no, 1 for ok/yes
+     * @return 0 for cancel/no, 1 for ok/yes, 2 for no in yesnocancel
      */
     public static boolean tinyfd_messageBox(ByteBuffer aTitle, ByteBuffer aMessage, ByteBuffer aDialogType, ByteBuffer aIconType, boolean aDefaultButton) {
         if (CHECKS) {
@@ -131,11 +131,11 @@ public class TinyFileDialogs {
      *
      * @param aTitle         the dialog title or {@code NULL}
      * @param aMessage       the message or {@code NULL}. It may contain \n and \t characters.
-     * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td></tr></table>
+     * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td><td>"yesnocancel"</td></tr></table>
      * @param aIconType      the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td><td>"question"</td></tr></table>
      * @param aDefaultButton 0 for cancel/no, 1 for ok/yes
      *
-     * @return 0 for cancel/no, 1 for ok/yes
+     * @return 0 for cancel/no, 1 for ok/yes, 2 for no in yesnocancel
      */
     public static boolean tinyfd_messageBox(CharSequence aTitle, CharSequence aMessage, CharSequence aDialogType, CharSequence aIconType, boolean aDefaultButton) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
