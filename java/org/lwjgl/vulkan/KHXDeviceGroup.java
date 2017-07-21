@@ -37,6 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dd><ul>
  * <li>This extension is written against version 1.0 of the Vulkan API.</li>
  * <li>Requires VK_KHR_swapchain revision 68.</li>
+ * <li>Requires VK_KHX_device_group_creation revision 1.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>

@@ -463,7 +463,7 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /**
-     * (no short description available).
+     * Create an indirect command layout object.
      * 
      * <h5>C Specification</h5>
      * 
@@ -583,7 +583,7 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /**
-     * (no short description available).
+     * Create an object table.
      * 
      * <h5>C Specification</h5>
      * 
@@ -711,7 +711,7 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /**
-     * (no short description available).
+     * Register resource bindings in an object table.
      * 
      * <h5>C Specification</h5>
      * 
@@ -796,11 +796,11 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /**
-     * (no short description available).
+     * Unregister resource bindings in an object table.
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>Using the following command to unregister resources from an object table:</p>
+     * <p>Use the following command to unregister resources from an object table:</p>
      * 
      * <code><pre>
      * VkResult vkUnregisterObjectsNVX(

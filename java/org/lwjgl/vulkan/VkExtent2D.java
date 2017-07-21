@@ -16,6 +16,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a two-dimensional extent.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code width} &ndash; the width of the extent.</li>
+ * <li>{@code height} &ndash; the height of the extent.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <code><pre>

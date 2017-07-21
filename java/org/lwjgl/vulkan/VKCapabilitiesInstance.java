@@ -57,6 +57,18 @@ public class VKCapabilitiesInstance {
         vkGetDisplayPlaneCapabilitiesKHR,
         vkCreateDisplayPlaneSurfaceKHR;
 
+    // KHR_external_fence_capabilities
+    public final long
+        vkGetPhysicalDeviceExternalFencePropertiesKHR;
+
+    // KHR_external_memory_capabilities
+    public final long
+        vkGetPhysicalDeviceExternalBufferPropertiesKHR;
+
+    // KHR_external_semaphore_capabilities
+    public final long
+        vkGetPhysicalDeviceExternalSemaphorePropertiesKHR;
+
     // KHR_get_physical_device_properties2
     public final long
         vkGetPhysicalDeviceFeatures2KHR,
@@ -98,14 +110,6 @@ public class VKCapabilitiesInstance {
     public final long
         vkEnumeratePhysicalDeviceGroupsKHX;
 
-    // KHX_external_memory_capabilities
-    public final long
-        vkGetPhysicalDeviceExternalBufferPropertiesKHX;
-
-    // KHX_external_semaphore_capabilities
-    public final long
-        vkGetPhysicalDeviceExternalSemaphorePropertiesKHX;
-
     // MVK_ios_surface
     public final long
         vkCreateIOSSurfaceMVK;
@@ -141,6 +145,12 @@ public class VKCapabilitiesInstance {
     public final boolean VK_EXT_validation_flags;
     /** When true, {@link KHRDisplay} is supported. */
     public final boolean VK_KHR_display;
+    /** When true, {@link KHRExternalFenceCapabilities} is supported. */
+    public final boolean VK_KHR_external_fence_capabilities;
+    /** When true, {@link KHRExternalMemoryCapabilities} is supported. */
+    public final boolean VK_KHR_external_memory_capabilities;
+    /** When true, {@link KHRExternalSemaphoreCapabilities} is supported. */
+    public final boolean VK_KHR_external_semaphore_capabilities;
     /** When true, {@link KHRGetPhysicalDeviceProperties2} is supported. */
     public final boolean VK_KHR_get_physical_device_properties2;
     /** When true, {@link KHRGetSurfaceCapabilities2} is supported. */
@@ -153,10 +163,6 @@ public class VKCapabilitiesInstance {
     public final boolean VK_KHR_xlib_surface;
     /** When true, {@link KHXDeviceGroupCreation} is supported. */
     public final boolean VK_KHX_device_group_creation;
-    /** When true, {@link KHXExternalMemoryCapabilities} is supported. */
-    public final boolean VK_KHX_external_memory_capabilities;
-    /** When true, {@link KHXExternalSemaphoreCapabilities} is supported. */
-    public final boolean VK_KHX_external_semaphore_capabilities;
     /** When true, {@link MVKIosSurface} is supported. */
     public final boolean VK_MVK_ios_surface;
     /** When true, {@link MVKMacosSurface} is supported. */
@@ -222,6 +228,21 @@ public class VKCapabilitiesInstance {
             VK_KHR_display = supported && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
         }
         {
+            supported = ext.contains("VK_KHR_external_fence_capabilities");
+            vkGetPhysicalDeviceExternalFencePropertiesKHR = isSupported(provider, "vkGetPhysicalDeviceExternalFencePropertiesKHR", supported);
+            VK_KHR_external_fence_capabilities = supported && VK.checkExtension("VK_KHR_external_fence_capabilities", KHRExternalFenceCapabilities.isAvailable(this));
+        }
+        {
+            supported = ext.contains("VK_KHR_external_memory_capabilities");
+            vkGetPhysicalDeviceExternalBufferPropertiesKHR = isSupported(provider, "vkGetPhysicalDeviceExternalBufferPropertiesKHR", supported);
+            VK_KHR_external_memory_capabilities = supported && VK.checkExtension("VK_KHR_external_memory_capabilities", KHRExternalMemoryCapabilities.isAvailable(this));
+        }
+        {
+            supported = ext.contains("VK_KHR_external_semaphore_capabilities");
+            vkGetPhysicalDeviceExternalSemaphorePropertiesKHR = isSupported(provider, "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR", supported);
+            VK_KHR_external_semaphore_capabilities = supported && VK.checkExtension("VK_KHR_external_semaphore_capabilities", KHRExternalSemaphoreCapabilities.isAvailable(this));
+        }
+        {
             supported = ext.contains("VK_KHR_get_physical_device_properties2");
             vkGetPhysicalDeviceFeatures2KHR = isSupported(provider, "vkGetPhysicalDeviceFeatures2KHR", supported);
             vkGetPhysicalDeviceProperties2KHR = isSupported(provider, "vkGetPhysicalDeviceProperties2KHR", supported);
@@ -266,16 +287,6 @@ public class VKCapabilitiesInstance {
             supported = ext.contains("VK_KHX_device_group_creation");
             vkEnumeratePhysicalDeviceGroupsKHX = isSupported(provider, "vkEnumeratePhysicalDeviceGroupsKHX", supported);
             VK_KHX_device_group_creation = supported && VK.checkExtension("VK_KHX_device_group_creation", KHXDeviceGroupCreation.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHX_external_memory_capabilities");
-            vkGetPhysicalDeviceExternalBufferPropertiesKHX = isSupported(provider, "vkGetPhysicalDeviceExternalBufferPropertiesKHX", supported);
-            VK_KHX_external_memory_capabilities = supported && VK.checkExtension("VK_KHX_external_memory_capabilities", KHXExternalMemoryCapabilities.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHX_external_semaphore_capabilities");
-            vkGetPhysicalDeviceExternalSemaphorePropertiesKHX = isSupported(provider, "vkGetPhysicalDeviceExternalSemaphorePropertiesKHX", supported);
-            VK_KHX_external_semaphore_capabilities = supported && VK.checkExtension("VK_KHX_external_semaphore_capabilities", KHXExternalSemaphoreCapabilities.isAvailable(this));
         }
         {
             supported = ext.contains("VK_MVK_ios_surface");

@@ -17,6 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying parameters of a newly created pipeline dynamic state.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>Each element of {@code pDynamicStates} <b>must</b> be unique</li>
+ * </ul>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>

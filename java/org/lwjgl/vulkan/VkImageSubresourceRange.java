@@ -28,29 +28,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>{@code aspectMask} <b>must</b> be only {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} or {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if {@code format} is a color, depth-only or stencil-only format, respectively. If using a depth/stencil format with both depth and stencil components, {@code aspectMask} <b>must</b> include at least one of {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}, and <b>can</b> include both.</p>
  * 
+ * <p>When the {@link VkImageSubresourceRange} structure is used to select a subset of the slices of a 3D image's mip level in order to create a 2D or 2D array image view of a 3D image created with {@link #IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT}, {@code baseArrayLayer} and {@code layerCount} specify the first slice index and the number of slices to include in the created image view. Such an image view <b>can</b> be used as a framebuffer attachment that refers only to the specified range of slices of the selected mip level. However, any layout transitions performed on such an attachment view during a render pass instance still apply to the entire subresource referenced which includes all the slices of the selected mip level.</p>
+ * 
  * <p>When using an imageView of a depth/stencil image to populate a descriptor set (e.g. for sampling in the shader, or for use as an input attachment), the {@code aspectMask} <b>must</b> only include one bit and selects whether the imageView is used for depth reads (i.e. using a floating-point sampler or input attachment in the shader) or stencil reads (i.e. using an unsigned integer sampler or input attachment in the shader). When an imageView of a depth/stencil image is used as a depth/stencil framebuffer attachment, the {@code aspectMask} is ignored and both depth and stencil image subresources are used.</p>
  * 
  * <p>The {@code components} member is of type {@link VkComponentMapping}, and describes a remapping from components of the image to components of the vector returned by shader image instructions. This remapping <b>must</b> be identity for storage image descriptors, input attachment descriptors, and framebuffer attachments.</p>
- * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS},<code>levelCount</code>
- * 
- * <p><b>must</b> be non-zero and</p><code>(baseMipLevel + levelCount)</code>
- * 
- * <p><b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</p></li>
- * <li>If the {@code imageType} specified in {@link VkImageCreateInfo} when the image was created was {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} and the image view is created with the {@code viewType} of {@link VkImageViewCreateInfo} set to {@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} then {@code layerCount} <b>must</b> be {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, or<code>layerCount</code>
- * 
- * <p><b>must</b> be non-zero and</p><code>(baseArrayLayer + layerCount)</code>
- * 
- * <p><b>must</b> be less than or equal to the {@code extent.depth} specified in {@link VkImageCreateInfo} when the image was created</p></li>
- * <li>If the {@code imageType} specified in {@link VkImageCreateInfo} when the image was created was not {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} or the image view is not created with the {@code viewType} of {@link VkImageViewCreateInfo} set to {@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} then {@code layerCount} <b>must</b> be {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, or<code>layerCount</code>
- * 
- * <p><b>must</b> be non-zero and</p><code>(baseArrayLayer + layerCount)</code>
- * 
- * <p><b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</p></li>
- * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 

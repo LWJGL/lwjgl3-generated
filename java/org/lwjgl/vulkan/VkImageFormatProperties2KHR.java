@@ -20,6 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If the combination of parameters to {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} is not supported by the implementation for use in {@link VK10#vkCreateImage CreateImage}, then all members of {@code imageFormatProperties} will be filled with zero.</p>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRGetPhysicalDeviceProperties2#VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2_KHR}</li>
+ * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkExternalImageFormatPropertiesKHR} or {@link VkTextureLODGatherFormatPropertiesAMD}</li>
+ * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
+ * </ul>
+ * 
  * <h5>See Also</h5>
  * 
  * <p>{@link VkImageFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR}</p>

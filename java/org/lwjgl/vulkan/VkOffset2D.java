@@ -16,6 +16,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a two-dimensional offset.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code x} &ndash; the x offset.</li>
+ * <li>{@code y} &ndash; the y offset.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <code><pre>

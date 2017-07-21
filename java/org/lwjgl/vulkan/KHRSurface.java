@@ -150,8 +150,9 @@ public class KHRSurface {
      * 
      * <ul>
      * <li>{@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR} indicates support for the sRGB color space.</li>
-     * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT} indicates support for the Display-P3 color space and applies an sRGB-like OETF (defined below).</li>
-     * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT} indicates support for the extended sRGB color space and applies a linear OETF.</li>
+     * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT COLOR_SPACE_DISPLAY_P3_NONLINEAR_EXT} indicates support for the Display-P3 color space and applies an sRGB-like transfer function (defined below).</li>
+     * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT COLOR_SPACE_EXTENDED_SRGB_LINEAR_EXT} indicates support for the extended sRGB color space and applies a linear transfer function.</li>
+     * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT} indicates support for the extended sRGB color space and applies an sRGB transfer function.</li>
      * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_DCI_P3_LINEAR_EXT COLOR_SPACE_DCI_P3_LINEAR_EXT} indicates support for the DCI-P3 color space and applies a linear OETF.</li>
      * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_DCI_P3_NONLINEAR_EXT COLOR_SPACE_DCI_P3_NONLINEAR_EXT} indicates support for the DCI-P3 color space and applies the Gamma 2.6 OETF.</li>
      * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_BT709_LINEAR_EXT COLOR_SPACE_BT709_LINEAR_EXT} indicates support for the BT709 color space and applies a linear OETF.</li>
@@ -165,12 +166,12 @@ public class KHRSurface {
      * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_PASS_THROUGH_EXT COLOR_SPACE_PASS_THROUGH_EXT} indicates that color components are used “as is”. This is intended to allow applications to supply data for color spaces not described here.</li>
      * </ul>
      * 
-     * <p>The color components of Non-linear color space swap chain images have had the appropriate transfer function applied. Vulkan requires that all implementations support the sRGB OETF and EOTF transfer functions when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M or SMPTE2084, <b>must</b> not be performed by the implementation, but <b>can</b> be performed by the application shader. This extension defines enums for {@code VkColorSpaceKHR} that correspond to the following color spaces::</p>
+     * <p>The color components of Non-linear color space swap chain images have had the appropriate transfer function applied. Vulkan requires that all implementations support the sRGB transfer function when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M or SMPTE2084, <b>must</b> not be performed by the implementation, but <b>can</b> be performed by the application shader. This extension defines enums for {@code VkColorSpaceKHR} that correspond to the following color spaces::</p>
      * 
      * <h6>Color Spaces and Attributes</h6>
      * 
      * <table class="lwjgl">
-     * <thead><tr><th>Name</th><th>Red Primary</th><th>Green Primary</th><th>Blue Primary</th><th>White-point</th><th>OETF</th></tr></thead>
+     * <thead><tr><th>Name</th><th>Red Primary</th><th>Green Primary</th><th>Blue Primary</th><th>White-point</th><th>Transfer function</th></tr></thead>
      * <tbody>
      * <tr><td>DCI-P3</td><td>0.680, 0.320</td><td>0.265, 0.690</td><td>0.150, 0.060</td><td>0.3127, 0.3290 (D65)</td><td>Gamma 2.6</td></tr>
      * <tr><td>Display-P3</td><td>0.680, 0.320</td><td>0.265, 0.690</td><td>0.150, 0.060</td><td>0.3127, 0.3290 (D65)</td><td>Display-P3</td></tr>
@@ -197,136 +198,6 @@ public class KHRSurface {
      * <code>E</code>
      * 
      * <p>- corresponding electrical signal (value stored in memory)</p>
-     * 
-     * <h5>sRGB OETF</h5>
-     * 
-     * <code><pre>
-     * E =  1.055 &times; L<sup>1/2.4</sup> - 0.055 for 0.0031308 &le; L &le; 1
-     *     12.92  &times; L for 0 &le; L &lt 0.0031308</pre></code>
-     * 
-     * <h5>Display-P3 EOTF</h5>
-     * 
-     * <code><pre>
-     * E = (a &times; L + b)<sup>2.4</sup> for 0.039 &le; L &le; 1
-     *     b &times; L for 0 &le; L &lt; 0.039</pre></code>
-     * 
-     * <code><pre>
-     * a = 0.948</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * b = 0.052</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * c = 0.077</pre></code>
-     * 
-     * <p>+</p>
-     * 
-     * <h5>Display-P3 OETF</h5>
-     * 
-     * <code><pre>
-     * E =  1.055 &times; L<sup>1/2.4</sup> - 0.055 for 0.0030186 &le; L &le; 1
-     *     12.92  &times; L for 0 &le; L &lt 0.0030186</pre></code>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>For most uses, the sRGB OETF is equivalent.</p>
-     * </div>
-     * 
-     * <h5>Extended sRGB OETF</h5>
-     * 
-     * <code><pre>
-     *      1.055 &times;  L<sup>1/2.4</sup> - 0.055 for 0.0031308 &le; L &le; 7.5913
-     * E = 12.92  &times;  L for 0 &le; L &lt 0.0031308
-     *     -f(-L) for L &lt; 0</pre></code>
-     * 
-     * <code>L</code>
-     * 
-     * <p>- luminance of image is within</p><code>[-0.6038, 7.5913]</code>
-     * 
-     * <p>.</p>
-     * 
-     * <code>E</code>
-     * 
-     * <p>can be negative and/or > 1. That is how extended sRGB specifies colors outside the standard sRGB gamut. This means extended sRGB needs a floating point pixel format to cover the intended color range.</p>
-     * 
-     * <h5>SMPTE 170M OETF</h5>
-     * 
-     * <code><pre>
-     * E = α &times; L^<sup>0.45</sup> - (1 - α) for β &le; L &le; 1
-     *     4.5 &times; L for 0 &le; L &lt; β</pre></code>
-     * 
-     * <code><pre>
-     * α = 1.099 and β = 0.018 for 10-bits and less per sample system (the values given in Rec.709)</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * α = 1.0993 and β = 0.0181 for 12-bits per sample system</pre></code>
-     * 
-     * <h5>SMPTE ST2084 OETF (Inverse-EOTF)</h5>
-     * 
-     * <code><pre>
-     * E = ((c_<sub>1</sub> + c_<sub>2</sub> &times; L^<sup>m_<sub>1</sub></sup>) / (1 + c_<sub>3</sub> &times; L^<sup>m_<sub>1</sub></sup>))^<sup>m_<sub>2</sub></sup></pre></code>
-     * 
-     * <p>where:</p>
-     * 
-     * <code><pre>
-     * m<sub>1</sub> = 2610 / 4096 &times; 1/4 = 0.1593017578125</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * m<sub>2</sub> = 2523 / 4096 &times; 128 = 78.84375</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * c<sub>1</sub> = 3424 / 4096 = 0.8359375 = c3 - c2 + 1</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * c<sub>2</sub> = 2413 / 4096 &times; 32 = 18.8515625</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * c<sub>3</sub> = 2392 / 4096 &times; 32 = 18.6875</pre></code>
-     * 
-     * <p>+</p>
-     * 
-     * <h5>Hybrid Log Gamma (HLG)</h5>
-     * 
-     * <code><pre>
-     * E = r &times; sqrt(L) for 0 &le; L &le; 1
-     *     a &times; ln(L - b) + c for 1 &lt L</pre></code>
-     * 
-     * <code><pre>
-     * L - is the signal normalized by the reference white level</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * r - is the reference white level and has a signal value of 0.5</pre></code>
-     * 
-     * <p>+</p><code><pre>
-     * a = 0.17883277 and b = 0.28466892, and c = 0.55991073</pre></code>
-     * 
-     * <h5>AdobeRGB OETF</h5>
-     * 
-     * <code><pre>
-     * E = L^<sup>1 / 2.19921875</sup></pre></code>
-     * 
-     * <h5>Gamma 2.6 OETF</h5>
-     * 
-     * <code><pre>
-     * E = L^<sup>1 / 2.6</sup></pre></code>
-     * 
-     * <p>An implementation supporting this extension indicates support for these color spaces via {@link VkSurfaceFormatKHR} structures returned from {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR}.</p>
-     * 
-     * <p>Specifying the supported surface color space when calling {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR} will create a swapchain using that color space.</p>
-     * 
-     * <p>Vulkan requires that all implementations support the sRGB Opto-Electrical Transfer Function (OETF) and Electro-optical transfer function (EOTF) when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M, <b>must</b> not be performed by the implementation, but <b>can</b> be performed by the application shader.</p>
-     * 
-     * <p>If {@code pSurfaceFormats} includes an entry whose value for {@code colorSpace} is {@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR} and whose value for {@code format} is a UNORM (or SRGB) format and the corresponding SRGB (or UNORM) format is a color renderable format for {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, then {@code pSurfaceFormats} <b>must</b> also contain an entry with the same value for {@code colorSpace} and {@code format} equal to the corresponding SRGB (or UNORM) format.</p>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>If {@code pSurfaceFormats} includes just one entry, whose value for {@code format} is {@link VK10#VK_FORMAT_UNDEFINED FORMAT_UNDEFINED}, {@code surface} has no preferred format. In this case, the application <b>can</b> use any valid {@code VkFormat} value.</p>
-     * </div>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>In the initial release of the {@code VK_KHR_surface} and {@code VK_KHR_swapchain} extensions, the token {@link #VK_COLORSPACE_SRGB_NONLINEAR_KHR COLORSPACE_SRGB_NONLINEAR_KHR} was used. Starting in the May 13, 2016 updates to the extension branches, matching release 1.0.13 of the core API specification, {@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR} is used instead for consistency with Vulkan naming rules. The older enum is still available for backwards compatibility.</p>
-     * </div>
      * 
      * <h5>See Also</h5>
      * 

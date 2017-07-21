@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Specify memory handle types that may be exported.
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 

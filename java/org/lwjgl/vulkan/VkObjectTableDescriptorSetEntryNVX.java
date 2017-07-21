@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Parameters of an object table descriptor set entry.
  * 
  * <h5>Valid Usage</h5>
  * 

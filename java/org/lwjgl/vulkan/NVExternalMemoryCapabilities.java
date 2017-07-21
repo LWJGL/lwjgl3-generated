@@ -29,6 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Dependencies</b></dt>
  * <dd><ul>
  * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>Interacts with VK_KHR_dedicated_allocation.</li>
  * <li>Interacts with VK_NV_dedicated_allocation.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>

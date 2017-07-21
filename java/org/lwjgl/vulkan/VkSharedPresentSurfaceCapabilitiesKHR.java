@@ -14,6 +14,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * structure describing capabilities of a surface for shared presentation.
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRSharedPresentableImage#VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR}</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

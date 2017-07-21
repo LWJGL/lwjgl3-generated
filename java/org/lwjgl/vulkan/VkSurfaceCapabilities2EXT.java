@@ -30,6 +30,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code supportedSurfaceCounters} <b>must</b> not include {@link EXTDisplaySurfaceCounter#VK_SURFACE_COUNTER_VBLANK_EXT SURFACE_COUNTER_VBLANK_EXT} unless the surface queried is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#wsi-display-surfaces">display surface</a>.</li>
  * </ul>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link EXTDisplaySurfaceCounter#VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT STRUCTURE_TYPE_SURFACE_CAPABILITIES2_EXT}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
  * <h5>See Also</h5>
  * 
  * <p>{@link VkExtent2D}, {@link EXTDisplaySurfaceCounter#vkGetPhysicalDeviceSurfaceCapabilities2EXT GetPhysicalDeviceSurfaceCapabilities2EXT}</p>

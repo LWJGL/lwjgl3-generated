@@ -191,7 +191,7 @@ public class EXTDebugMarker {
      * <code><pre>
      * VkResult vkDebugMarkerSetObjectTagEXT(
      *     VkDevice                                    device,
-     *     VkDebugMarkerObjectTagInfoEXT*              pTagInfo);</pre></code>
+     *     const VkDebugMarkerObjectTagInfoEXT*        pTagInfo);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -204,7 +204,7 @@ public class EXTDebugMarker {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pTagInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectTagInfoEXT} structure</li>
+     * <li>{@code pTagInfo} <b>must</b> be a pointer to a valid {@link VkDebugMarkerObjectTagInfoEXT} structure</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -260,7 +260,7 @@ public class EXTDebugMarker {
      * <code><pre>
      * VkResult vkDebugMarkerSetObjectNameEXT(
      *     VkDevice                                    device,
-     *     VkDebugMarkerObjectNameInfoEXT*             pNameInfo);</pre></code>
+     *     const VkDebugMarkerObjectNameInfoEXT*       pNameInfo);</pre></code>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -272,7 +272,7 @@ public class EXTDebugMarker {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pNameInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectNameInfoEXT} structure</li>
+     * <li>{@code pNameInfo} <b>must</b> be a pointer to a valid {@link VkDebugMarkerObjectNameInfoEXT} structure</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -328,13 +328,13 @@ public class EXTDebugMarker {
      * <code><pre>
      * void vkCmdDebugMarkerBeginEXT(
      *     VkCommandBuffer                             commandBuffer,
-     *     VkDebugMarkerMarkerInfoEXT*                 pMarkerInfo);</pre></code>
+     *     const VkDebugMarkerMarkerInfoEXT*           pMarkerInfo);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
+     * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a valid {@link VkDebugMarkerMarkerInfoEXT} structure</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * </ul>
@@ -440,13 +440,13 @@ public class EXTDebugMarker {
      * <code><pre>
      * void vkCmdDebugMarkerInsertEXT(
      *     VkCommandBuffer                             commandBuffer,
-     *     VkDebugMarkerMarkerInfoEXT*                 pMarkerInfo);</pre></code>
+     *     const VkDebugMarkerMarkerInfoEXT*           pMarkerInfo);</pre></code>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
+     * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a valid {@link VkDebugMarkerMarkerInfoEXT} structure</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * </ul>

@@ -28,6 +28,13 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * 
  * <p>If a device group only includes a single physical device, then {@code modes} <b>must</b> equal {@link KHXDeviceGroup#VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHX}.</p>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
  * <h5>See Also</h5>
  * 
  * <p>{@link KHXDeviceGroup#vkGetDeviceGroupPresentCapabilitiesKHX GetDeviceGroupPresentCapabilitiesKHX}</p>

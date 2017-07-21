@@ -27,9 +27,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</li>
- * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkDisplayPresentInfoKHR}, {@link VkPresentRegionsKHR}, {@link VkDeviceGroupPresentInfoKHX}, or {@link VkPresentTimesInfoGOOGLE}</li>
+ * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkDeviceGroupPresentInfoKHX}, {@link VkDisplayPresentInfoKHR}, {@link VkPresentRegionsKHR}, or {@link VkPresentTimesInfoGOOGLE}</li>
  * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
- * <li>If {@code waitSemaphoreCount} is not 0, and {@code pWaitSemaphores} is not {@code NULL}, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid {@code VkSemaphore} handles</li>
+ * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid {@code VkSemaphore} handles</li>
  * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
  * <li>{@code pImageIndices} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code uint32_t} values</li>
  * <li>If {@code pResults} is not {@code NULL}, {@code pResults} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkResult} values</li>
@@ -148,8 +148,6 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     public VkPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
     public VkPresentInfoKHR pNext(long value) { npNext(address(), value); return this; }
-    /** Sets the specified value to the {@code waitSemaphoreCount} field. */
-    public VkPresentInfoKHR waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
     public VkPresentInfoKHR pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
     /** Sets the specified value to the {@code swapchainCount} field. */
@@ -165,7 +163,6 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     public VkPresentInfoKHR set(
         int sType,
         long pNext,
-        int waitSemaphoreCount,
         LongBuffer pWaitSemaphores,
         int swapchainCount,
         LongBuffer pSwapchains,
@@ -174,7 +171,6 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     ) {
         sType(sType);
         pNext(pNext);
-        waitSemaphoreCount(waitSemaphoreCount);
         pWaitSemaphores(pWaitSemaphores);
         swapchainCount(swapchainCount);
         pSwapchains(pSwapchains);
@@ -349,7 +345,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
     public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.WAITSEMAPHORECOUNT, value); }
     /** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-    public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); if (value != null) { nwaitSemaphoreCount(struct, value.remaining()); } }
+    public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code swapchainCount} field of the specified {@code struct}. */
     public static void nswapchainCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.SWAPCHAINCOUNT, value); }
     /** Unsafe version of {@link #pSwapchains(LongBuffer) pSwapchains}. */
@@ -365,6 +361,9 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      * @param struct the struct to validate
      */
     public static void validate(long struct) {
+        if (nwaitSemaphoreCount(struct) != 0) {
+            check(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES));
+        }
         check(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS));
         check(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES));
     }
@@ -444,8 +443,6 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         public VkPresentInfoKHR.Buffer sType(int value) { VkPresentInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
         public VkPresentInfoKHR.Buffer pNext(long value) { VkPresentInfoKHR.npNext(address(), value); return this; }
-        /** Sets the specified value to the {@code waitSemaphoreCount} field. */
-        public VkPresentInfoKHR.Buffer waitSemaphoreCount(int value) { VkPresentInfoKHR.nwaitSemaphoreCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
         public VkPresentInfoKHR.Buffer pWaitSemaphores(LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
         /** Sets the specified value to the {@code swapchainCount} field. */

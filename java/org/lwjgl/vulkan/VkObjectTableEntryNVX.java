@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (no short description available).
+ * Common parameters of an object table resource entry.
  * 
  * <h5>Valid Usage</h5>
  * 

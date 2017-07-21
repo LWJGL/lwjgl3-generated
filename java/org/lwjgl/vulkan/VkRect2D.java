@@ -16,6 +16,13 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a two-dimensional subregion.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code offset} &ndash; a {@link VkOffset2D} specifying the rectangle offset.</li>
+ * <li>{@code extent} &ndash; a {@link VkExtent2D} specifying the rectangle extent.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <code><pre>

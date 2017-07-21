@@ -114,7 +114,7 @@ import static org.lwjgl.system.JNI.*;
  * <dd>1</dd>
  * <dt><b>Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0. of the Vulkan API.</li>
+ * <li>This extension is written against version 1.0 of the Vulkan API.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>

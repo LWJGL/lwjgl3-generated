@@ -9,8 +9,10 @@ package org.lwjgl.vulkan;
  * This extension adds support for the following SPIR-V extension in Vulkan:
  * 
  * <ul>
- * <li>SPV_KHR_shader_draw_parameters
- * The extension provides access to three additional built-in shader variables in Vulkan:
+ * <li>SPV_KHR_shader_draw_parameters</li>
+ * </ul>
+ * 
+ * <p>The extension provides access to three additional built-in shader variables in Vulkan:</p>
  * 
  * <ul>
  * <li>{@code BaseInstance}, which contains the firstInstance parameter passed to draw commands,</li>
@@ -24,8 +26,6 @@ package org.lwjgl.vulkan;
  * <li>in int gl_BaseInstanceARB; &#8594; {@code BaseInstance},</li>
  * <li>in int gl_BaseVertexARB &#8594; {@code BaseVertex}, and</li>
  * <li>in int gl_DrawIDARB; &#8594; {@code DrawIndex}.</li>
- * </ul>
- * </li>
  * </ul>
  * 
  * <dl>

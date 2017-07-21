@@ -16,6 +16,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying sparse image format properties.
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRGetPhysicalDeviceProperties2#VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkSparseImageFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
