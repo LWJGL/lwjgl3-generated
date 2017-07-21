@@ -1059,10 +1059,19 @@ public class STBTruetype {
      * Frees a bitmap allocated by {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel}, {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} or {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel}.
      *
      * @param bitmap   the bitmap to free
-     * @param userdata a pointer to user data
+     * @param userdata a pointer to an allocation context
      */
     public static void stbtt_FreeBitmap(ByteBuffer bitmap, long userdata) {
         nstbtt_FreeBitmap(memAddress(bitmap), userdata);
+    }
+
+    /**
+     * Frees a bitmap allocated by {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel}, {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} or {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel}.
+     *
+     * @param bitmap the bitmap to free
+     */
+    public static void stbtt_FreeBitmap(ByteBuffer bitmap) {
+        nstbtt_FreeBitmap(memAddress(bitmap), NULL);
     }
 
     // --- [ stbtt_GetCodepointBitmap ] ---
@@ -1172,6 +1181,38 @@ public class STBTruetype {
             check(output, out_w * out_h);
         }
         nstbtt_MakeCodepointBitmapSubpixel(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, codepoint);
+    }
+
+    // --- [ stbtt_MakeCodepointBitmapSubpixelPrefilter ] ---
+
+    /** Unsafe version of: {@link #stbtt_MakeCodepointBitmapSubpixelPrefilter MakeCodepointBitmapSubpixelPrefilter} */
+    public static native void nstbtt_MakeCodepointBitmapSubpixelPrefilter(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, long sub_x, long sub_y, int codepoint);
+
+    /**
+     * Same as {@link #stbtt_MakeCodepointBitmapSubpixel MakeCodepointBitmapSubpixel}, but prefiltering is performed (see {@link #stbtt_PackSetOversampling PackSetOversampling}).
+     *
+     * @param info         an {@link STBTTFontinfo} struct
+     * @param output       the bitmap storage
+     * @param out_w        the bitmap width
+     * @param out_h        the bitmap height
+     * @param out_stride   the row stride, in bytes
+     * @param scale_x      the horizontal scale
+     * @param scale_y      the vertical scale
+     * @param shift_x      the horizontal subpixel shift
+     * @param shift_y      the vertical subpixel shift
+     * @param oversample_x the horizontal oversampling amount
+     * @param oversample_y the vertical oversampling amount
+     * @param sub_x        returns the horizontal oversample shift
+     * @param sub_y        returns the vertical oversample shift
+     * @param codepoint    the unicode codepoint to render
+     */
+    public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, FloatBuffer sub_x, FloatBuffer sub_y, int codepoint) {
+        if (CHECKS) {
+            check(output, out_w * out_h);
+            check(sub_x, 1);
+            check(sub_y, 1);
+        }
+        nstbtt_MakeCodepointBitmapSubpixelPrefilter(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, oversample_x, oversample_y, memAddress(sub_x), memAddress(sub_y), codepoint);
     }
 
     // --- [ stbtt_GetCodepointBitmapBox ] ---
@@ -1342,6 +1383,38 @@ public class STBTruetype {
         nstbtt_MakeGlyphBitmapSubpixel(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, glyph);
     }
 
+    // --- [ stbtt_MakeGlyphBitmapSubpixelPrefilter ] ---
+
+    /** Unsafe version of: {@link #stbtt_MakeGlyphBitmapSubpixelPrefilter MakeGlyphBitmapSubpixelPrefilter} */
+    public static native void nstbtt_MakeGlyphBitmapSubpixelPrefilter(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, long sub_x, long sub_y, int glyph);
+
+    /**
+     * Same as {@link #stbtt_MakeGlyphBitmapSubpixel MakeGlyphBitmapSubpixel}, but prefiltering is performed (see {@link #stbtt_PackSetOversampling PackSetOversampling}).
+     *
+     * @param info         an {@link STBTTFontinfo} struct
+     * @param output       the bitmap storage
+     * @param out_w        the bitmap width
+     * @param out_h        the bitmap height
+     * @param out_stride   the row stride, in bytes
+     * @param scale_x      the horizontal scale
+     * @param scale_y      the vertical scale
+     * @param shift_x      the horizontal subpixel shift
+     * @param shift_y      the vertical subpixel shift
+     * @param oversample_x the horizontal oversampling amount
+     * @param oversample_y the vertical oversampling amount
+     * @param sub_x        returns the horizontal oversample shift
+     * @param sub_y        returns the vertical oversample shift
+     * @param glyph        the glyph index to render
+     */
+    public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, FloatBuffer sub_x, FloatBuffer sub_y, int glyph) {
+        if (CHECKS) {
+            check(output, out_w * out_h);
+            check(sub_x, 1);
+            check(sub_y, 1);
+        }
+        nstbtt_MakeGlyphBitmapSubpixelPrefilter(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, oversample_x, oversample_y, memAddress(sub_x), memAddress(sub_y), glyph);
+    }
+
     // --- [ stbtt_GetGlyphBitmapBox ] ---
 
     /** Unsafe version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
@@ -1399,6 +1472,144 @@ public class STBTruetype {
             checkSafe(iy1, 1);
         }
         nstbtt_GetGlyphBitmapBoxSubpixel(font.address(), glyph, scale_x, scale_y, shift_x, shift_y, memAddressSafe(ix0), memAddressSafe(iy0), memAddressSafe(ix1), memAddressSafe(iy1));
+    }
+
+    // --- [ stbtt_Rasterize ] ---
+
+    /**
+     * Unsafe version of: {@link #stbtt_Rasterize Rasterize}
+     *
+     * @param num_verts number of vertices in above array
+     */
+    public static native void nstbtt_Rasterize(long result, float flatness_in_pixels, long vertices, int num_verts, float scale_x, float scale_y, float shift_x, float shift_y, int x_off, int y_off, int invert, long alloc_context);
+
+    /**
+     * Rasterize a shape with quadratic beziers into a bitmap.
+     *
+     * @param result             1-channel bitmap to draw into
+     * @param flatness_in_pixels allowable error of curve in pixels
+     * @param vertices           array of vertices defining shape
+     * @param scale_x            horizontal scale applied to input vertices
+     * @param scale_y            vertical scale applied to input vertices
+     * @param shift_x            horizontal translation applied to input vertices
+     * @param shift_y            vertical translation applied to input vertices
+     * @param x_off              another horizontal translation applied to input
+     * @param y_off              another vertical translation applied to input
+     * @param invert             if non-zero, vertically flip shape
+     */
+    public static void stbtt_Rasterize(STBTTBitmap result, float flatness_in_pixels, STBTTVertex.Buffer vertices, float scale_x, float scale_y, float shift_x, float shift_y, int x_off, int y_off, boolean invert) {
+        nstbtt_Rasterize(result.address(), flatness_in_pixels, vertices.address(), vertices.remaining(), scale_x, scale_y, shift_x, shift_y, x_off, y_off, invert ? 1 : 0, NULL);
+    }
+
+    // --- [ stbtt_FreeSDF ] ---
+
+    /** Unsafe version of: {@link #stbtt_FreeSDF FreeSDF} */
+    public static native void nstbtt_FreeSDF(long bitmap, long userdata);
+
+    /**
+     * Frees an SDF bitmap.
+     *
+     * @param bitmap   the SDF bitmap to free
+     * @param userdata a pointer to an allocation context
+     */
+    public static void stbtt_FreeSDF(ByteBuffer bitmap, long userdata) {
+        nstbtt_FreeSDF(memAddress(bitmap), userdata);
+    }
+
+    /**
+     * Frees an SDF bitmap.
+     *
+     * @param bitmap the SDF bitmap to free
+     */
+    public static void stbtt_FreeSDF(ByteBuffer bitmap) {
+        nstbtt_FreeSDF(memAddress(bitmap), NULL);
+    }
+
+    // --- [ stbtt_GetGlyphSDF ] ---
+
+    /** Unsafe version of: {@link #stbtt_GetGlyphSDF GetGlyphSDF} */
+    public static native long nstbtt_GetGlyphSDF(long font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, long width, long height, long xoff, long yoff);
+
+    /**
+     * Computes a discretized SDF field for a single character, suitable for storing in a single-channel texture, sampling with bilinear filtering, and
+     * testing against larger than some threshhold to produce scalable fonts.
+     * 
+     * <p>{@code pixel_dist_scale} & {@code onedge_value} are a scale & bias that allows you to make optimal use of the limited {@code 0..255} for your
+     * application, trading off precision and special effects. SDF values outside the range {@code 0..255} are clamped to {@code 0..255}.</p>
+     * 
+     * <p>Example:</p>
+     * 
+     * <code><pre>
+     * scale = stbtt_ScaleForPixelHeight(22)
+     * padding = 5
+     * onedge_value = 180
+     * pixel_dist_scale = 180/5.0 = 36.0</pre></code>
+     * 
+     * <p>This will create an SDF bitmap in which the character is about 22 pixels high but the whole bitmap is about {@code 22+5+5=32} pixels high. To produce a
+     * filled shape, sample the SDF at each pixel and fill the pixel if the SDF value is greater than or equal to {@code 180/255}. (You'll actually want to
+     * antialias, which is beyond the scope of this example.) Additionally, you can compute offset outlines (e.g. to stroke the character border inside &
+     * outside, or only outside). For example, to fill outside the character up to 3 SDF pixels, you would compare against {@code (180-36.0*3)/255 = 72/255}.
+     * The above choice of variables maps a range from 5 pixels outside the shape to 2 pixels inside the shape to {@code 0..255}; this is intended primarily
+     * for apply outside effects only (the interior range is needed to allow proper antialiasing of the font at <i>smaller</i> sizes).</p>
+     * 
+     * <p>The function computes the SDF analytically at each SDF pixel, not by e.g. building a higher-res bitmap and approximating it. In theory the quality
+     * should be as high as possible for an SDF of this size & representation, but unclear if this is true in practice (perhaps building a higher-res bitmap
+     * and computing from that can allow drop-out prevention).</p>
+     * 
+     * <p>The algorithm has not been optimized at all, so expect it to be slow if computing lots of characters or very large sizes.</p>
+     *
+     * @param font             an {@link STBTTFontinfo} struct
+     * @param scale            controls the size of the resulting SDF bitmap, same as it would be creating a regular bitmap
+     * @param glyph            the glyph to generate the SDF for
+     * @param padding          extra "pixels" around the character which are filled with the distance to the character (not 0), which allows effects like bit outlines
+     * @param onedge_value     value 0-255 to test the SDF against to reconstruct the character (i.e. the isocontour of the character)
+     * @param pixel_dist_scale what value the SDF should increase by when moving one SDF "pixel" away from the edge (on the 0..255 scale). If positive, &gt; {@code onedge_value}
+     *                         is inside; if negative, &lt; {@code onedge_value} is inside.
+     * @param width            output width of the SDF bitmap (including padding)
+     * @param height           output height of the SDF bitmap (including padding)
+     * @param xoff             output horizontal origin of the character
+     * @param yoff             output vertical origin of the character
+     */
+    public static ByteBuffer stbtt_GetGlyphSDF(STBTTFontinfo font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+        if (CHECKS) {
+            check(width, 1);
+            check(height, 1);
+            check(xoff, 1);
+            check(yoff, 1);
+        }
+        long __result = nstbtt_GetGlyphSDF(font.address(), scale, glyph, padding, onedge_value, pixel_dist_scale, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
+        return memByteBuffer(__result, width.get(width.position()) * height.get(height.position()));
+    }
+
+    // --- [ stbtt_GetCodepointSDF ] ---
+
+    /** Unsafe version of: {@link #stbtt_GetCodepointSDF GetCodepointSDF} */
+    public static native long nstbtt_GetCodepointSDF(long font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, long width, long height, long xoff, long yoff);
+
+    /**
+     * Codepoint version of {@link #stbtt_GetGlyphSDF GetGlyphSDF}.
+     *
+     * @param font             an {@link STBTTFontinfo} struct
+     * @param scale            controls the size of the resulting SDF bitmap, same as it would be creating a regular bitmap
+     * @param codepoint        the codepoint to generate the SDF for
+     * @param padding          extra "pixels" around the character which are filled with the distance to the character (not 0), which allows effects like bit outlines
+     * @param onedge_value     value 0-255 to test the SDF against to reconstruct the character (i.e. the isocontour of the character)
+     * @param pixel_dist_scale what value the SDF should increase by when moving one SDF "pixel" away from the edge (on the 0..255 scale). If positive, &gt; {@code onedge_value}
+     *                         is inside; if negative, &lt; {@code onedge_value} is inside.
+     * @param width            output width of the SDF bitmap (including padding)
+     * @param height           output height of the SDF bitmap (including padding)
+     * @param xoff             output horizontal origin of the character
+     * @param yoff             output vertical origin of the character
+     */
+    public static ByteBuffer stbtt_GetCodepointSDF(STBTTFontinfo font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+        if (CHECKS) {
+            check(width, 1);
+            check(height, 1);
+            check(xoff, 1);
+            check(yoff, 1);
+        }
+        long __result = nstbtt_GetCodepointSDF(font.address(), scale, codepoint, padding, onedge_value, pixel_dist_scale, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
+        return memByteBuffer(__result, width.get(width.position()) * height.get(height.position()));
     }
 
     // --- [ stbtt_FindMatchingFont ] ---
@@ -1635,6 +1846,19 @@ public class STBTruetype {
         return memByteBuffer(__result, width[0] * height[0]);
     }
 
+    /** Array version of: {@link #nstbtt_MakeCodepointBitmapSubpixelPrefilter} */
+    public static native void nstbtt_MakeCodepointBitmapSubpixelPrefilter(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int codepoint);
+
+    /** Array version of: {@link #stbtt_MakeCodepointBitmapSubpixelPrefilter MakeCodepointBitmapSubpixelPrefilter} */
+    public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int codepoint) {
+        if (CHECKS) {
+            check(output, out_w * out_h);
+            check(sub_x, 1);
+            check(sub_y, 1);
+        }
+        nstbtt_MakeCodepointBitmapSubpixelPrefilter(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, oversample_x, oversample_y, sub_x, sub_y, codepoint);
+    }
+
     /** Array version of: {@link #nstbtt_GetCodepointBitmapBox} */
     public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
@@ -1693,6 +1917,19 @@ public class STBTruetype {
         return memByteBuffer(__result, width[0] * height[0]);
     }
 
+    /** Array version of: {@link #nstbtt_MakeGlyphBitmapSubpixelPrefilter} */
+    public static native void nstbtt_MakeGlyphBitmapSubpixelPrefilter(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int glyph);
+
+    /** Array version of: {@link #stbtt_MakeGlyphBitmapSubpixelPrefilter MakeGlyphBitmapSubpixelPrefilter} */
+    public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int glyph) {
+        if (CHECKS) {
+            check(output, out_w * out_h);
+            check(sub_x, 1);
+            check(sub_y, 1);
+        }
+        nstbtt_MakeGlyphBitmapSubpixelPrefilter(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, oversample_x, oversample_y, sub_x, sub_y, glyph);
+    }
+
     /** Array version of: {@link #nstbtt_GetGlyphBitmapBox} */
     public static native void nstbtt_GetGlyphBitmapBox(long font, int glyph, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
@@ -1719,6 +1956,36 @@ public class STBTruetype {
             checkSafe(iy1, 1);
         }
         nstbtt_GetGlyphBitmapBoxSubpixel(font.address(), glyph, scale_x, scale_y, shift_x, shift_y, ix0, iy0, ix1, iy1);
+    }
+
+    /** Array version of: {@link #nstbtt_GetGlyphSDF} */
+    public static native long nstbtt_GetGlyphSDF(long font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff);
+
+    /** Array version of: {@link #stbtt_GetGlyphSDF GetGlyphSDF} */
+    public static ByteBuffer stbtt_GetGlyphSDF(STBTTFontinfo font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff) {
+        if (CHECKS) {
+            check(width, 1);
+            check(height, 1);
+            check(xoff, 1);
+            check(yoff, 1);
+        }
+        long __result = nstbtt_GetGlyphSDF(font.address(), scale, glyph, padding, onedge_value, pixel_dist_scale, width, height, xoff, yoff);
+        return memByteBuffer(__result, width[0] * height[0]);
+    }
+
+    /** Array version of: {@link #nstbtt_GetCodepointSDF} */
+    public static native long nstbtt_GetCodepointSDF(long font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff);
+
+    /** Array version of: {@link #stbtt_GetCodepointSDF GetCodepointSDF} */
+    public static ByteBuffer stbtt_GetCodepointSDF(STBTTFontinfo font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff) {
+        if (CHECKS) {
+            check(width, 1);
+            check(height, 1);
+            check(xoff, 1);
+            check(yoff, 1);
+        }
+        long __result = nstbtt_GetCodepointSDF(font.address(), scale, codepoint, padding, onedge_value, pixel_dist_scale, width, height, xoff, yoff);
+        return memByteBuffer(__result, width[0] * height[0]);
     }
 
 }
