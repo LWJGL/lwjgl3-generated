@@ -213,7 +213,7 @@ public class OVR {
      * <ul>
      * <li>{@link #ovrTexture_2D Texture_2D} - 2D textures</li>
      * <li>{@link #ovrTexture_2D_External Texture_2D_External} - External 2D texture. Not used on PC</li>
-     * <li>{@link #ovrTexture_Cube Texture_Cube} - Cube maps. Not currently supported on PC.</li>
+     * <li>{@link #ovrTexture_Cube Texture_Cube} - Cube maps.</li>
      * </ul>
      */
     public static final int
@@ -232,7 +232,7 @@ public class OVR {
      * <li>{@link #ovrTextureBind_None TextureBind_None}</li>
      * <li>{@link #ovrTextureBind_DX_RenderTarget TextureBind_DX_RenderTarget} - The application can write into the chain with pixel shader</li>
      * <li>{@link #ovrTextureBind_DX_UnorderedAccess TextureBind_DX_UnorderedAccess} - The application can write to the chain with compute shader</li>
-     * <li>{@link #ovrTextureBind_DX_DepthStencil TextureBind_DX_DepthStencil} - The chain buffers can be bound as depth and/or stencil buffers</li>
+     * <li>{@link #ovrTextureBind_DX_DepthStencil TextureBind_DX_DepthStencil} - The chain buffers can be bound as depth and/or stencil buffers. This flag cannot be combined with {@link #ovrTextureBind_DX_RenderTarget TextureBind_DX_RenderTarget}.</li>
      * </ul>
      */
     public static final int
@@ -912,11 +912,11 @@ public class OVR {
     /**
      * Returns information about the current HMD.
      * 
-     * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise ovrHmdDesc::Type will be reported as {@link #ovrHmd_None Hmd_None}.</p>
+     * <p>{@link #ovr_Initialize Initialize} must be called prior to calling this function, otherwise {@code ovrHmdDesc::Type} will be set to {@link #ovrHmd_None Hmd_None} without checking for the HMD
+     * presence.</p>
      *
-     * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}, else {@code NULL} in which case this function detects whether an HMD is present and returns its
-     *                 info if so.
-     * @param __result an {@link OVRHmdDesc}. If the {@code hmd} is {@code NULL} and ovrHmdDesc::Type is {@link #ovrHmd_None Hmd_None} then no HMD is present.
+     * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create} or {@code NULL}
+     * @param __result an {@link OVRHmdDesc}. If invoked with {@code NULL} session argument, {@code ovrHmdDesc::Type} to {@link #ovrHmd_None Hmd_None} indicates that the HMD is not connected.
      */
     public static OVRHmdDesc ovr_GetHmdDesc(long session, OVRHmdDesc __result) {
         novr_GetHmdDesc(session, __result.address());
@@ -1914,6 +1914,79 @@ public class OVR {
      */
     public static native double ovr_GetTimeInSeconds();
 
+    // --- [ ovr_GetExternalCameras ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_GetExternalCameras GetExternalCameras}
+     *
+     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
+     */
+    public static native int novr_GetExternalCameras(long session, long cameras, long inoutCameraCount);
+
+    /**
+     * Returns the number of camera properties of all cameras.
+     *
+     * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param cameras          the array. If {@code NULL} or {@code *inoutCameraCount} is too small, will return {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
+     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
+     *
+     * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
+     */
+    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, IntBuffer inoutCameraCount) {
+        if (CHECKS) {
+            check(session);
+            check(inoutCameraCount, 1);
+            checkSafe(cameras, inoutCameraCount.get(inoutCameraCount.position()));
+        }
+        return novr_GetExternalCameras(session, memAddressSafe(cameras), memAddress(inoutCameraCount));
+    }
+
+    // --- [ ovr_SetExternalCameraProperties ] ---
+
+    /** Unsafe version of: {@link #ovr_SetExternalCameraProperties SetExternalCameraProperties} */
+    public static native int novr_SetExternalCameraProperties(long session, long name, long intrinsics, long extrinsics);
+
+    /**
+     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
+     * 
+     * <p>Names must be &lt; 32 characters and null-terminated.</p>
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param name       specifies which camera to set the intrinsics or extrinsics for
+     * @param intrinsics contains the intrinsic parameters to set, can be null
+     * @param extrinsics contains the extrinsic parameters to set, can be null
+     */
+    public static int ovr_SetExternalCameraProperties(long session, ByteBuffer name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
+        if (CHECKS) {
+            check(session);
+            checkNT1(name);
+        }
+        return novr_SetExternalCameraProperties(session, memAddress(name), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
+    }
+
+    /**
+     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
+     * 
+     * <p>Names must be &lt; 32 characters and null-terminated.</p>
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param name       specifies which camera to set the intrinsics or extrinsics for
+     * @param intrinsics contains the intrinsic parameters to set, can be null
+     * @param extrinsics contains the extrinsic parameters to set, can be null
+     */
+    public static int ovr_SetExternalCameraProperties(long session, CharSequence name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
+        if (CHECKS) {
+            check(session);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return novr_SetExternalCameraProperties(session, memAddress(nameEncoded), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
     // --- [ ovr_GetBool ] ---
 
     /** Unsafe version of: {@link #ovr_GetBool GetBool} */
@@ -2390,79 +2463,6 @@ public class OVR {
         }
     }
 
-    // --- [ ovr_GetExternalCameras ] ---
-
-    /**
-     * Unsafe version of: {@link #ovr_GetExternalCameras GetExternalCameras}
-     *
-     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
-     */
-    public static native int novr_GetExternalCameras(long session, long cameras, long inoutCameraCount);
-
-    /**
-     * Returns the number of camera properties of all cameras.
-     *
-     * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param cameras          the array. If {@code NULL} or {@code *inoutCameraCount} is too small, will return {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
-     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
-     *
-     * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
-     */
-    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, IntBuffer inoutCameraCount) {
-        if (CHECKS) {
-            check(session);
-            check(inoutCameraCount, 1);
-            checkSafe(cameras, inoutCameraCount.get(inoutCameraCount.position()));
-        }
-        return novr_GetExternalCameras(session, memAddressSafe(cameras), memAddress(inoutCameraCount));
-    }
-
-    // --- [ ovr_SetExternalCameraProperties ] ---
-
-    /** Unsafe version of: {@link #ovr_SetExternalCameraProperties SetExternalCameraProperties} */
-    public static native int novr_SetExternalCameraProperties(long session, long name, long intrinsics, long extrinsics);
-
-    /**
-     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
-     * 
-     * <p>Names must be &lt; 32 characters and null-terminated.</p>
-     *
-     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param name       specifies which camera to set the intrinsics or extrinsics for
-     * @param intrinsics contains the intrinsic parameters to set, can be null
-     * @param extrinsics contains the extrinsic parameters to set, can be null
-     */
-    public static int ovr_SetExternalCameraProperties(long session, ByteBuffer name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
-        if (CHECKS) {
-            check(session);
-            checkNT1(name);
-        }
-        return novr_SetExternalCameraProperties(session, memAddress(name), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
-    }
-
-    /**
-     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
-     * 
-     * <p>Names must be &lt; 32 characters and null-terminated.</p>
-     *
-     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param name       specifies which camera to set the intrinsics or extrinsics for
-     * @param intrinsics contains the intrinsic parameters to set, can be null
-     * @param extrinsics contains the extrinsic parameters to set, can be null
-     */
-    public static int ovr_SetExternalCameraProperties(long session, CharSequence name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
-        if (CHECKS) {
-            check(session);
-        }
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        try {
-            ByteBuffer nameEncoded = stack.ASCII(name);
-            return novr_SetExternalCameraProperties(session, memAddress(nameEncoded), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
-        } finally {
-            stack.setPointer(stackPointer);
-        }
-    }
-
     /** Array version of: {@link #novr_GetDevicePoses} */
     public static native int novr_GetDevicePoses(long session, int[] deviceTypes, int deviceCount, double absTime, long outDevicePoses);
 
@@ -2511,6 +2511,19 @@ public class OVR {
             check(out_Index, 1);
         }
         return novr_GetTextureSwapChainCurrentIndex(session, chain, out_Index);
+    }
+
+    /** Array version of: {@link #novr_GetExternalCameras} */
+    public static native int novr_GetExternalCameras(long session, long cameras, int[] inoutCameraCount);
+
+    /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
+    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, int[] inoutCameraCount) {
+        if (CHECKS) {
+            check(session);
+            check(inoutCameraCount, 1);
+            checkSafe(cameras, inoutCameraCount[0]);
+        }
+        return novr_GetExternalCameras(session, memAddressSafe(cameras), inoutCameraCount);
     }
 
     /** Array version of: {@link #novr_GetFloatArray} */
@@ -2563,19 +2576,6 @@ public class OVR {
         } finally {
             stack.setPointer(stackPointer);
         }
-    }
-
-    /** Array version of: {@link #novr_GetExternalCameras} */
-    public static native int novr_GetExternalCameras(long session, long cameras, int[] inoutCameraCount);
-
-    /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
-    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, int[] inoutCameraCount) {
-        if (CHECKS) {
-            check(session);
-            check(inoutCameraCount, 1);
-            checkSafe(cameras, inoutCameraCount[0]);
-        }
-        return novr_GetExternalCameras(session, memAddressSafe(cameras), inoutCameraCount);
     }
 
 }
