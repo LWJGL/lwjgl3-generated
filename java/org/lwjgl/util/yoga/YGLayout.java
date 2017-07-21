@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     YGDirection direction;
  *     uint32_t computedFlexBasisGeneration;
  *     float computedFlexBasis;
+ *     bool hadOverflow;
  *     uint32_t generationCount;
  *     YGDirection lastParentDirection;
  *     uint32_t nextCachedMeasurementsIndex;
@@ -50,6 +51,7 @@ public class YGLayout extends Struct {
         DIRECTION,
         COMPUTEDFLEXBASISGENERATION,
         COMPUTEDFLEXBASIS,
+        HADOVERFLOW,
         GENERATIONCOUNT,
         LASTPARENTDIRECTION,
         NEXTCACHEDMEASUREMENTSINDEX,
@@ -67,6 +69,7 @@ public class YGLayout extends Struct {
             __member(4),
             __member(4),
             __member(4),
+            __member(1),
             __member(4),
             __member(4),
             __member(4),
@@ -86,12 +89,13 @@ public class YGLayout extends Struct {
         DIRECTION = layout.offsetof(5);
         COMPUTEDFLEXBASISGENERATION = layout.offsetof(6);
         COMPUTEDFLEXBASIS = layout.offsetof(7);
-        GENERATIONCOUNT = layout.offsetof(8);
-        LASTPARENTDIRECTION = layout.offsetof(9);
-        NEXTCACHEDMEASUREMENTSINDEX = layout.offsetof(10);
-        CACHEDMEASUREMENTS = layout.offsetof(11);
-        MEASUREDDIMENSIONS = layout.offsetof(12);
-        CACHEDLAYOUT = layout.offsetof(13);
+        HADOVERFLOW = layout.offsetof(8);
+        GENERATIONCOUNT = layout.offsetof(9);
+        LASTPARENTDIRECTION = layout.offsetof(10);
+        NEXTCACHEDMEASUREMENTSINDEX = layout.offsetof(11);
+        CACHEDMEASUREMENTS = layout.offsetof(12);
+        MEASUREDDIMENSIONS = layout.offsetof(13);
+        CACHEDLAYOUT = layout.offsetof(14);
     }
 
     YGLayout(long address, ByteBuffer container) {
@@ -137,6 +141,8 @@ public class YGLayout extends Struct {
     public int computedFlexBasisGeneration() { return ncomputedFlexBasisGeneration(address()); }
     /** Returns the value of the {@code computedFlexBasis} field. */
     public float computedFlexBasis() { return ncomputedFlexBasis(address()); }
+    /** Returns the value of the {@code hadOverflow} field. */
+    public boolean hadOverflow() { return nhadOverflow(address()); }
     /** Returns the value of the {@code generationCount} field. */
     public int generationCount() { return ngenerationCount(address()); }
     /** Returns the value of the {@code lastParentDirection} field. */
@@ -214,6 +220,8 @@ public class YGLayout extends Struct {
     public static int ncomputedFlexBasisGeneration(long struct) { return memGetInt(struct + YGLayout.COMPUTEDFLEXBASISGENERATION); }
     /** Unsafe version of {@link #computedFlexBasis}. */
     public static float ncomputedFlexBasis(long struct) { return memGetFloat(struct + YGLayout.COMPUTEDFLEXBASIS); }
+    /** Unsafe version of {@link #hadOverflow}. */
+    public static boolean nhadOverflow(long struct) { return memGetByte(struct + YGLayout.HADOVERFLOW) != 0; }
     /** Unsafe version of {@link #generationCount}. */
     public static int ngenerationCount(long struct) { return memGetInt(struct + YGLayout.GENERATIONCOUNT); }
     /** Unsafe version of {@link #lastParentDirection}. */
@@ -305,6 +313,8 @@ public class YGLayout extends Struct {
         public int computedFlexBasisGeneration() { return YGLayout.ncomputedFlexBasisGeneration(address()); }
         /** Returns the value of the {@code computedFlexBasis} field. */
         public float computedFlexBasis() { return YGLayout.ncomputedFlexBasis(address()); }
+        /** Returns the value of the {@code hadOverflow} field. */
+        public boolean hadOverflow() { return YGLayout.nhadOverflow(address()); }
         /** Returns the value of the {@code generationCount} field. */
         public int generationCount() { return YGLayout.ngenerationCount(address()); }
         /** Returns the value of the {@code lastParentDirection} field. */

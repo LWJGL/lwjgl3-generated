@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     void * context;
  *     bool isDirty;
  *     bool hasNewLayout;
+ *     YGNodeType nodeType;
  *     {@link YGValue YGValue} * resolvedDimensions[2];
  * }</pre></code>
  */
@@ -52,6 +53,7 @@ public class YGNode extends Struct {
         CONTEXT,
         ISDIRTY,
         HASNEWLAYOUT,
+        NODETYPE,
         RESOLVEDDIMENSIONS;
 
     static {
@@ -67,6 +69,7 @@ public class YGNode extends Struct {
             __member(POINTER_SIZE),
             __member(1),
             __member(1),
+            __member(4),
             __array(POINTER_SIZE, 2)
         );
 
@@ -84,7 +87,8 @@ public class YGNode extends Struct {
         CONTEXT = layout.offsetof(8);
         ISDIRTY = layout.offsetof(9);
         HASNEWLAYOUT = layout.offsetof(10);
-        RESOLVEDDIMENSIONS = layout.offsetof(11);
+        NODETYPE = layout.offsetof(11);
+        RESOLVEDDIMENSIONS = layout.offsetof(12);
     }
 
     YGNode(long address, ByteBuffer container) {
@@ -126,6 +130,8 @@ public class YGNode extends Struct {
     public boolean isDirty() { return nisDirty(address()); }
     /** Returns the value of the {@code hasNewLayout} field. */
     public boolean hasNewLayout() { return nhasNewLayout(address()); }
+    /** Returns the value of the {@code nodeType} field. */
+    public int nodeType() { return nnodeType(address()); }
     /** Returns a {@link PointerBuffer} view of the {@code resolvedDimensions} field. */
     public PointerBuffer resolvedDimensions() { return nresolvedDimensions(address()); }
     /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */
@@ -172,6 +178,8 @@ public class YGNode extends Struct {
     public static boolean nisDirty(long struct) { return memGetByte(struct + YGNode.ISDIRTY) != 0; }
     /** Unsafe version of {@link #hasNewLayout}. */
     public static boolean nhasNewLayout(long struct) { return memGetByte(struct + YGNode.HASNEWLAYOUT) != 0; }
+    /** Unsafe version of {@link #nodeType}. */
+    public static int nnodeType(long struct) { return memGetInt(struct + YGNode.NODETYPE); }
     /** Unsafe version of {@link #resolvedDimensions}. */
     public static PointerBuffer nresolvedDimensions(long struct) { return memPointerBuffer(struct + YGNode.RESOLVEDDIMENSIONS, 2); }
     /** Unsafe version of {@link #resolvedDimensions(int) resolvedDimensions}. */
@@ -244,6 +252,8 @@ public class YGNode extends Struct {
         public boolean isDirty() { return YGNode.nisDirty(address()); }
         /** Returns the value of the {@code hasNewLayout} field. */
         public boolean hasNewLayout() { return YGNode.nhasNewLayout(address()); }
+        /** Returns the value of the {@code nodeType} field. */
+        public int nodeType() { return YGNode.nnodeType(address()); }
         /** Returns a {@link PointerBuffer} view of the {@code resolvedDimensions} field. */
         public PointerBuffer resolvedDimensions() { return YGNode.nresolvedDimensions(address()); }
         /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */

@@ -110,9 +110,10 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_YGFloatIsUndefined(JNIE
     return (jboolean)YGFloatIsUndefined(value);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_YGNodeCanUseCachedMeasurement(JNIEnv *__env, jclass clazz, jint widthMode, jfloat width, jint heightMode, jfloat height, jint lastWidthMode, jfloat lastWidth, jint lastHeightMode, jfloat lastHeight, jfloat lastComputedWidth, jfloat lastComputedHeight, jfloat marginRow, jfloat marginColumn) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeCanUseCachedMeasurement(JNIEnv *__env, jclass clazz, jint widthMode, jfloat width, jint heightMode, jfloat height, jint lastWidthMode, jfloat lastWidth, jint lastHeightMode, jfloat lastHeight, jfloat lastComputedWidth, jfloat lastComputedHeight, jfloat marginRow, jfloat marginColumn, jlong configAddress) {
+    const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jboolean)YGNodeCanUseCachedMeasurement(widthMode, width, heightMode, height, lastWidthMode, lastWidth, lastHeightMode, lastHeight, lastComputedWidth, lastComputedHeight, marginRow, marginColumn);
+    return (jboolean)YGNodeCanUseCachedMeasurement(widthMode, width, heightMode, height, lastWidthMode, lastWidth, lastHeightMode, lastHeight, lastComputedWidth, lastComputedHeight, marginRow, marginColumn, config);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeCopyStyle(JNIEnv *__env, jclass clazz, jlong dstNodeAddress, jlong srcNodeAddress) {
@@ -184,6 +185,18 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetHasNewLayout(
     const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)YGNodeGetHasNewLayout(node);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeSetNodeType(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint nodeType) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGNodeSetNodeType(node, nodeType);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetNodeType(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)YGNodeGetNodeType(node);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeStyleSetDirection(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint direction) {
@@ -612,6 +625,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetDirection(J
     return (jint)YGNodeLayoutGetDirection(node);
 }
 
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetHadOverflow(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jboolean)YGNodeLayoutGetHadOverflow(node);
+}
+
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetMargin(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge) {
     const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -805,6 +824,11 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGLogLevelToString(JNIEnv
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGMeasureModeToString(JNIEnv *__env, jclass clazz, jint value) {
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)YGMeasureModeToString(value);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeTypeToString(JNIEnv *__env, jclass clazz, jint value) {
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)YGNodeTypeToString(value);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGOverflowToString(JNIEnv *__env, jclass clazz, jint value) {

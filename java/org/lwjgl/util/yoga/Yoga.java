@@ -240,6 +240,20 @@ public class Yoga {
         YGMeasureModeAtMost    = 2;
 
     /**
+     * YGNodeType
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #YGNodeTypeDefault NodeTypeDefault}</li>
+     * <li>{@link #YGNodeTypeText NodeTypeText}</li>
+     * </ul>
+     */
+    public static final int
+        YGNodeTypeDefault = 0,
+        YGNodeTypeText    = 1;
+
+    /**
      * YGOverflow
      * 
      * <h5>Enum values:</h5>
@@ -505,6 +519,9 @@ public class Yoga {
 
     // --- [ YGNodeCanUseCachedMeasurement ] ---
 
+    /** Unsafe version of: {@link #YGNodeCanUseCachedMeasurement NodeCanUseCachedMeasurement} */
+    public static native boolean nYGNodeCanUseCachedMeasurement(int widthMode, float width, int heightMode, float height, int lastWidthMode, float lastWidth, int lastHeightMode, float lastHeight, float lastComputedWidth, float lastComputedHeight, float marginRow, float marginColumn, long config);
+
     /**
      * @param widthMode          one of:<br><table><tr><td>{@link #YGMeasureModeUndefined MeasureModeUndefined}</td><td>{@link #YGMeasureModeExactly MeasureModeExactly}</td><td>{@link #YGMeasureModeAtMost MeasureModeAtMost}</td></tr></table>
      * @param width              
@@ -518,8 +535,14 @@ public class Yoga {
      * @param lastComputedHeight 
      * @param marginRow          
      * @param marginColumn       
+     * @param config             
      */
-    public static native boolean YGNodeCanUseCachedMeasurement(int widthMode, float width, int heightMode, float height, int lastWidthMode, float lastWidth, int lastHeightMode, float lastHeight, float lastComputedWidth, float lastComputedHeight, float marginRow, float marginColumn);
+    public static boolean YGNodeCanUseCachedMeasurement(int widthMode, float width, int heightMode, float height, int lastWidthMode, float lastWidth, int lastHeightMode, float lastHeight, float lastComputedWidth, float lastComputedHeight, float marginRow, float marginColumn, long config) {
+        if (CHECKS) {
+            check(config);
+        }
+        return nYGNodeCanUseCachedMeasurement(widthMode, width, heightMode, height, lastWidthMode, lastWidth, lastHeightMode, lastHeight, lastComputedWidth, lastComputedHeight, marginRow, marginColumn, config);
+    }
 
     // --- [ YGNodeCopyStyle ] ---
 
@@ -642,6 +665,28 @@ public class Yoga {
             check(node);
         }
         return nYGNodeGetHasNewLayout(node);
+    }
+
+    // --- [ YGNodeSetNodeType ] ---
+
+    public static native void nYGNodeSetNodeType(long node, int nodeType);
+
+    public static void YGNodeSetNodeType(long node, int nodeType) {
+        if (CHECKS) {
+            check(node);
+        }
+        nYGNodeSetNodeType(node, nodeType);
+    }
+
+    // --- [ YGNodeGetNodeType ] ---
+
+    public static native int nYGNodeGetNodeType(long node);
+
+    public static int YGNodeGetNodeType(long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        return nYGNodeGetNodeType(node);
     }
 
     // --- [ YGNodeStyleSetDirection ] ---
@@ -1587,6 +1632,17 @@ public class Yoga {
         return nYGNodeLayoutGetDirection(node);
     }
 
+    // --- [ YGNodeLayoutGetHadOverflow ] ---
+
+    public static native boolean nYGNodeLayoutGetHadOverflow(long node);
+
+    public static boolean YGNodeLayoutGetHadOverflow(long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        return nYGNodeLayoutGetHadOverflow(node);
+    }
+
     // --- [ YGNodeLayoutGetMargin ] ---
 
     /** Unsafe version of: {@link #YGNodeLayoutGetMargin NodeLayoutGetMargin} */
@@ -2060,6 +2116,17 @@ public class Yoga {
     /** @param value one of:<br><table><tr><td>{@link #YGMeasureModeUndefined MeasureModeUndefined}</td><td>{@link #YGMeasureModeExactly MeasureModeExactly}</td><td>{@link #YGMeasureModeAtMost MeasureModeAtMost}</td></tr></table> */
     public static String YGMeasureModeToString(int value) {
         long __result = nYGMeasureModeToString(value);
+        return memASCII(__result);
+    }
+
+    // --- [ YGNodeTypeToString ] ---
+
+    /** Unsafe version of: {@link #YGNodeTypeToString NodeTypeToString} */
+    public static native long nYGNodeTypeToString(int value);
+
+    /** @param value one of:<br><table><tr><td>{@link #YGNodeTypeDefault NodeTypeDefault}</td><td>{@link #YGNodeTypeText NodeTypeText}</td></tr></table> */
+    public static String YGNodeTypeToString(int value) {
+        long __result = nYGNodeTypeToString(value);
         return memASCII(__result);
     }
 
