@@ -140,9 +140,10 @@ public class STBImage {
      * <p>The return value from an image loader is an {@code 'unsigned char *'} which points to the pixel data, or {@code NULL} on an allocation failure or if the image
      * is corrupt or invalid. The pixel data consists of {@code *y} scanlines of {@code *x} pixels, with each pixel consisting of N interleaved 8-bit
      * components; the first pixel pointed to is top-left-most in the image. There is no padding between image scanlines or between pixels, regardless of
-     * format. The number of components N is {@code 'desired_channels'} if {@code desired_channels} is non-zero, or {@code *channels_in_file} otherwise. If {@code desired_channels} is non-zero,
-     * {@code *channels_in_file} has the number of components that <i>would</i> have been output otherwise. E.g. if you set {@code desired_channels} to 4, you will always get
-     * RGBA output, but you can check {@code *channels_in_file} to see if it's trivially opaque because e.g. there were only 3 channels in the source image.</p>
+     * format. The number of components N is {@code 'desired_channels'} if {@code desired_channels} is non-zero, or {@code *channels_in_file} otherwise. If
+     * {@code desired_channels} is non-zero, {@code *channels_in_file} has the number of components that <i>would</i> have been output otherwise. E.g. if you
+     * set {@code desired_channels} to 4, you will always get RGBA output, but you can check {@code *channels_in_file} to see if it's trivially opaque because
+     * e.g. there were only 3 channels in the source image.</p>
      * 
      * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
      * 
@@ -181,9 +182,10 @@ public class STBImage {
      * <p>The return value from an image loader is an {@code 'unsigned char *'} which points to the pixel data, or {@code NULL} on an allocation failure or if the image
      * is corrupt or invalid. The pixel data consists of {@code *y} scanlines of {@code *x} pixels, with each pixel consisting of N interleaved 8-bit
      * components; the first pixel pointed to is top-left-most in the image. There is no padding between image scanlines or between pixels, regardless of
-     * format. The number of components N is {@code 'desired_channels'} if {@code desired_channels} is non-zero, or {@code *channels_in_file} otherwise. If {@code desired_channels} is non-zero,
-     * {@code *channels_in_file} has the number of components that <i>would</i> have been output otherwise. E.g. if you set {@code desired_channels} to 4, you will always get
-     * RGBA output, but you can check {@code *channels_in_file} to see if it's trivially opaque because e.g. there were only 3 channels in the source image.</p>
+     * format. The number of components N is {@code 'desired_channels'} if {@code desired_channels} is non-zero, or {@code *channels_in_file} otherwise. If
+     * {@code desired_channels} is non-zero, {@code *channels_in_file} has the number of components that <i>would</i> have been output otherwise. E.g. if you
+     * set {@code desired_channels} to 4, you will always get RGBA output, but you can check {@code *channels_in_file} to see if it's trivially opaque because
+     * e.g. there were only 3 channels in the source image.</p>
      * 
      * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
      * 
@@ -329,6 +331,60 @@ public class STBImage {
         } finally {
             stack.setPointer(stackPointer);
         }
+    }
+
+    // --- [ stbi_load_16_from_memory ] ---
+
+    /**
+     * Unsafe version of: {@link #stbi_load_16_from_memory load_16_from_memory}
+     *
+     * @param len the buffer length, in bytes
+     */
+    public static native long nstbi_load_16_from_memory(long buffer, int len, long x, long y, long channels_in_file, int desired_channels);
+
+    /**
+     * In-memory version of {@link #stbi_load_16 load_16}.
+     *
+     * @param buffer           the buffer from which to load the image data
+     * @param x                outputs the image width in pixels
+     * @param y                outputs the image height in pixels
+     * @param channels_in_file outputs number of components in image
+     * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+     */
+    public static ShortBuffer stbi_load_16_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer channels_in_file, int desired_channels) {
+        if (CHECKS) {
+            check(x, 1);
+            check(y, 1);
+            check(channels_in_file, 1);
+        }
+        long __result = nstbi_load_16_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
+        return memShortBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+    }
+
+    // --- [ stbi_load_16_from_callbacks ] ---
+
+    /** Unsafe version of: {@link #stbi_load_16_from_callbacks load_16_from_callbacks} */
+    public static native long nstbi_load_16_from_callbacks(long clbk, long user, long x, long y, long channels_in_file, int desired_channels);
+
+    /**
+     * Callback version of {@link #stbi_load_16 load_16}.
+     *
+     * @param clbk             an {@link STBIIOCallbacks} struct
+     * @param user             a pointer to user data
+     * @param x                outputs the image width in pixels
+     * @param y                outputs the image height in pixels
+     * @param channels_in_file outputs number of components in image
+     * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+     */
+    public static ShortBuffer stbi_load_16_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer channels_in_file, int desired_channels) {
+        if (CHECKS) {
+            check(x, 1);
+            check(y, 1);
+            check(channels_in_file, 1);
+            STBIIOCallbacks.validate(clbk.address());
+        }
+        long __result = nstbi_load_16_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
+        return memShortBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_loadf ] ---
@@ -928,6 +984,35 @@ public class STBImage {
         } finally {
             stack.setPointer(stackPointer);
         }
+    }
+
+    /** Array version of: {@link #nstbi_load_16_from_memory} */
+    public static native long nstbi_load_16_from_memory(long buffer, int len, int[] x, int[] y, int[] channels_in_file, int desired_channels);
+
+    /** Array version of: {@link #stbi_load_16_from_memory load_16_from_memory} */
+    public static ShortBuffer stbi_load_16_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] channels_in_file, int desired_channels) {
+        if (CHECKS) {
+            check(x, 1);
+            check(y, 1);
+            check(channels_in_file, 1);
+        }
+        long __result = nstbi_load_16_from_memory(memAddress(buffer), buffer.remaining(), x, y, channels_in_file, desired_channels);
+        return memShortBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+    }
+
+    /** Array version of: {@link #nstbi_load_16_from_callbacks} */
+    public static native long nstbi_load_16_from_callbacks(long clbk, long user, int[] x, int[] y, int[] channels_in_file, int desired_channels);
+
+    /** Array version of: {@link #stbi_load_16_from_callbacks load_16_from_callbacks} */
+    public static ShortBuffer stbi_load_16_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] channels_in_file, int desired_channels) {
+        if (CHECKS) {
+            check(x, 1);
+            check(y, 1);
+            check(channels_in_file, 1);
+            STBIIOCallbacks.validate(clbk.address());
+        }
+        long __result = nstbi_load_16_from_callbacks(clbk.address(), user, x, y, channels_in_file, desired_channels);
+        return memShortBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_loadf} */

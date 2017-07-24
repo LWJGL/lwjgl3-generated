@@ -294,6 +294,62 @@ public class STBImageWrite {
         }
     }
 
+    // --- [ stbi_write_jpg ] ---
+
+    /** Unsafe version of: {@link #stbi_write_jpg write_jpg} */
+    public static native int nstbi_write_jpg(long filename, int w, int h, int comp, long data, int quality);
+
+    /**
+     * Writes a JPEG image file.
+     * 
+     * <p>JPEG does ignore alpha channels in input data; quality is between 1 and 100. Higher quality looks better but results in a bigger image. JPEG baseline
+     * (no JPEG progressive).</p>
+     *
+     * @param filename the image file path
+     * @param w        the image width, in pixels
+     * @param h        the image height, in pixels
+     * @param comp     the number of channels in each pixel
+     * @param data     the image data
+     * @param quality  the compression quality
+     *
+     * @return 1 on success, 0 on failure
+     */
+    public static boolean stbi_write_jpg(ByteBuffer filename, int w, int h, int comp, FloatBuffer data, int quality) {
+        if (CHECKS) {
+            checkNT1(filename);
+            check(data, w * h * comp);
+        }
+        return nstbi_write_jpg(memAddress(filename), w, h, comp, memAddress(data), quality) != 0;
+    }
+
+    /**
+     * Writes a JPEG image file.
+     * 
+     * <p>JPEG does ignore alpha channels in input data; quality is between 1 and 100. Higher quality looks better but results in a bigger image. JPEG baseline
+     * (no JPEG progressive).</p>
+     *
+     * @param filename the image file path
+     * @param w        the image width, in pixels
+     * @param h        the image height, in pixels
+     * @param comp     the number of channels in each pixel
+     * @param data     the image data
+     * @param quality  the compression quality
+     *
+     * @return 1 on success, 0 on failure
+     */
+    public static boolean stbi_write_jpg(CharSequence filename, int w, int h, int comp, FloatBuffer data, int quality) {
+        if (CHECKS) {
+            check(data, w * h * comp);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer filenameEncoded = stack.ASCII(filename);
+            return nstbi_write_jpg(memAddress(filenameEncoded), w, h, comp, memAddress(data), quality) != 0;
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
     // --- [ stbi_write_png_to_func ] ---
 
     /** Unsafe version of: {@link #stbi_write_png_to_func write_png_to_func} */
@@ -391,6 +447,31 @@ public class STBImageWrite {
         return nstbi_write_hdr_to_func(func.address(), context, w, h, comp, memAddress(data)) != 0;
     }
 
+    // --- [ stbi_write_jpg_to_func ] ---
+
+    /** Unsafe version of: {@link #stbi_write_jpg_to_func write_jpg_to_func} */
+    public static native int nstbi_write_jpg_to_func(long func, long context, int w, int h, int comp, long data, int quality);
+
+    /**
+     * Callback version of {@link #stbi_write_jpg write_jpg}.
+     *
+     * @param func    the callback function
+     * @param context a context that will be passed to {@code func}
+     * @param w       the image width, in pixels
+     * @param h       the image height, in pixels
+     * @param comp    the number of channels in each pixel
+     * @param data    the image data
+     * @param quality the compression quality
+     *
+     * @return 1 on success, 0 on failure
+     */
+    public static int stbi_write_jpg_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data, int quality) {
+        if (CHECKS) {
+            check(data, w * h * comp);
+        }
+        return nstbi_write_jpg_to_func(func.address(), context, w, h, comp, memAddress(data), quality);
+    }
+
     /** Array version of: {@link #nstbi_write_hdr} */
     public static native int nstbi_write_hdr(long filename, int w, int h, int comp, float[] data);
 
@@ -412,6 +493,32 @@ public class STBImageWrite {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             return nstbi_write_hdr(memAddress(filenameEncoded), w, h, comp, data) != 0;
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    /** Array version of: {@link #nstbi_write_jpg} */
+    public static native int nstbi_write_jpg(long filename, int w, int h, int comp, float[] data, int quality);
+
+    /** Array version of: {@link #stbi_write_jpg write_jpg} */
+    public static boolean stbi_write_jpg(ByteBuffer filename, int w, int h, int comp, float[] data, int quality) {
+        if (CHECKS) {
+            checkNT1(filename);
+            check(data, w * h * comp);
+        }
+        return nstbi_write_jpg(memAddress(filename), w, h, comp, data, quality) != 0;
+    }
+
+    /** Array version of: {@link #stbi_write_jpg write_jpg} */
+    public static boolean stbi_write_jpg(CharSequence filename, int w, int h, int comp, float[] data, int quality) {
+        if (CHECKS) {
+            check(data, w * h * comp);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer filenameEncoded = stack.ASCII(filename);
+            return nstbi_write_jpg(memAddress(filenameEncoded), w, h, comp, data, quality) != 0;
         } finally {
             stack.setPointer(stackPointer);
         }

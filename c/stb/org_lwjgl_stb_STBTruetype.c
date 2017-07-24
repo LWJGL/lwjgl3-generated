@@ -53,7 +53,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackEnd(JNIEnv *__
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRange(JNIEnv *__env, jclass clazz, jlong spcAddress, jlong fontdataAddress, jint font_index, jfloat font_size, jint first_unicode_char_in_range, jint num_chars_in_range, jlong chardata_for_rangeAddress) {
     stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
-    unsigned char *fontdata = (unsigned char *)(intptr_t)fontdataAddress;
+    const unsigned char *fontdata = (const unsigned char *)(intptr_t)fontdataAddress;
     stbtt_packedchar *chardata_for_range = (stbtt_packedchar *)(intptr_t)chardata_for_rangeAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)stbtt_PackFontRange(spc, fontdata, font_index, font_size, first_unicode_char_in_range, num_chars_in_range, chardata_for_range);
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRange(JNIE
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRanges(JNIEnv *__env, jclass clazz, jlong spcAddress, jlong fontdataAddress, jint font_index, jlong rangesAddress, jint num_ranges) {
     stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
-    unsigned char *fontdata = (unsigned char *)(intptr_t)fontdataAddress;
+    const unsigned char *fontdata = (const unsigned char *)(intptr_t)fontdataAddress;
     stbtt_pack_range *ranges = (stbtt_pack_range *)(intptr_t)rangesAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)stbtt_PackFontRanges(spc, fontdata, font_index, ranges, num_ranges);
@@ -151,6 +151,15 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMetrics__J
     int *lineGap = (int *)(intptr_t)lineGapAddress;
     UNUSED_PARAMS(__env, clazz)
     stbtt_GetFontVMetrics(info, ascent, descent, lineGap);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMetricsOS2__JJJJ(JNIEnv *__env, jclass clazz, jlong infoAddress, jlong typoAscentAddress, jlong typoDescentAddress, jlong typoLineGapAddress) {
+    const stbtt_fontinfo *info = (const stbtt_fontinfo *)(intptr_t)infoAddress;
+    int *typoAscent = (int *)(intptr_t)typoAscentAddress;
+    int *typoDescent = (int *)(intptr_t)typoDescentAddress;
+    int *typoLineGap = (int *)(intptr_t)typoLineGapAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)stbtt_GetFontVMetricsOS2(info, typoAscent, typoDescent, typoLineGap);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontBoundingBox__JJJJJ(JNIEnv *__env, jclass clazz, jlong infoAddress, jlong x0Address, jlong y0Address, jlong x1Address, jlong y1Address) {
@@ -484,6 +493,27 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMe
     UNUSED_PARAM(descent__length)
     UNUSED_PARAM(lineGap__length)
     stbtt_GetFontVMetrics(info, (int *)ascent, (int *)descent, (int *)lineGap);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMetricsOS2__J_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jintArray typoAscentAddress, jintArray typoDescentAddress, jintArray typoLineGapAddress) {
+    const stbtt_fontinfo *info = (const stbtt_fontinfo *)(intptr_t)infoAddress;
+    jint __result;
+    jint *typoAscent = typoAscentAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, typoAscentAddress, 0);
+    jint *typoDescent = typoDescentAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, typoDescentAddress, 0);
+    jint *typoLineGap = typoLineGapAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, typoLineGapAddress, 0);
+    UNUSED_PARAMS(__env, clazz)
+    __result = (jint)stbtt_GetFontVMetricsOS2(info, (int *)typoAscent, (int *)typoDescent, (int *)typoLineGap);
+    if (typoLineGap != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, typoLineGapAddress, typoLineGap, 0); }
+    if (typoDescent != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, typoDescentAddress, typoDescent, 0); }
+    if (typoAscent != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, typoAscentAddress, typoAscent, 0); }
+    return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMetricsOS2__J_3I_3I_3I(jlong infoAddress, jint typoAscent__length, jint* typoAscent, jint typoDescent__length, jint* typoDescent, jint typoLineGap__length, jint* typoLineGap) {
+    const stbtt_fontinfo *info = (const stbtt_fontinfo *)(intptr_t)infoAddress;
+    UNUSED_PARAM(typoAscent__length)
+    UNUSED_PARAM(typoDescent__length)
+    UNUSED_PARAM(typoLineGap__length)
+    return (jint)stbtt_GetFontVMetricsOS2(info, (int *)typoAscent, (int *)typoDescent, (int *)typoLineGap);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontBoundingBox__J_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jintArray x0Address, jintArray y0Address, jintArray x1Address, jintArray y1Address) {

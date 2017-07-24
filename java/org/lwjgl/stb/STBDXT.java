@@ -53,6 +53,25 @@ public class STBDXT {
         nstb_compress_dxt_block(memAddress(dest), memAddress(src_rgba_four_bytes_per_pixel), alpha ? 1 : 0, mode);
     }
 
+    // --- [ stb_compress_bc4_block ] ---
+
+    /** Unsafe version of: {@link #stb_compress_bc4_block compress_bc4_block} */
+    public static native void nstb_compress_bc4_block(long dest, long src_r_one_byte_per_pixel);
+
+    /**
+     * Call this function for every block (you must pad). The source should be a 4x4 block of A data in row-major order.
+     *
+     * @param dest                     a buffer in which to store the compressed block
+     * @param src_r_one_byte_per_pixel the block to compress
+     */
+    public static void stb_compress_bc4_block(ByteBuffer dest, ByteBuffer src_r_one_byte_per_pixel) {
+        if (CHECKS) {
+            check(dest, 8);
+            check(src_r_one_byte_per_pixel, 16);
+        }
+        nstb_compress_bc4_block(memAddress(dest), memAddress(src_r_one_byte_per_pixel));
+    }
+
     // --- [ stb_compress_bc5_block ] ---
 
     /** Unsafe version of: {@link #stb_compress_bc5_block compress_bc5_block} */

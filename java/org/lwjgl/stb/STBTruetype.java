@@ -783,6 +783,30 @@ public class STBTruetype {
         nstbtt_GetFontVMetrics(info.address(), memAddressSafe(ascent), memAddressSafe(descent), memAddressSafe(lineGap));
     }
 
+    // --- [ stbtt_GetFontVMetricsOS2 ] ---
+
+    /** Unsafe version of: {@link #stbtt_GetFontVMetricsOS2 GetFontVMetricsOS2} */
+    public static native int nstbtt_GetFontVMetricsOS2(long info, long typoAscent, long typoDescent, long typoLineGap);
+
+    /**
+     * Analogous to {@link #stbtt_GetFontVMetrics GetFontVMetrics}, but returns the "typographic" values from the OS/2 table (specific to MS/Windows TTF files).
+     *
+     * @param info        an {@link STBTTFontinfo} struct
+     * @param typoAscent  returns the coordinate above the baseline the font extends
+     * @param typoDescent returns the coordinate below the baseline the font extends (i.e. it is typically negative)
+     * @param typoLineGap returns the spacing between one row's descent and the next row's ascent
+     *
+     * @return 1 on success (table present), 0 on failure
+     */
+    public static boolean stbtt_GetFontVMetricsOS2(STBTTFontinfo info, IntBuffer typoAscent, IntBuffer typoDescent, IntBuffer typoLineGap) {
+        if (CHECKS) {
+            checkSafe(typoAscent, 1);
+            checkSafe(typoDescent, 1);
+            checkSafe(typoLineGap, 1);
+        }
+        return nstbtt_GetFontVMetricsOS2(info.address(), memAddressSafe(typoAscent), memAddressSafe(typoDescent), memAddressSafe(typoLineGap)) != 0;
+    }
+
     // --- [ stbtt_GetFontBoundingBox ] ---
 
     /** Unsafe version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
@@ -1748,6 +1772,19 @@ public class STBTruetype {
             checkSafe(lineGap, 1);
         }
         nstbtt_GetFontVMetrics(info.address(), ascent, descent, lineGap);
+    }
+
+    /** Array version of: {@link #nstbtt_GetFontVMetricsOS2} */
+    public static native int nstbtt_GetFontVMetricsOS2(long info, int[] typoAscent, int[] typoDescent, int[] typoLineGap);
+
+    /** Array version of: {@link #stbtt_GetFontVMetricsOS2 GetFontVMetricsOS2} */
+    public static boolean stbtt_GetFontVMetricsOS2(STBTTFontinfo info, int[] typoAscent, int[] typoDescent, int[] typoLineGap) {
+        if (CHECKS) {
+            checkSafe(typoAscent, 1);
+            checkSafe(typoDescent, 1);
+            checkSafe(typoLineGap, 1);
+        }
+        return nstbtt_GetFontVMetricsOS2(info.address(), typoAscent, typoDescent, typoLineGap) != 0;
     }
 
     /** Array version of: {@link #nstbtt_GetFontBoundingBox} */
