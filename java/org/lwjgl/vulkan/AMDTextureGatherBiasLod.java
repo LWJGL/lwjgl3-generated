@@ -8,7 +8,7 @@ package org.lwjgl.vulkan;
 /**
  * This extension adds two related features.
  * 
- * <p>Firstly, support for the following SPIR-V extension in {apiname} is added:</p>
+ * <p>Firstly, support for the following SPIR-V extension in Vulkan is added:</p>
  * 
  * <ul>
  * <li>SPV_AMD_texture_gather_bias_lod</li>

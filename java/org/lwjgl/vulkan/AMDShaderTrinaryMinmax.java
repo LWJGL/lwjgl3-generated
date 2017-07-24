@@ -6,7 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * This extension adds support for the following SPIR-V extension in {apiname}:
+ * This extension adds support for the following SPIR-V extension in Vulkan:
  * 
  * <ul>
  * <li>SPV_AMD_shader_trinary_minmax</li>

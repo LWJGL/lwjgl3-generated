@@ -103,7 +103,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO STRUCTURE_TYPE_IMAGE_CREATE_INFO}</li>
- * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkDedicatedAllocationImageCreateInfoNV} or {@link VkImageSwapchainCreateInfoKHX}</li>
+ * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkExternalMemoryImageCreateInfoKHR}, {@link VkExternalMemoryImageCreateInfoNV}, or {@link VkImageSwapchainCreateInfoKHX}</li>
  * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
  * <li>{@code imageType} <b>must</b> be a valid {@code VkImageType} value</li>

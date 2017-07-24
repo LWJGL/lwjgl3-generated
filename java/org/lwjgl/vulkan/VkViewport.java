@@ -63,8 +63,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li><code>(y + height)</code>
  * 
  * <p><b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</p></li>
- * <li>{@code minDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
- * <li>{@code maxDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
  * </ul>
  * 
  * <h5>See Also</h5>

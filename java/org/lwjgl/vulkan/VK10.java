@@ -2462,40 +2462,53 @@ public class VK10 {
     /**
      * VkObjectType - Specify an enumeration to track object handle types
      * 
+     * <h5>Description</h5>
+     * 
+     * <h6>VkObjectType and Vulkan Handle Relationship</h6>
+     * 
+     * <table class="lwjgl">
+     * <thead><tr><th>{@code VkObjectType}</th><th>Vulkan Handle Type</th></tr></thead>
+     * <tbody>
+     * <tr><td>{@link #VK_OBJECT_TYPE_UNKNOWN OBJECT_TYPE_UNKNOWN}</td><td>Unknown/Undefined Handle</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_INSTANCE OBJECT_TYPE_INSTANCE}</td><td>{@code VkInstance}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_PHYSICAL_DEVICE OBJECT_TYPE_PHYSICAL_DEVICE}</td><td>{@code VkPhysicalDevice}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_DEVICE OBJECT_TYPE_DEVICE}</td><td>{@code VkDevice}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_QUEUE OBJECT_TYPE_QUEUE}</td><td>{@code VkQueue}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_SEMAPHORE OBJECT_TYPE_SEMAPHORE}</td><td>{@code VkSemaphore}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_COMMAND_BUFFER OBJECT_TYPE_COMMAND_BUFFER}</td><td>{@code VkCommandBuffer}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_FENCE OBJECT_TYPE_FENCE}</td><td>{@code VkFence}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_DEVICE_MEMORY OBJECT_TYPE_DEVICE_MEMORY}</td><td>{@code VkDeviceMemory}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_BUFFER OBJECT_TYPE_BUFFER}</td><td>{@code VkBuffer}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_IMAGE OBJECT_TYPE_IMAGE}</td><td>{@code VkImage}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_EVENT OBJECT_TYPE_EVENT}</td><td>{@code VkEvent}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_QUERY_POOL OBJECT_TYPE_QUERY_POOL}</td><td>{@code VkQueryPool}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_BUFFER_VIEW OBJECT_TYPE_BUFFER_VIEW}</td><td>{@code VkBufferView}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_IMAGE_VIEW OBJECT_TYPE_IMAGE_VIEW}</td><td>{@code VkImageView}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_SHADER_MODULE OBJECT_TYPE_SHADER_MODULE}</td><td>{@code VkShaderModule}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_PIPELINE_CACHE OBJECT_TYPE_PIPELINE_CACHE}</td><td>{@code VkPipelineCache}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_PIPELINE_LAYOUT OBJECT_TYPE_PIPELINE_LAYOUT}</td><td>{@code VkPipelineLayout}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_RENDER_PASS OBJECT_TYPE_RENDER_PASS}</td><td>{@code VkRenderPass}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_PIPELINE OBJECT_TYPE_PIPELINE}</td><td>{@code VkPipeline}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT}</td><td>{@code VkDescriptorSetLayout}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_SAMPLER OBJECT_TYPE_SAMPLER}</td><td>{@code VkSampler}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_DESCRIPTOR_POOL OBJECT_TYPE_DESCRIPTOR_POOL}</td><td>{@code VkDescriptorPool}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_DESCRIPTOR_SET OBJECT_TYPE_DESCRIPTOR_SET}</td><td>{@code VkDescriptorSet}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_FRAMEBUFFER OBJECT_TYPE_FRAMEBUFFER}</td><td>{@code VkFramebuffer}</td></tr>
+     * <tr><td>{@link #VK_OBJECT_TYPE_COMMAND_POOL OBJECT_TYPE_COMMAND_POOL}</td><td>{@code VkCommandPool}</td></tr>
+     * <tr><td>{@link KHRSurface#VK_OBJECT_TYPE_SURFACE_KHR OBJECT_TYPE_SURFACE_KHR}</td><td>{@code VkSurfaceKHR}</td></tr>
+     * <tr><td>{@link KHRSwapchain#VK_OBJECT_TYPE_SWAPCHAIN_KHR OBJECT_TYPE_SWAPCHAIN_KHR}</td><td>{@code VkSwapchainKHR}</td></tr>
+     * <tr><td>{@link KHRDisplay#VK_OBJECT_TYPE_DISPLAY_KHR OBJECT_TYPE_DISPLAY_KHR}</td><td>{@code VkDisplayKHR}</td></tr>
+     * <tr><td>{@link KHRDisplay#VK_OBJECT_TYPE_DISPLAY_MODE_KHR OBJECT_TYPE_DISPLAY_MODE_KHR}</td><td>{@code VkDisplayModeKHR}</td></tr>
+     * <tr><td>{@link EXTDebugReport#VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT}</td><td>{@code VkDebugReportCallbackEXT}</td></tr>
+     * <tr><td>{@link KHRDescriptorUpdateTemplate#VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR}</td><td>{@code VkDescriptorUpdateTemplateKHR}</td></tr>
+     * <tr><td>{@link NVXDeviceGeneratedCommands#VK_OBJECT_TYPE_OBJECT_TABLE_NVX OBJECT_TYPE_OBJECT_TABLE_NVX}</td><td>{@code VkObjectTableNVX}</td></tr>
+     * <tr><td>{@link NVXDeviceGeneratedCommands#VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX}</td><td>{@code VkIndirectCommandsLayoutNVX}</td></tr>
+     * </tbody>
+     * </table>
+     * 
      * <h5>See Also</h5>
      * 
      * <p>No cross-references are available</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_OBJECT_TYPE_UNKNOWN OBJECT_TYPE_UNKNOWN}</li>
-     * <li>{@link #VK_OBJECT_TYPE_INSTANCE OBJECT_TYPE_INSTANCE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_PHYSICAL_DEVICE OBJECT_TYPE_PHYSICAL_DEVICE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_DEVICE OBJECT_TYPE_DEVICE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_QUEUE OBJECT_TYPE_QUEUE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_SEMAPHORE OBJECT_TYPE_SEMAPHORE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_COMMAND_BUFFER OBJECT_TYPE_COMMAND_BUFFER}</li>
-     * <li>{@link #VK_OBJECT_TYPE_FENCE OBJECT_TYPE_FENCE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_DEVICE_MEMORY OBJECT_TYPE_DEVICE_MEMORY}</li>
-     * <li>{@link #VK_OBJECT_TYPE_BUFFER OBJECT_TYPE_BUFFER}</li>
-     * <li>{@link #VK_OBJECT_TYPE_IMAGE OBJECT_TYPE_IMAGE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_EVENT OBJECT_TYPE_EVENT}</li>
-     * <li>{@link #VK_OBJECT_TYPE_QUERY_POOL OBJECT_TYPE_QUERY_POOL}</li>
-     * <li>{@link #VK_OBJECT_TYPE_BUFFER_VIEW OBJECT_TYPE_BUFFER_VIEW}</li>
-     * <li>{@link #VK_OBJECT_TYPE_IMAGE_VIEW OBJECT_TYPE_IMAGE_VIEW}</li>
-     * <li>{@link #VK_OBJECT_TYPE_SHADER_MODULE OBJECT_TYPE_SHADER_MODULE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_PIPELINE_CACHE OBJECT_TYPE_PIPELINE_CACHE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_PIPELINE_LAYOUT OBJECT_TYPE_PIPELINE_LAYOUT}</li>
-     * <li>{@link #VK_OBJECT_TYPE_RENDER_PASS OBJECT_TYPE_RENDER_PASS}</li>
-     * <li>{@link #VK_OBJECT_TYPE_PIPELINE OBJECT_TYPE_PIPELINE}</li>
-     * <li>{@link #VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT}</li>
-     * <li>{@link #VK_OBJECT_TYPE_SAMPLER OBJECT_TYPE_SAMPLER}</li>
-     * <li>{@link #VK_OBJECT_TYPE_DESCRIPTOR_POOL OBJECT_TYPE_DESCRIPTOR_POOL}</li>
-     * <li>{@link #VK_OBJECT_TYPE_DESCRIPTOR_SET OBJECT_TYPE_DESCRIPTOR_SET}</li>
-     * <li>{@link #VK_OBJECT_TYPE_FRAMEBUFFER OBJECT_TYPE_FRAMEBUFFER}</li>
-     * <li>{@link #VK_OBJECT_TYPE_COMMAND_POOL OBJECT_TYPE_COMMAND_POOL}</li>
-     * </ul>
      */
     public static final int
         VK_OBJECT_TYPE_UNKNOWN               = 0,
@@ -10279,8 +10292,6 @@ public class VK10 {
      * 
      * <ul>
      * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} dynamic state enabled</li>
-     * <li>{@code minDepthBounds} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
-     * <li>{@code maxDepthBounds} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>

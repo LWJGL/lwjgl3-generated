@@ -193,13 +193,6 @@ public class EXTDebugMarker {
      *     VkDevice                                    device,
      *     const VkDebugMarkerObjectTagInfoEXT*        pTagInfo);</pre></code>
      * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>{@code pTagInfo.object} <b>must</b> be a Vulkan object</li>
-     * <li>{@code pTagInfo.tagName} <b>must</b> not be 0</li>
-     * </ul>
-     * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
@@ -261,12 +254,6 @@ public class EXTDebugMarker {
      * VkResult vkDebugMarkerSetObjectNameEXT(
      *     VkDevice                                    device,
      *     const VkDebugMarkerObjectNameInfoEXT*       pNameInfo);</pre></code>
-     * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>{@code pNameInfo.object} <b>must</b> be a Vulkan object</li>
-     * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

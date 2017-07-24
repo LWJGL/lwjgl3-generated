@@ -296,6 +296,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_blend_operation_advanced;
     /** When true, {@link EXTDebugMarker} is supported. */
     public final boolean VK_EXT_debug_marker;
+    /** When true, {@link EXTDepthRangeUnrestricted} is supported. */
+    public final boolean VK_EXT_depth_range_unrestricted;
     /** When true, {@link EXTDiscardRectangles} is supported. */
     public final boolean VK_EXT_discard_rectangles;
     /** When true, {@link EXTDisplayControl} is supported. */
@@ -552,6 +554,7 @@ public class VKCapabilitiesDevice {
             vkCmdDebugMarkerInsertEXT = isSupported(provider, "vkCmdDebugMarkerInsertEXT", supported);
             VK_EXT_debug_marker = supported && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
         }
+        VK_EXT_depth_range_unrestricted = ext.contains("VK_EXT_depth_range_unrestricted");
         {
             supported = ext.contains("VK_EXT_discard_rectangles");
             vkCmdSetDiscardRectangleEXT = isSupported(provider, "vkCmdSetDiscardRectangleEXT", supported);
