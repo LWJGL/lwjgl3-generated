@@ -727,10 +727,10 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glDepthRange(JNIEnv *__env, jc
     glDepthRange(zNear, zFar);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glDisableClientState(JNIEnv *__env, jclass clazz, jint array) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glDisableClientState(JNIEnv *__env, jclass clazz, jint cap) {
     glDisableClientStatePROC glDisableClientState = (glDisableClientStatePROC)tlsGetFunction(332);
     UNUSED_PARAM(clazz)
-    glDisableClientState(array);
+    glDisableClientState(cap);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glDrawArrays(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count) {
@@ -779,10 +779,10 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglEdgeFlagPointer(JNIEnv *__e
     glEdgeFlagPointer(stride, pointer);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glEnableClientState(JNIEnv *__env, jclass clazz, jint array) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glEnableClientState(JNIEnv *__env, jclass clazz, jint cap) {
     glEnableClientStatePROC glEnableClientState = (glEnableClientStatePROC)tlsGetFunction(382);
     UNUSED_PARAM(clazz)
-    glEnableClientState(array);
+    glEnableClientState(cap);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_glEnd(JNIEnv *__env, jclass clazz) {

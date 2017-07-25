@@ -709,7 +709,7 @@ public class GL11 {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(GLCapabilities caps, boolean fc) {
+    static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext, boolean fc) {
         return (fc || checkFunctions(
             caps.glAccum, caps.glAlphaFunc, caps.glAreTexturesResident, caps.glBegin, caps.glBitmap, caps.glCallList, caps.glCallLists, caps.glClearAccum, 
             caps.glClearIndex, caps.glColor3b, caps.glColor3s, caps.glColor3i, caps.glColor3f, caps.glColor3d, caps.glColor3ub, caps.glColor3us, 
@@ -749,15 +749,16 @@ public class GL11 {
         )) && checkFunctions(
             caps.glEnable, caps.glDisable, caps.glArrayElement, caps.glBindTexture, caps.glBlendFunc, caps.glClear, caps.glClearColor, caps.glClearDepth, 
             caps.glClearStencil, caps.glClipPlane, caps.glColorMask, caps.glCopyPixels, caps.glCullFace, caps.glDepthFunc, caps.glDepthMask, caps.glDepthRange, 
-            caps.glDrawArrays, caps.glDrawBuffer, caps.glDrawElements, caps.glFinish, caps.glFlush, caps.glFrontFace, caps.glGenTextures, caps.glDeleteTextures, 
-            caps.glGetClipPlane, caps.glGetBooleanv, caps.glGetFloatv, caps.glGetIntegerv, caps.glGetDoublev, caps.glGetError, caps.glGetPointerv, 
-            caps.glGetString, caps.glGetTexEnviv, caps.glGetTexEnvfv, caps.glGetTexImage, caps.glGetTexLevelParameteriv, caps.glGetTexLevelParameterfv, 
-            caps.glGetTexParameteriv, caps.glGetTexParameterfv, caps.glHint, caps.glInterleavedArrays, caps.glIsEnabled, caps.glIsTexture, caps.glLineWidth, 
-            caps.glLogicOp, caps.glPixelStorei, caps.glPixelStoref, caps.glPointSize, caps.glPolygonMode, caps.glPolygonOffset, caps.glReadBuffer, 
-            caps.glReadPixels, caps.glScissor, caps.glStencilFunc, caps.glStencilMask, caps.glStencilOp, caps.glTexEnvi, caps.glTexEnviv, caps.glTexEnvf, 
-            caps.glTexEnvfv, caps.glTexImage2D, caps.glTexImage1D, caps.glCopyTexImage2D, caps.glCopyTexImage1D, caps.glCopyTexSubImage1D, 
-            caps.glCopyTexSubImage2D, caps.glTexParameteri, caps.glTexParameteriv, caps.glTexParameterf, caps.glTexParameterfv, caps.glTexSubImage1D, 
-            caps.glTexSubImage2D, caps.glViewport
+            ext.contains("GL_NV_vertex_buffer_unified_memory") ? caps.glDisableClientState : -1L, caps.glDrawArrays, caps.glDrawBuffer, caps.glDrawElements, 
+            ext.contains("GL_NV_vertex_buffer_unified_memory") ? caps.glEnableClientState : -1L, caps.glFinish, caps.glFlush, caps.glFrontFace, 
+            caps.glGenTextures, caps.glDeleteTextures, caps.glGetClipPlane, caps.glGetBooleanv, caps.glGetFloatv, caps.glGetIntegerv, caps.glGetDoublev, 
+            caps.glGetError, caps.glGetPointerv, caps.glGetString, caps.glGetTexEnviv, caps.glGetTexEnvfv, caps.glGetTexImage, caps.glGetTexLevelParameteriv, 
+            caps.glGetTexLevelParameterfv, caps.glGetTexParameteriv, caps.glGetTexParameterfv, caps.glHint, caps.glInterleavedArrays, caps.glIsEnabled, 
+            caps.glIsTexture, caps.glLineWidth, caps.glLogicOp, caps.glPixelStorei, caps.glPixelStoref, caps.glPointSize, caps.glPolygonMode, 
+            caps.glPolygonOffset, caps.glReadBuffer, caps.glReadPixels, caps.glScissor, caps.glStencilFunc, caps.glStencilMask, caps.glStencilOp, 
+            caps.glTexEnvi, caps.glTexEnviv, caps.glTexEnvf, caps.glTexEnvfv, caps.glTexImage2D, caps.glTexImage1D, caps.glCopyTexImage2D, 
+            caps.glCopyTexImage1D, caps.glCopyTexSubImage1D, caps.glCopyTexSubImage2D, caps.glTexParameteri, caps.glTexParameteriv, caps.glTexParameterf, 
+            caps.glTexParameterfv, caps.glTexSubImage1D, caps.glTexSubImage2D, caps.glViewport
         );
     }
 
@@ -1821,13 +1822,15 @@ public class GL11 {
     // --- [ glDisableClientState ] ---
 
     /**
-     * <p><a target="_blank" href="http://docs.gl/gl4/glDisableClientState">Reference Page</a></p>
+     * <p><a target="_blank" href="http://docs.gl/gl3/glDisableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
      * 
-     * Disables the specified fixed-function attribute array.
+     * Disables a client-side capability.
+     * 
+     * <p>If the {@link NVVertexBufferUnifiedMemory} extension is supported, this function is available even in a core profile context.</p>
      *
-     * @param array the attribute array to disable. One of:<br><table><tr><td>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}</td><td>{@link #GL_NORMAL_ARRAY NORMAL_ARRAY}</td><td>{@link #GL_COLOR_ARRAY COLOR_ARRAY}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}</td><td>{@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}</td></tr><tr><td>{@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}</td><td>{@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}</td></tr></table>
+     * @param cap the capability to disable. One of:<br><table><tr><td>{@link #GL_COLOR_ARRAY COLOR_ARRAY}</td><td>{@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}</td><td>{@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}</td><td>{@link #GL_INDEX_ARRAY INDEX_ARRAY}</td></tr><tr><td>{@link #GL_NORMAL_ARRAY NORMAL_ARRAY}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}</td><td>{@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}</td><td>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link NVVertexBufferUnifiedMemory#GL_VERTEX_ATTRIB_ARRAY_UNIFIED_NV VERTEX_ATTRIB_ARRAY_UNIFIED_NV}</td><td>{@link NVVertexBufferUnifiedMemory#GL_ELEMENT_ARRAY_UNIFIED_NV ELEMENT_ARRAY_UNIFIED_NV}</td></tr></table>
      */
-    public static native void glDisableClientState(int array);
+    public static native void glDisableClientState(int cap);
 
     // --- [ glDrawArrays ] ---
 
@@ -2094,13 +2097,15 @@ public class GL11 {
     // --- [ glEnableClientState ] ---
 
     /**
-     * <p><a target="_blank" href="http://docs.gl/gl4/glEnableClientState">Reference Page</a></p>
+     * <p><a target="_blank" href="http://docs.gl/gl3/glEnableClientState">Reference Page</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
      * 
-     * Enables the specified fixed-function attribute array.
+     * Enables a client-side capability.
+     * 
+     * <p>If the {@link NVVertexBufferUnifiedMemory} extension is supported, this function is available even in a core profile context.</p>
      *
-     * @param array the attribute array to enable. One of:<br><table><tr><td>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}</td><td>{@link #GL_NORMAL_ARRAY NORMAL_ARRAY}</td><td>{@link #GL_COLOR_ARRAY COLOR_ARRAY}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}</td><td>{@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}</td></tr><tr><td>{@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}</td><td>{@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}</td></tr></table>
+     * @param cap the capability to enable. One of:<br><table><tr><td>{@link #GL_COLOR_ARRAY COLOR_ARRAY}</td><td>{@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}</td><td>{@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}</td><td>{@link #GL_INDEX_ARRAY INDEX_ARRAY}</td></tr><tr><td>{@link #GL_NORMAL_ARRAY NORMAL_ARRAY}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}</td><td>{@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}</td><td>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}</td></tr><tr><td>{@link NVVertexBufferUnifiedMemory#GL_VERTEX_ATTRIB_ARRAY_UNIFIED_NV VERTEX_ATTRIB_ARRAY_UNIFIED_NV}</td><td>{@link NVVertexBufferUnifiedMemory#GL_ELEMENT_ARRAY_UNIFIED_NV ELEMENT_ARRAY_UNIFIED_NV}</td></tr></table>
      */
-    public static native void glEnableClientState(int array);
+    public static native void glEnableClientState(int cap);
 
     // --- [ glEnd ] ---
 

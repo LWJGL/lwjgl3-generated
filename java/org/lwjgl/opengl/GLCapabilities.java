@@ -5988,7 +5988,7 @@ public final class GLCapabilities {
         glWindowPos3svARB = provider.getFunctionAddress("glWindowPos3svARB");
         glWindowRectanglesEXT = provider.getFunctionAddress("glWindowRectanglesEXT");
 
-        OpenGL11 = ext.contains("OpenGL11") && checkExtension("OpenGL11", GL11.isAvailable(this, fc));
+        OpenGL11 = ext.contains("OpenGL11") && checkExtension("OpenGL11", GL11.isAvailable(this, ext, fc));
         OpenGL12 = ext.contains("OpenGL12") && checkExtension("OpenGL12", GL12.isAvailable(this));
         OpenGL13 = ext.contains("OpenGL13") && checkExtension("OpenGL13", GL13.isAvailable(this, fc));
         OpenGL14 = ext.contains("OpenGL14") && checkExtension("OpenGL14", GL14.isAvailable(this, fc));
