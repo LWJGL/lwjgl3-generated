@@ -1809,7 +1809,7 @@ public class LMDB {
      * @param cursor a cursor handle returned by {@link #mdb_cursor_open cursor_open}
      * @param key    the key for a retrieved item
      * @param data   the data of a retrieved item
-     * @param op     a cursor operation {@code MDB_cursor_op}
+     * @param op     a cursor operation {@code MDB_cursor_op}. One of:<br><table><tr><td>{@link #MDB_FIRST FIRST}</td><td>{@link #MDB_FIRST_DUP FIRST_DUP}</td><td>{@link #MDB_GET_BOTH GET_BOTH}</td><td>{@link #MDB_GET_BOTH_RANGE GET_BOTH_RANGE}</td><td>{@link #MDB_GET_CURRENT GET_CURRENT}</td><td>{@link #MDB_GET_MULTIPLE GET_MULTIPLE}</td><td>{@link #MDB_LAST LAST}</td><td>{@link #MDB_LAST_DUP LAST_DUP}</td><td>{@link #MDB_NEXT NEXT}</td><td>{@link #MDB_NEXT_DUP NEXT_DUP}</td></tr><tr><td>{@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}</td><td>{@link #MDB_NEXT_NODUP NEXT_NODUP}</td><td>{@link #MDB_PREV PREV}</td><td>{@link #MDB_PREV_DUP PREV_DUP}</td><td>{@link #MDB_PREV_NODUP PREV_NODUP}</td><td>{@link #MDB_SET SET}</td><td>{@link #MDB_SET_KEY SET_KEY}</td><td>{@link #MDB_SET_RANGE SET_RANGE}</td><td>{@link #MDB_PREV_MULTIPLE PREV_MULTIPLE}</td></tr></table>
      */
     public static int mdb_cursor_get(long cursor, MDBVal key, MDBVal data, int op) {
         if (CHECKS) {
