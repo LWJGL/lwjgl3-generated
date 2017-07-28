@@ -455,7 +455,9 @@ public class GLFW {
     public static final int
         GLFW_JOYSTICK_HAT_BUTTONS  = 0x50001,
         GLFW_COCOA_CHDIR_RESOURCES = 0x51001,
-        GLFW_COCOA_MENUBAR         = 0x51002;
+        GLFW_COCOA_MENUBAR         = 0x51002,
+        GLFW_X11_WM_CLASS_NAME     = 0x52001,
+        GLFW_X11_WM_CLASS_CLASS    = 0x52002;
 
     /** Don't care value. */
     public static final int GLFW_DONT_CARE = -1;
@@ -644,6 +646,7 @@ public class GLFW {
             Init                       = apiGetFunctionAddress(GLFW, "glfwInit"),
             Terminate                  = apiGetFunctionAddress(GLFW, "glfwTerminate"),
             InitHint                   = apiGetFunctionAddress(GLFW, "glfwInitHint"),
+            InitHintString             = apiGetFunctionAddress(GLFW, "glfwInitHintString"),
             GetVersion                 = apiGetFunctionAddress(GLFW, "glfwGetVersion"),
             GetVersionString           = apiGetFunctionAddress(GLFW, "glfwGetVersionString"),
             GetError                   = apiGetFunctionAddress(GLFW, "glfwGetError"),
@@ -806,15 +809,13 @@ public class GLFW {
     // --- [ glfwInitHint ] ---
 
     /**
-     * Sets the specified init hint to the desired value.
+     * Sets hints for the next initialization of GLFW. Only integer type hints can be set with this function.
      * 
-     * <p>This function sets hints for the next initialization of GLFW.</p>
+     * <p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you
+     * set will be ignored until the library is terminated and initialized again.</p>
      * 
-     * <p>The values you set are not affected by initialization or termination, but they are only read during initialization. Once GLFW has been initialized,
-     * setting new hint values will not affect behavior until the next time the library is terminated and initialized.</p>
-     * 
-     * <p>Some hints are platform specific. These are always valid to set on any platform but they will only affect their specific platform. Other platforms will
-     * simply ignore them. Setting these hints requires no platform specific headers or calls.</p>
+     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will simply
+     * ignore them. Setting these hints requires no platform specific headers or functions.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -831,6 +832,73 @@ public class GLFW {
     public static void glfwInitHint(int hint, int value) {
         long __functionAddress = Functions.InitHint;
         invokeV(__functionAddress, hint, value);
+    }
+
+    // --- [ glfwInitHintString ] ---
+
+    /** Unsafe version of: {@link #glfwInitHintString InitHintString} */
+    public static void nglfwInitHintString(int hint, long value) {
+        long __functionAddress = Functions.InitHintString;
+        invokePV(__functionAddress, hint, value);
+    }
+
+    /**
+     * Sets hints for the next initialization of GLFW. Only string type hints can be set with this function.
+     * 
+     * <p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you
+     * set will be ignored until the library is terminated and initialized again.</p>
+     * 
+     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will simply
+     * ignore them. Setting these hints requires no platform specific headers or functions.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <ul>
+     * <li>This function may be called before {@link #glfwInit Init}.</li>
+     * <li>This function must only be called from the main thread.</li>
+     * </ul></div>
+     *
+     * @param hint  the init hint to set. One of:<br><table><tr><td>{@link #GLFW_X11_WM_CLASS_NAME X11_WM_CLASS_NAME}</td><td>{@link #GLFW_X11_WM_CLASS_CLASS X11_WM_CLASS_CLASS}</td></tr></table>
+     * @param value the new value of the init hint
+     *
+     * @since version 3.3
+     */
+    public static void glfwInitHintString(int hint, @NativeType("const char *") ByteBuffer value) {
+        if (CHECKS) {
+            checkNT1(value);
+        }
+        nglfwInitHintString(hint, memAddress(value));
+    }
+
+    /**
+     * Sets hints for the next initialization of GLFW. Only string type hints can be set with this function.
+     * 
+     * <p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you
+     * set will be ignored until the library is terminated and initialized again.</p>
+     * 
+     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will simply
+     * ignore them. Setting these hints requires no platform specific headers or functions.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <ul>
+     * <li>This function may be called before {@link #glfwInit Init}.</li>
+     * <li>This function must only be called from the main thread.</li>
+     * </ul></div>
+     *
+     * @param hint  the init hint to set. One of:<br><table><tr><td>{@link #GLFW_X11_WM_CLASS_NAME X11_WM_CLASS_NAME}</td><td>{@link #GLFW_X11_WM_CLASS_CLASS X11_WM_CLASS_CLASS}</td></tr></table>
+     * @param value the new value of the init hint
+     *
+     * @since version 3.3
+     */
+    public static void glfwInitHintString(@NativeType("int") int hint, @NativeType("const char *") CharSequence value) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer valueEncoded = stack.UTF8(value);
+            nglfwInitHintString(hint, memAddress(valueEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ glfwGetVersion ] ---
